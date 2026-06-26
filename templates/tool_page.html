@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!--
+  DropAnyConvert — Tool Page Template Reference
+  =============================================
+  This file documents the HTML structure and section anatomy of every tool page.
+  The generator (generator/lib/page-generator.js → renderToolPage) produces pages
+  that match this structure exactly.
+
+  Tokens shown as {{TOKEN}} are illustrative — actual rendering is done inline
+  in page-generator.js using ES6 template literals.
+
+  Section order:
+    1.  <head>          SEO, schemas, canonical, hreflang, OG, Twitter
+    2.  skip-link       Accessibility: skip to main content
+    3.  header          Sticky nav with logo + category links
+    4.  breadcrumb      Structured breadcrumb (also in JSON-LD)
+    5.  ad:top          Google AdSense top placement
+    6.  main
+        6a. hero        Title (H1), intro paragraph, privacy badge
+        6b. converter   Variant picker, dropzone, queue, options, controls, progress, results
+        6c. ad:middle   Google AdSense middle placement
+        6d. formats     Supported input → output format chips
+        6e. how-to      Numbered steps auto-generated from capabilities
+        6f. features    Capability cards (from tool.features[])
+        6g. faq         <details> accordion (also in FAQPage JSON-LD)
+        6h. related     Auto-linked related tool cards
+        6i. ad:bottom   Google AdSense bottom placement
+    7.  footer          Copyright + legal links
+    8.  runtime.js      Deferred browser runtime script
+-->
+<html lang="{{LANG_CODE}}" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>{{SEO_TITLE}}</title>
+  <meta name="description" content="{{SEO_DESCRIPTION}}">
+  <meta name="robots"      content="{{ROBOTS}}">
+  <link rel="canonical"    href="{{CANONICAL_URL}}">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="{{OG_TITLE}}">
+  <meta property="og:description" content="{{OG_DESCRIPTION}}">
+  <meta property="og:url"         content="{{CANONICAL_URL}}">
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="{{SITE_NAME}}">
+  <meta property="og:image"       content="{{OG_IMAGE}}">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="{{TWITTER_HANDLE}}">
+  <meta name="twitter:title"       content="{{SEO_TITLE}}">
+  <meta name="twitter:description" content="{{SEO_DESCRIPTION}}">
+
+  <!-- Hreflang: one per supported language + x-default -->
+  <link rel="alternate" hreflang="en"        href="{{BASE_URL}}/en/{{SLUG}}">
+  <link rel="alternate" hreflang="es"        href="{{BASE_URL}}/es/{{SLUG}}">
+  <link rel="alternate" hreflang="fr"        href="{{BASE_URL}}/fr/{{SLUG}}">
+  <link rel="alternate" hreflang="de"        href="{{BASE_URL}}/de/{{SLUG}}">
+  <link rel="alternate" hreflang="pt"        href="{{BASE_URL}}/pt/{{SLUG}}">
+  <link rel="alternate" hreflang="x-default" href="{{BASE_URL}}/en/{{SLUG}}">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Structured Data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "{{TOOL_NAME}}",
+    "description": "{{SEO_DESCRIPTION}}",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "{{CANONICAL_URL}}"
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "{{FAQ_QUESTION_1}}",
+        "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_ANSWER_1}}" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",           "item": "{{BASE_URL}}/{{LANG_CODE}}" },
+      { "@type": "ListItem", "position": 2, "name": "{{CATEGORY}}",   "item": "{{BASE_URL}}/{{LANG_CODE}}/{{CATEGORY_SLUG}}" },
+      { "@type": "ListItem", "position": 3, "name": "{{TOOL_NAME}}",  "item": "{{CANONICAL_URL}}" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="dac-page dac-page--tool">
+
+  <!-- ── 2. Skip Link ─────────────────────────────────────────────────── -->
+  <a class="dac-skip" href="#main">Skip to content</a>
+
+  <!-- ── 3. Header ───────────────────────────────────────────────────── -->
+  <header class="dac-header">
+    <a href="/{{LANG_CODE}}" class="dac-header__logo">{{SITE_NAME}}</a>
+    <nav class="dac-header__nav" aria-label="Categories">
+      <a href="/{{LANG_CODE}}/image-converter"  class="dac-nav__link dac-nav__link--active">Image Converter</a>
+      <a href="/{{LANG_CODE}}/pdf-tools"        class="dac-nav__link">PDF Tools</a>
+      <a href="/{{LANG_CODE}}/video-converter"  class="dac-nav__link">Video Converter</a>
+      <a href="/{{LANG_CODE}}/audio-converter"  class="dac-nav__link">Audio Converter</a>
+      <a href="/{{LANG_CODE}}/text-tools"       class="dac-nav__link">Text Tools</a>
+      <a href="/{{LANG_CODE}}/developer-tools"  class="dac-nav__link">Developer Tools</a>
+    </nav>
+  </header>
+
+  <!-- ── 4. Breadcrumb ────────────────────────────────────────────────── -->
+  <nav class="dac-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{BASE_URL}}/{{LANG_CODE}}"                         class="dac-breadcrumb__link">Home</a>
+    <span class="dac-breadcrumb__sep" aria-hidden="true">/</span>
+    <a href="{{BASE_URL}}/{{LANG_CODE}}/{{CATEGORY_SLUG}}"       class="dac-breadcrumb__link">{{CATEGORY}}</a>
+    <span class="dac-breadcrumb__sep" aria-hidden="true">/</span>
+    <span class="dac-breadcrumb__current" aria-current="page">{{TOOL_NAME}}</span>
+  </nav>
+
+  <!-- ── 5. Ad: Top ───────────────────────────────────────────────────── -->
+  <div class="dac-ad dac-ad--top" aria-label="Advertisement">
+    <ins class="adsbygoogle" style="display:block"
+         data-ad-client="{{ADSENSE_CLIENT}}"
+         data-ad-slot="{{AD_SLOT_TOP}}"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- ── 6. Main ──────────────────────────────────────────────────────── -->
+  <main class="dac-main" id="main">
+
+    <!-- 6a. Hero -->
+    <section class="dac-hero" aria-labelledby="dac-tool-title">
+      <h1 class="dac-hero__title" id="dac-tool-title">{{H1}}</h1>
+      <p class="dac-hero__intro">{{INTRO}}</p>
+      <p class="dac-privacy-note">{{PRIVACY_NOTE}}</p>
+    </section>
+
+    <!-- 6b. Converter -->
+    <section class="dac-converter" aria-label="{{TOOL_NAME}}">
+
+      <!-- Variant picker: links to same-format sibling tools -->
+      <div class="dac-variant-picker" aria-label="Output format options">
+        <span class="dac-variant-picker__label">Convert to:</span>
+        <div class="dac-variant-chips">
+          <span class="dac-variant-chip dac-variant-chip--active" aria-current="page">JPG</span>
+          <!-- <a href="/{{LANG_CODE}}/png-to-webp" class="dac-variant-chip">WebP</a> -->
+        </div>
+      </div>
+
+      <!-- Dropzone
+           data-* attributes drive the runtime:
+             data-tool-id    → logged in analytics / context
+             data-engine     → module name under /assets/js/engines/
+             data-engine-fn  → exported function name in that module
+             data-accept     → comma-separated MIME types
+             data-max-files  → batch limit
+             data-batch      → "true" | "false"
+             data-runtime    → "browser" | "hybrid" | "cloud"
+      -->
+      <div class="dac-dropzone"
+           id="dac-dropzone"
+           data-tool-id="{{TOOL_ID}}"
+           data-engine="{{ENGINE}}"
+           data-engine-fn="{{ENGINE_FN}}"
+           data-accept="{{ACCEPT}}"
+           data-max-files="{{MAX_FILES}}"
+           data-batch="{{BATCH}}"
+           data-runtime="{{RUNTIME}}"
+           role="button"
+           tabindex="0"
+           aria-label="{{DROPZONE_LABEL}}">
+        <div class="dac-dropzone__icon"><!-- inline SVG injected by generator --></div>
+        <span class="dac-dropzone__label"><strong>{{DROPZONE_LABEL}}</strong></span>
+        <span class="dac-dropzone__hint">or paste an image (Ctrl+V / ⌘+V)</span>
+        <input type="file" id="dac-file-input" class="dac-dropzone__input"
+               accept="{{ACCEPT}}" multiple aria-hidden="true" tabindex="-1">
+      </div>
+
+      <!-- Batch queue: populated by runtime.js -->
+      <div class="dac-batch-queue" id="dac-batch-queue" hidden aria-label="Selected files"></div>
+
+      <!-- Options panel: quality + format controls (shown after file selection) -->
+      <div class="dac-options" id="dac-options" hidden aria-label="Conversion options">
+        <!-- Quality slider (rendered when capabilities includes "quality-control") -->
+        <div class="dac-quality-control">
+          <label for="dac-quality" class="dac-label">Quality</label>
+          <div class="dac-quality-row">
+            <input type="range" id="dac-quality" class="dac-slider"
+                   min="1" max="100" value="85" step="1">
+            <output for="dac-quality" id="dac-quality-output" class="dac-quality-value">85</output>
+          </div>
+          <div class="dac-quality-hints" aria-hidden="true">
+            <span>Smaller file</span><span>Better quality</span>
+          </div>
+        </div>
+
+        <!-- Output format selector (rendered when tool has multiple outputFormats) -->
+        <div class="dac-format-control">
+          <label for="dac-output-format" class="dac-label">Output format</label>
+          <select id="dac-output-format" class="dac-select">
+            <option value="jpg" selected>JPG — image/jpeg</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="dac-controls" id="dac-controls" hidden>
+        <button class="dac-btn dac-btn--primary" id="dac-convert-btn" type="button">{{CONVERT_BTN}}</button>
+        <button class="dac-btn dac-btn--ghost"   id="dac-clear-btn"   type="button">{{CLEAR_BTN}}</button>
+      </div>
+
+      <!-- Progress bar + label -->
+      <div class="dac-progress-wrap" id="dac-progress-wrap" hidden
+           role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="dac-progress">
+          <div class="dac-progress__bar" id="dac-progress-bar"></div>
+        </div>
+        <p class="dac-progress__label" id="dac-progress-label" aria-live="polite">Converting…</p>
+      </div>
+
+      <!-- Results: download links / ZIP button / errors (populated by runtime.js) -->
+      <div class="dac-results" id="dac-results" hidden aria-live="polite"></div>
+
+    </section>
+
+    <!-- 6c. Ad: Middle -->
+    <div class="dac-ad dac-ad--middle" aria-label="Advertisement">
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="{{ADSENSE_CLIENT}}"
+           data-ad-slot="{{AD_SLOT_MIDDLE}}"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- 6d. Supported Formats -->
+    <section class="dac-formats" aria-label="Supported Formats">
+      <h2 class="dac-section-title">Supported Formats</h2>
+      <div class="dac-formats__flow">
+        <div class="dac-formats__group">
+          <span class="dac-formats__group-label">Input</span>
+          <div class="dac-format-chips-row">
+            <span class="dac-format-chip dac-format-chip--in">PNG</span>
+          </div>
+        </div>
+        <span class="dac-formats__arrow" aria-hidden="true">→</span>
+        <div class="dac-formats__group">
+          <span class="dac-formats__group-label">Output</span>
+          <div class="dac-format-chips-row">
+            <span class="dac-format-chip dac-format-chip--out">JPG</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6e. How-To -->
+    <section class="dac-howto" aria-labelledby="dac-howto-title">
+      <h2 class="dac-section-title" id="dac-howto-title">How to convert PNG to JPG</h2>
+      <ol class="dac-howto__steps">
+        <li class="dac-howto__step">
+          <span class="dac-howto__step-text"><strong>Upload</strong> your PNG file by dragging and dropping, pasting (Ctrl+V), or clicking to browse.</span>
+        </li>
+        <li class="dac-howto__step">
+          <span class="dac-howto__step-text"><strong>Adjust quality</strong> using the slider. 85 is a good default — higher values keep more detail but produce larger files.</span>
+        </li>
+        <li class="dac-howto__step">
+          <span class="dac-howto__step-text"><strong>Click "Convert"</strong> — conversion happens instantly in your browser. Nothing is uploaded.</span>
+        </li>
+        <li class="dac-howto__step">
+          <span class="dac-howto__step-text"><strong>Download</strong> your JPG. Multiple files are packaged as a single ZIP automatically.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 6f. Features -->
+    <section class="dac-features" aria-label="Features">
+      <h2 class="dac-section-title">Features</h2>
+      <div class="dac-features__grid">
+        <div class="dac-feature">
+          <span class="dac-feature__icon dac-icon--lock" aria-hidden="true"></span>
+          <h3 class="dac-feature__title">100% Private</h3>
+          <p class="dac-feature__desc">Your images never leave your device.</p>
+        </div>
+        <!-- Additional feature cards generated from tool.features[] -->
+      </div>
+    </section>
+
+    <!-- 6g. FAQ -->
+    <section class="dac-faq" aria-labelledby="dac-faq-title">
+      <h2 class="dac-section-title" id="dac-faq-title">Frequently Asked Questions</h2>
+      <details class="dac-faq__item">
+        <summary class="dac-faq__question">{{FAQ_QUESTION_1}}</summary>
+        <div class="dac-faq__answer">{{FAQ_ANSWER_1}}</div>
+      </details>
+      <!-- Additional <details> elements generated from tool.faq[] -->
+    </section>
+
+    <!-- 6h. Related Tools -->
+    <section class="dac-related" aria-labelledby="dac-related-title">
+      <h2 class="dac-section-title" id="dac-related-title">Related Tools</h2>
+      <div class="dac-related__grid">
+        <a href="/{{LANG_CODE}}/{{RELATED_SLUG}}" class="dac-related-tool">
+          <span class="dac-related-tool__name">{{RELATED_NAME}}</span>
+          <span class="dac-related-tool__tagline">{{RELATED_TAGLINE}}</span>
+        </a>
+        <!-- Additional cards generated by linker.js -->
+      </div>
+    </section>
+
+    <!-- 6i. Ad: Bottom -->
+    <div class="dac-ad dac-ad--bottom" aria-label="Advertisement">
+      <ins class="adsbygoogle" style="display:block"
+           data-ad-client="{{ADSENSE_CLIENT}}"
+           data-ad-slot="{{AD_SLOT_BOTTOM}}"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+  </main>
+
+  <!-- ── 7. Footer ────────────────────────────────────────────────────── -->
+  <footer class="dac-footer">
+    <p class="dac-footer__copy">&copy; 2026 {{SITE_NAME}}</p>
+    <nav class="dac-footer__links" aria-label="Legal">
+      <a href="/{{LANG_CODE}}/privacy-policy">Privacy Policy</a>
+      <a href="/{{LANG_CODE}}/terms-of-service">Terms of Service</a>
+      <a href="/{{LANG_CODE}}/cookie-policy">Cookies</a>
+    </nav>
+  </footer>
+
+  <!-- ── 8. Runtime ───────────────────────────────────────────────────── -->
+  <script src="/assets/js/runtime.js" defer></script>
+
+</body>
+</html>

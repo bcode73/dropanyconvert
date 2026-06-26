@@ -1,0 +1,143 @@
+{
+  "$comment": "Describes the planned test fixture files. Actual files are added in Phase 6 when real PDF processing is implemented.",
+  "manifestVersion": "1.0.0",
+  "fixtures": [
+    {
+      "path": "pdf/simple.pdf",
+      "description": "Minimal single-page PDF. No encryption, no forms, no embedded fonts.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "pageCount": 1,
+        "encrypted": false,
+        "passwordProtected": false,
+        "hasForms": false,
+        "scanned": false
+      }
+    },
+    {
+      "path": "pdf/multi-page.pdf",
+      "description": "10-page PDF with text, embedded fonts, and bookmarks.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "pageCount": 10,
+        "encrypted": false,
+        "hasBookmarks": true,
+        "hasEmbeddedFonts": true,
+        "scanned": false
+      }
+    },
+    {
+      "path": "pdf/with-forms.pdf",
+      "description": "PDF containing an AcroForm. Tests form-extract capability detection.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "hasForms": true,
+        "encrypted": false
+      }
+    },
+    {
+      "path": "pdf/with-annotations.pdf",
+      "description": "PDF with highlight and comment annotations.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "hasAnnotations": true
+      }
+    },
+    {
+      "path": "pdf/landscape.pdf",
+      "description": "PDF with landscape-orientation pages.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "orientation": "landscape"
+      }
+    },
+    {
+      "path": "special/encrypted.pdf",
+      "description": "PDF encrypted with owner + user password. Password: 'test123'.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "encrypted": true,
+        "passwordProtected": true
+      }
+    },
+    {
+      "path": "special/scanned.pdf",
+      "description": "PDF containing rasterized scanned pages with no text layer.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "scanned": true,
+        "hasEmbeddedFonts": false
+      }
+    },
+    {
+      "path": "special/large.pdf",
+      "description": "50+ page PDF ≥ 10 MB. Tests pipeline timeout and memory handling.",
+      "expectedManifest": {
+        "mime": "application/pdf",
+        "pageCount": 50
+      },
+      "notes": "File too large to commit. Download URL in Phase 6 CI setup docs."
+    },
+    {
+      "path": "docx/simple.docx",
+      "description": "Minimal DOCX with text and headings. No tracked changes.",
+      "expectedManifest": {
+        "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "hasTrackedChanges": false
+      }
+    },
+    {
+      "path": "docx/with-tracked-changes.docx",
+      "description": "DOCX with accepted and rejected tracked changes present.",
+      "expectedManifest": {
+        "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "hasTrackedChanges": true
+      }
+    },
+    {
+      "path": "xlsx/simple.xlsx",
+      "description": "Single-sheet XLSX with basic data.",
+      "expectedManifest": {
+        "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "sheetCount": 1
+      }
+    },
+    {
+      "path": "xlsx/multi-sheet.xlsx",
+      "description": "XLSX with 5 sheets.",
+      "expectedManifest": {
+        "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "sheetCount": 5
+      }
+    },
+    {
+      "path": "pptx/simple.pptx",
+      "description": "Minimal PPTX with 3 slides.",
+      "expectedManifest": {
+        "mime": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "slideCount": 3
+      }
+    },
+    {
+      "path": "text/plain.txt",
+      "description": "Plain text file for text engine testing.",
+      "expectedManifest": {
+        "mime": "text/plain"
+      }
+    },
+    {
+      "path": "text/markdown.md",
+      "description": "Markdown file with headings, code blocks, and links.",
+      "expectedManifest": {
+        "mime": "text/markdown"
+      }
+    },
+    {
+      "path": "html/simple.html",
+      "description": "Self-contained HTML file for HTML engine testing.",
+      "expectedManifest": {
+        "mime": "text/html"
+      }
+    }
+  ]
+}

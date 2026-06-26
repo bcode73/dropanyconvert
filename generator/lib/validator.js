@@ -87,6 +87,37 @@ export async function validateData(data, config) {
         }
       }
     }
+
+    // Runtime/cloud compatibility
+    const hints = tool.runtimeHints ?? {};
+    if (tool.runtime === 'cloud' || tool.runtime === 'hybrid') {
+      if (hints.cloudProvider && typeof hints.cloudProvider !== 'string') {
+        errors.push(`Tool "${tool.toolId}" has invalid runtimeHints.cloudProvider (must be a string)`);
+      }
+    }
+    if (tool.runtime === 'browser' && hints.cloudProvider) {
+      warnings.push(`Tool "${tool.toolId}" has runtime "browser" but sets runtimeHints.cloudProvider — cloud code will never load for browser-runtime tools`);
+    }
+
+    // Hybrid runtime must declare fallbackRuntime
+    if (tool.runtime === 'hybrid' && hints.fallbackRuntime && hints.fallbackRuntime === 'cloud') {
+      if (!hints.cloudProvider) {
+        warnings.push(`Tool "${tool.toolId}" has fallbackRuntime "cloud" but no cloudProvider specified`);
+      }
+    }
+
+    // Memory budget sanity
+    if (hints.memoryBudgetMb && hints.memoryBudgetMb > 2048) {
+      warnings.push(`Tool "${tool.toolId}" requests ${hints.memoryBudgetMb} MB memory budget — may exceed browser limits on low-end devices`);
+    }
+    if (hints.maxFileSizeMb && hints.maxFileSizeMb > 500 && tool.runtime === 'browser') {
+      warnings.push(`Tool "${tool.toolId}" sets maxFileSizeMb=${hints.maxFileSizeMb} with browser runtime — large files may exhaust browser memory`);
+    }
+
+    // Worker compatibility
+    if (hints.requiresWorker && tool.runtime === 'browser') {
+      // Not an error — browser engines can run in a Worker — just informational
+    }
   }
 
   // Cross-check relatedTools references

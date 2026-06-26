@@ -105,7 +105,11 @@
         "memoryBudgetMb": { "type": "integer" },
         "preferOffscreenCanvas": { "type": "boolean" },
         "showVariantPicker": { "type": "boolean" },
-        "limitation": { "type": "string" }
+        "limitation": { "type": "string" },
+        "cloudProvider": { "type": "string" },
+        "requiresWorker": { "type": "boolean" },
+        "fallbackRuntime": { "type": "string", "enum": ["browser", "hybrid", "cloud"] },
+        "maxFileSizeMb": { "type": "integer", "minimum": 1 }
       }
     },
     "uiGroup": {
@@ -134,7 +138,25 @@
           "watermark",
           "text-input",
           "text-output",
-          "future-cloud-support"
+          "future-cloud-support",
+          "merge",
+          "split",
+          "reorder",
+          "rotate-pages",
+          "extract-pages",
+          "compress",
+          "watermark-doc",
+          "password-protect",
+          "remove-password",
+          "ocr",
+          "metadata-edit",
+          "form-extract",
+          "thumbnail-generation",
+          "page-selection",
+          "page-thumbnails",
+          "convert-to-pdf",
+          "convert-from-pdf",
+          "ai-enhance"
         ]
       }
     },

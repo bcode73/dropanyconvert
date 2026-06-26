@@ -1,0 +1,208 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dropanyconvert.com/schemas/tool.schema.json",
+  "title": "DropAnyConvert Tool Definition",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "toolId",
+    "slug",
+    "name",
+    "category",
+    "engine",
+    "engineFn",
+    "inputFormats",
+    "outputFormats",
+    "batch",
+    "runtime",
+    "seo",
+    "faq",
+    "capabilities"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "description": "Schema version this tool was authored against.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "toolId": {
+      "type": "string",
+      "description": "Unique identifier. kebab-case. Must be globally unique.",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL slug. Used for routing. Must be globally unique.",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "object",
+      "description": "Localized display name.",
+      "required": ["en"],
+      "additionalProperties": { "type": "string" }
+    },
+    "tagline": {
+      "type": "object",
+      "description": "Short localized tagline displayed beneath the tool name.",
+      "required": ["en"],
+      "additionalProperties": { "type": "string" }
+    },
+    "category": {
+      "type": "string",
+      "description": "Category id from categories.json.",
+      "enum": ["image", "pdf", "video", "audio", "text", "developer"]
+    },
+    "engine": {
+      "type": "string",
+      "description": "Engine module directory.",
+      "enum": ["image_engine", "pdf_engine", "video_engine", "audio_engine", "text_engine", "developer_engine"]
+    },
+    "engineFn": {
+      "type": "string",
+      "description": "Name of the exported function within the engine."
+    },
+    "inputFormats": {
+      "type": "array",
+      "description": "Accepted input MIME types or extensions.",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "outputFormats": {
+      "type": "array",
+      "description": "Possible output formats.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ext", "mime", "label"],
+        "properties": {
+          "ext": { "type": "string" },
+          "mime": { "type": "string" },
+          "label": { "type": "string" },
+          "default": { "type": "boolean" }
+        }
+      }
+    },
+    "batch": {
+      "type": "object",
+      "required": ["supported", "maxFiles"],
+      "properties": {
+        "supported": { "type": "boolean" },
+        "maxFiles": { "type": "integer", "minimum": 1 },
+        "zipOutput": { "type": "boolean" }
+      }
+    },
+    "runtime": {
+      "type": "string",
+      "enum": ["browser", "hybrid", "cloud"]
+    },
+    "runtimeHints": {
+      "type": "object",
+      "description": "Optional hints consumed by the runtime layer.",
+      "properties": {
+        "wasmModule": { "type": "string" },
+        "workerScript": { "type": "string" },
+        "memoryBudgetMb": { "type": "integer" },
+        "preferOffscreenCanvas": { "type": "boolean" }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "Feature flags advertising what this tool supports.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "batch",
+          "drag-and-drop",
+          "clipboard-paste",
+          "preview",
+          "download-zip",
+          "mobile-supported",
+          "large-files",
+          "quality-control",
+          "resize",
+          "crop",
+          "future-cloud-support"
+        ]
+      }
+    },
+    "seo": {
+      "type": "object",
+      "required": ["primaryKeyword", "title", "description"],
+      "properties": {
+        "primaryKeyword": { "type": "string" },
+        "secondaryKeywords": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "title": {
+          "type": "object",
+          "required": ["en"],
+          "additionalProperties": { "type": "string" }
+        },
+        "description": {
+          "type": "object",
+          "required": ["en"],
+          "additionalProperties": { "type": "string" }
+        },
+        "h1": {
+          "type": "object",
+          "required": ["en"],
+          "additionalProperties": { "type": "string" }
+        },
+        "intro": {
+          "type": "object",
+          "required": ["en"],
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "faq": {
+      "type": "array",
+      "description": "FAQ items. Rendered as FAQPage schema.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["question", "answer"],
+        "properties": {
+          "question": {
+            "type": "object",
+            "required": ["en"],
+            "additionalProperties": { "type": "string" }
+          },
+          "answer": {
+            "type": "object",
+            "required": ["en"],
+            "additionalProperties": { "type": "string" }
+          }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "description": "Marketing bullet points shown on the tool page.",
+      "items": {
+        "type": "object",
+        "required": ["icon", "title", "description"],
+        "properties": {
+          "icon": { "type": "string" },
+          "title": {
+            "type": "object",
+            "required": ["en"],
+            "additionalProperties": { "type": "string" }
+          },
+          "description": {
+            "type": "object",
+            "required": ["en"],
+            "additionalProperties": { "type": "string" }
+          }
+        }
+      }
+    },
+    "relatedTools": {
+      "type": "array",
+      "description": "Explicit related tool slugs. Boosts auto-generated related list.",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "provider": "google_adsense",
+  "clientId": "ca-pub-XXXXXXXXXXXXXXXX",
+  "enabled": true,
+  "placements": {
+    "top": {
+      "id": "top",
+      "adSlot": "",
+      "format": "auto",
+      "responsive": true,
+      "style": "display:block",
+      "excludeOnLegal": true,
+      "label": {
+        "en": "Advertisement",
+        "es": "Publicidad",
+        "fr": "Publicité",
+        "de": "Werbung",
+        "pt": "Publicidade"
+      }
+    },
+    "middle": {
+      "id": "middle",
+      "adSlot": "",
+      "format": "auto",
+      "responsive": true,
+      "style": "display:block",
+      "excludeOnLegal": true,
+      "label": {
+        "en": "Advertisement",
+        "es": "Publicidad",
+        "fr": "Publicité",
+        "de": "Werbung",
+        "pt": "Publicidade"
+      }
+    },
+    "bottom": {
+      "id": "bottom",
+      "adSlot": "",
+      "format": "auto",
+      "responsive": true,
+      "style": "display:block",
+      "excludeOnLegal": true,
+      "label": {
+        "en": "Advertisement",
+        "es": "Publicidad",
+        "fr": "Publicité",
+        "de": "Werbung",
+        "pt": "Publicidade"
+      }
+    }
+  }
+}

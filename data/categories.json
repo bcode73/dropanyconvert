@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0.0",
+  "categories": [
+    {
+      "id": "image",
+      "slug": "image-converter",
+      "engine": "image_engine",
+      "name": {
+        "en": "Image Converter",
+        "es": "Conversor de Imágenes",
+        "fr": "Convertisseur d'Images",
+        "de": "Bildkonverter",
+        "pt": "Conversor de Imagens"
+      },
+      "description": {
+        "en": "Convert, compress, and transform images in your browser. PNG, JPG, WebP, SVG, GIF, and more.",
+        "es": "Convierte, comprime y transforma imágenes en tu navegador. PNG, JPG, WebP, SVG, GIF y más.",
+        "fr": "Convertissez, compressez et transformez des images dans votre navigateur. PNG, JPG, WebP, SVG, GIF et plus encore.",
+        "de": "Konvertiere, komprimiere und transformiere Bilder in deinem Browser. PNG, JPG, WebP, SVG, GIF und mehr.",
+        "pt": "Converta, comprima e transforme imagens no seu navegador. PNG, JPG, WebP, SVG, GIF e muito mais."
+      },
+      "icon": "image",
+      "color": "#6366f1",
+      "order": 1
+    },
+    {
+      "id": "pdf",
+      "slug": "pdf-tools",
+      "engine": "pdf_engine",
+      "name": {
+        "en": "PDF Tools",
+        "es": "Herramientas PDF",
+        "fr": "Outils PDF",
+        "de": "PDF-Werkzeuge",
+        "pt": "Ferramentas PDF"
+      },
+      "description": {
+        "en": "Merge, split, compress, and convert PDF files directly in your browser.",
+        "es": "Combina, divide, comprime y convierte archivos PDF directamente en tu navegador.",
+        "fr": "Fusionnez, divisez, compressez et convertissez des fichiers PDF directement dans votre navigateur.",
+        "de": "Führe PDF-Dateien zusammen, teile, komprimiere und konvertiere sie direkt in deinem Browser.",
+        "pt": "Mescle, divida, comprima e converta arquivos PDF diretamente no seu navegador."
+      },
+      "icon": "pdf",
+      "color": "#ef4444",
+      "order": 2
+    },
+    {
+      "id": "video",
+      "slug": "video-converter",
+      "engine": "video_engine",
+      "name": {
+        "en": "Video Converter",
+        "es": "Conversor de Video",
+        "fr": "Convertisseur Vidéo",
+        "de": "Videokonverter",
+        "pt": "Conversor de Vídeo"
+      },
+      "description": {
+        "en": "Convert video files between formats in your browser. MP4, WebM, MOV, AVI, and more.",
+        "es": "Convierte archivos de video entre formatos en tu navegador. MP4, WebM, MOV, AVI y más.",
+        "fr": "Convertissez des fichiers vidéo entre formats dans votre navigateur. MP4, WebM, MOV, AVI et plus encore.",
+        "de": "Konvertiere Videodateien zwischen Formaten in deinem Browser. MP4, WebM, MOV, AVI und mehr.",
+        "pt": "Converta arquivos de vídeo entre formatos no seu navegador. MP4, WebM, MOV, AVI e muito mais."
+      },
+      "icon": "video",
+      "color": "#8b5cf6",
+      "order": 3
+    },
+    {
+      "id": "audio",
+      "slug": "audio-converter",
+      "engine": "audio_engine",
+      "name": {
+        "en": "Audio Converter",
+        "es": "Conversor de Audio",
+        "fr": "Convertisseur Audio",
+        "de": "Audiokonverter",
+        "pt": "Conversor de Áudio"
+      },
+      "description": {
+        "en": "Convert audio files between formats in your browser. MP3, WAV, OGG, FLAC, and more.",
+        "es": "Convierte archivos de audio entre formatos en tu navegador. MP3, WAV, OGG, FLAC y más.",
+        "fr": "Convertissez des fichiers audio entre formats dans votre navigateur. MP3, WAV, OGG, FLAC et plus encore.",
+        "de": "Konvertiere Audiodateien zwischen Formaten in deinem Browser. MP3, WAV, OGG, FLAC und mehr.",
+        "pt": "Converta arquivos de áudio entre formatos no seu navegador. MP3, WAV, OGG, FLAC e muito mais."
+      },
+      "icon": "audio",
+      "color": "#10b981",
+      "order": 4
+    },
+    {
+      "id": "text",
+      "slug": "text-tools",
+      "engine": "text_engine",
+      "name": {
+        "en": "Text Tools",
+        "es": "Herramientas de Texto",
+        "fr": "Outils Texte",
+        "de": "Textwerkzeuge",
+        "pt": "Ferramentas de Texto"
+      },
+      "description": {
+        "en": "Convert and transform text files. CSV, JSON, XML, Markdown, and more.",
+        "es": "Convierte y transforma archivos de texto. CSV, JSON, XML, Markdown y más.",
+        "fr": "Convertissez et transformez des fichiers texte. CSV, JSON, XML, Markdown et plus encore.",
+        "de": "Konvertiere und transformiere Textdateien. CSV, JSON, XML, Markdown und mehr.",
+        "pt": "Converta e transforme arquivos de texto. CSV, JSON, XML, Markdown e muito mais."
+      },
+      "icon": "text",
+      "color": "#f59e0b",
+      "order": 5
+    },
+    {
+      "id": "developer",
+      "slug": "developer-tools",
+      "engine": "developer_engine",
+      "name": {
+        "en": "Developer Tools",
+        "es": "Herramientas para Desarrolladores",
+        "fr": "Outils Développeur",
+        "de": "Entwicklerwerkzeuge",
+        "pt": "Ferramentas para Desenvolvedores"
+      },
+      "description": {
+        "en": "Encode, decode, format, and validate data for developers. Base64, JWT, JSON, and more.",
+        "es": "Codifica, decodifica, formatea y valida datos para desarrolladores. Base64, JWT, JSON y más.",
+        "fr": "Encodez, décodez, formatez et validez des données pour les développeurs. Base64, JWT, JSON et plus encore.",
+        "de": "Kodiere, dekodiere, formatiere und validiere Daten für Entwickler. Base64, JWT, JSON und mehr.",
+        "pt": "Codifique, decodifique, formate e valide dados para desenvolvedores. Base64, JWT, JSON e muito mais."
+      },
+      "icon": "code",
+      "color": "#06b6d4",
+      "order": 6
+    }
+  ]
+}

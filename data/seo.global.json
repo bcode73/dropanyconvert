@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "defaults": {
+    "titleSuffix": " — DropAnyConvert",
+    "titleSuffixShort": " | DropAnyConvert",
+    "separator": " — ",
+    "robots": "index, follow",
+    "ogType": "website",
+    "ogSiteName": "DropAnyConvert",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  "structuredData": {
+    "organizationName": "DropAnyConvert",
+    "organizationUrl": "https://dropanyconvert.com",
+    "organizationLogoPath": "/assets/logos/logo.png",
+    "organizationSameAs": []
+  },
+  "breadcrumbs": {
+    "homeName": {
+      "en": "Home",
+      "es": "Inicio",
+      "fr": "Accueil",
+      "de": "Startseite",
+      "pt": "Início"
+    }
+  },
+  "legalPages": {
+    "privacy": {
+      "slug": "privacy-policy",
+      "title": {
+        "en": "Privacy Policy",
+        "es": "Política de Privacidad",
+        "fr": "Politique de Confidentialité",
+        "de": "Datenschutzerklärung",
+        "pt": "Política de Privacidade"
+      }
+    },
+    "terms": {
+      "slug": "terms-of-service",
+      "title": {
+        "en": "Terms of Service",
+        "es": "Términos de Servicio",
+        "fr": "Conditions d'Utilisation",
+        "de": "Nutzungsbedingungen",
+        "pt": "Termos de Serviço"
+      }
+    },
+    "cookies": {
+      "slug": "cookie-policy",
+      "title": {
+        "en": "Cookie Policy",
+        "es": "Política de Cookies",
+        "fr": "Politique de Cookies",
+        "de": "Cookie-Richtlinie",
+        "pt": "Política de Cookies"
+      }
+    }
+  }
+}

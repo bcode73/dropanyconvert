@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0.0",
+  "site": {
+    "name": "DropAnyConvert",
+    "tagline": "Convert anything. Free. Private. Fast.",
+    "baseUrl": "https://dropanyconvert.com",
+    "version": "1.0.0"
+  },
+  "languages": {
+    "default": "en",
+    "supported": ["en", "es", "fr", "de", "pt"]
+  },
+  "features": {
+    "ads": true,
+    "blog": false,
+    "accounts": false,
+    "history": false,
+    "favorites": false,
+    "cloudProcessing": false,
+    "recentlyUsed": false
+  },
+  "limits": {
+    "maxFileSizeMb": 500,
+    "maxBatchFiles": 20,
+    "maxFileSizeMbLarge": 2048
+  },
+  "build": {
+    "outputDir": "dist",
+    "assetsDir": "assets",
+    "minify": true,
+    "sourceMaps": false,
+    "generateReport": true,
+    "deterministic": true
+  },
+  "ads": {
+    "provider": "google_adsense",
+    "clientId": "",
+    "placements": ["top", "middle", "bottom"]
+  },
+  "seo": {
+    "defaultLocale": "en_US",
+    "twitterHandle": "@dropanyconvert",
+    "defaultImagePath": "/assets/images/og-default.png"
+  }
+}

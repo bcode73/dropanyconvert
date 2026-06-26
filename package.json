@@ -1,0 +1,29 @@
+{
+  "name": "dropanyconvert",
+  "version": "1.0.0",
+  "description": "Browser-first, SEO-first multilingual file conversion platform",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "node generator/index.js",
+    "build:clean": "rm -rf dist && node generator/index.js",
+    "validate": "node generator/index.js --validate-only",
+    "preview": "npx serve dist",
+    "lint": "node --experimental-vm-modules node_modules/.bin/eslint generator/ engines/",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "keywords": [
+    "converter",
+    "file-conversion",
+    "image-converter",
+    "pdf-tools",
+    "browser-based",
+    "static-site",
+    "seo"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {}
+}

@@ -1,0 +1,224 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "png-to-jpg",
+  "slug": "png-to-jpg",
+  "name": {
+    "en": "PNG to JPG Converter",
+    "es": "Conversor de PNG a JPG",
+    "fr": "Convertisseur PNG en JPG",
+    "de": "PNG zu JPG Konverter",
+    "pt": "Conversor de PNG para JPG"
+  },
+  "tagline": {
+    "en": "Convert PNG images to JPG instantly in your browser.",
+    "es": "Convierte imágenes PNG a JPG al instante en tu navegador.",
+    "fr": "Convertissez des images PNG en JPG instantanément dans votre navigateur.",
+    "de": "Konvertiere PNG-Bilder sofort im Browser zu JPG.",
+    "pt": "Converta imagens PNG para JPG instantaneamente no seu navegador."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToJpg",
+  "inputFormats": ["image/png"],
+  "outputFormats": [
+    {
+      "ext": "jpg",
+      "mime": "image/jpeg",
+      "label": "JPG",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": true,
+    "maxFiles": 20,
+    "zipOutput": true
+  },
+  "runtime": "browser",
+  "runtimeHints": {
+    "preferOffscreenCanvas": true,
+    "memoryBudgetMb": 256
+  },
+  "capabilities": [
+    "batch",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "download-zip",
+    "mobile-supported",
+    "quality-control"
+  ],
+  "seo": {
+    "primaryKeyword": "png to jpg",
+    "secondaryKeywords": [
+      "convert png to jpeg",
+      "png to jpg converter",
+      "png jpg online",
+      "png to jpg free"
+    ],
+    "title": {
+      "en": "PNG to JPG Converter — Free Online Tool",
+      "es": "Conversor PNG a JPG — Herramienta Gratuita Online",
+      "fr": "Convertisseur PNG en JPG — Outil Gratuit en Ligne",
+      "de": "PNG zu JPG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor PNG para JPG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert PNG to JPG online for free. No upload required — all conversion happens in your browser. Fast, private, and secure.",
+      "es": "Convierte PNG a JPG online gratis. Sin necesidad de subir archivos — toda la conversión ocurre en tu navegador. Rápido, privado y seguro.",
+      "fr": "Convertissez PNG en JPG en ligne gratuitement. Aucun téléversement requis — toute la conversion se passe dans votre navigateur. Rapide, privé et sécurisé.",
+      "de": "PNG kostenlos online in JPG konvertieren. Kein Upload erforderlich — die gesamte Konvertierung erfolgt in deinem Browser. Schnell, privat und sicher.",
+      "pt": "Converta PNG para JPG online gratuitamente. Sem necessidade de upload — toda a conversão acontece no seu navegador. Rápido, privado e seguro."
+    },
+    "h1": {
+      "en": "Convert PNG to JPG — Free & Private",
+      "es": "Convierte PNG a JPG — Gratis y Privado",
+      "fr": "Convertir PNG en JPG — Gratuit et Privé",
+      "de": "PNG in JPG konvertieren — Kostenlos & Privat",
+      "pt": "Converter PNG para JPG — Gratuito e Privado"
+    },
+    "intro": {
+      "en": "Drop your PNG files and convert them to JPG instantly. Adjust quality, batch convert up to 20 files, and download results — all without uploading a single file to any server.",
+      "es": "Suelta tus archivos PNG y conviértelos a JPG al instante. Ajusta la calidad, convierte en lote hasta 20 archivos y descarga los resultados, sin subir ningún archivo a ningún servidor.",
+      "fr": "Déposez vos fichiers PNG et convertissez-les en JPG instantanément. Ajustez la qualité, convertissez par lot jusqu'à 20 fichiers et téléchargez les résultats — sans téléverser un seul fichier sur un serveur.",
+      "de": "Lade deine PNG-Dateien per Drag & Drop und konvertiere sie sofort zu JPG. Qualität anpassen, bis zu 20 Dateien auf einmal konvertieren und Ergebnisse herunterladen — ohne auch nur eine Datei hochzuladen.",
+      "pt": "Solte seus arquivos PNG e converta-os para JPG instantaneamente. Ajuste a qualidade, converta em lote até 20 arquivos e baixe os resultados — tudo sem fazer upload de um único arquivo para qualquer servidor."
+    }
+  },
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private",
+        "es": "100% Privado",
+        "fr": "100% Privé",
+        "de": "100% Privat",
+        "pt": "100% Privado"
+      },
+      "description": {
+        "en": "Your images never leave your device. Conversion happens entirely in your browser.",
+        "es": "Tus imágenes nunca salen de tu dispositivo. La conversión ocurre completamente en tu navegador.",
+        "fr": "Vos images ne quittent jamais votre appareil. La conversion se fait entièrement dans votre navigateur.",
+        "de": "Deine Bilder verlassen nie dein Gerät. Die Konvertierung erfolgt vollständig in deinem Browser.",
+        "pt": "Suas imagens nunca saem do seu dispositivo. A conversão acontece inteiramente no seu navegador."
+      }
+    },
+    {
+      "icon": "zap",
+      "title": {
+        "en": "Lightning Fast",
+        "es": "Ultra Rápido",
+        "fr": "Ultra Rapide",
+        "de": "Blitzschnell",
+        "pt": "Extremamente Rápido"
+      },
+      "description": {
+        "en": "Convert PNG to JPG in seconds using your device's own processing power.",
+        "es": "Convierte PNG a JPG en segundos usando la potencia de procesamiento de tu dispositivo.",
+        "fr": "Convertissez PNG en JPG en quelques secondes en utilisant la puissance de traitement de votre appareil.",
+        "de": "Konvertiere PNG in Sekunden zu JPG mit der eigenen Rechenleistung deines Geräts.",
+        "pt": "Converta PNG para JPG em segundos usando o poder de processamento do seu dispositivo."
+      }
+    },
+    {
+      "icon": "sliders",
+      "title": {
+        "en": "Quality Control",
+        "es": "Control de Calidad",
+        "fr": "Contrôle de Qualité",
+        "de": "Qualitätskontrolle",
+        "pt": "Controle de Qualidade"
+      },
+      "description": {
+        "en": "Choose your output quality from 1–100 to balance file size and image fidelity.",
+        "es": "Elige la calidad de salida del 1 al 100 para equilibrar el tamaño del archivo y la fidelidad de la imagen.",
+        "fr": "Choisissez la qualité de sortie de 1 à 100 pour équilibrer la taille du fichier et la fidélité de l'image.",
+        "de": "Wähle die Ausgabequalität von 1–100, um Dateigröße und Bildtreue in Balance zu bringen.",
+        "pt": "Escolha a qualidade de saída de 1 a 100 para equilibrar o tamanho do arquivo e a fidelidade da imagem."
+      }
+    },
+    {
+      "icon": "layers",
+      "title": {
+        "en": "Batch Convert",
+        "es": "Conversión por Lotes",
+        "fr": "Conversion par Lot",
+        "de": "Stapelkonvertierung",
+        "pt": "Conversão em Lote"
+      },
+      "description": {
+        "en": "Convert up to 20 PNG files at once. Download them individually or as a single ZIP.",
+        "es": "Convierte hasta 20 archivos PNG a la vez. Descárgalos individualmente o como un solo ZIP.",
+        "fr": "Convertissez jusqu'à 20 fichiers PNG à la fois. Téléchargez-les individuellement ou en tant que ZIP unique.",
+        "de": "Konvertiere bis zu 20 PNG-Dateien auf einmal. Lade sie einzeln oder als ZIP herunter.",
+        "pt": "Converta até 20 arquivos PNG de uma vez. Baixe-os individualmente ou como um único ZIP."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Is it safe to convert PNG to JPG online?",
+        "es": "¿Es seguro convertir PNG a JPG online?",
+        "fr": "Est-il sûr de convertir PNG en JPG en ligne ?",
+        "de": "Ist es sicher, PNG online in JPG zu konvertieren?",
+        "pt": "É seguro converter PNG para JPG online?"
+      },
+      "answer": {
+        "en": "Yes. DropAnyConvert processes everything inside your browser. Your files are never uploaded to any server, so no one can access them.",
+        "es": "Sí. DropAnyConvert procesa todo dentro de tu navegador. Tus archivos nunca se suben a ningún servidor, por lo que nadie puede acceder a ellos.",
+        "fr": "Oui. DropAnyConvert traite tout dans votre navigateur. Vos fichiers ne sont jamais téléversés sur un serveur, donc personne ne peut y accéder.",
+        "de": "Ja. DropAnyConvert verarbeitet alles in deinem Browser. Deine Dateien werden nie auf einen Server hochgeladen, sodass niemand auf sie zugreifen kann.",
+        "pt": "Sim. O DropAnyConvert processa tudo dentro do seu navegador. Seus arquivos nunca são enviados para nenhum servidor, portanto ninguém pode acessá-los."
+      }
+    },
+    {
+      "question": {
+        "en": "Will converting PNG to JPG reduce quality?",
+        "es": "¿Convertir PNG a JPG reducirá la calidad?",
+        "fr": "La conversion de PNG en JPG réduira-t-elle la qualité ?",
+        "de": "Verringert das Konvertieren von PNG in JPG die Qualität?",
+        "pt": "Converter PNG para JPG vai reduzir a qualidade?"
+      },
+      "answer": {
+        "en": "JPG uses lossy compression, so some quality reduction is expected. You can control this with the quality slider — higher values preserve more detail but produce larger files.",
+        "es": "JPG usa compresión con pérdida, por lo que se espera alguna reducción de calidad. Puedes controlar esto con el control deslizante de calidad: valores más altos preservan más detalle pero producen archivos más grandes.",
+        "fr": "JPG utilise une compression avec perte, une certaine réduction de qualité est donc attendue. Vous pouvez contrôler cela avec le curseur de qualité — des valeurs plus élevées préservent plus de détails mais produisent des fichiers plus volumineux.",
+        "de": "JPG verwendet verlustbehaftete Komprimierung, daher ist eine gewisse Qualitätsminderung zu erwarten. Du kannst dies mit dem Qualitätsschieberegler steuern — höhere Werte bewahren mehr Details, erzeugen aber größere Dateien.",
+        "pt": "O JPG usa compressão com perdas, portanto alguma redução de qualidade é esperada. Você pode controlar isso com o controle deslizante de qualidade — valores mais altos preservam mais detalhes, mas produzem arquivos maiores."
+      }
+    },
+    {
+      "question": {
+        "en": "Does PNG to JPG conversion remove transparency?",
+        "es": "¿La conversión de PNG a JPG elimina la transparencia?",
+        "fr": "La conversion PNG en JPG supprime-t-elle la transparence ?",
+        "de": "Entfernt die PNG-zu-JPG-Konvertierung Transparenz?",
+        "pt": "A conversão de PNG para JPG remove a transparência?"
+      },
+      "answer": {
+        "en": "Yes. JPG does not support transparency. Transparent areas will be replaced with a white background by default.",
+        "es": "Sí. JPG no admite transparencia. Las áreas transparentes se reemplazarán con un fondo blanco de forma predeterminada.",
+        "fr": "Oui. JPG ne prend pas en charge la transparence. Les zones transparentes seront remplacées par un fond blanc par défaut.",
+        "de": "Ja. JPG unterstützt keine Transparenz. Transparente Bereiche werden standardmäßig durch einen weißen Hintergrund ersetzt.",
+        "pt": "Sim. O JPG não suporta transparência. As áreas transparentes serão substituídas por um fundo branco por padrão."
+      }
+    },
+    {
+      "question": {
+        "en": "How many PNG files can I convert at once?",
+        "es": "¿Cuántos archivos PNG puedo convertir a la vez?",
+        "fr": "Combien de fichiers PNG puis-je convertir à la fois ?",
+        "de": "Wie viele PNG-Dateien kann ich auf einmal konvertieren?",
+        "pt": "Quantos arquivos PNG posso converter de uma vez?"
+      },
+      "answer": {
+        "en": "You can convert up to 20 PNG files at once. Multiple results are packaged as a single ZIP download.",
+        "es": "Puedes convertir hasta 20 archivos PNG a la vez. Los resultados múltiples se empaquetan como una única descarga ZIP.",
+        "fr": "Vous pouvez convertir jusqu'à 20 fichiers PNG à la fois. Les résultats multiples sont regroupés dans un seul téléchargement ZIP.",
+        "de": "Du kannst bis zu 20 PNG-Dateien auf einmal konvertieren. Mehrere Ergebnisse werden als einzelner ZIP-Download verpackt.",
+        "pt": "Você pode converter até 20 arquivos PNG de uma vez. Vários resultados são empacotados como um único download ZIP."
+      }
+    }
+  ],
+  "relatedTools": ["jpg-to-png", "png-to-webp", "image-compressor", "webp-to-jpg"]
+}

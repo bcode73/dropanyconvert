@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "jpg-to-webp",
+  "slug": "jpg-to-webp",
+  "name": {
+    "en": "JPG to WebP Converter",
+    "es": "Conversor de JPG a WebP",
+    "fr": "Convertisseur JPG en WebP",
+    "de": "JPG zu WebP Konverter",
+    "pt": "Conversor de JPG para WebP"
+  },
+  "tagline": {
+    "en": "Reduce JPG file size by converting to modern WebP format.",
+    "es": "Reduce el tamaño de archivos JPG convirtiéndolos al formato moderno WebP.",
+    "fr": "Réduisez la taille des fichiers JPG en les convertissant au format WebP moderne.",
+    "de": "Reduziere JPG-Dateigröße durch Konvertierung ins moderne WebP-Format.",
+    "pt": "Reduza o tamanho de arquivos JPG convertendo para o formato moderno WebP."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToWebP",
+  "inputFormats": ["image/jpeg"],
+  "outputFormats": [
+    { "ext": "webp", "mime": "image/webp", "label": "WebP", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "quality-control"],
+  "seo": {
+    "primaryKeyword": "jpg to webp",
+    "secondaryKeywords": ["jpeg to webp", "convert jpg to webp", "jpg webp online", "jpg to webp free"],
+    "title": {
+      "en": "JPG to WebP Converter — Free Online Tool",
+      "es": "Conversor JPG a WebP — Herramienta Gratuita Online",
+      "fr": "Convertisseur JPG en WebP — Outil Gratuit en Ligne",
+      "de": "JPG zu WebP Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor JPG para WebP — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert JPG to WebP online for free. Modern WebP format delivers smaller files for faster websites — no upload, 100% private.",
+      "es": "Convierte JPG a WebP online gratis. El formato WebP moderno entrega archivos más pequeños para sitios web más rápidos — sin subidas, 100% privado.",
+      "fr": "Convertissez JPG en WebP en ligne gratuitement. Le format WebP moderne offre des fichiers plus petits pour des sites plus rapides — sans envoi, 100% privé.",
+      "de": "JPG kostenlos online in WebP konvertieren. Modernes WebP liefert kleinere Dateien für schnellere Websites — kein Upload, 100% privat.",
+      "pt": "Converta JPG para WebP online gratuitamente. O formato WebP moderno entrega arquivos menores para sites mais rápidos — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert JPG to WebP — Smaller Files for Faster Websites",
+      "es": "Convierte JPG a WebP — Archivos Más Pequeños para Sitios Más Rápidos",
+      "fr": "Convertir JPG en WebP — Fichiers Plus Petits pour des Sites Plus Rapides",
+      "de": "JPG in WebP konvertieren — Kleinere Dateien für schnellere Websites",
+      "pt": "Converter JPG para WebP — Arquivos Menores para Sites Mais Rápidos"
+    },
+    "intro": {
+      "en": "Convert your JPG photos to WebP and save 25–35% in file size with no visible quality difference. Ideal for web developers looking to improve Core Web Vitals and page load speeds.",
+      "es": "Convierte tus fotos JPG a WebP y ahorra 25–35% en tamaño de archivo sin diferencia de calidad visible. Ideal para desarrolladores web que buscan mejorar Core Web Vitals.",
+      "fr": "Convertissez vos photos JPG en WebP et économisez 25 à 35 % de taille de fichier sans différence de qualité visible. Idéal pour les développeurs web souhaitant améliorer les Core Web Vitals.",
+      "de": "Konvertiere deine JPG-Fotos zu WebP und spare 25–35% Dateigröße ohne sichtbaren Qualitätsunterschied. Ideal für Web-Entwickler, die Core Web Vitals verbessern möchten.",
+      "pt": "Converta suas fotos JPG para WebP e economize 25–35% no tamanho do arquivo sem diferença de qualidade visível. Ideal para desenvolvedores web que buscam melhorar Core Web Vitals."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How much smaller is WebP compared to JPG?", "es": "¿Cuánto más pequeño es WebP comparado con JPG?", "fr": "WebP est-il beaucoup plus petit que JPG?", "de": "Wie viel kleiner ist WebP im Vergleich zu JPG?", "pt": "Quanto menor é o WebP comparado ao JPG?" },
+      "answer": { "en": "WebP is typically 25–35% smaller than JPG at equivalent visual quality, according to Google's benchmarks. Real savings vary by image content.", "es": "WebP es típicamente 25–35% más pequeño que JPG con calidad visual equivalente, según los benchmarks de Google.", "fr": "WebP est généralement 25 à 35 % plus petit que JPG à qualité visuelle équivalente, selon les benchmarks de Google.", "de": "WebP ist laut Googles Benchmarks typischerweise 25–35% kleiner als JPG bei ähnlicher visueller Qualität.", "pt": "WebP é tipicamente 25–35% menor que JPG com qualidade visual equivalente, segundo benchmarks do Google." }
+    },
+    {
+      "question": { "en": "Is WebP supported on all browsers?", "es": "¿WebP es compatible con todos los navegadores?", "fr": "WebP est-il supporté sur tous les navigateurs?", "de": "Wird WebP in allen Browsern unterstützt?", "pt": "WebP é suportado em todos os navegadores?" },
+      "answer": { "en": "Yes. All modern browsers including Chrome, Firefox, Safari 14+, and Edge support WebP. Coverage exceeds 97% globally.", "es": "Sí. Todos los navegadores modernos, incluidos Chrome, Firefox, Safari 14+ y Edge, admiten WebP. La cobertura supera el 97% globalmente.", "fr": "Oui. Tous les navigateurs modernes, notamment Chrome, Firefox, Safari 14+ et Edge, prennent en charge WebP. La couverture dépasse 97% mondialement.", "de": "Ja. Alle modernen Browser einschließlich Chrome, Firefox, Safari 14+ und Edge unterstützen WebP. Die Abdeckung übersteigt 97% weltweit.", "pt": "Sim. Todos os navegadores modernos incluindo Chrome, Firefox, Safari 14+ e Edge suportam WebP. A cobertura excede 97% globalmente." }
+    },
+    {
+      "question": { "en": "Will JPG to WebP conversion lose quality?", "es": "¿La conversión JPG a WebP perderá calidad?", "fr": "La conversion JPG en WebP perdra-t-elle en qualité?", "de": "Verliert die JPG-zu-WebP-Konvertierung Qualität?", "pt": "A conversão JPG para WebP perderá qualidade?" },
+      "answer": { "en": "At quality 80+, the difference is imperceptible to the human eye. Use the quality slider to choose the trade-off that works for your use case.", "es": "Con calidad 80+, la diferencia es imperceptible para el ojo humano. Usa el control deslizante de calidad para elegir el equilibrio que funcione para tu caso.", "fr": "À une qualité de 80+, la différence est imperceptible à l'œil humain. Utilisez le curseur pour choisir le compromis qui convient à votre cas.", "de": "Bei Qualität 80+ ist der Unterschied für das menschliche Auge nicht wahrnehmbar. Verwende den Schieberegler für deinen optimalen Kompromiss.", "pt": "Com qualidade 80+, a diferença é imperceptível ao olho humano. Use o controle deslizante para escolher o equilíbrio que funciona para seu caso." }
+    },
+    {
+      "question": { "en": "Can I batch convert JPG to WebP?", "es": "¿Puedo convertir JPG a WebP en lote?", "fr": "Puis-je convertir des JPG en WebP par lot?", "de": "Kann ich JPG-Dateien stapelweise in WebP konvertieren?", "pt": "Posso converter JPG para WebP em lote?" },
+      "answer": { "en": "Yes — up to 20 JPG files at once. All converted WebP files are packaged in a ZIP for one-click download.", "es": "Sí, hasta 20 archivos JPG a la vez. Todos los archivos WebP convertidos se empaquetan en un ZIP para descarga con un clic.", "fr": "Oui — jusqu'à 20 fichiers JPG à la fois. Tous les fichiers WebP convertis sont packagés dans un ZIP pour un téléchargement en un clic.", "de": "Ja — bis zu 20 JPG-Dateien auf einmal. Alle konvertierten WebP-Dateien werden in einem ZIP für den Ein-Klick-Download verpackt.", "pt": "Sim — até 20 arquivos JPG de uma vez. Todos os arquivos WebP convertidos são empacotados em um ZIP para download com um clique." }
+    }
+  ],
+  "relatedTools": ["png-to-webp", "webp-to-jpg", "image-compressor", "png-to-jpg"]
+}

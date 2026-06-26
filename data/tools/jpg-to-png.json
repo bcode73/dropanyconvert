@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "jpg-to-png",
+  "slug": "jpg-to-png",
+  "name": {
+    "en": "JPG to PNG Converter",
+    "es": "Conversor de JPG a PNG",
+    "fr": "Convertisseur JPG en PNG",
+    "de": "JPG zu PNG Konverter",
+    "pt": "Conversor de JPG para PNG"
+  },
+  "tagline": {
+    "en": "Convert JPG images to lossless PNG in your browser.",
+    "es": "Convierte imágenes JPG a PNG sin pérdida en tu navegador.",
+    "fr": "Convertissez des images JPG en PNG sans perte dans votre navigateur.",
+    "de": "Konvertiere JPG-Bilder verlustfrei zu PNG im Browser.",
+    "pt": "Converta imagens JPG para PNG sem perdas no seu navegador."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToPng",
+  "inputFormats": ["image/jpeg"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "jpg to png",
+    "secondaryKeywords": ["jpeg to png", "jpg to png converter", "convert jpg to png online", "jpg png free"],
+    "title": {
+      "en": "JPG to PNG Converter — Free Online Tool",
+      "es": "Conversor JPG a PNG — Herramienta Gratuita Online",
+      "fr": "Convertisseur JPG en PNG — Outil Gratuit en Ligne",
+      "de": "JPG zu PNG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor JPG para PNG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert JPG to PNG online for free. Get lossless PNG output with transparency support — no upload, 100% private.",
+      "es": "Convierte JPG a PNG online gratis. Obtén PNG sin pérdida con soporte de transparencia — sin subidas, 100% privado.",
+      "fr": "Convertissez JPG en PNG en ligne gratuitement. Obtenez une sortie PNG sans perte avec transparence — sans envoi, 100% privé.",
+      "de": "JPG kostenlos online in PNG konvertieren. Verlustfreie PNG-Ausgabe mit Transparenz-Unterstützung — kein Upload, 100% privat.",
+      "pt": "Converta JPG para PNG online gratuitamente. Saída PNG sem perdas com suporte a transparência — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert JPG to PNG — Free & Lossless",
+      "es": "Convierte JPG a PNG — Gratis y Sin Pérdida",
+      "fr": "Convertir JPG en PNG — Gratuit et Sans Perte",
+      "de": "JPG in PNG konvertieren — Kostenlos & Verlustfrei",
+      "pt": "Converter JPG para PNG — Gratuito e Sem Perdas"
+    },
+    "intro": {
+      "en": "Upload your JPG files and convert them to PNG instantly. PNG is a lossless format, so your output will be pixel-perfect — with no further quality loss.",
+      "es": "Sube tus archivos JPG y conviértelos a PNG al instante. PNG es un formato sin pérdida, por lo que tu salida será perfecta en píxeles.",
+      "fr": "Chargez vos fichiers JPG et convertissez-les en PNG instantanément. PNG est un format sans perte, votre sortie sera parfaite au pixel près.",
+      "de": "Lade deine JPG-Dateien hoch und konvertiere sie sofort zu PNG. PNG ist ein verlustfreies Format — deine Ausgabe bleibt pixelgenau.",
+      "pt": "Faça upload de seus arquivos JPG e converta-os para PNG instantaneamente. PNG é um formato sem perdas, então a saída será perfeita em pixels."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Why convert JPG to PNG?", "es": "¿Por qué convertir JPG a PNG?", "fr": "Pourquoi convertir JPG en PNG?", "de": "Warum JPG in PNG konvertieren?", "pt": "Por que converter JPG para PNG?" },
+      "answer": { "en": "PNG is lossless — great for logos, screenshots, and images that need sharp edges or text. Converting JPG to PNG won't restore lost quality, but prevents any further degradation.", "es": "PNG es sin pérdida, ideal para logos, capturas de pantalla e imágenes con bordes nítidos. Convertir JPG a PNG no restaura la calidad perdida, pero evita degradación adicional.", "fr": "PNG est sans perte — idéal pour les logos, captures d'écran et images avec du texte. La conversion ne restaure pas la qualité perdue mais évite toute dégradation supplémentaire.", "de": "PNG ist verlustfrei — ideal für Logos, Screenshots und scharfe Kanten. Die Konvertierung stellt keine verlorene Qualität wieder her, verhindert aber weitere Verluste.", "pt": "PNG é sem perdas — ótimo para logos, capturas de tela e imagens com bordas nítidas. Converter JPG para PNG não restaura qualidade perdida, mas evita degradação adicional." }
+    },
+    {
+      "question": { "en": "Will the PNG file be larger than JPG?", "es": "¿Será el archivo PNG más grande que JPG?", "fr": "Le fichier PNG sera-t-il plus grand que JPG?", "de": "Wird die PNG-Datei größer als JPG sein?", "pt": "O arquivo PNG será maior que JPG?" },
+      "answer": { "en": "Usually yes. PNG uses lossless compression, so files are typically larger than JPGs with similar visual quality. This is the trade-off for zero quality loss.", "es": "Generalmente sí. PNG usa compresión sin pérdida, por lo que los archivos son típicamente más grandes que JPG con calidad visual similar.", "fr": "Généralement oui. PNG utilise une compression sans perte, les fichiers sont donc généralement plus grands que les JPG avec une qualité visuelle similaire.", "de": "Meist ja. PNG verwendet verlustfreie Komprimierung, daher sind Dateien typischerweise größer als JPGs mit ähnlicher visueller Qualität.", "pt": "Geralmente sim. PNG usa compressão sem perdas, então os arquivos são tipicamente maiores que JPGs com qualidade visual similar." }
+    },
+    {
+      "question": { "en": "Does JPG to PNG add transparency?", "es": "¿JPG a PNG añade transparencia?", "fr": "La conversion JPG en PNG ajoute-t-elle de la transparence?", "de": "Fügt JPG zu PNG Transparenz hinzu?", "pt": "JPG para PNG adiciona transparência?" },
+      "answer": { "en": "No. JPG doesn't have a transparency channel, so converted PNGs will have a solid background. You need a dedicated background-removal tool for that.", "es": "No. JPG no tiene canal de transparencia, por lo que los PNG convertidos tendrán un fondo sólido.", "fr": "Non. JPG n'a pas de canal de transparence, les PNG convertis auront donc un fond opaque.", "de": "Nein. JPG hat keinen Transparenzkanal, daher haben konvertierte PNGs einen soliden Hintergrund.", "pt": "Não. JPG não tem canal de transparência, então PNGs convertidos terão fundo sólido." }
+    },
+    {
+      "question": { "en": "How many JPG files can I convert at once?", "es": "¿Cuántos archivos JPG puedo convertir a la vez?", "fr": "Combien de fichiers JPG puis-je convertir à la fois?", "de": "Wie viele JPG-Dateien kann ich auf einmal konvertieren?", "pt": "Quantos arquivos JPG posso converter de uma vez?" },
+      "answer": { "en": "Up to 20 files at once. Multiple results are automatically packaged as a ZIP download.", "es": "Hasta 20 archivos a la vez. Los resultados múltiples se empaquetan automáticamente como ZIP.", "fr": "Jusqu'à 20 fichiers à la fois. Les résultats multiples sont automatiquement packagés en ZIP.", "de": "Bis zu 20 Dateien auf einmal. Mehrere Ergebnisse werden automatisch als ZIP verpackt.", "pt": "Até 20 arquivos de uma vez. Vários resultados são automaticamente empacotados como ZIP." }
+    }
+  ],
+  "relatedTools": ["png-to-jpg", "png-to-webp", "image-compressor", "webp-to-png"]
+}

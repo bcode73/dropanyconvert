@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "image-crop",
+  "slug": "image-crop",
+  "name": {
+    "en": "Image Crop Tool",
+    "es": "Herramienta de Recorte de Imágenes",
+    "fr": "Outil de Recadrage d'Images",
+    "de": "Bild-Zuschnitt-Tool",
+    "pt": "Ferramenta de Recorte de Imagens"
+  },
+  "tagline": {
+    "en": "Crop images to any region in your browser.",
+    "es": "Recorta imágenes a cualquier región en tu navegador.",
+    "fr": "Recadrez des images sur n'importe quelle région dans votre navigateur.",
+    "de": "Bilder auf beliebige Bereiche im Browser zuschneiden.",
+    "pt": "Recorte imagens para qualquer região no seu navegador."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "cropImage",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp", "image/bmp"],
+  "outputFormats": [
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG", "default": true },
+    { "ext": "png", "mime": "image/png", "label": "PNG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": false, "maxFiles": 1 },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["drag-and-drop", "clipboard-paste", "preview", "mobile-supported", "crop", "quality-control"],
+  "seo": {
+    "primaryKeyword": "crop image online",
+    "secondaryKeywords": ["image cropper", "crop jpg online free", "online image crop tool", "crop photo free"],
+    "title": {
+      "en": "Crop Image Online — Free Image Cropping Tool",
+      "es": "Recortar Imagen Online — Herramienta de Recorte Gratuita",
+      "fr": "Recadrer Image en Ligne — Outil de Recadrage Gratuit",
+      "de": "Bild Online Zuschneiden — Kostenloses Bild-Zuschnitt-Tool",
+      "pt": "Recortar Imagem Online — Ferramenta de Recorte Gratuita"
+    },
+    "description": {
+      "en": "Crop any image to exact pixel coordinates online for free. Specify crop area with X, Y, width, and height — no upload, 100% private.",
+      "es": "Recorta cualquier imagen a coordenadas exactas de píxeles online gratis. Especifica el área de recorte con X, Y, ancho y alto — sin subidas, 100% privado.",
+      "fr": "Recadrez n'importe quelle image à des coordonnées exactes en pixels en ligne gratuitement. Spécifiez la zone de recadrage avec X, Y, largeur et hauteur — sans envoi, 100% privé.",
+      "de": "Beliebige Bilder online kostenlos auf genaue Pixelkoordinaten zuschneiden. Zuschneidebereich mit X, Y, Breite und Höhe festlegen — kein Upload, 100% privat.",
+      "pt": "Recorte qualquer imagem para coordenadas exatas de pixels online gratuitamente. Especifique a área de recorte com X, Y, largura e altura — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Crop Image Online — Precise Pixel Cropping",
+      "es": "Recortar Imagen Online — Recorte Preciso de Píxeles",
+      "fr": "Recadrer Image en Ligne — Recadrage Précis au Pixel",
+      "de": "Bild Online Zuschneiden — Präzises Pixel-Zuschneiden",
+      "pt": "Recortar Imagem Online — Recorte Preciso em Pixels"
+    },
+    "intro": {
+      "en": "Crop your image to any region by specifying exact pixel coordinates. Enter the X and Y position of the top-left corner, plus the width and height of the crop area. Output in JPG, PNG, or WebP.",
+      "es": "Recorta tu imagen a cualquier región especificando coordenadas exactas de píxeles. Ingresa la posición X e Y de la esquina superior izquierda, más el ancho y alto del área de recorte.",
+      "fr": "Recadrez votre image sur n'importe quelle région en spécifiant des coordonnées exactes en pixels. Entrez la position X et Y du coin supérieur gauche, plus la largeur et la hauteur.",
+      "de": "Bild auf beliebigen Bereich durch Angabe exakter Pixelkoordinaten zuschneiden. X- und Y-Position der oberen linken Ecke plus Breite und Höhe des Zuschneidebereichs eingeben.",
+      "pt": "Recorte sua imagem para qualquer região especificando coordenadas exatas de pixels. Insira a posição X e Y do canto superior esquerdo, mais a largura e altura da área de recorte."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How do I specify the crop area?", "es": "¿Cómo especifico el área de recorte?", "fr": "Comment spécifier la zone de recadrage?", "de": "Wie gebe ich den Zuschneidebereich an?", "pt": "Como especifico a área de recorte?" },
+      "answer": { "en": "Enter the X (left) and Y (top) offset in pixels from the top-left corner of the image, then specify the width and height of the region you want to keep.", "es": "Ingresa el desplazamiento X (izquierda) e Y (arriba) en píxeles desde la esquina superior izquierda de la imagen, luego especifica el ancho y alto de la región que deseas conservar.", "fr": "Entrez le décalage X (gauche) et Y (haut) en pixels depuis le coin supérieur gauche de l'image, puis spécifiez la largeur et la hauteur de la région à conserver.", "de": "X- (links) und Y- (oben) Versatz in Pixeln von der oberen linken Ecke des Bildes eingeben, dann Breite und Höhe des zu behaltenden Bereichs angeben.", "pt": "Insira o deslocamento X (esquerda) e Y (topo) em pixels a partir do canto superior esquerdo da imagem, depois especifique a largura e altura da região que deseja manter." }
+    },
+    {
+      "question": { "en": "What happens if the crop area exceeds the image boundaries?", "es": "¿Qué sucede si el área de recorte excede los límites de la imagen?", "fr": "Que se passe-t-il si la zone de recadrage dépasse les limites de l'image?", "de": "Was passiert, wenn der Zuschneidebereich die Bildgrenzen überschreitet?", "pt": "O que acontece se a área de recorte exceder os limites da imagem?" },
+      "answer": { "en": "The crop area is automatically clamped to the image boundaries. Any portion extending beyond the edge is discarded without error.", "es": "El área de recorte se ajusta automáticamente a los límites de la imagen. Cualquier parte que se extienda más allá del borde se descarta sin error.", "fr": "La zone de recadrage est automatiquement ajustée aux limites de l'image. Toute portion dépassant le bord est rejetée sans erreur.", "de": "Der Zuschneidebereich wird automatisch auf die Bildgrenzen beschränkt. Jeder Teil, der über den Rand hinausgeht, wird ohne Fehler verworfen.", "pt": "A área de recorte é automaticamente limitada às bordas da imagem. Qualquer parte que se estenda além da borda é descartada sem erro." }
+    },
+    {
+      "question": { "en": "Can I crop multiple images at once?", "es": "¿Puedo recortar varias imágenes a la vez?", "fr": "Puis-je recadrer plusieurs images à la fois?", "de": "Kann ich mehrere Bilder auf einmal zuschneiden?", "pt": "Posso recortar várias imagens de uma vez?" },
+      "answer": { "en": "This tool processes one image at a time for precise control. For batch resizing, use our Image Resizer tool.", "es": "Esta herramienta procesa una imagen a la vez para control preciso. Para redimensionamiento en lote, usa nuestra herramienta Redimensionador de Imágenes.", "fr": "Cet outil traite une image à la fois pour un contrôle précis. Pour le redimensionnement par lot, utilisez notre outil Redimensionneur d'Images.", "de": "Dieses Tool verarbeitet ein Bild auf einmal für präzise Kontrolle. Für Stapel-Skalierung unser Bild-Skalierungstool verwenden.", "pt": "Esta ferramenta processa uma imagem de cada vez para controle preciso. Para redimensionamento em lote, use nossa ferramenta Redimensionador de Imagens." }
+    },
+    {
+      "question": { "en": "Is the crop output lossless?", "es": "¿La salida de recorte es sin pérdida?", "fr": "La sortie de recadrage est-elle sans perte?", "de": "Ist die Zuschnitt-Ausgabe verlustfrei?", "pt": "A saída de recorte é sem perdas?" },
+      "answer": { "en": "Choose PNG output for a lossless crop. JPG output re-compresses the image at your chosen quality setting. WebP can be set to lossless mode.", "es": "Elige la salida PNG para un recorte sin pérdida. La salida JPG recomprime la imagen a tu configuración de calidad elegida.", "fr": "Choisissez la sortie PNG pour un recadrage sans perte. La sortie JPG recompresse l'image à votre réglage de qualité choisi.", "de": "PNG-Ausgabe für verlustfreien Zuschnitt wählen. JPG-Ausgabe komprimiert das Bild mit der gewählten Qualitätseinstellung neu.", "pt": "Escolha a saída PNG para um recorte sem perdas. A saída JPG recomprime a imagem na sua configuração de qualidade escolhida." }
+    }
+  ],
+  "relatedTools": ["image-resizer", "image-rotate", "image-compressor", "png-to-jpg"]
+}

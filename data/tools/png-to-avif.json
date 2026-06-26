@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "png-to-avif",
+  "slug": "png-to-avif",
+  "name": {
+    "en": "PNG to AVIF Converter",
+    "es": "Conversor de PNG a AVIF",
+    "fr": "Convertisseur PNG en AVIF",
+    "de": "PNG zu AVIF Konverter",
+    "pt": "Conversor de PNG para AVIF"
+  },
+  "tagline": {
+    "en": "Convert PNG to next-generation AVIF for maximum compression.",
+    "es": "Convierte PNG a AVIF de nueva generación para máxima compresión.",
+    "fr": "Convertissez PNG en AVIF de nouvelle génération pour une compression maximale.",
+    "de": "Konvertiere PNG zu AVIF der nächsten Generation für maximale Komprimierung.",
+    "pt": "Converta PNG para AVIF de próxima geração para compressão máxima."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToAvif",
+  "inputFormats": ["image/png"],
+  "outputFormats": [
+    { "ext": "avif", "mime": "image/avif", "label": "AVIF", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256, "limitation": "AVIF encoding requires a browser with AVIF canvas support (Chrome 100+, Firefox 113+). Safari falls back to WebP." },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "quality-control"],
+  "seo": {
+    "primaryKeyword": "png to avif",
+    "secondaryKeywords": ["convert png to avif", "png avif online", "png avif free", "avif converter"],
+    "title": {
+      "en": "PNG to AVIF Converter — Free Online Tool",
+      "es": "Conversor PNG a AVIF — Herramienta Gratuita Online",
+      "fr": "Convertisseur PNG en AVIF — Outil Gratuit en Ligne",
+      "de": "PNG zu AVIF Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor PNG para AVIF — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert PNG to AVIF online for free. AVIF offers up to 50% smaller files than PNG — the best modern image format for the web.",
+      "es": "Convierte PNG a AVIF online gratis. AVIF ofrece archivos hasta un 50% más pequeños que PNG — el mejor formato de imagen moderno para la web.",
+      "fr": "Convertissez PNG en AVIF en ligne gratuitement. AVIF offre des fichiers jusqu'à 50% plus petits que PNG — le meilleur format d'image moderne pour le web.",
+      "de": "PNG kostenlos online in AVIF konvertieren. AVIF bietet bis zu 50% kleinere Dateien als PNG — das beste moderne Bildformat für das Web.",
+      "pt": "Converta PNG para AVIF online gratuitamente. AVIF oferece arquivos até 50% menores que PNG — o melhor formato de imagem moderno para a web."
+    },
+    "h1": {
+      "en": "Convert PNG to AVIF — Next-Generation Compression",
+      "es": "Convierte PNG a AVIF — Compresión de Nueva Generación",
+      "fr": "Convertir PNG en AVIF — Compression Nouvelle Génération",
+      "de": "PNG in AVIF konvertieren — Komprimierung der nächsten Generation",
+      "pt": "Converter PNG para AVIF — Compressão de Próxima Geração"
+    },
+    "intro": {
+      "en": "Drop your PNG files and convert them to AVIF — the next-generation image format that beats both JPG and WebP in compression efficiency. Achieve up to 50% smaller files while maintaining superb visual quality.",
+      "es": "Suelta tus archivos PNG y conviértelos a AVIF, el formato de imagen de nueva generación que supera a JPG y WebP en eficiencia de compresión.",
+      "fr": "Déposez vos fichiers PNG et convertissez-les en AVIF — le format d'image nouvelle génération qui surpasse JPG et WebP en efficacité de compression.",
+      "de": "Lade deine PNG-Dateien per Drag & Drop und konvertiere sie zu AVIF — dem Bildformat der nächsten Generation, das JPG und WebP in der Komprimierungseffizienz übertrifft.",
+      "pt": "Solte seus arquivos PNG e converta-os para AVIF — o formato de imagem de próxima geração que supera tanto JPG quanto WebP em eficiência de compressão."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What is AVIF?", "es": "¿Qué es AVIF?", "fr": "Qu'est-ce que l'AVIF?", "de": "Was ist AVIF?", "pt": "O que é AVIF?" },
+      "answer": { "en": "AVIF (AV1 Image File Format) is a modern image format based on the AV1 video codec. It offers significantly better compression than JPG and WebP while supporting HDR, wide color gamut, and transparency.", "es": "AVIF (AV1 Image File Format) es un formato de imagen moderno basado en el códec de video AV1. Ofrece mejor compresión que JPG y WebP con soporte para HDR, gama de colores amplia y transparencia.", "fr": "AVIF (AV1 Image File Format) est un format d'image moderne basé sur le codec vidéo AV1. Il offre une meilleure compression que JPG et WebP avec HDR, gamme de couleurs large et transparence.", "de": "AVIF (AV1 Image File Format) ist ein modernes Bildformat basierend auf dem AV1-Video-Codec. Es bietet deutlich bessere Komprimierung als JPG und WebP bei HDR, erweiterter Farbpalette und Transparenz.", "pt": "AVIF (AV1 Image File Format) é um formato de imagem moderno baseado no codec de vídeo AV1. Oferece compressão significativamente melhor que JPG e WebP com suporte a HDR, gama de cores ampla e transparência." }
+    },
+    {
+      "question": { "en": "Do all browsers support AVIF?", "es": "¿Todos los navegadores soportan AVIF?", "fr": "Tous les navigateurs supportent-ils AVIF?", "de": "Unterstützen alle Browser AVIF?", "pt": "Todos os navegadores suportam AVIF?" },
+      "answer": { "en": "Chrome 85+, Firefox 93+, and Safari 16.4+ support AVIF. For older browsers, WebP is a good fallback. When encoding is unavailable, this tool automatically falls back to WebP.", "es": "Chrome 85+, Firefox 93+ y Safari 16.4+ admiten AVIF. Para navegadores más antiguos, WebP es una buena alternativa. Cuando la codificación no está disponible, esta herramienta recurre automáticamente a WebP.", "fr": "Chrome 85+, Firefox 93+ et Safari 16.4+ prennent en charge AVIF. Pour les anciens navigateurs, WebP est un bon repli. Quand l'encodage n'est pas disponible, cet outil passe automatiquement à WebP.", "de": "Chrome 85+, Firefox 93+ und Safari 16.4+ unterstützen AVIF. Für ältere Browser ist WebP ein guter Fallback. Wenn Encoding nicht verfügbar ist, wechselt dieses Tool automatisch zu WebP.", "pt": "Chrome 85+, Firefox 93+ e Safari 16.4+ suportam AVIF. Para navegadores mais antigos, WebP é um bom fallback. Quando a codificação não está disponível, esta ferramenta recorre automaticamente ao WebP." }
+    },
+    {
+      "question": { "en": "How much smaller is AVIF than PNG?", "es": "¿Cuánto más pequeño es AVIF que PNG?", "fr": "AVIF est-il beaucoup plus petit que PNG?", "de": "Wie viel kleiner ist AVIF als PNG?", "pt": "Quanto menor é o AVIF comparado ao PNG?" },
+      "answer": { "en": "AVIF is typically 40–60% smaller than PNG for photographic images. For graphics with flat colors, savings vary but are generally significant.", "es": "AVIF es típicamente 40–60% más pequeño que PNG para imágenes fotográficas. Para gráficos con colores planos, el ahorro varía pero generalmente es significativo.", "fr": "AVIF est généralement 40 à 60 % plus petit que PNG pour les images photographiques. Pour les graphiques avec des couleurs plates, les économies varient mais sont généralement significatives.", "de": "AVIF ist für fotografische Bilder typischerweise 40–60% kleiner als PNG. Für Grafiken mit flachen Farben variieren die Einsparungen, sind aber generell erheblich.", "pt": "AVIF é tipicamente 40–60% menor que PNG para imagens fotográficas. Para gráficos com cores planas, as economias variam, mas geralmente são significativas." }
+    },
+    {
+      "question": { "en": "Can I convert multiple PNG files to AVIF at once?", "es": "¿Puedo convertir múltiples PNG a AVIF a la vez?", "fr": "Puis-je convertir plusieurs PNG en AVIF à la fois?", "de": "Kann ich mehrere PNG-Dateien auf einmal in AVIF konvertieren?", "pt": "Posso converter vários arquivos PNG para AVIF de uma vez?" },
+      "answer": { "en": "Yes — up to 20 files at once. Results are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Los resultados se empaquetan como descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Les résultats sont packagés en ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Ergebnisse werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Os resultados são empacotados como download ZIP." }
+    }
+  ],
+  "relatedTools": ["avif-to-png", "png-to-webp", "jpg-to-webp", "image-compressor"]
+}

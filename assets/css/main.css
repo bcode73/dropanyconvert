@@ -861,6 +861,141 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 .dac-footer__links a { color: var(--dac-text-3); text-decoration: none; transition: color var(--dac-dur-fast); }
 .dac-footer__links a:hover { color: var(--dac-brand); }
 
+/* ── Tool Controls (resize, rotate, flip, crop, watermark) ──────────────── */
+.dac-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius-sm);
+  font-size: 14px;
+  color: var(--dac-text);
+  background: var(--dac-bg);
+  transition: border-color var(--dac-dur-fast);
+  box-sizing: border-box;
+}
+.dac-input:focus { outline: none; border-color: var(--dac-border-focus); box-shadow: 0 0 0 3px var(--dac-brand-ring); }
+
+.dac-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius-sm);
+  font-family: var(--dac-mono);
+  font-size: 13px;
+  color: var(--dac-text);
+  background: var(--dac-bg);
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color var(--dac-dur-fast);
+}
+.dac-textarea:focus { outline: none; border-color: var(--dac-border-focus); box-shadow: 0 0 0 3px var(--dac-brand-ring); }
+
+.dac-dim-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dac-dim-row .dac-input { flex: 1; }
+.dac-dim-sep { color: var(--dac-text-3); font-size: 14px; }
+
+.dac-radio-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.dac-radio-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dac-crop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.dac-crop-grid .dac-option-row { margin: 0; }
+
+.dac-limitation-notice {
+  background: var(--dac-surface-2);
+  border: 1px solid var(--dac-border);
+  border-left: 3px solid var(--dac-warning);
+  border-radius: var(--dac-radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--dac-text-2);
+  margin-bottom: 12px;
+}
+
+/* Text-input panel (base64-to-image etc.) */
+.dac-text-input-panel {
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dac-text-input-panel label { font-size: 13px; font-weight: 500; color: var(--dac-text-2); }
+
+/* Text-output display */
+.dac-text-output {
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  overflow: hidden;
+  margin-top: 8px;
+}
+.dac-text-output__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  background: var(--dac-surface);
+  border-bottom: 1px solid var(--dac-border);
+}
+.dac-text-output__label { font-size: 13px; font-weight: 500; color: var(--dac-text-2); }
+.dac-text-output__area { border: none; border-radius: 0; resize: vertical; min-height: 120px; background: var(--dac-bg); }
+.dac-text-output__area:focus { box-shadow: none; border-color: transparent; }
+
+/* ── Category page enhancements ──────────────────────────────────────────── */
+.dac-tool-section { margin-bottom: 48px; }
+.dac-tool-section__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dac-text);
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--dac-border);
+}
+
+.dac-related-cat {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+.dac-related-cat__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--dac-surface);
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  text-decoration: none;
+  color: var(--dac-text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color var(--dac-dur-fast), box-shadow var(--dac-dur-fast);
+}
+.dac-related-cat__item:hover { border-color: var(--dac-brand); box-shadow: var(--dac-shadow); }
+.dac-related-cat__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 /* ── Animations ──────────────────────────────────────────────────────────── */
 @keyframes spin {
   to { transform: rotate(360deg); }

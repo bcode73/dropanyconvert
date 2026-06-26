@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "png-to-tiff",
+  "slug": "png-to-tiff",
+  "name": {
+    "en": "PNG to TIFF Converter",
+    "es": "Conversor de PNG a TIFF",
+    "fr": "Convertisseur PNG en TIFF",
+    "de": "PNG zu TIFF Konverter",
+    "pt": "Conversor de PNG para TIFF"
+  },
+  "tagline": {
+    "en": "Convert PNG images to professional TIFF format.",
+    "es": "Convierte imágenes PNG al formato TIFF profesional.",
+    "fr": "Convertissez des images PNG au format TIFF professionnel.",
+    "de": "Konvertiere PNG-Bilder in das professionelle TIFF-Format.",
+    "pt": "Converta imagens PNG para o formato TIFF profissional."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToTiff",
+  "inputFormats": ["image/png"],
+  "outputFormats": [
+    { "ext": "tiff", "mime": "image/tiff", "label": "TIFF", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "png to tiff",
+    "secondaryKeywords": ["convert png to tiff", "png tiff converter", "png to tif online free", "tiff converter"],
+    "title": {
+      "en": "PNG to TIFF Converter — Free Online Tool",
+      "es": "Conversor PNG a TIFF — Herramienta Gratuita Online",
+      "fr": "Convertisseur PNG en TIFF — Outil Gratuit en Ligne",
+      "de": "PNG zu TIFF Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor PNG para TIFF — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert PNG to TIFF online for free. TIFF is the professional standard for print, archival, and publishing workflows — no upload, 100% private.",
+      "es": "Convierte PNG a TIFF online gratis. TIFF es el estándar profesional para flujos de trabajo de impresión, archivo y publicación — sin subidas, 100% privado.",
+      "fr": "Convertissez PNG en TIFF en ligne gratuitement. TIFF est le standard professionnel pour les flux de travail d'impression, d'archivage et d'édition — sans envoi, 100% privé.",
+      "de": "PNG kostenlos online in TIFF konvertieren. TIFF ist der professionelle Standard für Druck-, Archivierungs- und Publishing-Workflows — kein Upload, 100% privat.",
+      "pt": "Converta PNG para TIFF online gratuitamente. TIFF é o padrão profissional para fluxos de trabalho de impressão, arquivo e publicação — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert PNG to TIFF — Professional Print Quality",
+      "es": "Convierte PNG a TIFF — Calidad de Impresión Profesional",
+      "fr": "Convertir PNG en TIFF — Qualité d'Impression Professionnelle",
+      "de": "PNG in TIFF konvertieren — Professionelle Druckqualität",
+      "pt": "Converter PNG para TIFF — Qualidade de Impressão Profissional"
+    },
+    "intro": {
+      "en": "Convert PNG images to TIFF for professional print, archiving, or publishing workflows. TIFF is the industry standard accepted by Adobe Photoshop, InDesign, and professional print shops worldwide.",
+      "es": "Convierte imágenes PNG a TIFF para flujos de trabajo de impresión, archivo o publicación profesional. TIFF es el estándar de la industria aceptado por Adobe Photoshop, InDesign e imprentas profesionales.",
+      "fr": "Convertissez des images PNG en TIFF pour des flux de travail d'impression, d'archivage ou de publication professionnels. TIFF est le standard industriel accepté par Adobe Photoshop, InDesign et les imprimeurs professionnels.",
+      "de": "Konvertiere PNG-Bilder zu TIFF für professionelle Druck-, Archivierungs- oder Publishing-Workflows. TIFF ist der Industriestandard, der von Adobe Photoshop, InDesign und professionellen Druckereien akzeptiert wird.",
+      "pt": "Converta imagens PNG para TIFF para fluxos de trabalho profissionais de impressão, arquivo ou publicação. TIFF é o padrão da indústria aceito pelo Adobe Photoshop, InDesign e gráficas profissionais."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What is TIFF used for?", "es": "¿Para qué se usa TIFF?", "fr": "À quoi sert le TIFF?", "de": "Wofür wird TIFF verwendet?", "pt": "Para que serve o TIFF?" },
+      "answer": { "en": "TIFF is widely used in professional photography, print publishing, medical imaging, and archival workflows. It supports lossless data storage and is the preferred format for high-resolution print work.", "es": "TIFF se usa ampliamente en fotografía profesional, publicación impresa, imágenes médicas y flujos de trabajo de archivo. Admite almacenamiento de datos sin pérdida.", "fr": "TIFF est largement utilisé en photographie professionnelle, édition imprimée, imagerie médicale et archivage. Il prend en charge le stockage sans perte.", "de": "TIFF wird häufig in professioneller Fotografie, Druckpublishing, medizinischer Bildgebung und Archivierung verwendet. Es unterstützt verlustfreie Datenspeicherung.", "pt": "TIFF é amplamente usado em fotografia profissional, publicação impressa, imagens médicas e fluxos de trabalho de arquivo. Suporta armazenamento de dados sem perdas." }
+    },
+    {
+      "question": { "en": "Is the TIFF output lossless?", "es": "¿La salida TIFF es sin pérdida?", "fr": "La sortie TIFF est-elle sans perte?", "de": "Ist die TIFF-Ausgabe verlustfrei?", "pt": "A saída TIFF é sem perdas?" },
+      "answer": { "en": "Yes. Our tool generates uncompressed baseline TIFF files. Every pixel from the source PNG is preserved exactly in the output.", "es": "Sí. Nuestra herramienta genera archivos TIFF de línea base sin comprimir. Cada píxel del PNG fuente se preserva exactamente en la salida.", "fr": "Oui. Notre outil génère des fichiers TIFF de base non compressés. Chaque pixel du PNG source est exactement préservé dans la sortie.", "de": "Ja. Unser Tool generiert unkomprimierte Baseline-TIFF-Dateien. Jedes Pixel aus dem Quell-PNG wird in der Ausgabe exakt beibehalten.", "pt": "Sim. Nossa ferramenta gera arquivos TIFF baseline não comprimidos. Cada pixel do PNG fonte é preservado exatamente na saída." }
+    },
+    {
+      "question": { "en": "Will TIFF files be larger than PNG?", "es": "¿Serán los archivos TIFF más grandes que PNG?", "fr": "Les fichiers TIFF seront-ils plus grands que PNG?", "de": "Werden TIFF-Dateien größer als PNG sein?", "pt": "Os arquivos TIFF serão maiores que PNG?" },
+      "answer": { "en": "Yes. Uncompressed TIFF files are larger than PNG. TIFF can optionally use LZW or ZIP compression, but our browser-based tool generates baseline uncompressed TIFF for maximum compatibility.", "es": "Sí. Los archivos TIFF sin comprimir son más grandes que PNG. TIFF puede usar compresión LZW o ZIP opcionalmente, pero nuestra herramienta genera TIFF de línea base sin comprimir.", "fr": "Oui. Les fichiers TIFF non compressés sont plus grands que PNG. TIFF peut utiliser la compression LZW ou ZIP, mais notre outil génère du TIFF non compressé de base.", "de": "Ja. Unkomprimierte TIFF-Dateien sind größer als PNG. TIFF kann optional LZW- oder ZIP-Komprimierung verwenden, aber unser Tool generiert Baseline-TIFF ohne Komprimierung.", "pt": "Sim. Arquivos TIFF não comprimidos são maiores que PNG. TIFF pode usar compressão LZW ou ZIP opcionalmente, mas nossa ferramenta gera TIFF baseline não comprimido." }
+    },
+    {
+      "question": { "en": "Can I convert multiple PNG files to TIFF at once?", "es": "¿Puedo convertir múltiples PNG a TIFF a la vez?", "fr": "Puis-je convertir plusieurs PNG en TIFF à la fois?", "de": "Kann ich mehrere PNG-Dateien auf einmal in TIFF konvertieren?", "pt": "Posso converter vários arquivos PNG para TIFF de uma vez?" },
+      "answer": { "en": "Yes — up to 20 files at once. All TIFF outputs are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Todas las salidas TIFF se empaquetan como descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Toutes les sorties TIFF sont packagées en ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Alle TIFF-Ausgaben werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Todas as saídas TIFF são empacotadas como download ZIP." }
+    }
+  ],
+  "relatedTools": ["tiff-to-png", "png-to-bmp", "png-to-jpg", "image-compressor"]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "image-to-base64",
+  "slug": "image-to-base64",
+  "name": {
+    "en": "Image to Base64 Encoder",
+    "es": "Codificador de Imagen a Base64",
+    "fr": "Encodeur Image en Base64",
+    "de": "Bild zu Base64 Encoder",
+    "pt": "Codificador de Imagem para Base64"
+  },
+  "tagline": {
+    "en": "Convert images to Base64 data URLs for use in code.",
+    "es": "Convierte imágenes a URLs de datos Base64 para usar en código.",
+    "fr": "Convertissez des images en URLs de données Base64 pour une utilisation dans le code.",
+    "de": "Bilder in Base64-Daten-URLs für die Code-Verwendung konvertieren.",
+    "pt": "Converta imagens para URLs de dados Base64 para uso em código."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "imageToBase64",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp", "image/gif", "image/svg+xml", "image/bmp"],
+  "outputFormats": [
+    { "ext": "txt", "mime": "text/plain", "label": "Base64 Text", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1 },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": false, "memoryBudgetMb": 128 },
+  "capabilities": ["drag-and-drop", "clipboard-paste", "mobile-supported", "text-output"],
+  "seo": {
+    "primaryKeyword": "image to base64",
+    "secondaryKeywords": ["convert image to base64", "image base64 encoder", "jpg to base64 online", "png to base64 free"],
+    "title": {
+      "en": "Image to Base64 Converter — Free Online Tool",
+      "es": "Conversor de Imagen a Base64 — Herramienta Gratuita Online",
+      "fr": "Convertisseur Image en Base64 — Outil Gratuit en Ligne",
+      "de": "Bild zu Base64 Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor de Imagem para Base64 — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert any image to a Base64 data URL online for free. Copy the encoded string for use in HTML, CSS, or JavaScript — no upload, 100% private.",
+      "es": "Convierte cualquier imagen a URL de datos Base64 online gratis. Copia la cadena codificada para usar en HTML, CSS o JavaScript — sin subidas, 100% privado.",
+      "fr": "Convertissez n'importe quelle image en URL de données Base64 en ligne gratuitement. Copiez la chaîne encodée pour l'utilisation en HTML, CSS ou JavaScript — sans envoi, 100% privé.",
+      "de": "Beliebige Bilder kostenlos online in Base64-Daten-URL konvertieren. Kodierten String für HTML, CSS oder JavaScript kopieren — kein Upload, 100% privat.",
+      "pt": "Converta qualquer imagem para URL de dados Base64 online gratuitamente. Copie a string codificada para uso em HTML, CSS ou JavaScript — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Image to Base64 Encoder — For HTML, CSS & JavaScript",
+      "es": "Codificador de Imagen a Base64 — Para HTML, CSS y JavaScript",
+      "fr": "Encodeur Image en Base64 — Pour HTML, CSS et JavaScript",
+      "de": "Bild zu Base64 Encoder — Für HTML, CSS und JavaScript",
+      "pt": "Codificador de Imagem para Base64 — Para HTML, CSS e JavaScript"
+    },
+    "intro": {
+      "en": "Drop an image to get its Base64-encoded data URL instantly. The output is a complete data URI starting with 'data:image/...' ready to paste into HTML img src attributes, CSS background-image, or JavaScript code without hosting the image on a server.",
+      "es": "Suelta una imagen para obtener su URL de datos codificada en Base64 al instante. La salida es un URI de datos completo listo para pegar en atributos src de HTML, CSS o JavaScript.",
+      "fr": "Déposez une image pour obtenir instantanément son URL de données encodée en Base64. La sortie est un URI de données complet prêt à coller dans les attributs src HTML, CSS ou JavaScript.",
+      "de": "Bild fallen lassen und sofort seine Base64-kodierte Daten-URL erhalten. Die Ausgabe ist ein vollständiger Daten-URI zum Einfügen in HTML-img-src-Attribute, CSS oder JavaScript.",
+      "pt": "Solte uma imagem para obter sua URL de dados codificada em Base64 instantaneamente. A saída é um URI de dados completo pronto para colar em atributos src HTML, CSS ou JavaScript."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What is a Base64 image data URL?", "es": "¿Qué es una URL de datos de imagen Base64?", "fr": "Qu'est-ce qu'une URL de données d'image Base64?", "de": "Was ist eine Base64-Bild-Daten-URL?", "pt": "O que é uma URL de dados de imagem Base64?" },
+      "answer": { "en": "A Base64 data URL encodes binary image data as ASCII text. It follows the format: data:[mime];base64,[data]. You can embed it directly in HTML, CSS, or JavaScript without needing a separate file or server request.", "es": "Una URL de datos Base64 codifica datos de imagen binarios como texto ASCII. Sigue el formato: data:[mime];base64,[datos]. Puedes incrustarla directamente en HTML, CSS o JavaScript.", "fr": "Une URL de données Base64 encode les données binaires de l'image en texte ASCII. Elle suit le format: data:[mime];base64,[données]. Vous pouvez l'intégrer directement en HTML, CSS ou JavaScript.", "de": "Eine Base64-Daten-URL kodiert binäre Bilddaten als ASCII-Text. Format: data:[mime];base64,[Daten]. Direkt in HTML, CSS oder JavaScript ohne Datei oder Serveranfrage einbettbar.", "pt": "Uma URL de dados Base64 codifica dados binários de imagem como texto ASCII. Segue o formato: data:[mime];base64,[dados]. Você pode incorporá-la diretamente em HTML, CSS ou JavaScript." }
+    },
+    {
+      "question": { "en": "When should I use Base64 images?", "es": "¿Cuándo debo usar imágenes Base64?", "fr": "Quand dois-je utiliser des images Base64?", "de": "Wann soll ich Base64-Bilder verwenden?", "pt": "Quando devo usar imagens Base64?" },
+      "answer": { "en": "Base64 is ideal for small images like icons, logos, or inline SVGs in CSS/HTML. For large images, it adds ~33% size overhead and is better served as a separate file for caching benefits.", "es": "Base64 es ideal para imágenes pequeñas como iconos, logos o SVGs en línea en CSS/HTML. Para imágenes grandes, agrega ~33% de sobrecarga de tamaño.", "fr": "Base64 est idéal pour les petites images comme les icônes, logos ou SVG inline en CSS/HTML. Pour les grandes images, il ajoute ~33% de surcharge de taille.", "de": "Base64 ist ideal für kleine Bilder wie Icons, Logos oder Inline-SVGs in CSS/HTML. Für große Bilder fügt es ~33% Größen-Overhead hinzu.", "pt": "Base64 é ideal para imagens pequenas como ícones, logos ou SVGs inline em CSS/HTML. Para imagens grandes, adiciona ~33% de sobrecarga de tamanho." }
+    },
+    {
+      "question": { "en": "How do I use the Base64 output in HTML?", "es": "¿Cómo uso la salida Base64 en HTML?", "fr": "Comment utiliser la sortie Base64 en HTML?", "de": "Wie verwende ich die Base64-Ausgabe in HTML?", "pt": "Como uso a saída Base64 em HTML?" },
+      "answer": { "en": "Copy the output and paste it as the src value of an img tag: <img src=\"data:image/png;base64,...\">. For CSS: background-image: url('data:image/png;base64,...');", "es": "Copia la salida y pégala como valor src de una etiqueta img: <img src=\"data:image/png;base64,...\">. Para CSS: background-image: url('data:image/png;base64,...');", "fr": "Copiez la sortie et collez-la comme valeur src d'une balise img: <img src=\"data:image/png;base64,...\">. Pour CSS: background-image: url('data:image/png;base64,...');", "de": "Ausgabe kopieren und als src-Wert eines img-Tags einfügen: <img src=\"data:image/png;base64,...\">. Für CSS: background-image: url('data:image/png;base64,...');", "pt": "Copie a saída e cole como valor src de uma tag img: <img src=\"data:image/png;base64,...\">. Para CSS: background-image: url('data:image/png;base64,...');" }
+    },
+    {
+      "question": { "en": "Are my images safe when encoding to Base64?", "es": "¿Mis imágenes están seguras al codificar a Base64?", "fr": "Mes images sont-elles sécurisées lors de l'encodage en Base64?", "de": "Sind meine Bilder bei der Base64-Kodierung sicher?", "pt": "Minhas imagens estão seguras ao codificar para Base64?" },
+      "answer": { "en": "Yes. All encoding happens in your browser using the FileReader API. No image data is ever sent to a server.", "es": "Sí. Toda la codificación ocurre en tu navegador usando la API FileReader. Ningún dato de imagen se envía a un servidor.", "fr": "Oui. Tout l'encodage se passe dans votre navigateur via l'API FileReader. Aucune donnée d'image n'est envoyée à un serveur.", "de": "Ja. Die gesamte Kodierung erfolgt in deinem Browser über die FileReader-API. Keine Bilddaten werden an einen Server gesendet.", "pt": "Sim. Toda a codificação acontece no seu navegador usando a API FileReader. Nenhum dado de imagem é enviado para um servidor." }
+    }
+  ],
+  "relatedTools": ["base64-to-image", "svg-to-png", "image-compressor", "png-to-webp"]
+}

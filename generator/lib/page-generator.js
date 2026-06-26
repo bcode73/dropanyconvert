@@ -124,13 +124,23 @@ function renderToolPage(route, seo, relatedTools, data, config) {
   const intro = tool.seo.intro?.[langCode] || tool.seo.intro?.en || '';
   const inputAccept = tool.inputFormats.join(',');
   const category = data.categories.find(c => c.id === tool.category);
-  const hasQuality = tool.capabilities.includes('quality-control');
-  const hasBatch = tool.capabilities.includes('batch');
+  const hasQuality    = tool.capabilities.includes('quality-control');
+  const hasBatch      = tool.capabilities.includes('batch');
   const hasMultiOutput = tool.outputFormats.length > 1;
+  const hasResize     = tool.capabilities.includes('resize');
+  const hasRotate     = tool.capabilities.includes('rotate');
+  const hasFlip       = tool.capabilities.includes('flip');
+  const hasWatermark  = tool.capabilities.includes('watermark');
+  const hasCrop       = tool.capabilities.includes('crop');
+  const hasTextInput  = tool.capabilities.includes('text-input');
+  const isUtility     = tool.uiGroup === 'utility';
+  const limitation    = tool.runtimeHints?.limitation || null;
 
-  // ── Variant picker: same-category tools that share input formats ──────
-  const sameInputTools = data.tools.filter(t =>
+  // ── Variant picker: same-input-format conversion tools ──────────────
+  // Utility tools (resize, rotate, etc.) don't show the format variant picker.
+  const sameInputTools = isUtility ? [] : data.tools.filter(t =>
     t.slug !== tool.slug &&
+    t.uiGroup !== 'utility' &&
     t.category === tool.category &&
     t.inputFormats.some(f => tool.inputFormats.includes(f))
   );
@@ -185,7 +195,111 @@ function renderToolPage(route, seo, relatedTools, data, config) {
         </select>
       </div>` : '';
 
-  const hasOptions = hasQuality || hasMultiOutput;
+  // ── Resize controls ───────────────────────────────────────────────────
+  const resizeHtml = hasResize ? `
+      <div class="dac-resize-control">
+        <label class="dac-label">Resize to (pixels)</label>
+        <div class="dac-dim-row">
+          <input type="number" id="dac-opt-width" class="dac-input dac-context-input"
+                 data-context-key="width" placeholder="Width" min="1" max="10000" aria-label="Target width in pixels">
+          <span class="dac-dim-sep" aria-hidden="true">×</span>
+          <input type="number" id="dac-opt-height" class="dac-input dac-context-input"
+                 data-context-key="height" placeholder="Height" min="1" max="10000" aria-label="Target height in pixels">
+        </div>
+        <label class="dac-checkbox-label">
+          <input type="checkbox" id="dac-opt-aspect" class="dac-context-input"
+                 data-context-key="maintainAspectRatio" checked>
+          Maintain aspect ratio
+        </label>
+      </div>` : '';
+
+  // ── Rotate controls ───────────────────────────────────────────────────
+  const rotateHtml = hasRotate ? `
+      <div class="dac-rotate-control">
+        <label for="dac-opt-angle" class="dac-label">Rotation</label>
+        <select id="dac-opt-angle" class="dac-select dac-context-input" data-context-key="angle">
+          <option value="90">90° clockwise</option>
+          <option value="180">180°</option>
+          <option value="270">270° clockwise (90° counter-clockwise)</option>
+          <option value="-90">90° counter-clockwise</option>
+        </select>
+      </div>` : '';
+
+  // ── Flip controls ─────────────────────────────────────────────────────
+  const flipHtml = hasFlip ? `
+      <fieldset class="dac-flip-control">
+        <legend class="dac-label">Flip direction</legend>
+        <div class="dac-radio-row">
+          <label class="dac-radio-label">
+            <input type="radio" name="dac-flip-axis" value="horizontal"
+                   class="dac-context-input" data-context-key="flipAxis" checked>
+            Horizontal (mirror left–right)
+          </label>
+          <label class="dac-radio-label">
+            <input type="radio" name="dac-flip-axis" value="vertical"
+                   class="dac-context-input" data-context-key="flipAxis">
+            Vertical (mirror top–bottom)
+          </label>
+        </div>
+      </fieldset>` : '';
+
+  // ── Watermark controls ────────────────────────────────────────────────
+  const watermarkHtml = hasWatermark ? `
+      <div class="dac-watermark-control">
+        <div>
+          <label for="dac-opt-wm-text" class="dac-label">Watermark text</label>
+          <input type="text" id="dac-opt-wm-text" class="dac-input dac-context-input"
+                 data-context-key="watermarkText" placeholder="© Your Name" maxlength="100">
+        </div>
+        <div>
+          <label for="dac-opt-wm-pos" class="dac-label">Position</label>
+          <select id="dac-opt-wm-pos" class="dac-select dac-context-input" data-context-key="watermarkPosition">
+            <option value="bottom-right">Bottom right</option>
+            <option value="bottom-left">Bottom left</option>
+            <option value="top-right">Top right</option>
+            <option value="top-left">Top left</option>
+            <option value="center">Center</option>
+          </select>
+        </div>
+        <div class="dac-quality-control">
+          <label for="dac-opt-wm-opacity" class="dac-label">Opacity</label>
+          <div class="dac-quality-row">
+            <input type="range" id="dac-opt-wm-opacity" class="dac-slider dac-context-input"
+                   data-context-key="watermarkOpacity" min="10" max="100" value="50" step="5">
+            <output for="dac-opt-wm-opacity" id="dac-wm-opacity-out" class="dac-quality-value">50</output>
+          </div>
+        </div>
+      </div>` : '';
+
+  // ── Crop controls ─────────────────────────────────────────────────────
+  const cropHtml = hasCrop ? `
+      <div class="dac-crop-control">
+        <label class="dac-label">Crop region (pixels from top-left corner)</label>
+        <div class="dac-crop-grid">
+          <div>
+            <label for="dac-opt-crop-x" class="dac-label-sm">Left (X)</label>
+            <input type="number" id="dac-opt-crop-x" class="dac-input dac-context-input"
+                   data-context-key="cropX" value="0" min="0">
+          </div>
+          <div>
+            <label for="dac-opt-crop-y" class="dac-label-sm">Top (Y)</label>
+            <input type="number" id="dac-opt-crop-y" class="dac-input dac-context-input"
+                   data-context-key="cropY" value="0" min="0">
+          </div>
+          <div>
+            <label for="dac-opt-crop-w" class="dac-label-sm">Width</label>
+            <input type="number" id="dac-opt-crop-w" class="dac-input dac-context-input"
+                   data-context-key="cropW" placeholder="Full width" min="1">
+          </div>
+          <div>
+            <label for="dac-opt-crop-h" class="dac-label-sm">Height</label>
+            <input type="number" id="dac-opt-crop-h" class="dac-input dac-context-input"
+                   data-context-key="cropH" placeholder="Full height" min="1">
+          </div>
+        </div>
+      </div>` : '';
+
+  const hasOptions = hasQuality || hasMultiOutput || hasResize || hasRotate || hasFlip || hasWatermark || hasCrop;
 
   // ── Supported formats section ─────────────────────────────────────────
   const inputChips = tool.inputFormats
@@ -294,7 +408,19 @@ ${adTop}
 
     <div class="dac-batch-queue" id="dac-batch-queue" hidden aria-label="Selected files"></div>
 
-    ${hasOptions ? `<div class="dac-options" id="dac-options" hidden aria-label="Conversion options">${qualityHtml}${formatHtml}
+    ${hasTextInput ? `
+    <div class="dac-text-input-panel">
+      <label for="dac-text-input" class="dac-label">Or paste a Base64 string or Data URL</label>
+      <textarea id="dac-text-input" class="dac-textarea"
+                placeholder="data:image/png;base64,iVBORw0KGgo..." rows="4"
+                aria-label="Paste base64 encoded image data"></textarea>
+    </div>` : ''}
+
+    ${limitation ? `<div class="dac-limitation-notice" role="note">
+      <strong>ℹ Browser limitation:</strong> ${esc(limitation)}
+    </div>` : ''}
+
+    ${hasOptions ? `<div class="dac-options" id="dac-options" hidden aria-label="Conversion options">${qualityHtml}${formatHtml}${resizeHtml}${rotateHtml}${flipHtml}${watermarkHtml}${cropHtml}
     </div>` : ''}
 
     <div class="dac-controls" id="dac-controls" hidden>
@@ -373,6 +499,7 @@ ${adTop}
 
 ${renderFooter(langCode, config)}
 
+<script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/runtime.js" defer></script>
 </body>
 </html>`;
@@ -391,15 +518,51 @@ function renderCategoryPage(route, seo, data, config) {
   const catName = category.name[langCode] || category.name.en;
   const catDesc = category.description[langCode] || category.description.en;
 
-  const toolCardsHtml = tools.map(t =>
+  // Split tools into conversion and utility groups for cleaner presentation
+  const conversionTools = tools.filter(t => t.uiGroup !== 'utility');
+  const utilityTools    = tools.filter(t => t.uiGroup === 'utility');
+
+  const renderToolCards = (toolList) => toolList.map(t =>
     `<a href="/${langCode}/${t.slug}" class="dac-tool-card">
       <h3 class="dac-tool-card__name">${esc(t.name[langCode] || t.name.en)}</h3>
       <p class="dac-tool-card__tagline">${esc(t.tagline?.[langCode] || t.tagline?.en || '')}</p>
     </a>`
   ).join('\n    ');
 
+  // Category features (if defined in categories.json)
+  const featuresHtml = (category.features || []).map(f =>
+    `<div class="dac-feature">
+      <span class="dac-feature__icon dac-icon--${esc(f.icon)}" aria-hidden="true"></span>
+      <h3 class="dac-feature__title">${esc(f.title[langCode] || f.title.en)}</h3>
+      <p class="dac-feature__desc">${esc(f.description[langCode] || f.description.en)}</p>
+    </div>`
+  ).join('\n      ');
+
+  // Category FAQ (if defined in categories.json)
+  const faqHtml = (category.faq || []).map(item =>
+    `<details class="dac-faq__item">
+      <summary class="dac-faq__question">${esc(item.question[langCode] || item.question.en)}</summary>
+      <div class="dac-faq__answer">${esc(item.answer[langCode] || item.answer.en)}</div>
+    </details>`
+  ).join('\n    ');
+
+  // Related categories (all other categories)
+  const otherCats = data.categories.filter(c => c.id !== category.id);
+  const relatedCatHtml = otherCats.map(c =>
+    `<a href="/${langCode}/${c.slug}" class="dac-related-cat">
+      <span class="dac-related-cat__name">${esc(c.name[langCode] || c.name.en)}</span>
+      <span class="dac-related-cat__desc">${esc(c.description[langCode] || c.description.en)}</span>
+    </a>`
+  ).join('\n      ');
+
   const adTop    = renderAdBlock('top', ads, langCode);
+  const adMiddle = renderAdBlock('middle', ads, langCode);
   const adBottom = renderAdBlock('bottom', ads, langCode);
+
+  const breadcrumbHtml = renderBreadcrumb(seo.breadcrumbs || []);
+  const schemas = (seo.schemas || [])
+    .map(s => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
+    .join('\n');
 
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
@@ -410,19 +573,63 @@ ${renderHead(seo, config)}
 
 ${renderHeader(langCode, category.id, data.categories, config)}
 
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${breadcrumbHtml}
+</nav>
+
 ${adTop}
 
 <main class="dac-main" id="main">
-  <section class="dac-hero">
-    <h1 class="dac-hero__title">${esc(catName)}</h1>
+
+  <!-- Hero -->
+  <section class="dac-hero" aria-labelledby="dac-cat-title">
+    <h1 class="dac-hero__title" id="dac-cat-title">${esc(catName)}</h1>
     <p class="dac-hero__intro">${esc(catDesc)}</p>
+    <p class="dac-privacy-note">${esc(lang?.ui?.privacyNote || 'Your files never leave your device.')}</p>
   </section>
 
-  <section class="dac-tool-grid" aria-label="${esc(catName)}">
-    ${toolCardsHtml || `<p style="color:var(--dac-text-2)">No tools in this category yet.</p>`}
-  </section>
+  <!-- Conversion Tools -->
+  ${conversionTools.length > 0 ? `<section class="dac-tool-section" aria-labelledby="dac-conv-title">
+    <h2 class="dac-section-title" id="dac-conv-title">Format Converters</h2>
+    <div class="dac-tool-grid">
+      ${renderToolCards(conversionTools)}
+    </div>
+  </section>` : ''}
+
+  ${adMiddle}
+
+  <!-- Utility Tools -->
+  ${utilityTools.length > 0 ? `<section class="dac-tool-section" aria-labelledby="dac-util-title">
+    <h2 class="dac-section-title" id="dac-util-title">Image Editing Tools</h2>
+    <div class="dac-tool-grid">
+      ${renderToolCards(utilityTools)}
+    </div>
+  </section>` : ''}
+
+  <!-- Features -->
+  ${featuresHtml ? `<section class="dac-features" aria-labelledby="dac-feat-title">
+    <h2 class="dac-section-title" id="dac-feat-title">${esc(ui.features || 'Features')}</h2>
+    <div class="dac-features__grid">
+      ${featuresHtml}
+    </div>
+  </section>` : ''}
+
+  <!-- FAQ -->
+  ${faqHtml ? `<section class="dac-faq" aria-labelledby="dac-faq-title">
+    <h2 class="dac-section-title" id="dac-faq-title">${esc(ui.faq || 'FAQ')}</h2>
+    ${faqHtml}
+  </section>` : ''}
+
+  <!-- Related Categories -->
+  ${relatedCatHtml ? `<section class="dac-related" aria-labelledby="dac-related-title">
+    <h2 class="dac-section-title" id="dac-related-title">Other Tools</h2>
+    <div class="dac-related__grid">
+      ${relatedCatHtml}
+    </div>
+  </section>` : ''}
 
   ${adBottom}
+
 </main>
 
 ${renderFooter(langCode, config)}
@@ -483,20 +690,36 @@ ${renderFooter(langCode, config)}
 function buildHowToSteps(tool, langCode, ui) {
   const inLabel = inputFormatsLabel(tool);
   const outLabel = outputFormatsLabel(tool);
-  const hasPaste = tool.capabilities.includes('clipboard-paste');
-  const hasBatch = tool.capabilities.includes('batch');
+  const hasPaste   = tool.capabilities.includes('clipboard-paste');
+  const hasBatch   = tool.capabilities.includes('batch');
   const hasQuality = tool.capabilities.includes('quality-control');
+  const hasResize  = tool.capabilities.includes('resize');
+  const hasRotate  = tool.capabilities.includes('rotate');
+  const hasFlip    = tool.capabilities.includes('flip');
+  const hasWmark   = tool.capabilities.includes('watermark');
+  const hasCrop    = tool.capabilities.includes('crop');
+  const hasTextIn  = tool.capabilities.includes('text-input');
 
-  return [
-    `<strong>Upload</strong> your ${inLabel} file${hasBatch ? 's' : ''} by dragging and dropping onto the converter${hasPaste ? ', pasting from clipboard (Ctrl+V),' : ''} or clicking to browse your device.`,
-    ...(hasQuality
-      ? [`<strong>Adjust quality</strong> using the slider. Higher values produce sharper images with larger file sizes — 85 is a good starting point for most uses.`]
-      : []),
-    `<strong>Click "${ui.convertButton}"</strong> to start. Your file${hasBatch ? 's are' : ' is'} converted instantly — entirely in your browser, never uploaded to any server.`,
-    hasBatch && tool.batch.maxFiles > 1
-      ? `<strong>Download</strong> your ${outLabel} file${hasBatch ? 's' : ''}. Multiple files are automatically packaged as a single ZIP for easy download.`
-      : `<strong>Download</strong> your ${outLabel} file directly — no account or sign-up required.`,
+  const uploadStep = hasTextIn
+    ? `<strong>Paste or type</strong> your Base64 string or data URL into the text area below, or drop a <code>.txt</code> file containing the encoded data.`
+    : `<strong>Upload</strong> your ${inLabel} file${hasBatch ? 's' : ''} by dragging and dropping onto the converter${hasPaste ? ', pasting from clipboard (Ctrl+V),' : ''} or clicking to browse your device.`;
+
+  const optionSteps = [
+    ...(hasQuality  ? [`<strong>Adjust quality</strong> using the slider. Higher values produce sharper images with larger file sizes — 85 is a good starting point for most uses.`] : []),
+    ...(hasResize   ? [`<strong>Enter the target dimensions</strong> in pixels. Check "Maintain aspect ratio" to avoid distorting the image — leave one field blank to scale proportionally.`] : []),
+    ...(hasRotate   ? [`<strong>Choose the rotation angle</strong> from the dropdown — 90°, 180°, or 270° clockwise.`] : []),
+    ...(hasFlip     ? [`<strong>Select the flip direction</strong> — horizontal mirrors the image left-to-right, vertical mirrors it top-to-bottom.`] : []),
+    ...(hasWmark    ? [`<strong>Enter your watermark text</strong>, choose a position on the image, and set the opacity level.`] : []),
+    ...(hasCrop     ? [`<strong>Enter the crop coordinates</strong> — X and Y define the top-left corner; Width and Height define the crop size. Leave Width/Height blank to extend to the image edge.`] : []),
   ];
+
+  const convertStep = `<strong>Click "${ui.convertButton}"</strong> to start. Processing happens instantly in your browser — your files are never uploaded to any server.`;
+
+  const downloadStep = hasBatch && tool.batch.maxFiles > 1
+    ? `<strong>Download</strong> your ${outLabel} file${hasBatch ? 's' : ''}. Multiple files are automatically packaged as a single ZIP for easy download.`
+    : `<strong>Download</strong> your ${outLabel} file directly — no account or sign-up required.`;
+
+  return [uploadStep, ...optionSteps, convertStep, downloadStep];
 }
 
 function inputFormatsLabel(tool) {

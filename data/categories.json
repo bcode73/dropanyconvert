@@ -13,15 +13,55 @@
         "pt": "Conversor de Imagens"
       },
       "description": {
-        "en": "Convert, compress, and transform images in your browser. PNG, JPG, WebP, SVG, GIF, and more.",
-        "es": "Convierte, comprime y transforma imágenes en tu navegador. PNG, JPG, WebP, SVG, GIF y más.",
-        "fr": "Convertissez, compressez et transformez des images dans votre navigateur. PNG, JPG, WebP, SVG, GIF et plus encore.",
-        "de": "Konvertiere, komprimiere und transformiere Bilder in deinem Browser. PNG, JPG, WebP, SVG, GIF und mehr.",
-        "pt": "Converta, comprima e transforme imagens no seu navegador. PNG, JPG, WebP, SVG, GIF e muito mais."
+        "en": "Convert, compress, resize, crop, and transform images in your browser. PNG, JPG, WebP, AVIF, SVG, GIF, BMP, TIFF — no upload, no sign-up, 100% private.",
+        "es": "Convierte, comprime, redimensiona, recorta y transforma imágenes en tu navegador. PNG, JPG, WebP, AVIF, SVG, GIF, BMP, TIFF — sin subidas, sin registro, 100% privado.",
+        "fr": "Convertissez, compressez, redimensionnez, recadrez et transformez des images dans votre navigateur. PNG, JPG, WebP, AVIF, SVG, GIF, BMP, TIFF — sans envoi, sans inscription, 100% privé.",
+        "de": "Konvertiere, komprimiere, skaliere, schneide und transformiere Bilder im Browser. PNG, JPG, WebP, AVIF, SVG, GIF, BMP, TIFF — kein Upload, keine Anmeldung, 100% privat.",
+        "pt": "Converta, comprima, redimensione, recorte e transforme imagens no seu navegador. PNG, JPG, WebP, AVIF, SVG, GIF, BMP, TIFF — sem envio, sem cadastro, 100% privado."
       },
       "icon": "image",
       "color": "#6366f1",
-      "order": 1
+      "order": 1,
+      "features": [
+        {
+          "icon": "lock",
+          "title": { "en": "100% Private", "es": "100% Privado", "fr": "100% Privé", "de": "100% Privat", "pt": "100% Privado" },
+          "description": { "en": "Every conversion happens entirely in your browser. Your images never leave your device and are never sent to any server.", "es": "Cada conversión ocurre completamente en tu navegador. Tus imágenes nunca abandonan tu dispositivo.", "fr": "Chaque conversion se fait entièrement dans votre navigateur. Vos images ne quittent jamais votre appareil.", "de": "Jede Konvertierung erfolgt vollständig in deinem Browser. Deine Bilder verlassen dein Gerät nie.", "pt": "Cada conversão acontece inteiramente no seu navegador. Suas imagens nunca saem do seu dispositivo." }
+        },
+        {
+          "icon": "bolt",
+          "title": { "en": "Instant Results", "es": "Resultados Instantáneos", "fr": "Résultats Instantanés", "de": "Sofortige Ergebnisse", "pt": "Resultados Instantâneos" },
+          "description": { "en": "No waiting for uploads or server queues. Conversions run at full GPU speed using the browser's native Canvas API.", "es": "Sin espera de subidas ni colas de servidor. Las conversiones se ejecutan a plena velocidad usando la API Canvas del navegador.", "fr": "Pas d'attente pour les envois ou les files d'attente. Les conversions s'exécutent à pleine vitesse avec l'API Canvas native.", "de": "Kein Warten auf Uploads oder Server-Warteschlangen. Konvertierungen laufen mit voller GPU-Geschwindigkeit über die native Canvas-API.", "pt": "Sem espera por uploads ou filas de servidor. Conversões rodam em plena velocidade usando a API Canvas nativa do navegador." }
+        },
+        {
+          "icon": "stack",
+          "title": { "en": "Batch Processing", "es": "Procesamiento por Lotes", "fr": "Traitement par Lots", "de": "Stapelverarbeitung", "pt": "Processamento em Lote" },
+          "description": { "en": "Convert up to 20 images at once. Multiple outputs are automatically packaged as a ZIP file — one click to download everything.", "es": "Convierte hasta 20 imágenes a la vez. Las salidas múltiples se empaquetan automáticamente como un archivo ZIP.", "fr": "Convertissez jusqu'à 20 images à la fois. Les sorties multiples sont automatiquement empaquetées en ZIP.", "de": "Konvertiere bis zu 20 Bilder auf einmal. Mehrere Ausgaben werden automatisch als ZIP-Datei gepackt.", "pt": "Converta até 20 imagens de uma vez. Múltiplas saídas são automaticamente empacotadas como ZIP." }
+        },
+        {
+          "icon": "mobile",
+          "title": { "en": "Works on Mobile", "es": "Funciona en Móvil", "fr": "Fonctionne sur Mobile", "de": "Funktioniert auf Mobilgeräten", "pt": "Funciona no Celular" },
+          "description": { "en": "Fully optimised for phones and tablets. Drag, drop, tap, or paste from your camera roll — no app download required.", "es": "Completamente optimizado para teléfonos y tabletas. Arrastra, suelta, toca o pega desde tu galería — sin descargar aplicaciones.", "fr": "Entièrement optimisé pour les téléphones et tablettes. Glissez, déposez, appuyez ou collez depuis votre galerie photo.", "de": "Vollständig für Smartphones und Tablets optimiert. Ziehen, ablegen, tippen oder einfügen aus deiner Galerie — keine App nötig.", "pt": "Totalmente otimizado para celulares e tablets. Arraste, solte, toque ou cole da sua galeria — sem download de app." }
+        }
+      ],
+      "faq": [
+        {
+          "question": { "en": "Are my images safe when I convert them here?", "es": "¿Mis imágenes están seguras cuando las convierto aquí?", "fr": "Mes images sont-elles en sécurité lors de la conversion ici?", "de": "Sind meine Bilder sicher, wenn ich sie hier konvertiere?", "pt": "Minhas imagens estão seguras quando as converto aqui?" },
+          "answer": { "en": "Yes, completely. All conversions run inside your browser using the Canvas API. Your images are never uploaded to any server, stored in the cloud, or shared with anyone. Once you close the browser tab, there is no trace left.", "es": "Sí, completamente. Todas las conversiones se ejecutan dentro de tu navegador usando la API Canvas. Tus imágenes nunca se suben a ningún servidor ni se almacenan en la nube.", "fr": "Oui, complètement. Toutes les conversions s'exécutent dans votre navigateur via l'API Canvas. Vos images ne sont jamais envoyées à un serveur ni stockées dans le cloud.", "de": "Ja, vollständig. Alle Konvertierungen laufen in deinem Browser über die Canvas-API. Deine Bilder werden niemals auf einen Server hochgeladen oder in der Cloud gespeichert.", "pt": "Sim, completamente. Todas as conversões são executadas no seu navegador usando a API Canvas. Suas imagens nunca são enviadas para nenhum servidor." }
+        },
+        {
+          "question": { "en": "What image formats are supported?", "es": "¿Qué formatos de imagen son compatibles?", "fr": "Quels formats d'image sont pris en charge?", "de": "Welche Bildformate werden unterstützt?", "pt": "Quais formatos de imagem são suportados?" },
+          "answer": { "en": "We support PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF, and SVG as inputs. Output formats depend on the specific tool — most tools offer JPG, PNG, and WebP output options.", "es": "Admitimos PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF y SVG como entradas. Los formatos de salida dependen de la herramienta específica.", "fr": "Nous prenons en charge PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF et SVG en entrée. Les formats de sortie dépendent de l'outil spécifique.", "de": "Wir unterstützen PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF und SVG als Eingaben. Ausgabeformate hängen vom jeweiligen Tool ab.", "pt": "Suportamos PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF e SVG como entradas. Os formatos de saída dependem da ferramenta específica." }
+        },
+        {
+          "question": { "en": "Is there a file size limit?", "es": "¿Hay un límite de tamaño de archivo?", "fr": "Y a-t-il une limite de taille de fichier?", "de": "Gibt es eine Dateigrößenbegrenzung?", "pt": "Há um limite de tamanho de arquivo?" },
+          "answer": { "en": "There is no enforced file size limit, but very large images (above 30 megapixels) may be rejected to prevent browser memory issues. For best results, keep individual files under 50 MB.", "es": "No hay límite de tamaño de archivo aplicado, pero las imágenes muy grandes (más de 30 megapíxeles) pueden rechazarse para evitar problemas de memoria del navegador.", "fr": "Il n'y a pas de limite de taille de fichier imposée, mais les images très grandes (plus de 30 mégapixels) peuvent être rejetées pour éviter les problèmes de mémoire.", "de": "Es gibt keine erzwungene Dateigrößenbegrenzung, aber sehr große Bilder (über 30 Megapixel) können abgelehnt werden, um Browser-Speicherprobleme zu vermeiden.", "pt": "Não há limite de tamanho de arquivo aplicado, mas imagens muito grandes (acima de 30 megapixels) podem ser rejeitadas para evitar problemas de memória." }
+        },
+        {
+          "question": { "en": "Do I need to create an account?", "es": "¿Necesito crear una cuenta?", "fr": "Dois-je créer un compte?", "de": "Muss ich ein Konto erstellen?", "pt": "Preciso criar uma conta?" },
+          "answer": { "en": "No. All image tools are completely free with no account, sign-up, or payment required. Just open the tool and start converting.", "es": "No. Todas las herramientas de imagen son completamente gratuitas sin necesidad de cuenta, registro ni pago.", "fr": "Non. Tous les outils d'image sont entièrement gratuits sans compte, inscription ou paiement requis.", "de": "Nein. Alle Bildtools sind völlig kostenlos ohne Konto, Anmeldung oder Zahlung.", "pt": "Não. Todas as ferramentas de imagem são completamente gratuitas sem conta, cadastro ou pagamento." }
+        }
+      ]
     },
     {
       "id": "pdf",

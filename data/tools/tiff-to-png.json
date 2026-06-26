@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "tiff-to-png",
+  "slug": "tiff-to-png",
+  "name": {
+    "en": "TIFF to PNG Converter",
+    "es": "Conversor de TIFF a PNG",
+    "fr": "Convertisseur TIFF en PNG",
+    "de": "TIFF zu PNG Konverter",
+    "pt": "Conversor de TIFF para PNG"
+  },
+  "tagline": {
+    "en": "Convert TIFF images to web-ready PNG format.",
+    "es": "Convierte imágenes TIFF al formato PNG listo para web.",
+    "fr": "Convertissez des images TIFF au format PNG prêt pour le web.",
+    "de": "Konvertiere TIFF-Bilder in das webfertige PNG-Format.",
+    "pt": "Converta imagens TIFF para o formato PNG pronto para a web."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToPng",
+  "inputFormats": ["image/tiff"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 512 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "large-files"],
+  "seo": {
+    "primaryKeyword": "tiff to png",
+    "secondaryKeywords": ["convert tiff to png", "tif to png", "tiff png converter", "tiff to png online free"],
+    "title": {
+      "en": "TIFF to PNG Converter — Free Online Tool",
+      "es": "Conversor TIFF a PNG — Herramienta Gratuita Online",
+      "fr": "Convertisseur TIFF en PNG — Outil Gratuit en Ligne",
+      "de": "TIFF zu PNG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor TIFF para PNG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert TIFF to PNG online for free. Share professional TIFF images on the web with compact PNG output — no upload, 100% private.",
+      "es": "Convierte TIFF a PNG online gratis. Comparte imágenes TIFF profesionales en la web con salida PNG compacta — sin subidas, 100% privado.",
+      "fr": "Convertissez TIFF en PNG en ligne gratuitement. Partagez des images TIFF professionnelles sur le web avec une sortie PNG compacte — sans envoi, 100% privé.",
+      "de": "TIFF kostenlos online in PNG konvertieren. Professionelle TIFF-Bilder mit kompakter PNG-Ausgabe im Web teilen — kein Upload, 100% privat.",
+      "pt": "Converta TIFF para PNG online gratuitamente. Compartilhe imagens TIFF profissionais na web com saída PNG compacta — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert TIFF to PNG — Web-Ready in Seconds",
+      "es": "Convierte TIFF a PNG — Listo para Web en Segundos",
+      "fr": "Convertir TIFF en PNG — Prêt pour le Web en Secondes",
+      "de": "TIFF in PNG konvertieren — Webfertig in Sekunden",
+      "pt": "Converter TIFF para PNG — Pronto para a Web em Segundos"
+    },
+    "intro": {
+      "en": "Convert professional TIFF images to compact, web-compatible PNG in seconds. Perfect for photographers and designers who work with high-resolution TIFF files but need to share or publish images online.",
+      "es": "Convierte imágenes TIFF profesionales a PNG compacto y compatible con web en segundos. Perfecto para fotógrafos y diseñadores que trabajan con archivos TIFF de alta resolución.",
+      "fr": "Convertissez des images TIFF professionnelles en PNG compact et compatible web en quelques secondes. Parfait pour les photographes et les designers travaillant avec des fichiers TIFF haute résolution.",
+      "de": "Konvertiere professionelle TIFF-Bilder in Sekunden in kompaktes, webkompatibles PNG. Ideal für Fotografen und Designer, die mit hochauflösenden TIFF-Dateien arbeiten.",
+      "pt": "Converta imagens TIFF profissionais para PNG compacto e compatível com a web em segundos. Perfeito para fotógrafos e designers que trabalham com arquivos TIFF de alta resolução."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Why convert TIFF to PNG?", "es": "¿Por qué convertir TIFF a PNG?", "fr": "Pourquoi convertir TIFF en PNG?", "de": "Warum TIFF in PNG konvertieren?", "pt": "Por que converter TIFF para PNG?" },
+      "answer": { "en": "TIFF files are too large for web use. PNG offers lossless compression that dramatically reduces file size while preserving quality — making it ideal for websites, social media, and email.", "es": "Los archivos TIFF son demasiado grandes para uso web. PNG ofrece compresión sin pérdida que reduce drásticamente el tamaño preservando la calidad.", "fr": "Les fichiers TIFF sont trop volumineux pour le web. PNG offre une compression sans perte qui réduit considérablement la taille tout en préservant la qualité.", "de": "TIFF-Dateien sind für den Web-Einsatz zu groß. PNG bietet verlustfreie Komprimierung, die die Dateigröße drastisch reduziert und dabei die Qualität beibehält.", "pt": "Arquivos TIFF são grandes demais para uso web. PNG oferece compressão sem perdas que reduz drasticamente o tamanho do arquivo preservando a qualidade." }
+    },
+    {
+      "question": { "en": "Is any quality lost when converting TIFF to PNG?", "es": "¿Se pierde calidad al convertir TIFF a PNG?", "fr": "Y a-t-il une perte de qualité lors de la conversion TIFF en PNG?", "de": "Geht Qualität verloren, wenn TIFF in PNG konvertiert wird?", "pt": "Há perda de qualidade ao converter TIFF para PNG?" },
+      "answer": { "en": "No. PNG is lossless, so every pixel is preserved exactly. The visual output is identical to the source TIFF.", "es": "No. PNG es sin pérdida, por lo que cada píxel se preserva exactamente. La salida visual es idéntica al TIFF fuente.", "fr": "Non. PNG est sans perte, donc chaque pixel est exactement préservé. La sortie visuelle est identique au TIFF source.", "de": "Nein. PNG ist verlustfrei, sodass jedes Pixel exakt erhalten bleibt. Die visuelle Ausgabe ist identisch mit dem Quell-TIFF.", "pt": "Não. PNG é sem perdas, então cada pixel é preservado exatamente. A saída visual é idêntica ao TIFF fonte." }
+    },
+    {
+      "question": { "en": "Do browsers support TIFF files?", "es": "¿Los navegadores soportan archivos TIFF?", "fr": "Les navigateurs prennent-ils en charge les fichiers TIFF?", "de": "Unterstützen Browser TIFF-Dateien?", "pt": "Os navegadores suportam arquivos TIFF?" },
+      "answer": { "en": "Most browsers don't display TIFF files directly. This tool uses the browser's image loading capabilities to decode TIFF for conversion. Safari has native TIFF support; other browsers may vary.", "es": "La mayoría de los navegadores no muestran archivos TIFF directamente. Esta herramienta usa las capacidades de carga de imágenes del navegador para decodificar TIFF. Safari tiene soporte nativo.", "fr": "La plupart des navigateurs n'affichent pas les fichiers TIFF directement. Cet outil utilise les capacités de chargement d'images du navigateur pour décoder TIFF. Safari a un support natif.", "de": "Die meisten Browser zeigen TIFF-Dateien nicht direkt an. Dieses Tool nutzt die Bild-Ladefähigkeiten des Browsers zur TIFF-Dekodierung. Safari hat native TIFF-Unterstützung.", "pt": "A maioria dos navegadores não exibe arquivos TIFF diretamente. Esta ferramenta usa as capacidades de carregamento de imagens do navegador para decodificar TIFF. Safari tem suporte nativo." }
+    },
+    {
+      "question": { "en": "Can I batch convert TIFF files to PNG?", "es": "¿Puedo convertir archivos TIFF a PNG en lote?", "fr": "Puis-je convertir des fichiers TIFF en PNG par lot?", "de": "Kann ich TIFF-Dateien stapelweise in PNG konvertieren?", "pt": "Posso converter arquivos TIFF para PNG em lote?" },
+      "answer": { "en": "Yes — up to 20 files at once. All PNG outputs are packaged as a single ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Todas las salidas PNG se empaquetan en una sola descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Toutes les sorties PNG sont packagées dans un seul téléchargement ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Alle PNG-Ausgaben werden in einem einzigen ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Todas as saídas PNG são empacotadas em um único download ZIP." }
+    }
+  ],
+  "relatedTools": ["png-to-tiff", "bmp-to-png", "png-to-jpg", "image-compressor"]
+}

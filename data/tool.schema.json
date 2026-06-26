@@ -103,8 +103,15 @@
         "wasmModule": { "type": "string" },
         "workerScript": { "type": "string" },
         "memoryBudgetMb": { "type": "integer" },
-        "preferOffscreenCanvas": { "type": "boolean" }
+        "preferOffscreenCanvas": { "type": "boolean" },
+        "showVariantPicker": { "type": "boolean" },
+        "limitation": { "type": "string" }
       }
+    },
+    "uiGroup": {
+      "type": "string",
+      "description": "UI rendering group: 'conversion' shows variant picker, 'utility' shows related utilities.",
+      "enum": ["conversion", "utility"]
     },
     "capabilities": {
       "type": "array",
@@ -122,6 +129,11 @@
           "quality-control",
           "resize",
           "crop",
+          "rotate",
+          "flip",
+          "watermark",
+          "text-input",
+          "text-output",
           "future-cloud-support"
         ]
       }

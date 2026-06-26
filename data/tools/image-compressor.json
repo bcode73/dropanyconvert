@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "image-compressor",
+  "slug": "image-compressor",
+  "name": {
+    "en": "Image Compressor",
+    "es": "Compresor de Imágenes",
+    "fr": "Compresseur d'Images",
+    "de": "Bildkompressor",
+    "pt": "Compressor de Imagens"
+  },
+  "tagline": {
+    "en": "Reduce image file size without visible quality loss.",
+    "es": "Reduce el tamaño del archivo de imagen sin pérdida de calidad visible.",
+    "fr": "Réduisez la taille des fichiers image sans perte de qualité visible.",
+    "de": "Bildgröße ohne sichtbaren Qualitätsverlust reduzieren.",
+    "pt": "Reduza o tamanho do arquivo de imagem sem perda de qualidade visível."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToJpg",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp"],
+  "outputFormats": [
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG", "default": true },
+    { "ext": "png", "mime": "image/png", "label": "PNG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "quality-control"],
+  "seo": {
+    "primaryKeyword": "image compressor",
+    "secondaryKeywords": ["compress image online", "reduce image size", "image size reducer", "compress jpg png online free"],
+    "title": {
+      "en": "Image Compressor — Free Online Tool",
+      "es": "Compresor de Imágenes — Herramienta Gratuita Online",
+      "fr": "Compresseur d'Images — Outil Gratuit en Ligne",
+      "de": "Bildkompressor — Kostenloses Online-Tool",
+      "pt": "Compressor de Imagens — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Compress JPG, PNG, and WebP images online for free. Reduce file size without visible quality loss — no upload, 100% private.",
+      "es": "Comprime imágenes JPG, PNG y WebP online gratis. Reduce el tamaño del archivo sin pérdida de calidad visible — sin subidas, 100% privado.",
+      "fr": "Compressez des images JPG, PNG et WebP en ligne gratuitement. Réduisez la taille du fichier sans perte de qualité visible — sans envoi, 100% privé.",
+      "de": "JPG-, PNG- und WebP-Bilder kostenlos online komprimieren. Dateigröße ohne sichtbaren Qualitätsverlust reduzieren — kein Upload, 100% privat.",
+      "pt": "Comprima imagens JPG, PNG e WebP online gratuitamente. Reduza o tamanho do arquivo sem perda de qualidade visível — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Compress Images Online — Smaller Files, Same Quality",
+      "es": "Comprimir Imágenes Online — Archivos Más Pequeños, Misma Calidad",
+      "fr": "Compresser des Images en Ligne — Fichiers Plus Petits, Même Qualité",
+      "de": "Bilder Online Komprimieren — Kleinere Dateien, Gleiche Qualität",
+      "pt": "Comprimir Imagens Online — Arquivos Menores, Mesma Qualidade"
+    },
+    "intro": {
+      "en": "Drag and drop your images to compress them instantly. Control quality with the slider to find the perfect balance between file size and visual fidelity. Supports JPG, PNG, and WebP with batch processing for up to 20 images.",
+      "es": "Arrastra y suelta tus imágenes para comprimirlas al instante. Controla la calidad con el control deslizante para encontrar el equilibrio perfecto entre tamaño de archivo y fidelidad visual.",
+      "fr": "Glissez et déposez vos images pour les compresser instantanément. Contrôlez la qualité avec le curseur pour trouver l'équilibre parfait entre taille de fichier et fidélité visuelle.",
+      "de": "Bilder per Drag & Drop fallen lassen und sofort komprimieren. Qualität mit dem Schieberegler steuern, um die perfekte Balance zwischen Dateigröße und visueller Wiedergabetreue zu finden.",
+      "pt": "Arraste e solte suas imagens para comprimí-las instantaneamente. Controle a qualidade com o controle deslizante para encontrar o equilíbrio perfeito entre tamanho de arquivo e fidelidade visual."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How much can I compress an image?", "es": "¿Cuánto puedo comprimir una imagen?", "fr": "Combien puis-je compresser une image?", "de": "Wie stark kann ich ein Bild komprimieren?", "pt": "Quanto posso comprimir uma imagem?" },
+      "answer": { "en": "Typical JPG images can be reduced by 50–80% at quality 80 with imperceptible loss. PNG compression depends on image content — flat graphics compress significantly more than photographs.", "es": "Las imágenes JPG típicas se pueden reducir un 50–80% con calidad 80 sin pérdida perceptible. La compresión PNG depende del contenido de la imagen.", "fr": "Les images JPG typiques peuvent être réduites de 50 à 80% à une qualité de 80 avec une perte imperceptible. La compression PNG dépend du contenu de l'image.", "de": "Typische JPG-Bilder können bei Qualität 80 um 50–80% reduziert werden mit nicht wahrnehmbarem Verlust. PNG-Komprimierung hängt vom Bildinhalt ab.", "pt": "Imagens JPG típicas podem ser reduzidas 50–80% com qualidade 80 com perda imperceptível. A compressão PNG depende do conteúdo da imagem." }
+    },
+    {
+      "question": { "en": "Which quality setting should I use?", "es": "¿Qué configuración de calidad debo usar?", "fr": "Quel réglage de qualité dois-je utiliser?", "de": "Welche Qualitätseinstellung soll ich verwenden?", "pt": "Qual configuração de qualidade devo usar?" },
+      "answer": { "en": "Quality 80 is the sweet spot for most web images — delivers 50–70% smaller files with no visible degradation. For print or archival use, stay at 90+. For thumbnails and previews, 60–70 is acceptable.", "es": "Calidad 80 es el punto óptimo para la mayoría de imágenes web — entrega archivos 50–70% más pequeños sin degradación visible. Para impresión o archivo, mantente en 90+.", "fr": "La qualité 80 est le bon compromis pour la plupart des images web — fichiers 50 à 70 % plus petits sans dégradation visible. Pour l'impression ou l'archivage, restez à 90+.", "de": "Qualität 80 ist der Sweet Spot für die meisten Web-Bilder — 50–70% kleinere Dateien ohne sichtbare Degradierung. Für Druck oder Archivierung bei 90+ bleiben.", "pt": "Qualidade 80 é o ponto ideal para a maioria das imagens web — entrega arquivos 50–70% menores sem degradação visível. Para impressão ou arquivo, mantenha em 90+." }
+    },
+    {
+      "question": { "en": "Does compressing to PNG lose quality?", "es": "¿Comprimir a PNG pierde calidad?", "fr": "La compression en PNG entraîne-t-elle une perte de qualité?", "de": "Verliert das Komprimieren zu PNG Qualität?", "pt": "Comprimir para PNG perde qualidade?" },
+      "answer": { "en": "No. PNG always uses lossless compression regardless of the quality slider. The slider only affects JPG and WebP output.", "es": "No. PNG siempre usa compresión sin pérdida independientemente del control deslizante de calidad. El control solo afecta la salida JPG y WebP.", "fr": "Non. PNG utilise toujours une compression sans perte quel que soit le curseur de qualité. Le curseur n'affecte que la sortie JPG et WebP.", "de": "Nein. PNG verwendet immer verlustfreie Komprimierung unabhängig vom Qualitätsschieberegler. Der Schieberegler betrifft nur JPG- und WebP-Ausgaben.", "pt": "Não. PNG sempre usa compressão sem perdas independentemente do controle deslizante de qualidade. O controle só afeta a saída JPG e WebP." }
+    },
+    {
+      "question": { "en": "Can I compress multiple images at once?", "es": "¿Puedo comprimir varias imágenes a la vez?", "fr": "Puis-je compresser plusieurs images à la fois?", "de": "Kann ich mehrere Bilder auf einmal komprimieren?", "pt": "Posso comprimir várias imagens de uma vez?" },
+      "answer": { "en": "Yes — up to 20 images at once. All compressed outputs are packaged as a single ZIP download.", "es": "Sí, hasta 20 imágenes a la vez. Todas las salidas comprimidas se empaquetan en una sola descarga ZIP.", "fr": "Oui — jusqu'à 20 images à la fois. Toutes les sorties compressées sont packagées dans un seul téléchargement ZIP.", "de": "Ja — bis zu 20 Bilder auf einmal. Alle komprimierten Ausgaben werden in einem einzigen ZIP-Download verpackt.", "pt": "Sim — até 20 imagens de uma vez. Todas as saídas comprimidas são empacotadas em um único download ZIP." }
+    }
+  ],
+  "relatedTools": ["image-resizer", "png-to-webp", "jpg-to-webp", "png-to-jpg"]
+}

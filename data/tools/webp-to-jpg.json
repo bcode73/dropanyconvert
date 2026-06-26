@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "webp-to-jpg",
+  "slug": "webp-to-jpg",
+  "name": {
+    "en": "WebP to JPG Converter",
+    "es": "Conversor de WebP a JPG",
+    "fr": "Convertisseur WebP en JPG",
+    "de": "WebP zu JPG Konverter",
+    "pt": "Conversor de WebP para JPG"
+  },
+  "tagline": {
+    "en": "Convert WebP images to widely supported JPG format.",
+    "es": "Convierte imágenes WebP al formato JPG ampliamente compatible.",
+    "fr": "Convertissez des images WebP au format JPG largement supporté.",
+    "de": "Konvertiere WebP-Bilder in das weit verbreitete JPG-Format.",
+    "pt": "Converta imagens WebP para o formato JPG amplamente suportado."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToJpg",
+  "inputFormats": ["image/webp"],
+  "outputFormats": [
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "quality-control"],
+  "seo": {
+    "primaryKeyword": "webp to jpg",
+    "secondaryKeywords": ["webp to jpeg", "convert webp to jpg", "webp jpg online", "webp to jpg free"],
+    "title": {
+      "en": "WebP to JPG Converter — Free Online Tool",
+      "es": "Conversor WebP a JPG — Herramienta Gratuita Online",
+      "fr": "Convertisseur WebP en JPG — Outil Gratuit en Ligne",
+      "de": "WebP zu JPG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor WebP para JPG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert WebP to JPG online for free. Get maximum compatibility with smaller JPG files — no upload, 100% private.",
+      "es": "Convierte WebP a JPG online gratis. Obtén máxima compatibilidad con archivos JPG más pequeños — sin subidas, 100% privado.",
+      "fr": "Convertissez WebP en JPG en ligne gratuitement. Compatibilité maximale avec des fichiers JPG plus petits — sans envoi, 100% privé.",
+      "de": "WebP kostenlos online in JPG konvertieren. Maximale Kompatibilität mit kleineren JPG-Dateien — kein Upload, 100% privat.",
+      "pt": "Converta WebP para JPG online gratuitamente. Máxima compatibilidade com arquivos JPG menores — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert WebP to JPG — Fast & Free",
+      "es": "Convierte WebP a JPG — Rápido y Gratis",
+      "fr": "Convertir WebP en JPG — Rapide et Gratuit",
+      "de": "WebP in JPG konvertieren — Schnell & Kostenlos",
+      "pt": "Converter WebP para JPG — Rápido e Gratuito"
+    },
+    "intro": {
+      "en": "Convert WebP images to JPG in seconds. Adjust quality to balance file size and image fidelity. Perfect for sharing photos on platforms that don't accept WebP.",
+      "es": "Convierte imágenes WebP a JPG en segundos. Ajusta la calidad para equilibrar tamaño de archivo y fidelidad. Perfecto para compartir fotos en plataformas que no aceptan WebP.",
+      "fr": "Convertissez des images WebP en JPG en quelques secondes. Ajustez la qualité pour équilibrer taille et fidélité. Parfait pour partager des photos sur des plateformes qui n'acceptent pas WebP.",
+      "de": "Konvertiere WebP-Bilder in Sekunden zu JPG. Qualität anpassen für Balance zwischen Dateigröße und Bildtreue. Ideal zum Teilen von Fotos auf Plattformen, die kein WebP akzeptieren.",
+      "pt": "Converta imagens WebP para JPG em segundos. Ajuste a qualidade para equilibrar tamanho do arquivo e fidelidade. Perfeito para compartilhar fotos em plataformas que não aceitam WebP."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Will converting WebP to JPG reduce quality?", "es": "¿Convertir WebP a JPG reducirá la calidad?", "fr": "La conversion WebP en JPG réduira-t-elle la qualité?", "de": "Verringert die Konvertierung von WebP zu JPG die Qualität?", "pt": "Converter WebP para JPG vai reduzir a qualidade?" },
+      "answer": { "en": "JPG uses lossy compression, so some quality reduction is expected. Use the quality slider to control the trade-off between file size and image fidelity.", "es": "JPG usa compresión con pérdida, por lo que se espera alguna reducción de calidad. Usa el control deslizante de calidad para controlar el equilibrio.", "fr": "JPG utilise une compression avec perte, donc une certaine réduction de qualité est attendue. Utilisez le curseur de qualité pour contrôler le compromis.", "de": "JPG verwendet verlustbehaftete Komprimierung, daher ist eine gewisse Qualitätsminderung zu erwarten. Verwende den Qualitätsschieberegler zur Steuerung.", "pt": "JPG usa compressão com perdas, então alguma redução de qualidade é esperada. Use o controle deslizante de qualidade para controlar o equilíbrio." }
+    },
+    {
+      "question": { "en": "Why would I need WebP to JPG?", "es": "¿Por qué necesitaría WebP a JPG?", "fr": "Pourquoi aurais-je besoin de WebP en JPG?", "de": "Warum würde ich WebP zu JPG brauchen?", "pt": "Por que eu precisaria de WebP para JPG?" },
+      "answer": { "en": "JPG is universally supported by all email clients, social networks, image editors, and operating systems. Convert WebP to JPG for maximum sharing compatibility.", "es": "JPG es compatible con todos los clientes de correo, redes sociales, editores de imágenes y sistemas operativos. Convierte WebP a JPG para máxima compatibilidad.", "fr": "JPG est pris en charge par tous les clients de messagerie, réseaux sociaux, éditeurs d'images et systèmes d'exploitation. Convertissez WebP en JPG pour une compatibilité maximale.", "de": "JPG wird von allen E-Mail-Clients, sozialen Netzwerken, Bild-Editoren und Betriebssystemen unterstützt. Konvertiere WebP zu JPG für maximale Kompatibilität.", "pt": "JPG é universalmente suportado por todos os clientes de email, redes sociais, editores de imagem e sistemas operacionais. Converta WebP para JPG para máxima compatibilidade." }
+    },
+    {
+      "question": { "en": "Does WebP to JPG remove transparency?", "es": "¿WebP a JPG elimina la transparencia?", "fr": "La conversion WebP en JPG supprime-t-elle la transparence?", "de": "Entfernt WebP zu JPG die Transparenz?", "pt": "WebP para JPG remove a transparência?" },
+      "answer": { "en": "Yes. JPG doesn't support transparency. Any transparent areas in your WebP will be replaced with a white background.", "es": "Sí. JPG no admite transparencia. Cualquier área transparente en tu WebP se reemplazará con fondo blanco.", "fr": "Oui. JPG ne prend pas en charge la transparence. Toute zone transparente dans votre WebP sera remplacée par un fond blanc.", "de": "Ja. JPG unterstützt keine Transparenz. Transparente Bereiche in deiner WebP werden durch einen weißen Hintergrund ersetzt.", "pt": "Sim. JPG não suporta transparência. Qualquer área transparente no seu WebP será substituída por fundo branco." }
+    },
+    {
+      "question": { "en": "Can I convert multiple WebP files at once?", "es": "¿Puedo convertir varios archivos WebP a la vez?", "fr": "Puis-je convertir plusieurs fichiers WebP à la fois?", "de": "Kann ich mehrere WebP-Dateien auf einmal konvertieren?", "pt": "Posso converter vários arquivos WebP de uma vez?" },
+      "answer": { "en": "Yes — up to 20 files at once. Multiple results are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Los resultados múltiples se empaquetan como ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Les résultats multiples sont packagés en ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Mehrere Ergebnisse werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Vários resultados são empacotados como ZIP." }
+    }
+  ],
+  "relatedTools": ["jpg-to-png", "webp-to-png", "png-to-webp", "image-compressor"]
+}

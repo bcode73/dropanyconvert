@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "avif-to-png",
+  "slug": "avif-to-png",
+  "name": {
+    "en": "AVIF to PNG Converter",
+    "es": "Conversor de AVIF a PNG",
+    "fr": "Convertisseur AVIF en PNG",
+    "de": "AVIF zu PNG Konverter",
+    "pt": "Conversor de AVIF para PNG"
+  },
+  "tagline": {
+    "en": "Convert AVIF images to universally supported PNG format.",
+    "es": "Convierte imágenes AVIF al formato PNG universalmente compatible.",
+    "fr": "Convertissez des images AVIF au format PNG universellement supporté.",
+    "de": "Konvertiere AVIF-Bilder in das universell unterstützte PNG-Format.",
+    "pt": "Converta imagens AVIF para o formato PNG universalmente suportado."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToPng",
+  "inputFormats": ["image/avif"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "avif to png",
+    "secondaryKeywords": ["convert avif to png", "avif png converter", "avif to png online free", "avif png"],
+    "title": {
+      "en": "AVIF to PNG Converter — Free Online Tool",
+      "es": "Conversor AVIF a PNG — Herramienta Gratuita Online",
+      "fr": "Convertisseur AVIF en PNG — Outil Gratuit en Ligne",
+      "de": "AVIF zu PNG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor AVIF para PNG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert AVIF to PNG online for free. Get universally compatible lossless PNG from modern AVIF files — no upload, 100% private.",
+      "es": "Convierte AVIF a PNG online gratis. Obtén PNG sin pérdida universalmente compatible desde archivos AVIF modernos — sin subidas, 100% privado.",
+      "fr": "Convertissez AVIF en PNG en ligne gratuitement. Obtenez un PNG sans perte universellement compatible depuis des fichiers AVIF modernes — sans envoi, 100% privé.",
+      "de": "AVIF kostenlos online in PNG konvertieren. Universell kompatibles verlustfreies PNG aus modernen AVIF-Dateien — kein Upload, 100% privat.",
+      "pt": "Converta AVIF para PNG online gratuitamente. Obtenha PNG sem perdas universalmente compatível de arquivos AVIF modernos — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert AVIF to PNG — Universal Compatibility",
+      "es": "Convierte AVIF a PNG — Compatibilidad Universal",
+      "fr": "Convertir AVIF en PNG — Compatibilité Universelle",
+      "de": "AVIF in PNG konvertieren — Universelle Kompatibilität",
+      "pt": "Converter AVIF para PNG — Compatibilidade Universal"
+    },
+    "intro": {
+      "en": "Convert AVIF images to PNG for maximum software compatibility. PNG is supported by every image editor, design tool, and operating system — making it the safe choice when you need to work with AVIF content in other applications.",
+      "es": "Convierte imágenes AVIF a PNG para máxima compatibilidad de software. PNG es compatible con todos los editores de imagen, herramientas de diseño y sistemas operativos.",
+      "fr": "Convertissez des images AVIF en PNG pour une compatibilité logicielle maximale. PNG est pris en charge par tous les éditeurs d'images, outils de conception et systèmes d'exploitation.",
+      "de": "Konvertiere AVIF-Bilder zu PNG für maximale Software-Kompatibilität. PNG wird von jedem Bild-Editor, Design-Tool und Betriebssystem unterstützt.",
+      "pt": "Converta imagens AVIF para PNG para máxima compatibilidade de software. PNG é suportado por todos os editores de imagem, ferramentas de design e sistemas operacionais."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Why convert AVIF to PNG?", "es": "¿Por qué convertir AVIF a PNG?", "fr": "Pourquoi convertir AVIF en PNG?", "de": "Warum AVIF in PNG konvertieren?", "pt": "Por que converter AVIF para PNG?" },
+      "answer": { "en": "Many image editors, design tools, and publishing platforms don't yet support AVIF. Converting to PNG ensures your images open everywhere without compatibility issues.", "es": "Muchos editores de imágenes, herramientas de diseño y plataformas de publicación aún no admiten AVIF. Convertir a PNG garantiza que tus imágenes se abran en todas partes.", "fr": "De nombreux éditeurs d'images, outils de conception et plateformes de publication ne prennent pas encore en charge AVIF. La conversion en PNG garantit une ouverture partout.", "de": "Viele Bild-Editoren, Design-Tools und Publishing-Plattformen unterstützen AVIF noch nicht. Die Konvertierung in PNG stellt sicher, dass Bilder überall geöffnet werden können.", "pt": "Muitos editores de imagem, ferramentas de design e plataformas de publicação ainda não suportam AVIF. Converter para PNG garante que suas imagens abram em qualquer lugar." }
+    },
+    {
+      "question": { "en": "Does converting AVIF to PNG increase file size?", "es": "¿Convertir AVIF a PNG aumenta el tamaño del archivo?", "fr": "La conversion AVIF en PNG augmente-t-elle la taille du fichier?", "de": "Erhöht die Konvertierung von AVIF zu PNG die Dateigröße?", "pt": "Converter AVIF para PNG aumenta o tamanho do arquivo?" },
+      "answer": { "en": "Yes. PNG uses lossless compression and is typically larger than AVIF. This is the trade-off for full compatibility and zero additional quality loss.", "es": "Sí. PNG usa compresión sin pérdida y es típicamente más grande que AVIF. Es el costo por compatibilidad total y ninguna pérdida de calidad adicional.", "fr": "Oui. PNG utilise une compression sans perte et est généralement plus grand qu'AVIF. C'est la contrepartie d'une compatibilité totale et d'aucune perte de qualité supplémentaire.", "de": "Ja. PNG verwendet verlustfreie Komprimierung und ist typischerweise größer als AVIF. Das ist der Kompromiss für vollständige Kompatibilität und keinen weiteren Qualitätsverlust.", "pt": "Sim. PNG usa compressão sem perdas e é tipicamente maior que AVIF. Este é o compromisso por compatibilidade total e zero perda de qualidade adicional." }
+    },
+    {
+      "question": { "en": "Is AVIF decoding supported in all browsers?", "es": "¿La decodificación AVIF es compatible con todos los navegadores?", "fr": "Le décodage AVIF est-il pris en charge dans tous les navigateurs?", "de": "Wird AVIF-Dekodierung in allen Browsern unterstützt?", "pt": "A decodificação AVIF é suportada em todos os navegadores?" },
+      "answer": { "en": "Chrome 85+, Firefox 93+, and Safari 16.4+ can decode AVIF. This tool requires your browser to support AVIF decoding to load the source image.", "es": "Chrome 85+, Firefox 93+ y Safari 16.4+ pueden decodificar AVIF. Esta herramienta requiere que tu navegador admita decodificación AVIF para cargar la imagen fuente.", "fr": "Chrome 85+, Firefox 93+ et Safari 16.4+ peuvent décoder AVIF. Cet outil nécessite que votre navigateur prenne en charge le décodage AVIF pour charger l'image source.", "de": "Chrome 85+, Firefox 93+ und Safari 16.4+ können AVIF dekodieren. Dieses Tool erfordert, dass dein Browser AVIF-Dekodierung unterstützt, um das Quellbild zu laden.", "pt": "Chrome 85+, Firefox 93+ e Safari 16.4+ podem decodificar AVIF. Esta ferramenta requer que seu navegador suporte decodificação AVIF para carregar a imagem fonte." }
+    },
+    {
+      "question": { "en": "Can I convert multiple AVIF files at once?", "es": "¿Puedo convertir múltiples archivos AVIF a la vez?", "fr": "Puis-je convertir plusieurs fichiers AVIF à la fois?", "de": "Kann ich mehrere AVIF-Dateien auf einmal konvertieren?", "pt": "Posso converter vários arquivos AVIF de uma vez?" },
+      "answer": { "en": "Yes — up to 20 files at once. All PNG outputs are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Todas las salidas PNG se empaquetan como descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Toutes les sorties PNG sont packagées en ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Alle PNG-Ausgaben werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Todas as saídas PNG são empacotadas como download ZIP." }
+    }
+  ],
+  "relatedTools": ["png-to-avif", "png-to-webp", "webp-to-png", "image-compressor"]
+}

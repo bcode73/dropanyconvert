@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "gif-to-webp",
+  "slug": "gif-to-webp",
+  "name": {
+    "en": "GIF to WebP Converter",
+    "es": "Conversor de GIF a WebP",
+    "fr": "Convertisseur GIF en WebP",
+    "de": "GIF zu WebP Konverter",
+    "pt": "Conversor de GIF para WebP"
+  },
+  "tagline": {
+    "en": "Convert GIF images to compact WebP format.",
+    "es": "Convierte imágenes GIF al compacto formato WebP.",
+    "fr": "Convertissez des images GIF au format WebP compact.",
+    "de": "Konvertiere GIF-Bilder in das kompakte WebP-Format.",
+    "pt": "Converta imagens GIF para o compacto formato WebP."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "gifToWebp",
+  "inputFormats": ["image/gif"],
+  "outputFormats": [
+    { "ext": "webp", "mime": "image/webp", "label": "WebP", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256, "limitation": "Converts the first frame of animated GIFs. Full animation support requires server-side processing." },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "quality-control"],
+  "seo": {
+    "primaryKeyword": "gif to webp",
+    "secondaryKeywords": ["convert gif to webp", "gif webp converter", "gif to webp online free", "gif webp"],
+    "title": {
+      "en": "GIF to WebP Converter — Free Online Tool",
+      "es": "Conversor GIF a WebP — Herramienta Gratuita Online",
+      "fr": "Convertisseur GIF en WebP — Outil Gratuit en Ligne",
+      "de": "GIF zu WebP Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor GIF para WebP — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert GIF to WebP online for free. Extract the first frame as a compact WebP image — no upload, 100% private.",
+      "es": "Convierte GIF a WebP online gratis. Extrae el primer fotograma como imagen WebP compacta — sin subidas, 100% privado.",
+      "fr": "Convertissez GIF en WebP en ligne gratuitement. Extrayez la première image sous forme de WebP compact — sans envoi, 100% privé.",
+      "de": "GIF kostenlos online in WebP konvertieren. Ersten Frame als kompaktes WebP-Bild extrahieren — kein Upload, 100% privat.",
+      "pt": "Converta GIF para WebP online gratuitamente. Extraia o primeiro quadro como uma imagem WebP compacta — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert GIF to WebP — Extract First Frame",
+      "es": "Convierte GIF a WebP — Extrae el Primer Fotograma",
+      "fr": "Convertir GIF en WebP — Extraire la Première Image",
+      "de": "GIF in WebP konvertieren — Ersten Frame extrahieren",
+      "pt": "Converter GIF para WebP — Extrair Primeiro Quadro"
+    },
+    "intro": {
+      "en": "Convert GIF images to WebP format in your browser. This tool extracts the first frame of your GIF and converts it to a compact WebP image. For animated GIFs, the first frame becomes a static WebP image.",
+      "es": "Convierte imágenes GIF a formato WebP en tu navegador. Esta herramienta extrae el primer fotograma de tu GIF y lo convierte a una imagen WebP compacta.",
+      "fr": "Convertissez des images GIF au format WebP dans votre navigateur. Cet outil extrait la première image de votre GIF et la convertit en WebP compact.",
+      "de": "Konvertiere GIF-Bilder im Browser in das WebP-Format. Dieses Tool extrahiert den ersten Frame deines GIFs und konvertiert ihn in ein kompaktes WebP-Bild.",
+      "pt": "Converta imagens GIF para o formato WebP no seu navegador. Esta ferramenta extrai o primeiro quadro do seu GIF e o converte em uma imagem WebP compacta."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Does this convert animated GIFs?", "es": "¿Esto convierte GIFs animados?", "fr": "Cela convertit-il les GIF animés?", "de": "Konvertiert das animierte GIFs?", "pt": "Isso converte GIFs animados?" },
+      "answer": { "en": "This tool converts the first frame of the GIF to a static WebP image. Animated WebP from animated GIF requires server-side FFmpeg processing, which is not available in a browser-only tool.", "es": "Esta herramienta convierte el primer fotograma del GIF a una imagen WebP estática. WebP animado desde GIF animado requiere procesamiento FFmpeg del lado del servidor.", "fr": "Cet outil convertit la première image du GIF en WebP statique. Le WebP animé depuis un GIF animé nécessite un traitement FFmpeg côté serveur.", "de": "Dieses Tool konvertiert den ersten Frame des GIFs in ein statisches WebP-Bild. Animiertes WebP aus animiertem GIF erfordert serverseitiges FFmpeg-Processing.", "pt": "Esta ferramenta converte o primeiro quadro do GIF em uma imagem WebP estática. WebP animado de GIF animado requer processamento FFmpeg do lado do servidor." }
+    },
+    {
+      "question": { "en": "Why convert GIF to WebP?", "es": "¿Por qué convertir GIF a WebP?", "fr": "Pourquoi convertir GIF en WebP?", "de": "Warum GIF in WebP konvertieren?", "pt": "Por que converter GIF para WebP?" },
+      "answer": { "en": "WebP offers better compression than GIF for static images. If you only need the still image from a GIF (e.g., a thumbnail or preview), WebP is a better choice.", "es": "WebP ofrece mejor compresión que GIF para imágenes estáticas. Si solo necesitas la imagen fija de un GIF, WebP es una mejor opción.", "fr": "WebP offre une meilleure compression que GIF pour les images statiques. Si vous n'avez besoin que de l'image fixe d'un GIF, WebP est un meilleur choix.", "de": "WebP bietet bessere Komprimierung als GIF für statische Bilder. Wenn du nur das Standbild eines GIFs benötigst, ist WebP die bessere Wahl.", "pt": "WebP oferece melhor compressão que GIF para imagens estáticas. Se você só precisa da imagem estática de um GIF, WebP é uma escolha melhor." }
+    },
+    {
+      "question": { "en": "Which frame is extracted from the GIF?", "es": "¿Qué fotograma se extrae del GIF?", "fr": "Quelle image est extraite du GIF?", "de": "Welcher Frame wird aus dem GIF extrahiert?", "pt": "Qual quadro é extraído do GIF?" },
+      "answer": { "en": "The first frame (frame 0) is always used. This is typically the first visible image in the animation.", "es": "Siempre se usa el primer fotograma (fotograma 0). Este es típicamente la primera imagen visible en la animación.", "fr": "La première image (image 0) est toujours utilisée. C'est généralement la première image visible dans l'animation.", "de": "Der erste Frame (Frame 0) wird immer verwendet. Das ist typischerweise das erste sichtbare Bild in der Animation.", "pt": "O primeiro quadro (quadro 0) é sempre usado. Este é tipicamente a primeira imagem visível na animação." }
+    },
+    {
+      "question": { "en": "Can I batch convert GIFs to WebP?", "es": "¿Puedo convertir GIFs a WebP en lote?", "fr": "Puis-je convertir des GIFs en WebP par lot?", "de": "Kann ich GIFs stapelweise in WebP konvertieren?", "pt": "Posso converter GIFs para WebP em lote?" },
+      "answer": { "en": "Yes — up to 20 GIF files at once. All WebP outputs are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos GIF a la vez. Todas las salidas WebP se empaquetan como descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers GIF à la fois. Toutes les sorties WebP sont packagées en ZIP.", "de": "Ja — bis zu 20 GIF-Dateien auf einmal. Alle WebP-Ausgaben werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos GIF de uma vez. Todas as saídas WebP são empacotadas como download ZIP." }
+    }
+  ],
+  "relatedTools": ["gif-to-png", "png-to-webp", "jpg-to-webp", "image-compressor"]
+}

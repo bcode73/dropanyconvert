@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "base64-to-image",
+  "slug": "base64-to-image",
+  "name": {
+    "en": "Base64 to Image Decoder",
+    "es": "Decodificador de Base64 a Imagen",
+    "fr": "Décodeur Base64 en Image",
+    "de": "Base64 zu Bild Decoder",
+    "pt": "Decodificador de Base64 para Imagem"
+  },
+  "tagline": {
+    "en": "Decode Base64 data URLs back into downloadable image files.",
+    "es": "Decodifica URLs de datos Base64 de nuevo en archivos de imagen descargables.",
+    "fr": "Décodez les URLs de données Base64 en fichiers image téléchargeables.",
+    "de": "Base64-Daten-URLs in herunterladbare Bilddateien dekodieren.",
+    "pt": "Decodifique URLs de dados Base64 de volta em arquivos de imagem baixáveis."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "base64ToImage",
+  "inputFormats": ["text/plain"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true },
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": false, "maxFiles": 1 },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": true, "memoryBudgetMb": 128 },
+  "capabilities": ["drag-and-drop", "clipboard-paste", "preview", "mobile-supported", "text-input"],
+  "seo": {
+    "primaryKeyword": "base64 to image",
+    "secondaryKeywords": ["decode base64 image", "base64 image decoder", "base64 to jpg png online", "base64 image converter"],
+    "title": {
+      "en": "Base64 to Image Decoder — Free Online Tool",
+      "es": "Decodificador de Base64 a Imagen — Herramienta Gratuita Online",
+      "fr": "Décodeur Base64 en Image — Outil Gratuit en Ligne",
+      "de": "Base64 zu Bild Decoder — Kostenloses Online-Tool",
+      "pt": "Decodificador de Base64 para Imagem — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Decode Base64 image data URLs back to PNG, JPG, or WebP files online for free. Paste the data URI and download the image — no upload, 100% private.",
+      "es": "Decodifica URLs de datos de imagen Base64 a archivos PNG, JPG o WebP online gratis. Pega el URI de datos y descarga la imagen — sin subidas, 100% privado.",
+      "fr": "Décodez les URLs de données d'image Base64 en fichiers PNG, JPG ou WebP en ligne gratuitement. Collez l'URI de données et téléchargez l'image — sans envoi, 100% privé.",
+      "de": "Base64-Bild-Daten-URLs kostenlos online in PNG-, JPG- oder WebP-Dateien dekodieren. Daten-URI einfügen und Bild herunterladen — kein Upload, 100% privat.",
+      "pt": "Decodifique URLs de dados de imagem Base64 para arquivos PNG, JPG ou WebP online gratuitamente. Cole o URI de dados e baixe a imagem — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Decode Base64 to Image — Download as PNG, JPG or WebP",
+      "es": "Decodificar Base64 a Imagen — Descargar como PNG, JPG o WebP",
+      "fr": "Décoder Base64 en Image — Télécharger en PNG, JPG ou WebP",
+      "de": "Base64 zu Bild dekodieren — Als PNG, JPG oder WebP herunterladen",
+      "pt": "Decodificar Base64 para Imagem — Baixar como PNG, JPG ou WebP"
+    },
+    "intro": {
+      "en": "Paste a Base64 data URL or drop a text file containing one, and instantly get a downloadable image file. Supports full data URIs (data:image/...;base64,...) and raw Base64 strings. Output as PNG, JPG, or WebP.",
+      "es": "Pega una URL de datos Base64 o suelta un archivo de texto que contenga una, y obtén instantáneamente un archivo de imagen descargable.",
+      "fr": "Collez une URL de données Base64 ou déposez un fichier texte en contenant une, et obtenez instantanément un fichier image téléchargeable.",
+      "de": "Base64-Daten-URL einfügen oder Textdatei ablegen, und sofort eine herunterladbare Bilddatei erhalten. Vollständige Daten-URIs und rohe Base64-Strings werden unterstützt.",
+      "pt": "Cole uma URL de dados Base64 ou solte um arquivo de texto contendo uma, e obtenha instantaneamente um arquivo de imagem baixável."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What format should I paste the Base64 in?", "es": "¿En qué formato debo pegar el Base64?", "fr": "Dans quel format dois-je coller le Base64?", "de": "In welchem Format soll ich Base64 einfügen?", "pt": "Em que formato devo colar o Base64?" },
+      "answer": { "en": "Either the full data URI (data:image/png;base64,ABC...) or the raw Base64 string without the prefix (ABC...). The tool auto-detects both formats.", "es": "Cualquiera de los dos: el URI de datos completo (data:image/png;base64,ABC...) o la cadena Base64 sin prefijo (ABC...).", "fr": "Soit l'URI de données complet (data:image/png;base64,ABC...) ou la chaîne Base64 brute sans préfixe (ABC...). L'outil détecte automatiquement les deux formats.", "de": "Entweder den vollständigen Daten-URI (data:image/png;base64,ABC...) oder den rohen Base64-String ohne Präfix (ABC...). Das Tool erkennt beide Formate automatisch.", "pt": "Ou o URI de dados completo (data:image/png;base64,ABC...) ou a string Base64 sem prefixo (ABC...). A ferramenta detecta automaticamente ambos os formatos." }
+    },
+    {
+      "question": { "en": "Can I drop a text file instead of pasting?", "es": "¿Puedo soltar un archivo de texto en lugar de pegar?", "fr": "Puis-je déposer un fichier texte au lieu de coller?", "de": "Kann ich eine Textdatei fallen lassen statt einzufügen?", "pt": "Posso soltar um arquivo de texto em vez de colar?" },
+      "answer": { "en": "Yes. Drop a .txt file containing the Base64 string or data URI and the tool will read it automatically.", "es": "Sí. Suelta un archivo .txt que contenga la cadena Base64 o URI de datos y la herramienta lo leerá automáticamente.", "fr": "Oui. Déposez un fichier .txt contenant la chaîne Base64 ou l'URI de données et l'outil le lira automatiquement.", "de": "Ja. Textdatei mit dem Base64-String oder Daten-URI ablegen und das Tool liest sie automatisch.", "pt": "Sim. Solte um arquivo .txt contendo a string Base64 ou URI de dados e a ferramenta o lerá automaticamente." }
+    },
+    {
+      "question": { "en": "What output format should I choose?", "es": "¿Qué formato de salida debo elegir?", "fr": "Quel format de sortie dois-je choisir?", "de": "Welches Ausgabeformat soll ich wählen?", "pt": "Qual formato de saída devo escolher?" },
+      "answer": { "en": "If the data URI specifies the mime type (e.g. data:image/jpeg), use the matching format. If unknown, PNG is safe — it's lossless and widely supported.", "es": "Si el URI de datos especifica el tipo mime (p.ej. data:image/jpeg), usa el formato correspondiente. Si es desconocido, PNG es seguro.", "fr": "Si l'URI de données spécifie le type mime (ex. data:image/jpeg), utilisez le format correspondant. Si inconnu, PNG est sûr.", "de": "Wenn der Daten-URI den MIME-Typ angibt (z.B. data:image/jpeg), das passende Format verwenden. Wenn unbekannt, ist PNG sicher.", "pt": "Se o URI de dados especifica o tipo mime (ex. data:image/jpeg), use o formato correspondente. Se desconhecido, PNG é seguro." }
+    },
+    {
+      "question": { "en": "Is the Base64 data processed securely?", "es": "¿Los datos Base64 se procesan de forma segura?", "fr": "Les données Base64 sont-elles traitées de manière sécurisée?", "de": "Werden Base64-Daten sicher verarbeitet?", "pt": "Os dados Base64 são processados com segurança?" },
+      "answer": { "en": "Yes. All processing happens entirely in your browser. No text or image data is sent to any server at any point.", "es": "Sí. Todo el procesamiento ocurre completamente en tu navegador. Ningún dato de texto o imagen se envía a ningún servidor.", "fr": "Oui. Tout le traitement se déroule entièrement dans votre navigateur. Aucune donnée textuelle ou d'image n'est envoyée à un serveur.", "de": "Ja. Die gesamte Verarbeitung erfolgt vollständig in deinem Browser. Keine Text- oder Bilddaten werden an einen Server gesendet.", "pt": "Sim. Todo o processamento acontece inteiramente no seu navegador. Nenhum dado de texto ou imagem é enviado para nenhum servidor." }
+    }
+  ],
+  "relatedTools": ["image-to-base64", "svg-to-png", "png-to-jpg", "image-compressor"]
+}

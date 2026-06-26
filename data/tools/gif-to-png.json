@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "gif-to-png",
+  "slug": "gif-to-png",
+  "name": {
+    "en": "GIF to PNG Converter",
+    "es": "Conversor de GIF a PNG",
+    "fr": "Convertisseur GIF en PNG",
+    "de": "GIF zu PNG Konverter",
+    "pt": "Conversor de GIF para PNG"
+  },
+  "tagline": {
+    "en": "Extract the first frame of any GIF as a lossless PNG.",
+    "es": "Extrae el primer fotograma de cualquier GIF como PNG sin pérdida.",
+    "fr": "Extrayez la première image de n'importe quel GIF en PNG sans perte.",
+    "de": "Extrahiere den ersten Frame eines GIFs als verlustfreies PNG.",
+    "pt": "Extraia o primeiro quadro de qualquer GIF como PNG sem perdas."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "gifToPng",
+  "inputFormats": ["image/gif"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256, "limitation": "Converts the first frame of animated GIFs only. Full animation frame extraction requires server-side tools." },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "gif to png",
+    "secondaryKeywords": ["convert gif to png", "gif png converter", "gif to png online free", "extract gif frame png"],
+    "title": {
+      "en": "GIF to PNG Converter — Free Online Tool",
+      "es": "Conversor GIF a PNG — Herramienta Gratuita Online",
+      "fr": "Convertisseur GIF en PNG — Outil Gratuit en Ligne",
+      "de": "GIF zu PNG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor GIF para PNG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert GIF to PNG online for free. Extract the first frame as a high-quality lossless PNG — no upload, 100% private.",
+      "es": "Convierte GIF a PNG online gratis. Extrae el primer fotograma como PNG sin pérdida de alta calidad — sin subidas, 100% privado.",
+      "fr": "Convertissez GIF en PNG en ligne gratuitement. Extrayez la première image en PNG sans perte de haute qualité — sans envoi, 100% privé.",
+      "de": "GIF kostenlos online in PNG konvertieren. Ersten Frame als verlustfreies PNG in hoher Qualität extrahieren — kein Upload, 100% privat.",
+      "pt": "Converta GIF para PNG online gratuitamente. Extraia o primeiro quadro como PNG sem perdas de alta qualidade — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert GIF to PNG — Extract First Frame",
+      "es": "Convierte GIF a PNG — Extrae el Primer Fotograma",
+      "fr": "Convertir GIF en PNG — Extraire la Première Image",
+      "de": "GIF in PNG konvertieren — Ersten Frame extrahieren",
+      "pt": "Converter GIF para PNG — Extrair Primeiro Quadro"
+    },
+    "intro": {
+      "en": "Extract any GIF frame as a crisp, lossless PNG. This tool decodes the first frame of your GIF image and saves it as a high-quality PNG — useful for creating thumbnails, preview images, or still shots from animated GIFs.",
+      "es": "Extrae cualquier fotograma de GIF como PNG nítido y sin pérdida. Esta herramienta decodifica el primer fotograma de tu imagen GIF y lo guarda como PNG de alta calidad.",
+      "fr": "Extrayez n'importe quelle image GIF sous forme de PNG net et sans perte. Cet outil décode la première image de votre GIF et la sauvegarde en PNG haute qualité.",
+      "de": "Extrahiere jeden GIF-Frame als scharfes, verlustfreies PNG. Dieses Tool dekodiert den ersten Frame deines GIF-Bildes und speichert ihn als hochwertiges PNG.",
+      "pt": "Extraia qualquer quadro de GIF como PNG nítido e sem perdas. Esta ferramenta decodifica o primeiro quadro da sua imagem GIF e salva como PNG de alta qualidade."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Does this convert all frames of an animated GIF?", "es": "¿Esto convierte todos los fotogramas de un GIF animado?", "fr": "Cela convertit-il toutes les images d'un GIF animé?", "de": "Konvertiert das alle Frames eines animierten GIFs?", "pt": "Isso converte todos os quadros de um GIF animado?" },
+      "answer": { "en": "No — only the first frame is extracted. Full frame-by-frame extraction from animated GIFs is not possible in a browser-only tool. For GIF frame extraction, use a dedicated desktop application.", "es": "No, solo se extrae el primer fotograma. La extracción fotograma a fotograma completa no es posible en una herramienta solo de navegador.", "fr": "Non — seule la première image est extraite. L'extraction image par image complète n'est pas possible dans un outil uniquement basé sur le navigateur.", "de": "Nein — nur der erste Frame wird extrahiert. Vollständige Frame-für-Frame-Extraktion aus animierten GIFs ist in einem browserbasierten Tool nicht möglich.", "pt": "Não — apenas o primeiro quadro é extraído. A extração quadro a quadro completa não é possível em uma ferramenta somente de navegador." }
+    },
+    {
+      "question": { "en": "Does GIF to PNG preserve transparency?", "es": "¿GIF a PNG preserva la transparencia?", "fr": "GIF en PNG préserve-t-il la transparence?", "de": "Behält GIF zu PNG die Transparenz?", "pt": "GIF para PNG preserva a transparência?" },
+      "answer": { "en": "Yes. GIF supports binary (on/off) transparency, and PNG supports full alpha channel. The transparent pixels in your GIF will appear transparent in the PNG output.", "es": "Sí. GIF admite transparencia binaria y PNG admite canal alfa completo. Los píxeles transparentes en tu GIF aparecerán transparentes en la salida PNG.", "fr": "Oui. GIF prend en charge la transparence binaire et PNG le canal alpha complet. Les pixels transparents de votre GIF apparaîtront transparents dans la sortie PNG.", "de": "Ja. GIF unterstützt binäre Transparenz und PNG den vollständigen Alphakanal. Transparente Pixel in deinem GIF erscheinen in der PNG-Ausgabe transparent.", "pt": "Sim. GIF suporta transparência binária e PNG suporta canal alfa completo. Os pixels transparentes no seu GIF aparecerão transparentes na saída PNG." }
+    },
+    {
+      "question": { "en": "Why is PNG better than GIF for static images?", "es": "¿Por qué PNG es mejor que GIF para imágenes estáticas?", "fr": "Pourquoi PNG est-il meilleur que GIF pour les images statiques?", "de": "Warum ist PNG besser als GIF für statische Bilder?", "pt": "Por que PNG é melhor que GIF para imagens estáticas?" },
+      "answer": { "en": "PNG supports full 24-bit color (16 million colors) and alpha channel transparency, while GIF is limited to 256 colors. PNG is smaller, sharper, and higher quality for static content.", "es": "PNG admite color completo de 24 bits (16 millones de colores) y transparencia de canal alfa, mientras que GIF está limitado a 256 colores. PNG es más pequeño y de mayor calidad.", "fr": "PNG prend en charge la couleur 24 bits complète (16 millions de couleurs) et la transparence alpha, tandis que GIF est limité à 256 couleurs. PNG est plus petit et de meilleure qualité.", "de": "PNG unterstützt vollständige 24-Bit-Farbe (16 Millionen Farben) und Alphakanal-Transparenz, während GIF auf 256 Farben beschränkt ist. PNG ist kleiner und qualitativ hochwertiger.", "pt": "PNG suporta cor completa de 24 bits (16 milhões de cores) e transparência de canal alfa, enquanto GIF está limitado a 256 cores. PNG é menor e de maior qualidade." }
+    },
+    {
+      "question": { "en": "Can I batch convert GIF files to PNG?", "es": "¿Puedo convertir archivos GIF a PNG en lote?", "fr": "Puis-je convertir des fichiers GIF en PNG par lot?", "de": "Kann ich GIF-Dateien stapelweise in PNG konvertieren?", "pt": "Posso converter arquivos GIF para PNG em lote?" },
+      "answer": { "en": "Yes — up to 20 files at once. All PNG outputs are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Todas las salidas PNG se empaquetan como descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Toutes les sorties PNG sont packagées en ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Alle PNG-Ausgaben werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Todas as saídas PNG são empacotadas como download ZIP." }
+    }
+  ],
+  "relatedTools": ["gif-to-webp", "png-to-webp", "png-to-jpg", "image-compressor"]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "png-to-svg",
+  "slug": "png-to-svg",
+  "name": {
+    "en": "PNG to SVG Converter",
+    "es": "Conversor de PNG a SVG",
+    "fr": "Convertisseur PNG en SVG",
+    "de": "PNG zu SVG Konverter",
+    "pt": "Conversor de PNG para SVG"
+  },
+  "tagline": {
+    "en": "Embed PNG images in an SVG wrapper for flexible scaling.",
+    "es": "Incrusta imágenes PNG en un contenedor SVG para escala flexible.",
+    "fr": "Intégrez des images PNG dans un conteneur SVG pour une mise à l'échelle flexible.",
+    "de": "Bette PNG-Bilder in einen SVG-Wrapper für flexible Skalierung ein.",
+    "pt": "Incorpore imagens PNG em um wrapper SVG para dimensionamento flexível."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "pngToSvg",
+  "inputFormats": ["image/png"],
+  "outputFormats": [
+    { "ext": "svg", "mime": "image/svg+xml", "label": "SVG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": false, "memoryBudgetMb": 128, "limitation": "This tool embeds the raster PNG inside an SVG container — it does not trace or vectorize the image. For true vectorization, use a dedicated auto-tracing tool." },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "png to svg",
+    "secondaryKeywords": ["convert png to svg", "png svg online", "png to svg free", "embed png svg"],
+    "title": {
+      "en": "PNG to SVG Converter — Free Online Tool",
+      "es": "Conversor PNG a SVG — Herramienta Gratuita Online",
+      "fr": "Convertisseur PNG en SVG — Outil Gratuit en Ligne",
+      "de": "PNG zu SVG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor PNG para SVG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Wrap PNG images in an SVG container online for free. Scale without layout shifts in web and design tools — no upload, 100% private.",
+      "es": "Envuelve imágenes PNG en un contenedor SVG online gratis. Escala sin cambios de diseño en herramientas web y de diseño — sin subidas, 100% privado.",
+      "fr": "Encapsulez des images PNG dans un conteneur SVG en ligne gratuitement. Mise à l'échelle sans décalage de mise en page — sans envoi, 100% privé.",
+      "de": "PNG-Bilder online kostenlos in einen SVG-Container einbetten. Skalierung ohne Layout-Verschiebungen in Web- und Design-Tools — kein Upload, 100% privat.",
+      "pt": "Envolva imagens PNG em um contêiner SVG online gratuitamente. Dimensione sem mudanças de layout em ferramentas web e de design — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert PNG to SVG — Embed Raster in SVG Wrapper",
+      "es": "Convierte PNG a SVG — Incrusta Raster en Contenedor SVG",
+      "fr": "Convertir PNG en SVG — Intégrer le Raster dans un Conteneur SVG",
+      "de": "PNG in SVG konvertieren — Raster in SVG-Wrapper einbetten",
+      "pt": "Converter PNG para SVG — Incorporar Raster em Wrapper SVG"
+    },
+    "intro": {
+      "en": "Embed PNG images inside an SVG container for use in web layouts, design tools, and presentations. Note: this is not vectorization — it creates an SVG that contains the raster PNG as an embedded image, not traced paths.",
+      "es": "Incrusta imágenes PNG dentro de un contenedor SVG para uso en diseños web, herramientas de diseño y presentaciones. Nota: esto no es vectorización — crea un SVG que contiene el PNG raster como imagen incrustada.",
+      "fr": "Intégrez des images PNG dans un conteneur SVG pour une utilisation dans des mises en page web, des outils de conception et des présentations. Remarque : ce n'est pas de la vectorisation.",
+      "de": "PNG-Bilder in einen SVG-Container für Weblayouts, Design-Tools und Präsentationen einbetten. Hinweis: Dies ist keine Vektorisierung — es erstellt ein SVG mit dem Raster-PNG als eingebettetes Bild.",
+      "pt": "Incorpore imagens PNG dentro de um contêiner SVG para uso em layouts web, ferramentas de design e apresentações. Nota: isso não é vectorização — cria um SVG que contém o PNG raster como imagem incorporada."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Does this tool vectorize the PNG?", "es": "¿Esta herramienta vectoriza el PNG?", "fr": "Cet outil vectorise-t-il le PNG?", "de": "Vektorisiert dieses Tool das PNG?", "pt": "Esta ferramenta vectoriza o PNG?" },
+      "answer": { "en": "No. True vectorization (auto-tracing raster pixels into SVG paths) requires complex algorithms not available in a browser. This tool wraps your PNG as a base64-embedded image inside an SVG element.", "es": "No. La vectorización verdadera requiere algoritmos complejos no disponibles en un navegador. Esta herramienta envuelve tu PNG como imagen incrustada en base64 dentro de un elemento SVG.", "fr": "Non. La vraie vectorisation nécessite des algorithmes complexes non disponibles dans un navigateur. Cet outil encapsule votre PNG comme image intégrée en base64 dans un élément SVG.", "de": "Nein. Echte Vektorisierung erfordert komplexe Algorithmen, die im Browser nicht verfügbar sind. Dieses Tool verpackt dein PNG als base64-eingebettetes Bild in einem SVG-Element.", "pt": "Não. A vectorização verdadeira requer algoritmos complexos não disponíveis em um navegador. Esta ferramenta envolve seu PNG como imagem incorporada em base64 dentro de um elemento SVG." }
+    },
+    {
+      "question": { "en": "Why would I use PNG-to-SVG?", "es": "¿Por qué usaría PNG a SVG?", "fr": "Pourquoi utiliser PNG en SVG?", "de": "Warum würde ich PNG-zu-SVG verwenden?", "pt": "Por que eu usaria PNG para SVG?" },
+      "answer": { "en": "Some design tools and web frameworks only accept SVG files. Wrapping a PNG in SVG lets you use it in those contexts while preserving the original image.", "es": "Algunas herramientas de diseño y frameworks web solo aceptan archivos SVG. Envolver un PNG en SVG te permite usarlo en esos contextos.", "fr": "Certains outils de conception et frameworks web n'acceptent que les fichiers SVG. Encapsuler un PNG en SVG vous permet de l'utiliser dans ces contextes.", "de": "Einige Design-Tools und Web-Frameworks akzeptieren nur SVG-Dateien. PNG in SVG einzuwickeln ermöglicht die Verwendung in diesen Kontexten.", "pt": "Algumas ferramentas de design e frameworks web só aceitam arquivos SVG. Envolver um PNG em SVG permite usá-lo nesses contextos." }
+    },
+    {
+      "question": { "en": "Does the SVG scale without quality loss?", "es": "¿El SVG se escala sin pérdida de calidad?", "fr": "Le SVG se met-il à l'échelle sans perte de qualité?", "de": "Skaliert das SVG ohne Qualitätsverlust?", "pt": "O SVG escala sem perda de qualidade?" },
+      "answer": { "en": "The SVG container itself scales, but the embedded PNG is still a raster image. Scaling above the original resolution will result in the PNG appearing pixelated.", "es": "El contenedor SVG escala, pero el PNG incrustado sigue siendo una imagen raster. Escalar por encima de la resolución original hará que el PNG se vea pixelado.", "fr": "Le conteneur SVG lui-même se met à l'échelle, mais le PNG intégré reste une image raster. Une mise à l'échelle au-delà de la résolution originale rendra le PNG pixelisé.", "de": "Der SVG-Container selbst skaliert, aber das eingebettete PNG bleibt ein Rasterbild. Eine Skalierung über die Originalauflösung hinaus führt zu Pixelierung.", "pt": "O contêiner SVG em si escala, mas o PNG incorporado ainda é uma imagem raster. Escalar acima da resolução original resultará em pixelização." }
+    },
+    {
+      "question": { "en": "Can I convert multiple PNGs to SVG at once?", "es": "¿Puedo convertir múltiples PNG a SVG a la vez?", "fr": "Puis-je convertir plusieurs PNG en SVG à la fois?", "de": "Kann ich mehrere PNGs auf einmal in SVG konvertieren?", "pt": "Posso converter vários PNGs para SVG de uma vez?" },
+      "answer": { "en": "Yes — up to 20 files at once. All SVG outputs are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Todas las salidas SVG se empaquetan como descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Toutes les sorties SVG sont packagées en ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Alle SVG-Ausgaben werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Todas as saídas SVG são empacotadas como download ZIP." }
+    }
+  ],
+  "relatedTools": ["svg-to-png", "png-to-webp", "image-resizer", "png-to-jpg"]
+}

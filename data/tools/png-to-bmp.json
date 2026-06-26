@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "png-to-bmp",
+  "slug": "png-to-bmp",
+  "name": {
+    "en": "PNG to BMP Converter",
+    "es": "Conversor de PNG a BMP",
+    "fr": "Convertisseur PNG en BMP",
+    "de": "PNG zu BMP Konverter",
+    "pt": "Conversor de PNG para BMP"
+  },
+  "tagline": {
+    "en": "Convert PNG images to uncompressed BMP format.",
+    "es": "Convierte imágenes PNG al formato BMP sin comprimir.",
+    "fr": "Convertissez des images PNG au format BMP non compressé.",
+    "de": "Konvertiere PNG-Bilder in das unkomprimierte BMP-Format.",
+    "pt": "Converta imagens PNG para o formato BMP não comprimido."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToBmp",
+  "inputFormats": ["image/png"],
+  "outputFormats": [
+    { "ext": "bmp", "mime": "image/bmp", "label": "BMP", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "png to bmp",
+    "secondaryKeywords": ["convert png to bmp", "png bmp converter", "png to bmp online free", "bmp converter"],
+    "title": {
+      "en": "PNG to BMP Converter — Free Online Tool",
+      "es": "Conversor PNG a BMP — Herramienta Gratuita Online",
+      "fr": "Convertisseur PNG en BMP — Outil Gratuit en Ligne",
+      "de": "PNG zu BMP Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor PNG para BMP — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert PNG to BMP online for free. Get uncompressed BMP output compatible with legacy software — no upload, 100% private.",
+      "es": "Convierte PNG a BMP online gratis. Obtén salida BMP sin comprimir compatible con software heredado — sin subidas, 100% privado.",
+      "fr": "Convertissez PNG en BMP en ligne gratuitement. Obtenez une sortie BMP non compressée compatible avec les logiciels hérités — sans envoi, 100% privé.",
+      "de": "PNG kostenlos online in BMP konvertieren. Unkomprimierte BMP-Ausgabe kompatibel mit Legacy-Software — kein Upload, 100% privat.",
+      "pt": "Converta PNG para BMP online gratuitamente. Saída BMP não comprimida compatível com software legado — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert PNG to BMP — Legacy Format Compatibility",
+      "es": "Convierte PNG a BMP — Compatibilidad con Formato Heredado",
+      "fr": "Convertir PNG en BMP — Compatibilité Format Héritage",
+      "de": "PNG in BMP konvertieren — Kompatibilität mit Legacy-Formaten",
+      "pt": "Converter PNG para BMP — Compatibilidade com Formato Legado"
+    },
+    "intro": {
+      "en": "Convert PNG images to BMP format for use with older software, embedded systems, or Windows applications that require uncompressed bitmap files.",
+      "es": "Convierte imágenes PNG a formato BMP para uso con software antiguo, sistemas embebidos o aplicaciones Windows que requieren archivos de mapa de bits sin comprimir.",
+      "fr": "Convertissez des images PNG en BMP pour une utilisation avec des logiciels anciens, des systèmes embarqués ou des applications Windows nécessitant des fichiers bitmap non compressés.",
+      "de": "Konvertiere PNG-Bilder in das BMP-Format für ältere Software, eingebettete Systeme oder Windows-Anwendungen, die unkomprimierte Bitmap-Dateien benötigen.",
+      "pt": "Converta imagens PNG para o formato BMP para uso com software antigo, sistemas embarcados ou aplicativos Windows que requerem arquivos bitmap não comprimidos."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What is BMP format?", "es": "¿Qué es el formato BMP?", "fr": "Qu'est-ce que le format BMP?", "de": "Was ist das BMP-Format?", "pt": "O que é o formato BMP?" },
+      "answer": { "en": "BMP (Bitmap) is an uncompressed raster image format developed by Microsoft. It stores raw pixel data with no compression, making it lossless but large in file size.", "es": "BMP (Bitmap) es un formato de imagen rasterizada sin comprimir desarrollado por Microsoft. Almacena datos de píxeles brutos sin compresión, siendo sin pérdida pero grande en tamaño.", "fr": "BMP (Bitmap) est un format d'image raster non compressé développé par Microsoft. Il stocke des données de pixels brutes sans compression, sans perte mais volumineux.", "de": "BMP (Bitmap) ist ein unkomprimiertes Raster-Bildformat von Microsoft. Es speichert rohe Pixeldaten ohne Komprimierung — verlustfrei aber groß in der Dateigröße.", "pt": "BMP (Bitmap) é um formato de imagem raster não comprimido desenvolvido pela Microsoft. Armazena dados de pixels brutos sem compressão, sendo sem perdas mas grande em tamanho." }
+    },
+    {
+      "question": { "en": "Why would I need PNG to BMP?", "es": "¿Por qué necesitaría PNG a BMP?", "fr": "Pourquoi aurais-je besoin de PNG en BMP?", "de": "Warum würde ich PNG zu BMP brauchen?", "pt": "Por que eu precisaria de PNG para BMP?" },
+      "answer": { "en": "BMP is required by some legacy Windows applications, embedded systems, microcontroller projects, and older design tools that don't accept PNG.", "es": "BMP es requerido por algunas aplicaciones Windows heredadas, sistemas embebidos, proyectos de microcontroladores y herramientas de diseño antiguas que no aceptan PNG.", "fr": "BMP est requis par certaines applications Windows héritées, systèmes embarqués, projets de microcontrôleurs et anciens outils de conception qui n'acceptent pas PNG.", "de": "BMP wird von einigen Legacy-Windows-Anwendungen, eingebetteten Systemen, Mikrocontroller-Projekten und älteren Design-Tools benötigt, die kein PNG akzeptieren.", "pt": "BMP é exigido por alguns aplicativos Windows legados, sistemas embarcados, projetos de microcontroladores e ferramentas de design antigas que não aceitam PNG." }
+    },
+    {
+      "question": { "en": "Will BMP files be larger than PNG?", "es": "¿Serán los archivos BMP más grandes que PNG?", "fr": "Les fichiers BMP seront-ils plus grands que PNG?", "de": "Werden BMP-Dateien größer als PNG sein?", "pt": "Os arquivos BMP serão maiores que PNG?" },
+      "answer": { "en": "Yes. BMP stores pixels uncompressed, so files are typically 3–10× larger than the equivalent PNG. Only use BMP when specifically required.", "es": "Sí. BMP almacena píxeles sin comprimir, por lo que los archivos son típicamente 3–10× más grandes que el PNG equivalente.", "fr": "Oui. BMP stocke les pixels sans compression, donc les fichiers sont généralement 3 à 10 fois plus grands que le PNG équivalent.", "de": "Ja. BMP speichert Pixel unkomprimiert, daher sind Dateien typischerweise 3–10× größer als das äquivalente PNG.", "pt": "Sim. BMP armazena pixels sem compressão, então os arquivos são tipicamente 3–10× maiores que o PNG equivalente." }
+    },
+    {
+      "question": { "en": "How is the BMP file generated in the browser?", "es": "¿Cómo se genera el archivo BMP en el navegador?", "fr": "Comment le fichier BMP est-il généré dans le navigateur?", "de": "Wie wird die BMP-Datei im Browser generiert?", "pt": "Como o arquivo BMP é gerado no navegador?" },
+      "answer": { "en": "The browser's Canvas API doesn't natively export BMP. Our tool includes a pure JavaScript BMP writer that constructs the binary file header and pixel data from scratch, fully client-side.", "es": "La API Canvas del navegador no exporta BMP nativamente. Nuestra herramienta incluye un escritor BMP en JavaScript puro que construye el encabezado binario y los datos de píxeles desde cero.", "fr": "L'API Canvas du navigateur n'exporte pas BMP nativement. Notre outil inclut un écrivain BMP en JavaScript pur qui construit l'en-tête binaire et les données de pixels depuis zéro.", "de": "Die Canvas-API des Browsers exportiert kein BMP nativ. Unser Tool enthält einen reinen JavaScript-BMP-Writer, der den Binär-Header und die Pixeldaten von Grund auf erstellt.", "pt": "A API Canvas do navegador não exporta BMP nativamente. Nossa ferramenta inclui um escritor BMP em JavaScript puro que constrói o cabeçalho binário e dados de pixels do zero." }
+    }
+  ],
+  "relatedTools": ["bmp-to-png", "png-to-tiff", "png-to-jpg", "jpg-to-png"]
+}

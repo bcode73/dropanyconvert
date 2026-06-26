@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "webp-to-png",
+  "slug": "webp-to-png",
+  "name": {
+    "en": "WebP to PNG Converter",
+    "es": "Conversor de WebP a PNG",
+    "fr": "Convertisseur WebP en PNG",
+    "de": "WebP zu PNG Konverter",
+    "pt": "Conversor de WebP para PNG"
+  },
+  "tagline": {
+    "en": "Convert WebP images to universally compatible PNG.",
+    "es": "Convierte imágenes WebP a PNG universalmente compatible.",
+    "fr": "Convertissez des images WebP en PNG universellement compatible.",
+    "de": "Konvertiere WebP-Bilder in universell kompatibles PNG.",
+    "pt": "Converta imagens WebP para PNG universalmente compatível."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToPng",
+  "inputFormats": ["image/webp"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "webp to png",
+    "secondaryKeywords": ["convert webp to png", "webp png converter", "webp to png online free", "webp png"],
+    "title": {
+      "en": "WebP to PNG Converter — Free Online Tool",
+      "es": "Conversor WebP a PNG — Herramienta Gratuita Online",
+      "fr": "Convertisseur WebP en PNG — Outil Gratuit en Ligne",
+      "de": "WebP zu PNG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor WebP para PNG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert WebP to PNG online for free. Get maximum compatibility with lossless PNG output — no upload, 100% private.",
+      "es": "Convierte WebP a PNG online gratis. Obtén máxima compatibilidad con salida PNG sin pérdida — sin subidas, 100% privado.",
+      "fr": "Convertissez WebP en PNG en ligne gratuitement. Obtenez une compatibilité maximale avec une sortie PNG sans perte — sans envoi, 100% privé.",
+      "de": "WebP kostenlos online in PNG konvertieren. Maximale Kompatibilität mit verlustfreier PNG-Ausgabe — kein Upload, 100% privat.",
+      "pt": "Converta WebP para PNG online gratuitamente. Obtenha máxima compatibilidade com saída PNG sem perdas — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert WebP to PNG — Maximum Compatibility",
+      "es": "Convierte WebP a PNG — Máxima Compatibilidad",
+      "fr": "Convertir WebP en PNG — Compatibilité Maximale",
+      "de": "WebP in PNG konvertieren — Maximale Kompatibilität",
+      "pt": "Converter WebP para PNG — Compatibilidade Máxima"
+    },
+    "intro": {
+      "en": "Drop your WebP files and get universally compatible PNG images instantly. Perfect when you need to share images with tools, apps, or people that don't support WebP yet.",
+      "es": "Suelta tus archivos WebP y obtén imágenes PNG universalmente compatibles al instante. Perfecto cuando necesitas compartir imágenes con herramientas que aún no soportan WebP.",
+      "fr": "Déposez vos fichiers WebP et obtenez des images PNG universellement compatibles instantanément. Parfait pour partager des images avec des outils qui ne prennent pas encore en charge WebP.",
+      "de": "Lade deine WebP-Dateien per Drag & Drop und erhalte sofort universell kompatible PNG-Bilder. Ideal, wenn du Bilder mit Tools teilen musst, die WebP noch nicht unterstützen.",
+      "pt": "Solte seus arquivos WebP e obtenha imagens PNG universalmente compatíveis instantaneamente. Perfeito para compartilhar imagens com ferramentas que ainda não suportam WebP."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Why convert WebP to PNG?", "es": "¿Por qué convertir WebP a PNG?", "fr": "Pourquoi convertir WebP en PNG?", "de": "Warum WebP in PNG konvertieren?", "pt": "Por que converter WebP para PNG?" },
+      "answer": { "en": "Some older apps, design tools, and image editors don't support WebP. Converting to PNG gives you maximum compatibility with any software.", "es": "Algunas aplicaciones antiguas, herramientas de diseño y editores de imágenes no soportan WebP. Convertir a PNG ofrece máxima compatibilidad con cualquier software.", "fr": "Certaines applications plus anciennes, outils de conception et éditeurs d'images ne prennent pas en charge WebP. La conversion en PNG offre une compatibilité maximale.", "de": "Einige ältere Apps, Design-Tools und Bild-Editoren unterstützen WebP nicht. Die Konvertierung in PNG bietet maximale Kompatibilität mit jeder Software.", "pt": "Alguns aplicativos mais antigos, ferramentas de design e editores de imagem não suportam WebP. Converter para PNG oferece máxima compatibilidade com qualquer software." }
+    },
+    {
+      "question": { "en": "Is PNG quality better than WebP?", "es": "¿Es la calidad de PNG mejor que WebP?", "fr": "La qualité PNG est-elle meilleure que WebP?", "de": "Ist PNG-Qualität besser als WebP?", "pt": "A qualidade do PNG é melhor que WebP?" },
+      "answer": { "en": "PNG is lossless, so converting from WebP to PNG will produce a high-quality output — but won't restore any quality that was lost when the original was saved as WebP.", "es": "PNG es sin pérdida, por lo que convertir de WebP a PNG producirá una salida de alta calidad, aunque no restaurará calidad perdida al guardar como WebP.", "fr": "PNG est sans perte, donc la conversion de WebP en PNG produira une sortie de haute qualité — mais ne restaurera pas la qualité perdue lors de l'enregistrement en WebP.", "de": "PNG ist verlustfrei, also produziert die Konvertierung von WebP zu PNG eine hochwertige Ausgabe — stellt aber keine Qualität wieder her, die beim Speichern als WebP verloren ging.", "pt": "PNG é sem perdas, então converter de WebP para PNG produzirá saída de alta qualidade — mas não restaurará qualidade perdida ao salvar como WebP." }
+    },
+    {
+      "question": { "en": "Are my files safe during conversion?", "es": "¿Mis archivos están seguros durante la conversión?", "fr": "Mes fichiers sont-ils sécurisés pendant la conversion?", "de": "Sind meine Dateien während der Konvertierung sicher?", "pt": "Meus arquivos estão seguros durante a conversão?" },
+      "answer": { "en": "Yes. All conversion happens inside your browser using the Canvas API. Your files never leave your device.", "es": "Sí. Toda la conversión ocurre dentro de tu navegador usando la API Canvas. Tus archivos nunca abandonan tu dispositivo.", "fr": "Oui. Toute la conversion se déroule dans votre navigateur via l'API Canvas. Vos fichiers ne quittent jamais votre appareil.", "de": "Ja. Die gesamte Konvertierung erfolgt in deinem Browser über die Canvas-API. Deine Dateien verlassen nie dein Gerät.", "pt": "Sim. Toda a conversão acontece no seu navegador usando a API Canvas. Seus arquivos nunca saem do seu dispositivo." }
+    },
+    {
+      "question": { "en": "Can I convert multiple WebP files at once?", "es": "¿Puedo convertir varios archivos WebP a la vez?", "fr": "Puis-je convertir plusieurs fichiers WebP à la fois?", "de": "Kann ich mehrere WebP-Dateien auf einmal konvertieren?", "pt": "Posso converter vários arquivos WebP de uma vez?" },
+      "answer": { "en": "Yes — up to 20 files at once. All results are packaged in a single ZIP download.", "es": "Sí, hasta 20 archivos a la vez. Todos los resultados se empaquetan en una sola descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers à la fois. Tous les résultats sont packagés dans un seul téléchargement ZIP.", "de": "Ja — bis zu 20 Dateien auf einmal. Alle Ergebnisse werden in einem einzigen ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos de uma vez. Todos os resultados são empacotados em um único download ZIP." }
+    }
+  ],
+  "relatedTools": ["png-to-webp", "webp-to-jpg", "jpg-to-png", "image-compressor"]
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "image-watermark",
+  "slug": "image-watermark",
+  "name": {
+    "en": "Image Watermark Tool",
+    "es": "Herramienta de Marca de Agua para Imágenes",
+    "fr": "Outil Filigrane pour Images",
+    "de": "Bild-Wasserzeichen-Tool",
+    "pt": "Ferramenta de Marca d'Água para Imagens"
+  },
+  "tagline": {
+    "en": "Add custom text watermarks to images in your browser.",
+    "es": "Añade marcas de agua de texto personalizadas a imágenes en tu navegador.",
+    "fr": "Ajoutez des filigranes textuels personnalisés aux images dans votre navigateur.",
+    "de": "Eigene Text-Wasserzeichen zu Bildern im Browser hinzufügen.",
+    "pt": "Adicione marcas d'água de texto personalizadas a imagens no seu navegador."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "watermarkImage",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp", "image/bmp"],
+  "outputFormats": [
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG", "default": true },
+    { "ext": "png", "mime": "image/png", "label": "PNG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "watermark", "quality-control"],
+  "seo": {
+    "primaryKeyword": "add watermark to image",
+    "secondaryKeywords": ["image watermark tool", "watermark photo online free", "text watermark online", "add text to image online"],
+    "title": {
+      "en": "Add Watermark to Image — Free Online Tool",
+      "es": "Añadir Marca de Agua a Imagen — Herramienta Gratuita Online",
+      "fr": "Ajouter Filigrane à une Image — Outil Gratuit en Ligne",
+      "de": "Wasserzeichen zu Bild Hinzufügen — Kostenloses Online-Tool",
+      "pt": "Adicionar Marca d'Água à Imagem — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Add custom text watermarks to images online for free. Choose position, opacity, and font size — no upload, 100% private.",
+      "es": "Añade marcas de agua de texto a imágenes online gratis. Elige posición, opacidad y tamaño de fuente — sin subidas, 100% privado.",
+      "fr": "Ajoutez des filigranes textuels aux images en ligne gratuitement. Choisissez la position, l'opacité et la taille de police — sans envoi, 100% privé.",
+      "de": "Text-Wasserzeichen kostenlos online zu Bildern hinzufügen. Position, Deckkraft und Schriftgröße wählen — kein Upload, 100% privat.",
+      "pt": "Adicione marcas d'água de texto a imagens online gratuitamente. Escolha posição, opacidade e tamanho de fonte — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Add Watermark to Images Online — Text Watermark Tool",
+      "es": "Añadir Marca de Agua a Imágenes Online — Herramienta de Marca de Agua de Texto",
+      "fr": "Ajouter Filigrane aux Images en Ligne — Outil Filigrane Texte",
+      "de": "Wasserzeichen Online zu Bildern Hinzufügen — Text-Wasserzeichen-Tool",
+      "pt": "Adicionar Marca d'Água às Imagens Online — Ferramenta de Marca d'Água de Texto"
+    },
+    "intro": {
+      "en": "Protect your photos by adding a custom text watermark directly in your browser. Choose the watermark text, position (corner or center), opacity, and output format. Batch watermark up to 20 images at once.",
+      "es": "Protege tus fotos añadiendo una marca de agua de texto personalizada directamente en tu navegador. Elige el texto, posición, opacidad y formato de salida. Marca en lote hasta 20 imágenes.",
+      "fr": "Protégez vos photos en ajoutant un filigrane textuel personnalisé directement dans votre navigateur. Choisissez le texte, la position, l'opacité et le format de sortie.",
+      "de": "Fotos durch Hinzufügen eines benutzerdefinierten Text-Wasserzeichens direkt im Browser schützen. Wasserzeichentext, Position, Deckkraft und Ausgabeformat wählen.",
+      "pt": "Proteja suas fotos adicionando uma marca d'água de texto personalizada diretamente no seu navegador. Escolha o texto, posição, opacidade e formato de saída."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What text can I use as a watermark?", "es": "¿Qué texto puedo usar como marca de agua?", "fr": "Quel texte puis-je utiliser comme filigrane?", "de": "Welchen Text kann ich als Wasserzeichen verwenden?", "pt": "Que texto posso usar como marca d'água?" },
+      "answer": { "en": "Any text — your name, website URL, copyright notice (e.g. © 2024 YourName), or custom message. The text is rendered in white with a shadow for visibility against any background.", "es": "Cualquier texto: tu nombre, URL del sitio web, aviso de derechos de autor (p.ej. © 2024 TuNombre) o mensaje personalizado.", "fr": "N'importe quel texte — votre nom, URL de site web, mention de droits d'auteur (ex. © 2024 VotreNom) ou message personnalisé.", "de": "Beliebiger Text — Name, Website-URL, Copyright-Hinweis (z.B. © 2024 DeinName) oder benutzerdefinierte Nachricht.", "pt": "Qualquer texto — seu nome, URL do site, aviso de direitos autorais (ex. © 2024 SeuNome) ou mensagem personalizada." }
+    },
+    {
+      "question": { "en": "Where is the watermark placed?", "es": "¿Dónde se coloca la marca de agua?", "fr": "Où est placé le filigrane?", "de": "Wo wird das Wasserzeichen platziert?", "pt": "Onde a marca d'água é colocada?" },
+      "answer": { "en": "Choose from bottom-right, bottom-left, top-right, top-left, or center. Bottom-right is the most common choice for photography watermarks.", "es": "Elige entre esquina inferior derecha, inferior izquierda, superior derecha, superior izquierda o centro.", "fr": "Choisissez parmi en bas à droite, en bas à gauche, en haut à droite, en haut à gauche ou au centre.", "de": "Aus unten-rechts, unten-links, oben-rechts, oben-links oder Mitte wählen.", "pt": "Escolha entre canto inferior direito, inferior esquerdo, superior direito, superior esquerdo ou centro." }
+    },
+    {
+      "question": { "en": "Can I control watermark transparency?", "es": "¿Puedo controlar la transparencia de la marca de agua?", "fr": "Puis-je contrôler la transparence du filigrane?", "de": "Kann ich die Transparenz des Wasserzeichens steuern?", "pt": "Posso controlar a transparência da marca d'água?" },
+      "answer": { "en": "Yes. The opacity slider lets you set transparency from 10% (nearly invisible) to 100% (fully opaque). A value around 40–60% is typical for subtle watermarks.", "es": "Sí. El control deslizante de opacidad permite establecer transparencia del 10% (casi invisible) al 100% (completamente opaco).", "fr": "Oui. Le curseur d'opacité vous permet de régler la transparence de 10% (presque invisible) à 100% (totalement opaque).", "de": "Ja. Der Deckkraft-Schieberegler erlaubt Transparenz von 10% (fast unsichtbar) bis 100% (vollständig undurchsichtig).", "pt": "Sim. O controle deslizante de opacidade permite definir transparência de 10% (quase invisível) a 100% (totalmente opaco)." }
+    },
+    {
+      "question": { "en": "Can I watermark multiple images at once?", "es": "¿Puedo añadir marca de agua a varias imágenes a la vez?", "fr": "Puis-je mettre un filigrane sur plusieurs images à la fois?", "de": "Kann ich mehrere Bilder auf einmal mit Wasserzeichen versehen?", "pt": "Posso adicionar marca d'água a várias imagens de uma vez?" },
+      "answer": { "en": "Yes — up to 20 images at once. All images receive the same watermark text and settings, and outputs are packaged as a ZIP download.", "es": "Sí, hasta 20 imágenes a la vez. Todas las imágenes reciben el mismo texto de marca de agua y configuración, y las salidas se empaquetan como ZIP.", "fr": "Oui — jusqu'à 20 images à la fois. Toutes les images reçoivent le même filigrane et les sorties sont packagées en ZIP.", "de": "Ja — bis zu 20 Bilder auf einmal. Alle Bilder erhalten dasselbe Wasserzeichen und dieselben Einstellungen, Ausgaben werden als ZIP verpackt.", "pt": "Sim — até 20 imagens de uma vez. Todas as imagens recebem o mesmo texto de marca d'água e configurações, e as saídas são empacotadas como ZIP." }
+    }
+  ],
+  "relatedTools": ["image-resizer", "image-compressor", "image-rotate", "png-to-jpg"]
+}

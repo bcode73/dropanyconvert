@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "svg-to-png",
+  "slug": "svg-to-png",
+  "name": {
+    "en": "SVG to PNG Converter",
+    "es": "Conversor de SVG a PNG",
+    "fr": "Convertisseur SVG en PNG",
+    "de": "SVG zu PNG Konverter",
+    "pt": "Conversor de SVG para PNG"
+  },
+  "tagline": {
+    "en": "Rasterize SVG vector graphics to PNG at any resolution.",
+    "es": "Rasteriza gráficos vectoriales SVG a PNG en cualquier resolución.",
+    "fr": "Rastérisez des graphiques vectoriels SVG en PNG à n'importe quelle résolution.",
+    "de": "Rastere SVG-Vektorgrafiken in beliebiger Auflösung zu PNG.",
+    "pt": "Rasterize gráficos vetoriais SVG para PNG em qualquer resolução."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "svgToPng",
+  "inputFormats": ["image/svg+xml"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "svg to png",
+    "secondaryKeywords": ["convert svg to png", "svg png converter", "svg to png online free", "rasterize svg"],
+    "title": {
+      "en": "SVG to PNG Converter — Free Online Tool",
+      "es": "Conversor SVG a PNG — Herramienta Gratuita Online",
+      "fr": "Convertisseur SVG en PNG — Outil Gratuit en Ligne",
+      "de": "SVG zu PNG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor SVG para PNG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert SVG to PNG online for free. Rasterize vector graphics to pixel-perfect PNG at the original resolution — no upload, 100% private.",
+      "es": "Convierte SVG a PNG online gratis. Rasteriza gráficos vectoriales a PNG perfecto en píxeles a la resolución original — sin subidas, 100% privado.",
+      "fr": "Convertissez SVG en PNG en ligne gratuitement. Rastérisez des graphiques vectoriels en PNG parfait au pixel à la résolution originale — sans envoi, 100% privé.",
+      "de": "SVG kostenlos online in PNG konvertieren. Vektorgrafiken in pixelgenaues PNG in Originalauflösung rastern — kein Upload, 100% privat.",
+      "pt": "Converta SVG para PNG online gratuitamente. Rasterize gráficos vetoriais para PNG perfeito em pixels na resolução original — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert SVG to PNG — Rasterize Vector Graphics",
+      "es": "Convierte SVG a PNG — Rasteriza Gráficos Vectoriales",
+      "fr": "Convertir SVG en PNG — Rastériser les Graphiques Vectoriels",
+      "de": "SVG in PNG konvertieren — Vektorgrafiken rastern",
+      "pt": "Converter SVG para PNG — Rasterizar Gráficos Vetoriais"
+    },
+    "intro": {
+      "en": "Convert SVG vector files to PNG raster images. Ideal for sharing logos, icons, or illustrations with apps and platforms that don't support SVG. Renders at the SVG's native viewBox dimensions.",
+      "es": "Convierte archivos SVG vectoriales a imágenes PNG raster. Ideal para compartir logos, iconos o ilustraciones con apps que no soportan SVG. Renderiza en las dimensiones nativas del SVG.",
+      "fr": "Convertissez des fichiers SVG vectoriels en images PNG raster. Idéal pour partager des logos, icônes ou illustrations avec des applications ne prenant pas en charge SVG.",
+      "de": "Konvertiere SVG-Vektordateien in PNG-Rasterbilder. Ideal zum Teilen von Logos, Icons oder Illustrationen mit Apps, die kein SVG unterstützen.",
+      "pt": "Converta arquivos SVG vetoriais para imagens PNG raster. Ideal para compartilhar logos, ícones ou ilustrações com apps que não suportam SVG."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What resolution is the PNG output?", "es": "¿Qué resolución tiene la salida PNG?", "fr": "Quelle est la résolution de la sortie PNG?", "de": "Welche Auflösung hat die PNG-Ausgabe?", "pt": "Qual é a resolução da saída PNG?" },
+      "answer": { "en": "The output PNG uses the dimensions defined in the SVG's viewBox or width/height attributes. If the SVG has no explicit dimensions, a default of 800×600 is used.", "es": "El PNG de salida usa las dimensiones definidas en el viewBox o atributos width/height del SVG. Si el SVG no tiene dimensiones explícitas, se usa un valor predeterminado de 800×600.", "fr": "Le PNG de sortie utilise les dimensions définies dans le viewBox ou les attributs width/height du SVG. Sans dimensions explicites, une valeur par défaut de 800×600 est utilisée.", "de": "Das Ausgabe-PNG verwendet die im viewBox oder den width/height-Attributen des SVG definierten Abmessungen. Ohne explizite Abmessungen wird 800×600 als Standard verwendet.", "pt": "O PNG de saída usa as dimensões definidas no viewBox ou atributos width/height do SVG. Se o SVG não tiver dimensões explícitas, um padrão de 800×600 é usado." }
+    },
+    {
+      "question": { "en": "Does SVG to PNG support transparency?", "es": "¿SVG a PNG soporta transparencia?", "fr": "SVG en PNG supporte-t-il la transparence?", "de": "Unterstützt SVG zu PNG Transparenz?", "pt": "SVG para PNG suporta transparência?" },
+      "answer": { "en": "Yes. PNG supports alpha channel transparency. If your SVG has transparent areas, they are preserved in the PNG output.", "es": "Sí. PNG admite transparencia de canal alfa. Si tu SVG tiene áreas transparentes, se conservan en la salida PNG.", "fr": "Oui. PNG prend en charge la transparence du canal alpha. Si votre SVG a des zones transparentes, elles sont préservées dans la sortie PNG.", "de": "Ja. PNG unterstützt Alphakanal-Transparenz. Wenn dein SVG transparente Bereiche hat, werden sie in der PNG-Ausgabe beibehalten.", "pt": "Sim. PNG suporta transparência de canal alfa. Se seu SVG tiver áreas transparentes, elas são preservadas na saída PNG." }
+    },
+    {
+      "question": { "en": "Will my SVG fonts and effects render correctly?", "es": "¿Las fuentes y efectos de mi SVG se renderizarán correctamente?", "fr": "Les polices et effets de mon SVG seront-ils rendus correctement?", "de": "Werden meine SVG-Schriften und Effekte korrekt gerendert?", "pt": "As fontes e efeitos do meu SVG serão renderizados corretamente?" },
+      "answer": { "en": "SVG rendering uses the browser's native engine, so results depend on what your browser supports. Custom fonts embedded as data URIs render correctly. System fonts must be installed on your device.", "es": "El renderizado SVG usa el motor nativo del navegador, por lo que los resultados dependen de lo que admite tu navegador. Las fuentes personalizadas incrustadas como URIs de datos se renderizan correctamente.", "fr": "Le rendu SVG utilise le moteur natif du navigateur, donc les résultats dépendent de ce que votre navigateur prend en charge. Les polices personnalisées intégrées en tant qu'URI de données se rendent correctement.", "de": "SVG-Rendering verwendet die native Browser-Engine, daher hängen die Ergebnisse von der Browser-Unterstützung ab. Als Daten-URIs eingebettete benutzerdefinierte Schriften werden korrekt gerendert.", "pt": "A renderização SVG usa o motor nativo do navegador, portanto os resultados dependem do que seu navegador suporta. Fontes personalizadas incorporadas como URIs de dados são renderizadas corretamente." }
+    },
+    {
+      "question": { "en": "Can I convert multiple SVG files to PNG at once?", "es": "¿Puedo convertir múltiples archivos SVG a PNG a la vez?", "fr": "Puis-je convertir plusieurs fichiers SVG en PNG à la fois?", "de": "Kann ich mehrere SVG-Dateien auf einmal in PNG konvertieren?", "pt": "Posso converter vários arquivos SVG para PNG de uma vez?" },
+      "answer": { "en": "Yes — up to 20 SVG files at once. All PNG outputs are packaged as a ZIP download.", "es": "Sí, hasta 20 archivos SVG a la vez. Todas las salidas PNG se empaquetan como descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers SVG à la fois. Toutes les sorties PNG sont packagées en ZIP.", "de": "Ja — bis zu 20 SVG-Dateien auf einmal. Alle PNG-Ausgaben werden als ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos SVG de uma vez. Todas as saídas PNG são empacotadas como download ZIP." }
+    }
+  ],
+  "relatedTools": ["png-to-svg", "png-to-webp", "image-resizer", "png-to-jpg"]
+}

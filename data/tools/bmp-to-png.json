@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "bmp-to-png",
+  "slug": "bmp-to-png",
+  "name": {
+    "en": "BMP to PNG Converter",
+    "es": "Conversor de BMP a PNG",
+    "fr": "Convertisseur BMP en PNG",
+    "de": "BMP zu PNG Konverter",
+    "pt": "Conversor de BMP para PNG"
+  },
+  "tagline": {
+    "en": "Convert BMP files to compressed, web-ready PNG.",
+    "es": "Convierte archivos BMP a PNG comprimido y listo para web.",
+    "fr": "Convertissez des fichiers BMP en PNG compressé prêt pour le web.",
+    "de": "Konvertiere BMP-Dateien in komprimiertes, webfertiges PNG.",
+    "pt": "Converta arquivos BMP para PNG comprimido e pronto para a web."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToPng",
+  "inputFormats": ["image/bmp"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "bmp to png",
+    "secondaryKeywords": ["convert bmp to png", "bmp png converter", "bmp to png online free", "bmp png free"],
+    "title": {
+      "en": "BMP to PNG Converter — Free Online Tool",
+      "es": "Conversor BMP a PNG — Herramienta Gratuita Online",
+      "fr": "Convertisseur BMP en PNG — Outil Gratuit en Ligne",
+      "de": "BMP zu PNG Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor BMP para PNG — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert BMP to PNG online for free. Shrink large BMP files with lossless PNG compression — no upload, 100% private.",
+      "es": "Convierte BMP a PNG online gratis. Reduce archivos BMP grandes con compresión PNG sin pérdida — sin subidas, 100% privado.",
+      "fr": "Convertissez BMP en PNG en ligne gratuitement. Réduisez les grands fichiers BMP avec la compression PNG sans perte — sans envoi, 100% privé.",
+      "de": "BMP kostenlos online in PNG konvertieren. Große BMP-Dateien mit verlustfreier PNG-Komprimierung verkleinern — kein Upload, 100% privat.",
+      "pt": "Converta BMP para PNG online gratuitamente. Reduza grandes arquivos BMP com compressão PNG sem perdas — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert BMP to PNG — Lossless Compression",
+      "es": "Convierte BMP a PNG — Compresión Sin Pérdida",
+      "fr": "Convertir BMP en PNG — Compression Sans Perte",
+      "de": "BMP in PNG konvertieren — Verlustfreie Komprimierung",
+      "pt": "Converter BMP para PNG — Compressão Sem Perdas"
+    },
+    "intro": {
+      "en": "Convert large BMP files to efficient PNG format in seconds. PNG delivers the same pixel-perfect quality as BMP but at a fraction of the file size — perfect for web, sharing, and storage.",
+      "es": "Convierte grandes archivos BMP al eficiente formato PNG en segundos. PNG entrega la misma calidad perfecta en píxeles que BMP pero a una fracción del tamaño.",
+      "fr": "Convertissez de grands fichiers BMP en PNG efficace en quelques secondes. PNG offre la même qualité parfaite au pixel que BMP mais à une fraction de la taille.",
+      "de": "Konvertiere große BMP-Dateien in Sekunden in das effiziente PNG-Format. PNG liefert die gleiche pixelgenaue Qualität wie BMP, aber bei einem Bruchteil der Dateigröße.",
+      "pt": "Converta grandes arquivos BMP para o eficiente formato PNG em segundos. PNG entrega a mesma qualidade perfeita em pixels que BMP, mas a uma fração do tamanho."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How much smaller is PNG compared to BMP?", "es": "¿Cuánto más pequeño es PNG comparado con BMP?", "fr": "PNG est-il beaucoup plus petit que BMP?", "de": "Wie viel kleiner ist PNG im Vergleich zu BMP?", "pt": "Quanto menor é o PNG comparado ao BMP?" },
+      "answer": { "en": "PNG with lossless compression is typically 3–10× smaller than the equivalent BMP, depending on image content. Images with flat colors compress especially well.", "es": "PNG con compresión sin pérdida es típicamente 3–10× más pequeño que el BMP equivalente, dependiendo del contenido de la imagen.", "fr": "PNG avec compression sans perte est généralement 3 à 10 fois plus petit que le BMP équivalent, selon le contenu de l'image.", "de": "PNG mit verlustfreier Komprimierung ist typischerweise 3–10× kleiner als das äquivalente BMP, abhängig vom Bildinhalt.", "pt": "PNG com compressão sem perdas é tipicamente 3–10× menor que o BMP equivalente, dependendo do conteúdo da imagem." }
+    },
+    {
+      "question": { "en": "Is quality preserved when converting BMP to PNG?", "es": "¿Se conserva la calidad al convertir BMP a PNG?", "fr": "La qualité est-elle préservée lors de la conversion BMP en PNG?", "de": "Wird die Qualität bei der Konvertierung von BMP zu PNG erhalten?", "pt": "A qualidade é preservada ao converter BMP para PNG?" },
+      "answer": { "en": "Yes, completely. PNG uses lossless compression, so every pixel is preserved exactly. The output is visually identical to the input BMP.", "es": "Sí, completamente. PNG usa compresión sin pérdida, por lo que cada píxel se preserva exactamente. La salida es visualmente idéntica al BMP de entrada.", "fr": "Oui, complètement. PNG utilise une compression sans perte, donc chaque pixel est préservé exactement. La sortie est visuellement identique au BMP d'entrée.", "de": "Ja, vollständig. PNG verwendet verlustfreie Komprimierung, sodass jedes Pixel exakt erhalten bleibt. Die Ausgabe ist visuell identisch mit dem Eingabe-BMP.", "pt": "Sim, completamente. PNG usa compressão sem perdas, então cada pixel é preservado exatamente. A saída é visualmente idêntica ao BMP de entrada." }
+    },
+    {
+      "question": { "en": "Are my BMP files secure during conversion?", "es": "¿Mis archivos BMP están seguros durante la conversión?", "fr": "Mes fichiers BMP sont-ils sécurisés pendant la conversion?", "de": "Sind meine BMP-Dateien während der Konvertierung sicher?", "pt": "Meus arquivos BMP estão seguros durante a conversão?" },
+      "answer": { "en": "Yes. Everything happens inside your browser — no files are uploaded to any server. Your data stays on your device.", "es": "Sí. Todo ocurre dentro de tu navegador — ningún archivo se sube a ningún servidor. Tus datos permanecen en tu dispositivo.", "fr": "Oui. Tout se passe dans votre navigateur — aucun fichier n'est envoyé à un serveur. Vos données restent sur votre appareil.", "de": "Ja. Alles passiert in deinem Browser — keine Dateien werden auf einen Server hochgeladen. Deine Daten bleiben auf deinem Gerät.", "pt": "Sim. Tudo acontece dentro do seu navegador — nenhum arquivo é enviado para nenhum servidor. Seus dados ficam no seu dispositivo." }
+    },
+    {
+      "question": { "en": "Can I batch convert BMP files to PNG?", "es": "¿Puedo convertir archivos BMP a PNG en lote?", "fr": "Puis-je convertir des fichiers BMP en PNG par lot?", "de": "Kann ich BMP-Dateien stapelweise in PNG konvertieren?", "pt": "Posso converter arquivos BMP para PNG em lote?" },
+      "answer": { "en": "Yes — up to 20 BMP files at once. Results are packaged in a single ZIP download.", "es": "Sí, hasta 20 archivos BMP a la vez. Los resultados se empaquetan en una sola descarga ZIP.", "fr": "Oui — jusqu'à 20 fichiers BMP à la fois. Les résultats sont packagés dans un seul téléchargement ZIP.", "de": "Ja — bis zu 20 BMP-Dateien auf einmal. Ergebnisse werden in einem einzigen ZIP-Download verpackt.", "pt": "Sim — até 20 arquivos BMP de uma vez. Os resultados são empacotados em um único download ZIP." }
+    }
+  ],
+  "relatedTools": ["png-to-bmp", "tiff-to-png", "png-to-jpg", "jpg-to-png"]
+}

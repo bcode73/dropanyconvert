@@ -1,27 +1,183 @@
 {
-  "timestamp": "2026-06-26T19:51:17.860Z",
-  "elapsed_ms": 111,
-  "tools": 1,
+  "timestamp": "2026-06-26T20:49:53.916Z",
+  "elapsed_ms": 384,
+  "tools": 24,
   "languages": 5,
-  "routes": 41,
-  "pages_generated": 41,
+  "routes": 156,
+  "pages_generated": 156,
   "sitemaps_generated": 6,
-  "files_emitted": 54,
-  "output_size_kb": 251,
-  "warnings": [
-    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"jpg-to-png\"",
-    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"png-to-webp\"",
-    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"image-compressor\"",
-    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"webp-to-jpg\""
-  ],
+  "files_emitted": 169,
+  "output_size_kb": 2340,
+  "warnings": [],
   "errors": [],
   "toolList": [
+    {
+      "id": "avif-to-png",
+      "slug": "avif-to-png",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "avif to png"
+    },
+    {
+      "id": "base64-to-image",
+      "slug": "base64-to-image",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "base64 to image"
+    },
+    {
+      "id": "bmp-to-png",
+      "slug": "bmp-to-png",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "bmp to png"
+    },
+    {
+      "id": "gif-to-png",
+      "slug": "gif-to-png",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "gif to png"
+    },
+    {
+      "id": "gif-to-webp",
+      "slug": "gif-to-webp",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "gif to webp"
+    },
+    {
+      "id": "image-compressor",
+      "slug": "image-compressor",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "image compressor"
+    },
+    {
+      "id": "image-crop",
+      "slug": "image-crop",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "crop image online"
+    },
+    {
+      "id": "image-flip",
+      "slug": "image-flip",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "flip image online"
+    },
+    {
+      "id": "image-resizer",
+      "slug": "image-resizer",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "image resizer"
+    },
+    {
+      "id": "image-rotate",
+      "slug": "image-rotate",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "rotate image online"
+    },
+    {
+      "id": "image-to-base64",
+      "slug": "image-to-base64",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "image to base64"
+    },
+    {
+      "id": "image-watermark",
+      "slug": "image-watermark",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "add watermark to image"
+    },
+    {
+      "id": "jpg-to-png",
+      "slug": "jpg-to-png",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "jpg to png"
+    },
+    {
+      "id": "jpg-to-webp",
+      "slug": "jpg-to-webp",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "jpg to webp"
+    },
+    {
+      "id": "png-to-avif",
+      "slug": "png-to-avif",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "png to avif"
+    },
+    {
+      "id": "png-to-bmp",
+      "slug": "png-to-bmp",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "png to bmp"
+    },
     {
       "id": "png-to-jpg",
       "slug": "png-to-jpg",
       "category": "image",
       "runtime": "browser",
       "primaryKeyword": "png to jpg"
+    },
+    {
+      "id": "png-to-svg",
+      "slug": "png-to-svg",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "png to svg"
+    },
+    {
+      "id": "png-to-tiff",
+      "slug": "png-to-tiff",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "png to tiff"
+    },
+    {
+      "id": "png-to-webp",
+      "slug": "png-to-webp",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "png to webp"
+    },
+    {
+      "id": "svg-to-png",
+      "slug": "svg-to-png",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "svg to png"
+    },
+    {
+      "id": "tiff-to-png",
+      "slug": "tiff-to-png",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "tiff to png"
+    },
+    {
+      "id": "webp-to-jpg",
+      "slug": "webp-to-jpg",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "webp to jpg"
+    },
+    {
+      "id": "webp-to-png",
+      "slug": "webp-to-png",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "webp to png"
     }
   ]
 }

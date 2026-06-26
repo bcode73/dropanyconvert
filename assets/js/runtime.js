@@ -29,6 +29,8 @@
   const qualityInput  = $('dac-quality');
   const qualityOutput = $('dac-quality-output');
   const formatSelect  = $('dac-output-format');
+  const textInputEl   = $('dac-text-input');       // base64-to-image textarea
+  const wmOpacityOut  = $('dac-wm-opacity-out');   // watermark opacity display
 
   const engineName = dropzone.dataset.engine;
   const engineFn   = dropzone.dataset.engineFn;
@@ -96,12 +98,27 @@
   if (qualityInput && qualityOutput) {
     function updateQualitySlider() {
       qualityOutput.value = qualityInput.value;
-      // Keep CSS track gradient in sync with the thumb position
       const pct = ((qualityInput.value - qualityInput.min) / (qualityInput.max - qualityInput.min)) * 100;
       qualityInput.style.setProperty('--pct', pct + '%');
     }
     qualityInput.addEventListener('input', updateQualitySlider);
-    updateQualitySlider(); // sync on boot
+    updateQualitySlider();
+  }
+
+  // ── Watermark opacity display ─────────────────────────────────────────────
+
+  const wmOpacitySlider = document.getElementById('dac-opt-wm-opacity');
+  if (wmOpacitySlider && wmOpacityOut) {
+    wmOpacitySlider.addEventListener('input', () => { wmOpacityOut.value = wmOpacitySlider.value; });
+  }
+
+  // ── Text input (base64 textarea) — treat as synthetic File on convert ─────
+
+  if (textInputEl) {
+    // Show controls when textarea has content (no file needed)
+    textInputEl.addEventListener('input', () => {
+      if (textInputEl.value.trim()) syncUI(true);
+    });
   }
 
   // ── File Handling ─────────────────────────────────────────────────────────
@@ -193,8 +210,8 @@
 
   // ── UI State Sync ─────────────────────────────────────────────────────────
 
-  function syncUI() {
-    const hasFiles = selectedFiles.length > 0;
+  function syncUI(forceReady) {
+    const hasFiles = selectedFiles.length > 0 || forceReady;
     if (controls)     controls.hidden = !hasFiles || isConverting;
     if (optionsPanel) optionsPanel.hidden = !hasFiles || isConverting;
     if (results && !hasFiles) { results.hidden = true; results.innerHTML = ''; }
@@ -216,6 +233,12 @@
   });
 
   async function runConversion() {
+    // Support text-input mode: create a synthetic File from the textarea
+    if (!selectedFiles.length && textInputEl?.value.trim()) {
+      const text = textInputEl.value.trim();
+      const syntheticFile = new File([text], 'input.txt', { type: 'text/plain' });
+      selectedFiles = [syntheticFile];
+    }
     if (!selectedFiles.length || isConverting) return;
 
     isConverting = true;
@@ -236,11 +259,10 @@
 
       let completed = 0;
       const context = {
-        toolId: dropzone.dataset.toolId,
+        toolId,
         quality: qualityInput ? parseInt(qualityInput.value, 10) : 85,
         outputFormat: formatSelect ? formatSelect.value : null,
         onProgress(pct) {
-          // pct = 0–100 for the current file, remap to 5–95 overall
           const overall = 5 + Math.round((pct / 100) * 90);
           setProgress(overall, `Converting ${completed + 1} of ${selectedFiles.length}…`);
           if (pct === 100) {
@@ -249,6 +271,15 @@
           }
         },
       };
+
+      // Collect generic context inputs — covers resize, rotate, flip, crop, watermark, etc.
+      document.querySelectorAll('.dac-context-input').forEach(el => {
+        const key = el.dataset.contextKey;
+        if (!key) return;
+        if (el.type === 'radio')     { if (el.checked) context[key] = el.value; }
+        else if (el.type === 'checkbox') { context[key] = el.checked; }
+        else if (el.value !== '')    { context[key] = el.value; }
+      });
 
       const result = await mod[engineFn]([...selectedFiles], context);
 
@@ -272,7 +303,7 @@
 
   // ── Results ───────────────────────────────────────────────────────────────
 
-  function renderResults(outputs, errors) {
+  async function renderResults(outputs, errors) {
     if (!results) return;
     results.hidden = false;
 
@@ -290,7 +321,19 @@
         }</p>
       </div>`;
 
-      if (outputs.length === 1) {
+      // Text-output mode: show copyable textarea instead of download link
+      if (outputs.length === 1 && outputs[0].blob.type === 'text/plain') {
+        const out = outputs[0];
+        const text = await out.blob.text();
+        const safeText = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        html += `<div class="dac-text-output">
+          <div class="dac-text-output__header">
+            <span class="dac-text-output__label">Output</span>
+            <button class="dac-btn dac-btn--ghost dac-text-output__copy" type="button">Copy</button>
+          </div>
+          <textarea class="dac-textarea dac-text-output__area" readonly rows="8">${safeText}</textarea>
+        </div>`;
+      } else if (outputs.length === 1) {
         const out = outputs[0];
         const url = URL.createObjectURL(out.blob);
         downloadUrls.push(url);
@@ -328,6 +371,24 @@
     }
 
     results.innerHTML = html;
+
+    // Wire text-output copy button
+    const copyBtn = results.querySelector('.dac-text-output__copy');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const area = results.querySelector('.dac-text-output__area');
+        if (!area) return;
+        navigator.clipboard?.writeText(area.value).then(() => {
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(() => {
+          area.select();
+          document.execCommand('copy');
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
+        });
+      });
+    }
 
     // Wire ZIP button
     const zipBtn = document.getElementById('dac-zip-btn');

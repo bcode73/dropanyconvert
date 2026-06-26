@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "png-to-webp",
+  "slug": "png-to-webp",
+  "name": {
+    "en": "PNG to WebP Converter",
+    "es": "Conversor de PNG a WebP",
+    "fr": "Convertisseur PNG en WebP",
+    "de": "PNG zu WebP Konverter",
+    "pt": "Conversor de PNG para WebP"
+  },
+  "tagline": {
+    "en": "Shrink PNG files by converting to modern WebP format.",
+    "es": "Reduce archivos PNG convirtiéndolos al formato moderno WebP.",
+    "fr": "Réduisez les fichiers PNG en les convertissant au format WebP moderne.",
+    "de": "Reduziere PNG-Dateien durch Konvertierung ins moderne WebP-Format.",
+    "pt": "Reduza arquivos PNG convertendo para o formato moderno WebP."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "convertToWebP",
+  "inputFormats": ["image/png"],
+  "outputFormats": [
+    { "ext": "webp", "mime": "image/webp", "label": "WebP", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "quality-control"],
+  "seo": {
+    "primaryKeyword": "png to webp",
+    "secondaryKeywords": ["convert png to webp", "png webp online", "png to webp free", "compress png webp"],
+    "title": {
+      "en": "PNG to WebP Converter — Free Online Tool",
+      "es": "Conversor PNG a WebP — Herramienta Gratuita Online",
+      "fr": "Convertisseur PNG en WebP — Outil Gratuit en Ligne",
+      "de": "PNG zu WebP Konverter — Kostenloses Online-Tool",
+      "pt": "Conversor PNG para WebP — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Convert PNG to WebP online for free. Save up to 30% file size with modern WebP compression — no upload, 100% private.",
+      "es": "Convierte PNG a WebP online gratis. Ahorra hasta un 30% de tamaño con la compresión WebP moderna — sin subidas, 100% privado.",
+      "fr": "Convertissez PNG en WebP en ligne gratuitement. Économisez jusqu'à 30% de taille avec la compression WebP — sans envoi, 100% privé.",
+      "de": "PNG kostenlos online in WebP konvertieren. Spare bis zu 30% Dateigröße mit moderner WebP-Komprimierung — kein Upload, 100% privat.",
+      "pt": "Converta PNG para WebP online gratuitamente. Economize até 30% no tamanho com compressão WebP moderna — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Convert PNG to WebP — Smaller Files, Same Quality",
+      "es": "Convierte PNG a WebP — Archivos Más Pequeños, Misma Calidad",
+      "fr": "Convertir PNG en WebP — Fichiers Plus Petits, Même Qualité",
+      "de": "PNG in WebP konvertieren — Kleinere Dateien, gleiche Qualität",
+      "pt": "Converter PNG para WebP — Arquivos Menores, Mesma Qualidade"
+    },
+    "intro": {
+      "en": "Drop your PNG files and convert them to WebP in seconds. WebP delivers 25–35% smaller files than PNG at equivalent quality — making your website faster without sacrificing image fidelity.",
+      "es": "Suelta tus archivos PNG y conviértelos a WebP en segundos. WebP entrega archivos 25–35% más pequeños que PNG con calidad equivalente.",
+      "fr": "Déposez vos fichiers PNG et convertissez-les en WebP en quelques secondes. WebP offre des fichiers 25 à 35 % plus petits que PNG à qualité équivalente.",
+      "de": "Lade deine PNG-Dateien per Drag & Drop und konvertiere sie in Sekunden zu WebP. WebP liefert 25–35% kleinere Dateien als PNG bei gleicher Qualität.",
+      "pt": "Solte seus arquivos PNG e converta-os para WebP em segundos. WebP entrega arquivos 25–35% menores que PNG com qualidade equivalente."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Is WebP better than PNG?", "es": "¿WebP es mejor que PNG?", "fr": "WebP est-il meilleur que PNG?", "de": "Ist WebP besser als PNG?", "pt": "WebP é melhor que PNG?" },
+      "answer": { "en": "WebP is smaller for most images while supporting both lossy and lossless modes. PNG remains preferred for pixel-perfect graphics like logos. For web photos, WebP is the modern choice.", "es": "WebP es más pequeño para la mayoría de imágenes y admite modos con y sin pérdida. PNG sigue siendo preferido para gráficos como logos. Para fotos web, WebP es la opción moderna.", "fr": "WebP est plus petit pour la plupart des images et prend en charge les modes avec et sans perte. PNG reste préféré pour les graphiques comme les logos. Pour les photos web, WebP est le choix moderne.", "de": "WebP ist für die meisten Bilder kleiner und unterstützt verlustbehaftete und verlustfreie Modi. PNG bleibt für pixelgenaue Grafiken bevorzugt. Für Webfotos ist WebP die moderne Wahl.", "pt": "WebP é menor para a maioria das imagens e suporta modos com e sem perdas. PNG permanece preferido para gráficos como logos. Para fotos web, WebP é a escolha moderna." }
+    },
+    {
+      "question": { "en": "Do all browsers support WebP?", "es": "¿Todos los navegadores soportan WebP?", "fr": "Tous les navigateurs supportent-ils WebP?", "de": "Unterstützen alle Browser WebP?", "pt": "Todos os navegadores suportam WebP?" },
+      "answer": { "en": "Yes. WebP is supported by Chrome, Firefox, Safari (14+), Edge, and all modern mobile browsers. It covers over 97% of global browser usage.", "es": "Sí. WebP es compatible con Chrome, Firefox, Safari (14+), Edge y todos los navegadores móviles modernos. Cubre más del 97% del uso global.", "fr": "Oui. WebP est pris en charge par Chrome, Firefox, Safari (14+), Edge et tous les navigateurs mobiles modernes. Il couvre plus de 97% de l'utilisation mondiale.", "de": "Ja. WebP wird von Chrome, Firefox, Safari (14+), Edge und allen modernen mobilen Browsern unterstützt. Es deckt über 97% der weltweiten Browser-Nutzung ab.", "pt": "Sim. WebP é suportado pelo Chrome, Firefox, Safari (14+), Edge e todos os navegadores móveis modernos. Cobre mais de 97% do uso global." }
+    },
+    {
+      "question": { "en": "Does WebP support transparency like PNG?", "es": "¿WebP admite transparencia como PNG?", "fr": "WebP supporte-t-il la transparence comme PNG?", "de": "Unterstützt WebP Transparenz wie PNG?", "pt": "WebP suporta transparência como PNG?" },
+      "answer": { "en": "Yes. WebP supports alpha channel transparency, so transparent PNGs are preserved when converting to WebP.", "es": "Sí. WebP admite transparencia de canal alfa, por lo que los PNG transparentes se conservan al convertir a WebP.", "fr": "Oui. WebP prend en charge la transparence du canal alpha, donc les PNG transparents sont préservés lors de la conversion.", "de": "Ja. WebP unterstützt Alphakanal-Transparenz, daher werden transparente PNGs bei der Konvertierung zu WebP erhalten.", "pt": "Sim. WebP suporta transparência de canal alfa, então PNGs transparentes são preservados ao converter para WebP." }
+    },
+    {
+      "question": { "en": "How many PNG files can I convert at once?", "es": "¿Cuántos archivos PNG puedo convertir a la vez?", "fr": "Combien de fichiers PNG puis-je convertir à la fois?", "de": "Wie viele PNG-Dateien kann ich auf einmal konvertieren?", "pt": "Quantos arquivos PNG posso converter de uma vez?" },
+      "answer": { "en": "Up to 20 files at once. Results are packaged as a ZIP for easy download.", "es": "Hasta 20 archivos a la vez. Los resultados se empaquetan como ZIP para descarga fácil.", "fr": "Jusqu'à 20 fichiers à la fois. Les résultats sont packagés en ZIP pour un téléchargement facile.", "de": "Bis zu 20 Dateien auf einmal. Ergebnisse werden als ZIP für einfachen Download verpackt.", "pt": "Até 20 arquivos de uma vez. Os resultados são empacotados como ZIP para download fácil." }
+    }
+  ],
+  "relatedTools": ["webp-to-png", "jpg-to-png", "png-to-jpg", "image-compressor"]
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "image-rotate",
+  "slug": "image-rotate",
+  "name": {
+    "en": "Image Rotate Tool",
+    "es": "Herramienta de Rotación de Imágenes",
+    "fr": "Outil de Rotation d'Images",
+    "de": "Bild-Rotations-Tool",
+    "pt": "Ferramenta de Rotação de Imagens"
+  },
+  "tagline": {
+    "en": "Rotate images 90°, 180°, 270° or any custom angle.",
+    "es": "Rota imágenes 90°, 180°, 270° o cualquier ángulo personalizado.",
+    "fr": "Faites pivoter des images de 90°, 180°, 270° ou tout angle personnalisé.",
+    "de": "Bilder um 90°, 180°, 270° oder beliebigen Winkel drehen.",
+    "pt": "Gire imagens 90°, 180°, 270° ou qualquer ângulo personalizado."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "rotateImage",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp", "image/bmp", "image/gif"],
+  "outputFormats": [
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG", "default": true },
+    { "ext": "png", "mime": "image/png", "label": "PNG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "rotate", "quality-control"],
+  "seo": {
+    "primaryKeyword": "rotate image online",
+    "secondaryKeywords": ["image rotator", "rotate jpg online free", "flip rotate image", "turn image 90 degrees"],
+    "title": {
+      "en": "Rotate Image Online — Free Tool",
+      "es": "Rotar Imagen Online — Herramienta Gratuita",
+      "fr": "Rotation d'Image en Ligne — Outil Gratuit",
+      "de": "Bild Online Drehen — Kostenloses Tool",
+      "pt": "Girar Imagem Online — Ferramenta Gratuita"
+    },
+    "description": {
+      "en": "Rotate JPG, PNG, WebP, and GIF images online for free. Choose 90°, 180°, 270° or a custom angle — no upload, 100% private.",
+      "es": "Rota imágenes JPG, PNG, WebP y GIF online gratis. Elige 90°, 180°, 270° o un ángulo personalizado — sin subidas, 100% privado.",
+      "fr": "Faites pivoter des images JPG, PNG, WebP et GIF en ligne gratuitement. Choisissez 90°, 180°, 270° ou un angle personnalisé — sans envoi, 100% privé.",
+      "de": "JPG-, PNG-, WebP- und GIF-Bilder kostenlos online drehen. 90°, 180°, 270° oder benutzerdefinierter Winkel — kein Upload, 100% privat.",
+      "pt": "Gire imagens JPG, PNG, WebP e GIF online gratuitamente. Escolha 90°, 180°, 270° ou um ângulo personalizado — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Rotate Images Online — 90, 180, 270° or Custom",
+      "es": "Rotar Imágenes Online — 90, 180, 270° o Personalizado",
+      "fr": "Rotation d'Images en Ligne — 90, 180, 270° ou Personnalisé",
+      "de": "Bilder Online Drehen — 90, 180, 270° oder Benutzerdefiniert",
+      "pt": "Girar Imagens Online — 90, 180, 270° ou Personalizado"
+    },
+    "intro": {
+      "en": "Rotate any image instantly in your browser. Choose standard 90°, 180°, or 270° increments, or enter a custom angle for precise rotation. Supports JPG, PNG, WebP, BMP, and GIF — batch process up to 20 images.",
+      "es": "Rota cualquier imagen al instante en tu navegador. Elige incrementos estándar de 90°, 180° o 270°, o ingresa un ángulo personalizado para rotación precisa.",
+      "fr": "Faites pivoter n'importe quelle image instantanément dans votre navigateur. Choisissez des incréments standard de 90°, 180° ou 270°, ou entrez un angle personnalisé.",
+      "de": "Beliebige Bilder sofort im Browser drehen. Standard-90°-, 180°- oder 270°-Schritte wählen oder einen benutzerdefinierten Winkel für präzise Rotation eingeben.",
+      "pt": "Gire qualquer imagem instantaneamente no seu navegador. Escolha incrementos padrão de 90°, 180° ou 270°, ou insira um ângulo personalizado para rotação precisa."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Can I rotate by a custom angle?", "es": "¿Puedo rotar en un ángulo personalizado?", "fr": "Puis-je faire pivoter selon un angle personnalisé?", "de": "Kann ich um einen benutzerdefinierten Winkel drehen?", "pt": "Posso girar em um ângulo personalizado?" },
+      "answer": { "en": "Yes. Enter any angle in degrees (e.g. 45, -30, 15). For non-90° rotations, the canvas expands to contain the full rotated image — corners are filled with transparency (PNG) or white (JPG).", "es": "Sí. Ingresa cualquier ángulo en grados (p.ej. 45, -30, 15). Para rotaciones no múltiplos de 90°, el lienzo se expande para contener toda la imagen rotada.", "fr": "Oui. Entrez n'importe quel angle en degrés (ex. 45, -30, 15). Pour les rotations non multiples de 90°, le canevas s'étend pour contenir toute l'image pivotée.", "de": "Ja. Beliebigen Winkel in Grad eingeben (z.B. 45, -30, 15). Bei nicht-90°-Rotationen erweitert sich die Zeichenfläche für das vollständige rotierte Bild.", "pt": "Sim. Insira qualquer ângulo em graus (ex. 45, -30, 15). Para rotações não múltiplas de 90°, a tela se expande para conter a imagem rotada completa." }
+    },
+    {
+      "question": { "en": "Does rotation affect image quality?", "es": "¿La rotación afecta la calidad de la imagen?", "fr": "La rotation affecte-t-elle la qualité de l'image?", "de": "Beeinflusst Rotation die Bildqualität?", "pt": "A rotação afeta a qualidade da imagem?" },
+      "answer": { "en": "For 90°, 180°, and 270° rotations, no quality is lost when outputting to PNG. For custom angles, resampling introduces slight softening. Save as PNG for maximum quality.", "es": "Para rotaciones de 90°, 180° y 270°, no se pierde calidad al guardar en PNG. Para ángulos personalizados, el remuestreo introduce un ligero suavizado.", "fr": "Pour les rotations de 90°, 180° et 270°, aucune qualité n'est perdue en sortie PNG. Pour les angles personnalisés, le rééchantillonnage introduit un léger flou.", "de": "Für 90°-, 180°- und 270°-Rotationen geht keine Qualität bei PNG-Ausgabe verloren. Für benutzerdefinierte Winkel führt Resampling zu leichter Weichzeichnung.", "pt": "Para rotações de 90°, 180° e 270°, nenhuma qualidade é perdida ao salvar em PNG. Para ângulos personalizados, o resampling introduz um leve suavizamento." }
+    },
+    {
+      "question": { "en": "Can I rotate multiple images at once?", "es": "¿Puedo rotar varias imágenes a la vez?", "fr": "Puis-je faire pivoter plusieurs images à la fois?", "de": "Kann ich mehrere Bilder auf einmal drehen?", "pt": "Posso girar várias imagens de uma vez?" },
+      "answer": { "en": "Yes — up to 20 images at once. All apply the same rotation angle and are packaged as a ZIP download.", "es": "Sí, hasta 20 imágenes a la vez. Todas aplican el mismo ángulo de rotación y se empaquetan como ZIP.", "fr": "Oui — jusqu'à 20 images à la fois. Toutes appliquent le même angle de rotation et sont packagées en ZIP.", "de": "Ja — bis zu 20 Bilder auf einmal. Alle verwenden denselben Drehwinkel und werden als ZIP verpackt.", "pt": "Sim — até 20 imagens de uma vez. Todas aplicam o mesmo ângulo de rotação e são empacotadas como ZIP." }
+    },
+    {
+      "question": { "en": "Does the tool handle EXIF rotation automatically?", "es": "¿La herramienta maneja la rotación EXIF automáticamente?", "fr": "L'outil gère-t-il automatiquement la rotation EXIF?", "de": "Verarbeitet das Tool EXIF-Rotation automatisch?", "pt": "A ferramenta lida com a rotação EXIF automaticamente?" },
+      "answer": { "en": "The browser decodes EXIF orientation when loading images, so what you see is what you get. Your specified rotation is applied on top of the already-oriented image.", "es": "El navegador decodifica la orientación EXIF al cargar imágenes, por lo que lo que ves es lo que obtienes. Tu rotación especificada se aplica sobre la imagen ya orientada.", "fr": "Le navigateur décode l'orientation EXIF lors du chargement des images, donc ce que vous voyez est ce que vous obtenez. Votre rotation est appliquée sur l'image déjà orientée.", "de": "Der Browser dekodiert EXIF-Orientierung beim Laden von Bildern, daher siehst du was du bekommst. Deine angegebene Rotation wird auf das bereits orientierte Bild angewendet.", "pt": "O navegador decodifica a orientação EXIF ao carregar imagens, então o que você vê é o que você obtém. Sua rotação especificada é aplicada sobre a imagem já orientada." }
+    }
+  ],
+  "relatedTools": ["image-flip", "image-crop", "image-resizer", "image-compressor"]
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "image-resizer",
+  "slug": "image-resizer",
+  "name": {
+    "en": "Image Resizer",
+    "es": "Redimensionador de Imágenes",
+    "fr": "Redimensionneur d'Images",
+    "de": "Bild-Skalierungstool",
+    "pt": "Redimensionador de Imagens"
+  },
+  "tagline": {
+    "en": "Resize images to exact dimensions in your browser.",
+    "es": "Redimensiona imágenes a dimensiones exactas en tu navegador.",
+    "fr": "Redimensionnez des images aux dimensions exactes dans votre navigateur.",
+    "de": "Bilder auf genaue Abmessungen im Browser skalieren.",
+    "pt": "Redimensione imagens para dimensões exatas no seu navegador."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "resizeImage",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp", "image/gif", "image/bmp"],
+  "outputFormats": [
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG", "default": true },
+    { "ext": "png", "mime": "image/png", "label": "PNG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "resize", "quality-control"],
+  "seo": {
+    "primaryKeyword": "image resizer",
+    "secondaryKeywords": ["resize image online", "change image size", "resize jpg png online free", "image resize tool"],
+    "title": {
+      "en": "Image Resizer — Free Online Tool",
+      "es": "Redimensionador de Imágenes — Herramienta Gratuita Online",
+      "fr": "Redimensionneur d'Images — Outil Gratuit en Ligne",
+      "de": "Bild-Skalierungstool — Kostenloses Online-Tool",
+      "pt": "Redimensionador de Imagens — Ferramenta Gratuita Online"
+    },
+    "description": {
+      "en": "Resize JPG, PNG, and WebP images online for free. Set exact pixel dimensions with optional aspect ratio lock — no upload, 100% private.",
+      "es": "Redimensiona imágenes JPG, PNG y WebP online gratis. Establece dimensiones exactas en píxeles con bloqueo de relación de aspecto opcional — sin subidas, 100% privado.",
+      "fr": "Redimensionnez des images JPG, PNG et WebP en ligne gratuitement. Définissez des dimensions exactes en pixels avec verrouillage de rapport d'aspect — sans envoi, 100% privé.",
+      "de": "JPG-, PNG- und WebP-Bilder kostenlos online skalieren. Exakte Pixelabmessungen mit optionaler Seitenverhältnis-Sperrung — kein Upload, 100% privat.",
+      "pt": "Redimensione imagens JPG, PNG e WebP online gratuitamente. Defina dimensões exatas em pixels com bloqueio de proporção opcional — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Resize Images Online — Exact Pixel Dimensions",
+      "es": "Redimensionar Imágenes Online — Dimensiones Exactas en Píxeles",
+      "fr": "Redimensionner des Images en Ligne — Dimensions Exactes en Pixels",
+      "de": "Bilder Online Skalieren — Exakte Pixelabmessungen",
+      "pt": "Redimensionar Imagens Online — Dimensões Exatas em Pixels"
+    },
+    "intro": {
+      "en": "Resize any image to exact pixel dimensions in seconds. Enter width and height, optionally lock the aspect ratio, and choose your output format. Perfect for social media, web publishing, and email attachments.",
+      "es": "Redimensiona cualquier imagen a dimensiones exactas en segundos. Ingresa ancho y alto, bloquea opcionalmente la relación de aspecto y elige tu formato de salida. Perfecto para redes sociales y publicación web.",
+      "fr": "Redimensionnez n'importe quelle image aux dimensions exactes en quelques secondes. Entrez la largeur et la hauteur, verrouillez éventuellement le rapport d'aspect et choisissez votre format.",
+      "de": "Beliebige Bilder in Sekunden auf genaue Pixelabmessungen skalieren. Breite und Höhe eingeben, optional das Seitenverhältnis sperren und das Ausgabeformat wählen.",
+      "pt": "Redimensione qualquer imagem para dimensões exatas em segundos. Insira largura e altura, opcionalmente bloqueie a proporção e escolha seu formato de saída."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Can I resize without distorting the image?", "es": "¿Puedo redimensionar sin distorsionar la imagen?", "fr": "Puis-je redimensionner sans distordre l'image?", "de": "Kann ich skalieren ohne das Bild zu verzerren?", "pt": "Posso redimensionar sem distorcer a imagem?" },
+      "answer": { "en": "Yes. Enable the 'Maintain aspect ratio' option and only set one dimension — the other will be calculated automatically to keep proportions intact.", "es": "Sí. Activa la opción 'Mantener relación de aspecto' y solo establece una dimensión — la otra se calculará automáticamente.", "fr": "Oui. Activez l'option 'Maintenir le rapport d'aspect' et définissez uniquement une dimension — l'autre sera calculée automatiquement.", "de": "Ja. Aktiviere die Option 'Seitenverhältnis beibehalten' und setze nur eine Dimension — die andere wird automatisch berechnet.", "pt": "Sim. Ative a opção 'Manter proporção' e defina apenas uma dimensão — a outra será calculada automaticamente." }
+    },
+    {
+      "question": { "en": "What happens if I scale up (upscale) an image?", "es": "¿Qué pasa si escalo una imagen hacia arriba?", "fr": "Que se passe-t-il si j'agrandis une image?", "de": "Was passiert, wenn ich ein Bild hochskaliere?", "pt": "O que acontece se eu aumentar (escalar para cima) uma imagem?" },
+      "answer": { "en": "Upscaling uses browser bicubic interpolation to add pixels. Results are smooth but won't add detail that wasn't in the original. For AI upscaling, dedicated tools with neural networks produce better results.", "es": "El escalado ascendente usa interpolación bicúbica del navegador. Los resultados son suaves pero no añaden detalles que no estaban en el original.", "fr": "L'agrandissement utilise l'interpolation bicubique du navigateur. Les résultats sont fluides mais n'ajoutent pas de détails absents de l'original.", "de": "Hochskalierung verwendet bikubische Browser-Interpolation. Ergebnisse sind glatt, fügen aber keine Details hinzu, die nicht im Original waren.", "pt": "O upscaling usa interpolação bicúbica do navegador. Os resultados são suaves mas não adicionam detalhes que não estavam no original." }
+    },
+    {
+      "question": { "en": "Which output format should I choose?", "es": "¿Qué formato de salida debo elegir?", "fr": "Quel format de sortie dois-je choisir?", "de": "Welches Ausgabeformat soll ich wählen?", "pt": "Qual formato de saída devo escolher?" },
+      "answer": { "en": "JPG is best for photos. PNG is best for screenshots, logos, and images with transparency. WebP offers the best compression and is ideal if your target platform supports it.", "es": "JPG es mejor para fotos. PNG es mejor para capturas de pantalla, logos e imágenes con transparencia. WebP ofrece la mejor compresión.", "fr": "JPG est meilleur pour les photos. PNG est meilleur pour les captures d'écran, logos et images avec transparence. WebP offre la meilleure compression.", "de": "JPG ist am besten für Fotos. PNG ist am besten für Screenshots, Logos und Bilder mit Transparenz. WebP bietet die beste Komprimierung.", "pt": "JPG é melhor para fotos. PNG é melhor para capturas de tela, logos e imagens com transparência. WebP oferece a melhor compressão." }
+    },
+    {
+      "question": { "en": "Can I batch resize multiple images?", "es": "¿Puedo redimensionar varias imágenes en lote?", "fr": "Puis-je redimensionner plusieurs images par lot?", "de": "Kann ich mehrere Bilder stapelweise skalieren?", "pt": "Posso redimensionar várias imagens em lote?" },
+      "answer": { "en": "Yes — up to 20 images at once. All resized outputs use the same dimensions and are packaged as a ZIP download.", "es": "Sí, hasta 20 imágenes a la vez. Todas las salidas redimensionadas usan las mismas dimensiones y se empaquetan como ZIP.", "fr": "Oui — jusqu'à 20 images à la fois. Toutes les sorties redimensionnées utilisent les mêmes dimensions et sont packagées en ZIP.", "de": "Ja — bis zu 20 Bilder auf einmal. Alle skalierten Ausgaben verwenden dieselben Abmessungen und werden als ZIP verpackt.", "pt": "Sim — até 20 imagens de uma vez. Todas as saídas redimensionadas usam as mesmas dimensões e são empacotadas como ZIP." }
+    }
+  ],
+  "relatedTools": ["image-crop", "image-compressor", "image-rotate", "png-to-jpg"]
+}

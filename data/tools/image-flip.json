@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "image-flip",
+  "slug": "image-flip",
+  "name": {
+    "en": "Image Flip Tool",
+    "es": "Herramienta de Volteo de Imágenes",
+    "fr": "Outil de Retournement d'Images",
+    "de": "Bild-Spiegelungs-Tool",
+    "pt": "Ferramenta de Espelhamento de Imagens"
+  },
+  "tagline": {
+    "en": "Mirror images horizontally or vertically in your browser.",
+    "es": "Voltea imágenes horizontal o verticalmente en tu navegador.",
+    "fr": "Retournez des images horizontalement ou verticalement dans votre navigateur.",
+    "de": "Bilder horizontal oder vertikal im Browser spiegeln.",
+    "pt": "Espelhe imagens horizontalmente ou verticalmente no seu navegador."
+  },
+  "category": "image",
+  "engine": "image_engine",
+  "engineFn": "flipImage",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp", "image/bmp", "image/gif"],
+  "outputFormats": [
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG", "default": true },
+    { "ext": "png", "mime": "image/png", "label": "PNG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "preferOffscreenCanvas": true, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "clipboard-paste", "preview", "download-zip", "mobile-supported", "flip", "quality-control"],
+  "seo": {
+    "primaryKeyword": "flip image online",
+    "secondaryKeywords": ["mirror image online", "flip jpg online free", "horizontal flip image", "vertical flip image online"],
+    "title": {
+      "en": "Flip Image Online — Free Mirror Tool",
+      "es": "Voltear Imagen Online — Herramienta de Espejo Gratuita",
+      "fr": "Retourner Image en Ligne — Outil Miroir Gratuit",
+      "de": "Bild Online Spiegeln — Kostenloses Spiegel-Tool",
+      "pt": "Espelhar Imagem Online — Ferramenta de Espelho Gratuita"
+    },
+    "description": {
+      "en": "Flip or mirror JPG, PNG, WebP, and GIF images online for free. Horizontal or vertical flip — no upload, 100% private.",
+      "es": "Voltea o invierte imágenes JPG, PNG, WebP y GIF online gratis. Volteo horizontal o vertical — sin subidas, 100% privado.",
+      "fr": "Retournez ou mettez en miroir des images JPG, PNG, WebP et GIF en ligne gratuitement. Retournement horizontal ou vertical — sans envoi, 100% privé.",
+      "de": "JPG-, PNG-, WebP- und GIF-Bilder kostenlos online spiegeln. Horizontale oder vertikale Spiegelung — kein Upload, 100% privat.",
+      "pt": "Espelhe imagens JPG, PNG, WebP e GIF online gratuitamente. Espelhamento horizontal ou vertical — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Flip Images Online — Horizontal or Vertical Mirror",
+      "es": "Voltear Imágenes Online — Espejo Horizontal o Vertical",
+      "fr": "Retourner des Images en Ligne — Miroir Horizontal ou Vertical",
+      "de": "Bilder Online Spiegeln — Horizontaler oder Vertikaler Spiegel",
+      "pt": "Espelhar Imagens Online — Espelho Horizontal ou Vertical"
+    },
+    "intro": {
+      "en": "Flip any image horizontally (left-right mirror) or vertically (upside down) in seconds. Perfect for correcting mirrored selfies, creating reflection effects, or fixing camera orientation. Batch process up to 20 images.",
+      "es": "Voltea cualquier imagen horizontal (espejo izquierda-derecha) o verticalmente (boca abajo) en segundos. Perfecto para corregir selfies en espejo o crear efectos de reflexión.",
+      "fr": "Retournez n'importe quelle image horizontalement (miroir gauche-droite) ou verticalement (à l'envers) en quelques secondes. Parfait pour corriger les selfies en miroir.",
+      "de": "Beliebige Bilder in Sekunden horizontal (links-rechts spiegeln) oder vertikal (auf den Kopf stellen) kippen. Ideal zum Korrigieren gespiegelter Selfies oder Erstellen von Reflexionseffekten.",
+      "pt": "Espelhe qualquer imagem horizontalmente (espelho esquerda-direita) ou verticalmente (de cabeça para baixo) em segundos. Perfeito para corrigir selfies espelhadas ou criar efeitos de reflexo."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What is the difference between horizontal and vertical flip?", "es": "¿Cuál es la diferencia entre volteo horizontal y vertical?", "fr": "Quelle est la différence entre retournement horizontal et vertical?", "de": "Was ist der Unterschied zwischen horizontaler und vertikaler Spiegelung?", "pt": "Qual é a diferença entre espelhamento horizontal e vertical?" },
+      "answer": { "en": "Horizontal flip (mirror) reflects the image left-to-right, creating a mirror image. Vertical flip reflects top-to-bottom, turning the image upside down.", "es": "El volteo horizontal (espejo) refleja la imagen de izquierda a derecha. El volteo vertical refleja de arriba a abajo, poniendo la imagen boca abajo.", "fr": "Le retournement horizontal (miroir) reflète l'image de gauche à droite. Le retournement vertical reflète de haut en bas, retournant l'image à l'envers.", "de": "Horizontale Spiegelung (Spiegel) reflektiert das Bild von links nach rechts. Vertikale Spiegelung reflektiert von oben nach unten und dreht das Bild auf den Kopf.", "pt": "Espelhamento horizontal reflete a imagem da esquerda para a direita. Espelhamento vertical reflete de cima para baixo, virando a imagem de cabeça para baixo." }
+    },
+    {
+      "question": { "en": "Does flipping affect image quality?", "es": "¿El volteo afecta la calidad de la imagen?", "fr": "Le retournement affecte-t-il la qualité de l'image?", "de": "Beeinflusst Spiegelung die Bildqualität?", "pt": "O espelhamento afeta a qualidade da imagem?" },
+      "answer": { "en": "Flipping is a lossless geometric operation at the pixel level. Quality is only affected by the re-encoding step — choose PNG for zero quality loss.", "es": "El volteo es una operación geométrica sin pérdida a nivel de píxel. La calidad solo se ve afectada por el paso de recodificación: elige PNG para cero pérdida de calidad.", "fr": "Le retournement est une opération géométrique sans perte au niveau des pixels. La qualité n'est affectée que par l'étape de réencodage — choisissez PNG pour zéro perte.", "de": "Spiegelung ist eine verlustfreie geometrische Operation auf Pixelebene. Qualität wird nur durch den Neu-Kodierungsschritt beeinflusst — PNG für null Qualitätsverlust wählen.", "pt": "Espelhamento é uma operação geométrica sem perdas no nível de pixel. A qualidade só é afetada pela etapa de recodificação — escolha PNG para zero perda de qualidade." }
+    },
+    {
+      "question": { "en": "Can I flip multiple images at once?", "es": "¿Puedo voltear varias imágenes a la vez?", "fr": "Puis-je retourner plusieurs images à la fois?", "de": "Kann ich mehrere Bilder auf einmal spiegeln?", "pt": "Posso espelhar várias imagens de uma vez?" },
+      "answer": { "en": "Yes — up to 20 images at once. All receive the same flip direction and results are packaged as a ZIP.", "es": "Sí, hasta 20 imágenes a la vez. Todas reciben la misma dirección de volteo y los resultados se empaquetan como ZIP.", "fr": "Oui — jusqu'à 20 images à la fois. Toutes reçoivent la même direction de retournement et les résultats sont packagés en ZIP.", "de": "Ja — bis zu 20 Bilder auf einmal. Alle erhalten dieselbe Spiegelrichtung und werden als ZIP verpackt.", "pt": "Sim — até 20 imagens de uma vez. Todas recebem a mesma direção de espelhamento e os resultados são empacotados como ZIP." }
+    },
+    {
+      "question": { "en": "Why would I flip an image?", "es": "¿Por qué voltearía una imagen?", "fr": "Pourquoi retourner une image?", "de": "Warum würde ich ein Bild spiegeln?", "pt": "Por que eu espelharia uma imagem?" },
+      "answer": { "en": "Common reasons: fixing mirrored front-camera selfies, creating reflection effects for design, fixing scanned images that came out reversed, or creating left/right symmetric compositions.", "es": "Razones comunes: corregir selfies en espejo de cámara frontal, crear efectos de reflexión para diseño, corregir imágenes escaneadas que salieron al revés.", "fr": "Raisons courantes: corriger les selfies en miroir de la caméra frontale, créer des effets de réflexion, corriger des images numérisées sorties à l'envers.", "de": "Häufige Gründe: Gespiegelte Frontkamera-Selfies korrigieren, Reflexionseffekte für Design erstellen, umgekehrt gescannte Bilder korrigieren.", "pt": "Razões comuns: corrigir selfies espelhadas da câmera frontal, criar efeitos de reflexo para design, corrigir imagens digitalizadas que saíram invertidas." }
+    }
+  ],
+  "relatedTools": ["image-rotate", "image-crop", "image-resizer", "image-compressor"]
+}

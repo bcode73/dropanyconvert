@@ -5,6 +5,7 @@
 
 export async function generateSitemaps(routes, config) {
   const baseUrl = config.site.baseUrl;
+  const lastmod = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const langCodes = [...new Set(
     routes.filter(r => r.type !== 'root').map(r => r.lang)
   )];
@@ -22,6 +23,7 @@ export async function generateSitemaps(routes, config) {
       const changefreq = r.type === 'tool' ? 'monthly' : 'weekly';
       return `  <url>
     <loc>${baseUrl}${r.path}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`;

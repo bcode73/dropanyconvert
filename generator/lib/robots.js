@@ -8,11 +8,6 @@ export async function generateRobots(config) {
   const content = `User-agent: *
 Allow: /
 
-Disallow: /generator/
-Disallow: /data/
-Disallow: /dist/
-Disallow: /node_modules/
-
 Sitemap: ${baseUrl}/sitemap.xml
 `;
 

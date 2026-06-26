@@ -1,6 +1,6 @@
 /**
  * Builds the route registry from validated tool and language data.
- * Detects reserved slug collisions and language/slug conflicts.
+ * Detects reserved slug collisions and tool vs. category slug conflicts.
  */
 
 const RESERVED_SLUGS = new Set([
@@ -14,10 +14,19 @@ export async function buildRegistry(data, config) {
   const errors = [];
   const routes = [];
 
+  // Index category slugs so tool slugs can be checked against them
+  const categorySlugs = new Set(data.categories.map(c => c.slug));
+
   for (const tool of data.tools) {
-    // Check reserved slugs
+    // Reserved slug check
     if (RESERVED_SLUGS.has(tool.slug)) {
       errors.push(`Tool slug "${tool.slug}" conflicts with a reserved keyword`);
+      continue;
+    }
+
+    // Tool slug vs. category slug collision
+    if (categorySlugs.has(tool.slug)) {
+      errors.push(`Tool slug "${tool.slug}" (toolId: ${tool.toolId}) conflicts with a category slug — they would occupy the same URL path`);
       continue;
     }
 

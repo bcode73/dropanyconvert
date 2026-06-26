@@ -13,18 +13,21 @@ export async function generateRoutes(registry, data, config) {
     pathMap.set(key, route.path);
   }
 
-  // Attach hreflang alternates to tool and category routes
+  // Attach hreflang alternates to all localised routes
   for (const route of routes) {
-    if (route.type !== 'tool' && route.type !== 'category') continue;
-
-    route.hreflang = data.languages
-      .map(lang => ({
+    if (route.type === 'tool' || route.type === 'category') {
+      route.hreflang = data.languages.map(lang => ({
         lang: lang.hreflang,
         url: `${config.site.baseUrl}/${lang.code}/${route.slug}`,
       }));
-
-    // x-default points to English (or configured default)
-    route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/${route.slug}`;
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/${route.slug}`;
+    } else if (route.type === 'home') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}`;
+    }
   }
 
   return routes;

@@ -32,12 +32,17 @@
 
   const engineName = dropzone.dataset.engine;
   const engineFn   = dropzone.dataset.engineFn;
+  const toolId     = dropzone.dataset.toolId || engineFn;
   const accept     = (dropzone.dataset.accept || '').split(',').map(s => s.trim()).filter(Boolean);
   const maxFiles   = parseInt(dropzone.dataset.maxFiles, 10) || 1;
   const isBatch    = dropzone.dataset.batch === 'true';
 
+  // Notify the analytics layer that this tool page is active
+  window.DAC?.analytics?.track('tool_open', { toolId });
+
   let selectedFiles = [];
-  let objectUrls = [];        // tracked for cleanup
+  let objectUrls = [];        // preview URLs — tracked for cleanup
+  let downloadUrls = [];      // result download URLs — tracked for cleanup
   let isConverting = false;
 
   // ── Drag & Drop ───────────────────────────────────────────────────────────
@@ -89,9 +94,14 @@
   // ── Quality Slider ────────────────────────────────────────────────────────
 
   if (qualityInput && qualityOutput) {
-    qualityInput.addEventListener('input', () => {
+    function updateQualitySlider() {
       qualityOutput.value = qualityInput.value;
-    });
+      // Keep CSS track gradient in sync with the thumb position
+      const pct = ((qualityInput.value - qualityInput.min) / (qualityInput.max - qualityInput.min)) * 100;
+      qualityInput.style.setProperty('--pct', pct + '%');
+    }
+    qualityInput.addEventListener('input', updateQualitySlider);
+    updateQualitySlider(); // sync on boot
   }
 
   // ── File Handling ─────────────────────────────────────────────────────────
@@ -107,6 +117,7 @@
       selectedFiles = [valid[0]];
     }
 
+    window.DAC?.analytics?.track('file_added', { toolId, count: selectedFiles.length });
     renderQueue();
     syncUI();
   }
@@ -196,6 +207,7 @@
   clearBtn?.addEventListener('click', () => {
     selectedFiles = [];
     revokeAllPreviews();
+    revokeAllDownloads();
     renderQueue();
     syncUI();
     if (results) { results.hidden = true; results.innerHTML = ''; }
@@ -219,6 +231,7 @@
       const mod = await import(`/assets/js/engines/${engineName}.js`);
       if (typeof mod[engineFn] !== 'function') throw new Error(`Engine function "${engineFn}" not found.`);
 
+      window.DAC?.analytics?.track('conversion_started', { toolId, files: selectedFiles.length });
       setProgress(5, 'Converting…');
 
       let completed = 0;
@@ -239,6 +252,7 @@
 
       const result = await mod[engineFn]([...selectedFiles], context);
 
+      window.DAC?.analytics?.track('conversion_completed', { toolId, outputs: result.outputs.length, errors: result.errors.length });
       setProgress(100, 'Done!');
 
       // Small delay so "100%" is visible before hiding
@@ -247,6 +261,7 @@
 
       renderResults(result.outputs, result.errors);
     } catch (err) {
+      window.DAC?.analytics?.track('conversion_failed', { toolId, error: err.message });
       if (progressWrap) progressWrap.hidden = true;
       renderError(err.message);
     } finally {
@@ -260,6 +275,9 @@
   function renderResults(outputs, errors) {
     if (!results) return;
     results.hidden = false;
+
+    // Clean up any URLs from a previous conversion before creating new ones
+    revokeAllDownloads();
 
     let html = '';
 
@@ -275,6 +293,7 @@
       if (outputs.length === 1) {
         const out = outputs[0];
         const url = URL.createObjectURL(out.blob);
+        downloadUrls.push(url);
         html += `<div class="dac-results__downloads">
           <a class="dac-btn dac-btn--primary dac-download-btn"
              href="${url}"
@@ -285,6 +304,7 @@
       } else {
         const individualLinks = outputs.map(out => {
           const url = URL.createObjectURL(out.blob);
+          downloadUrls.push(url);
           return `<a class="dac-btn dac-btn--ghost dac-download-btn"
               href="${url}"
               download="${esc(out.name)}">
@@ -324,6 +344,7 @@
           a.download = 'converted-files.zip';
           a.click();
           setTimeout(() => URL.revokeObjectURL(url), 60000);
+          window.DAC?.analytics?.track('download_completed', { toolId, type: 'zip', files: outputs.length });
           zipBtn.textContent = 'Downloaded!';
         } catch {
           zipBtn.textContent = 'Download all as ZIP';
@@ -459,6 +480,11 @@
   function revokeAllPreviews() {
     objectUrls.forEach(u => u && URL.revokeObjectURL(u));
     objectUrls = [];
+  }
+
+  function revokeAllDownloads() {
+    downloadUrls.forEach(u => u && URL.revokeObjectURL(u));
+    downloadUrls = [];
   }
 
   function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }

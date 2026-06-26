@@ -1,0 +1,38 @@
+{
+  "expectations": [
+    {
+      "fixture": "1x1-red-png",
+      "operation": "convertToJpg",
+      "context": { "quality": 85 },
+      "expect": {
+        "outputName": "1x1-red.jpg",
+        "outputMime": "image/jpeg",
+        "minSizeBytes": 1,
+        "maxSizeBytes": 4096
+      }
+    },
+    {
+      "fixture": "1x1-transparent-png",
+      "operation": "convertToJpg",
+      "context": { "quality": 85 },
+      "expect": {
+        "outputName": "1x1-transparent.jpg",
+        "outputMime": "image/jpeg",
+        "minSizeBytes": 1,
+        "maxSizeBytes": 4096,
+        "note": "Transparent areas must be filled white — no alpha channel in JPEG output."
+      }
+    },
+    {
+      "fixture": "1x1-red-png",
+      "operation": "convertToWebP",
+      "context": { "quality": 85 },
+      "expect": {
+        "outputName": "1x1-red.webp",
+        "outputMime": "image/webp",
+        "minSizeBytes": 1,
+        "maxSizeBytes": 4096
+      }
+    }
+  ]
+}

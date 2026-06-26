@@ -1,8 +1,8 @@
-import { writeFile, mkdir, cp, readdir, copyFile } from 'fs/promises';
+import { writeFile, mkdir, cp, readdir, copyFile, rm } from 'fs/promises';
 import path from 'path';
 
 /**
- * Writes all generated files to dist/.
+ * Clears dist/ then writes all generated files.
  * Copies assets/ into dist/assets/.
  * Copies each engines/{name}/index.js to dist/assets/js/engines/{name}.js
  * so the browser runtime can dynamically import them.
@@ -10,6 +10,8 @@ import path from 'path';
 export async function emitDist({ pages, sitemaps, robots }, config) {
   const distDir = config._distDir;
 
+  // Always start clean — prevents stale files from previous builds
+  await rm(distDir, { recursive: true, force: true });
   await mkdir(distDir, { recursive: true });
 
   let fileCount = 0;

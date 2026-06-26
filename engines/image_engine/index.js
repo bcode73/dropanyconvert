@@ -19,7 +19,15 @@ export const engineMeta = {
   id: 'image_engine',
   version: '1.0.0',
   runtime: 'browser',
+  supportedMimes: ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/bmp'],
+  capabilities: ['batch', 'quality-control', 'preview'],
+  dependencies: [],
+  workerReady: false, // set true once a Worker adapter is wired up
 };
+
+// Images larger than this crash browser tabs — reject before Canvas allocation
+const MAX_MEGAPIXELS = 30;
+const MAX_PIXELS = MAX_MEGAPIXELS * 1_000_000;
 
 // ── Public API ──────────────────────────────────────────────────────────────
 
@@ -80,6 +88,15 @@ function canvasConvert(file, mime, quality, fillWhite) {
 
     img.onload = () => {
       URL.revokeObjectURL(url);
+
+      if (img.naturalWidth * img.naturalHeight > MAX_PIXELS) {
+        reject(new Error(
+          `Image is too large (${img.naturalWidth}×${img.naturalHeight} px = ` +
+          `${Math.round(img.naturalWidth * img.naturalHeight / 1_000_000)} MP). ` +
+          `Maximum is ${MAX_MEGAPIXELS} MP.`
+        ));
+        return;
+      }
 
       const canvas = document.createElement('canvas');
       canvas.width = img.naturalWidth;

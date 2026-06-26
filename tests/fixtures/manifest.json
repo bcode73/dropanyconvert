@@ -1,0 +1,22 @@
+{
+  "fixtures": [
+    {
+      "id": "1x1-red-png",
+      "file": "images/1x1-red.png.b64",
+      "encoding": "base64",
+      "mime": "image/png",
+      "width": 1,
+      "height": 1,
+      "description": "Minimal 1×1 opaque red PNG. Use to verify basic conversion without transparency."
+    },
+    {
+      "id": "1x1-transparent-png",
+      "file": "images/1x1-transparent.png.b64",
+      "encoding": "base64",
+      "mime": "image/png",
+      "width": 1,
+      "height": 1,
+      "description": "Minimal 1×1 fully transparent PNG. Use to verify white-background fill when converting to JPEG."
+    }
+  ]
+}

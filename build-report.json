@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-06-26T19:51:17.860Z",
+  "elapsed_ms": 111,
+  "tools": 1,
+  "languages": 5,
+  "routes": 41,
+  "pages_generated": 41,
+  "sitemaps_generated": 6,
+  "files_emitted": 54,
+  "output_size_kb": 251,
+  "warnings": [
+    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"jpg-to-png\"",
+    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"png-to-webp\"",
+    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"image-compressor\"",
+    "Tool \"png-to-jpg\" references unknown relatedTool slug: \"webp-to-jpg\""
+  ],
+  "errors": [],
+  "toolList": [
+    {
+      "id": "png-to-jpg",
+      "slug": "png-to-jpg",
+      "category": "image",
+      "runtime": "browser",
+      "primaryKeyword": "png to jpg"
+    }
+  ]
+}

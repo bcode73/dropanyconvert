@@ -20,6 +20,13 @@
     "organizationLogoPath": "/assets/logos/logo.png",
     "organizationSameAs": []
   },
+  "homeDescription": {
+    "en": "Free online file converter. Convert images, PDFs, videos, audio, and documents — instantly in your browser. No uploads. No sign-up. 100% private.",
+    "es": "Conversor de archivos en línea gratuito. Convierte imágenes, PDFs, vídeos, audio y documentos al instante en tu navegador. Sin subidas. Sin registro. 100% privado.",
+    "fr": "Convertisseur de fichiers en ligne gratuit. Convertissez des images, PDF, vidéos, audio et documents instantanément dans votre navigateur. Sans envoi. Sans inscription. 100% privé.",
+    "de": "Kostenloser Online-Dateikonverter. Konvertiere Bilder, PDFs, Videos, Audio und Dokumente sofort im Browser. Kein Upload. Keine Anmeldung. 100% privat.",
+    "pt": "Conversor de arquivos online gratuito. Converta imagens, PDFs, vídeos, áudio e documentos instantaneamente no seu navegador. Sem envio. Sem cadastro. 100% privado."
+  },
   "breadcrumbs": {
     "homeName": {
       "en": "Home",

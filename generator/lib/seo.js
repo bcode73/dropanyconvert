@@ -94,6 +94,37 @@ export async function generateSeo(routes, data, config) {
       const title = `${name}${globalSeo.defaults.titleSuffix}`;
       const canonical = `${baseUrl}${route.path}`;
 
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((crumb, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: crumb.name,
+          item: crumb.url,
+        })),
+      };
+
+      const itemListSchema = route.tools && route.tools.length > 0 ? {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name,
+        description: desc,
+        url: canonical,
+        numberOfItems: route.tools.length,
+        itemListElement: route.tools.map((t, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: t.name[langCode] || t.name.en,
+          url: `${baseUrl}/${langCode}/${t.slug}`,
+        })),
+      } : null;
+
       seoData.set(route.path, {
         title,
         description: desc,
@@ -110,22 +141,28 @@ export async function generateSeo(routes, data, config) {
         twitterSite: globalSeo.seo?.twitterHandle || '',
         hreflang: route.hreflang || [],
         hreflangDefault: route.hreflangDefault || canonical,
-        breadcrumbs: [
-          { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
-          { name, url: canonical },
-        ],
-        schemas: [],
+        breadcrumbs,
+        schemas: [breadcrumbSchema, ...(itemListSchema ? [itemListSchema] : [])],
       });
     } else if (route.type === 'home') {
       const canonical = `${baseUrl}${route.path}`;
+      const homeDesc = globalSeo.homeDescription?.[langCode] || globalSeo.homeDescription?.en || config.site.tagline;
+      const homeTitle = `${config.site.name} — ${config.site.tagline}`;
       seoData.set(route.path, {
-        title: `${config.site.name} — ${config.site.tagline}`,
-        description: lang?.ui?.privacyNote || '',
+        title: homeTitle,
+        description: homeDesc,
         canonical,
         robots: globalSeo.defaults.robots,
+        ogTitle: homeTitle,
+        ogDescription: homeDesc,
+        ogUrl: canonical,
         ogType: 'website',
         ogSiteName: globalSeo.defaults.ogSiteName,
         ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image',
+        twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [],
+        hreflangDefault: route.hreflangDefault || canonical,
         schemas: [],
       });
     }

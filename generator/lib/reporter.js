@@ -4,7 +4,7 @@ import path from 'path';
 /**
  * Generates a build report and writes it to dist/build-report.json.
  */
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, emitResult, elapsed }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, emitResult, elapsed, config }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -40,10 +40,9 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Warnings: ${validation.warnings.length}`,
   ].join('\n');
 
-  // Write report into dist
+  // Write report to project root — never into dist/ (would be publicly served)
   try {
-    const distDir = path.resolve('./dist');
-    await writeFile(path.join(distDir, 'build-report.json'), JSON.stringify(report, null, 2), 'utf8');
+    await writeFile(path.join(config._root, 'build-report.json'), JSON.stringify(report, null, 2), 'utf8');
   } catch {
     // Non-fatal
   }

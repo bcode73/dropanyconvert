@@ -1,0 +1,21 @@
+{
+  "name": "DropAnyConvert",
+  "short_name": "DropAnyConvert",
+  "description": "Convert anything. Free. Private. Fast. No upload, no sign-up.",
+  "start_url": "/en",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "lang": "en",
+  "orientation": "any",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "/assets/images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Image Tools",     "url": "/en/image-converter", "description": "Convert, resize and edit images" },
+    { "name": "PDF Tools",       "url": "/en/pdf",             "description": "Merge, split and convert PDFs"  }
+  ]
+}

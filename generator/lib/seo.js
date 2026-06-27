@@ -148,6 +148,29 @@ export async function generateSeo(routes, data, config) {
       const canonical = `${baseUrl}${route.path}`;
       const homeDesc = globalSeo.homeDescription?.[langCode] || globalSeo.homeDescription?.en || config.site.tagline;
       const homeTitle = `${config.site.name} — ${config.site.tagline}`;
+
+      const organizationSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: config.site.name,
+        url: baseUrl,
+        logo: `${baseUrl}/assets/images/icon-512.png`,
+        sameAs: [],
+      };
+
+      const webSiteSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: config.site.name,
+        url: baseUrl,
+        description: config.site.tagline,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: { '@type': 'EntryPoint', urlTemplate: `${baseUrl}/${langCode}/search?q={search_term_string}` },
+          'query-input': 'required name=search_term_string',
+        },
+      };
+
       seoData.set(route.path, {
         title: homeTitle,
         description: homeDesc,
@@ -163,7 +186,7 @@ export async function generateSeo(routes, data, config) {
         twitterSite: globalSeo.seo?.twitterHandle || '',
         hreflang: route.hreflang || [],
         hreflangDefault: route.hreflangDefault || canonical,
-        schemas: [],
+        schemas: [organizationSchema, webSiteSchema],
       });
     }
   }

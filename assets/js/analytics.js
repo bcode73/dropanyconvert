@@ -7,11 +7,21 @@
  *
  * Standard events:
  *   tool_open            { toolId }
+ *   tool_page_visit      { toolId }
  *   file_added           { toolId, count }
- *   conversion_started   { toolId, files }
- *   conversion_completed { toolId, outputs, errors }
+ *   conversion_started   { toolId, files, quality? }
+ *   conversion_completed { toolId, outputs, errors, filename? }
  *   conversion_failed    { toolId, error }
  *   download_completed   { toolId, type, files? }
+ *   download_individual  { toolId, filename }
+ *   search               { q, results }
+ *   favorite_add         { slug }
+ *   favorite_remove      { slug }
+ *   history_clear        {}
+ *   settings_change      { theme?, preferredQuality?, preferredDpi? }
+ *   category_visit       { catSlug }
+ *   homepage_visit       {}
+ *   conversion_retry     { toolId }
  *
  * To integrate a provider (e.g. GA4):
  *   DAC.analytics.use((event, props) => {

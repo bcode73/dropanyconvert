@@ -32,7 +32,7 @@ export async function generatePages(routes, seoData, links, data, config) {
 
 // ── SEO Head ──────────────────────────────────────────────────────────────
 
-function renderHead(seo, config) {
+function renderHead(seo, config, toolIndex) {
   const schemas = (seo.schemas || [])
     .map(s => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
     .join('\n');
@@ -43,6 +43,13 @@ function renderHead(seo, config) {
 
   const xDefault = seo.hreflangDefault
     ? `  <link rel="alternate" hreflang="x-default" href="${seo.hreflangDefault}">`
+    : '';
+
+  // Inline theme init to prevent flash of unstyled content
+  const themeInit = `<script>try{var t=JSON.parse(localStorage.getItem('dac_settings')||'{}').theme||'auto';document.documentElement.dataset.theme=t==='auto'?(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t;}catch(e){}</script>`;
+
+  const toolIndexScript = toolIndex
+    ? `<script>window.DAC_TOOLS=${JSON.stringify(toolIndex)};</script>`
     : '';
 
   return `  <meta charset="UTF-8">
@@ -61,26 +68,88 @@ function renderHead(seo, config) {
   <meta name="twitter:site" content="${seo.twitterSite || ''}">
   <meta name="twitter:title" content="${esc(seo.twitterTitle || seo.title || '')}">
   <meta name="twitter:description" content="${esc(seo.twitterDescription || seo.description || '')}">
+  <link rel="manifest" href="/assets/manifest.json">
+  <meta name="theme-color" content="#6366f1">
+  <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
 ${hreflang}
 ${xDefault}
   <link rel="stylesheet" href="/assets/css/main.css">
+  ${themeInit}
+  ${toolIndexScript}
 ${schemas}`;
 }
 
 // ── Shared Partials ────────────────────────────────────────────────────────
 
-function renderHeader(langCode, activeCategory, categories, config) {
+function renderHeader(langCode, activeCategory, categories, config, hreflang) {
   const navLinks = categories.map(c =>
     `    <a href="/${langCode}/${c.slug}" class="dac-nav__link${c.id === activeCategory ? ' dac-nav__link--active' : ''}">${esc(c.name[langCode] || c.name.en)}</a>`
   ).join('\n');
 
+  const LANG_NAMES = { en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch', pt: 'Português' };
+  const LANG_FLAGS = { en: '🇬🇧', es: '🇪🇸', fr: '🇫🇷', de: '🇩🇪', pt: '🇧🇷' };
+
+  const langLinks = (hreflang || []).map(h =>
+    `<a href="${h.url}" ${h.lang === langCode ? 'aria-current="true"' : ''}>${LANG_FLAGS[h.lang] || ''} ${LANG_NAMES[h.lang] || h.lang.toUpperCase()}</a>`
+  ).join('\n');
+
+  const mobileNavLinks = categories.map(c =>
+    `<a href="/${langCode}/${c.slug}">${esc(c.name[langCode] || c.name.en)}</a>`
+  ).join('\n');
+
+  const LOGO_SVG = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+    </svg>`;
+
   return `<a class="dac-skip" href="#main">Skip to content</a>
-<header class="dac-header">
-  <a href="/${langCode}" class="dac-header__logo">${esc(config.site.name)}</a>
-  <nav class="dac-header__nav" aria-label="Categories">
+<header class="dac-header" role="banner">
+  <a href="/${langCode}" class="dac-header__logo dac-header__logo-icon" aria-label="${esc(config.site.name)} — Home">
+    ${LOGO_SVG}${esc(config.site.name)}
+  </a>
+  <nav class="dac-header__nav" aria-label="Tool categories">
 ${navLinks}
   </nav>
-</header>`;
+  <div class="dac-header__actions">
+    <button class="dac-search-trigger" id="dac-search-btn" aria-label="Search tools" aria-haspopup="dialog">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Search tools…
+      <span class="dac-search-trigger__kbd" aria-hidden="true">⌘K</span>
+    </button>
+    ${langLinks ? `<div class="dac-lang-wrap">
+      <button class="dac-lang-btn" id="dac-lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+        ${LANG_FLAGS[langCode] || ''} ${langCode.toUpperCase()} <span aria-hidden="true">▾</span>
+      </button>
+      <div class="dac-lang-panel" id="dac-lang-panel" hidden>
+        ${langLinks}
+      </div>
+    </div>` : ''}
+    <button class="dac-icon-btn" id="dac-theme-btn" aria-label="Toggle theme" title="Toggle theme">⬤</button>
+    <button class="dac-icon-btn dac-menu-btn" id="dac-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="dac-mobile-nav">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="dac-mobile-nav" id="dac-mobile-nav" hidden aria-label="Mobile navigation">
+  <span class="dac-mobile-nav__section-label">Tools</span>
+  ${mobileNavLinks}
+  <span class="dac-mobile-nav__section-label">Settings</span>
+  ${(hreflang || []).map(h =>
+    `<a href="${h.url}">${LANG_FLAGS[h.lang] || ''} ${LANG_NAMES[h.lang] || h.lang.toUpperCase()}</a>`
+  ).join('\n')}
+</div>
+
+<!-- Search Overlay -->
+<div class="dac-search-overlay" id="dac-search-overlay" hidden role="dialog" aria-modal="true" aria-label="Search tools">
+  <div class="dac-search-box">
+    <div class="dac-search-top">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" id="dac-search-input" placeholder="Search tools…" autocomplete="off" spellcheck="false" aria-label="Search tools">
+      <button class="dac-search-close" id="dac-search-close" aria-label="Close search">Esc</button>
+    </div>
+    <div id="dac-search-results" role="listbox" aria-label="Search results"></div>
+  </div>
+</div>`;
 }
 
 function renderBreadcrumb(crumbs) {
@@ -91,15 +160,92 @@ function renderBreadcrumb(crumbs) {
   ).join('');
 }
 
-function renderFooter(langCode, config) {
-  return `<footer class="dac-footer">
-  <p class="dac-footer__copy">&copy; ${new Date().getFullYear()} ${esc(config.site.name)}</p>
-  <nav class="dac-footer__links" aria-label="Legal">
-    <a href="/${langCode}/privacy-policy">Privacy Policy</a>
-    <a href="/${langCode}/terms-of-service">Terms of Service</a>
-    <a href="/${langCode}/cookie-policy">Cookies</a>
-  </nav>
-</footer>`;
+function renderFooter(langCode, config, categories, popularTools) {
+  const catLinks = (categories || []).map(c =>
+    `<a href="/${langCode}/${c.slug}" class="dac-footer__link">${esc(c.name[langCode] || c.name.en)}</a>`
+  ).join('\n');
+
+  const popularLinks = (popularTools || []).slice(0, 6).map(t =>
+    `<a href="/${langCode}/${t.slug}" class="dac-footer__link">${esc(t.name[langCode] || t.name.en)}</a>`
+  ).join('\n');
+
+  const year = new Date().getFullYear();
+
+  return `<footer class="dac-footer" role="contentinfo">
+  <div class="dac-footer__grid">
+    <div class="dac-footer__brand">
+      <span class="dac-footer__brand-name">${esc(config.site.name)}</span>
+      <p class="dac-footer__brand-desc">${esc(config.site.tagline)}</p>
+      <div class="dac-footer__social" aria-label="Social links">
+        <a href="#" class="dac-footer__social-link" aria-label="Twitter / X" rel="noopener">𝕏</a>
+        <a href="#" class="dac-footer__social-link" aria-label="GitHub" rel="noopener">⌥</a>
+      </div>
+    </div>
+    <div class="dac-footer__col">
+      <h3 class="dac-footer__col-title">Tools</h3>
+      <div class="dac-footer__col-links">
+        ${catLinks}
+      </div>
+    </div>
+    <div class="dac-footer__col">
+      <h3 class="dac-footer__col-title">Popular</h3>
+      <div class="dac-footer__col-links" id="dac-footer-popular">
+        ${popularLinks}
+      </div>
+      <div class="dac-footer__col-links" id="dac-footer-recent" style="margin-top:8px"></div>
+    </div>
+    <div class="dac-footer__col">
+      <h3 class="dac-footer__col-title">Company</h3>
+      <div class="dac-footer__col-links">
+        <a href="/${langCode}/about" class="dac-footer__link">About</a>
+        <a href="/${langCode}/blog" class="dac-footer__link">Blog</a>
+        <a href="/${langCode}/contact" class="dac-footer__link">Contact</a>
+        <a href="/${langCode}/privacy-policy" class="dac-footer__link">Privacy Policy</a>
+        <a href="/${langCode}/terms-of-service" class="dac-footer__link">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="dac-footer__bottom">
+    <p class="dac-footer__copy">&copy; ${year} ${esc(config.site.name)}. All rights reserved.</p>
+    <div class="dac-footer__bottom-links" aria-label="Legal">
+      <a href="/${langCode}/privacy-policy">Privacy</a>
+      <a href="/${langCode}/terms-of-service">Terms</a>
+      <a href="/${langCode}/cookie-policy">Cookies</a>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/sw-register.js" defer></script>`;
+}
+
+// ── Tool Index for client-side search ────────────────────────────────────
+
+function buildToolIndex(tools, langCode) {
+  return tools.map(t => ({
+    toolId:   t.toolId,
+    slug:     t.slug,
+    name:     t.name[langCode] || t.name.en,
+    tagline:  t.tagline?.[langCode] || t.tagline?.en || '',
+    category: t.category,
+    keywords: [
+      ...(t.seo?.secondaryKeywords || []),
+      t.seo?.primaryKeyword || '',
+    ].filter(Boolean),
+  }));
+}
+
+// ── Popular tools selection ───────────────────────────────────────────────
+
+function popularTools(tools) {
+  // Pick 6 tools to feature in the footer: prioritise cross-category variety
+  const picks = [];
+  const seen  = new Set();
+  for (const t of tools) {
+    if (!seen.has(t.category) && picks.length < 6) {
+      picks.push(t);
+      seen.add(t.category);
+    }
+  }
+  return picks.length < 6 ? tools.slice(0, 6) : picks;
 }
 
 // ── Upload SVG icon (inline, no external request) ─────────────────────────
@@ -439,15 +585,16 @@ function renderToolPage(route, seo, relatedTools, data, config) {
   const adBottom = renderAdBlock('bottom', ads, langCode);
 
   const breadcrumbHtml = renderBreadcrumb(seo.breadcrumbs || []);
+  const toolIndex = buildToolIndex(data.tools, langCode);
 
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
 <head>
-${renderHead(seo, config)}
+${renderHead(seo, config, toolIndex)}
 </head>
 <body class="dac-page dac-page--tool">
 
-${renderHeader(langCode, tool.category, data.categories, config)}
+${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
 
 <nav class="dac-breadcrumb" aria-label="Breadcrumb">
   ${breadcrumbHtml}
@@ -459,7 +606,13 @@ ${adTop}
 
   <!-- Hero -->
   <section class="dac-hero" aria-labelledby="dac-tool-title">
-    <h1 class="dac-hero__title" id="dac-tool-title">${esc(h1)}</h1>
+    <div class="dac-hero__title-row">
+      <h1 class="dac-hero__title" id="dac-tool-title">${esc(h1)}</h1>
+      <button class="dac-fav-btn" id="dac-fav-btn"
+              data-slug="${esc(tool.slug)}"
+              data-name="${esc(toolName)}"
+              aria-label="Add to favorites">♡ Save</button>
+    </div>
     ${intro ? `<p class="dac-hero__intro">${esc(intro)}</p>` : ''}
     <p class="dac-privacy-note">${esc(ui.privacyNote)}</p>
   </section>
@@ -589,9 +742,10 @@ ${adTop}
 
 </main>
 
-${renderFooter(langCode, config)}
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 
 <script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
 <script src="/assets/js/runtime.js" defer></script>
 </body>
 </html>`;
@@ -652,18 +806,16 @@ function renderCategoryPage(route, seo, data, config) {
   const adBottom = renderAdBlock('bottom', ads, langCode);
 
   const breadcrumbHtml = renderBreadcrumb(seo.breadcrumbs || []);
-  const schemas = (seo.schemas || [])
-    .map(s => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
-    .join('\n');
+  const toolIndex = buildToolIndex(data.tools, langCode);
 
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
 <head>
-${renderHead(seo, config)}
+${renderHead(seo, config, toolIndex)}
 </head>
 <body class="dac-page dac-page--category">
 
-${renderHeader(langCode, category.id, data.categories, config)}
+${renderHeader(langCode, category.id, data.categories, config, seo.hreflang)}
 
 <nav class="dac-breadcrumb" aria-label="Breadcrumb">
   ${breadcrumbHtml}
@@ -724,7 +876,9 @@ ${adTop}
 
 </main>
 
-${renderFooter(langCode, config)}
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
 }
@@ -744,15 +898,16 @@ function renderHubPage(route, seo, data, config) {
 
   const adTop    = renderAdBlock('top', ads, langCode);
   const adBottom = renderAdBlock('bottom', ads, langCode);
+  const toolIndex = buildToolIndex(data.tools, langCode);
 
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
 <head>
-${renderHead(seo, config)}
+${renderHead(seo, config, toolIndex)}
 </head>
 <body class="dac-page dac-page--hub">
 
-${renderHeader(langCode, null, data.categories, config)}
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
 
 ${adTop}
 
@@ -763,16 +918,43 @@ ${adTop}
     <p class="dac-privacy-note">${esc(route.language?.ui?.privacyNote || 'Your files never leave your device.')}</p>
   </section>
 
+  <!-- Recent tools — populated by platform.js from localStorage -->
+  <section class="dac-dynamic-section" id="dac-recent-section" hidden aria-labelledby="dac-recent-title">
+    <div class="dac-dynamic-section__header">
+      <h2 class="dac-section-title" id="dac-recent-title">Recently Used</h2>
+    </div>
+    <div class="dac-tool-grid" id="dac-recent-grid"></div>
+  </section>
+
+  <!-- Favorites — populated by platform.js from localStorage -->
+  <section class="dac-dynamic-section" id="dac-favorites-section" hidden aria-labelledby="dac-fav-title">
+    <div class="dac-dynamic-section__header">
+      <h2 class="dac-section-title" id="dac-fav-title">Your Favorites</h2>
+    </div>
+    <div class="dac-tool-grid" id="dac-favorites-grid"></div>
+  </section>
+
   <section aria-label="Tool categories">
     <div class="dac-categories__grid">
       ${categoriesHtml}
     </div>
   </section>
 
+  <!-- Conversion History — populated by platform.js from localStorage -->
+  <section class="dac-dynamic-section" id="dac-history-section" hidden aria-labelledby="dac-hist-title">
+    <div class="dac-dynamic-section__header">
+      <h2 class="dac-section-title" id="dac-hist-title">Conversion History</h2>
+      <button class="dac-dynamic-section__clear" id="dac-clear-history" type="button">Clear history</button>
+    </div>
+    <div id="dac-history-list"></div>
+  </section>
+
   ${adBottom}
 </main>
 
-${renderFooter(langCode, config)}
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
 }

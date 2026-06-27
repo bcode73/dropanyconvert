@@ -283,7 +283,13 @@
 
       const result = await mod[engineFn]([...selectedFiles], context);
 
-      window.DAC?.analytics?.track('conversion_completed', { toolId, outputs: result.outputs.length, errors: result.errors.length });
+      const firstFile = selectedFiles[0]?.name || '';
+      window.DAC?.analytics?.track('conversion_completed', {
+        toolId,
+        outputs: result.outputs.length,
+        errors: result.errors.length,
+        filename: firstFile,
+      });
       setProgress(100, 'Done!');
 
       // Small delay so "100%" is visible before hiding
@@ -340,7 +346,8 @@
         html += `<div class="dac-results__downloads">
           <a class="dac-btn dac-btn--primary dac-download-btn"
              href="${url}"
-             download="${esc(out.name)}">
+             download="${esc(out.name)}"
+             onclick="window.DAC?.analytics?.track('download_individual',{toolId:'${esc(toolId)}',filename:'${esc(out.name)}'})">
             Download ${esc(out.name)} <span class="dac-download-size">(${fmtSize(out.sizeBytes)})</span>
           </a>
         </div>`;
@@ -418,10 +425,36 @@
   function renderError(msg) {
     if (!results) return;
     results.hidden = false;
-    results.innerHTML = `<div class="dac-results__errors">
-      <p class="dac-error"><span aria-hidden="true">⚠</span> ${esc(msg)}</p>
-      <p class="dac-error-hint">Check that your files are valid and try again.</p>
+    // Categorise the error for better guidance
+    const isPassword = /password|encrypt/i.test(msg);
+    const isFormat   = /invalid|corrupt|not a valid|unsupported/i.test(msg);
+    const isMemory   = /memory|out of|oom/i.test(msg);
+    const fixes = isPassword
+      ? ['Enter the correct password in the options panel before converting.', 'Use the PDF Unlock tool to remove password protection first.']
+      : isFormat
+      ? ['Check that the file is a valid, uncorrupted document.', 'Try a different file to confirm the issue.', 'Some older file formats may not be supported.']
+      : isMemory
+      ? ['Try a smaller file or reduce the DPI setting.', 'Close other browser tabs to free up memory and try again.']
+      : ['Check that your file is not corrupted.', 'Try a different file.', 'Refresh the page and try again.'];
+
+    results.innerHTML = `<div class="dac-error-card" role="alert">
+      <div class="dac-error-card__icon" aria-hidden="true">⚠</div>
+      <div>
+        <h3 class="dac-error-card__title">Conversion failed</h3>
+        <p class="dac-error-card__msg">${esc(msg)}</p>
+        <ul class="dac-error-card__fixes">
+          ${fixes.map(f => `<li>${esc(f)}</li>`).join('')}
+        </ul>
+        <button class="dac-btn dac-btn--ghost" id="dac-retry-btn" type="button">Try again</button>
+      </div>
     </div>`;
+
+    document.getElementById('dac-retry-btn')?.addEventListener('click', () => {
+      results.hidden = true;
+      results.innerHTML = '';
+      syncUI();
+      window.DAC?.analytics?.track('conversion_retry', { toolId });
+    });
   }
 
   // ── Progress ──────────────────────────────────────────────────────────────

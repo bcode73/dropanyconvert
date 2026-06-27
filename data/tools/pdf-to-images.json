@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-to-images",
+  "slug": "pdf-to-images",
+  "name": {
+    "en": "PDF to Images",
+    "es": "PDF a Imágenes",
+    "fr": "PDF en Images",
+    "de": "PDF zu Bilder",
+    "pt": "PDF para Imagens"
+  },
+  "tagline": {
+    "en": "Convert PDF pages to PNG, JPG or WebP images in your browser.",
+    "es": "Convierte páginas de PDF a imágenes PNG, JPG o WebP en tu navegador.",
+    "fr": "Convertissez les pages PDF en images PNG, JPG ou WebP dans votre navigateur.",
+    "de": "PDF-Seiten in PNG-, JPG- oder WebP-Bilder im Browser konvertieren.",
+    "pt": "Converta páginas de PDF em imagens PNG, JPG ou WebP no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "pdfToImages",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true },
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG" },
+    { "ext": "webp", "mime": "image/webp", "label": "WebP" }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "showVariantPicker": true, "memoryBudgetMb": 512, "requiresWorker": true },
+  "capabilities": ["drag-and-drop", "mobile-supported", "image-dpi", "page-selection"],
+  "seo": {
+    "primaryKeyword": "pdf to image",
+    "secondaryKeywords": ["convert pdf to png", "pdf to jpg online", "pdf page to image", "export pdf as image free"],
+    "title": {
+      "en": "PDF to Image Converter — Convert PDF Pages to PNG, JPG Free",
+      "es": "Convertidor PDF a Imagen — Convertir Páginas PDF a PNG, JPG Gratis",
+      "fr": "Convertisseur PDF en Image — Convertir Pages PDF en PNG, JPG Gratuit",
+      "de": "PDF zu Bild Konverter — PDF-Seiten Kostenlos in PNG, JPG Konvertieren",
+      "pt": "Conversor PDF para Imagem — Converter Páginas PDF em PNG, JPG Grátis"
+    },
+    "description": {
+      "en": "Convert PDF pages to high-quality PNG, JPG or WebP images online for free. Choose DPI, select specific pages, download as ZIP — no upload, 100% private.",
+      "es": "Convierte páginas de PDF a imágenes PNG, JPG o WebP de alta calidad online gratis. Elige DPI, selecciona páginas específicas, descarga como ZIP — sin subidas.",
+      "fr": "Convertissez les pages PDF en images PNG, JPG ou WebP de haute qualité en ligne gratuitement. Choisissez le DPI, sélectionnez des pages spécifiques, téléchargez en ZIP.",
+      "de": "PDF-Seiten kostenlos online in hochwertige PNG-, JPG- oder WebP-Bilder konvertieren. DPI wählen, bestimmte Seiten auswählen, als ZIP herunterladen — kein Upload.",
+      "pt": "Converta páginas de PDF em imagens PNG, JPG ou WebP de alta qualidade online gratuitamente. Escolha DPI, selecione páginas específicas, baixe como ZIP — sem upload."
+    },
+    "h1": {
+      "en": "PDF to Image — Convert PDF Pages to PNG or JPG Online Free",
+      "es": "PDF a Imagen — Convertir Páginas PDF a PNG o JPG Online Gratis",
+      "fr": "PDF en Image — Convertir Pages PDF en PNG ou JPG en Ligne Gratuitement",
+      "de": "PDF zu Bild — PDF-Seiten Online Kostenlos in PNG oder JPG Konvertieren",
+      "pt": "PDF para Imagem — Converter Páginas PDF em PNG ou JPG Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Render each PDF page as a separate image file. Choose PNG for lossless quality, JPG for smaller file sizes, or WebP for modern web use. Set the DPI to control resolution — 150 DPI works well for screen use, 300 DPI for print-quality output. Use the pages field to convert only specific pages.",
+      "es": "Renderiza cada página del PDF como un archivo de imagen separado. Elige PNG para calidad sin pérdidas, JPG para tamaños de archivo más pequeños, o WebP para uso web moderno. Configura el DPI para controlar la resolución.",
+      "fr": "Rendez chaque page PDF comme un fichier image séparé. Choisissez PNG pour une qualité sans perte, JPG pour des tailles de fichier plus petites, ou WebP pour une utilisation web moderne. Définissez le DPI pour contrôler la résolution.",
+      "de": "Jede PDF-Seite als separate Bilddatei rendern. PNG für verlustfreie Qualität wählen, JPG für kleinere Dateigrößen, oder WebP für moderne Web-Verwendung. DPI zur Auflösungssteuerung festlegen.",
+      "pt": "Renderize cada página do PDF como um arquivo de imagem separado. Escolha PNG para qualidade sem perdas, JPG para tamanhos de arquivo menores ou WebP para uso web moderno. Defina o DPI para controlar a resolução."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What DPI should I choose?", "es": "¿Qué DPI debo elegir?", "fr": "Quel DPI dois-je choisir?", "de": "Welchen DPI soll ich wählen?", "pt": "Qual DPI devo escolher?" },
+      "answer": { "en": "72 DPI is suitable for web thumbnails. 150 DPI gives good quality for on-screen use. 300 DPI is recommended for print-quality output. Higher DPI produces larger files and may take longer to process.", "es": "72 DPI es adecuado para miniaturas web. 150 DPI da buena calidad para uso en pantalla. 300 DPI se recomienda para salida de calidad de impresión.", "fr": "72 DPI convient aux vignettes web. 150 DPI donne une bonne qualité pour une utilisation à l'écran. 300 DPI est recommandé pour une sortie de qualité impression.", "de": "72 DPI eignet sich für Web-Thumbnails. 150 DPI gibt gute Qualität für die Bildschirmnutzung. 300 DPI wird für druckqualitative Ausgabe empfohlen.", "pt": "72 DPI é adequado para miniaturas web. 150 DPI dá boa qualidade para uso em tela. 300 DPI é recomendado para saída de qualidade de impressão." }
+    },
+    {
+      "question": { "en": "Can I convert only specific pages?", "es": "¿Puedo convertir solo páginas específicas?", "fr": "Puis-je convertir uniquement des pages spécifiques?", "de": "Kann ich nur bestimmte Seiten konvertieren?", "pt": "Posso converter apenas páginas específicas?" },
+      "answer": { "en": "Yes. Enter page numbers in the Pages field (e.g., '1, 3-5, 7') to convert only those pages. Leave blank to convert all pages.", "es": "Sí. Ingresa números de página en el campo Páginas (p.ej., '1, 3-5, 7') para convertir solo esas páginas. Deja en blanco para convertir todas las páginas.", "fr": "Oui. Entrez les numéros de page dans le champ Pages (ex. '1, 3-5, 7') pour convertir uniquement ces pages. Laissez vide pour convertir toutes les pages.", "de": "Ja. Seitennummern im Seiten-Feld eingeben (z.B. '1, 3-5, 7'), um nur diese Seiten zu konvertieren. Leer lassen für alle Seiten.", "pt": "Sim. Insira números de página no campo Páginas (ex. '1, 3-5, 7') para converter apenas essas páginas. Deixe em branco para converter todas as páginas." }
+    },
+    {
+      "question": { "en": "How do I download all the images?", "es": "¿Cómo descargo todas las imágenes?", "fr": "Comment télécharger toutes les images?", "de": "Wie lade ich alle Bilder herunter?", "pt": "Como faço o download de todas as imagens?" },
+      "answer": { "en": "When a PDF produces multiple pages, all images are bundled into a ZIP file for a single download. You can also download individual images from the results panel.", "es": "Cuando un PDF produce varias páginas, todas las imágenes se agrupan en un archivo ZIP para una descarga única.", "fr": "Lorsqu'un PDF produit plusieurs pages, toutes les images sont regroupées dans un fichier ZIP pour un seul téléchargement.", "de": "Wenn ein PDF mehrere Seiten produziert, werden alle Bilder in einer ZIP-Datei für einen einzelnen Download gebündelt.", "pt": "Quando um PDF produz várias páginas, todas as imagens são agrupadas em um arquivo ZIP para download único." }
+    },
+    {
+      "question": { "en": "Is my PDF file uploaded to a server?", "es": "¿Mi archivo PDF se sube a un servidor?", "fr": "Mon fichier PDF est-il téléchargé sur un serveur?", "de": "Wird meine PDF-Datei auf einen Server hochgeladen?", "pt": "Meu arquivo PDF é enviado para um servidor?" },
+      "answer": { "en": "No. Everything runs locally in your browser using PDF.js. Your file never leaves your device.", "es": "No. Todo se ejecuta localmente en tu navegador usando PDF.js. Tu archivo nunca abandona tu dispositivo.", "fr": "Non. Tout s'exécute localement dans votre navigateur avec PDF.js. Votre fichier ne quitte jamais votre appareil.", "de": "Nein. Alles läuft lokal in deinem Browser mit PDF.js. Deine Datei verlässt dein Gerät niemals.", "pt": "Não. Tudo é executado localmente no seu navegador usando PDF.js. Seu arquivo nunca sai do seu dispositivo." }
+    }
+  ],
+  "relatedTools": ["images-to-pdf", "compress-pdf", "split-pdf", "pdf-thumbnail", "rotate-pdf"]
+}

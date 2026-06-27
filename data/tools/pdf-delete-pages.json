@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-delete-pages",
+  "slug": "pdf-delete-pages",
+  "name": {
+    "en": "PDF Page Deleter",
+    "es": "Eliminar Páginas PDF",
+    "fr": "Supprimer Pages PDF",
+    "de": "PDF Seiten Löschen",
+    "pt": "Excluir Páginas PDF"
+  },
+  "tagline": {
+    "en": "Remove unwanted pages from a PDF directly in your browser.",
+    "es": "Elimina páginas no deseadas de un PDF directamente en tu navegador.",
+    "fr": "Supprimez les pages indésirables d'un PDF directement dans votre navigateur.",
+    "de": "Unerwünschte Seiten aus einem PDF direkt im Browser entfernen.",
+    "pt": "Remova páginas indesejadas de um PDF diretamente no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "deletePdfPages",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 256 },
+  "capabilities": ["drag-and-drop", "mobile-supported", "page-selection"],
+  "seo": {
+    "primaryKeyword": "delete pages from pdf",
+    "secondaryKeywords": ["remove pdf pages online", "pdf page remover", "delete pdf page free", "pdf remove pages"],
+    "title": {
+      "en": "Delete PDF Pages Online — Remove Pages from PDF Free",
+      "es": "Eliminar Páginas PDF Online — Quitar Páginas de PDF Gratis",
+      "fr": "Supprimer Pages PDF en Ligne — Retirer des Pages d'un PDF Gratuitement",
+      "de": "PDF-Seiten Online Löschen — Seiten aus PDF Kostenlos Entfernen",
+      "pt": "Excluir Páginas PDF Online — Remover Páginas de PDF Gratuitamente"
+    },
+    "description": {
+      "en": "Remove specific pages from a PDF online for free. Enter the page numbers to delete and download the cleaned PDF — no upload, 100% private.",
+      "es": "Elimina páginas específicas de un PDF online gratis. Ingresa los números de página a eliminar y descarga el PDF limpio — sin subidas.",
+      "fr": "Supprimez des pages spécifiques d'un PDF en ligne gratuitement. Entrez les numéros de page à supprimer et téléchargez le PDF nettoyé.",
+      "de": "Bestimmte Seiten aus einem PDF kostenlos online entfernen. Seitennummern eingeben und bereinigtes PDF herunterladen — kein Upload.",
+      "pt": "Remova páginas específicas de um PDF online gratuitamente. Insira os números de página para excluir e baixe o PDF limpo — sem upload."
+    },
+    "h1": {
+      "en": "Delete PDF Pages — Remove Unwanted Pages from PDF Online Free",
+      "es": "Eliminar Páginas PDF — Quitar Páginas No Deseadas de PDF Online Gratis",
+      "fr": "Supprimer Pages PDF — Retirer les Pages Indésirables d'un PDF en Ligne Gratuitement",
+      "de": "PDF-Seiten Löschen — Unerwünschte Seiten Online Kostenlos aus PDF Entfernen",
+      "pt": "Excluir Páginas PDF — Remover Páginas Indesejadas de PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Remove blank pages, duplicate pages, or any unwanted pages from your PDF. Enter the page numbers you want to delete (e.g., '2, 5-7, 10'), and download a new PDF with those pages removed. All other pages are preserved in their original order.",
+      "es": "Elimina páginas en blanco, páginas duplicadas o cualquier página no deseada de tu PDF. Ingresa los números de página que deseas eliminar (p.ej., '2, 5-7, 10') y descarga un nuevo PDF con esas páginas eliminadas.",
+      "fr": "Supprimez les pages vierges, les pages en double ou toutes les pages indésirables de votre PDF. Entrez les numéros de page à supprimer (ex. '2, 5-7, 10') et téléchargez un nouveau PDF sans ces pages.",
+      "de": "Leere Seiten, doppelte Seiten oder unerwünschte Seiten aus deinem PDF entfernen. Die zu löschenden Seitennummern eingeben (z.B. '2, 5-7, 10') und ein neues PDF ohne diese Seiten herunterladen.",
+      "pt": "Remova páginas em branco, páginas duplicadas ou quaisquer páginas indesejadas do seu PDF. Insira os números de página que deseja excluir (ex. '2, 5-7, 10') e baixe um novo PDF com essas páginas removidas."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How do I specify which pages to delete?", "es": "¿Cómo especifico qué páginas eliminar?", "fr": "Comment spécifier les pages à supprimer?", "de": "Wie gebe ich an, welche Seiten gelöscht werden sollen?", "pt": "Como especifico quais páginas excluir?" },
+      "answer": { "en": "Enter the page numbers you want to remove, separated by commas. Use a dash for ranges: '2, 5-7, 10' removes pages 2, 5, 6, 7, and 10. All other pages are kept.", "es": "Ingresa los números de página que deseas eliminar, separados por comas. Usa un guión para rangos: '2, 5-7, 10' elimina las páginas 2, 5, 6, 7 y 10.", "fr": "Entrez les numéros de page à supprimer, séparés par des virgules. Utilisez un tiret pour les plages: '2, 5-7, 10' supprime les pages 2, 5, 6, 7 et 10.", "de": "Die zu entfernenden Seitennummern durch Kommas getrennt eingeben. Bindestrich für Bereiche: '2, 5-7, 10' entfernt Seiten 2, 5, 6, 7 und 10.", "pt": "Insira os números de página que deseja remover, separados por vírgulas. Use um traço para intervalos: '2, 5-7, 10' remove as páginas 2, 5, 6, 7 e 10." }
+    },
+    {
+      "question": { "en": "What happens if I delete all pages?", "es": "¿Qué pasa si elimino todas las páginas?", "fr": "Que se passe-t-il si je supprime toutes les pages?", "de": "Was passiert, wenn ich alle Seiten lösche?", "pt": "O que acontece se eu excluir todas as páginas?" },
+      "answer": { "en": "If the pages you enter cover all pages in the document, the tool will return an error — a PDF must have at least one page.", "es": "Si las páginas que ingresas cubren todas las páginas del documento, la herramienta devolverá un error — un PDF debe tener al menos una página.", "fr": "Si les pages que vous entrez couvrent toutes les pages du document, l'outil retournera une erreur — un PDF doit avoir au moins une page.", "de": "Wenn die eingegebenen Seiten alle Seiten des Dokuments abdecken, gibt das Tool einen Fehler zurück — ein PDF muss mindestens eine Seite haben.", "pt": "Se as páginas que você inserir cobrirem todas as páginas do documento, a ferramenta retornará um erro — um PDF deve ter pelo menos uma página." }
+    },
+    {
+      "question": { "en": "Is this the reverse of Page Extract?", "es": "¿Es esto lo contrario de Extraer Páginas?", "fr": "Est-ce l'inverse de l'Extraction de Pages?", "de": "Ist das das Gegenteil von Seiten Extrahieren?", "pt": "Isso é o inverso de Extrair Páginas?" },
+      "answer": { "en": "Yes. Page Extract keeps the pages you specify; Delete Pages removes the pages you specify. Both produce a new PDF without modifying the original.", "es": "Sí. Extraer Páginas conserva las páginas que especificas; Eliminar Páginas elimina las páginas que especificas.", "fr": "Oui. Extraire des Pages garde les pages que vous spécifiez; Supprimer des Pages supprime les pages que vous spécifiez.", "de": "Ja. Seiten Extrahieren behält die angegebenen Seiten; Seiten Löschen entfernt die angegebenen Seiten.", "pt": "Sim. Extrair Páginas mantém as páginas que você especifica; Excluir Páginas remove as páginas que você especifica." }
+    },
+    {
+      "question": { "en": "Are my files sent to a server?", "es": "¿Mis archivos se envían a un servidor?", "fr": "Mes fichiers sont-ils envoyés à un serveur?", "de": "Werden meine Dateien an einen Server gesendet?", "pt": "Meus arquivos são enviados para um servidor?" },
+      "answer": { "en": "No. All processing happens locally in your browser. Your PDF is never uploaded anywhere.", "es": "No. Todo el procesamiento ocurre localmente en tu navegador. Tu PDF nunca se sube a ningún lugar.", "fr": "Non. Tout le traitement se fait localement dans votre navigateur. Votre PDF n'est jamais téléchargé nulle part.", "de": "Nein. Die gesamte Verarbeitung erfolgt lokal in deinem Browser. Dein PDF wird nirgendwo hochgeladen.", "pt": "Não. Todo o processamento acontece localmente no seu navegador. Seu PDF nunca é enviado para lugar nenhum." }
+    }
+  ],
+  "relatedTools": ["pdf-page-extract", "split-pdf", "merge-pdf", "pdf-reorder-pages", "rotate-pdf"]
+}

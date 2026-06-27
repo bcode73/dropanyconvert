@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-metadata-viewer",
+  "slug": "pdf-metadata-viewer",
+  "name": {
+    "en": "PDF Metadata Viewer",
+    "es": "Visor de Metadatos PDF",
+    "fr": "Visionneur de Métadonnées PDF",
+    "de": "PDF Metadaten Anzeigen",
+    "pt": "Visualizador de Metadados PDF"
+  },
+  "tagline": {
+    "en": "View the metadata embedded in a PDF — title, author, creation date and more.",
+    "es": "Visualiza los metadatos incrustados en un PDF — título, autor, fecha de creación y más.",
+    "fr": "Consultez les métadonnées intégrées dans un PDF — titre, auteur, date de création et plus.",
+    "de": "In einem PDF eingebettete Metadaten anzeigen — Titel, Autor, Erstellungsdatum und mehr.",
+    "pt": "Visualize os metadados incorporados em um PDF — título, autor, data de criação e mais."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "viewPdfMetadata",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "txt", "mime": "text/plain", "label": "Text", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 128 },
+  "capabilities": ["drag-and-drop", "mobile-supported", "metadata-read"],
+  "seo": {
+    "primaryKeyword": "pdf metadata viewer",
+    "secondaryKeywords": ["view pdf properties", "pdf document info", "check pdf metadata online", "pdf author date reader"],
+    "title": {
+      "en": "PDF Metadata Viewer — View PDF Document Properties Online Free",
+      "es": "Visor de Metadatos PDF — Ver Propiedades de Documento PDF Online Gratis",
+      "fr": "Visionneur de Métadonnées PDF — Voir les Propriétés du Document PDF en Ligne Gratuitement",
+      "de": "PDF Metadaten Anzeigen — PDF-Dokumenteigenschaften Online Kostenlos Anzeigen",
+      "pt": "Visualizador de Metadados PDF — Ver Propriedades de Documento PDF Online Gratuitamente"
+    },
+    "description": {
+      "en": "Read the metadata stored inside a PDF file — title, author, subject, keywords, creator, creation date, modification date. No upload, 100% private.",
+      "es": "Lee los metadatos almacenados en un archivo PDF — título, autor, tema, palabras clave, creador, fecha de creación, fecha de modificación. Sin subidas.",
+      "fr": "Lisez les métadonnées stockées dans un fichier PDF — titre, auteur, sujet, mots-clés, créateur, date de création, date de modification. Sans envoi.",
+      "de": "Die in einer PDF-Datei gespeicherten Metadaten lesen — Titel, Autor, Betreff, Schlüsselwörter, Ersteller, Erstellungsdatum, Änderungsdatum. Kein Upload.",
+      "pt": "Leia os metadados armazenados em um arquivo PDF — título, autor, assunto, palavras-chave, criador, data de criação, data de modificação. Sem upload."
+    },
+    "h1": {
+      "en": "PDF Metadata Viewer — Read PDF Document Properties Online Free",
+      "es": "Visor de Metadatos PDF — Leer Propiedades de Documento PDF Online Gratis",
+      "fr": "Visionneur de Métadonnées PDF — Lire les Propriétés du Document PDF en Ligne Gratuitement",
+      "de": "PDF Metadaten Anzeigen — PDF-Dokumenteigenschaften Online Kostenlos Lesen",
+      "pt": "Visualizador de Metadados PDF — Ler Propriedades de Documento PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Inspect the metadata embedded inside a PDF document. The viewer extracts and displays the title, author, subject, keywords, creator application, producer, creation date, and modification date. Results are shown as plain text that you can copy.",
+      "es": "Inspecciona los metadatos incrustados en un documento PDF. El visor extrae y muestra el título, autor, tema, palabras clave, aplicación creadora, productor, fecha de creación y fecha de modificación.",
+      "fr": "Inspectez les métadonnées intégrées dans un document PDF. Le visionneur extrait et affiche le titre, l'auteur, le sujet, les mots-clés, l'application créatrice, le producteur, la date de création et la date de modification.",
+      "de": "In einem PDF-Dokument eingebettete Metadaten prüfen. Der Viewer extrahiert und zeigt Titel, Autor, Betreff, Schlüsselwörter, Ersteller-Anwendung, Produzent, Erstellungs- und Änderungsdatum an.",
+      "pt": "Inspecione os metadados incorporados em um documento PDF. O visualizador extrai e exibe o título, autor, assunto, palavras-chave, aplicativo criador, produtor, data de criação e data de modificação."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What metadata fields does this tool read?", "es": "¿Qué campos de metadatos lee esta herramienta?", "fr": "Quels champs de métadonnées cet outil lit-il?", "de": "Welche Metadaten-Felder liest dieses Tool?", "pt": "Quais campos de metadados esta ferramenta lê?" },
+      "answer": { "en": "Title, Author, Subject, Keywords, Creator (the software that created the original document), Producer (the software that generated the PDF), Creation Date, and Modification Date.", "es": "Título, Autor, Tema, Palabras clave, Creador (el software que creó el documento original), Productor (el software que generó el PDF), Fecha de Creación y Fecha de Modificación.", "fr": "Titre, Auteur, Sujet, Mots-clés, Créateur (le logiciel qui a créé le document original), Producteur (le logiciel qui a généré le PDF), Date de Création et Date de Modification.", "de": "Titel, Autor, Betreff, Schlüsselwörter, Ersteller (die Software, die das Originaldokument erstellt hat), Produzent (die Software, die das PDF generiert hat), Erstellungsdatum und Änderungsdatum.", "pt": "Título, Autor, Assunto, Palavras-chave, Criador (o software que criou o documento original), Produtor (o software que gerou o PDF), Data de Criação e Data de Modificação." }
+    },
+    {
+      "question": { "en": "What if some fields are empty?", "es": "¿Qué pasa si algunos campos están vacíos?", "fr": "Et si certains champs sont vides?", "de": "Was ist, wenn einige Felder leer sind?", "pt": "E se alguns campos estiverem vazios?" },
+      "answer": { "en": "Many PDFs are created without filling in metadata fields. Empty fields are shown as blank — this does not indicate a problem with the PDF itself.", "es": "Muchos PDFs se crean sin rellenar los campos de metadatos. Los campos vacíos se muestran en blanco — esto no indica un problema con el PDF en sí.", "fr": "De nombreux PDFs sont créés sans remplir les champs de métadonnées. Les champs vides s'affichent vides — cela n'indique pas de problème avec le PDF lui-même.", "de": "Viele PDFs werden ohne Ausfüllen der Metadaten-Felder erstellt. Leere Felder werden als leer angezeigt — dies deutet nicht auf ein Problem mit dem PDF selbst hin.", "pt": "Muitos PDFs são criados sem preencher os campos de metadados. Os campos vazios são exibidos em branco — isso não indica um problema com o próprio PDF." }
+    },
+    {
+      "question": { "en": "Can I view metadata of a password-protected PDF?", "es": "¿Puedo ver los metadatos de un PDF protegido con contraseña?", "fr": "Puis-je voir les métadonnées d'un PDF protégé par mot de passe?", "de": "Kann ich Metadaten eines passwortgeschützten PDFs anzeigen?", "pt": "Posso ver os metadados de um PDF protegido por senha?" },
+      "answer": { "en": "Yes. Metadata is often accessible even in encrypted PDFs without needing the password. If the PDF is fully encrypted and the password is required, the result may show limited fields.", "es": "Sí. Los metadatos a menudo son accesibles incluso en PDFs cifrados sin necesidad de la contraseña.", "fr": "Oui. Les métadonnées sont souvent accessibles même dans les PDFs chiffrés sans avoir besoin du mot de passe.", "de": "Ja. Metadaten sind oft auch in verschlüsselten PDFs ohne Passwort zugänglich.", "pt": "Sim. Os metadados geralmente são acessíveis mesmo em PDFs criptografados sem precisar da senha." }
+    },
+    {
+      "question": { "en": "Can I edit the metadata?", "es": "¿Puedo editar los metadatos?", "fr": "Puis-je modifier les métadonnées?", "de": "Kann ich die Metadaten bearbeiten?", "pt": "Posso editar os metadados?" },
+      "answer": { "en": "This tool is read-only. To edit PDF metadata, use the PDF Metadata Editor tool.", "es": "Esta herramienta es de solo lectura. Para editar los metadatos del PDF, usa la herramienta Editor de Metadatos PDF.", "fr": "Cet outil est en lecture seule. Pour modifier les métadonnées PDF, utilisez l'outil Éditeur de Métadonnées PDF.", "de": "Dieses Tool ist schreibgeschützt. Um PDF-Metadaten zu bearbeiten, verwende das PDF-Metadaten-Editor-Tool.", "pt": "Esta ferramenta é somente leitura. Para editar metadados de PDF, use a ferramenta Editor de Metadados PDF." }
+    }
+  ],
+  "relatedTools": ["pdf-metadata-editor", "pdf-page-counter", "protect-pdf", "unlock-pdf", "compress-pdf"]
+}

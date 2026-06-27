@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "unlock-pdf",
+  "slug": "unlock-pdf",
+  "name": {
+    "en": "PDF Unlocker",
+    "es": "Desbloquear PDF",
+    "fr": "Déverrouiller PDF",
+    "de": "PDF Entsperren",
+    "pt": "Desbloquear PDF"
+  },
+  "tagline": {
+    "en": "Remove password protection from a PDF you own.",
+    "es": "Elimina la protección con contraseña de un PDF que posees.",
+    "fr": "Supprimez la protection par mot de passe d'un PDF que vous possédez.",
+    "de": "Passwortschutz von einem PDF entfernen, das du besitzt.",
+    "pt": "Remova a proteção por senha de um PDF que você possui."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "unlockPdf",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 256 },
+  "capabilities": ["drag-and-drop", "mobile-supported", "remove-password"],
+  "seo": {
+    "primaryKeyword": "unlock pdf",
+    "secondaryKeywords": ["remove pdf password", "pdf password remover", "decrypt pdf online", "pdf unlock free"],
+    "title": {
+      "en": "Unlock PDF — Remove PDF Password Online for Free",
+      "es": "Desbloquear PDF — Eliminar Contraseña PDF Online Gratis",
+      "fr": "Déverrouiller PDF — Supprimer le Mot de Passe PDF en Ligne Gratuitement",
+      "de": "PDF Entsperren — PDF-Passwort Online Kostenlos Entfernen",
+      "pt": "Desbloquear PDF — Remover Senha PDF Online Gratuitamente"
+    },
+    "description": {
+      "en": "Remove the password from a PDF you own. Enter the current password and download the unlocked version — no upload, 100% private, works in your browser.",
+      "es": "Elimina la contraseña de un PDF que posees. Ingresa la contraseña actual y descarga la versión desbloqueada — sin subidas, 100% privado.",
+      "fr": "Supprimez le mot de passe d'un PDF que vous possédez. Entrez le mot de passe actuel et téléchargez la version déverrouillée — sans envoi, 100% privé.",
+      "de": "Entferne das Passwort von einem PDF, das du besitzt. Gib das aktuelle Passwort ein und lade die entsperrte Version herunter — kein Upload, 100% privat.",
+      "pt": "Remova a senha de um PDF que você possui. Insira a senha atual e baixe a versão desbloqueada — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Unlock PDF — Remove PDF Password Protection for Free",
+      "es": "Desbloquear PDF — Eliminar Protección con Contraseña PDF Gratis",
+      "fr": "Déverrouiller PDF — Supprimer la Protection par Mot de Passe PDF Gratuitement",
+      "de": "PDF Entsperren — PDF-Passwortschutz Kostenlos Entfernen",
+      "pt": "Desbloquear PDF — Remover Proteção por Senha PDF Gratuitamente"
+    },
+    "intro": {
+      "en": "If you know the password for a PDF you own, this tool removes the password protection and saves an unlocked copy. Enter the PDF password in the field below before converting. This tool does not bypass or crack passwords — you must know the correct password.",
+      "es": "Si conoces la contraseña de un PDF que posees, esta herramienta elimina la protección y guarda una copia desbloqueada. Ingresa la contraseña del PDF en el campo de abajo antes de convertir.",
+      "fr": "Si vous connaissez le mot de passe d'un PDF que vous possédez, cet outil supprime la protection par mot de passe et enregistre une copie déverrouillée. Entrez le mot de passe du PDF dans le champ ci-dessous avant de convertir.",
+      "de": "Wenn du das Passwort für ein PDF kennst, das du besitzt, entfernt dieses Tool den Passwortschutz und speichert eine entsperrte Kopie. Gib das PDF-Passwort in das Feld unten ein, bevor du konvertierst.",
+      "pt": "Se você conhece a senha de um PDF que possui, esta ferramenta remove a proteção por senha e salva uma cópia desbloqueada. Insira a senha do PDF no campo abaixo antes de converter."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Do I need to know the password to unlock?", "es": "¿Necesito conocer la contraseña para desbloquear?", "fr": "Dois-je connaître le mot de passe pour déverrouiller?", "de": "Muss ich das Passwort kennen, um zu entsperren?", "pt": "Preciso conhecer a senha para desbloquear?" },
+      "answer": { "en": "Yes. This tool removes the password from PDFs where you already know the password. It does not crack or bypass passwords. Only use it on documents you own and are authorised to unlock.", "es": "Sí. Esta herramienta elimina la contraseña de PDFs donde ya conoces la contraseña. No descifra ni omite contraseñas. Úsala solo en documentos que posees y estás autorizado a desbloquear.", "fr": "Oui. Cet outil supprime le mot de passe des PDFs dont vous connaissez déjà le mot de passe. Il ne craque ni ne contourne les mots de passe. Utilisez-le uniquement sur des documents que vous possédez.", "de": "Ja. Dieses Tool entfernt das Passwort von PDFs, bei denen du das Passwort bereits kennst. Es knackt keine Passwörter. Verwende es nur für Dokumente, die du besitzt.", "pt": "Sim. Esta ferramenta remove a senha de PDFs onde você já conhece a senha. Ela não quebra nem ignora senhas. Use-a apenas em documentos que você possui e está autorizado a desbloquear." }
+    },
+    {
+      "question": { "en": "What if the PDF has an owner password only?", "es": "¿Qué pasa si el PDF solo tiene contraseña de propietario?", "fr": "Et si le PDF n'a qu'un mot de passe propriétaire?", "de": "Was ist, wenn das PDF nur ein Inhaberpasswort hat?", "pt": "E se o PDF tiver apenas uma senha de proprietário?" },
+      "answer": { "en": "PDFs can have two password types: a user password (required to open) and an owner password (restricts editing/printing). This tool removes user passwords. Owner-only restricted PDFs can often be opened without a password but cannot be edited — unlocking editing restrictions requires server-side processing.", "es": "Los PDFs pueden tener dos tipos de contraseñas: una contraseña de usuario (requerida para abrir) y una contraseña de propietario (restringe la edición/impresión). Esta herramienta elimina las contraseñas de usuario.", "fr": "Les PDFs peuvent avoir deux types de mots de passe: un mot de passe utilisateur (requis pour ouvrir) et un mot de passe propriétaire (restreint l'édition/impression). Cet outil supprime les mots de passe utilisateur.", "de": "PDFs können zwei Passworttypen haben: ein Benutzerpasswort (zum Öffnen erforderlich) und ein Inhaberpasswort (schränkt Bearbeitung/Druck ein). Dieses Tool entfernt Benutzerpasswörter.", "pt": "PDFs podem ter dois tipos de senha: uma senha de usuário (necessária para abrir) e uma senha de proprietário (restringe edição/impressão). Esta ferramenta remove senhas de usuário." }
+    },
+    {
+      "question": { "en": "Is my password sent to a server?", "es": "¿Mi contraseña se envía a un servidor?", "fr": "Mon mot de passe est-il envoyé à un serveur?", "de": "Wird mein Passwort an einen Server gesendet?", "pt": "Minha senha é enviada para um servidor?" },
+      "answer": { "en": "No. The password and PDF file never leave your browser. Everything is processed locally with JavaScript. No data is transmitted anywhere.", "es": "No. La contraseña y el archivo PDF nunca abandonan tu navegador. Todo se procesa localmente con JavaScript. No se transmiten datos a ningún lado.", "fr": "Non. Le mot de passe et le fichier PDF ne quittent jamais votre navigateur. Tout est traité localement avec JavaScript. Aucune donnée n'est transmise nulle part.", "de": "Nein. Das Passwort und die PDF-Datei verlassen niemals deinen Browser. Alles wird lokal mit JavaScript verarbeitet. Es werden keine Daten übertragen.", "pt": "Não. A senha e o arquivo PDF nunca saem do seu navegador. Tudo é processado localmente com JavaScript. Nenhum dado é transmitido para nenhum lugar." }
+    },
+    {
+      "question": { "en": "Can I unlock multiple PDFs at once?", "es": "¿Puedo desbloquear varios PDFs a la vez?", "fr": "Puis-je déverrouiller plusieurs PDFs à la fois?", "de": "Kann ich mehrere PDFs auf einmal entsperren?", "pt": "Posso desbloquear vários PDFs de uma vez?" },
+      "answer": { "en": "Currently this tool processes one PDF at a time. For multiple files with the same password, process them one at a time.", "es": "Actualmente esta herramienta procesa un PDF a la vez. Para varios archivos con la misma contraseña, procésalos uno a la vez.", "fr": "Actuellement, cet outil traite un PDF à la fois. Pour plusieurs fichiers avec le même mot de passe, traitez-les un par un.", "de": "Derzeit verarbeitet dieses Tool ein PDF auf einmal. Für mehrere Dateien mit demselben Passwort diese nacheinander verarbeiten.", "pt": "Atualmente esta ferramenta processa um PDF por vez. Para vários arquivos com a mesma senha, processe-os um de cada vez." }
+    }
+  ],
+  "relatedTools": ["protect-pdf", "merge-pdf", "compress-pdf", "pdf-metadata-viewer", "rotate-pdf"]
+}

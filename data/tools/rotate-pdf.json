@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "rotate-pdf",
+  "slug": "rotate-pdf",
+  "name": {
+    "en": "PDF Page Rotator",
+    "es": "Rotador de Páginas PDF",
+    "fr": "Rotateur de Pages PDF",
+    "de": "PDF Seiten Drehen",
+    "pt": "Rotacionar Páginas PDF"
+  },
+  "tagline": {
+    "en": "Rotate pages in a PDF — 90°, 180° or 270° — in your browser.",
+    "es": "Rota páginas en un PDF — 90°, 180° o 270° — en tu navegador.",
+    "fr": "Faites pivoter les pages d'un PDF — 90°, 180° ou 270° — dans votre navigateur.",
+    "de": "Seiten in einem PDF drehen — 90°, 180° oder 270° — im Browser.",
+    "pt": "Rotacione páginas em um PDF — 90°, 180° ou 270° — no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "rotatePdf",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 10, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 256 },
+  "capabilities": ["batch", "drag-and-drop", "mobile-supported", "rotate", "page-selection"],
+  "seo": {
+    "primaryKeyword": "rotate pdf",
+    "secondaryKeywords": ["rotate pdf pages online", "pdf page rotation", "rotate pdf 90 degrees", "fix sideways pdf"],
+    "title": {
+      "en": "Rotate PDF Pages Online — Free PDF Rotation Tool",
+      "es": "Rotar Páginas PDF Online — Herramienta de Rotación PDF Gratuita",
+      "fr": "Faire Pivoter les Pages PDF en Ligne — Outil de Rotation PDF Gratuit",
+      "de": "PDF-Seiten Online Drehen — Kostenloses PDF-Rotationswerkzeug",
+      "pt": "Rotacionar Páginas PDF Online — Ferramenta de Rotação PDF Gratuita"
+    },
+    "description": {
+      "en": "Rotate one or all pages in a PDF by 90°, 180° or 270° online for free. Fix sideways or upside-down pages instantly — no upload, 100% private.",
+      "es": "Rota una o todas las páginas de un PDF 90°, 180° o 270° online gratis. Corrige páginas giradas o al revés al instante — sin subidas, 100% privado.",
+      "fr": "Faites pivoter une ou toutes les pages d'un PDF de 90°, 180° ou 270° en ligne gratuitement. Corrigez les pages de côté ou à l'envers instantanément.",
+      "de": "Eine oder alle Seiten eines PDFs um 90°, 180° oder 270° kostenlos online drehen. Schiefe oder auf dem Kopf stehende Seiten sofort korrigieren.",
+      "pt": "Rotacione uma ou todas as páginas de um PDF em 90°, 180° ou 270° online gratuitamente. Corrija páginas giradas ou de cabeça para baixo instantaneamente."
+    },
+    "h1": {
+      "en": "Rotate PDF Pages — Fix Sideways Pages Online for Free",
+      "es": "Rotar Páginas PDF — Corregir Páginas Giradas Online Gratis",
+      "fr": "Faire Pivoter les Pages PDF — Corriger les Pages de Côté en Ligne Gratuitement",
+      "de": "PDF-Seiten Drehen — Schiefe Seiten Online Kostenlos Korrigieren",
+      "pt": "Rotacionar Páginas PDF — Corrigir Páginas Giradas Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Fix landscape pages in a portrait document or rotate scanned pages that came out sideways. Enter a page range to rotate specific pages, or leave blank to rotate the entire PDF. Choose 90°, 180°, or 270° clockwise rotation.",
+      "es": "Corrige páginas horizontales en un documento vertical o rota páginas escaneadas que salieron de lado. Ingresa un rango de páginas para rotar páginas específicas, o déjalo en blanco para rotar todo el PDF.",
+      "fr": "Corrigez les pages paysage dans un document portrait ou faites pivoter les pages numérisées qui sont sorties de côté. Entrez une plage de pages pour faire pivoter des pages spécifiques, ou laissez vide pour faire pivoter tout le PDF.",
+      "de": "Querformat-Seiten in einem Hochformat-Dokument korrigieren oder gescannte Seiten, die seitwärts herausgekommen sind, drehen. Einen Seitenbereich eingeben, um bestimmte Seiten zu drehen, oder leer lassen, um das gesamte PDF zu drehen.",
+      "pt": "Corrija páginas paisagem em um documento retrato ou rotacione páginas digitalizadas que saíram de lado. Insira um intervalo de páginas para rotacionar páginas específicas ou deixe em branco para rotacionar o PDF inteiro."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Can I rotate only specific pages?", "es": "¿Puedo rotar solo páginas específicas?", "fr": "Puis-je faire pivoter uniquement des pages spécifiques?", "de": "Kann ich nur bestimmte Seiten drehen?", "pt": "Posso rotacionar apenas páginas específicas?" },
+      "answer": { "en": "Yes. Enter the page numbers in the Pages field (e.g., '1, 3-5, 7') to rotate only those pages. Leave the field blank to rotate all pages.", "es": "Sí. Ingresa los números de página en el campo Páginas (p.ej., '1, 3-5, 7') para rotar solo esas páginas. Deja el campo en blanco para rotar todas las páginas.", "fr": "Oui. Entrez les numéros de page dans le champ Pages (ex. '1, 3-5, 7') pour faire pivoter uniquement ces pages. Laissez le champ vide pour faire pivoter toutes les pages.", "de": "Ja. Gib die Seitennummern im Seiten-Feld ein (z.B. '1, 3-5, 7'), um nur diese Seiten zu drehen. Das Feld leer lassen, um alle Seiten zu drehen.", "pt": "Sim. Insira os números de página no campo Páginas (ex. '1, 3-5, 7') para rotacionar apenas essas páginas. Deixe o campo em branco para rotacionar todas as páginas." }
+    },
+    {
+      "question": { "en": "Is the rotation permanent?", "es": "¿La rotación es permanente?", "fr": "La rotation est-elle permanente?", "de": "Ist die Drehung dauerhaft?", "pt": "A rotação é permanente?" },
+      "answer": { "en": "Yes. The rotation is embedded into the PDF file structure. You can rotate it again to correct if needed — for example, rotating 90° clockwise twice gives 180°.", "es": "Sí. La rotación se incrusta en la estructura del archivo PDF. Puedes rotarla nuevamente si es necesario.", "fr": "Oui. La rotation est intégrée dans la structure du fichier PDF. Vous pouvez la faire pivoter à nouveau pour corriger si nécessaire.", "de": "Ja. Die Drehung ist in die PDF-Dateistruktur eingebettet. Du kannst sie erneut drehen, um sie bei Bedarf zu korrigieren.", "pt": "Sim. A rotação é incorporada na estrutura do arquivo PDF. Você pode rotacionar novamente para corrigir se necessário." }
+    },
+    {
+      "question": { "en": "What does 'clockwise' mean for PDF rotation?", "es": "¿Qué significa 'en el sentido de las agujas del reloj' para la rotación de PDF?", "fr": "Que signifie 'dans le sens des aiguilles d'une montre' pour la rotation PDF?", "de": "Was bedeutet 'im Uhrzeigersinn' für die PDF-Rotation?", "pt": "O que significa 'sentido horário' para rotação de PDF?" },
+      "answer": { "en": "90° clockwise turns a page so the left edge becomes the bottom. 180° flips it upside-down. 270° clockwise (or 90° counter-clockwise) turns the page so the right edge becomes the bottom.", "es": "90° en sentido horario gira una página para que el borde izquierdo quede abajo. 180° la voltea al revés. 270° en sentido horario gira la página para que el borde derecho quede abajo.", "fr": "90° dans le sens des aiguilles d'une montre tourne une page pour que le bord gauche devienne le bas. 180° la retourne à l'envers. 270° dans le sens des aiguilles d'une montre tourne la page pour que le bord droit devienne le bas.", "de": "90° im Uhrzeigersinn dreht eine Seite so, dass die linke Kante unten wird. 180° dreht sie auf den Kopf. 270° im Uhrzeigersinn dreht die Seite so, dass die rechte Kante unten wird.", "pt": "90° no sentido horário vira uma página para que a borda esquerda fique embaixo. 180° a vira de cabeça para baixo. 270° no sentido horário gira a página para que a borda direita fique embaixo." }
+    },
+    {
+      "question": { "en": "Are my files uploaded for rotation?", "es": "¿Mis archivos se suben para la rotación?", "fr": "Mes fichiers sont-ils téléchargés pour la rotation?", "de": "Werden meine Dateien für die Drehung hochgeladen?", "pt": "Meus arquivos são enviados para rotação?" },
+      "answer": { "en": "No. All rotation is performed locally in your browser using JavaScript. Your PDF files never leave your device.", "es": "No. Toda la rotación se realiza localmente en tu navegador usando JavaScript. Tus archivos PDF nunca abandonan tu dispositivo.", "fr": "Non. Toute la rotation est effectuée localement dans votre navigateur en JavaScript. Vos fichiers PDF ne quittent jamais votre appareil.", "de": "Nein. Alle Rotation wird lokal in deinem Browser mit JavaScript durchgeführt. Deine PDF-Dateien verlassen dein Gerät niemals.", "pt": "Não. Toda a rotação é realizada localmente no seu navegador usando JavaScript. Seus arquivos PDF nunca saem do seu dispositivo." }
+    }
+  ],
+  "relatedTools": ["merge-pdf", "split-pdf", "pdf-page-extract", "pdf-delete-pages", "pdf-reorder-pages"]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-reorder-pages",
+  "slug": "pdf-reorder-pages",
+  "name": {
+    "en": "PDF Page Reorder",
+    "es": "Reordenar Páginas PDF",
+    "fr": "Réorganiser Pages PDF",
+    "de": "PDF Seiten Neuordnen",
+    "pt": "Reordenar Páginas PDF"
+  },
+  "tagline": {
+    "en": "Rearrange PDF pages into a custom order in your browser.",
+    "es": "Reorganiza las páginas de un PDF en un orden personalizado en tu navegador.",
+    "fr": "Réorganisez les pages PDF dans un ordre personnalisé dans votre navigateur.",
+    "de": "PDF-Seiten im Browser in eine benutzerdefinierte Reihenfolge bringen.",
+    "pt": "Reorganize páginas de PDF em uma ordem personalizada no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "reorderPdfPages",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 256 },
+  "capabilities": ["drag-and-drop", "mobile-supported", "reorder"],
+  "seo": {
+    "primaryKeyword": "reorder pdf pages",
+    "secondaryKeywords": ["rearrange pdf pages online", "change pdf page order", "reorganize pdf pages free", "pdf page sorter"],
+    "title": {
+      "en": "Reorder PDF Pages Online — Free PDF Page Sorter",
+      "es": "Reordenar Páginas PDF Online — Organizador de Páginas PDF Gratuito",
+      "fr": "Réorganiser les Pages PDF en Ligne — Trieur de Pages PDF Gratuit",
+      "de": "PDF-Seiten Online Neuordnen — Kostenloser PDF Seiten-Sortierer",
+      "pt": "Reordenar Páginas PDF Online — Classificador de Páginas PDF Gratuito"
+    },
+    "description": {
+      "en": "Rearrange the pages of a PDF into any order online for free. Enter the new page sequence and download the reordered PDF — no upload, 100% private.",
+      "es": "Reorganiza las páginas de un PDF en cualquier orden online gratis. Ingresa la nueva secuencia de páginas y descarga el PDF reordenado — sin subidas.",
+      "fr": "Réorganisez les pages d'un PDF dans n'importe quel ordre en ligne gratuitement. Entrez la nouvelle séquence de pages et téléchargez le PDF réorganisé.",
+      "de": "PDF-Seiten kostenlos online in beliebige Reihenfolge bringen. Neue Seitenfolge eingeben und neu geordnetes PDF herunterladen — kein Upload.",
+      "pt": "Reorganize as páginas de um PDF em qualquer ordem online gratuitamente. Insira a nova sequência de páginas e baixe o PDF reordenado — sem upload."
+    },
+    "h1": {
+      "en": "Reorder PDF Pages — Rearrange PDF Page Order Online Free",
+      "es": "Reordenar Páginas PDF — Reorganizar el Orden de Páginas PDF Online Gratis",
+      "fr": "Réorganiser les Pages PDF — Changer l'Ordre des Pages PDF en Ligne Gratuitement",
+      "de": "PDF-Seiten Neuordnen — PDF-Seitenreihenfolge Online Kostenlos Ändern",
+      "pt": "Reordenar Páginas PDF — Reorganizar Ordem de Páginas PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Change the page order of a PDF by entering your desired sequence. For a 5-page document, entering '3, 1, 2, 5, 4' puts page 3 first, then page 1, and so on. Every page number must appear exactly once — use this to fix mis-scanned documents or reorganise presentations.",
+      "es": "Cambia el orden de las páginas de un PDF ingresando tu secuencia deseada. Para un documento de 5 páginas, ingresar '3, 1, 2, 5, 4' pone la página 3 primero, luego la página 1, y así sucesivamente.",
+      "fr": "Changez l'ordre des pages d'un PDF en entrant votre séquence souhaitée. Pour un document de 5 pages, entrer '3, 1, 2, 5, 4' met la page 3 en premier, puis la page 1, et ainsi de suite.",
+      "de": "Die Seitenreihenfolge eines PDFs durch Eingabe der gewünschten Folge ändern. Für ein 5-seitiges Dokument stellt die Eingabe '3, 1, 2, 5, 4' Seite 3 an erste Stelle, dann Seite 1 usw.",
+      "pt": "Altere a ordem das páginas de um PDF inserindo sua sequência desejada. Para um documento de 5 páginas, inserir '3, 1, 2, 5, 4' coloca a página 3 primeiro, depois a página 1, e assim por diante."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How do I enter the new page order?", "es": "¿Cómo ingreso el nuevo orden de páginas?", "fr": "Comment entrer le nouvel ordre des pages?", "de": "Wie gebe ich die neue Seitenreihenfolge ein?", "pt": "Como insiro a nova ordem de páginas?" },
+      "answer": { "en": "Enter the page numbers in your desired order, separated by commas. For example, for a 4-page PDF enter '3, 1, 4, 2' to place page 3 first. Every page must be listed exactly once.", "es": "Ingresa los números de página en tu orden deseado, separados por comas. Por ejemplo, para un PDF de 4 páginas ingresa '3, 1, 4, 2' para colocar la página 3 primero.", "fr": "Entrez les numéros de page dans l'ordre souhaité, séparés par des virgules. Par exemple, pour un PDF de 4 pages, entrez '3, 1, 4, 2' pour placer la page 3 en premier.", "de": "Seitennummern in der gewünschten Reihenfolge, durch Kommas getrennt, eingeben. Zum Beispiel für ein 4-seitiges PDF '3, 1, 4, 2' eingeben, um Seite 3 an erste Stelle zu setzen.", "pt": "Insira os números de página na sua ordem desejada, separados por vírgulas. Por exemplo, para um PDF de 4 páginas, insira '3, 1, 4, 2' para colocar a página 3 primeiro." }
+    },
+    {
+      "question": { "en": "Can I duplicate or omit pages when reordering?", "es": "¿Puedo duplicar u omitir páginas al reordenar?", "fr": "Puis-je dupliquer ou omettre des pages lors de la réorganisation?", "de": "Kann ich Seiten beim Neuordnen duplizieren oder weglassen?", "pt": "Posso duplicar ou omitir páginas ao reordenar?" },
+      "answer": { "en": "No. Every page in the document must appear exactly once in your order. To remove pages, use the Delete Pages tool first. To duplicate pages, use Merge PDF to merge the document with itself.", "es": "No. Cada página del documento debe aparecer exactamente una vez en tu orden. Para eliminar páginas, usa la herramienta Eliminar Páginas primero.", "fr": "Non. Chaque page du document doit apparaître exactement une fois dans votre ordre. Pour supprimer des pages, utilisez d'abord l'outil Supprimer des Pages.", "de": "Nein. Jede Seite im Dokument muss genau einmal in deiner Reihenfolge erscheinen. Um Seiten zu entfernen, verwende zuerst das Seiten-Löschen-Tool.", "pt": "Não. Cada página do documento deve aparecer exatamente uma vez na sua ordem. Para remover páginas, use a ferramenta Excluir Páginas primeiro." }
+    },
+    {
+      "question": { "en": "What if I don't know how many pages the PDF has?", "es": "¿Qué pasa si no sé cuántas páginas tiene el PDF?", "fr": "Que faire si je ne sais pas combien de pages le PDF a?", "de": "Was ist, wenn ich nicht weiß, wie viele Seiten das PDF hat?", "pt": "E se eu não souber quantas páginas o PDF tem?" },
+      "answer": { "en": "Use the PDF Page Counter tool to find the total page count first, then return here to enter your custom order.", "es": "Usa la herramienta Contador de Páginas PDF para encontrar el recuento total de páginas primero, luego regresa aquí para ingresar tu orden personalizado.", "fr": "Utilisez l'outil Compteur de Pages PDF pour trouver d'abord le nombre total de pages, puis revenez ici pour entrer votre ordre personnalisé.", "de": "Verwende zuerst das PDF-Seitenanzahl-Tool, um die Gesamtseitenanzahl zu ermitteln, dann hierher zurückkehren, um die benutzerdefinierte Reihenfolge einzugeben.", "pt": "Use a ferramenta Contador de Páginas PDF para encontrar o número total de páginas primeiro, depois volte aqui para inserir sua ordem personalizada." }
+    },
+    {
+      "question": { "en": "Is this processed in my browser?", "es": "¿Esto se procesa en mi navegador?", "fr": "Est-ce traité dans mon navigateur?", "de": "Wird das in meinem Browser verarbeitet?", "pt": "Isso é processado no meu navegador?" },
+      "answer": { "en": "Yes. The PDF never leaves your device. Page reordering is performed entirely in your browser using pdf-lib.", "es": "Sí. El PDF nunca abandona tu dispositivo. La reordenación de páginas se realiza completamente en tu navegador.", "fr": "Oui. Le PDF ne quitte jamais votre appareil. La réorganisation des pages est effectuée entièrement dans votre navigateur.", "de": "Ja. Das PDF verlässt dein Gerät niemals. Die Seitenneuordnung wird vollständig in deinem Browser durchgeführt.", "pt": "Sim. O PDF nunca sai do seu dispositivo. A reordenação de páginas é realizada inteiramente no seu navegador." }
+    }
+  ],
+  "relatedTools": ["pdf-page-extract", "pdf-delete-pages", "merge-pdf", "split-pdf", "rotate-pdf"]
+}

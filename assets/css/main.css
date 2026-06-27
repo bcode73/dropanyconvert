@@ -1025,6 +1025,72 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
   .dac-features__grid { grid-template-columns: 1fr; }
 }
 
+/* ── PDF Tool Option Controls ────────────────────────────────────────────── */
+.dac-hint-text {
+  font-size: 11px;
+  color: var(--dac-text-muted, #888);
+  margin: 4px 0 0;
+}
+
+.dac-hint-inline {
+  font-size: 11px;
+  color: var(--dac-text-muted, #888);
+  display: inline;
+}
+
+.dac-required {
+  color: #e53e3e;
+  margin-left: 2px;
+}
+
+.dac-page-selection-control,
+.dac-password-control,
+.dac-reorder-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dac-protect-control {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dac-protect-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dac-dpi-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dac-metadata-control {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dac-metadata-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dac-metadata-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (max-width: 600px) {
+  .dac-metadata-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Utilities ───────────────────────────────────────────────────────────── */
 [hidden] { display: none !important; }
 .sr-only {

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "protect-pdf",
+  "slug": "protect-pdf",
+  "name": {
+    "en": "PDF Password Protect",
+    "es": "Proteger PDF con Contraseña",
+    "fr": "Protéger PDF par Mot de Passe",
+    "de": "PDF mit Passwort Schützen",
+    "pt": "Proteger PDF com Senha"
+  },
+  "tagline": {
+    "en": "Add password protection to a PDF directly in your browser.",
+    "es": "Agrega protección con contraseña a un PDF directamente en tu navegador.",
+    "fr": "Ajoutez une protection par mot de passe à un PDF directement dans votre navigateur.",
+    "de": "Passwortschutz zu einem PDF direkt im Browser hinzufügen.",
+    "pt": "Adicione proteção por senha a um PDF diretamente no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "protectPdf",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 256 },
+  "capabilities": ["drag-and-drop", "mobile-supported", "password-protect"],
+  "seo": {
+    "primaryKeyword": "password protect pdf",
+    "secondaryKeywords": ["add password to pdf", "encrypt pdf online", "pdf password protection free", "secure pdf file"],
+    "title": {
+      "en": "Password Protect PDF Online — Free PDF Encryption Tool",
+      "es": "Proteger PDF con Contraseña Online — Herramienta de Cifrado PDF Gratuita",
+      "fr": "Protéger PDF par Mot de Passe en Ligne — Outil de Chiffrement PDF Gratuit",
+      "de": "PDF Online mit Passwort Schützen — Kostenloses PDF-Verschlüsselungstool",
+      "pt": "Proteger PDF com Senha Online — Ferramenta de Criptografia PDF Gratuita"
+    },
+    "description": {
+      "en": "Add password protection to a PDF online for free. Set an open password and optional editing restriction — no upload, 100% private, processed in your browser.",
+      "es": "Agrega protección con contraseña a un PDF online gratis. Establece una contraseña de apertura y restricción de edición opcional — sin subidas, 100% privado.",
+      "fr": "Ajoutez une protection par mot de passe à un PDF en ligne gratuitement. Définissez un mot de passe d'ouverture et une restriction d'édition facultative — sans envoi, 100% privé.",
+      "de": "Passwortschutz zu einem PDF kostenlos online hinzufügen. Öffnungspasswort und optionale Bearbeitungsbeschränkung festlegen — kein Upload, 100% privat.",
+      "pt": "Adicione proteção por senha a um PDF online gratuitamente. Defina uma senha de abertura e restrição de edição opcional — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Password Protect PDF — Encrypt PDF Online for Free",
+      "es": "Proteger PDF con Contraseña — Cifrar PDF Online Gratis",
+      "fr": "Protéger PDF par Mot de Passe — Chiffrer PDF en Ligne Gratuitement",
+      "de": "PDF mit Passwort Schützen — PDF Online Kostenlos Verschlüsseln",
+      "pt": "Proteger PDF com Senha — Criptografar PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Encrypt a PDF with a password so it can only be opened by people who know the password. Optionally set an owner password to restrict editing and printing. All encryption runs in your browser — the password never leaves your device.",
+      "es": "Cifra un PDF con una contraseña para que solo puedan abrirlo las personas que conocen la contraseña. Opcionalmente establece una contraseña de propietario para restringir la edición e impresión.",
+      "fr": "Chiffrez un PDF avec un mot de passe afin qu'il ne puisse être ouvert que par les personnes qui connaissent le mot de passe. Définissez éventuellement un mot de passe propriétaire pour restreindre l'édition et l'impression.",
+      "de": "Verschlüssele ein PDF mit einem Passwort, damit es nur von Personen geöffnet werden kann, die das Passwort kennen. Optional ein Inhaberpasswort festlegen, um Bearbeitung und Druck einzuschränken.",
+      "pt": "Criptografe um PDF com uma senha para que ele só possa ser aberto por pessoas que conhecem a senha. Opcionalmente defina uma senha de proprietário para restringir edição e impressão."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What is the difference between open and owner passwords?", "es": "¿Cuál es la diferencia entre contraseña de apertura y de propietario?", "fr": "Quelle est la différence entre les mots de passe d'ouverture et de propriétaire?", "de": "Was ist der Unterschied zwischen Öffnungs- und Inhaberpasswort?", "pt": "Qual é a diferença entre senha de abertura e senha de proprietário?" },
+      "answer": { "en": "The open (user) password is required to view the PDF. The owner password restricts permissions like editing, printing, and copying. Set both for maximum control — the owner password is generated automatically if you leave it blank.", "es": "La contraseña de apertura (usuario) es necesaria para ver el PDF. La contraseña de propietario restringe permisos como editar, imprimir y copiar.", "fr": "Le mot de passe d'ouverture (utilisateur) est requis pour voir le PDF. Le mot de passe propriétaire restreint les permissions comme la modification, l'impression et la copie.", "de": "Das Öffnungs- (Benutzer-)Passwort ist erforderlich, um das PDF anzusehen. Das Inhaberpasswort schränkt Berechtigungen wie Bearbeiten, Drucken und Kopieren ein.", "pt": "A senha de abertura (usuário) é necessária para visualizar o PDF. A senha de proprietário restringe permissões como edição, impressão e cópia." }
+    },
+    {
+      "question": { "en": "What encryption standard is used?", "es": "¿Qué estándar de cifrado se utiliza?", "fr": "Quel standard de chiffrement est utilisé?", "de": "Welcher Verschlüsselungsstandard wird verwendet?", "pt": "Qual padrão de criptografia é usado?" },
+      "answer": { "en": "This tool uses AES-128 encryption via the PDF 1.7 standard, which is widely supported by PDF readers. For higher security requirements, consider AES-256 encryption available in professional PDF tools.", "es": "Esta herramienta usa cifrado AES-128 a través del estándar PDF 1.7, que es ampliamente compatible con los lectores de PDF.", "fr": "Cet outil utilise le chiffrement AES-128 via le standard PDF 1.7, largement pris en charge par les lecteurs PDF.", "de": "Dieses Tool verwendet AES-128-Verschlüsselung über den PDF 1.7 Standard, der von PDF-Lesern weitgehend unterstützt wird.", "pt": "Esta ferramenta usa criptografia AES-128 via padrão PDF 1.7, amplamente suportada por leitores de PDF." }
+    },
+    {
+      "question": { "en": "Can I protect a PDF that is already password-protected?", "es": "¿Puedo proteger un PDF que ya tiene contraseña?", "fr": "Puis-je protéger un PDF déjà protégé par mot de passe?", "de": "Kann ich ein bereits passwortgeschütztes PDF schützen?", "pt": "Posso proteger um PDF que já tem senha?" },
+      "answer": { "en": "First unlock the existing PDF using the PDF Unlock tool, then protect it with a new password using this tool.", "es": "Primero desbloquea el PDF existente usando la herramienta PDF Desbloquear, luego protégelo con una nueva contraseña usando esta herramienta.", "fr": "Déverrouillez d'abord le PDF existant avec l'outil PDF Unlock, puis protégez-le avec un nouveau mot de passe avec cet outil.", "de": "Entsperre zuerst das vorhandene PDF mit dem PDF-Entsperren-Tool, dann schütze es mit einem neuen Passwort mit diesem Tool.", "pt": "Primeiro desbloqueie o PDF existente com a ferramenta PDF Unlock, depois proteja-o com uma nova senha usando esta ferramenta." }
+    },
+    {
+      "question": { "en": "Is the password stored anywhere?", "es": "¿La contraseña se almacena en algún lugar?", "fr": "Le mot de passe est-il stocké quelque part?", "de": "Wird das Passwort irgendwo gespeichert?", "pt": "A senha é armazenada em algum lugar?" },
+      "answer": { "en": "No. The password is used only within your browser session and is never stored, transmitted, or logged. Once the page is closed, the password is gone.", "es": "No. La contraseña solo se usa dentro de tu sesión de navegador y nunca se almacena, transmite o registra. Una vez que se cierra la página, la contraseña desaparece.", "fr": "Non. Le mot de passe n'est utilisé que dans votre session de navigateur et n'est jamais stocké, transmis ou enregistré. Une fois la page fermée, le mot de passe est perdu.", "de": "Nein. Das Passwort wird nur innerhalb deiner Browser-Sitzung verwendet und niemals gespeichert, übertragen oder protokolliert. Sobald die Seite geschlossen ist, ist das Passwort weg.", "pt": "Não. A senha é usada apenas dentro da sua sessão de navegador e nunca é armazenada, transmitida ou registrada. Uma vez que a página é fechada, a senha desaparece." }
+    }
+  ],
+  "relatedTools": ["unlock-pdf", "merge-pdf", "compress-pdf", "pdf-metadata-editor", "rotate-pdf"]
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-thumbnail",
+  "slug": "pdf-thumbnail",
+  "name": {
+    "en": "PDF Thumbnail Generator",
+    "es": "Generador de Miniaturas PDF",
+    "fr": "Générateur de Miniatures PDF",
+    "de": "PDF Vorschaubilder Erstellen",
+    "pt": "Gerador de Miniaturas PDF"
+  },
+  "tagline": {
+    "en": "Generate preview thumbnails for PDF pages in your browser.",
+    "es": "Genera miniaturas de vista previa para páginas PDF en tu navegador.",
+    "fr": "Générez des miniatures d'aperçu pour les pages PDF dans votre navigateur.",
+    "de": "Vorschaubilder für PDF-Seiten im Browser erstellen.",
+    "pt": "Gere miniaturas de visualização para páginas PDF no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "generatePdfThumbnails",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "png", "mime": "image/png", "label": "PNG", "default": true },
+    { "ext": "jpg", "mime": "image/jpeg", "label": "JPG" }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": true },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": true, "memoryBudgetMb": 512, "requiresWorker": true },
+  "capabilities": ["drag-and-drop", "mobile-supported", "image-dpi", "page-selection"],
+  "seo": {
+    "primaryKeyword": "pdf thumbnail generator",
+    "secondaryKeywords": ["pdf page preview", "generate pdf thumbnails online", "pdf to thumbnail image", "pdf preview image free"],
+    "title": {
+      "en": "PDF Thumbnail Generator — Create PDF Page Previews Online Free",
+      "es": "Generador de Miniaturas PDF — Crear Vistas Previas de Páginas PDF Online Gratis",
+      "fr": "Générateur de Miniatures PDF — Créer des Aperçus de Pages PDF en Ligne Gratuitement",
+      "de": "PDF Vorschaubilder Erstellen — PDF-Seitenvorschauen Online Kostenlos Erstellen",
+      "pt": "Gerador de Miniaturas PDF — Criar Prévias de Páginas PDF Online Gratuitamente"
+    },
+    "description": {
+      "en": "Generate PNG or JPG thumbnail images of PDF pages online for free. Choose DPI, select specific pages, download as ZIP — no upload, 100% private.",
+      "es": "Genera imágenes de miniaturas PNG o JPG de páginas PDF online gratis. Elige DPI, selecciona páginas específicas, descarga como ZIP — sin subidas.",
+      "fr": "Générez des images miniatures PNG ou JPG de pages PDF en ligne gratuitement. Choisissez le DPI, sélectionnez des pages spécifiques, téléchargez en ZIP.",
+      "de": "PNG- oder JPG-Vorschaubilder von PDF-Seiten kostenlos online erstellen. DPI wählen, bestimmte Seiten auswählen, als ZIP herunterladen — kein Upload.",
+      "pt": "Gere imagens de miniatura PNG ou JPG de páginas PDF online gratuitamente. Escolha DPI, selecione páginas específicas, baixe como ZIP — sem upload."
+    },
+    "h1": {
+      "en": "PDF Thumbnail Generator — Create Page Preview Images from PDF Online Free",
+      "es": "Generador de Miniaturas PDF — Crear Imágenes de Vista Previa de Páginas desde PDF Online Gratis",
+      "fr": "Générateur de Miniatures PDF — Créer des Images d'Aperçu de Pages depuis un PDF en Ligne Gratuitement",
+      "de": "PDF Vorschaubilder Erstellen — Seitenvorschaubilder aus PDF Online Kostenlos Erstellen",
+      "pt": "Gerador de Miniaturas PDF — Criar Imagens de Prévia de Páginas de PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Render low- or medium-resolution preview images of PDF pages for use in document management systems, email previews, or website galleries. Choose PNG for transparency support or JPG for smaller file sizes. Set DPI to control the output size — 72 DPI for small thumbnails, 150 DPI for medium previews.",
+      "es": "Renderiza imágenes de vista previa de baja o media resolución de páginas PDF para su uso en sistemas de gestión de documentos, vistas previas de correo electrónico o galerías de sitios web.",
+      "fr": "Rendez des images d'aperçu basse ou moyenne résolution des pages PDF pour une utilisation dans des systèmes de gestion de documents, des aperçus d'e-mail ou des galeries de sites web.",
+      "de": "Vorschaubilder mit niedriger oder mittlerer Auflösung von PDF-Seiten für Dokumentenmanagementsysteme, E-Mail-Vorschauen oder Website-Galerien erstellen.",
+      "pt": "Renderize imagens de prévia de baixa ou média resolução de páginas PDF para uso em sistemas de gerenciamento de documentos, prévias de e-mail ou galerias de sites."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "What is the difference between this and PDF to Images?", "es": "¿Cuál es la diferencia entre esto y PDF a Imágenes?", "fr": "Quelle est la différence entre ceci et PDF en Images?", "de": "Was ist der Unterschied zwischen diesem und PDF zu Bilder?", "pt": "Qual é a diferença entre isso e PDF para Imagens?" },
+      "answer": { "en": "PDF to Images is designed for high-quality image export (screen or print quality). PDF Thumbnail Generator targets smaller preview images for use in document listings, email cards, or website previews. Both tools use the same rendering engine — the intended use case and typical DPI differ.", "es": "PDF a Imágenes está diseñado para exportación de imágenes de alta calidad. El Generador de Miniaturas PDF apunta a imágenes de vista previa más pequeñas.", "fr": "PDF en Images est conçu pour l'export d'images haute qualité. Le Générateur de Miniatures PDF cible des images d'aperçu plus petites pour les listes de documents.", "de": "PDF zu Bilder ist für hochqualitative Bildexporte konzipiert. Der PDF Vorschaubild-Generator zielt auf kleinere Vorschaubilder für Dokumentenlisten ab.", "pt": "PDF para Imagens é projetado para exportação de imagens de alta qualidade. O Gerador de Miniaturas PDF visa imagens de prévia menores para uso em listas de documentos." }
+    },
+    {
+      "question": { "en": "Which DPI gives the best thumbnail size?", "es": "¿Qué DPI da el mejor tamaño de miniatura?", "fr": "Quel DPI donne la meilleure taille de miniature?", "de": "Welcher DPI gibt die beste Miniaturbildgröße?", "pt": "Qual DPI dá o melhor tamanho de miniatura?" },
+      "answer": { "en": "72 DPI produces compact thumbnails (typically 595×841 pixels for A4). 96 DPI gives slightly larger images. 150 DPI is a good balance for medium previews. Choose based on where the thumbnails will be displayed.", "es": "72 DPI produce miniaturas compactas (típicamente 595×841 píxeles para A4). 96 DPI da imágenes ligeramente más grandes. 150 DPI es un buen equilibrio para vistas previas medianas.", "fr": "72 DPI produit des miniatures compactes (généralement 595×841 pixels pour A4). 96 DPI donne des images légèrement plus grandes. 150 DPI est un bon équilibre pour les aperçus moyens.", "de": "72 DPI erzeugt kompakte Vorschaubilder (typischerweise 595×841 Pixel für A4). 96 DPI gibt etwas größere Bilder. 150 DPI ist eine gute Balance für mittlere Vorschauen.", "pt": "72 DPI produz miniaturas compactas (tipicamente 595×841 pixels para A4). 96 DPI dá imagens ligeiramente maiores. 150 DPI é um bom equilíbrio para prévias médias." }
+    },
+    {
+      "question": { "en": "Can I generate thumbnails for specific pages only?", "es": "¿Puedo generar miniaturas solo para páginas específicas?", "fr": "Puis-je générer des miniatures uniquement pour des pages spécifiques?", "de": "Kann ich Vorschaubilder nur für bestimmte Seiten erstellen?", "pt": "Posso gerar miniaturas apenas para páginas específicas?" },
+      "answer": { "en": "Yes. Use the Pages field to enter specific page numbers or ranges (e.g., '1, 3-5'). Leave blank to generate thumbnails for all pages.", "es": "Sí. Usa el campo Páginas para ingresar números de página específicos o rangos (p.ej., '1, 3-5'). Deja en blanco para generar miniaturas de todas las páginas.", "fr": "Oui. Utilisez le champ Pages pour entrer des numéros de page spécifiques ou des plages (ex. '1, 3-5'). Laissez vide pour générer des miniatures pour toutes les pages.", "de": "Ja. Das Seiten-Feld verwenden, um bestimmte Seitennummern oder Bereiche einzugeben (z.B. '1, 3-5'). Leer lassen für Vorschaubilder aller Seiten.", "pt": "Sim. Use o campo Páginas para inserir números de página específicos ou intervalos (ex. '1, 3-5'). Deixe em branco para gerar miniaturas de todas as páginas." }
+    },
+    {
+      "question": { "en": "Are my PDF files sent to a server?", "es": "¿Mis archivos PDF se envían a un servidor?", "fr": "Mes fichiers PDF sont-ils envoyés à un serveur?", "de": "Werden meine PDF-Dateien an einen Server gesendet?", "pt": "Meus arquivos PDF são enviados para um servidor?" },
+      "answer": { "en": "No. All rendering is done locally in your browser using PDF.js. Your files never leave your device.", "es": "No. Todo el renderizado se realiza localmente en tu navegador usando PDF.js. Tus archivos nunca abandonan tu dispositivo.", "fr": "Non. Tout le rendu est effectué localement dans votre navigateur avec PDF.js. Vos fichiers ne quittent jamais votre appareil.", "de": "Nein. Alle Darstellung wird lokal in deinem Browser mit PDF.js durchgeführt. Deine Dateien verlassen dein Gerät niemals.", "pt": "Não. Todo o renderização é feito localmente no seu navegador usando PDF.js. Seus arquivos nunca saem do seu dispositivo." }
+    }
+  ],
+  "relatedTools": ["pdf-to-images", "split-pdf", "pdf-page-extract", "compress-pdf", "rotate-pdf"]
+}

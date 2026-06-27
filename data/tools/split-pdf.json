@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "split-pdf",
+  "slug": "split-pdf",
+  "name": {
+    "en": "PDF Splitter",
+    "es": "Dividir PDF",
+    "fr": "Diviser PDF",
+    "de": "PDF Teilen",
+    "pt": "Dividir PDF"
+  },
+  "tagline": {
+    "en": "Split a PDF into individual pages or separate documents.",
+    "es": "Divide un PDF en páginas individuales o documentos separados.",
+    "fr": "Divisez un PDF en pages individuelles ou en documents séparés.",
+    "de": "Ein PDF in einzelne Seiten oder separate Dokumente aufteilen.",
+    "pt": "Divida um PDF em páginas individuais ou documentos separados."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "splitPdf",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 512 },
+  "capabilities": ["drag-and-drop", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "split pdf",
+    "secondaryKeywords": ["pdf splitter online", "split pdf pages", "extract pages from pdf", "separate pdf pages free"],
+    "title": {
+      "en": "Split PDF Online — Free PDF Page Splitter",
+      "es": "Dividir PDF Online — Divisor de Páginas PDF Gratuito",
+      "fr": "Diviser PDF en Ligne — Séparateur de Pages PDF Gratuit",
+      "de": "PDF Online Teilen — Kostenloser PDF Seitenteiler",
+      "pt": "Dividir PDF Online — Separador de Páginas PDF Gratuito"
+    },
+    "description": {
+      "en": "Split a PDF into individual pages online for free. Each page becomes a separate PDF file — no upload, 100% private, instant download.",
+      "es": "Divide un PDF en páginas individuales online gratis. Cada página se convierte en un archivo PDF separado — sin subidas, 100% privado.",
+      "fr": "Divisez un PDF en pages individuelles en ligne gratuitement. Chaque page devient un fichier PDF séparé — sans envoi, 100% privé.",
+      "de": "PDF kostenlos online in einzelne Seiten aufteilen. Jede Seite wird zu einer separaten PDF-Datei — kein Upload, 100% privat.",
+      "pt": "Divida um PDF em páginas individuais online gratuitamente. Cada página se torna um arquivo PDF separado — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Split PDF into Individual Pages — Free Online Tool",
+      "es": "Dividir PDF en Páginas Individuales — Herramienta Gratuita Online",
+      "fr": "Diviser PDF en Pages Individuelles — Outil Gratuit en Ligne",
+      "de": "PDF in Einzelne Seiten Aufteilen — Kostenloses Online-Tool",
+      "pt": "Dividir PDF em Páginas Individuais — Ferramenta Gratuita Online"
+    },
+    "intro": {
+      "en": "Upload a PDF and instantly split it into separate pages. Each page is saved as its own PDF file, ready for individual download or as a ZIP archive. Processing happens entirely in your browser.",
+      "es": "Sube un PDF y divídelo instantáneamente en páginas separadas. Cada página se guarda como su propio archivo PDF, listo para descarga individual o como archivo ZIP.",
+      "fr": "Téléchargez un PDF et divisez-le instantanément en pages séparées. Chaque page est enregistrée comme son propre fichier PDF, prêt pour un téléchargement individuel ou en archive ZIP.",
+      "de": "Lade ein PDF hoch und teile es sofort in separate Seiten auf. Jede Seite wird als eigene PDF-Datei gespeichert, bereit zum Einzeldownload oder als ZIP-Archiv.",
+      "pt": "Carregue um PDF e divida-o instantaneamente em páginas separadas. Cada página é salva como seu próprio arquivo PDF, pronto para download individual ou como arquivo ZIP."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Will the split create one file per page?", "es": "¿La división creará un archivo por página?", "fr": "La division créera-t-elle un fichier par page?", "de": "Wird die Aufteilung eine Datei pro Seite erstellen?", "pt": "A divisão criará um arquivo por página?" },
+      "answer": { "en": "Yes. Each page of the PDF becomes its own separate PDF file. The files are named with a page number suffix (e.g., document_page01.pdf, document_page02.pdf).", "es": "Sí. Cada página del PDF se convierte en su propio archivo PDF separado. Los archivos se nombran con un sufijo de número de página.", "fr": "Oui. Chaque page du PDF devient son propre fichier PDF séparé. Les fichiers sont nommés avec un suffixe de numéro de page.", "de": "Ja. Jede Seite des PDFs wird zu einer eigenen separaten PDF-Datei. Die Dateien werden mit einem Seitennummernsuffix benannt.", "pt": "Sim. Cada página do PDF se torna seu próprio arquivo PDF separado. Os arquivos são nomeados com um sufixo de número de página." }
+    },
+    {
+      "question": { "en": "How do I download all split pages?", "es": "¿Cómo descargo todas las páginas divididas?", "fr": "Comment télécharger toutes les pages divisées?", "de": "Wie lade ich alle aufgeteilten Seiten herunter?", "pt": "Como faço o download de todas as páginas divididas?" },
+      "answer": { "en": "After splitting, you can download individual pages with their own download buttons, or use the 'Download all as ZIP' button to get all pages in one archive file.", "es": "Después de dividir, puedes descargar páginas individuales con sus propios botones de descarga, o usar el botón 'Descargar todo como ZIP'.", "fr": "Après la division, vous pouvez télécharger des pages individuelles avec leurs propres boutons de téléchargement, ou utiliser le bouton 'Télécharger tout en ZIP'.", "de": "Nach dem Aufteilen kannst du einzelne Seiten mit ihren eigenen Download-Buttons herunterladen oder den 'Alle als ZIP herunterladen' Button verwenden.", "pt": "Após a divisão, você pode baixar páginas individuais com seus próprios botões de download ou usar o botão 'Baixar tudo como ZIP'." }
+    },
+    {
+      "question": { "en": "Can I split only specific pages?", "es": "¿Puedo dividir solo páginas específicas?", "fr": "Puis-je diviser uniquement des pages spécifiques?", "de": "Kann ich nur bestimmte Seiten aufteilen?", "pt": "Posso dividir apenas páginas específicas?" },
+      "answer": { "en": "The split tool separates all pages. To extract only specific pages, use the PDF Page Extract tool instead, which lets you specify which pages to keep.", "es": "La herramienta de división separa todas las páginas. Para extraer solo páginas específicas, usa la herramienta de Extracción de Páginas PDF.", "fr": "L'outil de division sépare toutes les pages. Pour extraire uniquement des pages spécifiques, utilisez l'outil d'Extraction de Pages PDF.", "de": "Das Split-Tool trennt alle Seiten. Um nur bestimmte Seiten zu extrahieren, verwende das PDF-Seiten-Extraktionstool.", "pt": "A ferramenta de divisão separa todas as páginas. Para extrair apenas páginas específicas, use a ferramenta de Extração de Páginas PDF." }
+    },
+    {
+      "question": { "en": "Is there a page limit for splitting?", "es": "¿Hay un límite de páginas para dividir?", "fr": "Y a-t-il une limite de pages pour la division?", "de": "Gibt es eine Seitenbegrenzung beim Aufteilen?", "pt": "Há um limite de páginas para dividir?" },
+      "answer": { "en": "There is no hard page limit. Very large PDFs (hundreds of pages) may take longer to process depending on your device's memory and processing speed. The tool works within your browser's available resources.", "es": "No hay un límite estricto de páginas. Los PDFs muy grandes pueden tardar más en procesarse según la memoria y velocidad de procesamiento de tu dispositivo.", "fr": "Il n'y a pas de limite stricte de pages. Les très grands PDFs peuvent prendre plus de temps à traiter selon la mémoire et la vitesse de traitement de votre appareil.", "de": "Es gibt keine feste Seitenbegrenzung. Sehr große PDFs können je nach Arbeitsspeicher und Verarbeitungsgeschwindigkeit deines Geräts länger dauern.", "pt": "Não há limite rígido de páginas. PDFs muito grandes podem demorar mais para processar dependendo da memória e velocidade de processamento do seu dispositivo." }
+    }
+  ],
+  "relatedTools": ["merge-pdf", "pdf-page-extract", "pdf-delete-pages", "pdf-reorder-pages", "pdf-page-counter"]
+}

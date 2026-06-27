@@ -299,7 +299,99 @@ function renderToolPage(route, seo, relatedTools, data, config) {
         </div>
       </div>` : '';
 
-  const hasOptions = hasQuality || hasMultiOutput || hasResize || hasRotate || hasFlip || hasWatermark || hasCrop;
+  // ── PDF Page selection ────────────────────────────────────────────────
+  const hasPageSelection = tool.capabilities.includes('page-selection');
+  const pageSelectionHtml = hasPageSelection ? `
+      <div class="dac-page-selection-control">
+        <label for="dac-opt-pages" class="dac-label">Pages (e.g. 1, 3–5, 7)</label>
+        <input type="text" id="dac-opt-pages" class="dac-input dac-context-input"
+               data-context-key="pages" placeholder="All pages" maxlength="200"
+               aria-label="Enter page numbers or ranges">
+        <p class="dac-hint-text">Leave blank to process all pages.</p>
+      </div>` : '';
+
+  // ── PDF Remove password ───────────────────────────────────────────────
+  const hasRemovePassword = tool.capabilities.includes('remove-password');
+  const removePasswordHtml = hasRemovePassword ? `
+      <div class="dac-password-control">
+        <label for="dac-opt-password" class="dac-label">PDF password</label>
+        <input type="password" id="dac-opt-password" class="dac-input dac-context-input"
+               data-context-key="password" placeholder="Enter current password"
+               autocomplete="current-password" aria-label="Enter the PDF password to remove">
+      </div>` : '';
+
+  // ── PDF Password protect ──────────────────────────────────────────────
+  const hasPasswordProtect = tool.capabilities.includes('password-protect');
+  const protectHtml = hasPasswordProtect ? `
+      <div class="dac-protect-control">
+        <div>
+          <label for="dac-opt-user-pw" class="dac-label">Open password <span class="dac-required" aria-hidden="true">*</span></label>
+          <input type="password" id="dac-opt-user-pw" class="dac-input dac-context-input"
+                 data-context-key="userPassword" placeholder="Password to open the PDF"
+                 autocomplete="new-password" aria-label="User password required to open the PDF">
+        </div>
+        <div>
+          <label for="dac-opt-owner-pw" class="dac-label">Owner password <span class="dac-hint-inline">(optional — to restrict editing)</span></label>
+          <input type="password" id="dac-opt-owner-pw" class="dac-input dac-context-input"
+                 data-context-key="ownerPassword" placeholder="Password to edit or print"
+                 autocomplete="new-password" aria-label="Owner password to restrict editing">
+        </div>
+      </div>` : '';
+
+  // ── PDF DPI selector ──────────────────────────────────────────────────
+  const hasImageDpi = tool.capabilities.includes('image-dpi');
+  const dpiHtml = hasImageDpi ? `
+      <div class="dac-dpi-control">
+        <label for="dac-opt-dpi" class="dac-label">Image resolution (DPI)</label>
+        <select id="dac-opt-dpi" class="dac-select dac-context-input" data-context-key="dpi">
+          <option value="72">72 DPI — Screen / preview</option>
+          <option value="96">96 DPI — Standard web</option>
+          <option value="150" selected>150 DPI — Good quality</option>
+          <option value="300">300 DPI — Print quality</option>
+        </select>
+      </div>` : '';
+
+  // ── PDF Metadata editor ───────────────────────────────────────────────
+  const hasMetadataEdit = tool.capabilities.includes('metadata-edit');
+  const metadataHtml = hasMetadataEdit ? `
+      <div class="dac-metadata-control">
+        <div class="dac-metadata-grid">
+          <div>
+            <label for="dac-opt-title" class="dac-label">Title</label>
+            <input type="text" id="dac-opt-title" class="dac-input dac-context-input"
+                   data-context-key="pdfTitle" placeholder="Document title" maxlength="255">
+          </div>
+          <div>
+            <label for="dac-opt-author" class="dac-label">Author</label>
+            <input type="text" id="dac-opt-author" class="dac-input dac-context-input"
+                   data-context-key="pdfAuthor" placeholder="Author name" maxlength="255">
+          </div>
+          <div>
+            <label for="dac-opt-subject" class="dac-label">Subject</label>
+            <input type="text" id="dac-opt-subject" class="dac-input dac-context-input"
+                   data-context-key="pdfSubject" placeholder="Document subject" maxlength="255">
+          </div>
+          <div>
+            <label for="dac-opt-keywords" class="dac-label">Keywords</label>
+            <input type="text" id="dac-opt-keywords" class="dac-input dac-context-input"
+                   data-context-key="pdfKeywords" placeholder="keyword1, keyword2" maxlength="500">
+          </div>
+        </div>
+      </div>` : '';
+
+  // ── PDF Page reorder ──────────────────────────────────────────────────
+  const hasPageReorder = tool.capabilities.includes('reorder');
+  const reorderHtml = hasPageReorder ? `
+      <div class="dac-reorder-control">
+        <label for="dac-opt-page-order" class="dac-label">New page order (comma-separated page numbers)</label>
+        <input type="text" id="dac-opt-page-order" class="dac-input dac-context-input"
+               data-context-key="pageOrder" placeholder="e.g. 3, 1, 2, 4" maxlength="500"
+               aria-label="Enter all page numbers in the desired new order">
+        <p class="dac-hint-text">List every page number in the order you want them. Example: "3, 1, 2" puts page 3 first.</p>
+      </div>` : '';
+
+  const hasOptions = hasQuality || hasMultiOutput || hasResize || hasRotate || hasFlip || hasWatermark || hasCrop
+    || hasPageSelection || hasRemovePassword || hasPasswordProtect || hasImageDpi || hasMetadataEdit || hasPageReorder;
 
   // ── Supported formats section ─────────────────────────────────────────
   const inputChips = tool.inputFormats
@@ -420,7 +512,7 @@ ${adTop}
       <strong>ℹ Browser limitation:</strong> ${esc(limitation)}
     </div>` : ''}
 
-    ${hasOptions ? `<div class="dac-options" id="dac-options" hidden aria-label="Conversion options">${qualityHtml}${formatHtml}${resizeHtml}${rotateHtml}${flipHtml}${watermarkHtml}${cropHtml}
+    ${hasOptions ? `<div class="dac-options" id="dac-options" hidden aria-label="Conversion options">${qualityHtml}${formatHtml}${resizeHtml}${rotateHtml}${flipHtml}${watermarkHtml}${cropHtml}${pageSelectionHtml}${removePasswordHtml}${protectHtml}${dpiHtml}${metadataHtml}${reorderHtml}
     </div>` : ''}
 
     <div class="dac-controls" id="dac-controls" hidden>

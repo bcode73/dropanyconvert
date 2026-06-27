@@ -156,7 +156,9 @@
           "page-thumbnails",
           "convert-to-pdf",
           "convert-from-pdf",
-          "ai-enhance"
+          "ai-enhance",
+          "image-dpi",
+          "metadata-read"
         ]
       }
     },

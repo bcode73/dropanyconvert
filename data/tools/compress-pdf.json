@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "compress-pdf",
+  "slug": "compress-pdf",
+  "name": {
+    "en": "PDF Compressor",
+    "es": "Compresor de PDF",
+    "fr": "Compresseur PDF",
+    "de": "PDF Komprimieren",
+    "pt": "Comprimir PDF"
+  },
+  "tagline": {
+    "en": "Reduce PDF file size directly in your browser.",
+    "es": "Reduce el tamaño del archivo PDF directamente en tu navegador.",
+    "fr": "Réduisez la taille du fichier PDF directement dans votre navigateur.",
+    "de": "PDF-Dateigröße direkt im Browser reduzieren.",
+    "pt": "Reduza o tamanho do arquivo PDF diretamente no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "compressPdf",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 10, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": {
+    "showVariantPicker": false,
+    "memoryBudgetMb": 512,
+    "limitation": "Browser-based compression removes redundant objects and optimises cross-references. For significant size reduction on image-heavy or scanned PDFs, server-side tools (Ghostscript) achieve better results."
+  },
+  "capabilities": ["batch", "drag-and-drop", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "compress pdf",
+    "secondaryKeywords": ["reduce pdf size", "pdf file size reducer", "pdf compressor online free", "shrink pdf"],
+    "title": {
+      "en": "Compress PDF Online — Free PDF File Size Reducer",
+      "es": "Comprimir PDF Online — Reductor de Tamaño de PDF Gratuito",
+      "fr": "Compresser PDF en Ligne — Réducteur de Taille PDF Gratuit",
+      "de": "PDF Online Komprimieren — Kostenloser PDF Größenreduzierer",
+      "pt": "Comprimir PDF Online — Redutor de Tamanho de PDF Gratuito"
+    },
+    "description": {
+      "en": "Compress and optimise PDF files to reduce file size online for free. Remove redundant objects and re-serialise. No upload — 100% in your browser.",
+      "es": "Comprime y optimiza archivos PDF para reducir el tamaño de archivo online gratis. Elimina objetos redundantes. Sin subidas — 100% en tu navegador.",
+      "fr": "Compressez et optimisez les fichiers PDF pour réduire la taille en ligne gratuitement. Supprimez les objets redondants. Sans envoi — 100% dans votre navigateur.",
+      "de": "PDF-Dateien komprimieren und optimieren, um die Dateigröße kostenlos online zu reduzieren. Redundante Objekte entfernen. Kein Upload — 100% im Browser.",
+      "pt": "Comprima e otimize arquivos PDF para reduzir o tamanho online gratuitamente. Remova objetos redundantes. Sem upload — 100% no seu navegador."
+    },
+    "h1": {
+      "en": "Compress PDF — Reduce PDF File Size Online for Free",
+      "es": "Comprimir PDF — Reducir Tamaño de Archivo PDF Online Gratis",
+      "fr": "Compresser PDF — Réduire la Taille de Fichier PDF en Ligne Gratuitement",
+      "de": "PDF Komprimieren — PDF-Dateigröße Online Kostenlos Reduzieren",
+      "pt": "Comprimir PDF — Reduzir Tamanho de Arquivo PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Upload your PDF and reduce its file size in your browser. The optimiser removes duplicate objects, optimises cross-reference tables, and re-serialises the document structure. Note: for dramatic size reduction on scanned or image-heavy PDFs, a server-side tool achieves better results.",
+      "es": "Sube tu PDF y reduce su tamaño en tu navegador. El optimizador elimina objetos duplicados, optimiza las tablas de referencias cruzadas y re-serializa la estructura del documento.",
+      "fr": "Téléchargez votre PDF et réduisez sa taille dans votre navigateur. L'optimiseur supprime les objets en double, optimise les tables de références croisées et re-sérialise la structure du document.",
+      "de": "Lade dein PDF hoch und reduziere die Dateigröße in deinem Browser. Der Optimierer entfernt doppelte Objekte, optimiert Querverweistabellen und serialisiert die Dokumentstruktur neu.",
+      "pt": "Carregue seu PDF e reduza o tamanho no seu navegador. O otimizador remove objetos duplicados, otimiza tabelas de referência cruzada e re-serializa a estrutura do documento."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How much will my PDF be compressed?", "es": "¿Cuánto se comprimirá mi PDF?", "fr": "De combien mon PDF sera-t-il compressé?", "de": "Um wie viel wird mein PDF komprimiert?", "pt": "Quanto meu PDF será comprimido?" },
+      "answer": { "en": "Results vary by file type. PDFs with lots of text and vector graphics see moderate reductions (5–30%). Scanned PDFs or those already optimised may see little to no reduction. The tool removes internal redundancies without touching image quality.", "es": "Los resultados varían según el tipo de archivo. PDFs con mucho texto y gráficos vectoriales experimentan reducciones moderadas (5-30%). Los PDFs escaneados o ya optimizados pueden experimentar poca o ninguna reducción.", "fr": "Les résultats varient selon le type de fichier. Les PDFs avec beaucoup de texte et de graphiques vectoriels voient des réductions modérées (5-30%). Les PDFs numérisés ou déjà optimisés peuvent voir peu ou pas de réduction.", "de": "Die Ergebnisse variieren je nach Dateityp. PDFs mit viel Text und Vektorgrafiken sehen moderate Reduzierungen (5-30%). Gescannte PDFs oder bereits optimierte PDFs sehen möglicherweise wenig bis keine Reduzierung.", "pt": "Os resultados variam por tipo de arquivo. PDFs com muito texto e gráficos vetoriais veem reduções moderadas (5-30%). PDFs digitalizados ou já otimizados podem ver pouca ou nenhuma redução." }
+    },
+    {
+      "question": { "en": "Does compression affect PDF quality?", "es": "¿La compresión afecta la calidad del PDF?", "fr": "La compression affecte-t-elle la qualité du PDF?", "de": "Beeinflusst die Komprimierung die PDF-Qualität?", "pt": "A compressão afeta a qualidade do PDF?" },
+      "answer": { "en": "No. This tool only restructures the internal PDF format — it does not re-encode or downscale images. Text and graphic quality remain identical to the original.", "es": "No. Esta herramienta solo reestructura el formato PDF interno — no recodifica ni reduce la escala de imágenes. La calidad del texto y los gráficos permanece idéntica al original.", "fr": "Non. Cet outil restructure uniquement le format PDF interne — il ne ré-encode ni ne réduit la taille des images. La qualité du texte et des graphiques reste identique à l'original.", "de": "Nein. Dieses Tool restrukturiert nur das interne PDF-Format — es kodiert keine Bilder neu oder skaliert sie herunter. Text- und Grafikqualität bleiben identisch mit dem Original.", "pt": "Não. Esta ferramenta apenas reestrutura o formato PDF interno — não recodifica nem reduz a escala das imagens. A qualidade do texto e dos gráficos permanece idêntica ao original." }
+    },
+    {
+      "question": { "en": "Why is my PDF not getting smaller?", "es": "¿Por qué mi PDF no se hace más pequeño?", "fr": "Pourquoi mon PDF ne devient-il pas plus petit?", "de": "Warum wird mein PDF nicht kleiner?", "pt": "Por que meu PDF não está ficando menor?" },
+      "answer": { "en": "If your PDF was already optimised, or is primarily composed of embedded images (like a scanned document), this browser-based tool may produce little improvement. For scanned PDFs, consider a server-side compressor that can re-encode images.", "es": "Si tu PDF ya estaba optimizado, o está compuesto principalmente de imágenes incrustadas (como un documento escaneado), esta herramienta basada en navegador puede producir poca mejora.", "fr": "Si votre PDF était déjà optimisé, ou est principalement composé d'images intégrées (comme un document numérisé), cet outil basé sur navigateur peut produire peu d'amélioration.", "de": "Wenn dein PDF bereits optimiert ist oder hauptsächlich aus eingebetteten Bildern besteht (wie ein gescanntes Dokument), kann dieses browserbasierte Tool wenig Verbesserung erzielen.", "pt": "Se o seu PDF já estava otimizado, ou é composto principalmente de imagens incorporadas (como um documento digitalizado), esta ferramenta baseada em navegador pode produzir pouca melhoria." }
+    },
+    {
+      "question": { "en": "Is my PDF safe during compression?", "es": "¿Mi PDF está seguro durante la compresión?", "fr": "Mon PDF est-il sécurisé pendant la compression?", "de": "Ist mein PDF während der Komprimierung sicher?", "pt": "Meu PDF está seguro durante a compressão?" },
+      "answer": { "en": "Yes. Compression runs entirely in your browser. Your PDF data is never uploaded to any server. The process is completely private and secure.", "es": "Sí. La compresión se ejecuta completamente en tu navegador. Tus datos PDF nunca se cargan en ningún servidor. El proceso es completamente privado y seguro.", "fr": "Oui. La compression s'exécute entièrement dans votre navigateur. Vos données PDF ne sont jamais téléchargées sur un serveur. Le processus est complètement privé et sécurisé.", "de": "Ja. Die Komprimierung läuft vollständig in deinem Browser. Deine PDF-Daten werden niemals auf einen Server hochgeladen. Der Prozess ist vollständig privat und sicher.", "pt": "Sim. A compressão é executada inteiramente no seu navegador. Seus dados PDF nunca são enviados para nenhum servidor. O processo é completamente privado e seguro." }
+    }
+  ],
+  "relatedTools": ["merge-pdf", "split-pdf", "rotate-pdf", "pdf-page-extract", "pdf-metadata-editor"]
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-metadata-editor",
+  "slug": "pdf-metadata-editor",
+  "name": {
+    "en": "PDF Metadata Editor",
+    "es": "Editor de Metadatos PDF",
+    "fr": "Éditeur de Métadonnées PDF",
+    "de": "PDF Metadaten Bearbeiten",
+    "pt": "Editor de Metadados PDF"
+  },
+  "tagline": {
+    "en": "Edit the title, author and other metadata of a PDF in your browser.",
+    "es": "Edita el título, autor y otros metadatos de un PDF en tu navegador.",
+    "fr": "Modifiez le titre, l'auteur et d'autres métadonnées d'un PDF dans votre navigateur.",
+    "de": "Titel, Autor und andere Metadaten eines PDFs im Browser bearbeiten.",
+    "pt": "Edite o título, autor e outros metadados de um PDF no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "editPdfMetadata",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 256 },
+  "capabilities": ["drag-and-drop", "mobile-supported", "metadata-edit"],
+  "seo": {
+    "primaryKeyword": "edit pdf metadata",
+    "secondaryKeywords": ["change pdf title author", "pdf properties editor online", "update pdf metadata free", "modify pdf document info"],
+    "title": {
+      "en": "PDF Metadata Editor — Edit PDF Title, Author & Properties Online Free",
+      "es": "Editor de Metadatos PDF — Editar Título, Autor y Propiedades PDF Online Gratis",
+      "fr": "Éditeur de Métadonnées PDF — Modifier le Titre, l'Auteur et les Propriétés PDF en Ligne Gratuitement",
+      "de": "PDF Metadaten Editor — PDF Titel, Autor & Eigenschaften Online Kostenlos Bearbeiten",
+      "pt": "Editor de Metadados PDF — Editar Título, Autor e Propriedades PDF Online Gratuitamente"
+    },
+    "description": {
+      "en": "Edit PDF metadata — title, author, subject, keywords — directly in your browser. Download the updated PDF instantly. No upload, 100% private.",
+      "es": "Edita los metadatos del PDF — título, autor, tema, palabras clave — directamente en tu navegador. Descarga el PDF actualizado al instante. Sin subidas.",
+      "fr": "Modifiez les métadonnées PDF — titre, auteur, sujet, mots-clés — directement dans votre navigateur. Téléchargez le PDF mis à jour instantanément. Sans envoi.",
+      "de": "PDF-Metadaten bearbeiten — Titel, Autor, Betreff, Schlüsselwörter — direkt im Browser. Aktualisiertes PDF sofort herunterladen. Kein Upload.",
+      "pt": "Edite metadados de PDF — título, autor, assunto, palavras-chave — diretamente no seu navegador. Baixe o PDF atualizado instantaneamente. Sem upload."
+    },
+    "h1": {
+      "en": "PDF Metadata Editor — Change PDF Title, Author & Properties Online Free",
+      "es": "Editor de Metadatos PDF — Cambiar Título, Autor y Propiedades PDF Online Gratis",
+      "fr": "Éditeur de Métadonnées PDF — Changer le Titre, l'Auteur et les Propriétés PDF en Ligne Gratuitement",
+      "de": "PDF Metadaten Editor — PDF Titel, Autor & Eigenschaften Online Kostenlos Ändern",
+      "pt": "Editor de Metadados PDF — Alterar Título, Autor e Propriedades PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Update the document information stored inside a PDF file. Fill in the fields you want to change — Title, Author, Subject, and Keywords — leave others blank to clear them. The updated PDF is saved with the new metadata embedded and is ready for immediate download.",
+      "es": "Actualiza la información del documento almacenada en un archivo PDF. Rellena los campos que quieres cambiar — Título, Autor, Tema y Palabras clave — deja los demás en blanco para borrarlos.",
+      "fr": "Mettez à jour les informations du document stockées dans un fichier PDF. Remplissez les champs que vous souhaitez modifier — Titre, Auteur, Sujet et Mots-clés — laissez les autres vides pour les effacer.",
+      "de": "Die in einer PDF-Datei gespeicherten Dokumentinformationen aktualisieren. Die zu ändernden Felder ausfüllen — Titel, Autor, Betreff und Schlüsselwörter — andere leer lassen, um sie zu löschen.",
+      "pt": "Atualize as informações do documento armazenadas em um arquivo PDF. Preencha os campos que deseja alterar — Título, Autor, Assunto e Palavras-chave — deixe os outros em branco para apagá-los."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Which metadata fields can I edit?", "es": "¿Qué campos de metadatos puedo editar?", "fr": "Quels champs de métadonnées puis-je modifier?", "de": "Welche Metadaten-Felder kann ich bearbeiten?", "pt": "Quais campos de metadados posso editar?" },
+      "answer": { "en": "You can edit the Title, Author, Subject, and Keywords fields. Creation Date and Producer fields are set by the generating software and are not editable with this tool.", "es": "Puedes editar los campos Título, Autor, Tema y Palabras clave. Los campos Fecha de Creación y Productor son establecidos por el software generador y no son editables con esta herramienta.", "fr": "Vous pouvez modifier les champs Titre, Auteur, Sujet et Mots-clés. Les champs Date de Création et Producteur sont définis par le logiciel générateur et ne sont pas modifiables avec cet outil.", "de": "Du kannst die Felder Titel, Autor, Betreff und Schlüsselwörter bearbeiten. Die Felder Erstellungsdatum und Produzent werden von der generierenden Software gesetzt und sind mit diesem Tool nicht bearbeitbar.", "pt": "Você pode editar os campos Título, Autor, Assunto e Palavras-chave. Os campos Data de Criação e Produtor são definidos pelo software gerador e não são editáveis com esta ferramenta." }
+    },
+    {
+      "question": { "en": "Will leaving a field blank clear the existing value?", "es": "¿Dejar un campo en blanco borrará el valor existente?", "fr": "Laisser un champ vide effacera-t-il la valeur existante?", "de": "Wird ein leeres Feld den vorhandenen Wert löschen?", "pt": "Deixar um campo em branco limpará o valor existente?" },
+      "answer": { "en": "Yes. Any field left blank in the editor will be cleared in the output PDF. If you want to keep an existing value, you must first view it using the Metadata Viewer and then copy it into the field.", "es": "Sí. Cualquier campo dejado en blanco en el editor se borrará en el PDF de salida. Si quieres mantener un valor existente, primero debes verlo con el Visor de Metadatos.", "fr": "Oui. Tout champ laissé vide dans l'éditeur sera effacé dans le PDF de sortie. Si vous souhaitez conserver une valeur existante, vous devez d'abord la voir avec le Visionneur de Métadonnées.", "de": "Ja. Jedes im Editor leer gelassene Feld wird im Ausgabe-PDF gelöscht. Um einen vorhandenen Wert zu behalten, muss er zuerst im Metadaten-Viewer angezeigt und dann in das Feld kopiert werden.", "pt": "Sim. Qualquer campo deixado em branco no editor será apagado no PDF de saída. Se quiser manter um valor existente, deve primeiro vê-lo usando o Visualizador de Metadados." }
+    },
+    {
+      "question": { "en": "Does editing metadata change the PDF content?", "es": "¿Editar metadatos cambia el contenido del PDF?", "fr": "La modification des métadonnées change-t-elle le contenu du PDF?", "de": "Verändert das Bearbeiten von Metadaten den PDF-Inhalt?", "pt": "Editar metadados altera o conteúdo do PDF?" },
+      "answer": { "en": "No. Only the document information fields are changed. The pages, text, images, and formatting of the PDF remain exactly the same.", "es": "No. Solo se cambian los campos de información del documento. Las páginas, texto, imágenes y formato del PDF permanecen exactamente iguales.", "fr": "Non. Seuls les champs d'informations du document sont modifiés. Les pages, le texte, les images et la mise en forme du PDF restent exactement les mêmes.", "de": "Nein. Nur die Dokumentinformations-Felder werden geändert. Die Seiten, Texte, Bilder und Formatierung des PDFs bleiben genau gleich.", "pt": "Não. Apenas os campos de informações do documento são alterados. As páginas, texto, imagens e formatação do PDF permanecem exatamente iguais." }
+    },
+    {
+      "question": { "en": "Is the file processed in my browser?", "es": "¿El archivo se procesa en mi navegador?", "fr": "Le fichier est-il traité dans mon navigateur?", "de": "Wird die Datei in meinem Browser verarbeitet?", "pt": "O arquivo é processado no meu navegador?" },
+      "answer": { "en": "Yes. All processing is done locally using pdf-lib. Your PDF and the metadata you enter never leave your device.", "es": "Sí. Todo el procesamiento se realiza localmente usando pdf-lib. Tu PDF y los metadatos que ingresas nunca abandonan tu dispositivo.", "fr": "Oui. Tout le traitement est effectué localement avec pdf-lib. Votre PDF et les métadonnées que vous entrez ne quittent jamais votre appareil.", "de": "Ja. Alle Verarbeitung erfolgt lokal mit pdf-lib. Dein PDF und die eingegebenen Metadaten verlassen dein Gerät niemals.", "pt": "Sim. Todo o processamento é feito localmente usando pdf-lib. Seu PDF e os metadados que você inserir nunca saem do seu dispositivo." }
+    }
+  ],
+  "relatedTools": ["pdf-metadata-viewer", "protect-pdf", "compress-pdf", "rotate-pdf", "merge-pdf"]
+}

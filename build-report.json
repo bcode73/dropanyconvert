@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-06-26T21:18:57.364Z",
-  "elapsed_ms": 386,
-  "tools": 24,
+  "timestamp": "2026-06-27T06:18:34.285Z",
+  "elapsed_ms": 503,
+  "tools": 39,
   "languages": 5,
-  "routes": 156,
-  "pages_generated": 156,
+  "routes": 231,
+  "pages_generated": 231,
   "sitemaps_generated": 6,
-  "files_emitted": 170,
-  "output_size_kb": 2340,
+  "files_emitted": 245,
+  "output_size_kb": 3606,
   "warnings": [],
   "errors": [],
   "toolList": [
@@ -31,6 +31,13 @@
       "category": "image",
       "runtime": "browser",
       "primaryKeyword": "bmp to png"
+    },
+    {
+      "id": "compress-pdf",
+      "slug": "compress-pdf",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "compress pdf"
     },
     {
       "id": "gif-to-png",
@@ -96,6 +103,13 @@
       "primaryKeyword": "add watermark to image"
     },
     {
+      "id": "images-to-pdf",
+      "slug": "images-to-pdf",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "images to pdf"
+    },
+    {
       "id": "jpg-to-png",
       "slug": "jpg-to-png",
       "category": "image",
@@ -108,6 +122,69 @@
       "category": "image",
       "runtime": "browser",
       "primaryKeyword": "jpg to webp"
+    },
+    {
+      "id": "merge-pdf",
+      "slug": "merge-pdf",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "merge pdf"
+    },
+    {
+      "id": "pdf-delete-pages",
+      "slug": "pdf-delete-pages",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "delete pages from pdf"
+    },
+    {
+      "id": "pdf-metadata-editor",
+      "slug": "pdf-metadata-editor",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "edit pdf metadata"
+    },
+    {
+      "id": "pdf-metadata-viewer",
+      "slug": "pdf-metadata-viewer",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "pdf metadata viewer"
+    },
+    {
+      "id": "pdf-page-counter",
+      "slug": "pdf-page-counter",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "pdf page counter"
+    },
+    {
+      "id": "pdf-page-extract",
+      "slug": "pdf-page-extract",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "extract pages from pdf"
+    },
+    {
+      "id": "pdf-reorder-pages",
+      "slug": "pdf-reorder-pages",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "reorder pdf pages"
+    },
+    {
+      "id": "pdf-thumbnail",
+      "slug": "pdf-thumbnail",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "pdf thumbnail generator"
+    },
+    {
+      "id": "pdf-to-images",
+      "slug": "pdf-to-images",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "pdf to image"
     },
     {
       "id": "png-to-avif",
@@ -152,6 +229,27 @@
       "primaryKeyword": "png to webp"
     },
     {
+      "id": "protect-pdf",
+      "slug": "protect-pdf",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "password protect pdf"
+    },
+    {
+      "id": "rotate-pdf",
+      "slug": "rotate-pdf",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "rotate pdf"
+    },
+    {
+      "id": "split-pdf",
+      "slug": "split-pdf",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "split pdf"
+    },
+    {
       "id": "svg-to-png",
       "slug": "svg-to-png",
       "category": "image",
@@ -164,6 +262,13 @@
       "category": "image",
       "runtime": "browser",
       "primaryKeyword": "tiff to png"
+    },
+    {
+      "id": "unlock-pdf",
+      "slug": "unlock-pdf",
+      "category": "pdf",
+      "runtime": "browser",
+      "primaryKeyword": "unlock pdf"
     },
     {
       "id": "webp-to-jpg",

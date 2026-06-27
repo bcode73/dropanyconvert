@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "merge-pdf",
+  "slug": "merge-pdf",
+  "name": {
+    "en": "PDF Merger",
+    "es": "Fusionador de PDF",
+    "fr": "Fusionneur PDF",
+    "de": "PDF Zusammenführen",
+    "pt": "Juntar PDF"
+  },
+  "tagline": {
+    "en": "Combine multiple PDF files into one document in seconds.",
+    "es": "Combina varios archivos PDF en un solo documento en segundos.",
+    "fr": "Combinez plusieurs fichiers PDF en un seul document en secondes.",
+    "de": "Mehrere PDF-Dateien sekundenschnell zu einem Dokument zusammenführen.",
+    "pt": "Combine vários arquivos PDF em um único documento em segundos."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "mergePdfs",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 512 },
+  "capabilities": ["batch", "drag-and-drop", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "merge pdf",
+    "secondaryKeywords": ["combine pdf files", "join pdf online", "pdf merger free", "merge pdf documents"],
+    "title": {
+      "en": "Merge PDF Files Online — Free PDF Combiner",
+      "es": "Fusionar Archivos PDF Online — Combinador PDF Gratuito",
+      "fr": "Fusionner des Fichiers PDF en Ligne — Combinateur PDF Gratuit",
+      "de": "PDF Dateien Zusammenführen Online — Kostenloser PDF Merger",
+      "pt": "Juntar Arquivos PDF Online — Combinador PDF Gratuito"
+    },
+    "description": {
+      "en": "Merge multiple PDF files into one online for free. Drag, drop and combine PDFs in any order — no upload, 100% private, works in your browser.",
+      "es": "Fusiona varios archivos PDF en uno online gratis. Arrastra, suelta y combina PDFs en cualquier orden — sin subidas, 100% privado.",
+      "fr": "Fusionnez plusieurs fichiers PDF en un seul en ligne gratuitement. Glissez, déposez et combinez des PDFs dans n'importe quel ordre — sans envoi, 100% privé.",
+      "de": "Mehrere PDF-Dateien kostenlos online zu einer zusammenführen. PDFs per Drag & Drop in beliebiger Reihenfolge kombinieren — kein Upload, 100% privat.",
+      "pt": "Junte vários arquivos PDF em um só online gratuitamente. Arraste, solte e combine PDFs em qualquer ordem — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Merge PDF Files — Combine PDFs Online for Free",
+      "es": "Fusionar Archivos PDF — Combinar PDFs Online Gratis",
+      "fr": "Fusionner des Fichiers PDF — Combiner des PDFs en Ligne Gratuitement",
+      "de": "PDF-Dateien Zusammenführen — PDFs Online Kostenlos Kombinieren",
+      "pt": "Juntar Arquivos PDF — Combinar PDFs Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Upload multiple PDF files and combine them into a single document in the correct order. All processing happens in your browser — your files are never sent to any server.",
+      "es": "Sube varios archivos PDF y combínalos en un único documento en el orden correcto. Todo el procesamiento ocurre en tu navegador — tus archivos nunca se envían a ningún servidor.",
+      "fr": "Téléchargez plusieurs fichiers PDF et combinez-les en un seul document dans le bon ordre. Tout le traitement se passe dans votre navigateur — vos fichiers ne sont jamais envoyés à un serveur.",
+      "de": "Lade mehrere PDF-Dateien hoch und kombiniere sie in der richtigen Reihenfolge zu einem einzigen Dokument. Die gesamte Verarbeitung erfolgt in deinem Browser — deine Dateien werden niemals an einen Server gesendet.",
+      "pt": "Carregue vários arquivos PDF e combine-os em um único documento na ordem correta. Todo o processamento acontece no seu navegador — seus arquivos nunca são enviados para nenhum servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How many PDFs can I merge at once?", "es": "¿Cuántos PDFs puedo fusionar a la vez?", "fr": "Combien de PDFs puis-je fusionner à la fois?", "de": "Wie viele PDFs kann ich auf einmal zusammenführen?", "pt": "Quantos PDFs posso juntar de uma vez?" },
+      "answer": { "en": "You can merge up to 20 PDF files at once. For larger batches, merge in groups and then combine the resulting files.", "es": "Puedes fusionar hasta 20 archivos PDF a la vez. Para lotes más grandes, fusiona en grupos y luego combina los archivos resultantes.", "fr": "Vous pouvez fusionner jusqu'à 20 fichiers PDF à la fois. Pour les lots plus importants, fusionnez par groupes puis combinez les fichiers obtenus.", "de": "Du kannst bis zu 20 PDF-Dateien auf einmal zusammenführen. Für größere Stapel in Gruppen zusammenführen und dann die resultierenden Dateien kombinieren.", "pt": "Você pode juntar até 20 arquivos PDF de uma vez. Para lotes maiores, junte em grupos e depois combine os arquivos resultantes." }
+    },
+    {
+      "question": { "en": "Will the merge preserve bookmarks and links?", "es": "¿La fusión conservará los marcadores y enlaces?", "fr": "La fusion préservera-t-elle les signets et les liens?", "de": "Bleiben Lesezeichen und Links beim Zusammenführen erhalten?", "pt": "A junção preservará marcadores e links?" },
+      "answer": { "en": "Page content, images, and text are fully preserved. Bookmarks (outlines) from individual files are not carried over into the merged document in this browser-based implementation.", "es": "El contenido de página, imágenes y texto se conservan completamente. Los marcadores de archivos individuales no se transfieren al documento fusionado en esta implementación basada en navegador.", "fr": "Le contenu des pages, les images et le texte sont entièrement préservés. Les signets des fichiers individuels ne sont pas transférés dans le document fusionné dans cette implémentation basée sur le navigateur.", "de": "Seiteninhalt, Bilder und Text bleiben vollständig erhalten. Lesezeichen aus einzelnen Dateien werden in dieser browserbasierten Implementierung nicht in das zusammengeführte Dokument übertragen.", "pt": "Conteúdo da página, imagens e texto são totalmente preservados. Marcadores de arquivos individuais não são transferidos para o documento mesclado nesta implementação baseada em navegador." }
+    },
+    {
+      "question": { "en": "Can I merge password-protected PDFs?", "es": "¿Puedo fusionar PDFs protegidos con contraseña?", "fr": "Puis-je fusionner des PDFs protégés par mot de passe?", "de": "Kann ich passwortgeschützte PDFs zusammenführen?", "pt": "Posso juntar PDFs protegidos por senha?" },
+      "answer": { "en": "Password-protected PDFs cannot be merged directly. First unlock them using the PDF Unlock tool, then merge the unlocked files.", "es": "Los PDFs protegidos con contraseña no se pueden fusionar directamente. Primero desbloquéalos usando la herramienta PDF Desbloquear, luego fusiona los archivos desbloqueados.", "fr": "Les PDFs protégés par mot de passe ne peuvent pas être fusionnés directement. Déverrouillez-les d'abord avec l'outil PDF Unlock, puis fusionnez les fichiers déverrouillés.", "de": "Passwortgeschützte PDFs können nicht direkt zusammengeführt werden. Entsperre sie zuerst mit dem PDF Entsperren-Tool, dann führe die entsperrten Dateien zusammen.", "pt": "PDFs protegidos por senha não podem ser juntados diretamente. Primeiro desbloqueie-os com a ferramenta PDF Unlock, depois junte os arquivos desbloqueados." }
+    },
+    {
+      "question": { "en": "Are my PDF files safe when merging?", "es": "¿Mis archivos PDF están seguros al fusionar?", "fr": "Mes fichiers PDF sont-ils sécurisés lors de la fusion?", "de": "Sind meine PDF-Dateien beim Zusammenführen sicher?", "pt": "Meus arquivos PDF estão seguros ao juntar?" },
+      "answer": { "en": "Yes. All merging happens locally in your browser using JavaScript. Your PDF files are never uploaded to any server and remain completely private.", "es": "Sí. Toda la fusión ocurre localmente en tu navegador usando JavaScript. Tus archivos PDF nunca se suben a ningún servidor y permanecen completamente privados.", "fr": "Oui. Toute la fusion se déroule localement dans votre navigateur en JavaScript. Vos fichiers PDF ne sont jamais téléchargés sur un serveur et restent complètement privés.", "de": "Ja. Das gesamte Zusammenführen erfolgt lokal in deinem Browser mit JavaScript. Deine PDF-Dateien werden niemals auf einen Server hochgeladen und bleiben vollständig privat.", "pt": "Sim. Todo o processo de junção acontece localmente no seu navegador usando JavaScript. Seus arquivos PDF nunca são enviados para nenhum servidor e permanecem completamente privados." }
+    }
+  ],
+  "relatedTools": ["split-pdf", "compress-pdf", "pdf-page-extract", "rotate-pdf", "protect-pdf"]
+}

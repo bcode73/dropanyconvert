@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "images-to-pdf",
+  "slug": "images-to-pdf",
+  "name": {
+    "en": "Images to PDF",
+    "es": "Imágenes a PDF",
+    "fr": "Images en PDF",
+    "de": "Bilder zu PDF",
+    "pt": "Imagens para PDF"
+  },
+  "tagline": {
+    "en": "Combine JPG, PNG or WebP images into a single PDF in your browser.",
+    "es": "Combina imágenes JPG, PNG o WebP en un único PDF en tu navegador.",
+    "fr": "Combinez des images JPG, PNG ou WebP en un seul PDF dans votre navigateur.",
+    "de": "JPG-, PNG- oder WebP-Bilder im Browser zu einem PDF zusammenfassen.",
+    "pt": "Combine imagens JPG, PNG ou WebP em um único PDF no seu navegador."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "imagesToPdf",
+  "inputFormats": ["image/jpeg", "image/png", "image/webp", "image/bmp", "image/gif"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 30, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "conversion",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 512 },
+  "capabilities": ["batch", "drag-and-drop", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "images to pdf",
+    "secondaryKeywords": ["jpg to pdf", "png to pdf", "convert images to pdf online", "combine photos into pdf free"],
+    "title": {
+      "en": "Images to PDF Converter — Combine JPG PNG to PDF Online Free",
+      "es": "Convertidor de Imágenes a PDF — Combinar JPG PNG a PDF Online Gratis",
+      "fr": "Convertisseur d'Images en PDF — Combiner JPG PNG en PDF en Ligne Gratuit",
+      "de": "Bilder zu PDF Konverter — JPG PNG Kostenlos Online zu PDF Zusammenfassen",
+      "pt": "Conversor de Imagens para PDF — Combinar JPG PNG em PDF Online Grátis"
+    },
+    "description": {
+      "en": "Convert and combine multiple JPG, PNG, WebP or BMP images into a single PDF file online for free. Each image becomes one page — no upload, 100% private.",
+      "es": "Convierte y combina múltiples imágenes JPG, PNG, WebP o BMP en un único archivo PDF online gratis. Cada imagen se convierte en una página — sin subidas.",
+      "fr": "Convertissez et combinez plusieurs images JPG, PNG, WebP ou BMP en un seul fichier PDF en ligne gratuitement. Chaque image devient une page.",
+      "de": "Mehrere JPG-, PNG-, WebP- oder BMP-Bilder kostenlos online in eine einzelne PDF-Datei konvertieren und kombinieren. Jedes Bild wird eine Seite — kein Upload.",
+      "pt": "Converta e combine várias imagens JPG, PNG, WebP ou BMP em um único arquivo PDF online gratuitamente. Cada imagem vira uma página — sem upload."
+    },
+    "h1": {
+      "en": "Images to PDF — Convert and Combine Images into a PDF Online Free",
+      "es": "Imágenes a PDF — Convertir y Combinar Imágenes en un PDF Online Gratis",
+      "fr": "Images en PDF — Convertir et Combiner des Images en PDF en Ligne Gratuitement",
+      "de": "Bilder zu PDF — Bilder Online Kostenlos in PDF Konvertieren und Kombinieren",
+      "pt": "Imagens para PDF — Converter e Combinar Imagens em PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Upload one or more images and convert them into a single PDF document. Each image is placed on its own page, sized to fit. Supported formats include JPG, PNG, WebP, BMP, and GIF. Drag to reorder images before converting.",
+      "es": "Sube una o más imágenes y conviértelas en un único documento PDF. Cada imagen se coloca en su propia página, ajustada al tamaño. Los formatos admitidos incluyen JPG, PNG, WebP, BMP y GIF.",
+      "fr": "Téléchargez une ou plusieurs images et convertissez-les en un seul document PDF. Chaque image est placée sur sa propre page, redimensionnée. Les formats pris en charge incluent JPG, PNG, WebP, BMP et GIF.",
+      "de": "Ein oder mehrere Bilder hochladen und in ein einzelnes PDF-Dokument konvertieren. Jedes Bild wird auf einer eigenen Seite platziert, passend skaliert. Unterstützte Formate: JPG, PNG, WebP, BMP und GIF.",
+      "pt": "Carregue uma ou mais imagens e converta-as em um único documento PDF. Cada imagem é colocada em sua própria página, redimensionada para caber. Formatos suportados incluem JPG, PNG, WebP, BMP e GIF."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How many images can I combine?", "es": "¿Cuántas imágenes puedo combinar?", "fr": "Combien d'images puis-je combiner?", "de": "Wie viele Bilder kann ich kombinieren?", "pt": "Quantas imagens posso combinar?" },
+      "answer": { "en": "You can combine up to 30 images in one go. For very large images, processing may take longer depending on your device's available memory.", "es": "Puedes combinar hasta 30 imágenes a la vez. Para imágenes muy grandes, el procesamiento puede tardar más según la memoria disponible de tu dispositivo.", "fr": "Vous pouvez combiner jusqu'à 30 images en une fois. Pour les images très grandes, le traitement peut prendre plus de temps selon la mémoire disponible de votre appareil.", "de": "Du kannst bis zu 30 Bilder auf einmal kombinieren. Bei sehr großen Bildern kann die Verarbeitung je nach verfügbarem Speicher länger dauern.", "pt": "Você pode combinar até 30 imagens de uma vez. Para imagens muito grandes, o processamento pode demorar mais dependendo da memória disponível do seu dispositivo." }
+    },
+    {
+      "question": { "en": "What image formats are supported?", "es": "¿Qué formatos de imagen son compatibles?", "fr": "Quels formats d'image sont pris en charge?", "de": "Welche Bildformate werden unterstützt?", "pt": "Quais formatos de imagem são suportados?" },
+      "answer": { "en": "JPG, PNG, WebP, BMP, and GIF are supported. Each image is embedded as-is into the PDF page. HEIC and TIFF formats are not currently supported in the browser.", "es": "JPG, PNG, WebP, BMP y GIF son compatibles. Cada imagen se incrusta tal cual en la página PDF. Los formatos HEIC y TIFF no son compatibles actualmente en el navegador.", "fr": "JPG, PNG, WebP, BMP et GIF sont pris en charge. Chaque image est intégrée telle quelle dans la page PDF. Les formats HEIC et TIFF ne sont pas pris en charge dans le navigateur.", "de": "JPG, PNG, WebP, BMP und GIF werden unterstützt. Jedes Bild wird unverändert in die PDF-Seite eingebettet. HEIC und TIFF werden im Browser derzeit nicht unterstützt.", "pt": "JPG, PNG, WebP, BMP e GIF são suportados. Cada imagem é incorporada como está na página PDF. Os formatos HEIC e TIFF não são suportados atualmente no navegador." }
+    },
+    {
+      "question": { "en": "Will the image quality be preserved?", "es": "¿Se preservará la calidad de la imagen?", "fr": "La qualité de l'image sera-t-elle préservée?", "de": "Wird die Bildqualität erhalten?", "pt": "A qualidade da imagem será preservada?" },
+      "answer": { "en": "Yes. Images are embedded directly into the PDF without re-encoding, so the original quality is preserved.", "es": "Sí. Las imágenes se incrustan directamente en el PDF sin re-codificación, por lo que se preserva la calidad original.", "fr": "Oui. Les images sont intégrées directement dans le PDF sans ré-encodage, donc la qualité originale est préservée.", "de": "Ja. Bilder werden direkt ohne Neukodierung in das PDF eingebettet, sodass die ursprüngliche Qualität erhalten bleibt.", "pt": "Sim. As imagens são incorporadas diretamente no PDF sem re-codificação, então a qualidade original é preservada." }
+    },
+    {
+      "question": { "en": "Can I control the page order?", "es": "¿Puedo controlar el orden de las páginas?", "fr": "Puis-je contrôler l'ordre des pages?", "de": "Kann ich die Reihenfolge der Seiten steuern?", "pt": "Posso controlar a ordem das páginas?" },
+      "answer": { "en": "The images are added to the PDF in the order they appear in the file list. Rearrange the files before clicking Convert to set your preferred order.", "es": "Las imágenes se añaden al PDF en el orden en que aparecen en la lista de archivos. Reorganiza los archivos antes de hacer clic en Convertir para establecer tu orden preferido.", "fr": "Les images sont ajoutées au PDF dans l'ordre où elles apparaissent dans la liste de fichiers. Réorganisez les fichiers avant de cliquer sur Convertir pour définir votre ordre préféré.", "de": "Die Bilder werden in der Reihenfolge, in der sie in der Dateiliste erscheinen, dem PDF hinzugefügt. Ordne die Dateien vor dem Konvertieren neu an.", "pt": "As imagens são adicionadas ao PDF na ordem em que aparecem na lista de arquivos. Reorganize os arquivos antes de clicar em Converter para definir sua ordem preferida." }
+    }
+  ],
+  "relatedTools": ["pdf-to-images", "merge-pdf", "compress-pdf", "rotate-pdf", "split-pdf"]
+}

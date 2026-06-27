@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-page-extract",
+  "slug": "pdf-page-extract",
+  "name": {
+    "en": "PDF Page Extractor",
+    "es": "Extractor de Páginas PDF",
+    "fr": "Extracteur de Pages PDF",
+    "de": "PDF Seiten Extrahieren",
+    "pt": "Extrator de Páginas PDF"
+  },
+  "tagline": {
+    "en": "Extract specific pages from a PDF into a new document.",
+    "es": "Extrae páginas específicas de un PDF en un nuevo documento.",
+    "fr": "Extrayez des pages spécifiques d'un PDF dans un nouveau document.",
+    "de": "Bestimmte Seiten aus einem PDF in ein neues Dokument extrahieren.",
+    "pt": "Extraia páginas específicas de um PDF em um novo documento."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "extractPdfPages",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "pdf", "mime": "application/pdf", "label": "PDF", "default": true }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 256 },
+  "capabilities": ["drag-and-drop", "mobile-supported", "page-selection"],
+  "seo": {
+    "primaryKeyword": "extract pages from pdf",
+    "secondaryKeywords": ["pdf page extractor online", "export pdf pages", "save pdf pages separately", "pdf extract page free"],
+    "title": {
+      "en": "Extract PDF Pages Online — Free PDF Page Extractor",
+      "es": "Extraer Páginas PDF Online — Extractor de Páginas PDF Gratuito",
+      "fr": "Extraire des Pages PDF en Ligne — Extracteur de Pages PDF Gratuit",
+      "de": "PDF-Seiten Online Extrahieren — Kostenloser PDF-Seiten-Extraktor",
+      "pt": "Extrair Páginas PDF Online — Extrator de Páginas PDF Gratuito"
+    },
+    "description": {
+      "en": "Extract specific pages from a PDF into a new PDF file online for free. Enter page numbers or ranges — no upload, 100% private, instant download.",
+      "es": "Extrae páginas específicas de un PDF en un nuevo archivo PDF online gratis. Ingresa números o rangos de páginas — sin subidas, 100% privado.",
+      "fr": "Extrayez des pages spécifiques d'un PDF dans un nouveau fichier PDF en ligne gratuitement. Entrez des numéros ou plages de pages.",
+      "de": "Bestimmte Seiten aus einem PDF in eine neue PDF-Datei extrahieren, kostenlos online. Seitennummern oder Bereiche eingeben — kein Upload, 100% privat.",
+      "pt": "Extraia páginas específicas de um PDF em um novo arquivo PDF online gratuitamente. Insira números de página ou intervalos — sem upload, 100% privado."
+    },
+    "h1": {
+      "en": "Extract PDF Pages — Save Specific Pages as a New PDF Online Free",
+      "es": "Extraer Páginas PDF — Guardar Páginas Específicas como Nuevo PDF Online Gratis",
+      "fr": "Extraire des Pages PDF — Enregistrer des Pages Spécifiques en Nouveau PDF Gratuitement",
+      "de": "PDF-Seiten Extrahieren — Bestimmte Seiten als Neues PDF Online Kostenlos Speichern",
+      "pt": "Extrair Páginas PDF — Salvar Páginas Específicas como Novo PDF Online Gratuitamente"
+    },
+    "intro": {
+      "en": "Keep only the pages you need from a PDF. Enter the page numbers or ranges in the Pages field (e.g., '1, 3-5, 8') and download a new PDF containing only those pages. The original PDF is not modified.",
+      "es": "Conserva solo las páginas que necesitas de un PDF. Ingresa los números de página o rangos en el campo Páginas (p.ej., '1, 3-5, 8') y descarga un nuevo PDF que contiene solo esas páginas.",
+      "fr": "Gardez uniquement les pages dont vous avez besoin d'un PDF. Entrez les numéros de page ou les plages dans le champ Pages (ex. '1, 3-5, 8') et téléchargez un nouveau PDF contenant uniquement ces pages.",
+      "de": "Behalte nur die Seiten, die du von einem PDF benötigst. Seitennummern oder Bereiche im Seiten-Feld eingeben (z.B. '1, 3-5, 8') und ein neues PDF mit nur diesen Seiten herunterladen.",
+      "pt": "Mantenha apenas as páginas que você precisa de um PDF. Insira os números de página ou intervalos no campo Páginas (ex. '1, 3-5, 8') e baixe um novo PDF contendo apenas essas páginas."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "How do I specify which pages to extract?", "es": "¿Cómo especifico qué páginas extraer?", "fr": "Comment spécifier les pages à extraire?", "de": "Wie gebe ich an, welche Seiten extrahiert werden sollen?", "pt": "Como especifico quais páginas extrair?" },
+      "answer": { "en": "Enter page numbers separated by commas and ranges with a dash. For example: '1, 3-5, 8' extracts pages 1, 3, 4, 5, and 8. Pages are always sorted in their original document order.", "es": "Ingresa números de página separados por comas y rangos con un guión. Por ejemplo: '1, 3-5, 8' extrae las páginas 1, 3, 4, 5 y 8.", "fr": "Entrez les numéros de page séparés par des virgules et les plages avec un tiret. Par exemple: '1, 3-5, 8' extrait les pages 1, 3, 4, 5 et 8.", "de": "Seitennummern durch Kommas getrennt eingeben und Bereiche mit einem Bindestrich. Beispiel: '1, 3-5, 8' extrahiert Seiten 1, 3, 4, 5 und 8.", "pt": "Insira números de página separados por vírgulas e intervalos com um traço. Por exemplo: '1, 3-5, 8' extrai as páginas 1, 3, 4, 5 e 8." }
+    },
+    {
+      "question": { "en": "What is the difference between Extract and Split?", "es": "¿Cuál es la diferencia entre Extraer y Dividir?", "fr": "Quelle est la différence entre Extraire et Diviser?", "de": "Was ist der Unterschied zwischen Extrahieren und Aufteilen?", "pt": "Qual é a diferença entre Extrair e Dividir?" },
+      "answer": { "en": "Extract lets you choose specific pages to keep in one new PDF. Split separates every single page into individual files. Use Extract when you want a subset of pages; use Split when you need every page as a separate file.", "es": "Extraer te permite elegir páginas específicas para mantener en un nuevo PDF. Dividir separa cada página en archivos individuales.", "fr": "Extraire vous permet de choisir des pages spécifiques à conserver dans un nouveau PDF. Diviser sépare chaque page en fichiers individuels.", "de": "Extrahieren ermöglicht dir, bestimmte Seiten in einem neuen PDF zu behalten. Aufteilen trennt jede einzelne Seite in einzelne Dateien.", "pt": "Extrair permite escolher páginas específicas para manter em um novo PDF. Dividir separa cada página em arquivos individuais." }
+    },
+    {
+      "question": { "en": "Is the original PDF changed?", "es": "¿Se cambia el PDF original?", "fr": "Le PDF original est-il modifié?", "de": "Wird das ursprüngliche PDF verändert?", "pt": "O PDF original é alterado?" },
+      "answer": { "en": "No. The tool creates a new PDF with only the selected pages. Your original file is not modified — it exists only in your browser memory during processing and is discarded after.", "es": "No. La herramienta crea un nuevo PDF con solo las páginas seleccionadas. Tu archivo original no se modifica.", "fr": "Non. L'outil crée un nouveau PDF avec uniquement les pages sélectionnées. Votre fichier original n'est pas modifié.", "de": "Nein. Das Tool erstellt ein neues PDF mit nur den ausgewählten Seiten. Deine Originaldatei wird nicht verändert.", "pt": "Não. A ferramenta cria um novo PDF com apenas as páginas selecionadas. Seu arquivo original não é modificado." }
+    },
+    {
+      "question": { "en": "Can I extract pages from a password-protected PDF?", "es": "¿Puedo extraer páginas de un PDF protegido con contraseña?", "fr": "Puis-je extraire des pages d'un PDF protégé par mot de passe?", "de": "Kann ich Seiten aus einem passwortgeschützten PDF extrahieren?", "pt": "Posso extrair páginas de um PDF protegido por senha?" },
+      "answer": { "en": "First unlock the PDF using the PDF Unlock tool, then use Page Extractor on the unlocked version.", "es": "Primero desbloquea el PDF usando la herramienta PDF Desbloquear, luego usa el Extractor de Páginas en la versión desbloqueada.", "fr": "Déverrouillez d'abord le PDF avec l'outil PDF Unlock, puis utilisez l'Extracteur de Pages sur la version déverrouillée.", "de": "Entsperre zuerst das PDF mit dem PDF-Entsperren-Tool, dann verwende den Seiten-Extraktor auf der entsperrten Version.", "pt": "Primeiro desbloqueie o PDF usando a ferramenta PDF Unlock, depois use o Extrator de Páginas na versão desbloqueada." }
+    }
+  ],
+  "relatedTools": ["split-pdf", "pdf-delete-pages", "merge-pdf", "pdf-reorder-pages", "rotate-pdf"]
+}

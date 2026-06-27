@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "pdf-page-counter",
+  "slug": "pdf-page-counter",
+  "name": {
+    "en": "PDF Page Counter",
+    "es": "Contador de Páginas PDF",
+    "fr": "Compteur de Pages PDF",
+    "de": "PDF Seiten Zählen",
+    "pt": "Contador de Páginas PDF"
+  },
+  "tagline": {
+    "en": "Instantly count the number of pages in one or more PDF files.",
+    "es": "Cuenta instantáneamente el número de páginas en uno o más archivos PDF.",
+    "fr": "Comptez instantanément le nombre de pages dans un ou plusieurs fichiers PDF.",
+    "de": "Die Seitenanzahl in einer oder mehreren PDF-Dateien sofort zählen.",
+    "pt": "Conte instantaneamente o número de páginas em um ou mais arquivos PDF."
+  },
+  "category": "pdf",
+  "engine": "pdf_engine",
+  "engineFn": "countPdfPages",
+  "inputFormats": ["application/pdf"],
+  "outputFormats": [
+    { "ext": "txt", "mime": "text/plain", "label": "Text", "default": true }
+  ],
+  "batch": { "supported": true, "maxFiles": 20, "zipOutput": false },
+  "runtime": "browser",
+  "uiGroup": "utility",
+  "runtimeHints": { "showVariantPicker": false, "memoryBudgetMb": 128 },
+  "capabilities": ["batch", "drag-and-drop", "mobile-supported"],
+  "seo": {
+    "primaryKeyword": "pdf page counter",
+    "secondaryKeywords": ["count pdf pages online", "how many pages in pdf", "pdf page count tool", "check pdf page number free"],
+    "title": {
+      "en": "PDF Page Counter — Count Pages in PDF Online Free",
+      "es": "Contador de Páginas PDF — Contar Páginas en PDF Online Gratis",
+      "fr": "Compteur de Pages PDF — Compter les Pages dans un PDF en Ligne Gratuitement",
+      "de": "PDF Seiten Zählen — PDF-Seiten Online Kostenlos Zählen",
+      "pt": "Contador de Páginas PDF — Contar Páginas em PDF Online Gratuitamente"
+    },
+    "description": {
+      "en": "Count the number of pages in one or more PDF files instantly — no upload, 100% private, processed in your browser. Supports batch counting for multiple files.",
+      "es": "Cuenta el número de páginas en uno o más archivos PDF al instante — sin subidas, 100% privado, procesado en tu navegador.",
+      "fr": "Comptez le nombre de pages dans un ou plusieurs fichiers PDF instantanément — sans envoi, 100% privé, traité dans votre navigateur.",
+      "de": "Die Seitenanzahl in einer oder mehreren PDF-Dateien sofort zählen — kein Upload, 100% privat, im Browser verarbeitet.",
+      "pt": "Conte o número de páginas em um ou mais arquivos PDF instantaneamente — sem upload, 100% privado, processado no seu navegador."
+    },
+    "h1": {
+      "en": "PDF Page Counter — How Many Pages Are in Your PDF?",
+      "es": "Contador de Páginas PDF — ¿Cuántas Páginas Tiene tu PDF?",
+      "fr": "Compteur de Pages PDF — Combien de Pages y a-t-il dans votre PDF?",
+      "de": "PDF Seiten Zählen — Wie Viele Seiten Hat Dein PDF?",
+      "pt": "Contador de Páginas PDF — Quantas Páginas Tem seu PDF?"
+    },
+    "intro": {
+      "en": "Drop one or more PDF files to instantly see how many pages each contains. Results are displayed as a plain text summary — filename and page count for each file. Useful before splitting, reordering, or extracting pages.",
+      "es": "Suelta uno o más archivos PDF para ver instantáneamente cuántas páginas contiene cada uno. Los resultados se muestran como un resumen de texto plano — nombre de archivo y recuento de páginas para cada archivo.",
+      "fr": "Déposez un ou plusieurs fichiers PDF pour voir instantanément combien de pages chacun contient. Les résultats s'affichent sous forme de résumé en texte brut — nom de fichier et nombre de pages pour chaque fichier.",
+      "de": "Eine oder mehrere PDF-Dateien ablegen, um sofort zu sehen, wie viele Seiten jede enthält. Ergebnisse werden als einfache Textzusammenfassung angezeigt — Dateiname und Seitenanzahl für jede Datei.",
+      "pt": "Solte um ou mais arquivos PDF para ver instantaneamente quantas páginas cada um contém. Os resultados são exibidos como um resumo de texto simples — nome do arquivo e contagem de páginas para cada arquivo."
+    }
+  },
+  "faq": [
+    {
+      "question": { "en": "Can I count pages in multiple PDFs at once?", "es": "¿Puedo contar páginas en varios PDFs a la vez?", "fr": "Puis-je compter les pages de plusieurs PDFs à la fois?", "de": "Kann ich Seiten in mehreren PDFs auf einmal zählen?", "pt": "Posso contar páginas em vários PDFs de uma vez?" },
+      "answer": { "en": "Yes. Drop up to 20 PDF files and the tool will show the page count for each file, along with a grand total.", "es": "Sí. Suelta hasta 20 archivos PDF y la herramienta mostrará el recuento de páginas para cada archivo, junto con un total general.", "fr": "Oui. Déposez jusqu'à 20 fichiers PDF et l'outil affichera le nombre de pages pour chaque fichier, ainsi qu'un total général.", "de": "Ja. Bis zu 20 PDF-Dateien ablegen und das Tool zeigt die Seitenanzahl für jede Datei, zusammen mit einer Gesamtsumme.", "pt": "Sim. Solte até 20 arquivos PDF e a ferramenta mostrará a contagem de páginas para cada arquivo, junto com um total geral." }
+    },
+    {
+      "question": { "en": "Does this work on password-protected PDFs?", "es": "¿Funciona esto con PDFs protegidos con contraseña?", "fr": "Cela fonctionne-t-il avec les PDFs protégés par mot de passe?", "de": "Funktioniert das bei passwortgeschützten PDFs?", "pt": "Isso funciona com PDFs protegidos por senha?" },
+      "answer": { "en": "Yes. The page count can usually be read from a PDF even when it is encrypted, without needing the password.", "es": "Sí. El recuento de páginas generalmente se puede leer de un PDF incluso cuando está cifrado, sin necesitar la contraseña.", "fr": "Oui. Le nombre de pages peut généralement être lu d'un PDF même lorsqu'il est chiffré, sans avoir besoin du mot de passe.", "de": "Ja. Die Seitenanzahl kann normalerweise aus einem PDF gelesen werden, auch wenn es verschlüsselt ist, ohne das Passwort zu benötigen.", "pt": "Sim. A contagem de páginas geralmente pode ser lida de um PDF mesmo quando está criptografado, sem precisar da senha." }
+    },
+    {
+      "question": { "en": "Is the PDF file uploaded anywhere?", "es": "¿El archivo PDF se sube a algún lugar?", "fr": "Le fichier PDF est-il téléchargé quelque part?", "de": "Wird die PDF-Datei irgendwo hochgeladen?", "pt": "O arquivo PDF é enviado para algum lugar?" },
+      "answer": { "en": "No. The page count is read locally in your browser. No data is ever uploaded.", "es": "No. El recuento de páginas se lee localmente en tu navegador. Nunca se cargan datos.", "fr": "Non. Le nombre de pages est lu localement dans votre navigateur. Aucune donnée n'est jamais téléchargée.", "de": "Nein. Die Seitenanzahl wird lokal in deinem Browser gelesen. Es werden keine Daten hochgeladen.", "pt": "Não. A contagem de páginas é lida localmente no seu navegador. Nenhum dado é jamais enviado." }
+    },
+    {
+      "question": { "en": "Why would I need to know the page count?", "es": "¿Por qué necesitaría saber el recuento de páginas?", "fr": "Pourquoi aurais-je besoin de connaître le nombre de pages?", "de": "Warum würde ich die Seitenanzahl kennen müssen?", "pt": "Por que eu precisaria saber a contagem de páginas?" },
+      "answer": { "en": "Knowing the page count is useful before splitting, extracting, reordering, or rotating pages — you need to know the valid page range before entering page numbers in those tools.", "es": "Saber el recuento de páginas es útil antes de dividir, extraer, reordenar o rotar páginas — necesitas conocer el rango de páginas válido antes de ingresar números de páginas en esas herramientas.", "fr": "Connaître le nombre de pages est utile avant de diviser, extraire, réorganiser ou faire pivoter des pages — vous devez connaître la plage de pages valide avant d'entrer des numéros de page dans ces outils.", "de": "Die Seitenanzahl zu kennen ist nützlich, bevor Seiten aufgeteilt, extrahiert, neu geordnet oder gedreht werden — man muss den gültigen Seitenbereich kennen, bevor Seitennummern in diesen Tools eingegeben werden.", "pt": "Saber a contagem de páginas é útil antes de dividir, extrair, reordenar ou rotacionar páginas — você precisa saber o intervalo de páginas válido antes de inserir números de página nessas ferramentas." }
+    }
+  ],
+  "relatedTools": ["split-pdf", "pdf-page-extract", "pdf-delete-pages", "pdf-reorder-pages", "pdf-metadata-viewer"]
+}

@@ -21,6 +21,7 @@ import { generateAiDiscoverability } from './lib/llms.js';
 import { runFreshnessEngine } from './lib/freshness.js';
 import { generateStaticFiles } from './lib/static-files.js';
 import { validateIndexingReadiness } from './lib/indexing-validator.js';
+import { buildAuthorityGraph } from './lib/authority.js';
 
 async function build() {
   const startTime = Date.now();
@@ -67,8 +68,18 @@ async function build() {
   const seoData = await generateSeo(routes, data, config);
   console.log(`  ✓ SEO generated`);
 
-  // 7. Generate internal links
-  const links = await generateInternalLinks(routes, data, config);
+  // 6a. Freshness Engine — must run before authority graph
+  const freshness = await runFreshnessEngine(data, config);
+  if (freshness.staleItems.length > 0) {
+    console.log(`  ⚡ Freshness: ${freshness.staleItems.length} updated, ${freshness.newItems.length} new`);
+  }
+
+  // 6b. Authority Graph — PageRank-style authority propagation over all content nodes
+  const graph = buildAuthorityGraph(data, freshness);
+  console.log(`  ✓ Authority graph built (${graph.nodes.size} nodes, avg authority: ${graph.equity?.avgAuthority?.toFixed(1) ?? 'n/a'})`);
+
+  // 7. Generate internal links (authority-weighted scoring via graph)
+  const links = await generateInternalLinks(routes, data, config, graph);
   console.log(`  ✓ Internal links resolved`);
 
   // 8a. SEO quality validation (post-generation)
@@ -110,12 +121,6 @@ async function build() {
   }
   console.log(`  ✓ Indexing validated  (${indexingValidation.errors.length} errors, ${indexingValidation.warnings.length} warnings)`);
 
-  // 11a. Freshness Engine — track content hashes, detect stale content
-  const freshness = await runFreshnessEngine(data, config);
-  if (freshness.staleItems.length > 0) {
-    console.log(`  ⚡ Freshness: ${freshness.staleItems.length} updated, ${freshness.newItems.length} new`);
-  }
-
   // 11. Generate AI discoverability files (/llms.txt, /ai.txt)
   const aiFiles = generateAiDiscoverability(data, routes, config);
   console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
@@ -126,7 +131,7 @@ async function build() {
 
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

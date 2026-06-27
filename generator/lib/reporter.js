@@ -120,7 +120,51 @@ function buildDashboard(routes, pages, seoData) {
 /**
  * Generates an expanded build report and writes it to build-report.json.
  */
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness }) {
+function buildAuthorityDashboard(graph) {
+  if (!graph) return {};
+  const nodes = [...(graph.nodes?.values() || [])];
+  if (!nodes.length) return {};
+
+  const sorted = [...nodes].sort((a, b) => b.authority - a.authority);
+  const avgLinksPerPage = (nodes.reduce((s, n) => s + (n.outLinks || 0), 0) / nodes.length).toFixed(1);
+  const equity = graph.equity || {};
+  const depthInfo = graph.depthMap || {};
+
+  // Cluster sizes from graph.clusters.clusterMap (clusterId → Set<nodeId>)
+  const clusterMap = graph.clusters?.clusterMap || new Map();
+  const clusterEntries = [...clusterMap.entries()]
+    .map(([id, members]) => [id, members.size])
+    .filter(([, size]) => size > 0)
+    .sort((a, b) => b[1] - a[1]);
+
+  return {
+    total_nodes:            nodes.length,
+    average_authority:      equity.avgAuthority ?? Math.round(nodes.reduce((s, n) => s + n.authority, 0) / nodes.length),
+    average_links_per_page: parseFloat(avgLinksPerPage),
+    top_authority_pages:    sorted.slice(0, 10).map(n => ({ id: n.id, type: n.type, authority: n.authority })),
+    bottom_authority_pages: sorted.slice(-5).map(n => ({ id: n.id, type: n.type, authority: n.authority })),
+    largest_cluster:        clusterEntries[0]?.[0] || '',
+    largest_cluster_size:   clusterEntries[0]?.[1] || 0,
+    weakest_cluster:        clusterEntries[clusterEntries.length - 1]?.[0] || '',
+    strongest_cluster:      clusterEntries[0]?.[0] || '',
+    dead_ends:              (equity.deadEnds || []).length,
+    most_linked:            (equity.mostLinked || [])[0]?.id || '',
+    crawl_depth: {
+      avg:          depthInfo.avgDepth        ?? 0,
+      max:          depthInfo.maxDepth        ?? 0,
+      deep_pages:   (depthInfo.deepPages      || []).length,
+      distribution: depthInfo.distribution   || {},
+    },
+    semantic_clusters: graph.clusters?.stats || {},
+    link_validation_warnings: (graph.linkWarnings || []).length,
+    ai_readiness: {
+      nodes_with_keywords:  nodes.filter(n => n.keywords?.length > 3).length,
+      avg_keywords:         (nodes.reduce((s, n) => s + (n.keywords?.length || 0), 0) / nodes.length).toFixed(1),
+    },
+  };
+}
+
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -241,6 +285,9 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       intent_clusters:   (data.intents || []).length,
       total_modifiers:   (data.intents || []).reduce((s, i) => s + (i.modifiers?.length || 0), 0),
     },
+
+    // Authority Graph (Phase 20)
+    authority_graph: buildAuthorityDashboard(graph),
 
     // Indexing Readiness (Phase 19)
     indexing_readiness: {

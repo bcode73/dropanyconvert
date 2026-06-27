@@ -1,24 +1,30 @@
 /**
  * Auto-generates related content links for each route.
  *
- * Returns a Map<routePath, { relatedTools, guides, comparisons, glossary }>
+ * Returns a Map<routePath, { relatedTools, guides, comparisons, glossary, ... }>
  *
- * relatedTools priority:
- *   1. Explicit relatedTools from tool definition (score 100)
- *   2. Same category tools (score 50)
- *   3. Format similarity (shared MIME types × 10)
- *
- * guides / comparisons / glossary matched by:
- *   - slug present in knowledge item's relatedTools array, OR
- *   - category matches
+ * When graph is provided (Phase 20), uses authority-weighted scoring + dynamic quotas.
+ * Falls back to legacy scoring when graph is null.
  */
 
-const MAX_RELATED = 8;
-const MAX_GUIDES  = 3;
-const MAX_CMP     = 3;
-const MAX_GLOSS   = 4;
+import { scoreCandidatePair, scoreKnowledgeItem } from './authority.js';
 
-export async function generateInternalLinks(routes, data, config) {
+// ── Dynamic quota helpers ─────────────────────────────────────────────────────
+
+function relatedQuota(authority) {
+  if (authority >= 70) return 12;
+  if (authority >= 50) return 10;
+  if (authority >= 30) return 8;
+  return 6;
+}
+
+function knowledgeQuota(authority, type) {
+  const base = authority >= 50 ? 4 : 3;
+  if (type === 'glossary') return base + 1;
+  return base;
+}
+
+export async function generateInternalLinks(routes, data, config, graph = null) {
   const links = new Map();
 
   const toolBySlug = new Map(data.tools.map(t => [t.slug, t]));
@@ -61,48 +67,44 @@ export async function generateInternalLinks(routes, data, config) {
   for (const tool of data.tools) {
     const candidates = [];
     const seen = new Set([tool.slug]);
+    const toolAuthority = graph?.nodes?.get(`tool:${tool.slug}`)?.authority ?? 0;
+    const quota = relatedQuota(toolAuthority);
+    const explicitSlugs = new Set(tool.relatedTools || []);
 
-    // 1. Explicit overrides
-    if (tool.relatedTools) {
-      for (const slug of tool.relatedTools) {
-        if (seen.has(slug)) continue;
-        const relTool = toolBySlug.get(slug);
-        if (relTool) {
-          candidates.push({ slug, score: 100, source: 'explicit', tool: relTool });
-          seen.add(slug);
+    // Collect all candidate tools with authority-weighted scoring
+    for (const candidate of data.tools) {
+      if (seen.has(candidate.slug)) continue;
+      const isExplicit = explicitSlugs.has(candidate.slug);
+
+      let score;
+      if (graph) {
+        score = scoreCandidatePair(graph, tool.slug, candidate.slug, isExplicit ? 40 : 0);
+        // Explicit always wins via bonus; category tools naturally rank high via shared cluster/category
+      } else {
+        // Legacy scoring fallback
+        if (isExplicit) score = 100;
+        else if (candidate.category === tool.category) score = 50;
+        else {
+          const toolMimes = new Set([...tool.inputFormats, ...tool.outputFormats.map(f => f.mime)]);
+          const candMimes = [...candidate.inputFormats, ...candidate.outputFormats.map(f => f.mime)];
+          const overlap = candMimes.filter(m => toolMimes.has(m)).length;
+          score = overlap * 10;
         }
       }
-    }
 
-    // 2. Same category — use pre-built index (O(cat-size) not O(N))
-    for (const candidate of (toolsByCategory.get(tool.category) || [])) {
-      if (seen.has(candidate.slug)) continue;
-      candidates.push({ slug: candidate.slug, score: 50, source: 'category', tool: candidate });
-      seen.add(candidate.slug);
-    }
-
-    // 3. Format similarity — use pre-built MIME index (O(formats × tools-per-mime) not O(N²))
-    const toolMimes = new Set([
-      ...tool.inputFormats,
-      ...tool.outputFormats.map(f => f.mime),
-    ]);
-    const formatScores = new Map();
-    for (const mime of toolMimes) {
-      for (const candidate of (toolsByMime.get(mime) || [])) {
-        if (seen.has(candidate.slug)) continue;
-        formatScores.set(candidate.slug, (formatScores.get(candidate.slug) || 0) + 10);
-      }
-    }
-    for (const [slug, score] of formatScores) {
-      const candidate = toolBySlug.get(slug);
-      if (candidate && !seen.has(slug)) {
-        candidates.push({ slug, score, source: 'format', tool: candidate });
-        seen.add(slug);
+      if (score > 0) {
+        candidates.push({
+          slug: candidate.slug,
+          score,
+          source: isExplicit ? 'explicit' : (candidate.category === tool.category ? 'category' : 'format'),
+          tool: candidate,
+        });
+        seen.add(candidate.slug);
       }
     }
 
     candidates.sort((a, b) => b.score - a.score);
-    rankedCandidates.set(tool.slug, candidates.slice(0, MAX_RELATED));
+    rankedCandidates.set(tool.slug, candidates.slice(0, quota));
   }
 
   // Build knowledge indices for fast lookup
@@ -130,13 +132,25 @@ export async function generateInternalLinks(routes, data, config) {
       source: r.source,
     }));
 
+    const toolAuthority = graph?.nodes?.get(`tool:${tool.slug}`)?.authority ?? 0;
+    const guideQuota = knowledgeQuota(toolAuthority, 'article');
+    const cmpQuota   = knowledgeQuota(toolAuthority, 'comparison');
+    const glossQuota = knowledgeQuota(toolAuthority, 'glossary');
+
     const guides = articles
       .filter(a =>
         (a.relatedTools || []).includes(tool.slug) ||
         a.category === tool.category
       )
-      .slice(0, MAX_GUIDES)
       .map(a => ({
+        item: a,
+        score: graph
+          ? scoreKnowledgeItem(graph, tool.slug, `article:${a.slug}`, (a.relatedTools || []).includes(tool.slug))
+          : ((a.relatedTools || []).includes(tool.slug) ? 100 : 50),
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, guideQuota)
+      .map(({ item: a }) => ({
         slug: a.slug,
         title: a.h1?.[lang] || a.h1?.en || a.title?.[lang] || a.title?.en || a.slug,
         path: `/${lang}/guides/${a.slug}`,
@@ -144,11 +158,16 @@ export async function generateInternalLinks(routes, data, config) {
       }));
 
     const relatedComparisons = comparisons
-      .filter(c =>
-        (c.relatedTools || []).includes(tool.slug)
-      )
-      .slice(0, MAX_CMP)
+      .filter(c => (c.relatedTools || []).includes(tool.slug))
       .map(c => ({
+        item: c,
+        score: graph
+          ? scoreKnowledgeItem(graph, tool.slug, `comparison:${c.slug}`, true)
+          : 100,
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, cmpQuota)
+      .map(({ item: c }) => ({
         slug: c.slug,
         title: c.h1?.[lang] || c.h1?.en || `${c.subjectA} vs ${c.subjectB}`,
         path: `/${lang}/compare/${c.slug}`,
@@ -160,8 +179,15 @@ export async function generateInternalLinks(routes, data, config) {
         (g.relatedTools || []).includes(tool.slug) ||
         g.category === tool.category
       )
-      .slice(0, MAX_GLOSS)
       .map(g => ({
+        item: g,
+        score: graph
+          ? scoreKnowledgeItem(graph, tool.slug, `glossary:${g.slug}`, (g.relatedTools || []).includes(tool.slug))
+          : ((g.relatedTools || []).includes(tool.slug) ? 100 : 50),
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, glossQuota)
+      .map(({ item: g }) => ({
         slug: g.slug,
         term: g.term?.[lang] || g.term?.en || g.slug,
         path: `/${lang}/glossary/${g.slug}`,

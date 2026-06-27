@@ -561,7 +561,7 @@ ${code('json', `{
     "jobId": "job_1718000000_ab3f2c",
     "status": "completed",
     "downloadUrl": "${baseUrl}/api/v1/jobs/job_1718000000_ab3f2c/download",
-    "expiresAt": "2024-06-12T00:00:00.000Z",
+    "expiresAt": "2026-06-28T00:00:00.000Z",
     "sizeBytes": 204800,
     "durationMs": 320
   }
@@ -684,13 +684,13 @@ ${[
 ${code('json', `{
   "event": "conversion.completed",
   "id": "evt_abc123",
-  "createdAt": "2024-06-11T12:00:00Z",
+  "createdAt": "2026-06-27T12:00:00Z",
   "data": {
     "jobId": "job_1718000000_ab3f2c",
     "toolSlug": "jpg-to-png",
     "status": "completed",
     "downloadUrl": "${baseUrl}/api/v1/jobs/job_1718000000_ab3f2c/download",
-    "expiresAt": "2024-06-12T12:00:00Z"
+    "expiresAt": "2026-06-28T12:00:00Z"
   }
 }`)}
 <h2>Signature Verification</h2>
@@ -876,7 +876,7 @@ ${code('json', `{
     "status": "completed",
     "outputFormat": "${(tool.outputFormats.find(f => f.default) || tool.outputFormats[0])?.mime}",
     "downloadUrl": "${baseUrl}/api/v1/jobs/job_1718000000_ab3f2c/download",
-    "expiresAt": "2024-06-12T00:00:00.000Z",
+    "expiresAt": "2026-06-28T00:00:00.000Z",
     "sizeBytes": 204800,
     "durationMs": 320
   }

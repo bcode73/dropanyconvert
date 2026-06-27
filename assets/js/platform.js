@@ -170,7 +170,7 @@
       document.addEventListener('keydown', e => {
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); this.open(); }
         if (e.key === 'Escape' && this.overlay && !this.overlay.hidden) this.close();
-      });
+      }, { passive: false });
     },
 
     open() {
@@ -564,21 +564,42 @@
 
   // ── Boot ──────────────────────────────────────────────────────────────────
 
-  // Theme must init before DOMContentLoaded to prevent flash
-  // (inline script in <head> also handles this as first resort)
+  // Theme runs immediately — avoids FOUC even with defer (backup to inline script)
   const earlyTheme = Settings.get().theme || 'auto';
   Theme.apply(earlyTheme);
   Theme.current = earlyTheme;
 
+  const ric = window.requestIdleCallback || (cb => setTimeout(cb, 1));
+
   document.addEventListener('DOMContentLoaded', () => {
+    // Critical path: theme toggle, mobile menu, search trigger wiring
     Theme.init();
-    Search.init();
     MobileMenu.init();
     initLangSelector();
-    initDynamicSections();
-    initFavoriteButton();
-    hookAnalytics();
-    trackPageVisit();
+
+    // Wire search button to lazy-init the overlay on first open
+    const searchBtn = document.getElementById('dac-search-btn');
+    let searchReady = false;
+    function ensureSearch() {
+      if (searchReady) return;
+      searchReady = true;
+      Search.init();
+    }
+    if (searchBtn) {
+      searchBtn.addEventListener('click', ensureSearch, { once: true });
+    }
+    // Also init on Ctrl+K before button click
+    document.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') ensureSearch();
+    }, { passive: true });
+
+    // Non-critical: defer until idle to keep main thread free during LCP
+    ric(() => {
+      initDynamicSections();
+      initFavoriteButton();
+      hookAnalytics();
+      trackPageVisit();
+    });
   });
 
   // Expose on global namespace

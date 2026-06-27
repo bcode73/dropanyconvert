@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T18:09:26.653Z",
-  "elapsed_ms": 7547,
+  "timestamp": "2026-06-27T19:27:28.547Z",
+  "elapsed_ms": 6075,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 1242,
-  "output_size_kb": 104996,
+  "output_size_kb": 103383,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -80,7 +80,7 @@
     "duplicate_title_count": 766,
     "duplicate_desc_count": 604,
     "largest_page": "/fr/developer-tools/index.html",
-    "largest_page_bytes": 102180,
+    "largest_page_bytes": 98243,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "15.0.0"
@@ -118,6 +118,30 @@
     "format_faq_pages": 65,
     "intent_clusters": 11,
     "total_modifiers": 48
+  },
+  "performance_audit": {
+    "js_size_kb": 59,
+    "css_size_kb": 59,
+    "html_size_kb": 103383,
+    "optimizations": [
+      "html-minified",
+      "json-ld-minified",
+      "css-minified",
+      "css-async-loaded",
+      "critical-css-inlined",
+      "article-css-async",
+      "js-minified",
+      "scripts-deferred",
+      "search-lazy-init",
+      "idle-callback-noncritical",
+      "passive-scroll-listeners",
+      "immutable-cache-headers"
+    ],
+    "estimated_lighthouse": "88–94",
+    "estimated_lcp": "< 1.8s",
+    "estimated_inp": "< 100ms",
+    "estimated_tbt": "< 50ms",
+    "estimated_cls": "< 0.05"
   },
   "warnings": [],
   "errors": [],

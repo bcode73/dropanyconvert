@@ -1,5 +1,27 @@
 import { renderAdBlock } from './ads.js';
 
+// ── HTML Minifier ─────────────────────────────────────────────────────────────
+// Safe whitespace collapse: preserves <pre>, <script>, <style>, <textarea> content.
+function minifyHtml(html) {
+  // Protect pre-formatted blocks
+  const preserved = [];
+  html = html.replace(/<(pre|script|style|textarea)[\s\S]*?<\/\1>/gi, m => {
+    preserved.push(m);
+    return `\x00PRESERVE${preserved.length - 1}\x00`;
+  });
+  // Collapse whitespace between tags
+  html = html
+    .replace(/<!--(?!(\[if|\s*#))[\s\S]*?-->/g, '')  // remove HTML comments (keep IE conditionals)
+    .replace(/>\s{2,}</g, '> <')                       // collapse multi-space between tags
+    .replace(/\n\s*\n/g, '\n')                         // collapse blank lines
+    .replace(/\s{2,}/g, ' ')                           // collapse remaining multi-space
+    .replace(/> </g, '><')                             // remove space between tags
+    .replace(/\s+>/g, '>');                            // trim trailing space before >
+  // Restore preserved blocks
+  html = html.replace(/\x00PRESERVE(\d+)\x00/g, (_, i) => preserved[+i]);
+  return html.trim();
+}
+
 /**
  * Generates HTML for every route.
  * Returns array of { path, content } objects.
@@ -25,83 +47,83 @@ export async function generatePages(routes, seoData, links, data, config) {
 
     if (route.type === 'tool') {
       html = renderToolPage(route, seo, links.get(route.path) || {}, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'category') {
       html = renderCategoryPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'home') {
       html = renderHubPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'legal') {
       html = renderLegalPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'article') {
       const nav = articleNavMap.get(route.article.slug) || {};
       html = renderArticlePage(route, seo, data, config, nav);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'comparison') {
       html = renderComparisonPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'glossary') {
       html = renderGlossaryTermPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'guides-index') {
       html = renderGuidesIndexPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'compare-index') {
       html = renderCompareIndexPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'glossary-index') {
       html = renderGlossaryIndexPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'collection') {
       html = renderCollectionPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'collections-index') {
       html = renderCollectionsIndexPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'landing') {
       html = renderLandingPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'faq-hub') {
       html = renderFaqHubPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'trust') {
       html = renderTrustPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'editorial') {
       html = renderEditorialPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'changelog') {
       html = renderChangelogPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'entity') {
       html = renderEntityPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'entity-index') {
       html = renderEntityIndexPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'author') {
       html = renderAuthorPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'intent') {
       html = renderIntentPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'how-to-index') {
       html = renderHowToIndexPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'platform') {
       html = renderPlatformPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'use-case') {
       html = renderUseCasePage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'feature') {
       html = renderFeaturePage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'format-faq') {
       html = renderFormatFaqPage(route, seo, data, config);
-      pages.push({ path: route.path + '/index.html', content: html });
+      pages.push({ path: route.path + '/index.html', content: minifyHtml(html) });
     } else if (route.type === 'root') {
       const d = config.languages.default;
       html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/${d}"><link rel="canonical" href="${config.site.baseUrl}/${d}"></head><body></body></html>`;
@@ -138,8 +160,8 @@ function renderAnalyticsSnippet(analytics) {
 function renderHead(seo, config, toolIndex, opts = {}) {
   const { ads = null, analytics = null, isLegal = false, khIndex = null } = opts;
   const schemas = (seo.schemas || [])
-    .map(s => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
-    .join('\n');
+    .map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+    .join('');
 
   const hreflang = (seo.hreflang || [])
     .map(h => `  <link rel="alternate" hreflang="${h.lang}" href="${h.url}">`)
@@ -157,41 +179,18 @@ function renderHead(seo, config, toolIndex, opts = {}) {
   // Provider-agnostic analytics snippet
   const analyticsSnippet = renderAnalyticsSnippet(analytics);
 
-  // Inline theme init to prevent flash of unstyled content
-  const themeInit = `<script>try{var t=JSON.parse(localStorage.getItem('dac_settings')||'{}').theme||'auto';document.documentElement.dataset.theme=t==='auto'?(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t;}catch(e){}</script>`;
+  // Inline theme init — must run before paint to prevent FOUC
+  const themeInit = `<script>try{var t=JSON.parse(localStorage.getItem('dac_settings')||'{}').theme||'auto';document.documentElement.dataset.theme=t==='auto'?(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t}catch(e){}</script>`;
 
   const toolIndexScript = toolIndex
     ? `<script>window.DAC_TOOLS=${JSON.stringify(toolIndex)};${khIndex ? `window.DAC_KH_INDEX=${JSON.stringify(khIndex)};` : ''}</script>`
     : '';
 
-  return `  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${esc(seo.title || config.site.name)}</title>
-  <meta name="description" content="${esc(seo.description || '')}">
-  <meta name="robots" content="${seo.robots || 'index, follow'}">
-  ${seo.canonical ? `<link rel="canonical" href="${seo.canonical}">` : ''}
-  <meta property="og:title" content="${esc(seo.ogTitle || seo.title || '')}">
-  <meta property="og:description" content="${esc(seo.ogDescription || seo.description || '')}">
-  <meta property="og:url" content="${seo.ogUrl || seo.canonical || ''}">
-  <meta property="og:type" content="${seo.ogType || 'website'}">
-  <meta property="og:site_name" content="${esc(seo.ogSiteName || config.site.name)}">
-  <meta property="og:image" content="${seo.ogImage || ''}">
-  <meta name="twitter:card" content="${seo.twitterCard || 'summary_large_image'}">
-  <meta name="twitter:site" content="${seo.twitterSite || ''}">
-  <meta name="twitter:title" content="${esc(seo.twitterTitle || seo.title || '')}">
-  <meta name="twitter:description" content="${esc(seo.twitterDescription || seo.description || '')}">
-  <link rel="manifest" href="/assets/manifest.json">
-  <meta name="theme-color" content="#6366f1">
-  <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
-  <link rel="preload" href="/assets/css/main.css" as="style">
-${hreflang}
-${xDefault}
-  <link rel="stylesheet" href="/assets/css/main.css">
-  ${themeInit}
-  ${toolIndexScript}
-${adsenseScript}
-${analyticsSnippet}
-${schemas}`;
+  // Critical CSS: enough to render above-the-fold without layout shift.
+  // The full stylesheet is loaded async to avoid render-blocking.
+  const criticalCss = `<style>*,::before,::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;background:#fff;color:#111}[data-theme=dark]{background:#0f0f0f;color:#e5e5e5}.dac-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e5e5e5}[data-theme=dark] .dac-nav{background:#0f0f0f;border-color:#2a2a2a}.dac-skip-link{position:absolute;left:-9999px}.dac-skip-link:focus{left:1rem;top:1rem;z-index:9999;background:#6366f1;color:#fff;padding:.5rem 1rem;border-radius:4px}.dac-page--hub,.dac-page--tool,.dac-page--category{max-width:1200px;margin:0 auto;padding:0 1.5rem}</style>`;
+
+  return `<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(seo.title || config.site.name)}</title><meta name="description" content="${esc(seo.description || '')}"><meta name="robots" content="${seo.robots || 'index, follow'}">${seo.canonical ? `<link rel="canonical" href="${seo.canonical}">` : ''}<meta property="og:title" content="${esc(seo.ogTitle || seo.title || '')}"><meta property="og:description" content="${esc(seo.ogDescription || seo.description || '')}"><meta property="og:url" content="${seo.ogUrl || seo.canonical || ''}"><meta property="og:type" content="${seo.ogType || 'website'}"><meta property="og:site_name" content="${esc(seo.ogSiteName || config.site.name)}"><meta property="og:image" content="${seo.ogImage || ''}"><meta name="twitter:card" content="${seo.twitterCard || 'summary_large_image'}"><meta name="twitter:site" content="${seo.twitterSite || ''}"><meta name="twitter:title" content="${esc(seo.twitterTitle || seo.title || '')}"><meta name="twitter:description" content="${esc(seo.twitterDescription || seo.description || '')}"><link rel="manifest" href="/assets/manifest.json"><meta name="theme-color" content="#6366f1"><link rel="apple-touch-icon" href="/assets/images/icon-192.png">${hreflang}${xDefault}${criticalCss}<link rel="preload" href="/assets/css/main.css" as="style"><link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>${themeInit}${toolIndexScript}${adsenseScript}${analyticsSnippet}${schemas}`;
 }
 
 // ── Shared Partials ────────────────────────────────────────────────────────
@@ -1216,7 +1215,7 @@ function renderToolPage(route, seo, toolLinks, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--tool">
 
@@ -2305,7 +2304,7 @@ function renderArticlePage(route, seo, data, config, nav = {}) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--article">
 ${renderProgressBar()}
@@ -2475,7 +2474,7 @@ function renderComparisonPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--comparison">
 ${renderProgressBar()}
@@ -2567,7 +2566,7 @@ function renderGlossaryTermPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--glossary">
 
@@ -2639,7 +2638,7 @@ function renderGuidesIndexPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--knowledge-index">
 
@@ -2686,7 +2685,7 @@ function renderCompareIndexPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--knowledge-index">
 
@@ -2735,7 +2734,7 @@ function renderGlossaryIndexPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--knowledge-index">
 
@@ -2818,7 +2817,7 @@ function renderCollectionPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--collection">
 
@@ -2870,7 +2869,7 @@ function renderCollectionsIndexPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--knowledge-index">
 
@@ -2955,7 +2954,7 @@ function renderLandingPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--landing">
 
@@ -3080,7 +3079,7 @@ function renderTrustPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--trust">
 
@@ -3161,7 +3160,7 @@ function renderEditorialPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--editorial">
 
@@ -3240,7 +3239,7 @@ function renderChangelogPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--changelog">
 
@@ -3322,7 +3321,7 @@ function renderEntityPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--entity">
 
@@ -3465,7 +3464,7 @@ function renderEntityIndexPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--entity-index">
 
@@ -3532,7 +3531,7 @@ function renderAuthorPage(route, seo, data, config) {
 <html lang="${langCode}" dir="ltr">
 <head>
 ${renderHead(seo, config, toolIndex, headOpts)}
-  <link rel="stylesheet" href="/assets/css/article.css">
+  <link rel="preload" href="/assets/css/article.css" as="style"><link rel="stylesheet" href="/assets/css/article.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/article.css"></noscript>
 </head>
 <body class="dac-page dac-page--author">
 

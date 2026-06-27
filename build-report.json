@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T20:56:40.931Z",
-  "elapsed_ms": 2249,
+  "timestamp": "2026-06-27T21:38:33.526Z",
+  "elapsed_ms": 6102,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 1246,
-  "output_size_kb": 103556,
+  "output_size_kb": 103445,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -79,8 +79,8 @@
     "avg_description_length": 130,
     "duplicate_title_count": 766,
     "duplicate_desc_count": 604,
-    "largest_page": "/fr/developer-tools/index.html",
-    "largest_page_bytes": 98386,
+    "largest_page": "/fr/png-to-jpg/index.html",
+    "largest_page_bytes": 99536,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "15.0.0"
@@ -119,32 +119,364 @@
     "intent_clusters": 11,
     "total_modifiers": 48
   },
+  "authority_graph": {
+    "total_nodes": 208,
+    "average_authority": 6,
+    "average_links_per_page": 4,
+    "top_authority_pages": [
+      {
+        "id": "tool:image-compressor",
+        "type": "tool",
+        "authority": 100
+      },
+      {
+        "id": "tool:png-to-webp",
+        "type": "tool",
+        "authority": 89
+      },
+      {
+        "id": "tool:png-to-jpg",
+        "type": "tool",
+        "authority": 81
+      },
+      {
+        "id": "tool:jpg-to-png",
+        "type": "tool",
+        "authority": 63
+      },
+      {
+        "id": "tool:webp-to-png",
+        "type": "tool",
+        "authority": 47
+      },
+      {
+        "id": "tool:merge-pdf",
+        "type": "tool",
+        "authority": 42
+      },
+      {
+        "id": "tool:json-formatter",
+        "type": "tool",
+        "authority": 41
+      },
+      {
+        "id": "tool:pdf-page-extract",
+        "type": "tool",
+        "authority": 40
+      },
+      {
+        "id": "tool:split-pdf",
+        "type": "tool",
+        "authority": 40
+      },
+      {
+        "id": "tool:webp-to-jpg",
+        "type": "tool",
+        "authority": 38
+      }
+    ],
+    "bottom_authority_pages": [
+      {
+        "id": "feature:browser-only-converters",
+        "type": "feature",
+        "authority": 0
+      },
+      {
+        "id": "feature:privacy-first-converters",
+        "type": "feature",
+        "authority": 0
+      },
+      {
+        "id": "feature:offline-converters",
+        "type": "feature",
+        "authority": 0
+      },
+      {
+        "id": "feature:high-quality-converters",
+        "type": "feature",
+        "authority": 0
+      },
+      {
+        "id": "feature:fast-converters",
+        "type": "feature",
+        "authority": 0
+      }
+    ],
+    "largest_cluster": "developer",
+    "largest_cluster_size": 84,
+    "weakest_cluster": "markdown",
+    "strongest_cluster": "developer",
+    "dead_ends": 14,
+    "most_linked": "tool:png-to-jpg",
+    "crawl_depth": {
+      "avg": 1,
+      "max": 1,
+      "deep_pages": 0,
+      "distribution": {
+        "1": 82
+      }
+    },
+    "semantic_clusters": {
+      "png": {
+        "size": 65,
+        "avg_authority": 7,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "jpg": {
+        "size": 49,
+        "avg_authority": 8,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "webp": {
+        "size": 35,
+        "avg_authority": 10,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "avif": {
+        "size": 16,
+        "avg_authority": 0,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "use-case"
+        ]
+      },
+      "svg": {
+        "size": 12,
+        "avg_authority": 0,
+        "types": [
+          "tool",
+          "article",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "use-case"
+        ]
+      },
+      "gif": {
+        "size": 11,
+        "avg_authority": 4,
+        "types": [
+          "tool",
+          "entity",
+          "collection",
+          "landing"
+        ]
+      },
+      "pdf": {
+        "size": 48,
+        "avg_authority": 6,
+        "types": [
+          "tool",
+          "article",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "platform",
+          "use-case"
+        ]
+      },
+      "json": {
+        "size": 29,
+        "avg_authority": 6,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "csv": {
+        "size": 10,
+        "avg_authority": 0,
+        "types": [
+          "tool",
+          "article",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "markdown": {
+        "size": 7,
+        "avg_authority": 1,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "entity",
+          "collection",
+          "use-case"
+        ]
+      },
+      "base64": {
+        "size": 16,
+        "avg_authority": 2,
+        "types": [
+          "tool",
+          "article",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "compression": {
+        "size": 36,
+        "avg_authority": 7,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "metadata": {
+        "size": 9,
+        "avg_authority": 1,
+        "types": [
+          "tool",
+          "glossary",
+          "collection",
+          "use-case"
+        ]
+      },
+      "encoding": {
+        "size": 23,
+        "avg_authority": 5,
+        "types": [
+          "tool",
+          "article",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "use-case"
+        ]
+      },
+      "developer": {
+        "size": 84,
+        "avg_authority": 6,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "platform",
+          "use-case"
+        ]
+      },
+      "image": {
+        "size": 83,
+        "avg_authority": 6,
+        "types": [
+          "tool",
+          "article",
+          "comparison",
+          "glossary",
+          "entity",
+          "collection",
+          "landing",
+          "intent",
+          "platform",
+          "use-case"
+        ]
+      },
+      "document": {
+        "size": 16,
+        "avg_authority": 17,
+        "types": [
+          "tool",
+          "entity"
+        ]
+      }
+    },
+    "link_validation_warnings": 23,
+    "ai_readiness": {
+      "nodes_with_keywords": 140,
+      "avg_keywords": "6.4"
+    }
+  },
   "indexing_readiness": {
     "errors": [],
     "warnings": [
+      "INDEXING: possible orphan page (no linker path) — /en/color-converter",
+      "INDEXING: possible orphan page (no linker path) — /en/gif-to-webp",
+      "INDEXING: possible orphan page (no linker path) — /en/jwt-inspector",
       "INDEXING: possible orphan page (no linker path) — /en/regex-tester",
       "INDEXING: possible orphan page (no linker path) — /en/unix-timestamp",
-      "INDEXING: possible orphan page (no linker path) — /en/guides/what-is-svg",
-      "INDEXING: possible orphan page (no linker path) — /en/guides/what-is-webp",
-      "INDEXING: possible orphan page (no linker path) — /en/guides/what-is-yaml",
       "INDEXING: possible orphan page (no linker path) — /en/compare/markdown-vs-html",
-      "INDEXING: possible orphan page (no linker path) — /en/glossary/vector-image",
       "INDEXING: possible orphan page (no linker path) — /en/trust",
       "INDEXING: possible orphan page (no linker path) — /en/editorial/editorial-process",
       "INDEXING: possible orphan page (no linker path) — /en/editorial/accuracy-policy",
-      "INDEXING: 40 more possible orphan pages (suppressed)"
+      "INDEXING: possible orphan page (no linker path) — /en/editorial/content-standards",
+      "INDEXING: 39 more possible orphan pages (suppressed)"
     ],
     "warning_count": 11,
     "stats": {
       "sitemap_urls": 1225,
       "canonical_mismatches": 0,
       "sitemap_without_canonical": 0,
-      "orphan_pages_en": 50,
+      "orphan_pages_en": 49,
       "orphan_by_type": {
-        "tool": 2,
-        "article": 3,
+        "tool": 5,
         "comparison": 1,
-        "glossary": 1,
         "trust": 1,
         "editorial": 7,
         "changelog": 1,
@@ -170,7 +502,7 @@
   "performance_audit": {
     "js_size_kb": 59,
     "css_size_kb": 59,
-    "html_size_kb": 103556,
+    "html_size_kb": 103445,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

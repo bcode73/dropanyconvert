@@ -71,6 +71,7 @@ function renderHead(seo, config, toolIndex) {
   <link rel="manifest" href="/assets/manifest.json">
   <meta name="theme-color" content="#6366f1">
   <link rel="apple-touch-icon" href="/assets/images/icon-192.png">
+  <link rel="preload" href="/assets/css/main.css" as="style">
 ${hreflang}
 ${xDefault}
   <link rel="stylesheet" href="/assets/css/main.css">

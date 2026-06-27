@@ -63,5 +63,13 @@ export async function emitDist({ pages, sitemaps, robots }, config) {
     // engines/ directory may not exist
   }
 
+  // Copy static/ → dist/ (deployment config, _headers, _redirects, etc.)
+  const staticDir = path.join(config._root, 'static');
+  try {
+    await cp(staticDir, distDir, { recursive: true });
+  } catch {
+    // static/ is optional
+  }
+
   return { fileCount, sizeKb: Math.round(totalBytes / 1024) };
 }

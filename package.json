@@ -7,9 +7,10 @@
     "node": ">=18.0.0"
   },
   "scripts": {
+    "prebuild-vendor": "npx esbuild node_modules/qrcode/lib/browser.js --bundle --format=iife --global-name=QRCode --outfile=assets/js/vendor/qrcode.min.js --minify",
     "prebuild": "node scripts/copy-vendor.js",
     "build": "node generator/index.js",
-    "build:clean": "node scripts/copy-vendor.js && rm -rf dist && node generator/index.js",
+    "build:clean": "npm run prebuild-vendor && node scripts/copy-vendor.js && rm -rf dist && node generator/index.js",
     "validate": "node generator/index.js --validate-only",
     "preview": "npx serve dist",
     "lint": "node --experimental-vm-modules node_modules/.bin/eslint generator/ engines/",
@@ -27,7 +28,11 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "js-yaml": "^4.1.0",
+    "jsbarcode": "^3.11.6",
+    "jsqr": "^1.4.0",
     "pdf-lib": "^1.17.1",
-    "pdfjs-dist": "^6.0.227"
+    "pdfjs-dist": "^6.0.227",
+    "qrcode": "^1.5.3"
   }
 }

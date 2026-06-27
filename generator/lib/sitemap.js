@@ -18,9 +18,15 @@ export async function generateSitemaps(routes, config) {
       r.lang === lang && (r.type === 'tool' || r.type === 'category' || r.type === 'home')
     );
 
-    const urls = langRoutes.map(r => {
-      const priority = r.type === 'home' ? '1.0' : r.type === 'category' ? '0.8' : '0.7';
-      const changefreq = r.type === 'tool' ? 'monthly' : 'weekly';
+    // Deterministic order: home → categories → tools
+    const sorted = [...langRoutes].sort((a, b) => {
+      const order = { home: 0, category: 1, tool: 2 };
+      return (order[a.type] ?? 3) - (order[b.type] ?? 3) || a.path.localeCompare(b.path);
+    });
+
+    const urls = sorted.map(r => {
+      const priority   = r.type === 'home' ? '1.0' : r.type === 'category' ? '0.9' : '0.8';
+      const changefreq = r.type === 'home' ? 'weekly' : r.type === 'category' ? 'weekly' : 'monthly';
       return `  <url>
     <loc>${baseUrl}${r.path}</loc>
     <lastmod>${lastmod}</lastmod>
@@ -38,10 +44,11 @@ ${urls}
     sitemaps.push({ path: `/sitemap-${lang}.xml`, content: xml });
   }
 
-  // Root sitemap index
-  const indexEntries = langCodes.map(lang =>
+  // Root sitemap index — sorted alphabetically for deterministic output
+  const indexEntries = [...langCodes].sort().map(lang =>
     `  <sitemap>
     <loc>${baseUrl}/sitemap-${lang}.xml</loc>
+    <lastmod>${lastmod}</lastmod>
   </sitemap>`
   ).join('\n');
 

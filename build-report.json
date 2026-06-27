@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-06-27T11:15:21.657Z",
-  "elapsed_ms": 1191,
+  "timestamp": "2026-06-27T11:28:51.142Z",
+  "elapsed_ms": 921,
   "tools": 82,
   "languages": 5,
   "routes": 446,
   "pages_generated": 446,
   "sitemaps_generated": 6,
   "files_emitted": 460,
-  "output_size_kb": 20069,
+  "output_size_kb": 20096,
   "warnings": [],
   "errors": [],
   "toolList": [

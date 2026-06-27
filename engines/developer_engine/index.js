@@ -25,18 +25,29 @@ export const engineMeta = {
   dependencies: [],
 };
 
-// ── CDN library loader ────────────────────────────────────────────────────
+// ── Self-hosted vendor library loader ─────────────────────────────────────
+// All libraries are served from /assets/js/vendor/ — no CDN dependency.
+// See scripts/copy-vendor.js for how they are vendored from node_modules.
 
 const _libCache = {};
 
-async function loadLib(url, globalKey) {
+const VENDOR_LIBS = {
+  jsyaml:    '/assets/js/vendor/js-yaml.min.js',
+  QRCode:    '/assets/js/vendor/qrcode.min.js',
+  jsQR:      '/assets/js/vendor/jsQR.js',
+  JsBarcode: '/assets/js/vendor/JsBarcode.all.min.js',
+};
+
+async function loadLib(_, globalKey) {
   if (window[globalKey]) return window[globalKey];
-  if (_libCache[url]) return _libCache[url];
+  if (_libCache[globalKey]) return _libCache[globalKey];
+  const url = VENDOR_LIBS[globalKey];
+  if (!url) throw new Error(`Unknown vendor library: ${globalKey}`);
   return new Promise((resolve, reject) => {
     const s = document.createElement('script');
     s.src = url;
-    s.onload = () => { _libCache[url] = window[globalKey]; resolve(window[globalKey]); };
-    s.onerror = () => reject(new Error(`Failed to load library: ${url}`));
+    s.onload = () => { _libCache[globalKey] = window[globalKey]; resolve(window[globalKey]); };
+    s.onerror = () => reject(new Error(`Failed to load vendor library: ${url}`));
     document.head.appendChild(s);
   });
 }

@@ -163,15 +163,55 @@
         "pt": "Ferramentas para Desenvolvedores"
       },
       "description": {
-        "en": "Encode, decode, format, and validate data for developers. Base64, JWT, JSON, and more.",
-        "es": "Codifica, decodifica, formatea y valida datos para desarrolladores. Base64, JWT, JSON y más.",
-        "fr": "Encodez, décodez, formatez et validez des données pour les développeurs. Base64, JWT, JSON et plus encore.",
-        "de": "Kodiere, dekodiere, formatiere und validiere Daten für Entwickler. Base64, JWT, JSON und mehr.",
-        "pt": "Codifique, decodifique, formate e valide dados para desenvolvedores. Base64, JWT, JSON e muito mais."
+        "en": "43 free browser-based tools for developers. Format JSON, convert YAML and XML, encode/decode Base64 and URLs, generate hashes, create QR codes, decode JWT tokens, test regex, convert colors, minify and beautify code — all running locally with zero uploads.",
+        "es": "43 herramientas gratuitas para desarrolladores. Formatea JSON, convierte YAML y XML, codifica/decodifica Base64, genera hashes, crea códigos QR, decodifica JWT, prueba regex — todo localmente, sin subidas.",
+        "fr": "43 outils gratuits pour développeurs. Formatez JSON, convertissez YAML et XML, encodez/décodez Base64, générez des hachages, créez des QR codes, décodez JWT, testez des regex — tout localement, sans téléchargement.",
+        "de": "43 kostenlose Browser-Tools für Entwickler. JSON formatieren, YAML und XML konvertieren, Base64 kodieren/dekodieren, Hashes generieren, QR-Codes erstellen, JWT dekodieren, Regex testen — alles lokal, kein Upload.",
+        "pt": "43 ferramentas gratuitas para desenvolvedores. Formate JSON, converta YAML e XML, codifique/decodifique Base64, gere hashes, crie QR codes, decodifique JWT, teste regex — tudo localmente, sem upload."
       },
       "icon": "code",
       "color": "#06b6d4",
-      "order": 6
+      "order": 6,
+      "features": [
+        {
+          "icon": "lock",
+          "title": { "en": "100% Private — No Upload" },
+          "description": { "en": "Every tool runs locally in your browser using JavaScript. Your code, tokens, and data never leave your device." }
+        },
+        {
+          "icon": "fast",
+          "title": { "en": "Instant Results" },
+          "description": { "en": "Live preview and instant conversion. No waiting for server round-trips — results appear as you type." }
+        },
+        {
+          "icon": "device",
+          "title": { "en": "43 Tools in One Place" },
+          "description": { "en": "JSON, XML, YAML, encoding, hashing, generators, QR codes, JWT, regex, colors, minifiers, and beautifiers — all free, all browser-based." }
+        },
+        {
+          "icon": "free",
+          "title": { "en": "Free Forever" },
+          "description": { "en": "No subscription, no rate limits, no sign-up. Every developer tool is completely free with no hidden costs." }
+        }
+      ],
+      "faq": [
+        {
+          "question": { "en": "Are these developer tools really free?" },
+          "answer": { "en": "Yes. All 43 tools are completely free with no usage limits, no sign-up, and no subscription. They run entirely in your browser using JavaScript." }
+        },
+        {
+          "question": { "en": "Is my code or data safe to paste here?" },
+          "answer": { "en": "Yes. All processing runs locally in your browser. Your data is never sent to any server, stored, or logged. The tools work completely offline once the page has loaded." }
+        },
+        {
+          "question": { "en": "Do these tools work offline?" },
+          "answer": { "en": "Most tools (JSON, XML, encoding, hashing, generators, JWT, regex, color, minifiers, beautifiers) work fully offline. Tools that require external libraries (YAML, QR codes, barcodes) need a one-time internet connection to load the library." }
+        },
+        {
+          "question": { "en": "Can I use these tools on mobile?" },
+          "answer": { "en": "Yes. All tools are fully responsive and work on mobile browsers. However, the text editor experience is better on desktop." }
+        }
+      ]
     }
   ]
 }

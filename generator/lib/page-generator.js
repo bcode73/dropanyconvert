@@ -259,6 +259,8 @@ const UPLOAD_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="48" heig
 // ── Tool Page ──────────────────────────────────────────────────────────────
 
 function renderToolPage(route, seo, relatedTools, data, config) {
+  if (route.tool.uiGroup === 'developer') return renderDevToolPage(route, seo, relatedTools, data, config);
+
   const tool = route.tool;
   const langCode = route.lang;
   const lang = route.language;
@@ -747,6 +749,243 @@ ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 <script src="/assets/js/runtime.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Developer Tool Page ────────────────────────────────────────────────────
+
+function renderDevToolPage(route, seo, relatedTools, data, config) {
+  const tool     = route.tool;
+  const langCode = route.lang;
+  const lang     = route.language;
+  const ui       = lang.ui;
+  const ads      = data.ads;
+  const devOpts  = tool.devOptions || {};
+  const intro    = tool.seo.intro?.[langCode] || tool.seo.intro?.en || '';
+  const toolName = tool.name[langCode] || tool.name.en;
+  const h1       = seo.h1 || toolName;
+
+  const outputType  = devOpts.outputType  || 'text';
+  const inputType   = devOpts.inputType   || 'text';
+  const livePreview = devOpts.livePreview !== false;
+  const runLabel    = devOpts.runButtonLabel || 'Convert';
+  const outputLabel = devOpts.outputLabel    || 'Output';
+  const inputPlaceholder = devOpts.inputPlaceholder || 'Paste or type input here…';
+  const sampleInput      = devOpts.sampleInput || '';
+  const testInput        = devOpts.testInput   || '';
+  const downloadExt  = devOpts.downloadExt  || 'txt';
+  const downloadMime = devOpts.downloadMime || 'text/plain';
+  const extraOptions = JSON.stringify(devOpts.extraOptions || []).replace(/</g, '\\u003c');
+
+  // ── Input panel ──────────────────────────────────────────────────────────
+
+  const inputPanel = inputType === 'none' ? '' : inputType === 'image' ? `
+    <div class="dac-dev-panel">
+      <div class="dac-dev-panel__header">
+        <span class="dac-dev-panel__label">Input Image</span>
+      </div>
+      <div class="dac-dev-drop" id="dac-dev-drop" role="button" tabindex="0" aria-label="Drop image or click to browse">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+        <span class="dac-dev-drop__label">Drop a QR code image or click to browse</span>
+        <span class="dac-dev-drop__hint">PNG, JPEG, WebP, BMP accepted</span>
+      </div>
+      <input type="hidden" id="dac-dev-input">
+    </div>` : `
+    <div class="dac-dev-panel">
+      <div class="dac-dev-panel__header">
+        <span class="dac-dev-panel__label">Input</span>
+        <div class="dac-dev-panel__actions">
+          <button class="dac-dev-btn" id="dac-dev-sample" type="button">Sample</button>
+          <button class="dac-dev-btn" id="dac-dev-clear"  type="button">Clear</button>
+        </div>
+      </div>
+      ${inputType === 'dual' ? `
+      <label class="dac-dev-secondary-label" for="dac-dev-input">Regex Pattern</label>` : ''}
+      <textarea id="dac-dev-input"
+                class="dac-dev-textarea"
+                placeholder="${esc(inputPlaceholder)}"
+                spellcheck="false"
+                aria-label="${esc(toolName)} input"
+                rows="10"></textarea>
+      ${inputType === 'dual' ? `
+      <label class="dac-dev-secondary-label" for="dac-dev-test">Test String</label>
+      <textarea id="dac-dev-test"
+                class="dac-dev-textarea dac-dev-textarea--secondary"
+                placeholder="Enter the string to test your regex against…"
+                spellcheck="false"
+                aria-label="Test string"
+                rows="6"></textarea>` : ''}
+      <div class="dac-dev-drop-hint" id="dac-dev-drop">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Drop a text file here to load it
+      </div>
+    </div>`;
+
+  // ── Options panel ─────────────────────────────────────────────────────────
+
+  const optionsPanel = (devOpts.extraOptions && devOpts.extraOptions.length) ? `
+    <div class="dac-dev-options-panel" id="dac-dev-options" hidden></div>` : '';
+
+  // ── Controls ─────────────────────────────────────────────────────────────
+
+  const controls = inputType === 'none' ? `
+    <div class="dac-dev-controls">
+      <button class="dac-btn dac-btn--primary" id="dac-dev-run" type="button">${esc(runLabel)}</button>
+    </div>` : `
+    <div class="dac-dev-controls">
+      <button class="dac-btn dac-btn--primary" id="dac-dev-run" type="button">${esc(runLabel)}</button>
+    </div>`;
+
+  // ── Output panel ──────────────────────────────────────────────────────────
+
+  const outputPanel = `
+    <div class="dac-dev-panel" id="dac-dev-output-wrap" hidden>
+      <div class="dac-dev-panel__header">
+        <span class="dac-dev-panel__label">${esc(outputLabel)}</span>
+        <div class="dac-dev-panel__actions">
+          ${outputType === 'color' ? `<div class="dac-dev-color-swatch" id="dac-dev-color-preview" hidden></div>` : ''}
+          <button class="dac-dev-btn" id="dac-dev-copy"     type="button" disabled>Copy</button>
+          <button class="dac-dev-btn dac-dev-btn--primary" id="dac-dev-download" type="button" disabled>Download</button>
+        </div>
+      </div>
+      <img id="dac-dev-output-img" class="dac-dev-output-img" alt="Generated output" hidden>
+      <textarea id="dac-dev-output"
+                class="dac-dev-textarea dac-dev-textarea--output"
+                readonly
+                aria-label="${esc(outputLabel)}"
+                aria-live="polite"
+                rows="10" hidden></textarea>
+    </div>`;
+
+  const statusBar = `<p class="dac-dev-status" id="dac-dev-status" hidden aria-live="polite"></p>`;
+
+  // ── FAQ ───────────────────────────────────────────────────────────────────
+
+  const faqHtml = tool.faq.map(item =>
+    `<details class="dac-faq__item">
+      <summary class="dac-faq__question">${esc(item.question[langCode] || item.question.en)}</summary>
+      <div class="dac-faq__answer">${esc(item.answer[langCode] || item.answer.en)}</div>
+    </details>`
+  ).join('\n    ');
+
+  // ── Features ──────────────────────────────────────────────────────────────
+
+  const featuresHtml = (tool.features || []).map(f =>
+    `<div class="dac-feature">
+      <span class="dac-feature__icon dac-icon--${esc(f.icon)}" aria-hidden="true"></span>
+      <h3 class="dac-feature__title">${esc(f.title[langCode] || f.title.en)}</h3>
+      <p class="dac-feature__desc">${esc(f.description[langCode] || f.description.en)}</p>
+    </div>`
+  ).join('\n      ');
+
+  // ── Related tools ──────────────────────────────────────────────────────────
+
+  const relatedHtml = relatedTools.map(r =>
+    `<a href="${r.path}" class="dac-related-tool">
+      <span class="dac-related-tool__name">${esc(r.name)}</span>
+      ${r.tagline ? `<span class="dac-related-tool__tagline">${esc(r.tagline)}</span>` : ''}
+    </a>`
+  ).join('\n      ');
+
+  const adTop    = renderAdBlock('top', ads, langCode);
+  const adBottom = renderAdBlock('bottom', ads, langCode);
+  const breadcrumbHtml = renderBreadcrumb(seo.breadcrumbs || []);
+  const toolIndex = buildToolIndex(data.tools, langCode);
+
+  // Data attributes on the root dev tool element carry config to the runtime
+  const devToolAttrs = [
+    `data-tool-id="${esc(tool.toolId)}"`,
+    `data-engine="${esc(tool.engine)}"`,
+    `data-engine-fn="${esc(tool.engineFn)}"`,
+    `data-output-type="${esc(outputType)}"`,
+    `data-input-type="${esc(inputType)}"`,
+    `data-live-preview="${livePreview}"`,
+    `data-download-ext="${esc(downloadExt)}"`,
+    `data-download-mime="${esc(downloadMime)}"`,
+    `data-sample="${esc(sampleInput)}"`,
+    `data-test-input="${esc(testInput)}"`,
+    `data-extra-options="${esc(extraOptions)}"`,
+  ].join('\n         ');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex)}
+</head>
+<body class="dac-page dac-page--tool dac-page--developer">
+
+${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${breadcrumbHtml}
+</nav>
+
+${adTop}
+
+<main class="dac-main" id="main">
+
+  <!-- Hero -->
+  <section class="dac-hero" aria-labelledby="dac-tool-title">
+    <div class="dac-hero__title-row">
+      <h1 class="dac-hero__title" id="dac-tool-title">${esc(h1)}</h1>
+      <button class="dac-fav-btn" id="dac-fav-btn"
+              data-slug="${esc(tool.slug)}"
+              data-name="${esc(toolName)}"
+              aria-label="Add to favorites">♡ Save</button>
+    </div>
+    ${intro ? `<p class="dac-hero__intro">${esc(intro)}</p>` : ''}
+    <p class="dac-privacy-note">${esc(ui.privacyNote)}</p>
+  </section>
+
+  <!-- Developer Tool Editor -->
+  <section class="dac-dev-editor" aria-label="${esc(toolName)}"
+           id="dac-dev-tool"
+           ${devToolAttrs}>
+
+    ${statusBar}
+
+    ${inputPanel}
+
+    ${optionsPanel}
+
+    ${controls}
+
+    ${outputPanel}
+
+  </section>
+
+  <!-- Features -->
+  ${featuresHtml ? `<section class="dac-features" aria-label="Features">
+    <h2 class="dac-section-title">Why use ${esc(toolName)}?</h2>
+    <div class="dac-features__grid">
+      ${featuresHtml}
+    </div>
+  </section>` : ''}
+
+  <!-- FAQ -->
+  <section class="dac-faq" aria-labelledby="dac-faq-title">
+    <h2 class="dac-section-title" id="dac-faq-title">${esc(ui.faq)}</h2>
+    ${faqHtml}
+  </section>
+
+  <!-- Related Tools -->
+  ${relatedHtml ? `<section class="dac-related" aria-labelledby="dac-related-title">
+    <h2 class="dac-section-title" id="dac-related-title">${esc(ui.relatedTools)}</h2>
+    <div class="dac-related__grid">
+      ${relatedHtml}
+    </div>
+  </section>` : ''}
+
+  ${adBottom}
+
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+<script src="/assets/js/developer-runtime.js" defer></script>
 </body>
 </html>`;
 }

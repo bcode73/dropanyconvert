@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "javascript-beautifier",
+  "slug": "javascript-beautifier",
+  "name": {
+    "en": "JavaScript Beautifier",
+    "es": "JavaScript Beautifier",
+    "fr": "JavaScript Beautifier",
+    "de": "JavaScript Beautifier",
+    "pt": "JavaScript Beautifier"
+  },
+  "tagline": {
+    "en": "Format and indent JavaScript for improved readability",
+    "es": "Format and indent JavaScript for improved readability",
+    "fr": "Format and indent JavaScript for improved readability",
+    "de": "Format and indent JavaScript for improved readability",
+    "pt": "Format and indent JavaScript for improved readability"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devJsBeautify",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "js",
+      "mime": "text/javascript",
+      "label": "JS",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste minified JavaScript to beautify...",
+    "sampleInput": "function factorial(n){if(n===0||n===1){return 1}return n*factorial(n-1)}function fibonacci(n){if(n<=1)return n;let a=0;let b=1;for(let i=2;i<=n;i++){const temp=a+b;a=b;b=temp}return b}console.log(factorial(10));console.log(fibonacci(20));",
+    "outputLabel": "Formatted JavaScript",
+    "runButtonLabel": "Beautify JavaScript",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "js",
+    "downloadMime": "text/javascript"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "javascript beautifier",
+    "secondaryKeywords": [
+      "beautify javascript online",
+      "format javascript",
+      "js formatter",
+      "js pretty printer",
+      "js beautifier"
+    ],
+    "title": {
+      "en": "JavaScript Beautifier — DropAnyConvert",
+      "es": "JavaScript Beautifier — DropAnyConvert",
+      "fr": "JavaScript Beautifier — DropAnyConvert",
+      "de": "JavaScript Beautifier — DropAnyConvert",
+      "pt": "JavaScript Beautifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online javascript beautifier. Format and indent JavaScript for improved readability No sign-up, no upload, 100% in your browser.",
+      "es": "JavaScript Beautifier gratuito en línea. Format and indent JavaScript for improved readability Sin registro, 100% en tu navegador.",
+      "fr": "JavaScript Beautifier gratuit en ligne. Format and indent JavaScript for improved readability Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JavaScript Beautifier online. Format and indent JavaScript for improved readability Keine Anmeldung, 100% im Browser.",
+      "pt": "JavaScript Beautifier online gratuito. Format and indent JavaScript for improved readability Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JavaScript Beautifier",
+      "es": "JavaScript Beautifier",
+      "fr": "JavaScript Beautifier",
+      "de": "JavaScript Beautifier",
+      "pt": "JavaScript Beautifier"
+    },
+    "intro": {
+      "en": "JavaScript Beautifier: Format and indent JavaScript for improved readability. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JavaScript Beautifier: Format and indent JavaScript for improved readability. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JavaScript Beautifier: Format and indent JavaScript for improved readability. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JavaScript Beautifier: Format and indent JavaScript for improved readability. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JavaScript Beautifier: Format and indent JavaScript for improved readability. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does JavaScript Beautifier do?"
+      },
+      "answer": {
+        "en": "JavaScript Beautifier formats compact or minified JavaScript by adding proper indentation, line breaks, and spacing, making it readable and debuggable."
+      }
+    },
+    {
+      "question": {
+        "en": "Can the beautifier recover renamed variables from minified code?"
+      },
+      "answer": {
+        "en": "No. If variables were renamed during minification, the beautifier cannot reverse that. It only adds formatting whitespace."
+      }
+    },
+    {
+      "question": {
+        "en": "Is this useful for debugging production JavaScript?"
+      },
+      "answer": {
+        "en": "Yes. Beautifying minified production JavaScript is a common debugging technique. You can then set breakpoints and inspect the formatted code."
+      }
+    },
+    {
+      "question": {
+        "en": "Does beautifying JavaScript change how it runs?"
+      },
+      "answer": {
+        "en": "No. Only whitespace is added. The logic and behavior are identical."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "javascript-minifier",
+    "html-beautifier",
+    "css-beautifier"
+  ]
+}

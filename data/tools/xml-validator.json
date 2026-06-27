@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "xml-validator",
+  "slug": "xml-validator",
+  "name": {
+    "en": "XML Validator",
+    "es": "XML Validator",
+    "fr": "XML Validator",
+    "de": "XML Validator",
+    "pt": "XML Validator"
+  },
+  "tagline": {
+    "en": "Validate XML syntax and check for well-formedness errors",
+    "es": "Validate XML syntax and check for well-formedness errors",
+    "fr": "Validate XML syntax and check for well-formedness errors",
+    "de": "Validate XML syntax and check for well-formedness errors",
+    "pt": "Validate XML syntax and check for well-formedness errors"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devValidateXml",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "Report",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste XML to validate...",
+    "sampleInput": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<catalog>\n  <book id=\"bk101\">\n    <title>Example Book</title>\n    <price>9.99</price>\n  </book>\n</catalog>",
+    "outputLabel": "Validation Result",
+    "runButtonLabel": "Validate XML",
+    "outputType": "validation",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "xml validator",
+    "secondaryKeywords": [
+      "validate xml online",
+      "xml syntax checker",
+      "xml lint",
+      "check xml format",
+      "well-formed xml"
+    ],
+    "title": {
+      "en": "XML Validator — DropAnyConvert",
+      "es": "XML Validator — DropAnyConvert",
+      "fr": "XML Validator — DropAnyConvert",
+      "de": "XML Validator — DropAnyConvert",
+      "pt": "XML Validator — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online xml validator. Validate XML syntax and check for well-formedness errors No sign-up, no upload, 100% in your browser.",
+      "es": "XML Validator gratuito en línea. Validate XML syntax and check for well-formedness errors Sin registro, 100% en tu navegador.",
+      "fr": "XML Validator gratuit en ligne. Validate XML syntax and check for well-formedness errors Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser XML Validator online. Validate XML syntax and check for well-formedness errors Keine Anmeldung, 100% im Browser.",
+      "pt": "XML Validator online gratuito. Validate XML syntax and check for well-formedness errors Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "XML Validator",
+      "es": "XML Validator",
+      "fr": "XML Validator",
+      "de": "XML Validator",
+      "pt": "XML Validator"
+    },
+    "intro": {
+      "en": "XML Validator: Validate XML syntax and check for well-formedness errors. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "XML Validator: Validate XML syntax and check for well-formedness errors. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "XML Validator: Validate XML syntax and check for well-formedness errors. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "XML Validator: Validate XML syntax and check for well-formedness errors. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "XML Validator: Validate XML syntax and check for well-formedness errors. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does XML Validator check?"
+      },
+      "answer": {
+        "en": "The validator checks whether your XML is well-formed: all tags are properly closed, attributes are quoted, elements are correctly nested, and the document has a single root element."
+      }
+    },
+    {
+      "question": {
+        "en": "What is the difference between well-formed and valid XML?"
+      },
+      "answer": {
+        "en": "Well-formed XML follows basic XML syntax rules. Valid XML additionally conforms to a schema (DTD or XSD). This tool checks well-formedness; schema validation requires a schema file."
+      }
+    },
+    {
+      "question": {
+        "en": "What are the most common XML errors?"
+      },
+      "answer": {
+        "en": "Common errors include unclosed tags, mismatched case (XML is case-sensitive), missing attribute quotes, illegal characters in content, and multiple root elements."
+      }
+    },
+    {
+      "question": {
+        "en": "Does the validator check namespaces?"
+      },
+      "answer": {
+        "en": "The validator checks basic namespace syntax (correct prefix declarations) but does not resolve namespace URIs."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "xml-formatter",
+    "xml-beautifier",
+    "xml-minifier"
+  ]
+}

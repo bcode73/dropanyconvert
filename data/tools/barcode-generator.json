@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "barcode-generator",
+  "slug": "barcode-generator",
+  "name": {
+    "en": "Barcode Generator",
+    "es": "Barcode Generator",
+    "fr": "Barcode Generator",
+    "de": "Barcode Generator",
+    "pt": "Barcode Generator"
+  },
+  "tagline": {
+    "en": "Generate professional barcodes in multiple formats",
+    "es": "Generate professional barcodes in multiple formats",
+    "fr": "Generate professional barcodes in multiple formats",
+    "de": "Generate professional barcodes in multiple formats",
+    "pt": "Generate professional barcodes in multiple formats"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devBarcode",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "svg",
+      "mime": "image/svg+xml",
+      "label": "SVG",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter barcode content (e.g. 123456789012)...",
+    "sampleInput": "123456789012",
+    "outputLabel": "Barcode",
+    "runButtonLabel": "Generate Barcode",
+    "outputType": "image-svg",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "svg",
+    "downloadMime": "image/svg+xml",
+    "extraOptions": [
+      {
+        "id": "format",
+        "label": "Barcode Format",
+        "type": "select",
+        "options": [
+          {
+            "value": "CODE128",
+            "label": "Code 128 (general purpose)"
+          },
+          {
+            "value": "EAN13",
+            "label": "EAN-13 (retail products)"
+          },
+          {
+            "value": "EAN8",
+            "label": "EAN-8 (small products)"
+          },
+          {
+            "value": "UPC",
+            "label": "UPC-A (US retail)"
+          },
+          {
+            "value": "CODE39",
+            "label": "Code 39 (industry)"
+          },
+          {
+            "value": "ITF14",
+            "label": "ITF-14 (shipping)"
+          },
+          {
+            "value": "MSI",
+            "label": "MSI (inventory)"
+          }
+        ]
+      },
+      {
+        "id": "width",
+        "label": "Bar Width",
+        "type": "number",
+        "min": 1,
+        "max": 5,
+        "default": 2
+      },
+      {
+        "id": "height",
+        "label": "Height (px)",
+        "type": "number",
+        "min": 30,
+        "max": 200,
+        "default": 80
+      },
+      {
+        "id": "displayValue",
+        "label": "Show text below barcode",
+        "type": "checkbox",
+        "default": true
+      }
+    ]
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "barcode generator",
+    "secondaryKeywords": [
+      "generate barcode online",
+      "create barcode",
+      "barcode maker",
+      "ean13 barcode generator"
+    ],
+    "title": {
+      "en": "Barcode Generator — DropAnyConvert",
+      "es": "Barcode Generator — DropAnyConvert",
+      "fr": "Barcode Generator — DropAnyConvert",
+      "de": "Barcode Generator — DropAnyConvert",
+      "pt": "Barcode Generator — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online barcode generator. Generate professional barcodes in multiple formats No sign-up, no upload, 100% in your browser.",
+      "es": "Barcode Generator gratuito en línea. Generate professional barcodes in multiple formats Sin registro, 100% en tu navegador.",
+      "fr": "Barcode Generator gratuit en ligne. Generate professional barcodes in multiple formats Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser Barcode Generator online. Generate professional barcodes in multiple formats Keine Anmeldung, 100% im Browser.",
+      "pt": "Barcode Generator online gratuito. Generate professional barcodes in multiple formats Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "Barcode Generator",
+      "es": "Barcode Generator",
+      "fr": "Barcode Generator",
+      "de": "Barcode Generator",
+      "pt": "Barcode Generator"
+    },
+    "intro": {
+      "en": "Barcode Generator: Generate professional barcodes in multiple formats. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "Barcode Generator: Generate professional barcodes in multiple formats. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "Barcode Generator: Generate professional barcodes in multiple formats. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "Barcode Generator: Generate professional barcodes in multiple formats. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "Barcode Generator: Generate professional barcodes in multiple formats. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "Which barcode format should I use?"
+      },
+      "answer": {
+        "en": "Code 128 for general text/numbers, EAN-13 for retail products sold internationally, UPC-A for US/Canada retail, Code 39 for industrial/logistics, ITF-14 for shipping cartons."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use the generated barcode commercially?"
+      },
+      "answer": {
+        "en": "Yes. The barcodes are standard formats. For retail EAN/UPC barcodes, you need to obtain a valid GS1 company prefix and product numbers through GS1."
+      }
+    },
+    {
+      "question": {
+        "en": "What is the difference between a barcode and a QR code?"
+      },
+      "answer": {
+        "en": "Traditional barcodes are 1D (linear) and store less data. QR codes are 2D and can store much more data. Barcodes are read by laser scanners; QR codes are read by camera-based scanners."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I download the barcode?"
+      },
+      "answer": {
+        "en": "Yes. The barcode is generated as an SVG, which is scalable to any size without quality loss. Download it and use it in print or digital media."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "qr-code-generator",
+    "qr-code-reader"
+  ]
+}

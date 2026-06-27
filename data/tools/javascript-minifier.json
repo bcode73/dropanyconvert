@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "javascript-minifier",
+  "slug": "javascript-minifier",
+  "name": {
+    "en": "JavaScript Minifier",
+    "es": "JavaScript Minifier",
+    "fr": "JavaScript Minifier",
+    "de": "JavaScript Minifier",
+    "pt": "JavaScript Minifier"
+  },
+  "tagline": {
+    "en": "Minify JavaScript to reduce file size",
+    "es": "Minify JavaScript to reduce file size",
+    "fr": "Minify JavaScript to reduce file size",
+    "de": "Minify JavaScript to reduce file size",
+    "pt": "Minify JavaScript to reduce file size"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devJsMinify",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "js",
+      "mime": "text/javascript",
+      "label": "JS",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste JavaScript to minify...",
+    "sampleInput": "// Calculate factorial\nfunction factorial(n) {\n  // Base case\n  if (n === 0 || n === 1) {\n    return 1;\n  }\n  // Recursive case\n  return n * factorial(n - 1);\n}\n\n// Calculate Fibonacci\nfunction fibonacci(n) {\n  if (n <= 1) return n;\n  let a = 0;\n  let b = 1;\n  for (let i = 2; i <= n; i++) {\n    const temp = a + b;\n    a = b;\n    b = temp;\n  }\n  return b;\n}\n\nconsole.log(factorial(10));\nconsole.log(fibonacci(20));",
+    "outputLabel": "Minified JavaScript",
+    "runButtonLabel": "Minify JavaScript",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "js",
+    "downloadMime": "text/javascript"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "javascript minifier",
+    "secondaryKeywords": [
+      "minify javascript online",
+      "compress js",
+      "js minifier",
+      "javascript compressor",
+      "js optimizer"
+    ],
+    "title": {
+      "en": "JavaScript Minifier — DropAnyConvert",
+      "es": "JavaScript Minifier — DropAnyConvert",
+      "fr": "JavaScript Minifier — DropAnyConvert",
+      "de": "JavaScript Minifier — DropAnyConvert",
+      "pt": "JavaScript Minifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online javascript minifier. Minify JavaScript to reduce file size No sign-up, no upload, 100% in your browser.",
+      "es": "JavaScript Minifier gratuito en línea. Minify JavaScript to reduce file size Sin registro, 100% en tu navegador.",
+      "fr": "JavaScript Minifier gratuit en ligne. Minify JavaScript to reduce file size Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JavaScript Minifier online. Minify JavaScript to reduce file size Keine Anmeldung, 100% im Browser.",
+      "pt": "JavaScript Minifier online gratuito. Minify JavaScript to reduce file size Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JavaScript Minifier",
+      "es": "JavaScript Minifier",
+      "fr": "JavaScript Minifier",
+      "de": "JavaScript Minifier",
+      "pt": "JavaScript Minifier"
+    },
+    "intro": {
+      "en": "JavaScript Minifier: Minify JavaScript to reduce file size. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JavaScript Minifier: Minify JavaScript to reduce file size. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JavaScript Minifier: Minify JavaScript to reduce file size. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JavaScript Minifier: Minify JavaScript to reduce file size. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JavaScript Minifier: Minify JavaScript to reduce file size. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does JavaScript minification do?"
+      },
+      "answer": {
+        "en": "JavaScript minification removes comments, whitespace, and optionally renames local variables to shorter names, reducing file size while preserving functionality."
+      }
+    },
+    {
+      "question": {
+        "en": "Is minified JavaScript still functional?"
+      },
+      "answer": {
+        "en": "Yes. Minified JavaScript runs identically to the original. Only whitespace and comments are affected by basic minification."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I reverse JavaScript minification?"
+      },
+      "answer": {
+        "en": "Yes. Use the JavaScript Beautifier tool to format minified JavaScript for readability. However, renamed variable names cannot be recovered."
+      }
+    },
+    {
+      "question": {
+        "en": "Should I minify JavaScript for production?"
+      },
+      "answer": {
+        "en": "Yes. Minified JavaScript loads faster. Most modern build tools (webpack, Rollup, esbuild, Vite) do this automatically."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "css-minifier",
+    "html-minifier",
+    "javascript-beautifier"
+  ]
+}

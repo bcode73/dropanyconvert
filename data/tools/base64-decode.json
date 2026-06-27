@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "base64-decode",
+  "slug": "base64-decode",
+  "name": {
+    "en": "Base64 Decoder",
+    "es": "Base64 Decoder",
+    "fr": "Base64 Decoder",
+    "de": "Base64 Decoder",
+    "pt": "Base64 Decoder"
+  },
+  "tagline": {
+    "en": "Decode Base64 encoded strings back to text",
+    "es": "Decode Base64 encoded strings back to text",
+    "fr": "Decode Base64 encoded strings back to text",
+    "de": "Decode Base64 encoded strings back to text",
+    "pt": "Decode Base64 encoded strings back to text"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devBase64Decode",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste Base64 string to decode...",
+    "sampleInput": "SGVsbG8sIFdvcmxkISBUaGlzIGlzIGEgc2FtcGxlIHRleHQgdGhhdCB3aWxsIGJlIGVuY29kZWQgdG8gQmFzZTY0IGZvcm1hdC4=",
+    "outputLabel": "Decoded Output",
+    "runButtonLabel": "Decode Base64",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "base64 decoder",
+    "secondaryKeywords": [
+      "decode base64 online",
+      "base64 to text",
+      "base64 decode string",
+      "base64 converter"
+    ],
+    "title": {
+      "en": "Base64 Decoder — DropAnyConvert",
+      "es": "Base64 Decoder — DropAnyConvert",
+      "fr": "Base64 Decoder — DropAnyConvert",
+      "de": "Base64 Decoder — DropAnyConvert",
+      "pt": "Base64 Decoder — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online base64 decoder. Decode Base64 encoded strings back to text No sign-up, no upload, 100% in your browser.",
+      "es": "Base64 Decoder gratuito en línea. Decode Base64 encoded strings back to text Sin registro, 100% en tu navegador.",
+      "fr": "Base64 Decoder gratuit en ligne. Decode Base64 encoded strings back to text Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser Base64 Decoder online. Decode Base64 encoded strings back to text Keine Anmeldung, 100% im Browser.",
+      "pt": "Base64 Decoder online gratuito. Decode Base64 encoded strings back to text Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "Base64 Decoder",
+      "es": "Base64 Decoder",
+      "fr": "Base64 Decoder",
+      "de": "Base64 Decoder",
+      "pt": "Base64 Decoder"
+    },
+    "intro": {
+      "en": "Base64 Decoder: Decode Base64 encoded strings back to text. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "Base64 Decoder: Decode Base64 encoded strings back to text. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "Base64 Decoder: Decode Base64 encoded strings back to text. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "Base64 Decoder: Decode Base64 encoded strings back to text. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "Base64 Decoder: Decode Base64 encoded strings back to text. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is Base64 decoding?"
+      },
+      "answer": {
+        "en": "Base64 decoding reverses Base64 encoding, converting the ASCII representation back to the original text or binary data."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I know if a string is Base64 encoded?"
+      },
+      "answer": {
+        "en": "Base64 strings contain only A–Z, a–z, 0–9, +, /, and = (padding). They are typically a multiple of 4 characters long."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I decode a Base64 image?"
+      },
+      "answer": {
+        "en": "Yes. If you have a Base64-encoded image (data URL), you can decode it here to get the raw binary data, or use the Base64 to Image converter for images specifically."
+      }
+    },
+    {
+      "question": {
+        "en": "What happens if the Base64 string is invalid?"
+      },
+      "answer": {
+        "en": "The decoder will report an error. Invalid characters or incorrect padding will cause decoding to fail."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "base64-encode",
+    "url-decode",
+    "html-decode"
+  ]
+}

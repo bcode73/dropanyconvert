@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "random-string-generator",
+  "slug": "random-string-generator",
+  "name": {
+    "en": "Random String Generator",
+    "es": "Random String Generator",
+    "fr": "Random String Generator",
+    "de": "Random String Generator",
+    "pt": "Random String Generator"
+  },
+  "tagline": {
+    "en": "Generate random strings with custom alphabet and length",
+    "es": "Generate random strings with custom alphabet and length",
+    "fr": "Generate random strings with custom alphabet and length",
+    "de": "Generate random strings with custom alphabet and length",
+    "pt": "Generate random strings with custom alphabet and length"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devRandomString",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "",
+    "sampleInput": "",
+    "outputLabel": "Generated String",
+    "runButtonLabel": "Generate String",
+    "outputType": "text",
+    "inputType": "none",
+    "livePreview": false,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain",
+    "extraOptions": [
+      {
+        "id": "length",
+        "label": "Length",
+        "type": "number",
+        "min": 1,
+        "max": 1000,
+        "default": 32
+      },
+      {
+        "id": "charset",
+        "label": "Character Set",
+        "type": "select",
+        "options": [
+          {
+            "value": "alphanumeric",
+            "label": "Alphanumeric (A–Za–z0–9)"
+          },
+          {
+            "value": "alphabetic",
+            "label": "Alphabetic (A–Za–z)"
+          },
+          {
+            "value": "numeric",
+            "label": "Numeric (0–9)"
+          },
+          {
+            "value": "hex",
+            "label": "Hexadecimal (0–9a–f)"
+          },
+          {
+            "value": "custom",
+            "label": "Custom alphabet"
+          }
+        ]
+      },
+      {
+        "id": "customAlphabet",
+        "label": "Custom Alphabet",
+        "type": "text",
+        "placeholder": "ABCDEFGabcdefg123"
+      },
+      {
+        "id": "count",
+        "label": "Count",
+        "type": "number",
+        "min": 1,
+        "max": 100,
+        "default": 1
+      }
+    ]
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "random string generator",
+    "secondaryKeywords": [
+      "generate random string",
+      "random text generator",
+      "random character generator",
+      "random id generator"
+    ],
+    "title": {
+      "en": "Random String Generator — DropAnyConvert",
+      "es": "Random String Generator — DropAnyConvert",
+      "fr": "Random String Generator — DropAnyConvert",
+      "de": "Random String Generator — DropAnyConvert",
+      "pt": "Random String Generator — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online random string generator. Generate random strings with custom alphabet and length No sign-up, no upload, 100% in your browser.",
+      "es": "Random String Generator gratuito en línea. Generate random strings with custom alphabet and length Sin registro, 100% en tu navegador.",
+      "fr": "Random String Generator gratuit en ligne. Generate random strings with custom alphabet and length Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser Random String Generator online. Generate random strings with custom alphabet and length Keine Anmeldung, 100% im Browser.",
+      "pt": "Random String Generator online gratuito. Generate random strings with custom alphabet and length Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "Random String Generator",
+      "es": "Random String Generator",
+      "fr": "Random String Generator",
+      "de": "Random String Generator",
+      "pt": "Random String Generator"
+    },
+    "intro": {
+      "en": "Random String Generator: Generate random strings with custom alphabet and length. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "Random String Generator: Generate random strings with custom alphabet and length. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "Random String Generator: Generate random strings with custom alphabet and length. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "Random String Generator: Generate random strings with custom alphabet and length. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "Random String Generator: Generate random strings with custom alphabet and length. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What can I use random strings for?"
+      },
+      "answer": {
+        "en": "Random strings are useful for generating API keys, session tokens, test data, verification codes, unique filenames, and any situation where you need a unique unpredictable value."
+      }
+    },
+    {
+      "question": {
+        "en": "Is the random generation cryptographically secure?"
+      },
+      "answer": {
+        "en": "Yes. The generator uses crypto.getRandomValues for cryptographically secure randomness, suitable for token generation."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use a custom alphabet?"
+      },
+      "answer": {
+        "en": "Yes. Select \"Custom alphabet\" and enter any characters you want the generator to use."
+      }
+    },
+    {
+      "question": {
+        "en": "What is the maximum string length?"
+      },
+      "answer": {
+        "en": "You can generate strings up to 1000 characters long, and up to 100 strings at once."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "uuid-generator",
+    "password-generator"
+  ]
+}

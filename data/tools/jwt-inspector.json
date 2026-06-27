@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "jwt-inspector",
+  "slug": "jwt-inspector",
+  "name": {
+    "en": "JWT Inspector",
+    "es": "JWT Inspector",
+    "fr": "JWT Inspector",
+    "de": "JWT Inspector",
+    "pt": "JWT Inspector"
+  },
+  "tagline": {
+    "en": "Inspect JWT tokens with expiry check and claim analysis",
+    "es": "Inspect JWT tokens with expiry check and claim analysis",
+    "fr": "Inspect JWT tokens with expiry check and claim analysis",
+    "de": "Inspect JWT tokens with expiry check and claim analysis",
+    "pt": "Inspect JWT tokens with expiry check and claim analysis"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devJwtInspect",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste JWT token to inspect (eyJ...)...",
+    "sampleInput": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE5MDAwMDAwMDB9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "outputLabel": "JWT Analysis",
+    "runButtonLabel": "Inspect JWT",
+    "outputType": "validation",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "jwt inspector",
+    "secondaryKeywords": [
+      "jwt token inspector",
+      "jwt analyzer",
+      "inspect jwt claims",
+      "jwt expiry checker"
+    ],
+    "title": {
+      "en": "JWT Inspector — DropAnyConvert",
+      "es": "JWT Inspector — DropAnyConvert",
+      "fr": "JWT Inspector — DropAnyConvert",
+      "de": "JWT Inspector — DropAnyConvert",
+      "pt": "JWT Inspector — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online jwt inspector. Inspect JWT tokens with expiry check and claim analysis No sign-up, no upload, 100% in your browser.",
+      "es": "JWT Inspector gratuito en línea. Inspect JWT tokens with expiry check and claim analysis Sin registro, 100% en tu navegador.",
+      "fr": "JWT Inspector gratuit en ligne. Inspect JWT tokens with expiry check and claim analysis Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JWT Inspector online. Inspect JWT tokens with expiry check and claim analysis Keine Anmeldung, 100% im Browser.",
+      "pt": "JWT Inspector online gratuito. Inspect JWT tokens with expiry check and claim analysis Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JWT Inspector",
+      "es": "JWT Inspector",
+      "fr": "JWT Inspector",
+      "de": "JWT Inspector",
+      "pt": "JWT Inspector"
+    },
+    "intro": {
+      "en": "JWT Inspector: Inspect JWT tokens with expiry check and claim analysis. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JWT Inspector: Inspect JWT tokens with expiry check and claim analysis. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JWT Inspector: Inspect JWT tokens with expiry check and claim analysis. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JWT Inspector: Inspect JWT tokens with expiry check and claim analysis. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JWT Inspector: Inspect JWT tokens with expiry check and claim analysis. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does JWT Inspector show beyond JWT Decoder?"
+      },
+      "answer": {
+        "en": "JWT Inspector provides a structured analysis of all claims, checks if the token is expired, calculates time to expiry, highlights standard claims (iss, sub, aud, exp, nbf, iat, jti), and shows algorithm details."
+      }
+    },
+    {
+      "question": {
+        "en": "Can JWT Inspector verify the signature?"
+      },
+      "answer": {
+        "en": "No. Signature verification requires the secret key or public key. This tool analyzes the decoded content only. Always verify signatures server-side."
+      }
+    },
+    {
+      "question": {
+        "en": "What standard JWT claims are checked?"
+      },
+      "answer": {
+        "en": "iss (issuer), sub (subject), aud (audience), exp (expiration time), nbf (not before), iat (issued at), jti (JWT ID)."
+      }
+    },
+    {
+      "question": {
+        "en": "Is a decoded JWT safe to share?"
+      },
+      "answer": {
+        "en": "The JWT payload is not encrypted — only Base64URL encoded. Anyone with the token can read its contents. Never include sensitive data like passwords in JWT payloads."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "jwt-decoder",
+    "base64-decode",
+    "json-formatter"
+  ]
+}

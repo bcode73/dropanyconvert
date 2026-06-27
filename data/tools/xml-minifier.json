@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "xml-minifier",
+  "slug": "xml-minifier",
+  "name": {
+    "en": "XML Minifier",
+    "es": "XML Minifier",
+    "fr": "XML Minifier",
+    "de": "XML Minifier",
+    "pt": "XML Minifier"
+  },
+  "tagline": {
+    "en": "Remove whitespace from XML to reduce file size",
+    "es": "Remove whitespace from XML to reduce file size",
+    "fr": "Remove whitespace from XML to reduce file size",
+    "de": "Remove whitespace from XML to reduce file size",
+    "pt": "Remove whitespace from XML to reduce file size"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devMinifyXml",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "xml",
+      "mime": "application/xml",
+      "label": "XML",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste formatted XML to minify...",
+    "sampleInput": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<catalog>\n  <book id=\"bk101\">\n    <title>Example</title>\n    <price>9.99</price>\n  </book>\n</catalog>",
+    "outputLabel": "Minified XML",
+    "runButtonLabel": "Minify XML",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "xml",
+    "downloadMime": "application/xml"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "xml minifier",
+    "secondaryKeywords": [
+      "minify xml",
+      "compress xml",
+      "xml compressor",
+      "xml minify online"
+    ],
+    "title": {
+      "en": "XML Minifier — DropAnyConvert",
+      "es": "XML Minifier — DropAnyConvert",
+      "fr": "XML Minifier — DropAnyConvert",
+      "de": "XML Minifier — DropAnyConvert",
+      "pt": "XML Minifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online xml minifier. Remove whitespace from XML to reduce file size No sign-up, no upload, 100% in your browser.",
+      "es": "XML Minifier gratuito en línea. Remove whitespace from XML to reduce file size Sin registro, 100% en tu navegador.",
+      "fr": "XML Minifier gratuit en ligne. Remove whitespace from XML to reduce file size Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser XML Minifier online. Remove whitespace from XML to reduce file size Keine Anmeldung, 100% im Browser.",
+      "pt": "XML Minifier online gratuito. Remove whitespace from XML to reduce file size Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "XML Minifier",
+      "es": "XML Minifier",
+      "fr": "XML Minifier",
+      "de": "XML Minifier",
+      "pt": "XML Minifier"
+    },
+    "intro": {
+      "en": "XML Minifier: Remove whitespace from XML to reduce file size. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "XML Minifier: Remove whitespace from XML to reduce file size. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "XML Minifier: Remove whitespace from XML to reduce file size. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "XML Minifier: Remove whitespace from XML to reduce file size. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "XML Minifier: Remove whitespace from XML to reduce file size. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does XML Minifier do?"
+      },
+      "answer": {
+        "en": "XML Minifier removes all unnecessary whitespace, indentation, and newlines from XML, reducing the file size for network transmission or storage."
+      }
+    },
+    {
+      "question": {
+        "en": "Does minifying XML change the data?"
+      },
+      "answer": {
+        "en": "No. Only insignificant whitespace between elements is removed. Element content, attributes, and structure are preserved exactly."
+      }
+    },
+    {
+      "question": {
+        "en": "How much can XML be compressed by minifying?"
+      },
+      "answer": {
+        "en": "For heavily indented XML, minification can reduce size by 30–60%."
+      }
+    },
+    {
+      "question": {
+        "en": "Is the minified XML still valid?"
+      },
+      "answer": {
+        "en": "Yes. Minified XML is fully valid and well-formed XML that can be parsed by any XML parser."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "xml-formatter",
+    "xml-beautifier",
+    "xml-validator"
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "json-to-yaml",
+  "slug": "json-to-yaml",
+  "name": {
+    "en": "JSON to YAML Converter",
+    "es": "JSON to YAML Converter",
+    "fr": "JSON to YAML Converter",
+    "de": "JSON to YAML Converter",
+    "pt": "JSON to YAML Converter"
+  },
+  "tagline": {
+    "en": "Convert JSON to YAML format instantly",
+    "es": "Convert JSON to YAML format instantly",
+    "fr": "Convert JSON to YAML format instantly",
+    "de": "Convert JSON to YAML format instantly",
+    "pt": "Convert JSON to YAML format instantly"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devJsonToYaml",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "yaml",
+      "mime": "text/yaml",
+      "label": "YAML",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "{\"name\":\"John\",\"age\":30,\"tags\":[\"dev\",\"admin\"]}",
+    "sampleInput": "{\"server\":{\"host\":\"localhost\",\"port\":8080,\"debug\":true},\"database\":{\"url\":\"postgres://localhost/mydb\",\"pool\":5},\"features\":[\"auth\",\"logging\",\"metrics\"]}",
+    "outputLabel": "YAML Output",
+    "runButtonLabel": "Convert to YAML",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "yaml",
+    "downloadMime": "text/yaml"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "json to yaml",
+    "secondaryKeywords": [
+      "convert json to yaml",
+      "json yaml converter",
+      "json2yaml",
+      "transform json to yaml"
+    ],
+    "title": {
+      "en": "JSON to YAML Converter — DropAnyConvert",
+      "es": "JSON to YAML Converter — DropAnyConvert",
+      "fr": "JSON to YAML Converter — DropAnyConvert",
+      "de": "JSON to YAML Converter — DropAnyConvert",
+      "pt": "JSON to YAML Converter — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online json to yaml converter. Convert JSON to YAML format instantly No sign-up, no upload, 100% in your browser.",
+      "es": "JSON to YAML Converter gratuito en línea. Convert JSON to YAML format instantly Sin registro, 100% en tu navegador.",
+      "fr": "JSON to YAML Converter gratuit en ligne. Convert JSON to YAML format instantly Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JSON to YAML Converter online. Convert JSON to YAML format instantly Keine Anmeldung, 100% im Browser.",
+      "pt": "JSON to YAML Converter online gratuito. Convert JSON to YAML format instantly Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JSON to YAML Converter",
+      "es": "JSON to YAML Converter",
+      "fr": "JSON to YAML Converter",
+      "de": "JSON to YAML Converter",
+      "pt": "JSON to YAML Converter"
+    },
+    "intro": {
+      "en": "JSON to YAML Converter: Convert JSON to YAML format instantly. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JSON to YAML Converter: Convert JSON to YAML format instantly. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JSON to YAML Converter: Convert JSON to YAML format instantly. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JSON to YAML Converter: Convert JSON to YAML format instantly. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JSON to YAML Converter: Convert JSON to YAML format instantly. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is YAML?"
+      },
+      "answer": {
+        "en": "YAML (YAML Ain't Markup Language) is a human-readable data serialization format commonly used for configuration files, especially in DevOps tools like Kubernetes, Docker Compose, Ansible, and GitHub Actions."
+      }
+    },
+    {
+      "question": {
+        "en": "When should I use YAML instead of JSON?"
+      },
+      "answer": {
+        "en": "Use YAML for configuration files where human readability matters. YAML supports comments and is less verbose. Use JSON for APIs and data interchange where strict parsing is important."
+      }
+    },
+    {
+      "question": {
+        "en": "Does the conversion lose any data?"
+      },
+      "answer": {
+        "en": "No. JSON and YAML share the same data model (objects, arrays, strings, numbers, booleans, null), so conversion is lossless."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I convert YAML back to JSON?"
+      },
+      "answer": {
+        "en": "Yes. Use the YAML to JSON Converter tool to reverse the process."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "yaml-to-json",
+    "json-formatter",
+    "json-validator",
+    "yaml-formatter"
+  ]
+}

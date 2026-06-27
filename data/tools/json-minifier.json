@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "json-minifier",
+  "slug": "json-minifier",
+  "name": {
+    "en": "JSON Minifier",
+    "es": "JSON Minifier",
+    "fr": "JSON Minifier",
+    "de": "JSON Minifier",
+    "pt": "JSON Minifier"
+  },
+  "tagline": {
+    "en": "Remove whitespace and compress JSON to the smallest possible size",
+    "es": "Remove whitespace and compress JSON to the smallest possible size",
+    "fr": "Remove whitespace and compress JSON to the smallest possible size",
+    "de": "Remove whitespace and compress JSON to the smallest possible size",
+    "pt": "Remove whitespace and compress JSON to the smallest possible size"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devMinifyJson",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "json",
+      "mime": "application/json",
+      "label": "JSON",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste formatted JSON to minify...",
+    "sampleInput": "{\n  \"name\": \"John\",\n  \"age\": 30,\n  \"city\": \"New York\"\n}",
+    "outputLabel": "Minified JSON",
+    "runButtonLabel": "Minify JSON",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "json",
+    "downloadMime": "application/json"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "json minifier",
+    "secondaryKeywords": [
+      "minify json online",
+      "compress json",
+      "json compressor",
+      "json minify"
+    ],
+    "title": {
+      "en": "JSON Minifier — DropAnyConvert",
+      "es": "JSON Minifier — DropAnyConvert",
+      "fr": "JSON Minifier — DropAnyConvert",
+      "de": "JSON Minifier — DropAnyConvert",
+      "pt": "JSON Minifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online json minifier. Remove whitespace and compress JSON to the smallest possible size No sign-up, no upload, 100% in your browser.",
+      "es": "JSON Minifier gratuito en línea. Remove whitespace and compress JSON to the smallest possible size Sin registro, 100% en tu navegador.",
+      "fr": "JSON Minifier gratuit en ligne. Remove whitespace and compress JSON to the smallest possible size Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JSON Minifier online. Remove whitespace and compress JSON to the smallest possible size Keine Anmeldung, 100% im Browser.",
+      "pt": "JSON Minifier online gratuito. Remove whitespace and compress JSON to the smallest possible size Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JSON Minifier",
+      "es": "JSON Minifier",
+      "fr": "JSON Minifier",
+      "de": "JSON Minifier",
+      "pt": "JSON Minifier"
+    },
+    "intro": {
+      "en": "JSON Minifier: Remove whitespace and compress JSON to the smallest possible size. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JSON Minifier: Remove whitespace and compress JSON to the smallest possible size. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JSON Minifier: Remove whitespace and compress JSON to the smallest possible size. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JSON Minifier: Remove whitespace and compress JSON to the smallest possible size. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JSON Minifier: Remove whitespace and compress JSON to the smallest possible size. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does minifying JSON do?"
+      },
+      "answer": {
+        "en": "Minifying JSON removes all unnecessary whitespace (spaces, tabs, newlines) from a JSON string, making it as compact as possible. This reduces file size and speeds up network transfers."
+      }
+    },
+    {
+      "question": {
+        "en": "How much can JSON be compressed by minifying?"
+      },
+      "answer": {
+        "en": "Minification typically reduces JSON size by 20–50% depending on how much whitespace and indentation the original contains."
+      }
+    },
+    {
+      "question": {
+        "en": "Does minifying JSON change the data?"
+      },
+      "answer": {
+        "en": "No. Minification only removes whitespace. The actual data (keys, values, structure) is unchanged. The minified JSON is semantically identical to the original."
+      }
+    },
+    {
+      "question": {
+        "en": "When should I minify JSON?"
+      },
+      "answer": {
+        "en": "Minify JSON for production API responses, config files served over the network, and anywhere bandwidth or storage matters."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "json-formatter",
+    "json-beautifier",
+    "json-validator"
+  ]
+}

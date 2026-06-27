@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "css-minifier",
+  "slug": "css-minifier",
+  "name": {
+    "en": "CSS Minifier",
+    "es": "CSS Minifier",
+    "fr": "CSS Minifier",
+    "de": "CSS Minifier",
+    "pt": "CSS Minifier"
+  },
+  "tagline": {
+    "en": "Minify CSS to reduce file size and improve load speed",
+    "es": "Minify CSS to reduce file size and improve load speed",
+    "fr": "Minify CSS to reduce file size and improve load speed",
+    "de": "Minify CSS to reduce file size and improve load speed",
+    "pt": "Minify CSS to reduce file size and improve load speed"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devCssMinify",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "css",
+      "mime": "text/css",
+      "label": "CSS",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste CSS to minify...",
+    "sampleInput": "/* Main styles */\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Arial, sans-serif;\n  font-size: 16px;\n  color: #333333;\n  background-color: #ffffff;\n}\n\n/* Header */\n.header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 16px 24px;\n  background-color: #6366f1;\n  color: white;\n}\n\n.header h1 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n}",
+    "outputLabel": "Minified CSS",
+    "runButtonLabel": "Minify CSS",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "css",
+    "downloadMime": "text/css"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "css minifier",
+    "secondaryKeywords": [
+      "minify css online",
+      "compress css",
+      "css compressor",
+      "css optimizer"
+    ],
+    "title": {
+      "en": "CSS Minifier — DropAnyConvert",
+      "es": "CSS Minifier — DropAnyConvert",
+      "fr": "CSS Minifier — DropAnyConvert",
+      "de": "CSS Minifier — DropAnyConvert",
+      "pt": "CSS Minifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online css minifier. Minify CSS to reduce file size and improve load speed No sign-up, no upload, 100% in your browser.",
+      "es": "CSS Minifier gratuito en línea. Minify CSS to reduce file size and improve load speed Sin registro, 100% en tu navegador.",
+      "fr": "CSS Minifier gratuit en ligne. Minify CSS to reduce file size and improve load speed Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser CSS Minifier online. Minify CSS to reduce file size and improve load speed Keine Anmeldung, 100% im Browser.",
+      "pt": "CSS Minifier online gratuito. Minify CSS to reduce file size and improve load speed Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "CSS Minifier",
+      "es": "CSS Minifier",
+      "fr": "CSS Minifier",
+      "de": "CSS Minifier",
+      "pt": "CSS Minifier"
+    },
+    "intro": {
+      "en": "CSS Minifier: Minify CSS to reduce file size and improve load speed. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "CSS Minifier: Minify CSS to reduce file size and improve load speed. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "CSS Minifier: Minify CSS to reduce file size and improve load speed. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "CSS Minifier: Minify CSS to reduce file size and improve load speed. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "CSS Minifier: Minify CSS to reduce file size and improve load speed. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does CSS minification do?"
+      },
+      "answer": {
+        "en": "CSS minification removes comments, whitespace, and unnecessary characters from CSS while preserving all selectors, properties, and values."
+      }
+    },
+    {
+      "question": {
+        "en": "Does CSS minification change how styles are applied?"
+      },
+      "answer": {
+        "en": "No. Minified CSS applies identically to formatted CSS. Only whitespace and comments are removed."
+      }
+    },
+    {
+      "question": {
+        "en": "How much can CSS be compressed by minifying?"
+      },
+      "answer": {
+        "en": "Typically 20–50% depending on how much whitespace and comments the original contains."
+      }
+    },
+    {
+      "question": {
+        "en": "Should I minify CSS for production?"
+      },
+      "answer": {
+        "en": "Yes. Minified CSS loads faster and reduces bandwidth usage. Most build tools (webpack, Vite, esbuild) do this automatically."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "html-minifier",
+    "javascript-minifier",
+    "css-beautifier"
+  ]
+}

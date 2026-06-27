@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "yaml-formatter",
+  "slug": "yaml-formatter",
+  "name": {
+    "en": "YAML Formatter",
+    "es": "YAML Formatter",
+    "fr": "YAML Formatter",
+    "de": "YAML Formatter",
+    "pt": "YAML Formatter"
+  },
+  "tagline": {
+    "en": "Format and normalize YAML for readability",
+    "es": "Format and normalize YAML for readability",
+    "fr": "Format and normalize YAML for readability",
+    "de": "Format and normalize YAML for readability",
+    "pt": "Format and normalize YAML for readability"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devFormatYaml",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "yaml",
+      "mime": "text/yaml",
+      "label": "YAML",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "name: John\nage: 30\ncity: New York",
+    "sampleInput": "server:\n  host: localhost\n  port: 8080\ndatabase:\n  host: db.example.com\n  name: myapp\n  credentials:\n    user: admin\n    password: secret\nfeatures:\n  - authentication\n  - logging\n  - caching",
+    "outputLabel": "Formatted YAML",
+    "runButtonLabel": "Format YAML",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "yaml",
+    "downloadMime": "text/yaml"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "yaml formatter",
+    "secondaryKeywords": [
+      "format yaml online",
+      "yaml pretty print",
+      "yaml beautifier",
+      "yaml indent"
+    ],
+    "title": {
+      "en": "YAML Formatter — DropAnyConvert",
+      "es": "YAML Formatter — DropAnyConvert",
+      "fr": "YAML Formatter — DropAnyConvert",
+      "de": "YAML Formatter — DropAnyConvert",
+      "pt": "YAML Formatter — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online yaml formatter. Format and normalize YAML for readability No sign-up, no upload, 100% in your browser.",
+      "es": "YAML Formatter gratuito en línea. Format and normalize YAML for readability Sin registro, 100% en tu navegador.",
+      "fr": "YAML Formatter gratuit en ligne. Format and normalize YAML for readability Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser YAML Formatter online. Format and normalize YAML for readability Keine Anmeldung, 100% im Browser.",
+      "pt": "YAML Formatter online gratuito. Format and normalize YAML for readability Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "YAML Formatter",
+      "es": "YAML Formatter",
+      "fr": "YAML Formatter",
+      "de": "YAML Formatter",
+      "pt": "YAML Formatter"
+    },
+    "intro": {
+      "en": "YAML Formatter: Format and normalize YAML for readability. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "YAML Formatter: Format and normalize YAML for readability. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "YAML Formatter: Format and normalize YAML for readability. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "YAML Formatter: Format and normalize YAML for readability. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "YAML Formatter: Format and normalize YAML for readability. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does YAML Formatter do?"
+      },
+      "answer": {
+        "en": "YAML Formatter parses your YAML and re-serializes it with consistent indentation, normalized quoting, and clean structure."
+      }
+    },
+    {
+      "question": {
+        "en": "Does formatting YAML preserve comments?"
+      },
+      "answer": {
+        "en": "YAML comments are not preserved during format-and-reserialize operations because the standard YAML data model does not include comments."
+      }
+    },
+    {
+      "question": {
+        "en": "What is standard YAML indentation?"
+      },
+      "answer": {
+        "en": "YAML uses 2 spaces for indentation by convention, though any consistent number of spaces is valid. Tabs are not allowed."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I format invalid YAML?"
+      },
+      "answer": {
+        "en": "No. YAML must be syntactically valid to be formatted. Use the YAML Validator to identify errors first."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "yaml-validator",
+    "yaml-to-json",
+    "json-to-yaml"
+  ]
+}

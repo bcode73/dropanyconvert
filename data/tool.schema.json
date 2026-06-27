@@ -114,8 +114,25 @@
     },
     "uiGroup": {
       "type": "string",
-      "description": "UI rendering group: 'conversion' shows variant picker, 'utility' shows related utilities.",
-      "enum": ["conversion", "utility"]
+      "description": "UI rendering group: 'conversion' shows variant picker, 'utility' shows related utilities, 'developer' shows the text-editor dev tool UI.",
+      "enum": ["conversion", "utility", "developer"]
+    },
+    "devOptions": {
+      "type": "object",
+      "description": "Developer tool UI configuration consumed by developer-runtime.js.",
+      "properties": {
+        "inputPlaceholder": { "type": "string" },
+        "sampleInput": { "type": "string" },
+        "outputLabel": { "type": "string" },
+        "runButtonLabel": { "type": "string" },
+        "outputType": { "type": "string" },
+        "inputType": { "type": "string" },
+        "livePreview": { "type": "boolean" },
+        "downloadExt": { "type": "string" },
+        "downloadMime": { "type": "string" },
+        "testInput": { "type": "string" },
+        "extraOptions": { "type": "array" }
+      }
     },
     "capabilities": {
       "type": "array",

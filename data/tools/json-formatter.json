@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "json-formatter",
+  "slug": "json-formatter",
+  "name": {
+    "en": "JSON Formatter",
+    "es": "JSON Formatter",
+    "fr": "JSON Formatter",
+    "de": "JSON Formatter",
+    "pt": "JSON Formatter"
+  },
+  "tagline": {
+    "en": "Format and pretty-print JSON with configurable indentation",
+    "es": "Format and pretty-print JSON with configurable indentation",
+    "fr": "Format and pretty-print JSON with configurable indentation",
+    "de": "Format and pretty-print JSON with configurable indentation",
+    "pt": "Format and pretty-print JSON with configurable indentation"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devFormatJson",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "json",
+      "mime": "application/json",
+      "label": "JSON",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "{\"name\":\"John\",\"age\":30,\"city\":\"New York\"}",
+    "sampleInput": "{\"name\":\"John\",\"age\":30,\"city\":\"New York\",\"hobbies\":[\"reading\",\"coding\"],\"address\":{\"street\":\"123 Main St\",\"zip\":\"10001\"}}",
+    "outputLabel": "Formatted JSON",
+    "runButtonLabel": "Format JSON",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "json",
+    "downloadMime": "application/json",
+    "extraOptions": [
+      {
+        "id": "indent",
+        "label": "Indentation",
+        "type": "select",
+        "options": [
+          {
+            "value": "2",
+            "label": "2 spaces"
+          },
+          {
+            "value": "4",
+            "label": "4 spaces"
+          },
+          {
+            "value": "\t",
+            "label": "Tab"
+          }
+        ]
+      }
+    ]
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "json formatter",
+    "secondaryKeywords": [
+      "format json online",
+      "json pretty print",
+      "json beautifier online",
+      "json indent"
+    ],
+    "title": {
+      "en": "JSON Formatter — DropAnyConvert",
+      "es": "JSON Formatter — DropAnyConvert",
+      "fr": "JSON Formatter — DropAnyConvert",
+      "de": "JSON Formatter — DropAnyConvert",
+      "pt": "JSON Formatter — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online json formatter. Format and pretty-print JSON with configurable indentation No sign-up, no upload, 100% in your browser.",
+      "es": "JSON Formatter gratuito en línea. Format and pretty-print JSON with configurable indentation Sin registro, 100% en tu navegador.",
+      "fr": "JSON Formatter gratuit en ligne. Format and pretty-print JSON with configurable indentation Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JSON Formatter online. Format and pretty-print JSON with configurable indentation Keine Anmeldung, 100% im Browser.",
+      "pt": "JSON Formatter online gratuito. Format and pretty-print JSON with configurable indentation Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JSON Formatter",
+      "es": "JSON Formatter",
+      "fr": "JSON Formatter",
+      "de": "JSON Formatter",
+      "pt": "JSON Formatter"
+    },
+    "intro": {
+      "en": "JSON Formatter: Format and pretty-print JSON with configurable indentation. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JSON Formatter: Format and pretty-print JSON with configurable indentation. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JSON Formatter: Format and pretty-print JSON with configurable indentation. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JSON Formatter: Format and pretty-print JSON with configurable indentation. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JSON Formatter: Format and pretty-print JSON with configurable indentation. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is a JSON Formatter?"
+      },
+      "answer": {
+        "en": "A JSON Formatter (also called a JSON beautifier or pretty printer) takes compact or minified JSON and adds whitespace and indentation to make it human-readable."
+      }
+    },
+    {
+      "question": {
+        "en": "What is the difference between formatting and beautifying JSON?"
+      },
+      "answer": {
+        "en": "They are the same thing. Both terms describe adding indentation and newlines to JSON to improve readability."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I format invalid JSON?"
+      },
+      "answer": {
+        "en": "No. JSON must be syntactically valid before it can be formatted. Use the JSON Validator to find and fix any errors first."
+      }
+    },
+    {
+      "question": {
+        "en": "What indentation options are available?"
+      },
+      "answer": {
+        "en": "You can choose 2 spaces (most common), 4 spaces, or a tab character for indentation."
+      }
+    },
+    {
+      "question": {
+        "en": "Is my JSON data safe?"
+      },
+      "answer": {
+        "en": "Yes. All formatting happens entirely in your browser using JavaScript. Your JSON is never sent to any server."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "json-validator",
+    "json-minifier",
+    "json-beautifier",
+    "json-to-yaml",
+    "json-to-xml"
+  ]
+}

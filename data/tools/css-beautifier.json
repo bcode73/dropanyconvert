@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "css-beautifier",
+  "slug": "css-beautifier",
+  "name": {
+    "en": "CSS Beautifier",
+    "es": "CSS Beautifier",
+    "fr": "CSS Beautifier",
+    "de": "CSS Beautifier",
+    "pt": "CSS Beautifier"
+  },
+  "tagline": {
+    "en": "Format and indent CSS for improved readability",
+    "es": "Format and indent CSS for improved readability",
+    "fr": "Format and indent CSS for improved readability",
+    "de": "Format and indent CSS for improved readability",
+    "pt": "Format and indent CSS for improved readability"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devCssBeautify",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "css",
+      "mime": "text/css",
+      "label": "CSS",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste minified CSS to beautify...",
+    "sampleInput": "body{margin:0;padding:0;font-family:Arial,sans-serif;font-size:16px;color:#333;background:#fff}.header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background-color:#6366f1;color:#fff}.header h1{margin:0;font-size:24px;font-weight:700}.container{max-width:1200px;margin:0 auto;padding:0 24px}",
+    "outputLabel": "Formatted CSS",
+    "runButtonLabel": "Beautify CSS",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "css",
+    "downloadMime": "text/css"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "css beautifier",
+    "secondaryKeywords": [
+      "beautify css online",
+      "format css",
+      "css formatter",
+      "css pretty printer",
+      "css indenter"
+    ],
+    "title": {
+      "en": "CSS Beautifier — DropAnyConvert",
+      "es": "CSS Beautifier — DropAnyConvert",
+      "fr": "CSS Beautifier — DropAnyConvert",
+      "de": "CSS Beautifier — DropAnyConvert",
+      "pt": "CSS Beautifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online css beautifier. Format and indent CSS for improved readability No sign-up, no upload, 100% in your browser.",
+      "es": "CSS Beautifier gratuito en línea. Format and indent CSS for improved readability Sin registro, 100% en tu navegador.",
+      "fr": "CSS Beautifier gratuit en ligne. Format and indent CSS for improved readability Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser CSS Beautifier online. Format and indent CSS for improved readability Keine Anmeldung, 100% im Browser.",
+      "pt": "CSS Beautifier online gratuito. Format and indent CSS for improved readability Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "CSS Beautifier",
+      "es": "CSS Beautifier",
+      "fr": "CSS Beautifier",
+      "de": "CSS Beautifier",
+      "pt": "CSS Beautifier"
+    },
+    "intro": {
+      "en": "CSS Beautifier: Format and indent CSS for improved readability. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "CSS Beautifier: Format and indent CSS for improved readability. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "CSS Beautifier: Format and indent CSS for improved readability. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "CSS Beautifier: Format and indent CSS for improved readability. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "CSS Beautifier: Format and indent CSS for improved readability. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does CSS Beautifier do?"
+      },
+      "answer": {
+        "en": "CSS Beautifier formats compact or minified CSS by adding proper indentation, line breaks, and spacing around selectors and properties."
+      }
+    },
+    {
+      "question": {
+        "en": "Does the beautified CSS behave the same as the original?"
+      },
+      "answer": {
+        "en": "Yes. Beautification only adds whitespace. All selectors, properties, and values are preserved exactly."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use this to read production CSS?"
+      },
+      "answer": {
+        "en": "Yes. Pasting minified CSS from a production website and beautifying it is a standard way to inspect and understand styles."
+      }
+    },
+    {
+      "question": {
+        "en": "What indentation style does the beautifier use?"
+      },
+      "answer": {
+        "en": "The beautifier uses 2-space indentation, the most common convention in CSS."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "css-minifier",
+    "html-beautifier",
+    "javascript-beautifier"
+  ]
+}

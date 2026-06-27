@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "unix-timestamp",
+  "slug": "unix-timestamp",
+  "name": {
+    "en": "Unix Timestamp Converter",
+    "es": "Unix Timestamp Converter",
+    "fr": "Unix Timestamp Converter",
+    "de": "Unix Timestamp Converter",
+    "pt": "Unix Timestamp Converter"
+  },
+  "tagline": {
+    "en": "Convert between Unix timestamps and human-readable dates",
+    "es": "Convert between Unix timestamps and human-readable dates",
+    "fr": "Convert between Unix timestamps and human-readable dates",
+    "de": "Convert between Unix timestamps and human-readable dates",
+    "pt": "Convert between Unix timestamps and human-readable dates"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devTimestamp",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter Unix timestamp (e.g. 1699900800) or date (e.g. 2024-01-15)...",
+    "sampleInput": "1782558198",
+    "outputLabel": "Converted Date/Time",
+    "runButtonLabel": "Convert",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "unix timestamp converter",
+    "secondaryKeywords": [
+      "convert unix timestamp",
+      "epoch time converter",
+      "unix time to date",
+      "timestamp to date online"
+    ],
+    "title": {
+      "en": "Unix Timestamp Converter — DropAnyConvert",
+      "es": "Unix Timestamp Converter — DropAnyConvert",
+      "fr": "Unix Timestamp Converter — DropAnyConvert",
+      "de": "Unix Timestamp Converter — DropAnyConvert",
+      "pt": "Unix Timestamp Converter — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online unix timestamp converter. Convert between Unix timestamps and human-readable dates No sign-up, no upload, 100% in your browser.",
+      "es": "Unix Timestamp Converter gratuito en línea. Convert between Unix timestamps and human-readable dates Sin registro, 100% en tu navegador.",
+      "fr": "Unix Timestamp Converter gratuit en ligne. Convert between Unix timestamps and human-readable dates Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser Unix Timestamp Converter online. Convert between Unix timestamps and human-readable dates Keine Anmeldung, 100% im Browser.",
+      "pt": "Unix Timestamp Converter online gratuito. Convert between Unix timestamps and human-readable dates Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "Unix Timestamp Converter",
+      "es": "Unix Timestamp Converter",
+      "fr": "Unix Timestamp Converter",
+      "de": "Unix Timestamp Converter",
+      "pt": "Unix Timestamp Converter"
+    },
+    "intro": {
+      "en": "Unix Timestamp Converter: Convert between Unix timestamps and human-readable dates. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "Unix Timestamp Converter: Convert between Unix timestamps and human-readable dates. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "Unix Timestamp Converter: Convert between Unix timestamps and human-readable dates. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "Unix Timestamp Converter: Convert between Unix timestamps and human-readable dates. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "Unix Timestamp Converter: Convert between Unix timestamps and human-readable dates. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is a Unix timestamp?"
+      },
+      "answer": {
+        "en": "A Unix timestamp (also called epoch time) is the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC. It is a standard way to represent points in time in software."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I convert a Unix timestamp to a date?"
+      },
+      "answer": {
+        "en": "Paste the timestamp number and click Convert. The tool displays the equivalent date and time in UTC and your local timezone."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I convert a date to a Unix timestamp?"
+      },
+      "answer": {
+        "en": "Enter a date in ISO 8601 format (e.g. 2024-01-15T10:30:00Z) and the tool will output the corresponding Unix timestamp."
+      }
+    },
+    {
+      "question": {
+        "en": "What is the maximum Unix timestamp?"
+      },
+      "answer": {
+        "en": "The 32-bit Unix timestamp maximum is January 19, 2038 (the \"Year 2038 problem\"). 64-bit systems extend this to billions of years in the future."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "json-formatter",
+    "jwt-decoder"
+  ]
+}

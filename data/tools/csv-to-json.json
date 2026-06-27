@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "csv-to-json",
+  "slug": "csv-to-json",
+  "name": {
+    "en": "CSV to JSON Converter",
+    "es": "CSV to JSON Converter",
+    "fr": "CSV to JSON Converter",
+    "de": "CSV to JSON Converter",
+    "pt": "CSV to JSON Converter"
+  },
+  "tagline": {
+    "en": "Convert CSV data to a JSON array of objects",
+    "es": "Convert CSV data to a JSON array of objects",
+    "fr": "Convert CSV data to a JSON array of objects",
+    "de": "Convert CSV data to a JSON array of objects",
+    "pt": "Convert CSV data to a JSON array of objects"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devCsvToJson",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "json",
+      "mime": "application/json",
+      "label": "JSON",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "name,age,city\nAlice,30,New York\nBob,25,London",
+    "sampleInput": "id,name,email,role,active\n1,Alice Smith,alice@example.com,Admin,true\n2,Bob Jones,bob@example.com,Editor,false\n3,Carol White,carol@example.com,Viewer,true",
+    "outputLabel": "JSON Output",
+    "runButtonLabel": "Convert to JSON",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "json",
+    "downloadMime": "application/json"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "csv to json",
+    "secondaryKeywords": [
+      "convert csv to json",
+      "csv json converter",
+      "import csv as json",
+      "csv array to json"
+    ],
+    "title": {
+      "en": "CSV to JSON Converter — DropAnyConvert",
+      "es": "CSV to JSON Converter — DropAnyConvert",
+      "fr": "CSV to JSON Converter — DropAnyConvert",
+      "de": "CSV to JSON Converter — DropAnyConvert",
+      "pt": "CSV to JSON Converter — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online csv to json converter. Convert CSV data to a JSON array of objects No sign-up, no upload, 100% in your browser.",
+      "es": "CSV to JSON Converter gratuito en línea. Convert CSV data to a JSON array of objects Sin registro, 100% en tu navegador.",
+      "fr": "CSV to JSON Converter gratuit en ligne. Convert CSV data to a JSON array of objects Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser CSV to JSON Converter online. Convert CSV data to a JSON array of objects Keine Anmeldung, 100% im Browser.",
+      "pt": "CSV to JSON Converter online gratuito. Convert CSV data to a JSON array of objects Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "CSV to JSON Converter",
+      "es": "CSV to JSON Converter",
+      "fr": "CSV to JSON Converter",
+      "de": "CSV to JSON Converter",
+      "pt": "CSV to JSON Converter"
+    },
+    "intro": {
+      "en": "CSV to JSON Converter: Convert CSV data to a JSON array of objects. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "CSV to JSON Converter: Convert CSV data to a JSON array of objects. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "CSV to JSON Converter: Convert CSV data to a JSON array of objects. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "CSV to JSON Converter: Convert CSV data to a JSON array of objects. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "CSV to JSON Converter: Convert CSV data to a JSON array of objects. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "How does CSV to JSON conversion work?"
+      },
+      "answer": {
+        "en": "The first row of the CSV is treated as the header row. Each subsequent row becomes a JSON object with the header fields as keys."
+      }
+    },
+    {
+      "question": {
+        "en": "What if my CSV has no header row?"
+      },
+      "answer": {
+        "en": "The tool uses the first row as headers. If there is no header, the first data row will be used as keys, which may not be what you want. Add a header row for best results."
+      }
+    },
+    {
+      "question": {
+        "en": "Are quoted fields and commas inside values handled?"
+      },
+      "answer": {
+        "en": "Yes. The parser handles RFC 4180 CSV correctly, including fields enclosed in double quotes and escaped quotes inside values."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I convert JSON back to CSV?"
+      },
+      "answer": {
+        "en": "Yes. Use the JSON to CSV Converter tool."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "json-to-csv",
+    "json-formatter",
+    "json-validator"
+  ]
+}

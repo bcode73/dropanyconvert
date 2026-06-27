@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "qr-code-reader",
+  "slug": "qr-code-reader",
+  "name": {
+    "en": "QR Code Reader",
+    "es": "QR Code Reader",
+    "fr": "QR Code Reader",
+    "de": "QR Code Reader",
+    "pt": "QR Code Reader"
+  },
+  "tagline": {
+    "en": "Decode and read QR codes from images",
+    "es": "Decode and read QR codes from images",
+    "fr": "Decode and read QR codes from images",
+    "de": "Decode and read QR codes from images",
+    "pt": "Decode and read QR codes from images"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devQrRead",
+  "inputFormats": [
+    "image/png",
+    "image/jpeg",
+    "image/webp",
+    "image/gif",
+    "image/bmp"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Drop a QR code image here...",
+    "sampleInput": "",
+    "outputLabel": "Decoded Content",
+    "runButtonLabel": "Read QR Code",
+    "outputType": "text",
+    "inputType": "image",
+    "livePreview": false,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "qr code reader",
+    "secondaryKeywords": [
+      "read qr code online",
+      "qr code scanner",
+      "decode qr code",
+      "qr code decoder"
+    ],
+    "title": {
+      "en": "QR Code Reader — DropAnyConvert",
+      "es": "QR Code Reader — DropAnyConvert",
+      "fr": "QR Code Reader — DropAnyConvert",
+      "de": "QR Code Reader — DropAnyConvert",
+      "pt": "QR Code Reader — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online qr code reader. Decode and read QR codes from images No sign-up, no upload, 100% in your browser.",
+      "es": "QR Code Reader gratuito en línea. Decode and read QR codes from images Sin registro, 100% en tu navegador.",
+      "fr": "QR Code Reader gratuit en ligne. Decode and read QR codes from images Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser QR Code Reader online. Decode and read QR codes from images Keine Anmeldung, 100% im Browser.",
+      "pt": "QR Code Reader online gratuito. Decode and read QR codes from images Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "QR Code Reader",
+      "es": "QR Code Reader",
+      "fr": "QR Code Reader",
+      "de": "QR Code Reader",
+      "pt": "QR Code Reader"
+    },
+    "intro": {
+      "en": "QR Code Reader: Decode and read QR codes from images. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "QR Code Reader: Decode and read QR codes from images. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "QR Code Reader: Decode and read QR codes from images. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "QR Code Reader: Decode and read QR codes from images. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "QR Code Reader: Decode and read QR codes from images. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What image formats can I upload?"
+      },
+      "answer": {
+        "en": "You can upload PNG, JPEG, WebP, GIF, and BMP images containing QR codes."
+      }
+    },
+    {
+      "question": {
+        "en": "What types of QR codes can be read?"
+      },
+      "answer": {
+        "en": "The reader supports all standard QR code types including URL, text, email, phone, WiFi, vCard, and other encoded data."
+      }
+    },
+    {
+      "question": {
+        "en": "Why might a QR code fail to read?"
+      },
+      "answer": {
+        "en": "The QR code may be too small in the image, the image may be blurry or low contrast, or the QR code may be damaged. Try a higher resolution image."
+      }
+    },
+    {
+      "question": {
+        "en": "Is my image uploaded to a server?"
+      },
+      "answer": {
+        "en": "No. The image is processed entirely in your browser using JavaScript. Nothing is uploaded to any server."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "qr-code-generator",
+    "barcode-generator"
+  ]
+}

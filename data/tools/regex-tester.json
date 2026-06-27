@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "regex-tester",
+  "slug": "regex-tester",
+  "name": {
+    "en": "Regex Tester",
+    "es": "Regex Tester",
+    "fr": "Regex Tester",
+    "de": "Regex Tester",
+    "pt": "Regex Tester"
+  },
+  "tagline": {
+    "en": "Test regular expressions with live match highlighting",
+    "es": "Test regular expressions with live match highlighting",
+    "fr": "Test regular expressions with live match highlighting",
+    "de": "Test regular expressions with live match highlighting",
+    "pt": "Test regular expressions with live match highlighting"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devRegex",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter your regex pattern (e.g. \\d{3}-\\d{4})...",
+    "sampleInput": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+    "testInput": "Contact us at support@example.com or sales@company.org for help. Invalid: notanemail@",
+    "outputLabel": "Match Results",
+    "runButtonLabel": "Test Regex",
+    "outputType": "regex",
+    "inputType": "dual",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain",
+    "extraOptions": [
+      {
+        "id": "flags",
+        "label": "Flags",
+        "type": "checkboxGroup",
+        "options": [
+          {
+            "value": "g",
+            "label": "g — global (find all matches)",
+            "default": true
+          },
+          {
+            "value": "i",
+            "label": "i — case insensitive"
+          },
+          {
+            "value": "m",
+            "label": "m — multiline"
+          },
+          {
+            "value": "s",
+            "label": "s — dotAll (. matches newlines)"
+          }
+        ]
+      }
+    ]
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "regex tester",
+    "secondaryKeywords": [
+      "test regex online",
+      "regular expression tester",
+      "regex checker",
+      "regex validator online"
+    ],
+    "title": {
+      "en": "Regex Tester — DropAnyConvert",
+      "es": "Regex Tester — DropAnyConvert",
+      "fr": "Regex Tester — DropAnyConvert",
+      "de": "Regex Tester — DropAnyConvert",
+      "pt": "Regex Tester — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online regex tester. Test regular expressions with live match highlighting No sign-up, no upload, 100% in your browser.",
+      "es": "Regex Tester gratuito en línea. Test regular expressions with live match highlighting Sin registro, 100% en tu navegador.",
+      "fr": "Regex Tester gratuit en ligne. Test regular expressions with live match highlighting Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser Regex Tester online. Test regular expressions with live match highlighting Keine Anmeldung, 100% im Browser.",
+      "pt": "Regex Tester online gratuito. Test regular expressions with live match highlighting Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "Regex Tester",
+      "es": "Regex Tester",
+      "fr": "Regex Tester",
+      "de": "Regex Tester",
+      "pt": "Regex Tester"
+    },
+    "intro": {
+      "en": "Regex Tester: Test regular expressions with live match highlighting. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "Regex Tester: Test regular expressions with live match highlighting. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "Regex Tester: Test regular expressions with live match highlighting. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "Regex Tester: Test regular expressions with live match highlighting. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "Regex Tester: Test regular expressions with live match highlighting. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What regex flavour does the Regex Tester use?"
+      },
+      "answer": {
+        "en": "The tester uses JavaScript's built-in RegExp engine, which supports most common regex features: character classes, quantifiers, alternation, groups, lookaheads, and named groups."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I test all matches in a string?"
+      },
+      "answer": {
+        "en": "Enable the \"g\" (global) flag to find all matches rather than stopping at the first one."
+      }
+    },
+    {
+      "question": {
+        "en": "Why does my regex work in other tools but fail here?"
+      },
+      "answer": {
+        "en": "Different languages have different regex engines. JavaScript does not support some PCRE features like lookbehinds longer than a fixed length (prior to ES2018) or possessive quantifiers."
+      }
+    },
+    {
+      "question": {
+        "en": "What do the match results show?"
+      },
+      "answer": {
+        "en": "The results show: match count, each match with its position (index), captured groups, and the test string with all matches highlighted."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "json-formatter",
+    "javascript-minifier",
+    "javascript-beautifier"
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "md5-generator",
+  "slug": "md5-generator",
+  "name": {
+    "en": "MD5 Hash Generator",
+    "es": "MD5 Hash Generator",
+    "fr": "MD5 Hash Generator",
+    "de": "MD5 Hash Generator",
+    "pt": "MD5 Hash Generator"
+  },
+  "tagline": {
+    "en": "Generate MD5 hash of any text string",
+    "es": "Generate MD5 hash of any text string",
+    "fr": "Generate MD5 hash of any text string",
+    "de": "Generate MD5 hash of any text string",
+    "pt": "Generate MD5 hash of any text string"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devMd5",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter text to hash with MD5...",
+    "sampleInput": "The quick brown fox jumps over the lazy dog",
+    "outputLabel": "MD5 Hash",
+    "runButtonLabel": "Generate MD5",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "md5 generator",
+    "secondaryKeywords": [
+      "md5 hash generator",
+      "generate md5 online",
+      "md5 checksum",
+      "md5 hash calculator"
+    ],
+    "title": {
+      "en": "MD5 Hash Generator — DropAnyConvert",
+      "es": "MD5 Hash Generator — DropAnyConvert",
+      "fr": "MD5 Hash Generator — DropAnyConvert",
+      "de": "MD5 Hash Generator — DropAnyConvert",
+      "pt": "MD5 Hash Generator — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online md5 hash generator. Generate MD5 hash of any text string No sign-up, no upload, 100% in your browser.",
+      "es": "MD5 Hash Generator gratuito en línea. Generate MD5 hash of any text string Sin registro, 100% en tu navegador.",
+      "fr": "MD5 Hash Generator gratuit en ligne. Generate MD5 hash of any text string Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser MD5 Hash Generator online. Generate MD5 hash of any text string Keine Anmeldung, 100% im Browser.",
+      "pt": "MD5 Hash Generator online gratuito. Generate MD5 hash of any text string Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "MD5 Hash Generator",
+      "es": "MD5 Hash Generator",
+      "fr": "MD5 Hash Generator",
+      "de": "MD5 Hash Generator",
+      "pt": "MD5 Hash Generator"
+    },
+    "intro": {
+      "en": "MD5 Hash Generator: Generate MD5 hash of any text string. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "MD5 Hash Generator: Generate MD5 hash of any text string. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "MD5 Hash Generator: Generate MD5 hash of any text string. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "MD5 Hash Generator: Generate MD5 hash of any text string. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "MD5 Hash Generator: Generate MD5 hash of any text string. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is MD5?"
+      },
+      "answer": {
+        "en": "MD5 (Message Digest Algorithm 5) is a widely used cryptographic hash function that produces a 128-bit (32-character hexadecimal) hash value."
+      }
+    },
+    {
+      "question": {
+        "en": "Is MD5 secure for passwords?"
+      },
+      "answer": {
+        "en": "No. MD5 is considered cryptographically broken for security purposes. It is vulnerable to collision attacks and should not be used for password hashing. Use bcrypt, Argon2, or SHA-256 for security."
+      }
+    },
+    {
+      "question": {
+        "en": "What are common uses for MD5?"
+      },
+      "answer": {
+        "en": "MD5 is still commonly used for file integrity verification (checksums), deduplication, and non-security data fingerprinting. For security purposes, use SHA-256 or stronger."
+      }
+    },
+    {
+      "question": {
+        "en": "Is the same input always the same MD5 hash?"
+      },
+      "answer": {
+        "en": "Yes. MD5 is deterministic — the same input always produces the same output hash. Even a single character change completely changes the hash."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "sha1-generator",
+    "sha256-generator",
+    "sha512-generator"
+  ]
+}

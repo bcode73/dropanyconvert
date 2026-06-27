@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "url-decode",
+  "slug": "url-decode",
+  "name": {
+    "en": "URL Decoder",
+    "es": "URL Decoder",
+    "fr": "URL Decoder",
+    "de": "URL Decoder",
+    "pt": "URL Decoder"
+  },
+  "tagline": {
+    "en": "Decode percent-encoded URL strings back to plain text",
+    "es": "Decode percent-encoded URL strings back to plain text",
+    "fr": "Decode percent-encoded URL strings back to plain text",
+    "de": "Decode percent-encoded URL strings back to plain text",
+    "pt": "Decode percent-encoded URL strings back to plain text"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devUrlDecode",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste URL encoded string to decode...",
+    "sampleInput": "Hello%20World!%20This%20has%20special%20chars%3A%20%26%2C%20%3D%2C%20%3F%2C%20%23%2C%20%25%2C%20%2F%2C%20%40%2C%20%3A",
+    "outputLabel": "Decoded Output",
+    "runButtonLabel": "URL Decode",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "url decoder",
+    "secondaryKeywords": [
+      "url decode online",
+      "percent decode url",
+      "decode url string",
+      "urldecode"
+    ],
+    "title": {
+      "en": "URL Decoder — DropAnyConvert",
+      "es": "URL Decoder — DropAnyConvert",
+      "fr": "URL Decoder — DropAnyConvert",
+      "de": "URL Decoder — DropAnyConvert",
+      "pt": "URL Decoder — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online url decoder. Decode percent-encoded URL strings back to plain text No sign-up, no upload, 100% in your browser.",
+      "es": "URL Decoder gratuito en línea. Decode percent-encoded URL strings back to plain text Sin registro, 100% en tu navegador.",
+      "fr": "URL Decoder gratuit en ligne. Decode percent-encoded URL strings back to plain text Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser URL Decoder online. Decode percent-encoded URL strings back to plain text Keine Anmeldung, 100% im Browser.",
+      "pt": "URL Decoder online gratuito. Decode percent-encoded URL strings back to plain text Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "URL Decoder",
+      "es": "URL Decoder",
+      "fr": "URL Decoder",
+      "de": "URL Decoder",
+      "pt": "URL Decoder"
+    },
+    "intro": {
+      "en": "URL Decoder: Decode percent-encoded URL strings back to plain text. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "URL Decoder: Decode percent-encoded URL strings back to plain text. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "URL Decoder: Decode percent-encoded URL strings back to plain text. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "URL Decoder: Decode percent-encoded URL strings back to plain text. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "URL Decoder: Decode percent-encoded URL strings back to plain text. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is URL decoding?"
+      },
+      "answer": {
+        "en": "URL decoding reverses URL encoding, replacing percent-encoded sequences (like %20) with their original characters (like a space)."
+      }
+    },
+    {
+      "question": {
+        "en": "When do I need to URL decode?"
+      },
+      "answer": {
+        "en": "You need to URL decode when reading query parameters from a URL, debugging API requests, or processing redirect URLs."
+      }
+    },
+    {
+      "question": {
+        "en": "What does %20 mean in a URL?"
+      },
+      "answer": {
+        "en": "%20 is the URL encoding for a space character. The % is followed by the hexadecimal ASCII code of the character."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I decode a full URL?"
+      },
+      "answer": {
+        "en": "Yes. Paste the full URL and the decoder will convert all percent-encoded sequences to their original characters."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "url-encode",
+    "base64-decode",
+    "html-decode"
+  ]
+}

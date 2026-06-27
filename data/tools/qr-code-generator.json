@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "qr-code-generator",
+  "slug": "qr-code-generator",
+  "name": {
+    "en": "QR Code Generator",
+    "es": "QR Code Generator",
+    "fr": "QR Code Generator",
+    "de": "QR Code Generator",
+    "pt": "QR Code Generator"
+  },
+  "tagline": {
+    "en": "Generate QR codes from text, URLs, or any data",
+    "es": "Generate QR codes from text, URLs, or any data",
+    "fr": "Generate QR codes from text, URLs, or any data",
+    "de": "Generate QR codes from text, URLs, or any data",
+    "pt": "Generate QR codes from text, URLs, or any data"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devQrGenerate",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "png",
+      "mime": "image/png",
+      "label": "PNG",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter URL or text to encode as QR code...",
+    "sampleInput": "https://dropanyconvert.com",
+    "outputLabel": "QR Code",
+    "runButtonLabel": "Generate QR Code",
+    "outputType": "image",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "png",
+    "downloadMime": "image/png",
+    "extraOptions": [
+      {
+        "id": "size",
+        "label": "Size (px)",
+        "type": "number",
+        "min": 100,
+        "max": 1000,
+        "default": 300
+      },
+      {
+        "id": "errorLevel",
+        "label": "Error Correction",
+        "type": "select",
+        "options": [
+          {
+            "value": "L",
+            "label": "L — Low (7%)"
+          },
+          {
+            "value": "M",
+            "label": "M — Medium (15%)"
+          },
+          {
+            "value": "Q",
+            "label": "Q — Quartile (25%)"
+          },
+          {
+            "value": "H",
+            "label": "H — High (30%)"
+          }
+        ]
+      },
+      {
+        "id": "darkColor",
+        "label": "Dark Color",
+        "type": "color",
+        "default": "#000000"
+      },
+      {
+        "id": "lightColor",
+        "label": "Light Color",
+        "type": "color",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "qr code generator",
+    "secondaryKeywords": [
+      "generate qr code online",
+      "create qr code",
+      "qr code maker",
+      "free qr code generator"
+    ],
+    "title": {
+      "en": "QR Code Generator — DropAnyConvert",
+      "es": "QR Code Generator — DropAnyConvert",
+      "fr": "QR Code Generator — DropAnyConvert",
+      "de": "QR Code Generator — DropAnyConvert",
+      "pt": "QR Code Generator — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online qr code generator. Generate QR codes from text, URLs, or any data No sign-up, no upload, 100% in your browser.",
+      "es": "QR Code Generator gratuito en línea. Generate QR codes from text, URLs, or any data Sin registro, 100% en tu navegador.",
+      "fr": "QR Code Generator gratuit en ligne. Generate QR codes from text, URLs, or any data Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser QR Code Generator online. Generate QR codes from text, URLs, or any data Keine Anmeldung, 100% im Browser.",
+      "pt": "QR Code Generator online gratuito. Generate QR codes from text, URLs, or any data Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "QR Code Generator",
+      "es": "QR Code Generator",
+      "fr": "QR Code Generator",
+      "de": "QR Code Generator",
+      "pt": "QR Code Generator"
+    },
+    "intro": {
+      "en": "QR Code Generator: Generate QR codes from text, URLs, or any data. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "QR Code Generator: Generate QR codes from text, URLs, or any data. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "QR Code Generator: Generate QR codes from text, URLs, or any data. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "QR Code Generator: Generate QR codes from text, URLs, or any data. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "QR Code Generator: Generate QR codes from text, URLs, or any data. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What can I encode in a QR code?"
+      },
+      "answer": {
+        "en": "You can encode URLs, plain text, email addresses, phone numbers, WiFi credentials, contact cards (vCard), geographic coordinates, and any other text data up to about 3000 characters."
+      }
+    },
+    {
+      "question": {
+        "en": "What error correction level should I choose?"
+      },
+      "answer": {
+        "en": "L (7%) for digital-only use where the code is always clean. M (15%) is the default balance. Q (25%) for printed codes that may get slightly damaged. H (30%) for codes on products that may be scratched."
+      }
+    },
+    {
+      "question": {
+        "en": "What size should I make the QR code?"
+      },
+      "answer": {
+        "en": "For on-screen display, 200–300px is fine. For printing on business cards, use at least 1 inch (300px at 300 DPI). Larger sizes allow lower-quality scans to still succeed."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I customize the colors of a QR code?"
+      },
+      "answer": {
+        "en": "Yes. You can change the dark and light colors. Ensure sufficient contrast for reliable scanning — the dark color should be significantly darker than the light color."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "qr-code-reader",
+    "barcode-generator",
+    "url-encode"
+  ]
+}

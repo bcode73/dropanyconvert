@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "jwt-decoder",
+  "slug": "jwt-decoder",
+  "name": {
+    "en": "JWT Decoder",
+    "es": "JWT Decoder",
+    "fr": "JWT Decoder",
+    "de": "JWT Decoder",
+    "pt": "JWT Decoder"
+  },
+  "tagline": {
+    "en": "Decode and display JWT token header, payload and signature",
+    "es": "Decode and display JWT token header, payload and signature",
+    "fr": "Decode and display JWT token header, payload and signature",
+    "de": "Decode and display JWT token header, payload and signature",
+    "pt": "Decode and display JWT token header, payload and signature"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devJwtDecode",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "json",
+      "mime": "application/json",
+      "label": "JSON",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste JWT token here (eyJ...)...",
+    "sampleInput": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE5MDAwMDAwMDB9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "outputLabel": "Decoded JWT",
+    "runButtonLabel": "Decode JWT",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "json",
+    "downloadMime": "application/json"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "jwt decoder",
+    "secondaryKeywords": [
+      "decode jwt online",
+      "jwt token decoder",
+      "json web token decoder",
+      "jwt parser"
+    ],
+    "title": {
+      "en": "JWT Decoder — DropAnyConvert",
+      "es": "JWT Decoder — DropAnyConvert",
+      "fr": "JWT Decoder — DropAnyConvert",
+      "de": "JWT Decoder — DropAnyConvert",
+      "pt": "JWT Decoder — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online jwt decoder. Decode and display JWT token header, payload and signature No sign-up, no upload, 100% in your browser.",
+      "es": "JWT Decoder gratuito en línea. Decode and display JWT token header, payload and signature Sin registro, 100% en tu navegador.",
+      "fr": "JWT Decoder gratuit en ligne. Decode and display JWT token header, payload and signature Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JWT Decoder online. Decode and display JWT token header, payload and signature Keine Anmeldung, 100% im Browser.",
+      "pt": "JWT Decoder online gratuito. Decode and display JWT token header, payload and signature Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JWT Decoder",
+      "es": "JWT Decoder",
+      "fr": "JWT Decoder",
+      "de": "JWT Decoder",
+      "pt": "JWT Decoder"
+    },
+    "intro": {
+      "en": "JWT Decoder: Decode and display JWT token header, payload and signature. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JWT Decoder: Decode and display JWT token header, payload and signature. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JWT Decoder: Decode and display JWT token header, payload and signature. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JWT Decoder: Decode and display JWT token header, payload and signature. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JWT Decoder: Decode and display JWT token header, payload and signature. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is a JWT?"
+      },
+      "answer": {
+        "en": "A JWT (JSON Web Token) is an open standard (RFC 7519) for securely transmitting information between parties as a JSON object. JWTs consist of three Base64URL-encoded parts: header, payload, and signature, separated by dots."
+      }
+    },
+    {
+      "question": {
+        "en": "Does decoding a JWT verify the signature?"
+      },
+      "answer": {
+        "en": "No. This decoder only decodes the Base64URL-encoded parts to show the contents. It does not verify the cryptographic signature. Never trust a JWT without verifying its signature server-side."
+      }
+    },
+    {
+      "question": {
+        "en": "Is it safe to paste my JWT here?"
+      },
+      "answer": {
+        "en": "Your JWT is decoded locally in your browser and never sent to any server. However, be cautious with production tokens containing sensitive data — consider using test tokens for inspection."
+      }
+    },
+    {
+      "question": {
+        "en": "What information is in a JWT?"
+      },
+      "answer": {
+        "en": "The header contains the algorithm and token type. The payload contains claims (user data, expiry time, issuer, etc.). The signature verifies the token has not been tampered with."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "jwt-inspector",
+    "base64-decode",
+    "json-formatter"
+  ]
+}

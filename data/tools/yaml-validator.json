@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "yaml-validator",
+  "slug": "yaml-validator",
+  "name": {
+    "en": "YAML Validator",
+    "es": "YAML Validator",
+    "fr": "YAML Validator",
+    "de": "YAML Validator",
+    "pt": "YAML Validator"
+  },
+  "tagline": {
+    "en": "Validate YAML syntax and report errors",
+    "es": "Validate YAML syntax and report errors",
+    "fr": "Validate YAML syntax and report errors",
+    "de": "Validate YAML syntax and report errors",
+    "pt": "Validate YAML syntax and report errors"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devValidateYaml",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "Report",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste YAML to validate...",
+    "sampleInput": "name: John Doe\nage: 30\naddress:\n  street: 123 Main St\n  city: New York\nhobbies:\n  - reading\n  - coding",
+    "outputLabel": "Validation Result",
+    "runButtonLabel": "Validate YAML",
+    "outputType": "validation",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "yaml validator",
+    "secondaryKeywords": [
+      "validate yaml online",
+      "yaml syntax checker",
+      "yaml lint",
+      "check yaml"
+    ],
+    "title": {
+      "en": "YAML Validator — DropAnyConvert",
+      "es": "YAML Validator — DropAnyConvert",
+      "fr": "YAML Validator — DropAnyConvert",
+      "de": "YAML Validator — DropAnyConvert",
+      "pt": "YAML Validator — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online yaml validator. Validate YAML syntax and report errors No sign-up, no upload, 100% in your browser.",
+      "es": "YAML Validator gratuito en línea. Validate YAML syntax and report errors Sin registro, 100% en tu navegador.",
+      "fr": "YAML Validator gratuit en ligne. Validate YAML syntax and report errors Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser YAML Validator online. Validate YAML syntax and report errors Keine Anmeldung, 100% im Browser.",
+      "pt": "YAML Validator online gratuito. Validate YAML syntax and report errors Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "YAML Validator",
+      "es": "YAML Validator",
+      "fr": "YAML Validator",
+      "de": "YAML Validator",
+      "pt": "YAML Validator"
+    },
+    "intro": {
+      "en": "YAML Validator: Validate YAML syntax and report errors. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "YAML Validator: Validate YAML syntax and report errors. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "YAML Validator: Validate YAML syntax and report errors. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "YAML Validator: Validate YAML syntax and report errors. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "YAML Validator: Validate YAML syntax and report errors. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What does YAML Validator check?"
+      },
+      "answer": {
+        "en": "The YAML Validator checks whether your YAML is syntactically correct: proper indentation, valid key-value syntax, correctly formatted lists, and proper data type usage."
+      }
+    },
+    {
+      "question": {
+        "en": "What are common YAML errors?"
+      },
+      "answer": {
+        "en": "Common errors include mixing tabs and spaces (only spaces are allowed), incorrect indentation levels, duplicate keys, and unquoted strings containing special characters like colons."
+      }
+    },
+    {
+      "question": {
+        "en": "Does YAML allow tabs for indentation?"
+      },
+      "answer": {
+        "en": "No. YAML strictly prohibits tab characters for indentation. Only spaces are allowed."
+      }
+    },
+    {
+      "question": {
+        "en": "Is my YAML data safe?"
+      },
+      "answer": {
+        "en": "Yes. All validation runs locally in your browser. Nothing is sent to any server."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "yaml-formatter",
+    "yaml-to-json",
+    "json-to-yaml"
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "sha512-generator",
+  "slug": "sha512-generator",
+  "name": {
+    "en": "SHA-512 Hash Generator",
+    "es": "SHA-512 Hash Generator",
+    "fr": "SHA-512 Hash Generator",
+    "de": "SHA-512 Hash Generator",
+    "pt": "SHA-512 Hash Generator"
+  },
+  "tagline": {
+    "en": "Generate SHA-512 hash for maximum security",
+    "es": "Generate SHA-512 hash for maximum security",
+    "fr": "Generate SHA-512 hash for maximum security",
+    "de": "Generate SHA-512 hash for maximum security",
+    "pt": "Generate SHA-512 hash for maximum security"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devSha512",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter text to hash with SHA-512...",
+    "sampleInput": "The quick brown fox jumps over the lazy dog",
+    "outputLabel": "SHA-512 Hash",
+    "runButtonLabel": "Generate SHA-512",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "sha512 generator",
+    "secondaryKeywords": [
+      "sha512 hash generator",
+      "generate sha512 online",
+      "sha-512 hash calculator",
+      "sha512 checksum"
+    ],
+    "title": {
+      "en": "SHA-512 Hash Generator — DropAnyConvert",
+      "es": "SHA-512 Hash Generator — DropAnyConvert",
+      "fr": "SHA-512 Hash Generator — DropAnyConvert",
+      "de": "SHA-512 Hash Generator — DropAnyConvert",
+      "pt": "SHA-512 Hash Generator — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online sha-512 hash generator. Generate SHA-512 hash for maximum security No sign-up, no upload, 100% in your browser.",
+      "es": "SHA-512 Hash Generator gratuito en línea. Generate SHA-512 hash for maximum security Sin registro, 100% en tu navegador.",
+      "fr": "SHA-512 Hash Generator gratuit en ligne. Generate SHA-512 hash for maximum security Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser SHA-512 Hash Generator online. Generate SHA-512 hash for maximum security Keine Anmeldung, 100% im Browser.",
+      "pt": "SHA-512 Hash Generator online gratuito. Generate SHA-512 hash for maximum security Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "SHA-512 Hash Generator",
+      "es": "SHA-512 Hash Generator",
+      "fr": "SHA-512 Hash Generator",
+      "de": "SHA-512 Hash Generator",
+      "pt": "SHA-512 Hash Generator"
+    },
+    "intro": {
+      "en": "SHA-512 Hash Generator: Generate SHA-512 hash for maximum security. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "SHA-512 Hash Generator: Generate SHA-512 hash for maximum security. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "SHA-512 Hash Generator: Generate SHA-512 hash for maximum security. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "SHA-512 Hash Generator: Generate SHA-512 hash for maximum security. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "SHA-512 Hash Generator: Generate SHA-512 hash for maximum security. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is SHA-512?"
+      },
+      "answer": {
+        "en": "SHA-512 is a member of the SHA-2 family that produces a 512-bit (128-character hexadecimal) hash. It offers the highest security level of the commonly used SHA-2 variants."
+      }
+    },
+    {
+      "question": {
+        "en": "When should I use SHA-512 instead of SHA-256?"
+      },
+      "answer": {
+        "en": "SHA-512 is preferred when maximum security is required and you are running on 64-bit hardware where SHA-512 is actually faster than SHA-256."
+      }
+    },
+    {
+      "question": {
+        "en": "Is SHA-512 safe?"
+      },
+      "answer": {
+        "en": "Yes. SHA-512 is considered cryptographically secure and is approved for use in US government and military applications (FIPS 180-4)."
+      }
+    },
+    {
+      "question": {
+        "en": "What are common uses for SHA-512?"
+      },
+      "answer": {
+        "en": "SHA-512 is used in digital signatures, certificate validation, HMAC, file integrity checks, and wherever strong hashing is required."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "sha256-generator",
+    "sha1-generator",
+    "md5-generator"
+  ]
+}

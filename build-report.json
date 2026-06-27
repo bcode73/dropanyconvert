@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-06-27T06:31:38.493Z",
-  "elapsed_ms": 565,
-  "tools": 39,
+  "timestamp": "2026-06-27T11:03:22.951Z",
+  "elapsed_ms": 1912,
+  "tools": 82,
   "languages": 5,
-  "routes": 231,
-  "pages_generated": 231,
+  "routes": 446,
+  "pages_generated": 446,
   "sitemaps_generated": 6,
-  "files_emitted": 245,
-  "output_size_kb": 7755,
+  "files_emitted": 460,
+  "output_size_kb": 20069,
   "warnings": [],
   "errors": [],
   "toolList": [
@@ -17,6 +17,27 @@
       "category": "image",
       "runtime": "browser",
       "primaryKeyword": "avif to png"
+    },
+    {
+      "id": "barcode-generator",
+      "slug": "barcode-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "barcode generator"
+    },
+    {
+      "id": "base64-decode",
+      "slug": "base64-decode",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "base64 decoder"
+    },
+    {
+      "id": "base64-encode",
+      "slug": "base64-encode",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "base64 encoder"
     },
     {
       "id": "base64-to-image",
@@ -33,11 +54,39 @@
       "primaryKeyword": "bmp to png"
     },
     {
+      "id": "color-converter",
+      "slug": "color-converter",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "color converter"
+    },
+    {
       "id": "compress-pdf",
       "slug": "compress-pdf",
       "category": "pdf",
       "runtime": "browser",
       "primaryKeyword": "compress pdf"
+    },
+    {
+      "id": "css-beautifier",
+      "slug": "css-beautifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "css beautifier"
+    },
+    {
+      "id": "css-minifier",
+      "slug": "css-minifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "css minifier"
+    },
+    {
+      "id": "csv-to-json",
+      "slug": "csv-to-json",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "csv to json"
     },
     {
       "id": "gif-to-png",
@@ -52,6 +101,34 @@
       "category": "image",
       "runtime": "browser",
       "primaryKeyword": "gif to webp"
+    },
+    {
+      "id": "html-beautifier",
+      "slug": "html-beautifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "html beautifier"
+    },
+    {
+      "id": "html-decode",
+      "slug": "html-decode",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "html decoder"
+    },
+    {
+      "id": "html-encode",
+      "slug": "html-encode",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "html encoder"
+    },
+    {
+      "id": "html-minifier",
+      "slug": "html-minifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "html minifier"
     },
     {
       "id": "image-compressor",
@@ -110,6 +187,20 @@
       "primaryKeyword": "images to pdf"
     },
     {
+      "id": "javascript-beautifier",
+      "slug": "javascript-beautifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "javascript beautifier"
+    },
+    {
+      "id": "javascript-minifier",
+      "slug": "javascript-minifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "javascript minifier"
+    },
+    {
       "id": "jpg-to-png",
       "slug": "jpg-to-png",
       "category": "image",
@@ -124,11 +215,88 @@
       "primaryKeyword": "jpg to webp"
     },
     {
+      "id": "json-beautifier",
+      "slug": "json-beautifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "json beautifier"
+    },
+    {
+      "id": "json-formatter",
+      "slug": "json-formatter",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "json formatter"
+    },
+    {
+      "id": "json-minifier",
+      "slug": "json-minifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "json minifier"
+    },
+    {
+      "id": "json-to-csv",
+      "slug": "json-to-csv",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "json to csv"
+    },
+    {
+      "id": "json-to-xml",
+      "slug": "json-to-xml",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "json to xml"
+    },
+    {
+      "id": "json-to-yaml",
+      "slug": "json-to-yaml",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "json to yaml"
+    },
+    {
+      "id": "json-validator",
+      "slug": "json-validator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "json validator"
+    },
+    {
+      "id": "jwt-decoder",
+      "slug": "jwt-decoder",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "jwt decoder"
+    },
+    {
+      "id": "jwt-inspector",
+      "slug": "jwt-inspector",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "jwt inspector"
+    },
+    {
+      "id": "md5-generator",
+      "slug": "md5-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "md5 generator"
+    },
+    {
       "id": "merge-pdf",
       "slug": "merge-pdf",
       "category": "pdf",
       "runtime": "browser",
       "primaryKeyword": "merge pdf"
+    },
+    {
+      "id": "password-generator",
+      "slug": "password-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "password generator"
     },
     {
       "id": "pdf-delete-pages",
@@ -236,11 +404,60 @@
       "primaryKeyword": "password protect pdf"
     },
     {
+      "id": "qr-code-generator",
+      "slug": "qr-code-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "qr code generator"
+    },
+    {
+      "id": "qr-code-reader",
+      "slug": "qr-code-reader",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "qr code reader"
+    },
+    {
+      "id": "random-string-generator",
+      "slug": "random-string-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "random string generator"
+    },
+    {
+      "id": "regex-tester",
+      "slug": "regex-tester",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "regex tester"
+    },
+    {
       "id": "rotate-pdf",
       "slug": "rotate-pdf",
       "category": "pdf",
       "runtime": "browser",
       "primaryKeyword": "rotate pdf"
+    },
+    {
+      "id": "sha1-generator",
+      "slug": "sha1-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "sha1 generator"
+    },
+    {
+      "id": "sha256-generator",
+      "slug": "sha256-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "sha256 generator"
+    },
+    {
+      "id": "sha512-generator",
+      "slug": "sha512-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "sha512 generator"
     },
     {
       "id": "split-pdf",
@@ -264,11 +481,39 @@
       "primaryKeyword": "tiff to png"
     },
     {
+      "id": "unix-timestamp",
+      "slug": "unix-timestamp",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "unix timestamp converter"
+    },
+    {
       "id": "unlock-pdf",
       "slug": "unlock-pdf",
       "category": "pdf",
       "runtime": "browser",
       "primaryKeyword": "unlock pdf"
+    },
+    {
+      "id": "url-decode",
+      "slug": "url-decode",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "url decoder"
+    },
+    {
+      "id": "url-encode",
+      "slug": "url-encode",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "url encoder"
+    },
+    {
+      "id": "uuid-generator",
+      "slug": "uuid-generator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "uuid generator"
     },
     {
       "id": "webp-to-jpg",
@@ -283,6 +528,62 @@
       "category": "image",
       "runtime": "browser",
       "primaryKeyword": "webp to png"
+    },
+    {
+      "id": "xml-beautifier",
+      "slug": "xml-beautifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "xml beautifier"
+    },
+    {
+      "id": "xml-formatter",
+      "slug": "xml-formatter",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "xml formatter"
+    },
+    {
+      "id": "xml-minifier",
+      "slug": "xml-minifier",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "xml minifier"
+    },
+    {
+      "id": "xml-to-json",
+      "slug": "xml-to-json",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "xml to json"
+    },
+    {
+      "id": "xml-validator",
+      "slug": "xml-validator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "xml validator"
+    },
+    {
+      "id": "yaml-formatter",
+      "slug": "yaml-formatter",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "yaml formatter"
+    },
+    {
+      "id": "yaml-to-json",
+      "slug": "yaml-to-json",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "yaml to json"
+    },
+    {
+      "id": "yaml-validator",
+      "slug": "yaml-validator",
+      "category": "developer",
+      "runtime": "browser",
+      "primaryKeyword": "yaml validator"
     }
   ]
 }

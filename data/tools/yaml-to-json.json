@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "yaml-to-json",
+  "slug": "yaml-to-json",
+  "name": {
+    "en": "YAML to JSON Converter",
+    "es": "YAML to JSON Converter",
+    "fr": "YAML to JSON Converter",
+    "de": "YAML to JSON Converter",
+    "pt": "YAML to JSON Converter"
+  },
+  "tagline": {
+    "en": "Convert YAML to JSON format instantly",
+    "es": "Convert YAML to JSON format instantly",
+    "fr": "Convert YAML to JSON format instantly",
+    "de": "Convert YAML to JSON format instantly",
+    "pt": "Convert YAML to JSON format instantly"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devYamlToJson",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "json",
+      "mime": "application/json",
+      "label": "JSON",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "name: John\nage: 30\ntags:\n  - dev\n  - admin",
+    "sampleInput": "server:\n  host: localhost\n  port: 8080\n  debug: true\ndatabase:\n  url: postgres://localhost/mydb\n  pool: 5\nfeatures:\n  - auth\n  - logging\n  - metrics",
+    "outputLabel": "JSON Output",
+    "runButtonLabel": "Convert to JSON",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "json",
+    "downloadMime": "application/json"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "yaml to json",
+    "secondaryKeywords": [
+      "convert yaml to json",
+      "yaml json converter",
+      "yaml2json",
+      "parse yaml"
+    ],
+    "title": {
+      "en": "YAML to JSON Converter — DropAnyConvert",
+      "es": "YAML to JSON Converter — DropAnyConvert",
+      "fr": "YAML to JSON Converter — DropAnyConvert",
+      "de": "YAML to JSON Converter — DropAnyConvert",
+      "pt": "YAML to JSON Converter — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online yaml to json converter. Convert YAML to JSON format instantly No sign-up, no upload, 100% in your browser.",
+      "es": "YAML to JSON Converter gratuito en línea. Convert YAML to JSON format instantly Sin registro, 100% en tu navegador.",
+      "fr": "YAML to JSON Converter gratuit en ligne. Convert YAML to JSON format instantly Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser YAML to JSON Converter online. Convert YAML to JSON format instantly Keine Anmeldung, 100% im Browser.",
+      "pt": "YAML to JSON Converter online gratuito. Convert YAML to JSON format instantly Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "YAML to JSON Converter",
+      "es": "YAML to JSON Converter",
+      "fr": "YAML to JSON Converter",
+      "de": "YAML to JSON Converter",
+      "pt": "YAML to JSON Converter"
+    },
+    "intro": {
+      "en": "YAML to JSON Converter: Convert YAML to JSON format instantly. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "YAML to JSON Converter: Convert YAML to JSON format instantly. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "YAML to JSON Converter: Convert YAML to JSON format instantly. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "YAML to JSON Converter: Convert YAML to JSON format instantly. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "YAML to JSON Converter: Convert YAML to JSON format instantly. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is the difference between YAML and JSON?"
+      },
+      "answer": {
+        "en": "YAML is a superset of JSON that adds comments, multi-line strings, and cleaner syntax. JSON is stricter and better suited for APIs. Both represent the same data types."
+      }
+    },
+    {
+      "question": {
+        "en": "Can all YAML be converted to JSON?"
+      },
+      "answer": {
+        "en": "Most YAML converts cleanly. However, YAML comments are lost since JSON does not support comments. YAML-specific types like dates or binary data may also be converted to strings."
+      }
+    },
+    {
+      "question": {
+        "en": "Why would I convert YAML to JSON?"
+      },
+      "answer": {
+        "en": "You might convert YAML to JSON to use the data in an API, a programming language that parses JSON natively, or a tool that only accepts JSON."
+      }
+    },
+    {
+      "question": {
+        "en": "Is the conversion lossless?"
+      },
+      "answer": {
+        "en": "For data supported by both formats (objects, arrays, strings, numbers, booleans, null), yes. Comments in YAML are not preserved in JSON."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "json-to-yaml",
+    "json-formatter",
+    "yaml-formatter",
+    "yaml-validator"
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "url-encode",
+  "slug": "url-encode",
+  "name": {
+    "en": "URL Encoder",
+    "es": "URL Encoder",
+    "fr": "URL Encoder",
+    "de": "URL Encoder",
+    "pt": "URL Encoder"
+  },
+  "tagline": {
+    "en": "Encode strings for safe use in URLs and query parameters",
+    "es": "Encode strings for safe use in URLs and query parameters",
+    "fr": "Encode strings for safe use in URLs and query parameters",
+    "de": "Encode strings for safe use in URLs and query parameters",
+    "pt": "Encode strings for safe use in URLs and query parameters"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devUrlEncode",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter text to URL encode...",
+    "sampleInput": "Hello World! This has special chars: &, =, ?, #, %, /, @, :",
+    "outputLabel": "URL Encoded Output",
+    "runButtonLabel": "URL Encode",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "url encoder",
+    "secondaryKeywords": [
+      "url encode online",
+      "percent encode url",
+      "encode url string",
+      "urlencode"
+    ],
+    "title": {
+      "en": "URL Encoder — DropAnyConvert",
+      "es": "URL Encoder — DropAnyConvert",
+      "fr": "URL Encoder — DropAnyConvert",
+      "de": "URL Encoder — DropAnyConvert",
+      "pt": "URL Encoder — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online url encoder. Encode strings for safe use in URLs and query parameters No sign-up, no upload, 100% in your browser.",
+      "es": "URL Encoder gratuito en línea. Encode strings for safe use in URLs and query parameters Sin registro, 100% en tu navegador.",
+      "fr": "URL Encoder gratuit en ligne. Encode strings for safe use in URLs and query parameters Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser URL Encoder online. Encode strings for safe use in URLs and query parameters Keine Anmeldung, 100% im Browser.",
+      "pt": "URL Encoder online gratuito. Encode strings for safe use in URLs and query parameters Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "URL Encoder",
+      "es": "URL Encoder",
+      "fr": "URL Encoder",
+      "de": "URL Encoder",
+      "pt": "URL Encoder"
+    },
+    "intro": {
+      "en": "URL Encoder: Encode strings for safe use in URLs and query parameters. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "URL Encoder: Encode strings for safe use in URLs and query parameters. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "URL Encoder: Encode strings for safe use in URLs and query parameters. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "URL Encoder: Encode strings for safe use in URLs and query parameters. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "URL Encoder: Encode strings for safe use in URLs and query parameters. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is URL encoding?"
+      },
+      "answer": {
+        "en": "URL encoding (also called percent-encoding) replaces special characters in a URL with a % sign followed by two hexadecimal digits. This ensures URLs are transmitted correctly over the internet."
+      }
+    },
+    {
+      "question": {
+        "en": "Which characters need to be URL encoded?"
+      },
+      "answer": {
+        "en": "Characters that must be encoded include spaces, &, =, ?, #, %, /, @, :, and any non-ASCII characters. A–Z, a–z, 0–9, -, _, ., ~ are safe and do not need encoding."
+      }
+    },
+    {
+      "question": {
+        "en": "What is the difference between encodeURI and encodeURIComponent?"
+      },
+      "answer": {
+        "en": "encodeURI encodes a full URL (preserving /, :, ?, #, etc.). encodeURIComponent encodes a URL component (like a query value) and encodes those characters too. This tool uses encodeURIComponent."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I decode a URL-encoded string?"
+      },
+      "answer": {
+        "en": "Use the URL Decoder tool to reverse the encoding."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "url-decode",
+    "base64-encode",
+    "html-encode"
+  ]
+}

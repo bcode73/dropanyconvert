@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "xml-beautifier",
+  "slug": "xml-beautifier",
+  "name": {
+    "en": "XML Beautifier",
+    "es": "XML Beautifier",
+    "fr": "XML Beautifier",
+    "de": "XML Beautifier",
+    "pt": "XML Beautifier"
+  },
+  "tagline": {
+    "en": "Beautify and format XML with proper indentation",
+    "es": "Beautify and format XML with proper indentation",
+    "fr": "Beautify and format XML with proper indentation",
+    "de": "Beautify and format XML with proper indentation",
+    "pt": "Beautify and format XML with proper indentation"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devBeautifyXml",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "xml",
+      "mime": "application/xml",
+      "label": "XML",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "<root><child>value</child></root>",
+    "sampleInput": "<employees><employee><id>1</id><name>Alice</name><department>Engineering</department><salary>90000</salary></employee><employee><id>2</id><name>Bob</name><department>Marketing</department><salary>75000</salary></employee></employees>",
+    "outputLabel": "Beautified XML",
+    "runButtonLabel": "Beautify XML",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "xml",
+    "downloadMime": "application/xml"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "xml beautifier",
+    "secondaryKeywords": [
+      "beautify xml",
+      "xml pretty printer",
+      "format xml",
+      "xml indenter"
+    ],
+    "title": {
+      "en": "XML Beautifier — DropAnyConvert",
+      "es": "XML Beautifier — DropAnyConvert",
+      "fr": "XML Beautifier — DropAnyConvert",
+      "de": "XML Beautifier — DropAnyConvert",
+      "pt": "XML Beautifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online xml beautifier. Beautify and format XML with proper indentation No sign-up, no upload, 100% in your browser.",
+      "es": "XML Beautifier gratuito en línea. Beautify and format XML with proper indentation Sin registro, 100% en tu navegador.",
+      "fr": "XML Beautifier gratuit en ligne. Beautify and format XML with proper indentation Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser XML Beautifier online. Beautify and format XML with proper indentation Keine Anmeldung, 100% im Browser.",
+      "pt": "XML Beautifier online gratuito. Beautify and format XML with proper indentation Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "XML Beautifier",
+      "es": "XML Beautifier",
+      "fr": "XML Beautifier",
+      "de": "XML Beautifier",
+      "pt": "XML Beautifier"
+    },
+    "intro": {
+      "en": "XML Beautifier: Beautify and format XML with proper indentation. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "XML Beautifier: Beautify and format XML with proper indentation. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "XML Beautifier: Beautify and format XML with proper indentation. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "XML Beautifier: Beautify and format XML with proper indentation. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "XML Beautifier: Beautify and format XML with proper indentation. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is XML Beautifier?"
+      },
+      "answer": {
+        "en": "XML Beautifier formats compact or minified XML by adding proper indentation and line breaks, making it easy to read and debug."
+      }
+    },
+    {
+      "question": {
+        "en": "Is XML Beautifier the same as XML Formatter?"
+      },
+      "answer": {
+        "en": "Yes. XML Beautifier, XML Formatter, and XML Pretty Printer all refer to the same process of adding indentation for readability."
+      }
+    },
+    {
+      "question": {
+        "en": "Does beautifying change the data?"
+      },
+      "answer": {
+        "en": "No. Only insignificant whitespace is added. The actual data and element structure remain unchanged."
+      }
+    },
+    {
+      "question": {
+        "en": "Is my XML data private?"
+      },
+      "answer": {
+        "en": "Yes. All processing runs locally in your browser. Nothing is sent to any server."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "xml-formatter",
+    "xml-minifier",
+    "xml-validator"
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "html-encode",
+  "slug": "html-encode",
+  "name": {
+    "en": "HTML Encoder",
+    "es": "HTML Encoder",
+    "fr": "HTML Encoder",
+    "de": "HTML Encoder",
+    "pt": "HTML Encoder"
+  },
+  "tagline": {
+    "en": "Convert special characters to HTML entities",
+    "es": "Convert special characters to HTML entities",
+    "fr": "Convert special characters to HTML entities",
+    "de": "Convert special characters to HTML entities",
+    "pt": "Convert special characters to HTML entities"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devHtmlEncode",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Enter text with special characters to HTML encode...",
+    "sampleInput": "<script>alert(\"XSS\")</script>\n<p>This has \"quotes\" & 'apostrophes'</p>\nMath: 5 > 3 and 2 < 10",
+    "outputLabel": "HTML Encoded Output",
+    "runButtonLabel": "HTML Encode",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "html encoder",
+    "secondaryKeywords": [
+      "html encode online",
+      "html entities encoder",
+      "escape html characters",
+      "html special characters"
+    ],
+    "title": {
+      "en": "HTML Encoder — DropAnyConvert",
+      "es": "HTML Encoder — DropAnyConvert",
+      "fr": "HTML Encoder — DropAnyConvert",
+      "de": "HTML Encoder — DropAnyConvert",
+      "pt": "HTML Encoder — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online html encoder. Convert special characters to HTML entities No sign-up, no upload, 100% in your browser.",
+      "es": "HTML Encoder gratuito en línea. Convert special characters to HTML entities Sin registro, 100% en tu navegador.",
+      "fr": "HTML Encoder gratuit en ligne. Convert special characters to HTML entities Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser HTML Encoder online. Convert special characters to HTML entities Keine Anmeldung, 100% im Browser.",
+      "pt": "HTML Encoder online gratuito. Convert special characters to HTML entities Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "HTML Encoder",
+      "es": "HTML Encoder",
+      "fr": "HTML Encoder",
+      "de": "HTML Encoder",
+      "pt": "HTML Encoder"
+    },
+    "intro": {
+      "en": "HTML Encoder: Convert special characters to HTML entities. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "HTML Encoder: Convert special characters to HTML entities. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "HTML Encoder: Convert special characters to HTML entities. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "HTML Encoder: Convert special characters to HTML entities. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "HTML Encoder: Convert special characters to HTML entities. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is HTML encoding?"
+      },
+      "answer": {
+        "en": "HTML encoding converts special characters to HTML entities so they are displayed as text rather than interpreted as HTML markup. For example, < becomes &lt; and & becomes &amp;."
+      }
+    },
+    {
+      "question": {
+        "en": "Why is HTML encoding important?"
+      },
+      "answer": {
+        "en": "HTML encoding is critical for security. Displaying user-supplied text without encoding can lead to Cross-Site Scripting (XSS) attacks. Always encode untrusted input before inserting it into HTML."
+      }
+    },
+    {
+      "question": {
+        "en": "Which characters are HTML encoded?"
+      },
+      "answer": {
+        "en": "The main characters are: & → &amp;, < → &lt;, > → &gt;, \" → &quot;, ' → &#39;."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I decode HTML entities?"
+      },
+      "answer": {
+        "en": "Use the HTML Decoder tool to convert HTML entities back to their original characters."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "html-decode",
+    "url-encode",
+    "base64-encode"
+  ]
+}

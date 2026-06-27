@@ -1682,6 +1682,184 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
   .dac-error-card { flex-direction: column; gap: 10px; }
 }
 
+/* ── Developer Tool Editor ───────────────────────────────────────────────── */
+
+.dac-dev-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.dac-dev-panel {
+  background: var(--dac-surface);
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  overflow: hidden;
+}
+.dac-dev-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--dac-surface-2);
+  border-bottom: 1px solid var(--dac-border);
+  gap: 8px;
+}
+.dac-dev-panel__label {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--dac-text-muted);
+}
+.dac-dev-panel__actions { display: flex; align-items: center; gap: 6px; }
+
+.dac-dev-btn {
+  font-size: .75rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--dac-border);
+  background: var(--dac-surface);
+  color: var(--dac-text);
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  line-height: 1.5;
+}
+.dac-dev-btn:hover { background: var(--dac-surface-2); }
+.dac-dev-btn--primary { background: var(--dac-accent); color: #fff; border-color: var(--dac-accent); }
+.dac-dev-btn--primary:hover { opacity: .9; }
+.dac-dev-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.dac-dev-textarea {
+  display: block;
+  width: 100%;
+  min-height: 180px;
+  padding: 14px;
+  font-family: 'Menlo', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: .8125rem;
+  line-height: 1.6;
+  color: var(--dac-text);
+  background: var(--dac-surface);
+  border: none;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+  tab-size: 2;
+}
+.dac-dev-textarea--secondary { min-height: 120px; border-top: 1px solid var(--dac-border); }
+.dac-dev-textarea--output    { min-height: 180px; color: var(--dac-text-muted); background: var(--dac-surface-2); }
+.dac-dev-textarea:focus      { box-shadow: inset 0 0 0 2px var(--dac-accent); }
+
+.dac-dev-secondary-label {
+  display: block;
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--dac-text-muted);
+  padding: 8px 14px 2px;
+  border-top: 1px solid var(--dac-border);
+}
+
+.dac-dev-drop-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .75rem;
+  color: var(--dac-text-muted);
+  padding: 8px 14px;
+  border-top: 1px solid var(--dac-border);
+  cursor: pointer;
+  transition: background .15s;
+  user-select: none;
+}
+.dac-dev-drop-hint:hover,
+.dac-dev-drop-hint.dac-dev-drop--over { background: var(--dac-surface-2); }
+
+/* Image-input drop zone */
+.dac-dev-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 24px;
+  cursor: pointer;
+  text-align: center;
+  color: var(--dac-text-muted);
+  transition: background .15s;
+}
+.dac-dev-drop:hover,
+.dac-dev-drop--over { background: var(--dac-surface-2); }
+.dac-dev-drop__label { font-size: .875rem; font-weight: 500; color: var(--dac-text); }
+.dac-dev-drop__hint  { font-size: .75rem; }
+
+.dac-dev-controls { display: flex; gap: 10px; }
+
+/* Options panel */
+.dac-dev-options-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px;
+  background: var(--dac-surface-2);
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+}
+.dac-dev-opt           { display: flex; flex-direction: column; gap: 4px; min-width: 140px; }
+.dac-dev-opt--check    { justify-content: flex-end; min-width: auto; }
+.dac-dev-opt-checks    { display: flex; flex-direction: column; gap: 4px; }
+
+/* Color swatch in output header */
+.dac-dev-color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--dac-border);
+  flex-shrink: 0;
+}
+
+/* Output image */
+.dac-dev-output-img {
+  display: block;
+  max-width: 100%;
+  margin: 14px auto;
+  border-radius: 4px;
+}
+
+/* Status bar */
+.dac-dev-status {
+  font-size: .8125rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+.dac-dev-status--info  { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.dac-dev-status--warn  { background: #fefce8; color: #854d0e; border-color: #fde68a; }
+.dac-dev-status--error { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+[data-theme="dark"] .dac-dev-status--info  { background: #1e3a5f; color: #93c5fd; border-color: #2563eb; }
+[data-theme="dark"] .dac-dev-status--warn  { background: #422006; color: #fbbf24; border-color: #92400e; }
+[data-theme="dark"] .dac-dev-status--error { background: #450a0a; color: #fca5a5; border-color: #991b1b; }
+
+.dac-color-input {
+  width: 48px;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid var(--dac-border);
+  border-radius: 6px;
+  background: var(--dac-surface);
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .dac-dev-editor     { gap: 12px; }
+  .dac-dev-textarea   { font-size: .75rem; min-height: 140px; }
+  .dac-dev-options-panel { flex-direction: column; }
+  .dac-dev-opt        { min-width: auto; }
+}
+
 /* ── Utilities ───────────────────────────────────────────────────────────── */
 [hidden] { display: none !important; }
 .sr-only {

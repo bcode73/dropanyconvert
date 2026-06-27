@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "json-to-csv",
+  "slug": "json-to-csv",
+  "name": {
+    "en": "JSON to CSV Converter",
+    "es": "JSON to CSV Converter",
+    "fr": "JSON to CSV Converter",
+    "de": "JSON to CSV Converter",
+    "pt": "JSON to CSV Converter"
+  },
+  "tagline": {
+    "en": "Convert a JSON array of objects to CSV format",
+    "es": "Convert a JSON array of objects to CSV format",
+    "fr": "Convert a JSON array of objects to CSV format",
+    "de": "Convert a JSON array of objects to CSV format",
+    "pt": "Convert a JSON array of objects to CSV format"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devJsonToCsv",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "csv",
+      "mime": "text/csv",
+      "label": "CSV",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "[{\"name\":\"Alice\",\"age\":30},{\"name\":\"Bob\",\"age\":25}]",
+    "sampleInput": "[{\"id\":1,\"name\":\"Alice Smith\",\"email\":\"alice@example.com\",\"role\":\"Admin\",\"active\":true},{\"id\":2,\"name\":\"Bob Jones\",\"email\":\"bob@example.com\",\"role\":\"Editor\",\"active\":false},{\"id\":3,\"name\":\"Carol White\",\"email\":\"carol@example.com\",\"role\":\"Viewer\",\"active\":true}]",
+    "outputLabel": "CSV Output",
+    "runButtonLabel": "Convert to CSV",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": false,
+    "downloadExt": "csv",
+    "downloadMime": "text/csv"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "json to csv",
+    "secondaryKeywords": [
+      "convert json to csv",
+      "json csv converter",
+      "export json as csv",
+      "json array to csv"
+    ],
+    "title": {
+      "en": "JSON to CSV Converter — DropAnyConvert",
+      "es": "JSON to CSV Converter — DropAnyConvert",
+      "fr": "JSON to CSV Converter — DropAnyConvert",
+      "de": "JSON to CSV Converter — DropAnyConvert",
+      "pt": "JSON to CSV Converter — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online json to csv converter. Convert a JSON array of objects to CSV format No sign-up, no upload, 100% in your browser.",
+      "es": "JSON to CSV Converter gratuito en línea. Convert a JSON array of objects to CSV format Sin registro, 100% en tu navegador.",
+      "fr": "JSON to CSV Converter gratuit en ligne. Convert a JSON array of objects to CSV format Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JSON to CSV Converter online. Convert a JSON array of objects to CSV format Keine Anmeldung, 100% im Browser.",
+      "pt": "JSON to CSV Converter online gratuito. Convert a JSON array of objects to CSV format Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JSON to CSV Converter",
+      "es": "JSON to CSV Converter",
+      "fr": "JSON to CSV Converter",
+      "de": "JSON to CSV Converter",
+      "pt": "JSON to CSV Converter"
+    },
+    "intro": {
+      "en": "JSON to CSV Converter: Convert a JSON array of objects to CSV format. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JSON to CSV Converter: Convert a JSON array of objects to CSV format. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JSON to CSV Converter: Convert a JSON array of objects to CSV format. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JSON to CSV Converter: Convert a JSON array of objects to CSV format. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JSON to CSV Converter: Convert a JSON array of objects to CSV format. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What type of JSON can be converted to CSV?"
+      },
+      "answer": {
+        "en": "A JSON array of objects (where each object has the same keys) converts cleanly to CSV. The object keys become the CSV header row and each object becomes a data row."
+      }
+    },
+    {
+      "question": {
+        "en": "What happens with nested JSON?"
+      },
+      "answer": {
+        "en": "Nested objects and arrays are serialized to strings in the CSV output, since CSV does not support nested structures."
+      }
+    },
+    {
+      "question": {
+        "en": "Are special characters escaped properly?"
+      },
+      "answer": {
+        "en": "Yes. Values containing commas, quotes, or newlines are automatically enclosed in double quotes and internal quotes are escaped per the CSV standard (RFC 4180)."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I convert CSV back to JSON?"
+      },
+      "answer": {
+        "en": "Yes. Use the CSV to JSON Converter tool."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "csv-to-json",
+    "json-formatter",
+    "json-validator"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "json-beautifier",
+  "slug": "json-beautifier",
+  "name": {
+    "en": "JSON Beautifier",
+    "es": "JSON Beautifier",
+    "fr": "JSON Beautifier",
+    "de": "JSON Beautifier",
+    "pt": "JSON Beautifier"
+  },
+  "tagline": {
+    "en": "Beautify and format JSON for improved readability",
+    "es": "Beautify and format JSON for improved readability",
+    "fr": "Beautify and format JSON for improved readability",
+    "de": "Beautify and format JSON for improved readability",
+    "pt": "Beautify and format JSON for improved readability"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devBeautifyJson",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "json",
+      "mime": "application/json",
+      "label": "JSON",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "{\"name\":\"John\",\"age\":30}",
+    "sampleInput": "{\"id\":1,\"user\":{\"name\":\"Alice\",\"email\":\"alice@example.com\"},\"roles\":[\"admin\",\"editor\"],\"active\":true}",
+    "outputLabel": "Beautified JSON",
+    "runButtonLabel": "Beautify JSON",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "json",
+    "downloadMime": "application/json",
+    "extraOptions": [
+      {
+        "id": "indent",
+        "label": "Indentation",
+        "type": "select",
+        "options": [
+          {
+            "value": "2",
+            "label": "2 spaces"
+          },
+          {
+            "value": "4",
+            "label": "4 spaces"
+          },
+          {
+            "value": "\t",
+            "label": "Tab"
+          }
+        ]
+      }
+    ]
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "json beautifier",
+    "secondaryKeywords": [
+      "beautify json",
+      "json pretty printer",
+      "json formatter online",
+      "make json readable"
+    ],
+    "title": {
+      "en": "JSON Beautifier — DropAnyConvert",
+      "es": "JSON Beautifier — DropAnyConvert",
+      "fr": "JSON Beautifier — DropAnyConvert",
+      "de": "JSON Beautifier — DropAnyConvert",
+      "pt": "JSON Beautifier — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online json beautifier. Beautify and format JSON for improved readability No sign-up, no upload, 100% in your browser.",
+      "es": "JSON Beautifier gratuito en línea. Beautify and format JSON for improved readability Sin registro, 100% en tu navegador.",
+      "fr": "JSON Beautifier gratuit en ligne. Beautify and format JSON for improved readability Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser JSON Beautifier online. Beautify and format JSON for improved readability Keine Anmeldung, 100% im Browser.",
+      "pt": "JSON Beautifier online gratuito. Beautify and format JSON for improved readability Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "JSON Beautifier",
+      "es": "JSON Beautifier",
+      "fr": "JSON Beautifier",
+      "de": "JSON Beautifier",
+      "pt": "JSON Beautifier"
+    },
+    "intro": {
+      "en": "JSON Beautifier: Beautify and format JSON for improved readability. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "JSON Beautifier: Beautify and format JSON for improved readability. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "JSON Beautifier: Beautify and format JSON for improved readability. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "JSON Beautifier: Beautify and format JSON for improved readability. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "JSON Beautifier: Beautify and format JSON for improved readability. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is a JSON Beautifier?"
+      },
+      "answer": {
+        "en": "A JSON Beautifier formats compact or minified JSON by adding proper indentation and line breaks, making it easy to read and understand."
+      }
+    },
+    {
+      "question": {
+        "en": "Is JSON Beautifier the same as JSON Formatter?"
+      },
+      "answer": {
+        "en": "Yes. The terms JSON Beautifier, JSON Formatter, and JSON Pretty Printer all refer to the same operation: adding whitespace to improve readability."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I choose indentation style?"
+      },
+      "answer": {
+        "en": "Yes. You can choose between 2-space, 4-space, or tab indentation."
+      }
+    },
+    {
+      "question": {
+        "en": "Is my data safe?"
+      },
+      "answer": {
+        "en": "Completely. All processing happens in your browser — nothing is uploaded to any server."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "json-formatter",
+    "json-minifier",
+    "json-validator"
+  ]
+}

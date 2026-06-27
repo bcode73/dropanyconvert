@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "html-decode",
+  "slug": "html-decode",
+  "name": {
+    "en": "HTML Decoder",
+    "es": "HTML Decoder",
+    "fr": "HTML Decoder",
+    "de": "HTML Decoder",
+    "pt": "HTML Decoder"
+  },
+  "tagline": {
+    "en": "Convert HTML entities back to plain text",
+    "es": "Convert HTML entities back to plain text",
+    "fr": "Convert HTML entities back to plain text",
+    "de": "Convert HTML entities back to plain text",
+    "pt": "Convert HTML entities back to plain text"
+  },
+  "category": "developer",
+  "engine": "developer_engine",
+  "engineFn": "devHtmlDecode",
+  "inputFormats": [
+    "text/plain"
+  ],
+  "outputFormats": [
+    {
+      "ext": "txt",
+      "mime": "text/plain",
+      "label": "TXT",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "browser",
+  "uiGroup": "developer",
+  "devOptions": {
+    "inputPlaceholder": "Paste HTML encoded text to decode...",
+    "sampleInput": "&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;\n&lt;p&gt;This has &quot;quotes&quot; &amp; &#39;apostrophes&#39;&lt;/p&gt;\nMath: 5 &gt; 3 and 2 &lt; 10",
+    "outputLabel": "Decoded Output",
+    "runButtonLabel": "HTML Decode",
+    "outputType": "text",
+    "inputType": "text",
+    "livePreview": true,
+    "downloadExt": "txt",
+    "downloadMime": "text/plain"
+  },
+  "capabilities": [
+    "clipboard-paste"
+  ],
+  "runtimeHints": {},
+  "seo": {
+    "primaryKeyword": "html decoder",
+    "secondaryKeywords": [
+      "html decode online",
+      "html entities decoder",
+      "unescape html",
+      "html special characters decoder"
+    ],
+    "title": {
+      "en": "HTML Decoder — DropAnyConvert",
+      "es": "HTML Decoder — DropAnyConvert",
+      "fr": "HTML Decoder — DropAnyConvert",
+      "de": "HTML Decoder — DropAnyConvert",
+      "pt": "HTML Decoder — DropAnyConvert"
+    },
+    "description": {
+      "en": "Free online html decoder. Convert HTML entities back to plain text No sign-up, no upload, 100% in your browser.",
+      "es": "HTML Decoder gratuito en línea. Convert HTML entities back to plain text Sin registro, 100% en tu navegador.",
+      "fr": "HTML Decoder gratuit en ligne. Convert HTML entities back to plain text Sans inscription, 100% dans votre navigateur.",
+      "de": "Kostenloser HTML Decoder online. Convert HTML entities back to plain text Keine Anmeldung, 100% im Browser.",
+      "pt": "HTML Decoder online gratuito. Convert HTML entities back to plain text Sem cadastro, 100% no navegador."
+    },
+    "h1": {
+      "en": "HTML Decoder",
+      "es": "HTML Decoder",
+      "fr": "HTML Decoder",
+      "de": "HTML Decoder",
+      "pt": "HTML Decoder"
+    },
+    "intro": {
+      "en": "HTML Decoder: Convert HTML entities back to plain text. Instant results — everything runs in your browser, nothing is sent to a server.",
+      "es": "HTML Decoder: Convert HTML entities back to plain text. Resultados instantáneos — todo funciona en tu navegador, nada se envía a un servidor.",
+      "fr": "HTML Decoder: Convert HTML entities back to plain text. Résultats instantanés — tout s'exécute dans votre navigateur, rien n'est envoyé à un serveur.",
+      "de": "HTML Decoder: Convert HTML entities back to plain text. Sofortige Ergebnisse — alles läuft in Ihrem Browser, nichts wird an einen Server gesendet.",
+      "pt": "HTML Decoder: Convert HTML entities back to plain text. Resultados instantâneos — tudo roda no seu navegador, nada é enviado a um servidor."
+    }
+  },
+  "faq": [
+    {
+      "question": {
+        "en": "What is HTML decoding?"
+      },
+      "answer": {
+        "en": "HTML decoding converts HTML entities (like &lt;, &amp;, &quot;) back to their original characters (<, &, \")."
+      }
+    },
+    {
+      "question": {
+        "en": "When would I need to HTML decode?"
+      },
+      "answer": {
+        "en": "You might need to HTML decode when extracting text from HTML content, processing HTML stored in a database, or debugging HTML entity issues."
+      }
+    },
+    {
+      "question": {
+        "en": "What are the most common HTML entities?"
+      },
+      "answer": {
+        "en": "&amp; (ampersand), &lt; (less than), &gt; (greater than), &quot; (double quote), &#39; (apostrophe), &nbsp; (non-breaking space), &copy; (copyright)."
+      }
+    },
+    {
+      "question": {
+        "en": "Does HTML decoding only handle named entities?"
+      },
+      "answer": {
+        "en": "This tool handles both named entities (&amp;, &lt;, etc.) and numeric entities (&#60;, &#x3C;, etc.)."
+      }
+    }
+  ],
+  "features": [
+    {
+      "icon": "lock",
+      "title": {
+        "en": "100% Private"
+      },
+      "description": {
+        "en": "All processing runs locally in your browser. Nothing is uploaded to any server."
+      }
+    },
+    {
+      "icon": "fast",
+      "title": {
+        "en": "Instant Results"
+      },
+      "description": {
+        "en": "Get results immediately — no waiting for server processing."
+      }
+    },
+    {
+      "icon": "device",
+      "title": {
+        "en": "Works Everywhere"
+      },
+      "description": {
+        "en": "Works on desktop, tablet, and mobile browsers with no installation required."
+      }
+    },
+    {
+      "icon": "free",
+      "title": {
+        "en": "Completely Free"
+      },
+      "description": {
+        "en": "No subscription, no limits, no hidden costs. Free forever."
+      }
+    }
+  ],
+  "relatedTools": [
+    "html-encode",
+    "url-decode",
+    "base64-decode"
+  ]
+}

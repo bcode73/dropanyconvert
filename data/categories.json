@@ -22,44 +22,132 @@
       "icon": "image",
       "color": "#6366f1",
       "order": 1,
+      "sectionLabels": {
+        "conversionSection": {
+          "en": "Format Converters",
+          "es": "Conversores de Formato",
+          "fr": "Convertisseurs de Format",
+          "de": "Formatkonverter",
+          "pt": "Conversores de Formato"
+        },
+        "utilitySection": {
+          "en": "Image Editing Tools",
+          "es": "Herramientas de Edición de Imágenes",
+          "fr": "Outils d'Édition d'Images",
+          "de": "Bildbearbeitungswerkzeuge",
+          "pt": "Ferramentas de Edição de Imagens"
+        }
+      },
       "features": [
         {
           "icon": "lock",
           "title": { "en": "100% Private", "es": "100% Privado", "fr": "100% Privé", "de": "100% Privat", "pt": "100% Privado" },
-          "description": { "en": "Every conversion happens entirely in your browser. Your images never leave your device and are never sent to any server.", "es": "Cada conversión ocurre completamente en tu navegador. Tus imágenes nunca abandonan tu dispositivo.", "fr": "Chaque conversion se fait entièrement dans votre navigateur. Vos images ne quittent jamais votre appareil.", "de": "Jede Konvertierung erfolgt vollständig in deinem Browser. Deine Bilder verlassen dein Gerät nie.", "pt": "Cada conversão acontece inteiramente no seu navegador. Suas imagens nunca saem do seu dispositivo." }
+          "description": {
+            "en": "Every conversion happens entirely in your browser. Your images never leave your device and are never sent to any server.",
+            "es": "Cada conversión ocurre completamente en tu navegador. Tus imágenes nunca abandonan tu dispositivo.",
+            "fr": "Chaque conversion se fait entièrement dans votre navigateur. Vos images ne quittent jamais votre appareil.",
+            "de": "Jede Konvertierung erfolgt vollständig in deinem Browser. Deine Bilder verlassen dein Gerät nie.",
+            "pt": "Cada conversão acontece inteiramente no seu navegador. Suas imagens nunca saem do seu dispositivo."
+          }
         },
         {
           "icon": "bolt",
           "title": { "en": "Instant Results", "es": "Resultados Instantáneos", "fr": "Résultats Instantanés", "de": "Sofortige Ergebnisse", "pt": "Resultados Instantâneos" },
-          "description": { "en": "No waiting for uploads or server queues. Conversions run at full GPU speed using the browser's native Canvas API.", "es": "Sin espera de subidas ni colas de servidor. Las conversiones se ejecutan a plena velocidad usando la API Canvas del navegador.", "fr": "Pas d'attente pour les envois ou les files d'attente. Les conversions s'exécutent à pleine vitesse avec l'API Canvas native.", "de": "Kein Warten auf Uploads oder Server-Warteschlangen. Konvertierungen laufen mit voller GPU-Geschwindigkeit über die native Canvas-API.", "pt": "Sem espera por uploads ou filas de servidor. Conversões rodam em plena velocidade usando a API Canvas nativa do navegador." }
+          "description": {
+            "en": "No waiting for uploads or server queues. Conversions run at full GPU speed using the browser's native Canvas API.",
+            "es": "Sin espera de subidas ni colas de servidor. Las conversiones se ejecutan a plena velocidad usando la API Canvas del navegador.",
+            "fr": "Pas d'attente pour les envois ou les files d'attente. Les conversions s'exécutent à pleine vitesse avec l'API Canvas native.",
+            "de": "Kein Warten auf Uploads oder Server-Warteschlangen. Konvertierungen laufen mit voller GPU-Geschwindigkeit über die native Canvas-API.",
+            "pt": "Sem espera por uploads ou filas de servidor. Conversões rodam em plena velocidade usando a API Canvas nativa do navegador."
+          }
         },
         {
           "icon": "stack",
           "title": { "en": "Batch Processing", "es": "Procesamiento por Lotes", "fr": "Traitement par Lots", "de": "Stapelverarbeitung", "pt": "Processamento em Lote" },
-          "description": { "en": "Convert up to 20 images at once. Multiple outputs are automatically packaged as a ZIP file — one click to download everything.", "es": "Convierte hasta 20 imágenes a la vez. Las salidas múltiples se empaquetan automáticamente como un archivo ZIP.", "fr": "Convertissez jusqu'à 20 images à la fois. Les sorties multiples sont automatiquement empaquetées en ZIP.", "de": "Konvertiere bis zu 20 Bilder auf einmal. Mehrere Ausgaben werden automatisch als ZIP-Datei gepackt.", "pt": "Converta até 20 imagens de uma vez. Múltiplas saídas são automaticamente empacotadas como ZIP." }
+          "description": {
+            "en": "Convert up to 20 images at once. Multiple outputs are automatically packaged as a ZIP file — one click to download everything.",
+            "es": "Convierte hasta 20 imágenes a la vez. Las salidas múltiples se empaquetan automáticamente como un archivo ZIP.",
+            "fr": "Convertissez jusqu'à 20 images à la fois. Les sorties multiples sont automatiquement empaquetées en ZIP.",
+            "de": "Konvertiere bis zu 20 Bilder auf einmal. Mehrere Ausgaben werden automatisch als ZIP-Datei gepackt.",
+            "pt": "Converta até 20 imagens de uma vez. Múltiplas saídas são automaticamente empacotadas como ZIP."
+          }
         },
         {
           "icon": "mobile",
           "title": { "en": "Works on Mobile", "es": "Funciona en Móvil", "fr": "Fonctionne sur Mobile", "de": "Funktioniert auf Mobilgeräten", "pt": "Funciona no Celular" },
-          "description": { "en": "Fully optimised for phones and tablets. Drag, drop, tap, or paste from your camera roll — no app download required.", "es": "Completamente optimizado para teléfonos y tabletas. Arrastra, suelta, toca o pega desde tu galería — sin descargar aplicaciones.", "fr": "Entièrement optimisé pour les téléphones et tablettes. Glissez, déposez, appuyez ou collez depuis votre galerie photo.", "de": "Vollständig für Smartphones und Tablets optimiert. Ziehen, ablegen, tippen oder einfügen aus deiner Galerie — keine App nötig.", "pt": "Totalmente otimizado para celulares e tablets. Arraste, solte, toque ou cole da sua galeria — sem download de app." }
+          "description": {
+            "en": "Fully optimised for phones and tablets. Drag, drop, tap, or paste from your camera roll — no app download required.",
+            "es": "Completamente optimizado para teléfonos y tabletas. Arrastra, suelta, toca o pega desde tu galería — sin descargar aplicaciones.",
+            "fr": "Entièrement optimisé pour les téléphones et tablettes. Glissez, déposez, appuyez ou collez depuis votre galerie photo.",
+            "de": "Vollständig für Smartphones und Tablets optimiert. Ziehen, ablegen, tippen oder einfügen aus deiner Galerie — keine App nötig.",
+            "pt": "Totalmente otimizado para celulares e tablets. Arraste, solte, toque ou cole da sua galeria — sem download de app."
+          }
         }
       ],
       "faq": [
         {
-          "question": { "en": "Are my images safe when I convert them here?", "es": "¿Mis imágenes están seguras cuando las convierto aquí?", "fr": "Mes images sont-elles en sécurité lors de la conversion ici?", "de": "Sind meine Bilder sicher, wenn ich sie hier konvertiere?", "pt": "Minhas imagens estão seguras quando as converto aqui?" },
-          "answer": { "en": "Yes, completely. All conversions run inside your browser using the Canvas API. Your images are never uploaded to any server, stored in the cloud, or shared with anyone. Once you close the browser tab, there is no trace left.", "es": "Sí, completamente. Todas las conversiones se ejecutan dentro de tu navegador usando la API Canvas. Tus imágenes nunca se suben a ningún servidor ni se almacenan en la nube.", "fr": "Oui, complètement. Toutes les conversions s'exécutent dans votre navigateur via l'API Canvas. Vos images ne sont jamais envoyées à un serveur ni stockées dans le cloud.", "de": "Ja, vollständig. Alle Konvertierungen laufen in deinem Browser über die Canvas-API. Deine Bilder werden niemals auf einen Server hochgeladen oder in der Cloud gespeichert.", "pt": "Sim, completamente. Todas as conversões são executadas no seu navegador usando a API Canvas. Suas imagens nunca são enviadas para nenhum servidor." }
+          "question": {
+            "en": "Are my images safe when I convert them here?",
+            "es": "¿Mis imágenes están seguras cuando las convierto aquí?",
+            "fr": "Mes images sont-elles en sécurité lors de la conversion ici?",
+            "de": "Sind meine Bilder sicher, wenn ich sie hier konvertiere?",
+            "pt": "Minhas imagens estão seguras quando as converto aqui?"
+          },
+          "answer": {
+            "en": "Yes, completely. All conversions run inside your browser using the Canvas API. Your images are never uploaded to any server, stored in the cloud, or shared with anyone. Once you close the browser tab, there is no trace left.",
+            "es": "Sí, completamente. Todas las conversiones se ejecutan dentro de tu navegador usando la API Canvas. Tus imágenes nunca se suben a ningún servidor ni se almacenan en la nube.",
+            "fr": "Oui, complètement. Toutes les conversions s'exécutent dans votre navigateur via l'API Canvas. Vos images ne sont jamais envoyées à un serveur ni stockées dans le cloud.",
+            "de": "Ja, vollständig. Alle Konvertierungen laufen in deinem Browser über die Canvas-API. Deine Bilder werden niemals auf einen Server hochgeladen oder in der Cloud gespeichert.",
+            "pt": "Sim, completamente. Todas as conversões são executadas no seu navegador usando a API Canvas. Suas imagens nunca são enviadas para nenhum servidor."
+          }
         },
         {
-          "question": { "en": "What image formats are supported?", "es": "¿Qué formatos de imagen son compatibles?", "fr": "Quels formats d'image sont pris en charge?", "de": "Welche Bildformate werden unterstützt?", "pt": "Quais formatos de imagem são suportados?" },
-          "answer": { "en": "We support PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF, and SVG as inputs. Output formats depend on the specific tool — most tools offer JPG, PNG, and WebP output options.", "es": "Admitimos PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF y SVG como entradas. Los formatos de salida dependen de la herramienta específica.", "fr": "Nous prenons en charge PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF et SVG en entrée. Les formats de sortie dépendent de l'outil spécifique.", "de": "Wir unterstützen PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF und SVG als Eingaben. Ausgabeformate hängen vom jeweiligen Tool ab.", "pt": "Suportamos PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF e SVG como entradas. Os formatos de saída dependem da ferramenta específica." }
+          "question": {
+            "en": "What image formats are supported?",
+            "es": "¿Qué formatos de imagen son compatibles?",
+            "fr": "Quels formats d'image sont pris en charge?",
+            "de": "Welche Bildformate werden unterstützt?",
+            "pt": "Quais formatos de imagem são suportados?"
+          },
+          "answer": {
+            "en": "We support PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF, and SVG as inputs. Output formats depend on the specific tool — most tools offer JPG, PNG, and WebP output options.",
+            "es": "Admitimos PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF y SVG como entradas. Los formatos de salida dependen de la herramienta específica.",
+            "fr": "Nous prenons en charge PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF et SVG en entrée. Les formats de sortie dépendent de l'outil spécifique.",
+            "de": "Wir unterstützen PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF und SVG als Eingaben. Ausgabeformate hängen vom jeweiligen Tool ab.",
+            "pt": "Suportamos PNG, JPG/JPEG, WebP, AVIF, GIF, BMP, TIFF e SVG como entradas. Os formatos de saída dependem da ferramenta específica."
+          }
         },
         {
-          "question": { "en": "Is there a file size limit?", "es": "¿Hay un límite de tamaño de archivo?", "fr": "Y a-t-il une limite de taille de fichier?", "de": "Gibt es eine Dateigrößenbegrenzung?", "pt": "Há um limite de tamanho de arquivo?" },
-          "answer": { "en": "There is no enforced file size limit, but very large images (above 30 megapixels) may be rejected to prevent browser memory issues. For best results, keep individual files under 50 MB.", "es": "No hay límite de tamaño de archivo aplicado, pero las imágenes muy grandes (más de 30 megapíxeles) pueden rechazarse para evitar problemas de memoria del navegador.", "fr": "Il n'y a pas de limite de taille de fichier imposée, mais les images très grandes (plus de 30 mégapixels) peuvent être rejetées pour éviter les problèmes de mémoire.", "de": "Es gibt keine erzwungene Dateigrößenbegrenzung, aber sehr große Bilder (über 30 Megapixel) können abgelehnt werden, um Browser-Speicherprobleme zu vermeiden.", "pt": "Não há limite de tamanho de arquivo aplicado, mas imagens muito grandes (acima de 30 megapixels) podem ser rejeitadas para evitar problemas de memória." }
+          "question": {
+            "en": "Is there a file size limit?",
+            "es": "¿Hay un límite de tamaño de archivo?",
+            "fr": "Y a-t-il une limite de taille de fichier?",
+            "de": "Gibt es eine Dateigrößenbegrenzung?",
+            "pt": "Há um limite de tamanho de arquivo?"
+          },
+          "answer": {
+            "en": "There is no enforced file size limit, but very large images (above 30 megapixels) may be rejected to prevent browser memory issues. For best results, keep individual files under 50 MB.",
+            "es": "No hay límite de tamaño de archivo aplicado, pero las imágenes muy grandes (más de 30 megapíxeles) pueden rechazarse para evitar problemas de memoria del navegador.",
+            "fr": "Il n'y a pas de limite de taille de fichier imposée, mais les images très grandes (plus de 30 mégapixels) peuvent être rejetées pour éviter les problèmes de mémoire.",
+            "de": "Es gibt keine erzwungene Dateigrößenbegrenzung, aber sehr große Bilder (über 30 Megapixel) können abgelehnt werden, um Browser-Speicherprobleme zu vermeiden.",
+            "pt": "Não há limite de tamanho de arquivo aplicado, mas imagens muito grandes (acima de 30 megapixels) podem ser rejeitadas para evitar problemas de memória."
+          }
         },
         {
-          "question": { "en": "Do I need to create an account?", "es": "¿Necesito crear una cuenta?", "fr": "Dois-je créer un compte?", "de": "Muss ich ein Konto erstellen?", "pt": "Preciso criar uma conta?" },
-          "answer": { "en": "No. All image tools are completely free with no account, sign-up, or payment required. Just open the tool and start converting.", "es": "No. Todas las herramientas de imagen son completamente gratuitas sin necesidad de cuenta, registro ni pago.", "fr": "Non. Tous les outils d'image sont entièrement gratuits sans compte, inscription ou paiement requis.", "de": "Nein. Alle Bildtools sind völlig kostenlos ohne Konto, Anmeldung oder Zahlung.", "pt": "Não. Todas as ferramentas de imagem são completamente gratuitas sem conta, cadastro ou pagamento." }
+          "question": {
+            "en": "Do I need to create an account?",
+            "es": "¿Necesito crear una cuenta?",
+            "fr": "Dois-je créer un compte?",
+            "de": "Muss ich ein Konto erstellen?",
+            "pt": "Preciso criar uma conta?"
+          },
+          "answer": {
+            "en": "No. All image tools are completely free with no account, sign-up, or payment required. Just open the tool and start converting.",
+            "es": "No. Todas las herramientas de imagen son completamente gratuitas sin necesidad de cuenta, registro ni pago.",
+            "fr": "Non. Tous les outils d'image sont entièrement gratuits sans compte, inscription ou paiement requis.",
+            "de": "Nein. Alle Bildtools sind völlig kostenlos ohne Konto, Anmeldung oder Zahlung.",
+            "pt": "Não. Todas as ferramentas de imagem são completamente gratuitas sem conta, cadastro ou pagamento."
+          }
         }
       ]
     },
@@ -75,15 +163,143 @@
         "pt": "Ferramentas PDF"
       },
       "description": {
-        "en": "Merge, split, compress, and convert PDF files directly in your browser.",
-        "es": "Combina, divide, comprime y convierte archivos PDF directamente en tu navegador.",
-        "fr": "Fusionnez, divisez, compressez et convertissez des fichiers PDF directement dans votre navigateur.",
-        "de": "Führe PDF-Dateien zusammen, teile, komprimiere und konvertiere sie direkt in deinem Browser.",
-        "pt": "Mescle, divida, comprima e converta arquivos PDF diretamente no seu navegador."
+        "en": "Merge, split, compress, and convert PDF files directly in your browser. No uploads, no accounts, 100% private.",
+        "es": "Combina, divide, comprime y convierte archivos PDF directamente en tu navegador. Sin subidas, sin cuentas, 100% privado.",
+        "fr": "Fusionnez, divisez, compressez et convertissez des fichiers PDF directement dans votre navigateur. Sans envoi, sans compte, 100% privé.",
+        "de": "Führe PDF-Dateien zusammen, teile, komprimiere und konvertiere sie direkt in deinem Browser. Kein Upload, kein Konto, 100% privat.",
+        "pt": "Mescle, divida, comprima e converta arquivos PDF diretamente no seu navegador. Sem envio, sem contas, 100% privado."
       },
       "icon": "pdf",
       "color": "#ef4444",
-      "order": 2
+      "order": 2,
+      "sectionLabels": {
+        "conversionSection": {
+          "en": "PDF Converters",
+          "es": "Conversores PDF",
+          "fr": "Convertisseurs PDF",
+          "de": "PDF-Konverter",
+          "pt": "Conversores PDF"
+        },
+        "utilitySection": {
+          "en": "PDF Management Tools",
+          "es": "Herramientas de Gestión PDF",
+          "fr": "Outils de Gestion PDF",
+          "de": "PDF-Verwaltungstools",
+          "pt": "Ferramentas de Gestão PDF"
+        }
+      },
+      "features": [
+        {
+          "icon": "lock",
+          "title": { "en": "100% Private", "es": "100% Privado", "fr": "100% Privé", "de": "100% Privat", "pt": "100% Privado" },
+          "description": {
+            "en": "All PDF processing runs locally in your browser using pdf-lib and PDF.js. Your documents are never uploaded to any server.",
+            "es": "Todo el procesamiento de PDF se realiza localmente en tu navegador. Tus documentos nunca se suben a ningún servidor.",
+            "fr": "Tout le traitement PDF s'effectue localement dans votre navigateur. Vos documents ne sont jamais envoyés à un serveur.",
+            "de": "Die gesamte PDF-Verarbeitung erfolgt lokal in deinem Browser. Deine Dokumente werden niemals auf einen Server hochgeladen.",
+            "pt": "Todo o processamento de PDF é feito localmente no seu navegador. Seus documentos nunca são enviados para nenhum servidor."
+          }
+        },
+        {
+          "icon": "stack",
+          "title": { "en": "All Major PDF Operations", "es": "Todas las Operaciones PDF Principales", "fr": "Toutes les Opérations PDF Principales", "de": "Alle wichtigen PDF-Operationen", "pt": "Todas as Operações PDF Principais" },
+          "description": {
+            "en": "Merge, split, compress, rotate, extract pages, delete pages, reorder, protect, unlock, and convert PDFs — 15 tools covering every common PDF task.",
+            "es": "Combina, divide, comprime, rota, extrae páginas, elimina páginas, reordena, protege, desbloquea y convierte PDF — 15 herramientas para cada tarea PDF común.",
+            "fr": "Fusionnez, divisez, compressez, faites pivoter, extrayez des pages, supprimez des pages, réordonnez, protégez, déverrouillez et convertissez des PDF — 15 outils.",
+            "de": "PDF-Dateien zusammenführen, teilen, komprimieren, drehen, Seiten extrahieren, löschen, neu anordnen, schützen, entsperren und konvertieren — 15 Tools.",
+            "pt": "Mescle, divida, comprima, gire, extraia páginas, exclua páginas, reordene, proteja, desbloqueie e converta PDFs — 15 ferramentas para cada tarefa PDF."
+          }
+        },
+        {
+          "icon": "bolt",
+          "title": { "en": "No Watermarks or Limits", "es": "Sin Marcas de Agua ni Límites", "fr": "Sans Filigrane ni Limites", "de": "Keine Wasserzeichen oder Limits", "pt": "Sem Marcas d'Água ou Limites" },
+          "description": {
+            "en": "Every PDF tool is completely free with no watermarks, no page count limits, and no file size paywalls.",
+            "es": "Todas las herramientas PDF son completamente gratuitas, sin marcas de agua, sin límites de páginas y sin límites de tamaño de archivo.",
+            "fr": "Tous les outils PDF sont entièrement gratuits sans filigrane, sans limite de pages et sans paywall de taille de fichier.",
+            "de": "Jedes PDF-Tool ist völlig kostenlos ohne Wasserzeichen, ohne Seitenzahlbegrenzungen und ohne Dateigrößen-Paywalls.",
+            "pt": "Todas as ferramentas PDF são completamente gratuitas sem marcas d'água, sem limites de páginas e sem paywall de tamanho de arquivo."
+          }
+        },
+        {
+          "icon": "mobile",
+          "title": { "en": "Works on Any Device", "es": "Funciona en Cualquier Dispositivo", "fr": "Fonctionne sur N'importe Quel Appareil", "de": "Funktioniert auf jedem Gerät", "pt": "Funciona em Qualquer Dispositivo" },
+          "description": {
+            "en": "All PDF tools work on desktop, tablet, and mobile. No software to install — just open your browser and start working.",
+            "es": "Todas las herramientas PDF funcionan en escritorio, tableta y móvil. Sin software que instalar — solo abre tu navegador.",
+            "fr": "Tous les outils PDF fonctionnent sur ordinateur, tablette et mobile. Aucun logiciel à installer — ouvrez simplement votre navigateur.",
+            "de": "Alle PDF-Tools funktionieren auf Desktop, Tablet und Mobilgerät. Keine Software zu installieren — einfach Browser öffnen und loslegen.",
+            "pt": "Todas as ferramentas PDF funcionam em desktop, tablet e celular. Sem software para instalar — basta abrir o navegador."
+          }
+        }
+      ],
+      "faq": [
+        {
+          "question": {
+            "en": "Are my PDF files safe to process here?",
+            "es": "¿Mis archivos PDF están seguros para procesarlos aquí?",
+            "fr": "Mes fichiers PDF sont-ils en sécurité pour être traités ici?",
+            "de": "Sind meine PDF-Dateien sicher, wenn ich sie hier verarbeite?",
+            "pt": "Meus arquivos PDF estão seguros para processar aqui?"
+          },
+          "answer": {
+            "en": "Yes. All PDF processing runs locally in your browser using pdf-lib and PDF.js — two open-source libraries loaded from this site. Your files are never uploaded to any server, and no data is retained after you close the tab.",
+            "es": "Sí. Todo el procesamiento de PDF se realiza localmente en tu navegador usando pdf-lib y PDF.js — dos bibliotecas de código abierto cargadas desde este sitio. Tus archivos nunca se suben a ningún servidor.",
+            "fr": "Oui. Tout le traitement PDF s'effectue localement dans votre navigateur avec pdf-lib et PDF.js — deux bibliothèques open source chargées depuis ce site. Vos fichiers ne sont jamais envoyés à un serveur.",
+            "de": "Ja. Die gesamte PDF-Verarbeitung erfolgt lokal in deinem Browser mit pdf-lib und PDF.js — zwei Open-Source-Bibliotheken, die von dieser Website geladen werden. Deine Dateien werden niemals auf einen Server hochgeladen.",
+            "pt": "Sim. Todo o processamento de PDF é feito localmente no seu navegador usando pdf-lib e PDF.js — duas bibliotecas de código aberto carregadas deste site. Seus arquivos nunca são enviados para nenhum servidor."
+          }
+        },
+        {
+          "question": {
+            "en": "What PDF operations are supported?",
+            "es": "¿Qué operaciones PDF son compatibles?",
+            "fr": "Quelles opérations PDF sont prises en charge?",
+            "de": "Welche PDF-Operationen werden unterstützt?",
+            "pt": "Quais operações PDF são suportadas?"
+          },
+          "answer": {
+            "en": "We support merging, splitting, compressing, rotating, extracting pages, deleting pages, reordering pages, password protection, unlocking, metadata editing, page counting, thumbnail generation, and converting PDFs to images — plus converting images into PDFs.",
+            "es": "Admitimos combinar, dividir, comprimir, rotar, extraer páginas, eliminar páginas, reordenar páginas, protección con contraseña, desbloqueo, edición de metadatos, conteo de páginas, generación de miniaturas y conversión de PDF a imágenes.",
+            "fr": "Nous prenons en charge la fusion, la division, la compression, la rotation, l'extraction de pages, la suppression de pages, la réorganisation, la protection par mot de passe, le déverrouillage, l'édition des métadonnées, le comptage de pages, la génération de miniatures et la conversion en images.",
+            "de": "Wir unterstützen Zusammenführen, Teilen, Komprimieren, Drehen, Seitenextraktion, Seitenlöschung, Seitenneuanordnung, Passwortschutz, Entsperren, Metadatenbearbeitung, Seitenzählung, Miniaturbildgenerierung und PDF-zu-Bild-Konvertierung.",
+            "pt": "Suportamos mesclar, dividir, comprimir, girar, extrair páginas, excluir páginas, reordenar páginas, proteção por senha, desbloqueio, edição de metadados, contagem de páginas, geração de miniaturas e conversão de PDF para imagens."
+          }
+        },
+        {
+          "question": {
+            "en": "Is there a page count or file size limit?",
+            "es": "¿Hay un límite en el número de páginas o tamaño de archivo?",
+            "fr": "Y a-t-il une limite de nombre de pages ou de taille de fichier?",
+            "de": "Gibt es ein Seitenzahl- oder Dateigrößenlimit?",
+            "pt": "Há um limite de contagem de páginas ou tamanho de arquivo?"
+          },
+          "answer": {
+            "en": "There are no hard limits. However, very large PDFs (hundreds of pages or files over 100 MB) may be slow to process depending on your device's memory and CPU. For best performance, we recommend splitting very large documents first.",
+            "es": "No hay límites estrictos. Sin embargo, los PDF muy grandes (cientos de páginas o archivos de más de 100 MB) pueden procesarse lentamente dependiendo de la memoria y CPU de tu dispositivo.",
+            "fr": "Il n'y a pas de limites strictes. Cependant, les PDF très volumineux (des centaines de pages ou des fichiers de plus de 100 Mo) peuvent être lents à traiter selon la mémoire et le processeur de votre appareil.",
+            "de": "Es gibt keine festen Limits. Allerdings können sehr große PDFs (Hunderte von Seiten oder Dateien über 100 MB) je nach Arbeitsspeicher und CPU deines Geräts langsam verarbeitet werden.",
+            "pt": "Não há limites rígidos. No entanto, PDFs muito grandes (centenas de páginas ou arquivos acima de 100 MB) podem ser lentos para processar dependendo da memória e CPU do seu dispositivo."
+          }
+        },
+        {
+          "question": {
+            "en": "Do I need an account to use the PDF tools?",
+            "es": "¿Necesito una cuenta para usar las herramientas PDF?",
+            "fr": "Ai-je besoin d'un compte pour utiliser les outils PDF?",
+            "de": "Brauche ich ein Konto, um die PDF-Tools zu nutzen?",
+            "pt": "Preciso de uma conta para usar as ferramentas PDF?"
+          },
+          "answer": {
+            "en": "No. Every PDF tool is completely free and requires no account, sign-up, or payment. Open the tool and start working immediately.",
+            "es": "No. Todas las herramientas PDF son completamente gratuitas y no requieren cuenta, registro ni pago. Abre la herramienta y comienza a trabajar de inmediato.",
+            "fr": "Non. Chaque outil PDF est entièrement gratuit et ne nécessite aucun compte, inscription ou paiement. Ouvrez l'outil et commencez à travailler immédiatement.",
+            "de": "Nein. Jedes PDF-Tool ist völlig kostenlos und erfordert kein Konto, keine Anmeldung und keine Zahlung. Öffne das Tool und leg sofort los.",
+            "pt": "Não. Cada ferramenta PDF é completamente gratuita e não requer conta, cadastro ou pagamento. Abra a ferramenta e comece a trabalhar imediatamente."
+          }
+        }
+      ]
     },
     {
       "id": "video",
@@ -105,7 +321,23 @@
       },
       "icon": "video",
       "color": "#8b5cf6",
-      "order": 3
+      "order": 3,
+      "sectionLabels": {
+        "conversionSection": {
+          "en": "Video Converters",
+          "es": "Conversores de Video",
+          "fr": "Convertisseurs Vidéo",
+          "de": "Videokonverter",
+          "pt": "Conversores de Vídeo"
+        },
+        "utilitySection": {
+          "en": "Video Tools",
+          "es": "Herramientas de Video",
+          "fr": "Outils Vidéo",
+          "de": "Videowerkzeuge",
+          "pt": "Ferramentas de Vídeo"
+        }
+      }
     },
     {
       "id": "audio",
@@ -127,7 +359,23 @@
       },
       "icon": "audio",
       "color": "#10b981",
-      "order": 4
+      "order": 4,
+      "sectionLabels": {
+        "conversionSection": {
+          "en": "Audio Converters",
+          "es": "Conversores de Audio",
+          "fr": "Convertisseurs Audio",
+          "de": "Audiokonverter",
+          "pt": "Conversores de Áudio"
+        },
+        "utilitySection": {
+          "en": "Audio Tools",
+          "es": "Herramientas de Audio",
+          "fr": "Outils Audio",
+          "de": "Audiowerkzeuge",
+          "pt": "Ferramentas de Áudio"
+        }
+      }
     },
     {
       "id": "text",
@@ -149,7 +397,23 @@
       },
       "icon": "text",
       "color": "#f59e0b",
-      "order": 5
+      "order": 5,
+      "sectionLabels": {
+        "conversionSection": {
+          "en": "Text Converters",
+          "es": "Conversores de Texto",
+          "fr": "Convertisseurs de Texte",
+          "de": "Textkonverter",
+          "pt": "Conversores de Texto"
+        },
+        "utilitySection": {
+          "en": "Text Tools",
+          "es": "Herramientas de Texto",
+          "fr": "Outils Texte",
+          "de": "Textwerkzeuge",
+          "pt": "Ferramentas de Texto"
+        }
+      }
     },
     {
       "id": "developer",
@@ -172,44 +436,156 @@
       "icon": "code",
       "color": "#06b6d4",
       "order": 6,
+      "sectionLabels": {
+        "conversionSection": {
+          "en": "Developer Tools",
+          "es": "Herramientas para Desarrolladores",
+          "fr": "Outils Développeur",
+          "de": "Entwicklerwerkzeuge",
+          "pt": "Ferramentas para Desenvolvedores"
+        },
+        "utilitySection": {
+          "en": "Developer Utilities",
+          "es": "Utilidades para Desarrolladores",
+          "fr": "Utilitaires Développeur",
+          "de": "Entwickler-Hilfsprogramme",
+          "pt": "Utilitários para Desenvolvedores"
+        }
+      },
       "features": [
         {
           "icon": "lock",
-          "title": { "en": "100% Private — No Upload" },
-          "description": { "en": "Every tool runs locally in your browser using JavaScript. Your code, tokens, and data never leave your device." }
+          "title": {
+            "en": "100% Private — No Upload",
+            "es": "100% Privado — Sin Subidas",
+            "fr": "100% Privé — Sans Téléchargement",
+            "de": "100% Privat — Kein Upload",
+            "pt": "100% Privado — Sem Upload"
+          },
+          "description": {
+            "en": "Every tool runs locally in your browser using JavaScript. Your code, tokens, and data never leave your device.",
+            "es": "Cada herramienta se ejecuta localmente en tu navegador usando JavaScript. Tu código, tokens y datos nunca abandonan tu dispositivo.",
+            "fr": "Chaque outil s'exécute localement dans votre navigateur en JavaScript. Votre code, vos tokens et vos données ne quittent jamais votre appareil.",
+            "de": "Jedes Tool läuft lokal in deinem Browser mit JavaScript. Dein Code, deine Tokens und Daten verlassen dein Gerät nie.",
+            "pt": "Cada ferramenta roda localmente no seu navegador usando JavaScript. Seu código, tokens e dados nunca saem do seu dispositivo."
+          }
         },
         {
           "icon": "fast",
-          "title": { "en": "Instant Results" },
-          "description": { "en": "Live preview and instant conversion. No waiting for server round-trips — results appear as you type." }
+          "title": {
+            "en": "Instant Results",
+            "es": "Resultados Instantáneos",
+            "fr": "Résultats Instantanés",
+            "de": "Sofortige Ergebnisse",
+            "pt": "Resultados Instantâneos"
+          },
+          "description": {
+            "en": "Live preview and instant conversion. No waiting for server round-trips — results appear as you type.",
+            "es": "Vista previa en vivo y conversión instantánea. Sin esperar viajes al servidor — los resultados aparecen mientras escribes.",
+            "fr": "Aperçu en direct et conversion instantanée. Sans attente de requêtes serveur — les résultats apparaissent au fur et à mesure.",
+            "de": "Live-Vorschau und sofortige Konvertierung. Kein Warten auf Server-Anfragen — Ergebnisse erscheinen beim Tippen.",
+            "pt": "Visualização ao vivo e conversão instantânea. Sem esperar por respostas do servidor — os resultados aparecem enquanto você digita."
+          }
         },
         {
           "icon": "device",
-          "title": { "en": "43 Tools in One Place" },
-          "description": { "en": "JSON, XML, YAML, encoding, hashing, generators, QR codes, JWT, regex, colors, minifiers, and beautifiers — all free, all browser-based." }
+          "title": {
+            "en": "43 Tools in One Place",
+            "es": "43 Herramientas en Un Solo Lugar",
+            "fr": "43 Outils en Un Seul Endroit",
+            "de": "43 Tools an einem Ort",
+            "pt": "43 Ferramentas em Um Lugar"
+          },
+          "description": {
+            "en": "JSON, XML, YAML, encoding, hashing, generators, QR codes, JWT, regex, colors, minifiers, and beautifiers — all free, all browser-based.",
+            "es": "JSON, XML, YAML, codificación, hashing, generadores, códigos QR, JWT, regex, colores, minificadores y embellecedores — todos gratuitos, todos en el navegador.",
+            "fr": "JSON, XML, YAML, encodage, hachage, générateurs, codes QR, JWT, regex, couleurs, minificateurs et embellisseurs — tous gratuits, tous dans le navigateur.",
+            "de": "JSON, XML, YAML, Kodierung, Hashing, Generatoren, QR-Codes, JWT, Regex, Farben, Minifier und Beautifier — alle kostenlos, alle browserbasiert.",
+            "pt": "JSON, XML, YAML, codificação, hashing, geradores, códigos QR, JWT, regex, cores, minificadores e embelezadores — todos gratuitos, todos no navegador."
+          }
         },
         {
           "icon": "free",
-          "title": { "en": "Free Forever" },
-          "description": { "en": "No subscription, no rate limits, no sign-up. Every developer tool is completely free with no hidden costs." }
+          "title": {
+            "en": "Free Forever",
+            "es": "Gratis para Siempre",
+            "fr": "Gratuit pour Toujours",
+            "de": "Für Immer Kostenlos",
+            "pt": "Gratuito Para Sempre"
+          },
+          "description": {
+            "en": "No subscription, no rate limits, no sign-up. Every developer tool is completely free with no hidden costs.",
+            "es": "Sin suscripción, sin límites de uso, sin registro. Cada herramienta para desarrolladores es completamente gratuita sin costos ocultos.",
+            "fr": "Aucun abonnement, aucune limite de débit, aucune inscription. Chaque outil développeur est entièrement gratuit sans frais cachés.",
+            "de": "Kein Abonnement, keine Ratenlimits, keine Anmeldung. Jedes Entwicklertool ist völlig kostenlos ohne versteckte Kosten.",
+            "pt": "Sem assinatura, sem limites de uso, sem cadastro. Cada ferramenta para desenvolvedores é completamente gratuita sem custos ocultos."
+          }
         }
       ],
       "faq": [
         {
-          "question": { "en": "Are these developer tools really free?" },
-          "answer": { "en": "Yes. All 43 tools are completely free with no usage limits, no sign-up, and no subscription. They run entirely in your browser using JavaScript." }
+          "question": {
+            "en": "Are these developer tools really free?",
+            "es": "¿Estas herramientas para desarrolladores son realmente gratuitas?",
+            "fr": "Ces outils développeur sont-ils vraiment gratuits?",
+            "de": "Sind diese Entwicklerwerkzeuge wirklich kostenlos?",
+            "pt": "Estas ferramentas para desenvolvedores são realmente gratuitas?"
+          },
+          "answer": {
+            "en": "Yes. All 43 tools are completely free with no usage limits, no sign-up, and no subscription. They run entirely in your browser using JavaScript.",
+            "es": "Sí. Las 43 herramientas son completamente gratuitas sin límites de uso, sin registro y sin suscripción. Se ejecutan completamente en tu navegador usando JavaScript.",
+            "fr": "Oui. Les 43 outils sont entièrement gratuits sans limite d'utilisation, sans inscription et sans abonnement. Ils fonctionnent entièrement dans votre navigateur en JavaScript.",
+            "de": "Ja. Alle 43 Tools sind völlig kostenlos ohne Nutzungslimits, ohne Anmeldung und ohne Abonnement. Sie laufen vollständig in deinem Browser mit JavaScript.",
+            "pt": "Sim. Todas as 43 ferramentas são completamente gratuitas sem limites de uso, sem cadastro e sem assinatura. Elas rodam inteiramente no seu navegador usando JavaScript."
+          }
         },
         {
-          "question": { "en": "Is my code or data safe to paste here?" },
-          "answer": { "en": "Yes. All processing runs locally in your browser. Your data is never sent to any server, stored, or logged. The tools work completely offline once the page has loaded." }
+          "question": {
+            "en": "Is my code or data safe to paste here?",
+            "es": "¿Es seguro pegar mi código o datos aquí?",
+            "fr": "Est-il sûr de coller mon code ou mes données ici?",
+            "de": "Ist es sicher, meinen Code oder meine Daten hier einzufügen?",
+            "pt": "É seguro colar meu código ou dados aqui?"
+          },
+          "answer": {
+            "en": "Yes. All processing runs locally in your browser. Your data is never sent to any server, stored, or logged. The tools work completely offline once the page has loaded.",
+            "es": "Sí. Todo el procesamiento se realiza localmente en tu navegador. Tus datos nunca se envían a ningún servidor, ni se almacenan ni se registran.",
+            "fr": "Oui. Tout le traitement s'effectue localement dans votre navigateur. Vos données ne sont jamais envoyées à un serveur, stockées ou enregistrées.",
+            "de": "Ja. Die gesamte Verarbeitung erfolgt lokal in deinem Browser. Deine Daten werden niemals an einen Server gesendet, gespeichert oder protokolliert.",
+            "pt": "Sim. Todo o processamento é feito localmente no seu navegador. Seus dados nunca são enviados para nenhum servidor, armazenados ou registrados."
+          }
         },
         {
-          "question": { "en": "Do these tools work offline?" },
-          "answer": { "en": "Most tools (JSON, XML, encoding, hashing, generators, JWT, regex, color, minifiers, beautifiers) work fully offline. Tools that require external libraries (YAML, QR codes, barcodes) need a one-time internet connection to load the library." }
+          "question": {
+            "en": "Do these tools work offline?",
+            "es": "¿Estas herramientas funcionan sin conexión?",
+            "fr": "Ces outils fonctionnent-ils hors ligne?",
+            "de": "Funktionieren diese Tools offline?",
+            "pt": "Essas ferramentas funcionam offline?"
+          },
+          "answer": {
+            "en": "Most tools (JSON, XML, encoding, hashing, generators, JWT, regex, color, minifiers, beautifiers) work fully offline. Tools that require external libraries (YAML, QR codes, barcodes) need a one-time internet connection to load the library.",
+            "es": "La mayoría de las herramientas (JSON, XML, codificación, hashing, generadores, JWT, regex, color, minificadores, embellecedores) funcionan completamente sin conexión. Las que requieren bibliotecas externas (YAML, códigos QR, códigos de barras) necesitan una conexión inicial.",
+            "fr": "La plupart des outils (JSON, XML, encodage, hachage, générateurs, JWT, regex, couleur, minificateurs, embellisseurs) fonctionnent entièrement hors ligne. Les outils nécessitant des bibliothèques externes (YAML, codes QR, codes-barres) ont besoin d'une connexion initiale.",
+            "de": "Die meisten Tools (JSON, XML, Kodierung, Hashing, Generatoren, JWT, Regex, Farbe, Minifier, Beautifier) funktionieren vollständig offline. Tools, die externe Bibliotheken benötigen (YAML, QR-Codes, Barcodes), brauchen eine einmalige Internetverbindung.",
+            "pt": "A maioria das ferramentas (JSON, XML, codificação, hashing, geradores, JWT, regex, cor, minificadores, embelezadores) funciona completamente offline. As que requerem bibliotecas externas (YAML, QR codes, barcodes) precisam de uma conexão inicial."
+          }
         },
         {
-          "question": { "en": "Can I use these tools on mobile?" },
-          "answer": { "en": "Yes. All tools are fully responsive and work on mobile browsers. However, the text editor experience is better on desktop." }
+          "question": {
+            "en": "Can I use these tools on mobile?",
+            "es": "¿Puedo usar estas herramientas en móvil?",
+            "fr": "Puis-je utiliser ces outils sur mobile?",
+            "de": "Kann ich diese Tools auf dem Handy nutzen?",
+            "pt": "Posso usar estas ferramentas no celular?"
+          },
+          "answer": {
+            "en": "Yes. All tools are fully responsive and work on mobile browsers. However, the text editor experience is better on desktop.",
+            "es": "Sí. Todas las herramientas son completamente responsivas y funcionan en navegadores móviles. Sin embargo, la experiencia del editor de texto es mejor en escritorio.",
+            "fr": "Oui. Tous les outils sont entièrement responsifs et fonctionnent sur les navigateurs mobiles. Cependant, l'expérience de l'éditeur de texte est meilleure sur ordinateur.",
+            "de": "Ja. Alle Tools sind vollständig responsiv und funktionieren auf mobilen Browsern. Die Texteditor-Erfahrung ist jedoch auf dem Desktop besser.",
+            "pt": "Sim. Todas as ferramentas são totalmente responsivas e funcionam em navegadores móveis. No entanto, a experiência do editor de texto é melhor no desktop."
+          }
         }
       ]
     }

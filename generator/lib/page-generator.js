@@ -1113,7 +1113,7 @@ ${adTop}
 
   <!-- Conversion Tools -->
   ${conversionTools.length > 0 ? `<section class="dac-tool-section" aria-labelledby="dac-conv-title">
-    <h2 class="dac-section-title" id="dac-conv-title">Format Converters</h2>
+    <h2 class="dac-section-title" id="dac-conv-title">${esc(category.sectionLabels?.conversionSection?.[langCode] || category.sectionLabels?.conversionSection?.en || 'Tools')}</h2>
     <div class="dac-tool-grid">
       ${renderToolCards(conversionTools)}
     </div>
@@ -1123,7 +1123,7 @@ ${adTop}
 
   <!-- Utility Tools -->
   ${utilityTools.length > 0 ? `<section class="dac-tool-section" aria-labelledby="dac-util-title">
-    <h2 class="dac-section-title" id="dac-util-title">Image Editing Tools</h2>
+    <h2 class="dac-section-title" id="dac-util-title">${esc(category.sectionLabels?.utilitySection?.[langCode] || category.sectionLabels?.utilitySection?.en || 'Tools')}</h2>
     <div class="dac-tool-grid">
       ${renderToolCards(utilityTools)}
     </div>

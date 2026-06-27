@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T12:12:29.653Z",
-  "elapsed_ms": 2007,
+  "timestamp": "2026-06-27T12:48:01.101Z",
+  "elapsed_ms": 1768,
   "tools": 82,
   "languages": 5,
   "routes": 466,
@@ -14,7 +14,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 480,
-  "output_size_kb": 20825,
+  "output_size_kb": 20845,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,

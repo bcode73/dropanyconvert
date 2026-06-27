@@ -1,0 +1,18 @@
+{
+  "slug": "most-popular-developer-tools",
+  "title": { "en": "Most Popular Developer Tools", "es": "Herramientas de Desarrollador Más Populares", "fr": "Outils Développeur les Plus Populaires", "de": "Beliebteste Entwickler-Tools", "pt": "Ferramentas de Desenvolvedor Mais Populares" },
+  "h1": { "en": "Most Popular Developer Tools Online", "es": "Herramientas de Desarrollador Más Populares Online", "fr": "Outils Développeur les Plus Populaires en Ligne", "de": "Beliebteste Online-Entwickler-Tools", "pt": "Ferramentas de Desenvolvedor Mais Populares Online" },
+  "description": { "en": "The most popular free developer tools: JSON formatter, Base64 encoder, URL encoder, JWT decoder, regex tester, UUID generator and more.", "es": "Las herramientas de desarrollador más populares: formateador JSON, codificador Base64, codificador URL, decodificador JWT, probador de regex y más.", "fr": "Les outils développeur les plus populaires: formateur JSON, encodeur Base64, encodeur URL, décodeur JWT, testeur regex et plus.", "de": "Die beliebtesten Entwickler-Tools: JSON-Formatierer, Base64-Encoder, URL-Encoder, JWT-Decoder, Regex-Tester, UUID-Generator und mehr.", "pt": "As ferramentas de desenvolvedor mais populares: formatador JSON, codificador Base64, codificador URL, decodificador JWT, testador regex e mais." },
+  "intro": { "en": "Essential utilities for web developers and data engineers — format, validate, encode, and decode without leaving your browser.", "es": "Utilidades esenciales para desarrolladores web e ingenieros de datos — formatea, valida, codifica y decodifica sin salir de tu navegador.", "fr": "Utilitaires essentiels pour les développeurs web et les ingénieurs de données — formatez, validez, encodez et décodez sans quitter votre navigateur.", "de": "Wesentliche Hilfsmittel für Webentwickler und Dateningenieure — formatieren, validieren, kodieren und dekodieren ohne den Browser zu verlassen.", "pt": "Utilitários essenciais para desenvolvedores web e engenheiros de dados — formate, valide, codifique e decodifique sem sair do navegador." },
+  "toolSlugs": ["json-formatter", "json-validator", "base64-encode", "base64-decode", "url-encode", "url-decode", "jwt-decoder", "regex-tester", "uuid-generator", "md5-generator", "sha256-generator", "unix-timestamp"],
+  "category": "developer",
+  "seo": {
+    "primaryKeyword": "developer tools online",
+    "secondaryKeywords": ["json formatter online", "base64 encoder online", "free developer utilities", "web developer tools", "online coding tools"],
+    "title": { "en": "Most Popular Free Developer Tools Online 2025" },
+    "description": { "en": "The most used free developer tools: JSON formatter, Base64 encoder, URL encoder, JWT decoder, regex tester, UUID generator — all in-browser." }
+  },
+  "relatedGuides": ["what-is-json", "what-is-base64", "what-is-yaml"],
+  "relatedComparisons": ["json-vs-yaml", "json-vs-xml"],
+  "lastUpdated": "2026-06-27"
+}

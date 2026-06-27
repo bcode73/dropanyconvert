@@ -1,0 +1,33 @@
+{
+  "slug": "compress-pdf-free",
+  "targetKeyword": "compress pdf free online",
+  "title": { "en": "Compress PDF Free Online", "es": "Comprimir PDF Gratis Online", "fr": "Compresser PDF Gratuit en Ligne", "de": "PDF Kostenlos Komprimieren Online", "pt": "Comprimir PDF Grátis Online" },
+  "h1": { "en": "Compress PDF Free Online — Reduce PDF Size Instantly", "es": "Comprimir PDF Gratis Online — Reduce el Tamaño del PDF al Instante", "fr": "Compresser PDF Gratuit en Ligne — Réduire la Taille du PDF Instantanément", "de": "PDF Kostenlos Online Komprimieren — PDF-Größe Sofort Reduzieren", "pt": "Comprimir PDF Grátis Online — Reduza o Tamanho do PDF Instantaneamente" },
+  "description": { "en": "Compress PDF files online for free — reduce file size without losing quality. Runs in your browser, no upload to any server.", "es": "Comprime archivos PDF en línea gratis — reduce el tamaño sin perder calidad. Funciona en tu navegador, sin subir archivos.", "fr": "Compressez des fichiers PDF en ligne gratuitement — réduisez la taille sans perte de qualité. Fonctionne dans votre navigateur.", "de": "PDF-Dateien kostenlos online komprimieren — Dateigröße ohne Qualitätsverlust reduzieren. Läuft in Ihrem Browser, kein Upload.", "pt": "Comprima arquivos PDF online gratuitamente — reduza o tamanho sem perder qualidade. Funciona no seu navegador." },
+  "intro": { "en": "Large PDF files are difficult to email, upload, or share. These free tools reduce PDF size directly in your browser — no server, no software installation.", "es": "Los archivos PDF grandes son difíciles de enviar por correo o compartir. Estas herramientas gratuitas reducen el tamaño del PDF directamente en tu navegador.", "fr": "Les gros fichiers PDF sont difficiles à envoyer par e-mail ou partager. Ces outils gratuits réduisent la taille du PDF directement dans votre navigateur.", "de": "Große PDF-Dateien sind schwer per E-Mail zu senden oder zu teilen. Diese kostenlosen Tools reduzieren die PDF-Größe direkt in Ihrem Browser.", "pt": "Arquivos PDF grandes são difíceis de enviar por e-mail ou compartilhar. Essas ferramentas gratuitas reduzem o tamanho do PDF no seu navegador." },
+  "primaryTool": "compress-pdf",
+  "toolSlugs": ["compress-pdf", "pdf-to-images", "images-to-pdf", "split-pdf"],
+  "faq": [
+    {
+      "question": { "en": "How much can I reduce a PDF file size?" },
+      "answer": { "en": "A typical PDF containing scanned images can be reduced by 50–80% in size. PDFs with mostly text compress less — typically 10–30%. Results depend on the original content and compression settings." }
+    },
+    {
+      "question": { "en": "Does PDF compression reduce quality?" },
+      "answer": { "en": "Our PDF compressor reduces image quality within the PDF to decrease file size. You can control the compression level. Text and vector graphics are unaffected — only embedded images are compressed." }
+    },
+    {
+      "question": { "en": "Is there a file size limit?" },
+      "answer": { "en": "Since compression runs in your browser, the limit is your device's available memory. Most PDFs up to 100MB work fine. For very large PDFs, consider splitting them first." }
+    }
+  ],
+  "seo": {
+    "primaryKeyword": "compress pdf free online",
+    "secondaryKeywords": ["reduce pdf size online free", "pdf compressor free", "shrink pdf online", "compress pdf without losing quality", "pdf size reducer"],
+    "title": { "en": "Compress PDF Free Online — Reduce PDF Size Instantly" },
+    "description": { "en": "Compress PDF online for free. Reduce PDF file size without losing quality — runs in your browser, no upload, no registration required." }
+  },
+  "relatedGuides": ["what-is-pdf", "what-is-pdf-compression"],
+  "relatedComparisons": [],
+  "lastUpdated": "2026-06-27"
+}

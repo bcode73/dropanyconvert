@@ -63,6 +63,30 @@ export async function generateRoutes(registry, data, config) {
         url: `${config.site.baseUrl}/${lang.code}/glossary`,
       }));
       route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/glossary`;
+    } else if (route.type === 'collection') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/collections/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/collections/${route.slug}`;
+    } else if (route.type === 'collections-index') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/collections`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/collections`;
+    } else if (route.type === 'landing') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/for/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/for/${route.slug}`;
+    } else if (route.type === 'faq-hub') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/faq`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/faq`;
     } else if (route.type === 'home') {
       route.hreflang = data.languages.map(lang => ({
         lang: lang.hreflang,

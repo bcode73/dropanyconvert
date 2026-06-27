@@ -14,18 +14,18 @@ export async function generateSitemaps(routes, config) {
 
   // Per-language sitemap
   for (const lang of langCodes) {
-    const knowledgeTypes = new Set(['tool','category','home','legal','article','comparison','glossary','guides-index','compare-index','glossary-index']);
+    const knowledgeTypes = new Set(['tool','category','home','legal','article','comparison','glossary','guides-index','compare-index','glossary-index','collection','collections-index','landing','faq-hub']);
     const langRoutes = routes.filter(r => r.lang === lang && knowledgeTypes.has(r.type));
 
     // Deterministic order: home → categories → guides-index → compare-index → glossary-index → articles → comparisons → glossary → tools → legal
     const sorted = [...langRoutes].sort((a, b) => {
-      const order = { home: 0, category: 1, 'guides-index': 2, 'compare-index': 3, 'glossary-index': 4, article: 5, comparison: 6, glossary: 7, tool: 8, legal: 9 };
+      const order = { home: 0, category: 1, 'guides-index': 2, 'compare-index': 3, 'glossary-index': 4, 'collections-index': 5, 'faq-hub': 5, article: 6, comparison: 7, glossary: 8, collection: 8, landing: 8, tool: 9, legal: 10 };
       return (order[a.type] ?? 10) - (order[b.type] ?? 10) || a.path.localeCompare(b.path);
     });
 
     const urls = sorted.map(r => {
-      const priorityMap = { home: '1.0', category: '0.9', 'guides-index': '0.8', 'compare-index': '0.8', 'glossary-index': '0.7', article: '0.7', comparison: '0.7', glossary: '0.6', legal: '0.3' };
-      const changefreqMap = { home: 'weekly', category: 'weekly', 'guides-index': 'weekly', 'compare-index': 'weekly', 'glossary-index': 'weekly', article: 'monthly', comparison: 'monthly', glossary: 'monthly', legal: 'yearly' };
+      const priorityMap = { home: '1.0', category: '0.9', 'guides-index': '0.8', 'compare-index': '0.8', 'glossary-index': '0.7', 'collections-index': '0.8', 'faq-hub': '0.7', article: '0.7', comparison: '0.7', glossary: '0.6', collection: '0.8', landing: '0.8', legal: '0.3' };
+      const changefreqMap = { home: 'weekly', category: 'weekly', 'guides-index': 'weekly', 'compare-index': 'weekly', 'glossary-index': 'weekly', 'collections-index': 'weekly', 'faq-hub': 'monthly', article: 'monthly', comparison: 'monthly', glossary: 'monthly', collection: 'weekly', landing: 'monthly', legal: 'yearly' };
       const priority   = priorityMap[r.type] || '0.8';
       const changefreq = changefreqMap[r.type] || 'monthly';
       return `  <url>

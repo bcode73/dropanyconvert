@@ -1,0 +1,33 @@
+{
+  "slug": "merge-pdf-online",
+  "targetKeyword": "merge pdf online free",
+  "title": { "en": "Merge PDF Files Online Free", "es": "Unir PDF Online Gratis", "fr": "Fusionner des PDF en Ligne Gratuit", "de": "PDF Dateien Online Kostenlos Zusammenführen", "pt": "Mesclar Arquivos PDF Online Grátis" },
+  "h1": { "en": "Merge PDF Files Online Free — Combine PDFs in Seconds", "es": "Unir PDF Online Gratis — Combina PDFs en Segundos", "fr": "Fusionner des PDF en Ligne Gratuit — Combinez des PDFs en Secondes", "de": "PDF-Dateien Online Kostenlos Zusammenführen — PDFs in Sekunden Kombinieren", "pt": "Mesclar Arquivos PDF Online Grátis — Combine PDFs em Segundos" },
+  "description": { "en": "Merge multiple PDF files into one online for free — combine, reorder, and manage PDF pages without uploading to any server.", "es": "Combina varios archivos PDF en uno en línea gratis — sin subir archivos a ningún servidor.", "fr": "Fusionnez plusieurs fichiers PDF en un seul en ligne gratuitement — sans télécharger vers aucun serveur.", "de": "Mehrere PDF-Dateien online kostenlos zu einer zusammenführen — ohne Upload auf einen Server.", "pt": "Mescle vários arquivos PDF em um online gratuitamente — sem enviar para nenhum servidor." },
+  "intro": { "en": "Need to combine multiple PDFs into one document? Our free tools let you merge, split, reorder, and manage PDF files — everything runs in your browser for maximum privacy.", "es": "¿Necesitas combinar varios PDF en un documento? Nuestras herramientas gratuitas te permiten combinar, dividir y reorganizar archivos PDF en tu navegador.", "fr": "Besoin de combiner plusieurs PDFs en un document? Nos outils gratuits vous permettent de fusionner, diviser et réorganiser des fichiers PDF dans votre navigateur.", "de": "Müssen Sie mehrere PDFs zu einem Dokument zusammenführen? Unsere kostenlosen Tools ermöglichen das Zusammenführen, Aufteilen und Neu Anordnen im Browser.", "pt": "Precisa combinar vários PDFs em um documento? Nossas ferramentas gratuitas permitem mesclar, dividir e reorganizar arquivos PDF no navegador." },
+  "primaryTool": "merge-pdf",
+  "toolSlugs": ["merge-pdf", "split-pdf", "pdf-reorder-pages", "pdf-page-extract", "pdf-delete-pages", "rotate-pdf"],
+  "faq": [
+    {
+      "question": { "en": "How many PDF files can I merge at once?" },
+      "answer": { "en": "You can merge as many PDF files as your browser's memory allows. Most modern devices handle 10–20 PDFs of typical size without issues. For very large batches, merge in groups of 5–10." }
+    },
+    {
+      "question": { "en": "Can I reorder pages when merging PDFs?" },
+      "answer": { "en": "Yes — use our PDF Reorder Pages tool to rearrange individual pages within a PDF before or after merging. You can also use the PDF Page Extract tool to pull specific pages from multiple PDFs." }
+    },
+    {
+      "question": { "en": "Are merged PDFs searchable?" },
+      "answer": { "en": "The merged PDF preserves all text, images, and metadata from the original PDFs. If the original PDFs contained searchable text, the merged output will also be searchable." }
+    }
+  ],
+  "seo": {
+    "primaryKeyword": "merge pdf online free",
+    "secondaryKeywords": ["combine pdf files online", "merge pdf without upload", "pdf merger free", "join pdf files online", "pdf combine tool"],
+    "title": { "en": "Merge PDF Online Free — Combine Multiple PDFs in Seconds" },
+    "description": { "en": "Merge multiple PDF files into one online for free. Combine, reorder pages, and download — all in your browser, no upload to any server." }
+  },
+  "relatedGuides": ["what-is-pdf"],
+  "relatedComparisons": [],
+  "lastUpdated": "2026-06-27"
+}

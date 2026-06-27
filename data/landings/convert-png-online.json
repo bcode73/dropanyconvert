@@ -1,0 +1,33 @@
+{
+  "slug": "convert-png-online",
+  "targetKeyword": "convert png online",
+  "title": { "en": "Convert PNG Files Online", "es": "Convertir PNG Online", "fr": "Convertir PNG en Ligne", "de": "PNG Online Konvertieren", "pt": "Converter PNG Online" },
+  "h1": { "en": "Convert PNG Files Online — Free, No Upload", "es": "Convertir Archivos PNG Online — Gratis, Sin Subir", "fr": "Convertir des Fichiers PNG en Ligne — Gratuit, Sans Téléchargement", "de": "PNG-Dateien Online Konvertieren — Kostenlos, Kein Upload", "pt": "Converter Arquivos PNG Online — Grátis, Sem Envio" },
+  "description": { "en": "Convert PNG to JPG, WebP, AVIF, BMP, TIFF, SVG and more — free online tool that runs entirely in your browser. Your files never leave your device.", "es": "Convierte PNG a JPG, WebP, AVIF, BMP, TIFF, SVG y más — herramienta gratuita online que funciona en tu navegador. Tus archivos nunca salen de tu dispositivo.", "fr": "Convertissez PNG en JPG, WebP, AVIF, BMP, TIFF, SVG et plus — outil gratuit qui fonctionne entièrement dans votre navigateur.", "de": "PNG in JPG, WebP, AVIF, BMP, TIFF, SVG konvertieren — kostenloses Online-Tool, das vollständig in Ihrem Browser läuft.", "pt": "Converta PNG para JPG, WebP, AVIF, BMP, TIFF, SVG e mais — ferramenta gratuita que funciona no seu navegador." },
+  "intro": { "en": "PNG is one of the most common image formats, but sometimes you need a different format — smaller file size, better browser support, or specific use cases. All PNG converters below run in your browser with no server upload.", "es": "PNG es uno de los formatos de imagen más comunes, pero a veces necesitas un formato diferente. Todos los conversores PNG de abajo funcionan en tu navegador.", "fr": "PNG est l'un des formats d'image les plus courants, mais parfois vous avez besoin d'un format différent. Tous les convertisseurs PNG ci-dessous fonctionnent dans votre navigateur.", "de": "PNG ist eines der häufigsten Bildformate, aber manchmal brauchen Sie ein anderes Format. Alle PNG-Konverter unten laufen in Ihrem Browser.", "pt": "PNG é um dos formatos de imagem mais comuns, mas às vezes você precisa de um formato diferente. Todos os conversores PNG abaixo funcionam no seu navegador." },
+  "primaryTool": "png-to-jpg",
+  "toolSlugs": ["png-to-jpg", "png-to-webp", "png-to-avif", "png-to-bmp", "png-to-tiff", "png-to-svg"],
+  "faq": [
+    {
+      "question": { "en": "What is the best format to convert PNG to?" },
+      "answer": { "en": "For web use, convert PNG to WebP or AVIF for smaller file sizes with similar quality. For photos, JPG is a good choice. For icons and illustrations, keep SVG if available, or use PNG itself." }
+    },
+    {
+      "question": { "en": "Does converting PNG to JPG lose quality?" },
+      "answer": { "en": "Yes — JPG uses lossy compression, so some quality is lost. You can control the quality level in our converter (85% is a good balance). PNG to WebP also supports lossy compression but often achieves better results than JPG at the same file size." }
+    },
+    {
+      "question": { "en": "Can I convert PNG to WebP for free?" },
+      "answer": { "en": "Yes, our PNG to WebP converter is completely free and runs in your browser. It supports batch conversion and lets you control output quality." }
+    }
+  ],
+  "seo": {
+    "primaryKeyword": "convert png online",
+    "secondaryKeywords": ["png converter online free", "png to jpg free", "png to webp online", "convert png to any format", "free png converter"],
+    "title": { "en": "Convert PNG Online Free — PNG to JPG, WebP, AVIF, BMP" },
+    "description": { "en": "Convert PNG to JPG, WebP, AVIF, BMP, TIFF and more online for free. All conversions run in your browser — no upload, no registration, instant results." }
+  },
+  "relatedGuides": ["what-is-png", "what-is-webp", "what-is-avif"],
+  "relatedComparisons": ["png-vs-jpg", "webp-vs-png"],
+  "lastUpdated": "2026-06-27"
+}

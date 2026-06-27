@@ -1,0 +1,18 @@
+{
+  "slug": "json-utilities",
+  "title": { "en": "JSON Utilities", "es": "Utilidades JSON", "fr": "Utilitaires JSON", "de": "JSON-Dienstprogramme", "pt": "Utilitários JSON" },
+  "h1": { "en": "Free JSON Utilities Online", "es": "Utilidades JSON Gratuitas Online", "fr": "Utilitaires JSON Gratuits en Ligne", "de": "Kostenlose Online-JSON-Dienstprogramme", "pt": "Utilitários JSON Gratuitos Online" },
+  "description": { "en": "Format, validate, minify, and convert JSON online — to CSV, YAML, XML and more. All tools run in your browser, no file upload needed.", "es": "Formatea, valida, minifica y convierte JSON en línea — a CSV, YAML, XML y más. Todas las herramientas funcionan en tu navegador.", "fr": "Formatez, validez, minifiez et convertissez du JSON en ligne — vers CSV, YAML, XML et plus. Fonctionne dans le navigateur.", "de": "JSON online formatieren, validieren, minifizieren und konvertieren — in CSV, YAML, XML und mehr. Im Browser, kein Upload.", "pt": "Formate, valide, minifique e converta JSON online — para CSV, YAML, XML e mais. Funciona no navegador." },
+  "intro": { "en": "JSON is the lingua franca of web APIs. These tools help you work with JSON data faster — no IDE or command line required.", "es": "JSON es el lenguaje universal de las APIs web. Estas herramientas te ayudan a trabajar con datos JSON más rápido.", "fr": "JSON est la langue commune des APIs web. Ces outils vous aident à travailler avec des données JSON plus rapidement.", "de": "JSON ist die Lingua franca der Web-APIs. Diese Tools helfen Ihnen, schneller mit JSON-Daten zu arbeiten.", "pt": "JSON é a língua franca das APIs web. Essas ferramentas ajudam a trabalhar com dados JSON mais rapidamente." },
+  "toolSlugs": ["json-formatter", "json-validator", "json-beautifier", "json-minifier", "json-to-csv", "json-to-yaml", "json-to-xml", "csv-to-json", "yaml-to-json", "xml-to-json"],
+  "category": "developer",
+  "seo": {
+    "primaryKeyword": "json utilities online",
+    "secondaryKeywords": ["json formatter online", "json validator free", "json to csv converter", "json to yaml", "format json online"],
+    "title": { "en": "Free JSON Utilities Online — Format, Validate, Convert JSON" },
+    "description": { "en": "Format, validate, minify, and convert JSON to CSV, YAML, XML and more. All JSON utilities run in your browser — no upload, no registration." }
+  },
+  "relatedGuides": ["what-is-json", "what-is-yaml"],
+  "relatedComparisons": ["json-vs-yaml", "json-vs-xml"],
+  "lastUpdated": "2026-06-27"
+}

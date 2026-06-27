@@ -1,0 +1,18 @@
+{
+  "slug": "best-pdf-tools",
+  "title": { "en": "Best PDF Tools", "es": "Mejores Herramientas PDF", "fr": "Meilleurs Outils PDF", "de": "Beste PDF-Tools", "pt": "Melhores Ferramentas PDF" },
+  "h1": { "en": "Best Free PDF Tools Online", "es": "Mejores Herramientas PDF Gratuitas Online", "fr": "Meilleurs Outils PDF Gratuits en Ligne", "de": "Beste kostenlose Online-PDF-Tools", "pt": "Melhores Ferramentas PDF Gratuitas Online" },
+  "description": { "en": "The best free online PDF tools — compress, merge, split, convert, protect, and edit PDFs directly in your browser. No upload, no registration.", "es": "Las mejores herramientas PDF en línea gratuitas para comprimir, unir, dividir, convertir y proteger PDF sin subir archivos.", "fr": "Les meilleurs outils PDF en ligne gratuits pour compresser, fusionner, diviser, convertir et protéger des PDF sans téléchargement.", "de": "Die besten kostenlosen Online-PDF-Tools zum Komprimieren, Zusammenführen, Aufteilen, Konvertieren und Schützen von PDFs ohne Upload.", "pt": "As melhores ferramentas PDF online gratuitas para compactar, mesclar, dividir, converter e proteger PDFs sem enviar arquivos." },
+  "intro": { "en": "Working with PDFs shouldn't require expensive software. All these tools run entirely in your browser — your files never leave your device.", "es": "Trabajar con PDF no debería requerir software costoso. Todas estas herramientas funcionan en tu navegador.", "fr": "Travailler avec des PDF ne devrait pas nécessiter de logiciel coûteux. Ces outils fonctionnent entièrement dans votre navigateur.", "de": "Die Arbeit mit PDFs sollte keine teure Software erfordern. Alle diese Tools laufen vollständig in Ihrem Browser.", "pt": "Trabalhar com PDFs não deveria exigir software caro. Todas essas ferramentas funcionam no seu navegador." },
+  "toolSlugs": ["compress-pdf", "merge-pdf", "split-pdf", "pdf-to-images", "images-to-pdf", "rotate-pdf", "protect-pdf", "unlock-pdf", "pdf-page-extract", "pdf-delete-pages", "pdf-metadata-editor", "pdf-reorder-pages"],
+  "category": "pdf",
+  "seo": {
+    "primaryKeyword": "best pdf tools online",
+    "secondaryKeywords": ["free pdf tools", "online pdf editor", "pdf converter free", "pdf compressor online", "merge pdf online"],
+    "title": { "en": "Best Free PDF Tools Online 2025 — No Upload Required" },
+    "description": { "en": "The best free online PDF tools: compress, merge, split, convert, protect and edit PDFs in your browser. No software install, no file upload needed." }
+  },
+  "relatedGuides": ["what-is-pdf", "what-is-pdf-compression"],
+  "relatedComparisons": [],
+  "lastUpdated": "2026-06-27"
+}

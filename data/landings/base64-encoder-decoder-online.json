@@ -1,0 +1,33 @@
+{
+  "slug": "base64-encoder-decoder-online",
+  "targetKeyword": "base64 encoder decoder online",
+  "title": { "en": "Base64 Encoder & Decoder Online", "es": "Codificador y Decodificador Base64 Online", "fr": "Encodeur et Décodeur Base64 en Ligne", "de": "Base64 Encoder & Decoder Online", "pt": "Codificador e Decodificador Base64 Online" },
+  "h1": { "en": "Base64 Encoder & Decoder Online — Free, Instant, Secure", "es": "Codificador y Decodificador Base64 Online — Gratis, Instantáneo, Seguro", "fr": "Encodeur et Décodeur Base64 en Ligne — Gratuit, Instantané, Sécurisé", "de": "Base64 Encoder & Decoder Online — Kostenlos, Sofort, Sicher", "pt": "Codificador e Decodificador Base64 Online — Gratuito, Instantâneo, Seguro" },
+  "description": { "en": "Encode text or files to Base64 and decode Base64 strings back to text or images — free, instant, and secure. Your data never leaves your browser.", "es": "Codifica texto o archivos a Base64 y decodifica cadenas Base64 de vuelta a texto o imágenes — gratis, instantáneo y seguro.", "fr": "Encodez du texte ou des fichiers en Base64 et décodez des chaînes Base64 en texte ou images — gratuit, instantané et sécurisé.", "de": "Text oder Dateien in Base64 kodieren und Base64-Strings zurück in Text oder Bilder dekodieren — kostenlos, sofort und sicher.", "pt": "Codifique texto ou arquivos para Base64 e decodifique strings Base64 de volta para texto ou imagens — gratuito, instantâneo e seguro." },
+  "intro": { "en": "Base64 encoding is widely used in web development — from embedding images in CSS to encoding API authentication tokens. These tools handle all common Base64 use cases.", "es": "La codificación Base64 se usa ampliamente en el desarrollo web. Estas herramientas manejan todos los casos de uso comunes de Base64.", "fr": "L'encodage Base64 est largement utilisé dans le développement web. Ces outils gèrent tous les cas d'utilisation courants de Base64.", "de": "Base64-Kodierung wird in der Webentwicklung weit verbreitet eingesetzt. Diese Tools verarbeiten alle gängigen Base64-Anwendungsfälle.", "pt": "A codificação Base64 é amplamente usada no desenvolvimento web. Essas ferramentas lidam com todos os casos de uso comuns de Base64." },
+  "primaryTool": "base64-encode",
+  "toolSlugs": ["base64-encode", "base64-decode", "base64-to-image", "image-to-base64"],
+  "faq": [
+    {
+      "question": { "en": "What is Base64 encoding used for?" },
+      "answer": { "en": "Base64 encoding converts binary data (images, files) into a text format that can be safely transmitted via text-based protocols like HTTP, email (MIME), or embedded in JSON and XML. It's commonly used for data URIs, API authentication tokens, and email attachments." }
+    },
+    {
+      "question": { "en": "Is it safe to encode sensitive data with Base64?" },
+      "answer": { "en": "Base64 is encoding, not encryption. It does not provide any security. Anyone who sees the Base64 string can decode it instantly. For sensitive data, use proper encryption (AES, RSA) instead." }
+    },
+    {
+      "question": { "en": "How much does Base64 increase file size?" },
+      "answer": { "en": "Base64 encoding increases file size by approximately 33%. A 100KB image becomes about 133KB when Base64-encoded. This is the trade-off for being able to embed binary data in text." }
+    }
+  ],
+  "seo": {
+    "primaryKeyword": "base64 encoder decoder online",
+    "secondaryKeywords": ["base64 encode online free", "base64 decoder free", "encode to base64", "decode base64 string", "base64 image encoder"],
+    "title": { "en": "Base64 Encoder & Decoder Online Free — Encode, Decode, Convert" },
+    "description": { "en": "Encode text to Base64 and decode Base64 strings online for free. Also convert images to Base64 data URIs. All tools run in your browser." }
+  },
+  "relatedGuides": ["what-is-base64"],
+  "relatedComparisons": [],
+  "lastUpdated": "2026-06-27"
+}

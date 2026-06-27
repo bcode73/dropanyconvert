@@ -1,0 +1,18 @@
+{
+  "slug": "pdf-editing-tools",
+  "title": { "en": "PDF Editing Tools", "es": "Herramientas de Edición PDF", "fr": "Outils d'Édition PDF", "de": "PDF-Bearbeitungstools", "pt": "Ferramentas de Edição de PDF" },
+  "h1": { "en": "Free PDF Editing Tools Online", "es": "Herramientas Gratuitas de Edición PDF Online", "fr": "Outils Gratuits d'Édition PDF en Ligne", "de": "Kostenlose Online-PDF-Bearbeitungstools", "pt": "Ferramentas Gratuitas de Edição de PDF Online" },
+  "description": { "en": "Edit PDFs without Acrobat: delete pages, reorder, rotate, edit metadata, protect with passwords, and extract page ranges — all in-browser.", "es": "Edita PDFs sin Acrobat: elimina páginas, reordena, rota, edita metadatos y protege con contraseña — todo en el navegador.", "fr": "Modifiez des PDFs sans Acrobat: supprimez des pages, réorganisez, faites pivoter, modifiez les métadonnées — tout dans le navigateur.", "de": "PDFs ohne Acrobat bearbeiten: Seiten löschen, neu anordnen, drehen, Metadaten bearbeiten, mit Passwort schützen — im Browser.", "pt": "Edite PDFs sem Acrobat: exclua páginas, reordene, gire, edite metadados e proteja com senha — tudo no navegador." },
+  "intro": { "en": "These PDF editing tools cover the most common editing tasks without requiring Adobe Acrobat or any PDF editor software.", "es": "Estas herramientas de edición PDF cubren las tareas más comunes sin requerir Adobe Acrobat ni ningún software editor.", "fr": "Ces outils d'édition PDF couvrent les tâches d'édition les plus courantes sans nécessiter Adobe Acrobat.", "de": "Diese PDF-Bearbeitungstools decken die häufigsten Bearbeitungsaufgaben ab, ohne Adobe Acrobat zu benötigen.", "pt": "Essas ferramentas de edição de PDF cobrem as tarefas de edição mais comuns sem precisar do Adobe Acrobat." },
+  "toolSlugs": ["pdf-delete-pages", "pdf-reorder-pages", "rotate-pdf", "pdf-metadata-editor", "pdf-metadata-viewer", "protect-pdf", "unlock-pdf", "pdf-page-extract", "pdf-page-counter", "pdf-thumbnail"],
+  "category": "pdf",
+  "seo": {
+    "primaryKeyword": "pdf editing tools online",
+    "secondaryKeywords": ["free pdf editor online", "edit pdf without acrobat", "pdf page editor", "pdf metadata editor", "rotate pdf online"],
+    "title": { "en": "Free PDF Editing Tools Online — No Acrobat Needed" },
+    "description": { "en": "Edit PDFs online: delete pages, reorder, rotate, edit metadata, protect with passwords, extract pages — all free and in-browser." }
+  },
+  "relatedGuides": ["what-is-pdf"],
+  "relatedComparisons": [],
+  "lastUpdated": "2026-06-27"
+}

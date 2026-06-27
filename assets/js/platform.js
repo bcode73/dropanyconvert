@@ -145,6 +145,7 @@
       this.input   = document.getElementById('dac-search-input');
       this.results = document.getElementById('dac-search-results');
       this.tools   = window.DAC_TOOLS || [];
+      this.khItems = window.DAC_KH_INDEX || [];
 
       const openBtn  = document.getElementById('dac-search-btn');
       const closeBtn = document.getElementById('dac-search-close');
@@ -192,12 +193,13 @@
 
     query(q) {
       q = q.trim();
-      const hits = q.length < 1 ? this.tools.slice(0, 12) : this.match(q);
-      window.DAC?.analytics?.track('search', { q, results: hits.length });
-      this.render(hits, q);
+      const toolHits = q.length < 1 ? this.tools.slice(0, 12) : this.matchTools(q);
+      const khHits   = q.length >= 2 ? this.matchKh(q) : [];
+      window.DAC?.analytics?.track('search', { q, results: toolHits.length + khHits.length });
+      this.render(toolHits, khHits, q);
     },
 
-    match(q) {
+    matchTools(q) {
       const lq = q.toLowerCase();
       const scored = this.tools.map(t => {
         const fields = [t.name, t.tagline, ...t.keywords].join(' ').toLowerCase();
@@ -210,15 +212,31 @@
       return scored.slice(0, 12).map(s => s.t);
     },
 
+    matchKh(q) {
+      const lq = q.toLowerCase();
+      const scored = this.khItems.map(item => {
+        const fields = [item.name, item.tagline, ...(item.keywords || [])].join(' ').toLowerCase();
+        if (item.name.toLowerCase().startsWith(lq)) return { item, score: 3 };
+        if (item.name.toLowerCase().includes(lq))   return { item, score: 2 };
+        if (fields.includes(lq))                    return { item, score: 1 };
+        return null;
+      }).filter(Boolean);
+      scored.sort((a, b) => b.score - a.score);
+      return scored.slice(0, 6).map(s => s.item);
+    },
+
+    match(q) { return this.matchTools(q); },
+
     highlight(text, q) {
       if (!q) return esc(text);
       const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
       return esc(text).replace(re, '<mark class="dac-search-mark">$1</mark>');
     },
 
-    render(hits, q) {
+    render(hits, khHits, q) {
+      if (typeof khHits === 'string') { q = khHits; khHits = []; } // backward compat
       if (!this.results) return;
-      if (!hits.length && q) {
+      if (!hits.length && !khHits.length && q) {
         this.results.innerHTML = `<div class="dac-empty-state dac-empty-state--sm">
           <p class="dac-empty-state__title">No results for "<strong>${esc(q)}</strong>"</p>
           <p class="dac-empty-state__desc">Try a different keyword, like "compress", "resize", or "merge".</p>
@@ -226,7 +244,7 @@
         return;
       }
 
-      // Group by category
+      // Group tools by category
       const groups = {};
       hits.forEach(t => {
         if (!groups[t.category]) groups[t.category] = [];
@@ -234,7 +252,7 @@
       });
 
       const lang = document.documentElement.lang || 'en';
-      let html = hits.length === 0 && !q
+      let html = hits.length === 0 && !khHits.length && !q
         ? '<p class="dac-search-hint">Start typing to search all tools…</p>'
         : '';
 
@@ -245,6 +263,18 @@
             <a href="/${lang}/${t.slug}" class="dac-search-result" tabindex="0">
               <span class="dac-search-result__name">${this.highlight(t.name, q)}</span>
               <span class="dac-search-result__tagline">${this.highlight(t.tagline, q)}</span>
+            </a>`).join('')}
+        </div>`;
+      }
+
+      if (khHits.length) {
+        const typeLabel = { article: 'Guide', comparison: 'Comparison', glossary: 'Glossary', collection: 'Collection' };
+        html += `<div class="dac-search-group">
+          <span class="dac-search-group__label">Guides &amp; Reference</span>
+          ${khHits.map(item => `
+            <a href="${esc(item.path)}" class="dac-search-result" tabindex="0">
+              <span class="dac-search-result__name">${this.highlight(item.name, q)}</span>
+              <span class="dac-search-result__tagline">${esc(typeLabel[item.type] || item.type)} · ${this.highlight(item.tagline, q)}</span>
             </a>`).join('')}
         </div>`;
       }

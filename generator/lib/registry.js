@@ -169,6 +169,61 @@ export async function buildRegistry(data, config) {
     }
   }
 
+  // Collection routes
+  for (const collection of (data.collections || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'collection',
+        lang: lang.code,
+        slug: collection.slug,
+        path: `/${lang.code}/collections/${collection.slug}`,
+        collection,
+        language: lang,
+        tools: (collection.toolSlugs || []).map(s => data.tools.find(t => t.slug === s)).filter(Boolean),
+      });
+    }
+  }
+
+  // Collections index per language
+  if ((data.collections || []).length > 0) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'collections-index',
+        lang: lang.code,
+        slug: 'collections',
+        path: `/${lang.code}/collections`,
+        collections: data.collections,
+        language: lang,
+      });
+    }
+  }
+
+  // Landing page routes
+  for (const landing of (data.landings || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'landing',
+        lang: lang.code,
+        slug: landing.slug,
+        path: `/${lang.code}/for/${landing.slug}`,
+        landing,
+        language: lang,
+        tools: (landing.toolSlugs || []).map(s => data.tools.find(t => t.slug === s)).filter(Boolean),
+      });
+    }
+  }
+
+  // FAQ Hub per language
+  for (const lang of data.languages) {
+    routes.push({
+      type: 'faq-hub',
+      lang: lang.code,
+      slug: 'faq',
+      path: `/${lang.code}/faq`,
+      language: lang,
+    });
+  }
+
   // Root redirect
   routes.push({
     type: 'root',

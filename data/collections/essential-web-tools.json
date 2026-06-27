@@ -1,0 +1,18 @@
+{
+  "slug": "essential-web-tools",
+  "title": { "en": "Essential Web Tools", "es": "Herramientas Web Esenciales", "fr": "Outils Web Essentiels", "de": "Essentielle Web-Tools", "pt": "Ferramentas Web Essenciais" },
+  "h1": { "en": "Essential Free Web Developer Tools Online", "es": "Herramientas Esenciales Gratuitas para Desarrolladores Web Online", "fr": "Outils Développeur Web Essentiels Gratuits en Ligne", "de": "Essentielle Kostenlose Online-Webentwickler-Tools", "pt": "Ferramentas Essenciais Gratuitas para Desenvolvedores Web Online" },
+  "description": { "en": "Beautify, minify, and format HTML, CSS, JavaScript, XML and more — all the code formatting tools a web developer needs, free in the browser.", "es": "Embellece, minimiza y formatea HTML, CSS, JavaScript, XML y más — todas las herramientas de formato de código que un desarrollador web necesita.", "fr": "Embellissez, minimisez et formatez HTML, CSS, JavaScript, XML et plus — tous les outils de formatage de code dont un développeur web a besoin.", "de": "HTML, CSS, JavaScript, XML und mehr verschönern, minimieren und formatieren — alle Code-Formatierungstools für Webentwickler, kostenlos.", "pt": "Embeleze, minifique e formate HTML, CSS, JavaScript, XML e mais — todas as ferramentas de formatação de código que um desenvolvedor web precisa." },
+  "intro": { "en": "Whether you're building a website or debugging an API response, these code utilities make your workflow faster and cleaner.", "es": "Ya sea que estés construyendo un sitio web o depurando una respuesta de API, estas utilidades de código hacen tu flujo de trabajo más rápido.", "fr": "Que vous construisiez un site web ou déboguiez une réponse API, ces utilitaires de code accélèrent votre flux de travail.", "de": "Ob Sie eine Website erstellen oder eine API-Antwort debuggen, diese Code-Dienstprogramme beschleunigen Ihren Workflow.", "pt": "Seja construindo um site ou depurando uma resposta de API, esses utilitários de código tornam seu fluxo de trabalho mais rápido." },
+  "toolSlugs": ["html-beautifier", "html-minifier", "html-encode", "html-decode", "css-beautifier", "css-minifier", "javascript-beautifier", "javascript-minifier", "xml-beautifier", "xml-minifier", "json-beautifier", "json-minifier"],
+  "category": "developer",
+  "seo": {
+    "primaryKeyword": "web developer tools online",
+    "secondaryKeywords": ["html beautifier online", "css minifier free", "javascript formatter", "code formatter online", "html formatter"],
+    "title": { "en": "Essential Free Web Developer Tools Online — HTML, CSS, JS" },
+    "description": { "en": "Beautify, minify, and format HTML, CSS, JavaScript, XML online for free. All code formatting tools a web developer needs, in the browser." }
+  },
+  "relatedGuides": ["what-is-markdown"],
+  "relatedComparisons": ["markdown-vs-html"],
+  "lastUpdated": "2026-06-27"
+}

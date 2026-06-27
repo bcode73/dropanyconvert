@@ -37,12 +37,14 @@ export async function loadData(config) {
   const legal = JSON.parse(legalRaw);
   const analytics = JSON.parse(analyticsRaw);
 
-  const [tools, articles, comparisons, glossary] = await Promise.all([
+  const [tools, articles, comparisons, glossary, collections, landings] = await Promise.all([
     loadJsonDir(path.join(dataDir, 'tools')),
     loadJsonDir(path.join(dataDir, 'articles')),
     loadJsonDir(path.join(dataDir, 'comparisons')),
     loadJsonDir(path.join(dataDir, 'glossary')),
+    loadJsonDir(path.join(dataDir, 'collections')),
+    loadJsonDir(path.join(dataDir, 'landings')),
   ]);
 
-  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary };
+  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary, collections, landings };
 }

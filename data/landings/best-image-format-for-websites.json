@@ -1,0 +1,33 @@
+{
+  "slug": "best-image-format-for-websites",
+  "targetKeyword": "best image format for websites",
+  "title": { "en": "Best Image Format for Websites", "es": "Mejor Formato de Imagen para Sitios Web", "fr": "Meilleur Format d'Image pour les Sites Web", "de": "Bestes Bildformat für Websites", "pt": "Melhor Formato de Imagem para Sites" },
+  "h1": { "en": "Best Image Format for Websites in 2025", "es": "Mejor Formato de Imagen para Sitios Web en 2025", "fr": "Meilleur Format d'Image pour les Sites Web en 2025", "de": "Bestes Bildformat für Websites 2025", "pt": "Melhor Formato de Imagem para Sites em 2025" },
+  "description": { "en": "Choosing the right image format is critical for website performance. Learn when to use WebP, AVIF, PNG, JPG — and convert between them instantly for free.", "es": "Elegir el formato de imagen correcto es fundamental para el rendimiento del sitio web. Aprende cuándo usar WebP, AVIF, PNG, JPG — y conviértelos gratis.", "fr": "Choisir le bon format d'image est essentiel pour les performances du site web. Apprenez quand utiliser WebP, AVIF, PNG, JPG.", "de": "Die Wahl des richtigen Bildformats ist entscheidend für die Website-Performance. Erfahren Sie, wann Sie WebP, AVIF, PNG, JPG verwenden.", "pt": "Escolher o formato de imagem correto é fundamental para o desempenho do site. Saiba quando usar WebP, AVIF, PNG, JPG." },
+  "intro": { "en": "The image format you choose directly affects your website's loading speed, Core Web Vitals score, and SEO ranking. In 2025, WebP and AVIF are the recommended formats for most use cases. Use the converters below to switch your images to the optimal format.", "es": "El formato de imagen que elijas afecta directamente la velocidad de carga de tu sitio web. En 2025, WebP y AVIF son los formatos recomendados para la mayoría de los casos de uso.", "fr": "Le format d'image que vous choisissez affecte directement la vitesse de chargement de votre site. En 2025, WebP et AVIF sont les formats recommandés.", "de": "Das gewählte Bildformat beeinflusst direkt die Ladegeschwindigkeit Ihrer Website. 2025 sind WebP und AVIF die empfohlenen Formate.", "pt": "O formato de imagem escolhido afeta diretamente a velocidade de carregamento do seu site. Em 2025, WebP e AVIF são os formatos recomendados." },
+  "primaryTool": "png-to-webp",
+  "toolSlugs": ["png-to-webp", "png-to-avif", "jpg-to-webp", "image-compressor", "image-resizer"],
+  "faq": [
+    {
+      "question": { "en": "Should I use WebP or AVIF for my website?" },
+      "answer": { "en": "AVIF offers better compression than WebP (typically 30–50% smaller than JPG vs WebP's 25–35%), but browser support is slightly lower. For maximum compatibility with good compression, use WebP. For cutting-edge performance on modern browsers, use AVIF. You can serve both using the HTML <picture> element." }
+    },
+    {
+      "question": { "en": "When should I still use PNG or JPG?" },
+      "answer": { "en": "Use PNG for images that need transparency (logos, icons) when browser compatibility is critical, and you can't use SVG. Use JPG for maximum compatibility with very old browsers. For most modern websites, WebP covers both use cases with better compression." }
+    },
+    {
+      "question": { "en": "Does image format affect SEO?" },
+      "answer": { "en": "Yes, indirectly. Faster-loading images improve Core Web Vitals (LCP score), which is a Google ranking factor. Using modern formats like WebP and AVIF can significantly reduce image load times, improving both user experience and SEO." }
+    }
+  ],
+  "seo": {
+    "primaryKeyword": "best image format for websites",
+    "secondaryKeywords": ["webp vs png vs jpg", "best image format for web", "image format for website performance", "webp avif comparison", "optimize images for seo"],
+    "title": { "en": "Best Image Format for Websites 2025 — WebP, AVIF, PNG or JPG?" },
+    "description": { "en": "Learn the best image format for websites in 2025: WebP vs AVIF vs PNG vs JPG. Convert your images to the optimal format for free, in-browser." }
+  },
+  "relatedGuides": ["what-is-webp", "what-is-avif", "what-is-png", "what-is-jpg"],
+  "relatedComparisons": ["png-vs-jpg", "webp-vs-png", "avif-vs-webp"],
+  "lastUpdated": "2026-06-27"
+}

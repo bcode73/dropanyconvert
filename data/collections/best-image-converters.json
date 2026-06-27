@@ -1,0 +1,18 @@
+{
+  "slug": "best-image-converters",
+  "title": { "en": "Best Image Converters", "es": "Mejores Conversores de Imagen", "fr": "Meilleurs Convertisseurs d'Image", "de": "Beste Bildkonverter", "pt": "Melhores Conversores de Imagem" },
+  "h1": { "en": "Best Free Image Converters Online", "es": "Mejores Conversores de Imagen Gratuitos Online", "fr": "Meilleurs Convertisseurs d'Image Gratuits en Ligne", "de": "Beste kostenlose Online-Bildkonverter", "pt": "Melhores Conversores de Imagem Gratuitos Online" },
+  "description": { "en": "Convert images between PNG, JPG, WebP, AVIF, BMP, TIFF, GIF and more — all free, in-browser, no upload required.", "es": "Convierte imágenes entre PNG, JPG, WebP, AVIF, BMP, TIFF y más — gratis, en el navegador, sin subir archivos.", "fr": "Convertissez des images entre PNG, JPG, WebP, AVIF, BMP, TIFF et plus — gratuit, dans le navigateur, sans téléchargement.", "de": "Bilder zwischen PNG, JPG, WebP, AVIF, BMP, TIFF und mehr konvertieren — kostenlos, im Browser, kein Upload erforderlich.", "pt": "Converta imagens entre PNG, JPG, WebP, AVIF, BMP, TIFF e mais — gratuito, no navegador, sem envio de arquivos." },
+  "intro": { "en": "These image converters handle every major format — lossless and lossy — without ever uploading your files to a server.", "es": "Estos conversores de imagen manejan todos los formatos principales sin subir tus archivos a ningún servidor.", "fr": "Ces convertisseurs d'image prennent en charge tous les formats majeurs sans jamais télécharger vos fichiers vers un serveur.", "de": "Diese Bildkonverter unterstützen alle gängigen Formate — ohne Ihre Dateien auf einen Server hochzuladen.", "pt": "Esses conversores de imagem suportam todos os principais formatos sem nunca enviar seus arquivos para um servidor." },
+  "toolSlugs": ["png-to-jpg", "jpg-to-png", "png-to-webp", "webp-to-jpg", "webp-to-png", "jpg-to-webp", "png-to-avif", "avif-to-png", "gif-to-png", "gif-to-webp", "bmp-to-png", "svg-to-png", "png-to-svg", "tiff-to-png"],
+  "category": "image",
+  "seo": {
+    "primaryKeyword": "best image converter online",
+    "secondaryKeywords": ["free image converter", "convert image format online", "png to jpg online", "webp converter", "image format converter"],
+    "title": { "en": "Best Free Image Converters Online 2025 — PNG, JPG, WebP, AVIF" },
+    "description": { "en": "Convert PNG, JPG, WebP, AVIF, GIF, BMP, TIFF images online for free. All conversions happen in your browser — no upload, instant results." }
+  },
+  "relatedGuides": ["what-is-png", "what-is-jpg", "what-is-webp", "what-is-avif"],
+  "relatedComparisons": ["png-vs-jpg", "webp-vs-png", "avif-vs-webp"],
+  "lastUpdated": "2026-06-27"
+}

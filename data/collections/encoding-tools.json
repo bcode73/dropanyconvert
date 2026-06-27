@@ -1,0 +1,18 @@
+{
+  "slug": "encoding-tools",
+  "title": { "en": "Encoding Tools", "es": "Herramientas de Codificación", "fr": "Outils d'Encodage", "de": "Kodierungstools", "pt": "Ferramentas de Codificação" },
+  "h1": { "en": "Free Encoding & Decoding Tools Online", "es": "Herramientas Gratuitas de Codificación y Decodificación Online", "fr": "Outils Gratuits d'Encodage et Décodage en Ligne", "de": "Kostenlose Online-Kodierungs- und Dekodierungstools", "pt": "Ferramentas Gratuitas de Codificação e Decodificação Online" },
+  "description": { "en": "Encode and decode Base64, URLs, HTML entities, and more — instantly in your browser. No data leaves your device.", "es": "Codifica y decodifica Base64, URLs, entidades HTML y más — instantáneamente en tu navegador. Sin subir datos.", "fr": "Encodez et décodez Base64, URLs, entités HTML et plus — instantanément dans votre navigateur. Aucune donnée n'est transmise.", "de": "Base64, URLs, HTML-Entities und mehr kodieren und dekodieren — sofort im Browser. Keine Daten verlassen Ihr Gerät.", "pt": "Codifique e decodifique Base64, URLs, entidades HTML e mais — instantaneamente no navegador. Nenhum dado sai do dispositivo." },
+  "intro": { "en": "Encoding is fundamental to web development. These tools let you encode and decode data in all common formats in seconds.", "es": "La codificación es fundamental en el desarrollo web. Estas herramientas te permiten codificar y decodificar datos en todos los formatos comunes.", "fr": "L'encodage est fondamental dans le développement web. Ces outils vous permettent d'encoder et décoder des données dans tous les formats courants.", "de": "Kodierung ist grundlegend für die Webentwicklung. Diese Tools ermöglichen das Kodieren und Dekodieren in allen gängigen Formaten.", "pt": "A codificação é fundamental no desenvolvimento web. Essas ferramentas permitem codificar e decodificar dados em todos os formatos comuns." },
+  "toolSlugs": ["base64-encode", "base64-decode", "base64-to-image", "image-to-base64", "url-encode", "url-decode", "html-encode", "html-decode"],
+  "category": "developer",
+  "seo": {
+    "primaryKeyword": "encoding tools online",
+    "secondaryKeywords": ["base64 encoder online", "base64 decoder free", "url encoder decoder", "html encoder online", "encode decode online"],
+    "title": { "en": "Free Encoding & Decoding Tools Online — Base64, URL, HTML" },
+    "description": { "en": "Encode and decode Base64, URL, HTML entities instantly in your browser. All encoding tools are free and require no file upload." }
+  },
+  "relatedGuides": ["what-is-base64"],
+  "relatedComparisons": [],
+  "lastUpdated": "2026-06-27"
+}

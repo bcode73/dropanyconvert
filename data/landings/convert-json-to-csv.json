@@ -1,0 +1,33 @@
+{
+  "slug": "convert-json-to-csv",
+  "targetKeyword": "convert json to csv online",
+  "title": { "en": "Convert JSON to CSV Online", "es": "Convertir JSON a CSV Online", "fr": "Convertir JSON en CSV en Ligne", "de": "JSON zu CSV Online Konvertieren", "pt": "Converter JSON para CSV Online" },
+  "h1": { "en": "Convert JSON to CSV Online — Free, Instant, No Upload", "es": "Convertir JSON a CSV Online — Gratis, Instantáneo, Sin Subir", "fr": "Convertir JSON en CSV en Ligne — Gratuit, Instantané, Sans Téléchargement", "de": "JSON zu CSV Online Konvertieren — Kostenlos, Sofort, Kein Upload", "pt": "Converter JSON para CSV Online — Gratuito, Instantâneo, Sem Envio" },
+  "description": { "en": "Convert JSON data to CSV format online for free — and back from CSV to JSON. All conversions run in your browser, nothing is sent to a server.", "es": "Convierte datos JSON a formato CSV en línea gratis — y de vuelta de CSV a JSON. Nada se envía a un servidor.", "fr": "Convertissez des données JSON au format CSV en ligne gratuitement — et inversement. Rien n'est envoyé à un serveur.", "de": "JSON-Daten online kostenlos in CSV konvertieren — und umgekehrt. Alles läuft im Browser, nichts wird an einen Server gesendet.", "pt": "Converta dados JSON para o formato CSV online gratuitamente — e de volta de CSV para JSON. Nada é enviado para um servidor." },
+  "intro": { "en": "Switching between JSON and CSV is one of the most common data format conversions. Use our tools to convert JSON arrays to CSV spreadsheets and vice versa — all in your browser.", "es": "Cambiar entre JSON y CSV es una de las conversiones de formato de datos más comunes. Usa nuestras herramientas para convertir arrays JSON a hojas de cálculo CSV.", "fr": "La conversion entre JSON et CSV est l'une des conversions de format de données les plus courantes. Utilisez nos outils dans votre navigateur.", "de": "Der Wechsel zwischen JSON und CSV ist eine der häufigsten Dateiformat-Konvertierungen. Verwenden Sie unsere Tools in Ihrem Browser.", "pt": "Alternar entre JSON e CSV é uma das conversões de formato de dados mais comuns. Use nossas ferramentas no seu navegador." },
+  "primaryTool": "json-to-csv",
+  "toolSlugs": ["json-to-csv", "csv-to-json", "json-formatter", "json-validator", "json-to-yaml", "yaml-to-json"],
+  "faq": [
+    {
+      "question": { "en": "Can JSON to CSV handle nested objects?" },
+      "answer": { "en": "Our converter handles flat JSON arrays well. For deeply nested JSON objects, the nested fields are flattened using dot notation (e.g., address.city becomes a column). For complex nested structures, you may need to pre-process the JSON first." }
+    },
+    {
+      "question": { "en": "What JSON structure works best for CSV conversion?" },
+      "answer": { "en": "The best structure is a JSON array of flat objects with consistent keys — for example, [{\"name\":\"Alice\",\"age\":30},{\"name\":\"Bob\",\"age\":25}]. This converts directly to a CSV with Name and Age columns." }
+    },
+    {
+      "question": { "en": "Can I convert CSV back to JSON?" },
+      "answer": { "en": "Yes — our CSV to JSON tool converts CSV files or pasted CSV data back into a JSON array of objects. The first row is used as the key names." }
+    }
+  ],
+  "seo": {
+    "primaryKeyword": "convert json to csv online",
+    "secondaryKeywords": ["json to csv converter free", "csv to json online", "json csv converter", "convert json online", "json to spreadsheet"],
+    "title": { "en": "Convert JSON to CSV Online Free — Instant JSON CSV Converter" },
+    "description": { "en": "Convert JSON to CSV and CSV to JSON online for free. Paste JSON data or upload a file and get an instant CSV download. All in-browser." }
+  },
+  "relatedGuides": ["what-is-json"],
+  "relatedComparisons": ["json-vs-yaml"],
+  "lastUpdated": "2026-06-27"
+}

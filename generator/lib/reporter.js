@@ -38,6 +38,10 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       'guides-index': routes.filter(r => r.type === 'guides-index').length,
       'compare-index':routes.filter(r => r.type === 'compare-index').length,
       'glossary-index':routes.filter(r => r.type === 'glossary-index').length,
+      collection:     routes.filter(r => r.type === 'collection').length,
+      'collections-index': routes.filter(r => r.type === 'collections-index').length,
+      landing:        routes.filter(r => r.type === 'landing').length,
+      'faq-hub':      routes.filter(r => r.type === 'faq-hub').length,
       root:           1,
     },
     sitemaps_generated: sitemaps.length,
@@ -103,8 +107,11 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
   const comparisonCount = routes.filter(r => r.type === 'comparison').length;
   const glossaryCount  = routes.filter(r => r.type === 'glossary').length;
 
+  const collectionCount = routes.filter(r => r.type === 'collection').length;
+  const landingCount    = routes.filter(r => r.type === 'landing').length;
+
   const summary = [
-    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} category:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} comparisons:${comparisonCount} glossary:${glossaryCount})`,
+    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} category:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} comparisons:${comparisonCount} glossary:${glossaryCount} collections:${collectionCount} landings:${landingCount})`,
     `  Tools:    ${toolCount}`,
     `  Articles: ${articleCount / (langCount || 1)} (${data.articles?.length || 0} guides, ${data.comparisons?.length || 0} comparisons, ${data.glossary?.length || 0} glossary × ${langCount} langs)`,
     `  Languages:${langCount}`,

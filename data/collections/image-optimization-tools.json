@@ -1,0 +1,18 @@
+{
+  "slug": "image-optimization-tools",
+  "title": { "en": "Image Optimization Tools", "es": "Herramientas de Optimización de Imágenes", "fr": "Outils d'Optimisation d'Images", "de": "Bildoptimierungstools", "pt": "Ferramentas de Otimização de Imagens" },
+  "h1": { "en": "Free Image Optimization Tools Online", "es": "Herramientas Gratuitas de Optimización de Imágenes Online", "fr": "Outils Gratuits d'Optimisation d'Images en Ligne", "de": "Kostenlose Online-Bildoptimierungstools", "pt": "Ferramentas Gratuitas de Otimização de Imagens Online" },
+  "description": { "en": "Optimize images for the web: compress, convert to modern formats like WebP and AVIF, resize and crop — all free, in-browser, no upload.", "es": "Optimiza imágenes para la web: comprime, convierte a WebP y AVIF, redimensiona y recorta — gratis, sin subir archivos.", "fr": "Optimisez les images pour le web: compressez, convertissez en WebP et AVIF, redimensionnez — gratuit, dans le navigateur.", "de": "Bilder für das Web optimieren: komprimieren, in WebP und AVIF konvertieren, skalieren und zuschneiden — kostenlos, kein Upload.", "pt": "Otimize imagens para a web: comprima, converta para WebP e AVIF, redimensione e recorte — gratuito, sem envio de arquivos." },
+  "intro": { "en": "Smaller images load faster and rank better. Use these tools to optimize every image on your website without quality sacrifice.", "es": "Las imágenes más pequeñas cargan más rápido y mejor posicionan. Usa estas herramientas para optimizar cada imagen de tu sitio.", "fr": "Des images plus petites se chargent plus vite. Utilisez ces outils pour optimiser chaque image de votre site web.", "de": "Kleinere Bilder laden schneller. Verwenden Sie diese Tools, um jedes Bild auf Ihrer Website ohne Qualitätsverlust zu optimieren.", "pt": "Imagens menores carregam mais rápido. Use essas ferramentas para otimizar cada imagem do seu site sem sacrificar qualidade." },
+  "toolSlugs": ["image-compressor", "png-to-webp", "png-to-avif", "jpg-to-webp", "image-resizer", "image-crop", "png-to-jpg", "compress-pdf"],
+  "category": "image",
+  "seo": {
+    "primaryKeyword": "image optimization tools online",
+    "secondaryKeywords": ["compress images free", "optimize images for web", "reduce image size online", "webp converter free", "avif converter"],
+    "title": { "en": "Free Image Optimization Tools Online — Compress, Convert, Resize" },
+    "description": { "en": "Optimize images for the web: compress PNG/JPG, convert to WebP and AVIF, resize — all free, instant, in-browser. No upload required." }
+  },
+  "relatedGuides": ["what-is-webp", "what-is-avif", "what-is-png"],
+  "relatedComparisons": ["webp-vs-png", "avif-vs-webp"],
+  "lastUpdated": "2026-06-27"
+}

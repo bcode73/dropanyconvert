@@ -120,7 +120,7 @@ function buildDashboard(routes, pages, seoData) {
 /**
  * Generates an expanded build report and writes it to build-report.json.
  */
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData, freshness }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -242,6 +242,15 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       total_modifiers:   (data.intents || []).reduce((s, i) => s + (i.modifiers?.length || 0), 0),
     },
 
+    // Indexing Readiness (Phase 19)
+    indexing_readiness: {
+      errors:   (indexingValidation?.errors   || []),
+      warnings: (indexingValidation?.warnings || []).slice(0, 30),
+      warning_count: (indexingValidation?.warnings || []).length,
+      stats:    (indexingValidation?.stats    || {}),
+      static_files_generated: ['humans.txt', 'security.txt', 'browserconfig.xml', 'site.webmanifest'],
+    },
+
     // Performance Audit (Phase 18)
     performance_audit: (() => {
       const sizes = emitResult.assetSizes || {};
@@ -319,6 +328,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Output:   ${emitResult.sizeKb} KB`,
     `  Warnings: ${validation.warnings.length}`,
     `  SEO:      ${seoStatus}`,
+    `  Indexing: ${(indexingValidation?.errors || []).length} errors, ${(indexingValidation?.warnings || []).length} warnings | sitemap:${indexingValidation?.stats?.sitemap_urls || 0} urls`,
   ].join('\n');
 
   try {

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T19:27:28.547Z",
-  "elapsed_ms": 6075,
+  "timestamp": "2026-06-27T20:56:40.931Z",
+  "elapsed_ms": 2249,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1242,
-  "output_size_kb": 103383,
+  "files_emitted": 1246,
+  "output_size_kb": 103556,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -80,7 +80,7 @@
     "duplicate_title_count": 766,
     "duplicate_desc_count": 604,
     "largest_page": "/fr/developer-tools/index.html",
-    "largest_page_bytes": 98243,
+    "largest_page_bytes": 98386,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "15.0.0"
@@ -119,10 +119,58 @@
     "intent_clusters": 11,
     "total_modifiers": 48
   },
+  "indexing_readiness": {
+    "errors": [],
+    "warnings": [
+      "INDEXING: possible orphan page (no linker path) — /en/regex-tester",
+      "INDEXING: possible orphan page (no linker path) — /en/unix-timestamp",
+      "INDEXING: possible orphan page (no linker path) — /en/guides/what-is-svg",
+      "INDEXING: possible orphan page (no linker path) — /en/guides/what-is-webp",
+      "INDEXING: possible orphan page (no linker path) — /en/guides/what-is-yaml",
+      "INDEXING: possible orphan page (no linker path) — /en/compare/markdown-vs-html",
+      "INDEXING: possible orphan page (no linker path) — /en/glossary/vector-image",
+      "INDEXING: possible orphan page (no linker path) — /en/trust",
+      "INDEXING: possible orphan page (no linker path) — /en/editorial/editorial-process",
+      "INDEXING: possible orphan page (no linker path) — /en/editorial/accuracy-policy",
+      "INDEXING: 40 more possible orphan pages (suppressed)"
+    ],
+    "warning_count": 11,
+    "stats": {
+      "sitemap_urls": 1225,
+      "canonical_mismatches": 0,
+      "sitemap_without_canonical": 0,
+      "orphan_pages_en": 50,
+      "orphan_by_type": {
+        "tool": 2,
+        "article": 3,
+        "comparison": 1,
+        "glossary": 1,
+        "trust": 1,
+        "editorial": 7,
+        "changelog": 1,
+        "platform": 8,
+        "use-case": 7,
+        "feature": 6,
+        "format-faq": 13
+      },
+      "thin_link_pages_en": 0,
+      "missing_breadcrumbs_en": 0,
+      "missing_h1_en": 0,
+      "missing_og_en": 0,
+      "missing_twitter_en": 0,
+      "robots_txt_ok": true
+    },
+    "static_files_generated": [
+      "humans.txt",
+      "security.txt",
+      "browserconfig.xml",
+      "site.webmanifest"
+    ]
+  },
   "performance_audit": {
     "js_size_kb": 59,
     "css_size_kb": 59,
-    "html_size_kb": 103383,
+    "html_size_kb": 103556,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

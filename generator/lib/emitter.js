@@ -28,7 +28,7 @@ function minifyJs(js) {
  * Copies each engines/{name}/index.js to dist/assets/js/engines/{name}.js
  * so the browser runtime can dynamically import them.
  */
-export async function emitDist({ pages, sitemaps, robots, aiFiles }, config) {
+export async function emitDist({ pages, sitemaps, robots, staticFiles, aiFiles }, config) {
   const distDir = config._distDir;
 
   // Always start clean — prevents stale files from previous builds
@@ -42,6 +42,7 @@ export async function emitDist({ pages, sitemaps, robots, aiFiles }, config) {
     ...pages,
     ...sitemaps,
     { path: robots.path, content: robots.content },
+    ...(staticFiles || []),
     ...(aiFiles || []),
   ];
 

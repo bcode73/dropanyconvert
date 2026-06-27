@@ -19,6 +19,8 @@ import { generateReport } from './lib/reporter.js';
 import { validateSeo } from './lib/seo-validator.js';
 import { generateAiDiscoverability } from './lib/llms.js';
 import { runFreshnessEngine } from './lib/freshness.js';
+import { generateStaticFiles } from './lib/static-files.js';
+import { validateIndexingReadiness } from './lib/indexing-validator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -91,6 +93,23 @@ async function build() {
   const robots = await generateRobots(config);
   console.log(`  ✓ robots.txt generated`);
 
+  // 10a. Generate static indexing files (humans.txt, security.txt, browserconfig.xml, site.webmanifest)
+  const staticFiles = generateStaticFiles(config);
+  console.log(`  ✓ Static files generated (humans.txt, security.txt, browserconfig.xml, site.webmanifest)`);
+
+  // 10b. Indexing readiness validation
+  const indexingValidation = validateIndexingReadiness(routes, seoData, links, sitemaps, robots, config);
+  if (indexingValidation.errors.length > 0) {
+    console.error('\n  ✗ Indexing readiness errors:\n');
+    indexingValidation.errors.forEach(e => console.error(`    - ${e}`));
+    process.exit(1);
+  }
+  indexingValidation.warnings.slice(0, 5).forEach(w => console.warn(`  ⚠ ${w}`));
+  if (indexingValidation.warnings.length > 5) {
+    console.warn(`  ⚠ ... and ${indexingValidation.warnings.length - 5} more indexing warnings (see build-report.json)`);
+  }
+  console.log(`  ✓ Indexing validated  (${indexingValidation.errors.length} errors, ${indexingValidation.warnings.length} warnings)`);
+
   // 11a. Freshness Engine — track content hashes, detect stale content
   const freshness = await runFreshnessEngine(data, config);
   if (freshness.staleItems.length > 0) {
@@ -102,12 +121,12 @@ async function build() {
   console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
 
   // 12. Emit everything to dist/
-  const emitResult = await emitDist({ pages, sitemaps, robots, aiFiles }, config);
+  const emitResult = await emitDist({ pages, sitemaps, robots, staticFiles, aiFiles }, config);
   console.log(`  ✓ Dist emitted   (${emitResult.fileCount} files, ${emitResult.sizeKb} KB)`);
 
-  // 12. Build report
+  // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData, freshness });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

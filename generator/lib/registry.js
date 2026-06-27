@@ -85,6 +85,90 @@ export async function buildRegistry(data, config) {
     }
   }
 
+  // Article (guide) routes
+  for (const article of (data.articles || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'article',
+        lang: lang.code,
+        slug: article.slug,
+        path: `/${lang.code}/guides/${article.slug}`,
+        article,
+        language: lang,
+      });
+    }
+  }
+
+  // Guides index per language
+  if ((data.articles || []).length > 0) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'guides-index',
+        lang: lang.code,
+        slug: 'guides',
+        path: `/${lang.code}/guides`,
+        articles: data.articles,
+        language: lang,
+      });
+    }
+  }
+
+  // Comparison routes
+  for (const comparison of (data.comparisons || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'comparison',
+        lang: lang.code,
+        slug: comparison.slug,
+        path: `/${lang.code}/compare/${comparison.slug}`,
+        comparison,
+        language: lang,
+      });
+    }
+  }
+
+  // Compare index per language
+  if ((data.comparisons || []).length > 0) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'compare-index',
+        lang: lang.code,
+        slug: 'compare',
+        path: `/${lang.code}/compare`,
+        comparisons: data.comparisons,
+        language: lang,
+      });
+    }
+  }
+
+  // Glossary term routes
+  for (const term of (data.glossary || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'glossary',
+        lang: lang.code,
+        slug: term.slug,
+        path: `/${lang.code}/glossary/${term.slug}`,
+        term,
+        language: lang,
+      });
+    }
+  }
+
+  // Glossary index per language
+  if ((data.glossary || []).length > 0) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'glossary-index',
+        lang: lang.code,
+        slug: 'glossary',
+        path: `/${lang.code}/glossary`,
+        terms: data.glossary,
+        language: lang,
+      });
+    }
+  }
+
   // Root redirect
   routes.push({
     type: 'root',

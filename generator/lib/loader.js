@@ -1,5 +1,22 @@
-import { readFile, readdir } from 'fs/promises';
+import { readFile, readdir, access } from 'fs/promises';
 import path from 'path';
+
+async function loadJsonDir(dir) {
+  try {
+    await access(dir);
+  } catch {
+    return [];
+  }
+  const files = await readdir(dir);
+  return Promise.all(
+    files
+      .filter(f => f.endsWith('.json'))
+      .map(async f => {
+        const raw = await readFile(path.join(dir, f), 'utf8');
+        return JSON.parse(raw);
+      })
+  );
+}
 
 export async function loadData(config) {
   const dataDir = config._dataDir;
@@ -20,15 +37,12 @@ export async function loadData(config) {
   const legal = JSON.parse(legalRaw);
   const analytics = JSON.parse(analyticsRaw);
 
-  const toolFiles = await readdir(path.join(dataDir, 'tools'));
-  const tools = await Promise.all(
-    toolFiles
-      .filter(f => f.endsWith('.json'))
-      .map(async f => {
-        const raw = await readFile(path.join(dataDir, 'tools', f), 'utf8');
-        return JSON.parse(raw);
-      })
-  );
+  const [tools, articles, comparisons, glossary] = await Promise.all([
+    loadJsonDir(path.join(dataDir, 'tools')),
+    loadJsonDir(path.join(dataDir, 'articles')),
+    loadJsonDir(path.join(dataDir, 'comparisons')),
+    loadJsonDir(path.join(dataDir, 'glossary')),
+  ]);
 
-  return { categories, languages, seoGlobal, ads, legal, analytics, tools };
+  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary };
 }

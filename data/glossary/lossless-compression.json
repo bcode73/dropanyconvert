@@ -1,0 +1,16 @@
+{
+  "slug": "lossless-compression",
+  "term": { "en": "Lossless Compression" },
+  "shortDef": { "en": "A compression method that reduces file size while preserving all original data exactly." },
+  "definition": { "en": "Lossless compression is a class of data compression algorithms that allow the original data to be perfectly reconstructed from the compressed file. Not a single bit of the original information is discarded. When you decompress a losslessly compressed file, you get an exact copy of the original — byte for byte. Common lossless algorithms include DEFLATE (used in ZIP, PNG, and gzip), LZW (used in GIF and TIFF), LZMA (used in 7-Zip and XZ), and Brotli (used in web compression). Lossless compression works by finding and eliminating redundancy — repeated patterns or predictable sequences — within the data." },
+  "examples": [
+    { "en": "PNG images use lossless DEFLATE compression — decompressing a PNG always produces the exact original pixels." },
+    { "en": "ZIP archives are losslessly compressed — extracting a ZIP gives you the original files unchanged." },
+    { "en": "FLAC audio is losslessly compressed — it sounds identical to uncompressed WAV." }
+  ],
+  "relatedTerms": ["lossy-compression", "deflate-algorithm", "color-depth"],
+  "relatedTools": ["png-to-jpg", "webp-to-png", "compress-pdf"],
+  "relatedArticles": ["what-is-png", "webp-vs-png"],
+  "category": "image",
+  "lastUpdated": "2026-01-15"
+}

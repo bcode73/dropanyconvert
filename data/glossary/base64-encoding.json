@@ -1,0 +1,16 @@
+{
+  "slug": "base64-encoding",
+  "term": { "en": "Base64 Encoding" },
+  "shortDef": { "en": "A binary-to-text encoding scheme that converts binary data into a string of 64 printable ASCII characters." },
+  "definition": { "en": "Base64 encoding is a method of representing binary data (bytes) as a string of printable ASCII characters. It works by grouping input bytes in blocks of 3 (24 bits) and encoding each block as 4 characters chosen from an alphabet of 64 characters: A–Z (26), a–z (26), 0–9 (10), + (1), and / (1). The '=' character is used for padding when the input length is not a multiple of 3. The result is a 33% size increase (4 characters per 3 bytes) but a string that is safe to embed in any text-based format. Base64URL is a variant that replaces + with - and / with _ to make the output URL-safe. Base64 is used in data URIs (embedding images in CSS/HTML), HTTP Basic Authentication, email attachments (MIME), and JWT tokens." },
+  "examples": [
+    { "en": "The string 'Hello' encodes to 'SGVsbG8=' in Base64." },
+    { "en": "A small PNG icon embedded as a data URI: src='data:image/png;base64,iVBORw0KGgo...'" },
+    { "en": "HTTP Basic Auth header: Authorization: Basic dXNlcjpwYXNz (where 'dXNlcjpwYXNz' is Base64 for 'user:pass')" }
+  ],
+  "relatedTerms": ["mime-type", "checksum"],
+  "relatedTools": ["base64-encode", "base64-decode", "base64-to-image", "image-to-base64"],
+  "relatedArticles": ["what-is-base64", "what-is-json"],
+  "category": "developer",
+  "lastUpdated": "2026-01-15"
+}

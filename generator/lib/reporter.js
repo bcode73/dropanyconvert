@@ -28,11 +28,17 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     routes: routeCount,
     pages_generated: pageCount,
     pages_by_type: {
-      tool:     routes.filter(r => r.type === 'tool').length,
-      category: categoryPages,
-      home:     homePages,
-      legal:    legalPages,
-      root:     1,
+      tool:           routes.filter(r => r.type === 'tool').length,
+      category:       categoryPages,
+      home:           homePages,
+      legal:          legalPages,
+      article:        routes.filter(r => r.type === 'article').length,
+      comparison:     routes.filter(r => r.type === 'comparison').length,
+      glossary:       routes.filter(r => r.type === 'glossary').length,
+      'guides-index': routes.filter(r => r.type === 'guides-index').length,
+      'compare-index':routes.filter(r => r.type === 'compare-index').length,
+      'glossary-index':routes.filter(r => r.type === 'glossary-index').length,
+      root:           1,
     },
     sitemaps_generated: sitemaps.length,
     files_emitted: emitResult.fileCount,
@@ -93,9 +99,14 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       ? `WARN (${seoWarnings.length} warnings)`
       : 'PASS';
 
+  const articleCount   = routes.filter(r => r.type === 'article').length;
+  const comparisonCount = routes.filter(r => r.type === 'comparison').length;
+  const glossaryCount  = routes.filter(r => r.type === 'glossary').length;
+
   const summary = [
-    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} category:${categoryPages} home:${homePages} legal:${legalPages})`,
+    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} category:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} comparisons:${comparisonCount} glossary:${glossaryCount})`,
     `  Tools:    ${toolCount}`,
+    `  Articles: ${articleCount / (langCount || 1)} (${data.articles?.length || 0} guides, ${data.comparisons?.length || 0} comparisons, ${data.glossary?.length || 0} glossary × ${langCount} langs)`,
     `  Languages:${langCount}`,
     `  Sitemaps: ${sitemaps.length}`,
     `  Output:   ${emitResult.sizeKb} KB`,

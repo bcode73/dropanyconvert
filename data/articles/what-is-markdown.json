@@ -1,0 +1,57 @@
+{
+  "slug": "what-is-markdown",
+  "articleType": "guide",
+  "category": "developer",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["markdown-to-html"],
+  "relatedArticles": ["what-is-json", "what-is-yaml", "markdown-vs-html"],
+  "title": { "en": "What is Markdown? Complete Guide to Markdown Syntax" },
+  "h1": { "en": "What is Markdown?" },
+  "description": { "en": "A complete guide to Markdown — syntax, flavours (CommonMark, GFM, MDX), use cases in documentation and blogging, and how it converts to HTML." },
+  "intro": { "en": "Markdown is a lightweight markup language created by John Gruber in 2004. It allows you to write formatted documents using plain text that is readable as-is and can be converted to HTML. Markdown is now the standard for README files, documentation, blogging platforms, and note-taking applications." },
+  "sections": [
+    {
+      "id": "syntax",
+      "heading": { "en": "Core Markdown Syntax" },
+      "content": { "en": "Markdown's syntax maps common formatting needs to simple punctuation. Headings use # symbols (# H1, ## H2, ### H3). Bold text uses **double asterisks**. Italic uses *single asterisks*. Code spans use `backticks`. Code blocks use triple backticks (```). Links use [text](url). Images use ![alt](url). Unordered lists use - or * before each item. Ordered lists use numbers (1. 2. 3.). Horizontal rules use --- or ***. Blockquotes use > at the start of a line. The design principle is that the source text remains readable without rendering." }
+    },
+    {
+      "id": "flavours",
+      "heading": { "en": "Markdown Flavours" },
+      "content": { "en": "The original Markdown spec by John Gruber was intentionally vague, leading to many divergent implementations. CommonMark is a precise, unambiguous specification that has become the standard. GitHub Flavored Markdown (GFM) extends CommonMark with tables, strikethrough (~~text~~), task lists (- [x] done), and auto-linking. MDX is Markdown with JSX components, used in React-based documentation sites (Docusaurus, Next.js). MultiMarkdown and Pandoc Markdown add academic citations, footnotes, and document metadata. When choosing a Markdown processor, verify which flavour it supports." }
+    },
+    {
+      "id": "how-it-converts",
+      "heading": { "en": "How Markdown Converts to HTML" },
+      "content": { "en": "A Markdown processor reads Markdown source text and outputs HTML. The conversion is deterministic: # Heading becomes <h1>Heading</h1>, **bold** becomes <strong>bold</strong>, and so on. Most Markdown processors also allow raw HTML inline, meaning you can include HTML elements that have no Markdown equivalent (like <video>, <details>, or custom attributes). The output HTML can then be styled with CSS like any other HTML document." }
+    },
+    {
+      "id": "use-cases",
+      "heading": { "en": "Where Markdown Is Used" },
+      "content": { "en": "Markdown is used in: GitHub README files (virtually every open-source project), documentation sites (Docusaurus, MkDocs, GitBook, VitePress), blogging platforms (Ghost, Hugo, Jekyll, 11ty), note-taking apps (Obsidian, Notion, Bear, Typora), chat applications (Slack, Discord, Teams), Stack Overflow and Reddit for formatting posts, and Jupyter notebooks for documentation cells. Its simplicity and portability have made it the lingua franca for developer writing." }
+    },
+    {
+      "id": "limitations",
+      "heading": { "en": "Limitations of Markdown" },
+      "content": { "en": "Markdown was designed for simple formatted text and has limited support for complex layouts. Tables in standard Markdown are awkward to write and read in source form. Complex nested structures are cumbersome. There is no standard support for sidebars, callouts, tabs, or custom components (though MDX and extended flavours address this). For rich content requiring precise layout control, HTML or a CMS with a visual editor may be more appropriate." }
+    }
+  ],
+  "faq": [
+    {
+      "question": { "en": "How do I convert Markdown to HTML?" },
+      "answer": { "en": "Use our Markdown to HTML converter tool to convert Markdown instantly in your browser. In code: marked.js and markdown-it for JavaScript, Python-Markdown or Mistune for Python, Kramdown for Ruby. All major static site generators also process Markdown automatically." }
+    },
+    {
+      "question": { "en": "What is the difference between Markdown and HTML?" },
+      "answer": { "en": "HTML is the complete language for structuring web pages with full control over every element and attribute. Markdown is a simplified shorthand that converts to a subset of HTML. Markdown is faster to write for common formatting (headings, bold, lists, links), but HTML is necessary for complex layouts, custom attributes, interactive elements, and anything Markdown cannot express." }
+    },
+    {
+      "question": { "en": "Is Markdown a programming language?" },
+      "answer": { "en": "No. Markdown is a markup language — a set of annotations that describe the structure and formatting of text. It has no logic, variables, functions, or computation. It is closer to HTML in nature than to a programming language like JavaScript or Python." }
+    },
+    {
+      "question": { "en": "What file extension does Markdown use?" },
+      "answer": { "en": ".md is the most common extension for Markdown files. .markdown is also valid. GitHub, GitLab, and most documentation tools recognise both. .mdx is used for MDX files that combine Markdown with JSX components." }
+    }
+  ]
+}

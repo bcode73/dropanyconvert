@@ -1,0 +1,72 @@
+{
+  "slug": "avif-vs-webp",
+  "articleType": "comparison",
+  "subjectA": "AVIF",
+  "subjectB": "WebP",
+  "category": "image",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["avif-to-png", "avif-to-jpg", "png-to-avif", "jpg-to-avif", "webp-to-png", "png-to-webp"],
+  "relatedArticles": ["what-is-avif", "what-is-webp", "webp-vs-png", "png-vs-jpg"],
+  "title": { "en": "AVIF vs WebP: Which Modern Image Format Should You Use?" },
+  "h1": { "en": "AVIF vs WebP: Complete Comparison" },
+  "description": { "en": "AVIF vs WebP — comparing compression efficiency, quality, browser support, encoding speed, and when to use each for modern web images." },
+  "intro": { "en": "AVIF and WebP are the two leading modern image formats competing to replace JPG and PNG on the web. AVIF achieves better compression — typically 20–30% smaller than WebP at equivalent quality — but WebP has wider software support and faster encoding times. The ideal strategy uses both: serve AVIF to browsers that support it, with WebP as the primary fallback." },
+  "comparisonTable": {
+    "rows": [
+      { "aspect": { "en": "Compression (vs JPG)" }, "a": { "en": "~50% smaller" }, "b": { "en": "~30% smaller" } },
+      { "aspect": { "en": "Compression (vs each other)" }, "a": { "en": "~20–30% smaller" }, "b": { "en": "Baseline" } },
+      { "aspect": { "en": "Transparency" }, "a": { "en": "Yes" }, "b": { "en": "Yes" } },
+      { "aspect": { "en": "Animation" }, "a": { "en": "Yes (AVIS)" }, "b": { "en": "Yes" } },
+      { "aspect": { "en": "HDR / wide colour" }, "a": { "en": "Yes (10/12-bit)" }, "b": { "en": "Limited" } },
+      { "aspect": { "en": "Encoding speed" }, "a": { "en": "Slow" }, "b": { "en": "Fast" } },
+      { "aspect": { "en": "Browser support" }, "a": { "en": "~90% (Chrome 85+, Firefox 93+, Safari 16+)" }, "b": { "en": "~97% (Chrome 23+, Firefox 65+, Safari 14+)" } },
+      { "aspect": { "en": "Software support" }, "a": { "en": "Growing" }, "b": { "en": "Good" } }
+    ]
+  },
+  "advantages": {
+    "a": [
+      { "en": "Best compression ratio of any widely supported format" },
+      { "en": "Native HDR and wide colour gamut support" },
+      { "en": "10-bit and 12-bit colour depth" },
+      { "en": "Better quality at very low bitrates" }
+    ],
+    "b": [
+      { "en": "Wider browser and software support" },
+      { "en": "Much faster encoding" },
+      { "en": "Better for real-time image processing" },
+      { "en": "More mature ecosystem and tooling" }
+    ]
+  },
+  "disadvantages": {
+    "a": [
+      { "en": "Slow encoding — not suitable for real-time conversion" },
+      { "en": "Less browser support (approximately 10% of users miss out without fallback)" },
+      { "en": "Less software support for desktop editing" }
+    ],
+    "b": [
+      { "en": "Larger file sizes than AVIF" },
+      { "en": "Limited HDR support" },
+      { "en": "Being superseded for highest-quality use cases" }
+    ]
+  },
+  "whenToUse": {
+    "a": { "en": "Use AVIF when maximum compression is the priority and you have time for slower encoding. Best for batch-processed images at build time or via a CDN that handles the conversion. Always provide a WebP or JPG fallback." },
+    "b": { "en": "Use WebP when you need faster encoding, better software compatibility, or a balance of compression and support. WebP is a safer default for general web use in 2024." }
+  },
+  "performanceNote": { "en": "Netflix and Google have both published studies showing AVIF achieves 20–40% smaller files than WebP at equivalent SSIM quality scores. The difference is most pronounced at low quality settings and for complex photographic content." },
+  "browserSupport": {
+    "a": { "en": "Chrome 85+, Firefox 93+, Safari 16+, Edge 121+. Covers ~90% of users." },
+    "b": { "en": "Chrome 23+, Firefox 65+, Safari 14+, Edge 18+. Covers ~97% of users." }
+  },
+  "verdict": { "en": "For new web projects: serve AVIF first, WebP as the first fallback, JPG as the final fallback. Use the HTML picture element to let browsers choose. If you can only use one modern format, WebP has the better compatibility–compression balance today." },
+  "faq": [
+    {
+      "question": { "en": "Which should I use in 2024: AVIF or WebP?" },
+      "answer": { "en": "Both, with the HTML picture element. Serve AVIF to Chrome, Firefox, and Safari 16+ (approximately 90% of users); serve WebP to Safari 14–15 and other modern browsers; keep JPG or PNG as the ultimate fallback." }
+    },
+    {
+      "question": { "en": "Is AVIF supported by Safari?" },
+      "answer": { "en": "AVIF is supported in Safari 16+, which shipped with macOS Ventura (September 2022) and iOS 16. Users on older Safari versions will need the WebP or JPG fallback." }
+    }
+  ]
+}

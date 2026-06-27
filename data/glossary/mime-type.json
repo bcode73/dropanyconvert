@@ -1,0 +1,17 @@
+{
+  "slug": "mime-type",
+  "term": { "en": "MIME Type" },
+  "shortDef": { "en": "A label that identifies the format of a file or data stream, used in HTTP headers and HTML attributes." },
+  "definition": { "en": "A MIME type (Multipurpose Internet Mail Extensions type, also called a media type or content type) is a standardised label that identifies the format of a file or data stream. It consists of a type and subtype separated by a slash: image/png, text/html, application/json, audio/mpeg. MIME types are used in HTTP Content-Type headers (telling the browser what kind of data it received), HTML attributes (type='image/webp' in a source element), file upload inputs (accept='image/*'), and email attachments (their original purpose). The IANA (Internet Assigned Numbers Authority) maintains the official registry of MIME types." },
+  "examples": [
+    { "en": "image/jpeg — identifies a JPEG image file" },
+    { "en": "application/json — identifies a JSON data payload in an API response" },
+    { "en": "text/html; charset=utf-8 — identifies an HTML page with UTF-8 encoding" },
+    { "en": "multipart/form-data — identifies a file upload form submission" }
+  ],
+  "relatedTerms": ["metadata"],
+  "relatedTools": ["base64-encode", "base64-to-image"],
+  "relatedArticles": ["what-is-base64", "what-is-json"],
+  "category": "developer",
+  "lastUpdated": "2026-01-15"
+}

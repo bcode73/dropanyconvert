@@ -1,0 +1,72 @@
+{
+  "slug": "webp-vs-png",
+  "articleType": "comparison",
+  "subjectA": "WebP",
+  "subjectB": "PNG",
+  "category": "image",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["webp-to-png", "png-to-webp", "jpg-to-webp"],
+  "relatedArticles": ["what-is-webp", "what-is-png", "png-vs-jpg", "avif-vs-webp"],
+  "title": { "en": "WebP vs PNG: Which Format Is Better for the Web?" },
+  "h1": { "en": "WebP vs PNG: Complete Comparison" },
+  "description": { "en": "WebP vs PNG comparison — file size, quality, transparency, browser support, use cases, and when to use each format for web images." },
+  "intro": { "en": "WebP and PNG both support lossless compression and transparency, but WebP consistently produces smaller files. WebP lossless images are approximately 26% smaller than equivalent PNGs. However, PNG has effectively universal software support while WebP may not open in older applications." },
+  "comparisonTable": {
+    "rows": [
+      { "aspect": { "en": "Lossless compression" }, "a": { "en": "Yes" }, "b": { "en": "Yes" } },
+      { "aspect": { "en": "Lossy compression" }, "a": { "en": "Yes" }, "b": { "en": "No" } },
+      { "aspect": { "en": "Transparency (alpha)" }, "a": { "en": "Yes" }, "b": { "en": "Yes" } },
+      { "aspect": { "en": "Animation" }, "a": { "en": "Yes" }, "b": { "en": "Limited (APNG)" } },
+      { "aspect": { "en": "Lossless file size" }, "a": { "en": "~26% smaller" }, "b": { "en": "Baseline" } },
+      { "aspect": { "en": "Browser support" }, "a": { "en": "97%+ (Chrome, Firefox, Safari 14+, Edge)" }, "b": { "en": "Universal (100%)" } },
+      { "aspect": { "en": "Software support" }, "a": { "en": "Good (modern tools)" }, "b": { "en": "Universal (all tools)" } },
+      { "aspect": { "en": "Encoding speed" }, "a": { "en": "Slower" }, "b": { "en": "Faster" } }
+    ]
+  },
+  "advantages": {
+    "a": [
+      { "en": "Smaller file sizes than PNG (lossless and lossy modes)" },
+      { "en": "Supports both lossless and lossy modes in one format" },
+      { "en": "Native animation support (replacing GIF)" },
+      { "en": "Better web performance metrics" }
+    ],
+    "b": [
+      { "en": "Universal software compatibility (every tool supports PNG)" },
+      { "en": "Faster encoding and simpler toolchain" },
+      { "en": "No compatibility concerns for downloads or shared files" },
+      { "en": "Better for files that will be opened in arbitrary software" }
+    ]
+  },
+  "disadvantages": {
+    "a": [
+      { "en": "Not supported in very old browsers (pre-2020 Safari)" },
+      { "en": "Less universal in desktop applications" },
+      { "en": "Slower to encode than PNG" }
+    ],
+    "b": [
+      { "en": "Larger file sizes than WebP" },
+      { "en": "No native animation (APNG is not widely supported)" },
+      { "en": "Only lossless compression (no lossy option for photos)" }
+    ]
+  },
+  "whenToUse": {
+    "a": { "en": "Use WebP for web delivery where you control the serving infrastructure and can provide PNG fallbacks. Ideal when performance and file size are priorities and you are targeting modern browsers." },
+    "b": { "en": "Use PNG when maximum software compatibility is needed — sharing files with clients, exporting for print, or any context where the file may be opened in arbitrary applications. PNG is also the safer choice for long-term archiving of graphics." }
+  },
+  "performanceNote": { "en": "Google's benchmark shows WebP lossless images are 26% smaller than PNG on average. For a logo that is 50 KB as PNG, WebP lossless would be approximately 37 KB. For photographic images, WebP lossy achieves 25–35% smaller files than PNG at equivalent perceived quality." },
+  "browserSupport": {
+    "a": { "en": "Chrome 23+, Firefox 65+, Safari 14+, Edge 18+, Opera 12.1+" },
+    "b": { "en": "All browsers, all versions, universal" }
+  },
+  "verdict": { "en": "For web delivery, WebP is the better choice — it produces smaller files while maintaining identical visual quality. Use PNG as a fallback for browsers that don't support WebP (now rare), and keep PNG as your master/source file since it has the best software compatibility for editing workflows." },
+  "faq": [
+    {
+      "question": { "en": "Should I replace all PNGs on my website with WebP?" },
+      "answer": { "en": "For images served on the web, yes — WebP will improve your page load performance. Use the HTML picture element to serve WebP with PNG fallback: <picture><source type='image/webp' srcset='image.webp'><img src='image.png'></picture>. Keep original PNGs in your source repository." }
+    },
+    {
+      "question": { "en": "Is WebP lossless the same quality as PNG?" },
+      "answer": { "en": "Yes. WebP lossless compression is a different algorithm to PNG's DEFLATE, but both produce pixel-perfect lossless images. Decompressing a WebP lossless image gives you exactly the same pixels as the source — just like PNG, but typically at a smaller file size." }
+    }
+  ]
+}

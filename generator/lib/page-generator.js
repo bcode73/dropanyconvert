@@ -23,6 +23,24 @@ export async function generatePages(routes, seoData, links, data, config) {
     } else if (route.type === 'legal') {
       html = renderLegalPage(route, seo, data, config);
       pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'article') {
+      html = renderArticlePage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'comparison') {
+      html = renderComparisonPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'glossary') {
+      html = renderGlossaryTermPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'guides-index') {
+      html = renderGuidesIndexPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'compare-index') {
+      html = renderCompareIndexPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'glossary-index') {
+      html = renderGlossaryIndexPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
     } else if (route.type === 'root') {
       const d = config.languages.default;
       html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/${d}"><link rel="canonical" href="${config.site.baseUrl}/${d}"></head><body></body></html>`;
@@ -1459,6 +1477,572 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 <script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Knowledge Hub shared helpers ───────────────────────────────────────────
+
+function estReadingTime(text) {
+  const words = (text || '').split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
+function renderKnowledgeBreadcrumb(seo) {
+  return renderBreadcrumb(seo.breadcrumbs || []);
+}
+
+function knowledgeRelatedToolCards(slugs, tools, langCode, baseUrl) {
+  if (!slugs || slugs.length === 0) return '';
+  const cards = slugs
+    .map(s => tools.find(t => t.slug === s))
+    .filter(Boolean)
+    .slice(0, 6)
+    .map(t => {
+      const name = t.name?.[langCode] || t.name?.en || t.slug;
+      const tagline = t.tagline?.[langCode] || t.tagline?.en || '';
+      return `<a href="/${langCode}/${t.slug}" class="dac-kh-tool-card">
+        <span class="dac-kh-tool-card__name">${esc(name)}</span>
+        ${tagline ? `<span class="dac-kh-tool-card__desc">${esc(tagline)}</span>` : ''}
+      </a>`;
+    }).join('\n');
+  if (!cards) return '';
+  return `<section class="dac-kh-related" aria-labelledby="related-tools-heading">
+    <h2 class="dac-kh-related__title" id="related-tools-heading">Related Tools</h2>
+    <div class="dac-kh-tool-grid">${cards}</div>
+  </section>`;
+}
+
+function knowledgeRelatedArticleCards(slugs, articles, comparisons, langCode) {
+  if (!slugs || slugs.length === 0) return '';
+  const allKnowledge = [...(articles || []), ...(comparisons || [])];
+  const cards = slugs
+    .map(s => allKnowledge.find(a => a.slug === s))
+    .filter(Boolean)
+    .slice(0, 6)
+    .map(a => {
+      const isComparison = a.articleType === 'comparison';
+      const href = isComparison ? `/${langCode}/compare/${a.slug}` : `/${langCode}/guides/${a.slug}`;
+      const title = a.h1?.[langCode] || a.h1?.en || a.title?.[langCode] || a.title?.en || a.slug;
+      const desc = a.description?.[langCode] || a.description?.en || '';
+      return `<a href="${href}" class="dac-kh-article-card">
+        <span class="dac-kh-article-card__tag">${isComparison ? 'Compare' : 'Guide'}</span>
+        <span class="dac-kh-article-card__title">${esc(title)}</span>
+        ${desc ? `<span class="dac-kh-article-card__desc">${esc(desc)}</span>` : ''}
+      </a>`;
+    }).join('\n');
+  if (!cards) return '';
+  return `<section class="dac-kh-related" aria-labelledby="related-articles-heading">
+    <h2 class="dac-kh-related__title" id="related-articles-heading">Related Guides</h2>
+    <div class="dac-kh-article-grid">${cards}</div>
+  </section>`;
+}
+
+function renderKnowledgeFaq(faq, langCode) {
+  if (!faq || faq.length === 0) return '';
+  const items = faq.map(item => {
+    const q = item.question?.[langCode] || item.question?.en || '';
+    const a = item.answer?.[langCode] || item.answer?.en || '';
+    return `<details class="dac-faq__item">
+      <summary class="dac-faq__question">${esc(q)}</summary>
+      <div class="dac-faq__answer">${esc(a)}</div>
+    </details>`;
+  }).join('\n');
+  return `<section class="dac-kh-faq" aria-labelledby="faq-heading">
+    <h2 class="dac-kh-section-title" id="faq-heading">Frequently Asked Questions</h2>
+    <div class="dac-faq">${items}</div>
+  </section>`;
+}
+
+function renderArticleToc(sections, langCode) {
+  if (!sections || sections.length === 0) return '';
+  const items = sections.map(s => {
+    const heading = s.heading?.[langCode] || s.heading?.en || '';
+    return `<li><a href="#${esc(s.id)}" class="dac-kh-toc__link">${esc(heading)}</a></li>`;
+  }).join('\n');
+  return `<nav class="dac-kh-toc" aria-label="Table of contents">
+    <h2 class="dac-kh-toc__title">Contents</h2>
+    <ol class="dac-kh-toc__list">${items}</ol>
+  </nav>`;
+}
+
+function renderProgressBar() {
+  return `<div class="dac-reading-progress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="dac-reading-progress__bar" id="dac-progress-bar"></div>
+  </div>`;
+}
+
+// ── Article Page ───────────────────────────────────────────────────────────
+
+function renderArticlePage(route, seo, data, config) {
+  const article = route.article;
+  const langCode = route.lang;
+  const lang = route.language;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, isLegal: false };
+
+  const h1 = seo.h1 || article.h1?.en || '';
+  const intro = article.intro?.[langCode] || article.intro?.en || '';
+  const sections = article.sections || [];
+  const allText = [intro, ...sections.map(s => s.content?.[langCode] || s.content?.en || '')].join(' ');
+  const readingTime = estReadingTime(allText);
+  const lastUpdated = article.lastUpdated || '';
+
+  const tocHtml = renderArticleToc(sections, langCode);
+  const sectionsHtml = sections.map(s => {
+    const heading = s.heading?.[langCode] || s.heading?.en || '';
+    const content = s.content?.[langCode] || s.content?.en || '';
+    return `<section class="dac-kh-section" id="${esc(s.id)}">
+      <h2 class="dac-kh-section-title">${esc(heading)}</h2>
+      <p class="dac-kh-section-content">${esc(content)}</p>
+    </section>`;
+  }).join('\n');
+
+  const faqHtml = renderKnowledgeFaq(article.faq, langCode);
+  const relToolsHtml = knowledgeRelatedToolCards(article.relatedTools, data.tools, langCode, config.site.baseUrl);
+  const relArticlesHtml = knowledgeRelatedArticleCards(article.relatedArticles, data.articles, data.comparisons, langCode);
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--article">
+${renderProgressBar()}
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main dac-article-layout" id="main">
+  <article class="dac-article" itemscope itemtype="https://schema.org/Article">
+    <header class="dac-article__header">
+      <div class="dac-article__meta">
+        <span class="dac-article__tag">Guide</span>
+        <span class="dac-article__reading-time">${readingTime} min read</span>
+        ${lastUpdated ? `<time class="dac-article__date" datetime="${esc(lastUpdated)}">Updated ${esc(lastUpdated)}</time>` : ''}
+      </div>
+      <h1 class="dac-article__title" itemprop="headline">${esc(h1)}</h1>
+      ${intro ? `<p class="dac-article__intro" itemprop="description">${esc(intro)}</p>` : ''}
+    </header>
+
+    ${tocHtml}
+
+    <div class="dac-article__body" itemprop="articleBody">
+      ${sectionsHtml}
+    </div>
+
+    ${faqHtml}
+
+    <footer class="dac-article__footer">
+      <div class="dac-article__actions">
+        <button class="dac-btn dac-btn--ghost dac-btn--sm" onclick="window.print()">Print</button>
+        <button class="dac-btn dac-btn--ghost dac-btn--sm" id="dac-share-btn">Share</button>
+        <a href="#" class="dac-btn dac-btn--ghost dac-btn--sm" id="dac-back-top">↑ Back to top</a>
+      </div>
+      ${lastUpdated ? `<p class="dac-article__footer-meta">Last reviewed: <time datetime="${esc(lastUpdated)}">${esc(lastUpdated)}</time></p>` : ''}
+    </footer>
+  </article>
+
+  <aside class="dac-article-sidebar">
+    ${tocHtml ? `<div class="dac-sidebar-toc" aria-label="Quick navigation">${tocHtml}</div>` : ''}
+  </aside>
+</main>
+
+<div class="dac-article-related-wrapper">
+  ${relToolsHtml}
+  ${relArticlesHtml}
+</div>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/article-runtime.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Comparison Page ────────────────────────────────────────────────────────
+
+function renderComparisonPage(route, seo, data, config) {
+  const cmp = route.comparison;
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics };
+
+  const h1 = seo.h1 || cmp.h1?.en || '';
+  const intro = cmp.intro?.[langCode] || cmp.intro?.en || '';
+  const lastUpdated = cmp.lastUpdated || '';
+
+  const tableRows = (cmp.comparisonTable?.rows || []).map(row => {
+    const aspect = row.aspect?.[langCode] || row.aspect?.en || '';
+    const a = row.a?.[langCode] || row.a?.en || '';
+    const b = row.b?.[langCode] || row.b?.en || '';
+    return `<tr>
+      <th scope="row" class="dac-cmp-table__aspect">${esc(aspect)}</th>
+      <td class="dac-cmp-table__cell">${esc(a)}</td>
+      <td class="dac-cmp-table__cell">${esc(b)}</td>
+    </tr>`;
+  }).join('\n');
+
+  const tableHtml = tableRows ? `<div class="dac-cmp-table-wrap">
+    <table class="dac-cmp-table" aria-label="${esc(cmp.subjectA)} vs ${esc(cmp.subjectB)} comparison">
+      <thead>
+        <tr>
+          <th class="dac-cmp-table__heading">Feature</th>
+          <th class="dac-cmp-table__heading dac-cmp-table__heading--a">${esc(cmp.subjectA)}</th>
+          <th class="dac-cmp-table__heading dac-cmp-table__heading--b">${esc(cmp.subjectB)}</th>
+        </tr>
+      </thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+  </div>` : '';
+
+  const renderAdvList = (items, lang) => (items || []).map(i => `<li>${esc(i?.[lang] || i?.en || '')}</li>`).join('\n');
+
+  const advantagesHtml = (cmp.advantages?.a || cmp.advantages?.b) ? `<div class="dac-cmp-adv-grid">
+    <div class="dac-cmp-adv dac-cmp-adv--a">
+      <h3 class="dac-cmp-adv__title">${esc(cmp.subjectA)} Advantages</h3>
+      <ul class="dac-cmp-adv__list">${renderAdvList(cmp.advantages?.a, langCode)}</ul>
+    </div>
+    <div class="dac-cmp-adv dac-cmp-adv--b">
+      <h3 class="dac-cmp-adv__title">${esc(cmp.subjectB)} Advantages</h3>
+      <ul class="dac-cmp-adv__list">${renderAdvList(cmp.advantages?.b, langCode)}</ul>
+    </div>
+  </div>` : '';
+
+  const disadvHtml = (cmp.disadvantages?.a || cmp.disadvantages?.b) ? `<div class="dac-cmp-adv-grid">
+    <div class="dac-cmp-adv dac-cmp-adv--a">
+      <h3 class="dac-cmp-adv__title">${esc(cmp.subjectA)} Disadvantages</h3>
+      <ul class="dac-cmp-adv__list dac-cmp-adv__list--neg">${renderAdvList(cmp.disadvantages?.a, langCode)}</ul>
+    </div>
+    <div class="dac-cmp-adv dac-cmp-adv--b">
+      <h3 class="dac-cmp-adv__title">${esc(cmp.subjectB)} Disadvantages</h3>
+      <ul class="dac-cmp-adv__list dac-cmp-adv__list--neg">${renderAdvList(cmp.disadvantages?.b, langCode)}</ul>
+    </div>
+  </div>` : '';
+
+  const whenHtml = (cmp.whenToUse?.a || cmp.whenToUse?.b) ? `<section class="dac-kh-section">
+    <h2 class="dac-kh-section-title">When to Use Each</h2>
+    <div class="dac-cmp-when-grid">
+      <div class="dac-cmp-when dac-cmp-when--a">
+        <h3 class="dac-cmp-when__title">Use ${esc(cmp.subjectA)} when</h3>
+        <p>${esc(cmp.whenToUse?.a?.[langCode] || cmp.whenToUse?.a?.en || '')}</p>
+      </div>
+      <div class="dac-cmp-when dac-cmp-when--b">
+        <h3 class="dac-cmp-when__title">Use ${esc(cmp.subjectB)} when</h3>
+        <p>${esc(cmp.whenToUse?.b?.[langCode] || cmp.whenToUse?.b?.en || '')}</p>
+      </div>
+    </div>
+  </section>` : '';
+
+  const verdictHtml = cmp.verdict ? `<section class="dac-kh-section dac-cmp-verdict">
+    <h2 class="dac-kh-section-title">Verdict</h2>
+    <p class="dac-cmp-verdict__text">${esc(cmp.verdict?.[langCode] || cmp.verdict?.en || '')}</p>
+  </section>` : '';
+
+  const perfHtml = cmp.performanceNote ? `<section class="dac-kh-section">
+    <h2 class="dac-kh-section-title">Performance</h2>
+    <p>${esc(cmp.performanceNote?.[langCode] || cmp.performanceNote?.en || '')}</p>
+  </section>` : '';
+
+  const browserHtml = (cmp.browserSupport?.a || cmp.browserSupport?.b) ? `<section class="dac-kh-section">
+    <h2 class="dac-kh-section-title">Browser Support</h2>
+    <div class="dac-cmp-when-grid">
+      <div><strong>${esc(cmp.subjectA)}:</strong> <span>${esc(cmp.browserSupport?.a?.[langCode] || cmp.browserSupport?.a?.en || '')}</span></div>
+      <div><strong>${esc(cmp.subjectB)}:</strong> <span>${esc(cmp.browserSupport?.b?.[langCode] || cmp.browserSupport?.b?.en || '')}</span></div>
+    </div>
+  </section>` : '';
+
+  const faqHtml = renderKnowledgeFaq(cmp.faq, langCode);
+  const relToolsHtml = knowledgeRelatedToolCards(cmp.relatedTools, data.tools, langCode, config.site.baseUrl);
+  const relArticlesHtml = knowledgeRelatedArticleCards(cmp.relatedArticles, data.articles, data.comparisons, langCode);
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--comparison">
+${renderProgressBar()}
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main dac-article-layout" id="main">
+  <article class="dac-article" itemscope itemtype="https://schema.org/Article">
+    <header class="dac-article__header">
+      <div class="dac-article__meta">
+        <span class="dac-article__tag">Comparison</span>
+        ${lastUpdated ? `<time class="dac-article__date" datetime="${esc(lastUpdated)}">Updated ${esc(lastUpdated)}</time>` : ''}
+      </div>
+      <h1 class="dac-article__title" itemprop="headline">${esc(h1)}</h1>
+      ${intro ? `<p class="dac-article__intro" itemprop="description">${esc(intro)}</p>` : ''}
+    </header>
+
+    <div class="dac-article__body" itemprop="articleBody">
+      ${tableHtml}
+
+      ${advantagesHtml ? `<section class="dac-kh-section"><h2 class="dac-kh-section-title">Advantages</h2>${advantagesHtml}</section>` : ''}
+      ${disadvHtml ? `<section class="dac-kh-section"><h2 class="dac-kh-section-title">Disadvantages</h2>${disadvHtml}</section>` : ''}
+      ${whenHtml}
+      ${perfHtml}
+      ${browserHtml}
+      ${verdictHtml}
+    </div>
+
+    ${faqHtml}
+
+    <footer class="dac-article__footer">
+      <div class="dac-article__actions">
+        <button class="dac-btn dac-btn--ghost dac-btn--sm" onclick="window.print()">Print</button>
+        <button class="dac-btn dac-btn--ghost dac-btn--sm" id="dac-share-btn">Share</button>
+      </div>
+      ${lastUpdated ? `<p class="dac-article__footer-meta">Last reviewed: <time datetime="${esc(lastUpdated)}">${esc(lastUpdated)}</time></p>` : ''}
+    </footer>
+  </article>
+  <aside class="dac-article-sidebar"></aside>
+</main>
+
+<div class="dac-article-related-wrapper">
+  ${relToolsHtml}
+  ${relArticlesHtml}
+</div>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/article-runtime.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Glossary Term Page ─────────────────────────────────────────────────────
+
+function renderGlossaryTermPage(route, seo, data, config) {
+  const term = route.term;
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics };
+
+  const termName = term.term?.[langCode] || term.term?.en || '';
+  const shortDef = term.shortDef?.[langCode] || term.shortDef?.en || '';
+  const definition = term.definition?.[langCode] || term.definition?.en || '';
+  const examples = (term.examples || []).map(e => e?.[langCode] || e?.en || '').filter(Boolean);
+  const lastUpdated = term.lastUpdated || '';
+
+  const relatedTermsHtml = (term.relatedTerms || []).length > 0 ? `<section class="dac-kh-section">
+    <h2 class="dac-kh-section-title">Related Terms</h2>
+    <div class="dac-glossary-related-terms">
+      ${(term.relatedTerms || []).map(s => `<a href="/${langCode}/glossary/${esc(s)}" class="dac-glossary-term-chip">${esc(s.replace(/-/g, ' '))}</a>`).join('\n')}
+    </div>
+  </section>` : '';
+
+  const examplesHtml = examples.length > 0 ? `<section class="dac-kh-section">
+    <h2 class="dac-kh-section-title">Examples</h2>
+    <ul class="dac-glossary-examples">
+      ${examples.map(e => `<li>${esc(e)}</li>`).join('\n')}
+    </ul>
+  </section>` : '';
+
+  const relToolsHtml = knowledgeRelatedToolCards(term.relatedTools, data.tools, langCode, config.site.baseUrl);
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--glossary">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main dac-article-layout" id="main">
+  <article class="dac-article dac-glossary-article">
+    <header class="dac-article__header">
+      <div class="dac-article__meta">
+        <span class="dac-article__tag">Glossary</span>
+        ${lastUpdated ? `<time class="dac-article__date" datetime="${esc(lastUpdated)}">Updated ${esc(lastUpdated)}</time>` : ''}
+      </div>
+      <h1 class="dac-article__title" itemprop="name">${esc(termName)}</h1>
+      ${shortDef ? `<p class="dac-glossary-shortdef" itemprop="description">${esc(shortDef)}</p>` : ''}
+    </header>
+
+    <div class="dac-article__body">
+      <section class="dac-kh-section">
+        <h2 class="dac-kh-section-title">Definition</h2>
+        <p class="dac-glossary-definition">${esc(definition)}</p>
+      </section>
+
+      ${examplesHtml}
+      ${relatedTermsHtml}
+    </div>
+
+    <footer class="dac-article__footer">
+      <a href="/${langCode}/glossary" class="dac-btn dac-btn--ghost dac-btn--sm">← All Glossary Terms</a>
+    </footer>
+  </article>
+  <aside class="dac-article-sidebar"></aside>
+</main>
+
+<div class="dac-article-related-wrapper">
+  ${relToolsHtml}
+</div>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Guides Index Page ──────────────────────────────────────────────────────
+
+function renderGuidesIndexPage(route, seo, data, config) {
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics };
+  const articles = (route.articles || []).sort((a, b) => (b.lastUpdated || '').localeCompare(a.lastUpdated || ''));
+
+  const cards = articles.map(a => {
+    const title = a.h1?.[langCode] || a.h1?.en || '';
+    const desc = a.description?.[langCode] || a.description?.en || '';
+    return `<a href="/${langCode}/guides/${a.slug}" class="dac-kh-index-card">
+      <span class="dac-kh-index-card__tag">Guide</span>
+      <h2 class="dac-kh-index-card__title">${esc(title)}</h2>
+      ${desc ? `<p class="dac-kh-index-card__desc">${esc(desc)}</p>` : ''}
+      <span class="dac-kh-index-card__cta">Read guide →</span>
+    </a>`;
+  }).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--knowledge-index">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+  <header class="dac-kh-index-header">
+    <h1 class="dac-kh-index-title">Guides</h1>
+    <p class="dac-kh-index-desc">In-depth guides to image, PDF, and developer file formats — how they work, when to use them, and how to convert between them.</p>
+  </header>
+  <div class="dac-kh-index-grid">${cards}</div>
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Compare Index Page ─────────────────────────────────────────────────────
+
+function renderCompareIndexPage(route, seo, data, config) {
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics };
+  const comparisons = route.comparisons || [];
+
+  const cards = comparisons.map(c => {
+    const title = c.h1?.[langCode] || c.h1?.en || `${c.subjectA} vs ${c.subjectB}`;
+    const desc = c.description?.[langCode] || c.description?.en || '';
+    return `<a href="/${langCode}/compare/${c.slug}" class="dac-kh-index-card">
+      <span class="dac-kh-index-card__tag">Comparison</span>
+      <h2 class="dac-kh-index-card__title">${esc(title)}</h2>
+      ${desc ? `<p class="dac-kh-index-card__desc">${esc(desc)}</p>` : ''}
+      <span class="dac-kh-index-card__cta">Compare →</span>
+    </a>`;
+  }).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--knowledge-index">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+  <header class="dac-kh-index-header">
+    <h1 class="dac-kh-index-title">Format Comparisons</h1>
+    <p class="dac-kh-index-desc">Side-by-side comparisons of image formats, data formats, and document types — which to choose and when.</p>
+  </header>
+  <div class="dac-kh-index-grid">${cards}</div>
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Glossary Index Page ────────────────────────────────────────────────────
+
+function renderGlossaryIndexPage(route, seo, data, config) {
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics };
+  const terms = (route.terms || []).sort((a, b) => {
+    const ta = a.term?.[langCode] || a.term?.en || '';
+    const tb = b.term?.[langCode] || b.term?.en || '';
+    return ta.localeCompare(tb);
+  });
+
+  const cards = terms.map(t => {
+    const name = t.term?.[langCode] || t.term?.en || '';
+    const shortDef = t.shortDef?.[langCode] || t.shortDef?.en || '';
+    return `<a href="/${langCode}/glossary/${t.slug}" class="dac-kh-index-card dac-glossary-card">
+      <h2 class="dac-kh-index-card__title">${esc(name)}</h2>
+      ${shortDef ? `<p class="dac-kh-index-card__desc">${esc(shortDef)}</p>` : ''}
+    </a>`;
+  }).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--knowledge-index">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+  <header class="dac-kh-index-header">
+    <h1 class="dac-kh-index-title">Glossary</h1>
+    <p class="dac-kh-index-desc">Definitions and explanations of image, PDF, and developer terminology.</p>
+  </header>
+  <div class="dac-kh-index-grid">${cards}</div>
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;

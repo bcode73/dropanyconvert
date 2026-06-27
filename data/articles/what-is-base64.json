@@ -1,0 +1,57 @@
+{
+  "slug": "what-is-base64",
+  "articleType": "guide",
+  "category": "developer",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["base64-encode", "base64-decode", "base64-to-image", "image-to-base64"],
+  "relatedArticles": ["what-is-json", "what-is-yaml"],
+  "title": { "en": "What is Base64 Encoding? Complete Developer Guide" },
+  "h1": { "en": "What is Base64 Encoding?" },
+  "description": { "en": "A complete guide to Base64 encoding — how it converts binary data to text, why it is used in web development, and how to encode and decode Base64 in any language." },
+  "intro": { "en": "Base64 is a binary-to-text encoding scheme that converts arbitrary binary data into a string of 64 printable ASCII characters (A–Z, a–z, 0–9, +, /). It is widely used to embed binary data (images, files, credentials) in text-based contexts like JSON, HTML, CSS, email, and HTTP headers." },
+  "sections": [
+    {
+      "id": "how-it-works",
+      "heading": { "en": "How Base64 Encoding Works" },
+      "content": { "en": "Base64 works by grouping the input bytes into blocks of 3 (24 bits) and splitting each block into four 6-bit groups. Each 6-bit group maps to one character in the Base64 alphabet (A=0, B=1, ..., Z=25, a=26, ..., z=51, 0=52, ..., 9=61, +=62, /=63). If the input is not divisible by 3, padding characters (=) are appended to make the output length a multiple of 4. The result is that every 3 bytes of input produce 4 bytes of Base64 output — a 33% size overhead." }
+    },
+    {
+      "id": "use-cases",
+      "heading": { "en": "Common Use Cases" },
+      "content": { "en": "Base64 is used in many common web development scenarios. Data URIs embed images directly in HTML or CSS (src='data:image/png;base64,...'), eliminating an HTTP request for small images. Email attachments are encoded in Base64 by MIME to safely transmit binary files through text-based email systems. HTTP Basic Authentication sends credentials as Base64 (though this is not encryption — it must be used over HTTPS). JSON APIs often Base64-encode binary fields (file content, encryption keys, certificates) to keep the JSON valid text. JWT (JSON Web Tokens) use Base64URL encoding for their header and payload." }
+    },
+    {
+      "id": "base64url",
+      "heading": { "en": "Base64 vs Base64URL" },
+      "content": { "en": "Standard Base64 uses the + and / characters, which have special meanings in URLs. Base64URL is a variant that replaces + with - and / with _, making the output safe to include in URL query parameters and path segments without percent-encoding. JWT tokens, for example, use Base64URL. When working with web tokens or URL-embedded data, always check which variant is expected." }
+    },
+    {
+      "id": "security",
+      "heading": { "en": "Base64 is Not Encryption" },
+      "content": { "en": "Base64 is an encoding scheme, not an encryption algorithm. It is trivially reversible by anyone without any key or secret. Do not use Base64 to protect sensitive data. HTTP Basic Authentication credentials in Base64 are completely readable to anyone who intercepts the request — which is why Basic Auth must always be used with HTTPS. If you need to protect data, use proper encryption (AES, RSA) instead." }
+    },
+    {
+      "id": "performance",
+      "heading": { "en": "Performance Considerations" },
+      "content": { "en": "Base64 increases data size by 33%. For small images (icons under 1–2 KB) used as data URIs, this trade-off is worth it to eliminate HTTP requests. For larger images, the size overhead and the inability to cache data URIs independently outweigh the benefits of inlining. A good rule of thumb: inline images under 1 KB as Base64 data URIs; serve images above that as separate files with proper caching headers." }
+    }
+  ],
+  "faq": [
+    {
+      "question": { "en": "How do I encode a string in Base64?" },
+      "answer": { "en": "In JavaScript: btoa('hello') returns 'aGVsbG8='. In Python: import base64; base64.b64encode(b'hello') returns b'aGVsbG8='. In the terminal: echo -n 'hello' | base64 returns 'aGVsbG8='. Use our online Base64 Encoder tool to encode strings or files instantly." }
+    },
+    {
+      "question": { "en": "How do I decode Base64?" },
+      "answer": { "en": "In JavaScript: atob('aGVsbG8=') returns 'hello'. In Python: base64.b64decode('aGVsbG8=') returns b'hello'. In the terminal: echo 'aGVsbG8=' | base64 --decode returns 'hello'. Use our Base64 Decoder tool to decode strings instantly in your browser." }
+    },
+    {
+      "question": { "en": "Why does Base64 end with = signs?" },
+      "answer": { "en": "Base64 encodes input in 3-byte blocks. If the input length is not a multiple of 3, the last block has 1 or 2 bytes of real data. The = padding characters are added to make the output length a multiple of 4, which simplifies the decoding algorithm. One = means 2 bytes in the last block; == means 1 byte in the last block." }
+    },
+    {
+      "question": { "en": "Is Base64 safe for passwords?" },
+      "answer": { "en": "No. Base64 is not encryption and provides no security. Anyone who sees the Base64 string can instantly decode it to the original value. Passwords must be hashed using a secure hashing algorithm (bcrypt, Argon2, or PBKDF2) — never encoded with Base64." }
+    }
+  ]
+}

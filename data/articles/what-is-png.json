@@ -1,0 +1,66 @@
+{
+  "slug": "what-is-png",
+  "articleType": "guide",
+  "category": "image",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["png-to-jpg", "webp-to-png", "png-to-webp", "png-to-avif"],
+  "relatedArticles": ["what-is-jpg", "what-is-webp", "png-vs-jpg", "what-is-avif"],
+  "title": { "en": "What is PNG? Complete Guide to the PNG Image Format" },
+  "h1": { "en": "What is PNG?" },
+  "description": { "en": "A complete guide to the PNG image format — how lossless compression works, when to use PNG over JPG, transparency support, and browser compatibility." },
+  "intro": { "en": "PNG (Portable Network Graphics) is a lossless raster image format designed to replace the older GIF format. It is the preferred choice for graphics that require pixel-perfect quality, transparency, or text — such as logos, icons, screenshots, and illustrations." },
+  "sections": [
+    {
+      "id": "history",
+      "heading": { "en": "History of PNG" },
+      "content": { "en": "PNG was created in 1995 by a team of engineers led by Thomas Boutell as a patent-free alternative to GIF. The GIF format was encumbered by the LZW compression patent held by Unisys, which prompted the internet community to develop an open standard. The PNG specification was published in 1996 and has been maintained by the W3C ever since. PNG quickly became the dominant format for web graphics requiring transparency, a role it still holds today." }
+    },
+    {
+      "id": "how-compression-works",
+      "heading": { "en": "How PNG Compression Works" },
+      "content": { "en": "PNG uses lossless compression based on the DEFLATE algorithm — the same algorithm used by ZIP files. The image data is first filtered (a process that predicts pixel values based on neighbors, reducing the range of values to compress), then compressed with DEFLATE. Because the process is entirely reversible, decompressing a PNG always produces an exact pixel-for-pixel copy of the original. This distinguishes PNG fundamentally from lossy formats like JPG, where some image data is permanently discarded during compression." }
+    },
+    {
+      "id": "features",
+      "heading": { "en": "Key Features of PNG" },
+      "content": { "en": "PNG supports up to 48-bit true color and 16-bit grayscale, far exceeding the human eye's ability to perceive differences. Its most important feature is the alpha channel, which enables per-pixel transparency at 8 or 16 bits of precision — allowing smooth semi-transparent edges around objects. PNG also supports gamma correction metadata, which helps images display consistently across different monitors, and it stores text metadata chunks (author, description, software) alongside the image data." }
+    },
+    {
+      "id": "pros-cons",
+      "heading": { "en": "Advantages and Disadvantages" },
+      "content": { "en": "The primary advantage of PNG is perfect image fidelity — no quality is ever lost regardless of how many times you save the file. This makes it ideal for source files and images that will be edited repeatedly. PNG's transparency support is unmatched by JPG or older formats. The main disadvantage is file size: for photographic images with millions of colour variations, PNG files are significantly larger than equivalent JPGs. A 3 MB JPG photo might be 15 MB as a PNG. For continuous-tone photographs where transparency is not needed, JPG or WebP produces much smaller files at comparable perceived quality." }
+    },
+    {
+      "id": "use-cases",
+      "heading": { "en": "When to Use PNG" },
+      "content": { "en": "Use PNG for: logos and brand marks (especially on coloured backgrounds where transparency is needed), UI screenshots and interface documentation, diagrams and infographics with flat colours and sharp edges, icons and small graphics where quality loss is unacceptable, images that will be further edited or composited, and any image containing text (PNG preserves text sharpness; JPG introduces blurring artefacts around letters). Avoid PNG for: photographs on the web where bandwidth matters, social media image uploads, and any situation where file size must be minimised at the cost of some quality." }
+    },
+    {
+      "id": "browser-support",
+      "heading": { "en": "Browser and Platform Support" },
+      "content": { "en": "PNG has universal support across every modern browser, operating system, and application. All major browsers (Chrome, Firefox, Safari, Edge) have supported PNG since their earliest versions. Every image editor, design tool, and developer framework handles PNG natively. There are no compatibility concerns when using PNG — it is the most universally readable raster image format on the web." }
+    }
+  ],
+  "faq": [
+    {
+      "question": { "en": "Is PNG better than JPG?" },
+      "answer": { "en": "It depends on the image type. PNG is better for graphics, logos, and screenshots where quality must be preserved exactly and transparency may be needed. JPG is better for photographs where a smaller file size is more important than pixel-perfect quality. For modern web use, WebP or AVIF often outperforms both." }
+    },
+    {
+      "question": { "en": "Does PNG support transparency?" },
+      "answer": { "en": "Yes. PNG supports a full alpha channel with 256 levels of transparency per pixel. This allows smooth, anti-aliased edges on transparent backgrounds — something JPG cannot do at all." }
+    },
+    {
+      "question": { "en": "Why are PNG files so large?" },
+      "answer": { "en": "PNG uses lossless compression, which means every pixel value must be stored accurately. Photographs contain enormous variation in pixel values, resulting in large files. For photos, JPG's lossy compression achieves much higher compression ratios by discarding imperceptible details." }
+    },
+    {
+      "question": { "en": "Can I convert PNG to JPG without losing quality?" },
+      "answer": { "en": "Converting PNG to JPG always involves some quality loss because JPG is a lossy format. However, for photographic images, the quality loss at high JPG quality settings (85–95%) is often imperceptible while the file size reduction can be dramatic. The reverse — JPG to PNG — does not restore any lost quality; it simply stores the already-lossy JPG data in a lossless container." }
+    },
+    {
+      "question": { "en": "What is the difference between PNG-8 and PNG-24?" },
+      "answer": { "en": "PNG-8 uses an 8-bit indexed colour palette (up to 256 colours) and produces very small files for simple graphics. PNG-24 (and PNG-32 with alpha) uses full 24-bit true colour. Most modern tools default to PNG-24/32. PNG-8 is only worth using when the image has very few colours and you need the smallest possible file size." }
+    }
+  ]
+}

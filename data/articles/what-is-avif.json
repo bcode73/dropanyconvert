@@ -1,0 +1,62 @@
+{
+  "slug": "what-is-avif",
+  "articleType": "guide",
+  "category": "image",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["avif-to-png", "avif-to-jpg", "png-to-avif", "jpg-to-avif"],
+  "relatedArticles": ["what-is-webp", "what-is-png", "avif-vs-webp", "what-is-jpg"],
+  "title": { "en": "What is AVIF? The Next-Generation Image Format Explained" },
+  "h1": { "en": "What is AVIF?" },
+  "description": { "en": "AVIF is the most advanced image format available today, offering up to 50% smaller files than JPG at similar quality. Learn how it works, browser support, and when to use it." },
+  "intro": { "en": "AVIF (AV1 Image File Format) is a royalty-free image format derived from the AV1 video codec. It achieves the best compression efficiency of any widely supported image format — typically 50% smaller than JPEG and 30% smaller than WebP at similar quality — while supporting HDR, wide colour gamut, and transparency." },
+  "sections": [
+    {
+      "id": "background",
+      "heading": { "en": "Background and Development" },
+      "content": { "en": "AVIF is based on the AV1 video codec developed by the Alliance for Open Media (AOM), a consortium that includes Google, Apple, Mozilla, Netflix, Amazon, and Microsoft. AV1 was designed to be the successor to VP9 and H.264 for royalty-free video streaming. The AVIF image format was formalised in 2019 and gained browser support from Chrome 85 (2020), Firefox 93 (2021), and Safari 16 (2022). Being derived from a video codec means AVIF benefits from decades of video compression research applied to still images." }
+    },
+    {
+      "id": "how-it-works",
+      "heading": { "en": "How AVIF Compression Works" },
+      "content": { "en": "AVIF encodes images using AV1 intra-frame coding. This involves sophisticated prediction techniques (inter-prediction borrowing from video technology), a large number of transform sizes and types (not just 8×8 DCT like JPEG), adaptive quantisation that applies more compression to areas the eye is less sensitive to, and in-loop filters that remove compression artefacts. The result is that at a given file size, AVIF images retain more perceptual quality than JPG or WebP. AVIF also natively supports HDR (High Dynamic Range), wide colour gamuts (P3, Rec.2020), and both lossy and lossless encoding." }
+    },
+    {
+      "id": "features",
+      "heading": { "en": "Key Features" },
+      "content": { "en": "AVIF supports lossless and lossy compression, full alpha channel transparency, HDR and wide colour gamut content, image sequences (animated images), and 10- and 12-bit colour depth (compared to 8-bit for JPG). These features make it suitable for professional photography, HDR displays, and high-fidelity graphics. It is also royalty-free, which has driven broad adoption by major tech companies." }
+    },
+    {
+      "id": "pros-cons",
+      "heading": { "en": "Advantages and Disadvantages" },
+      "content": { "en": "AVIF's advantages are industry-leading compression (smallest files at a given quality), support for all image types (photos, graphics, transparent images, HDR), and royalty-free licensing. The disadvantages are slower encoding times compared to JPG and WebP (though decoding is fast), relatively recent software support (older image editors may not support it), and not all CDNs and image processing services handle AVIF natively yet. Browser support is now sufficient for mainstream web use with appropriate fallbacks." }
+    },
+    {
+      "id": "use-cases",
+      "heading": { "en": "When to Use AVIF" },
+      "content": { "en": "AVIF is the best choice for web images when maximum compression is the priority. Use it for: hero images and large backgrounds, high-resolution product photography, image-heavy pages where bandwidth cost is significant, and any new project where you can afford to generate WebP and JPG fallbacks. A recommended stack is: AVIF for modern browsers → WebP fallback → JPG/PNG for legacy browsers, served via the HTML picture element." }
+    },
+    {
+      "id": "browser-support",
+      "heading": { "en": "Browser Support" },
+      "content": { "en": "AVIF is supported by Chrome 85+ (August 2020), Firefox 93+ (October 2021), Safari 16+ (September 2022), and Edge 121+ (January 2024). This covers approximately 90% of global browser usage as of 2024. Always provide a WebP or JPG fallback for the remaining 10%, particularly older Safari and Samsung Internet browsers." }
+    }
+  ],
+  "faq": [
+    {
+      "question": { "en": "How much smaller are AVIF files compared to JPG?" },
+      "answer": { "en": "Studies typically show AVIF achieving 45–55% smaller files than JPEG at comparable perceptual quality. The exact saving depends on the image content — complex photographs benefit the most; simple graphics with flat colours see smaller gains." }
+    },
+    {
+      "question": { "en": "Does AVIF support transparency?" },
+      "answer": { "en": "Yes. AVIF supports a full alpha channel in both lossy and lossless modes. This makes it a viable replacement for transparent PNGs with significantly smaller file sizes." }
+    },
+    {
+      "question": { "en": "Is AVIF slower to encode than JPG?" },
+      "answer": { "en": "Yes, AVIF encoding is significantly slower than JPG at equivalent quality levels. This makes it less suitable for real-time image processing but perfectly fine for build-time or offline conversion. Decoding speed is comparable to other formats." }
+    },
+    {
+      "question": { "en": "Can I use AVIF on my website today?" },
+      "answer": { "en": "Yes, with fallbacks. Use the HTML picture element to serve AVIF to supporting browsers and fall back to WebP and JPG for others. Modern image CDNs and services like Cloudflare Images and Imgix can serve AVIF automatically based on Accept headers." }
+    }
+  ]
+}

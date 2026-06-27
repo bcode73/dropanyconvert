@@ -1,0 +1,16 @@
+{
+  "slug": "lossy-compression",
+  "term": { "en": "Lossy Compression" },
+  "shortDef": { "en": "A compression method that reduces file size by permanently discarding some data, typically imperceptible to humans." },
+  "definition": { "en": "Lossy compression reduces file size by permanently discarding data that is considered less important to the human perceptual system. A lossy-compressed file cannot be decompressed to recreate the exact original — some information is irreversibly lost. The key insight is that humans cannot perceive all the information in a raw data file: we are less sensitive to high-frequency visual detail than low-frequency shapes, less sensitive to colour variation than brightness variation, and less sensitive to certain audio frequency ranges. Lossy compression exploits these perceptual limitations to achieve compression ratios far beyond what lossless methods can achieve, at the cost of some perceptual quality." },
+  "examples": [
+    { "en": "JPEG images use lossy compression — at high quality settings the loss is imperceptible, but at low quality you see blocky artefacts." },
+    { "en": "MP3 audio is lossy — it removes frequencies the human ear is less sensitive to, achieving 10:1 or better compression over WAV." },
+    { "en": "H.264/H.265 video codecs are lossy — they discard temporal and spatial redundancy to compress video to manageable sizes." }
+  ],
+  "relatedTerms": ["lossless-compression", "color-depth"],
+  "relatedTools": ["jpg-to-png", "compress-pdf", "compress-image"],
+  "relatedArticles": ["what-is-jpg", "png-vs-jpg"],
+  "category": "image",
+  "lastUpdated": "2026-01-15"
+}

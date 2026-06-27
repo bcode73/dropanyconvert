@@ -14,19 +14,20 @@ export async function generateSitemaps(routes, config) {
 
   // Per-language sitemap
   for (const lang of langCodes) {
-    const langRoutes = routes.filter(r =>
-      r.lang === lang && (r.type === 'tool' || r.type === 'category' || r.type === 'home' || r.type === 'legal')
-    );
+    const knowledgeTypes = new Set(['tool','category','home','legal','article','comparison','glossary','guides-index','compare-index','glossary-index']);
+    const langRoutes = routes.filter(r => r.lang === lang && knowledgeTypes.has(r.type));
 
-    // Deterministic order: home → categories → tools → legal
+    // Deterministic order: home → categories → guides-index → compare-index → glossary-index → articles → comparisons → glossary → tools → legal
     const sorted = [...langRoutes].sort((a, b) => {
-      const order = { home: 0, category: 1, tool: 2, legal: 3 };
-      return (order[a.type] ?? 4) - (order[b.type] ?? 4) || a.path.localeCompare(b.path);
+      const order = { home: 0, category: 1, 'guides-index': 2, 'compare-index': 3, 'glossary-index': 4, article: 5, comparison: 6, glossary: 7, tool: 8, legal: 9 };
+      return (order[a.type] ?? 10) - (order[b.type] ?? 10) || a.path.localeCompare(b.path);
     });
 
     const urls = sorted.map(r => {
-      const priority   = r.type === 'home' ? '1.0' : r.type === 'category' ? '0.9' : r.type === 'legal' ? '0.3' : '0.8';
-      const changefreq = r.type === 'home' ? 'weekly' : r.type === 'category' ? 'weekly' : r.type === 'legal' ? 'yearly' : 'monthly';
+      const priorityMap = { home: '1.0', category: '0.9', 'guides-index': '0.8', 'compare-index': '0.8', 'glossary-index': '0.7', article: '0.7', comparison: '0.7', glossary: '0.6', legal: '0.3' };
+      const changefreqMap = { home: 'weekly', category: 'weekly', 'guides-index': 'weekly', 'compare-index': 'weekly', 'glossary-index': 'weekly', article: 'monthly', comparison: 'monthly', glossary: 'monthly', legal: 'yearly' };
+      const priority   = priorityMap[r.type] || '0.8';
+      const changefreq = changefreqMap[r.type] || 'monthly';
       return `  <url>
     <loc>${baseUrl}${r.path}</loc>
     <lastmod>${lastmod}</lastmod>

@@ -1,0 +1,16 @@
+{
+  "slug": "metadata",
+  "term": { "en": "Metadata" },
+  "shortDef": { "en": "Data that describes other data — information about a file rather than its content." },
+  "definition": { "en": "Metadata is structured information that describes, contextualises, or classifies other data. In the context of files, metadata describes the file rather than its content: creation date, author, dimensions, colour space, GPS coordinates, camera settings, copyright information, and more. Image files commonly embed EXIF (Exchangeable Image File Format) metadata — GPS location, camera model, lens, aperture, shutter speed, ISO — and IPTC metadata for editorial use (creator, keywords, copyright). PDF files contain document metadata (title, author, subject, keywords, creation and modification dates). Metadata can be read by software, search engines, and digital asset management systems, but is often stripped before publishing images online to protect privacy (especially GPS coordinates)." },
+  "examples": [
+    { "en": "A JPEG photo taken with an iPhone contains EXIF metadata: GPS coordinates, camera model, focal length, shutter speed, date and time." },
+    { "en": "A PDF document contains metadata: author name, title, creation date, and the software used to create it." },
+    { "en": "An MP3 audio file contains ID3 tags: song title, artist, album, year, genre, and album art." }
+  ],
+  "relatedTerms": ["mime-type"],
+  "relatedTools": ["pdf-metadata-editor", "pdf-metadata-viewer", "exif-reader"],
+  "relatedArticles": ["what-is-pdf"],
+  "category": "developer",
+  "lastUpdated": "2026-01-15"
+}

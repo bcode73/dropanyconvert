@@ -1,0 +1,76 @@
+{
+  "slug": "markdown-vs-html",
+  "articleType": "comparison",
+  "subjectA": "Markdown",
+  "subjectB": "HTML",
+  "category": "developer",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["markdown-to-html"],
+  "relatedArticles": ["what-is-markdown", "what-is-json"],
+  "title": { "en": "Markdown vs HTML: Which Should You Use for Your Content?" },
+  "h1": { "en": "Markdown vs HTML: Complete Comparison" },
+  "description": { "en": "Markdown vs HTML comparison — syntax, use cases, limitations, and when to use each for documentation, blogs, web pages, and developer tools." },
+  "intro": { "en": "Markdown and HTML both format text for the web, but they serve different purposes. Markdown is a shorthand for common formatting (headings, bold, lists, links) that converts to HTML. HTML is the complete language of the web, capable of expressing any visual structure. Markdown is faster for simple content; HTML is necessary for complex layouts." },
+  "comparisonTable": {
+    "rows": [
+      { "aspect": { "en": "Learning curve" }, "a": { "en": "Minutes" }, "b": { "en": "Hours to days" } },
+      { "aspect": { "en": "Verbosity" }, "a": { "en": "Very concise" }, "b": { "en": "Verbose" } },
+      { "aspect": { "en": "Complex layouts" }, "a": { "en": "Not supported" }, "b": { "en": "Full control" } },
+      { "aspect": { "en": "Comments" }, "a": { "en": "No native comments" }, "b": { "en": "Yes (<!-- -->)" } },
+      { "aspect": { "en": "Custom attributes" }, "a": { "en": "No (most flavours)" }, "b": { "en": "Yes (id, class, data-*)" } },
+      { "aspect": { "en": "Tables" }, "a": { "en": "Basic (GFM)" }, "b": { "en": "Full" } },
+      { "aspect": { "en": "Executable in browser" }, "a": { "en": "Requires preprocessing" }, "b": { "en": "Native" } },
+      { "aspect": { "en": "Raw readability" }, "a": { "en": "Excellent" }, "b": { "en": "Poor (taggy)" } }
+    ]
+  },
+  "advantages": {
+    "a": [
+      { "en": "Extremely easy to write and read in plain text" },
+      { "en": "Ideal for documentation, READMEs, and blogs" },
+      { "en": "Source files remain human-readable without rendering" },
+      { "en": "Supported in GitHub, Notion, Slack, Discord, Obsidian" },
+      { "en": "Version-control friendly — diffs are readable" }
+    ],
+    "b": [
+      { "en": "Full control over every element, attribute, and structure" },
+      { "en": "Native browser language — no preprocessing" },
+      { "en": "Supports interactive elements (forms, buttons, video, canvas)" },
+      { "en": "Can express any layout concept" },
+      { "en": "Direct access to ARIA accessibility attributes" }
+    ]
+  },
+  "disadvantages": {
+    "a": [
+      { "en": "Cannot express complex layouts" },
+      { "en": "No custom attributes (id, class, data-*) without raw HTML" },
+      { "en": "Different flavours behave differently" },
+      { "en": "Requires a build step for web delivery" }
+    ],
+    "b": [
+      { "en": "Verbose — much more typing for simple content" },
+      { "en": "Poor readability in raw form" },
+      { "en": "Not supported natively in most non-browser tools" },
+      { "en": "More intimidating for non-developers" }
+    ]
+  },
+  "whenToUse": {
+    "a": { "en": "Use Markdown for: README files, project documentation, static site blog posts, API documentation, knowledge bases, changelogs, and any content where simplicity and readability in source form matter. Markdown is ideal when the author is a developer writing in a text editor or IDE." },
+    "b": { "en": "Use HTML for: web pages requiring specific layout and styling, interactive content (forms, media), components in web frameworks, email templates, and any content requiring features Markdown cannot express. In practice, Markdown is often used for content that gets compiled to HTML — the two are complementary rather than competing." }
+  },
+  "performanceNote": { "en": "Markdown must be converted to HTML before a browser can display it. This conversion happens at build time for static sites (zero runtime cost) or in the browser via a JS library (small overhead). For a static site, the compiled HTML is served directly — no difference in page performance compared to hand-written HTML." },
+  "browserSupport": {
+    "a": { "en": "Not natively supported in browsers. Requires a Markdown parser (marked.js, markdown-it, Showdown) or a build step (Hugo, Jekyll, Next.js MDX)." },
+    "b": { "en": "The native language of the web. Every browser renders HTML directly with no additional libraries." }
+  },
+  "verdict": { "en": "Markdown and HTML are not truly competing — Markdown compiles to HTML. The question is whether to write source content in Markdown (simpler, less expressive) or HTML (more complex, fully expressive). For developer-authored documentation and blogs, Markdown. For web pages with specific design requirements, HTML (or a framework that generates HTML)." },
+  "faq": [
+    {
+      "question": { "en": "Can I mix Markdown and HTML?" },
+      "answer": { "en": "Yes. Most Markdown processors allow raw HTML inline. You can write content in Markdown and use HTML for specific elements Markdown cannot express (tables with colspan, details/summary toggles, video embeds). This is a common pattern in MDX and advanced Markdown workflows." }
+    },
+    {
+      "question": { "en": "Is Markdown faster to write than HTML?" },
+      "answer": { "en": "Yes, significantly. A Markdown heading (## Title) is faster to type than <h2>Title</h2>. A Markdown link ([text](url)) is faster than <a href='url'>text</a>. For long-form content, this efficiency advantage compounds — Markdown authors produce content faster and the source remains readable for future editing." }
+    }
+  ]
+}

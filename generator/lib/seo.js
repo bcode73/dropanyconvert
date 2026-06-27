@@ -186,6 +186,227 @@ export async function generateSeo(routes, data, config) {
         schemas: [breadcrumbSchema],
         lastUpdated: legalPage.lastUpdated,
       });
+    } else if (route.type === 'article') {
+      const article = route.article;
+      const langCode = route.lang;
+      const title = (article.title?.[langCode] || article.title?.en || article.h1?.en) + globalSeo.defaults.titleSuffix;
+      const description = article.description?.[langCode] || article.description?.en || '';
+      const h1 = article.h1?.[langCode] || article.h1?.en || '';
+      const canonical = `${baseUrl}${route.path}`;
+      const catObj = data.categories.find(c => c.id === article.category);
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: langCode === 'en' ? 'Guides' : 'Guides', url: `${baseUrl}/${langCode}/guides` },
+        { name: h1, url: canonical },
+      ];
+
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: h1,
+        description,
+        url: canonical,
+        dateModified: article.lastUpdated || '',
+        publisher: {
+          '@type': 'Organization',
+          name: globalSeo.defaults?.ogSiteName || config.site.name,
+          url: baseUrl,
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+      };
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const faqSchema = article.faq?.length ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: article.faq.map(item => ({
+          '@type': 'Question',
+          name: item.question?.[langCode] || item.question?.en || '',
+          acceptedAnswer: { '@type': 'Answer', text: item.answer?.[langCode] || item.answer?.en || '' },
+        })),
+      } : null;
+
+      seoData.set(route.path, {
+        title,
+        description,
+        canonical,
+        h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title,
+        ogDescription: description,
+        ogUrl: canonical,
+        ogType: 'article',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image',
+        twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [],
+        hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs,
+        schemas: [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])],
+        lastUpdated: article.lastUpdated,
+      });
+    } else if (route.type === 'comparison') {
+      const cmp = route.comparison;
+      const langCode = route.lang;
+      const title = (cmp.title?.[langCode] || cmp.title?.en) + globalSeo.defaults.titleSuffix;
+      const description = cmp.description?.[langCode] || cmp.description?.en || '';
+      const h1 = cmp.h1?.[langCode] || cmp.h1?.en || '';
+      const canonical = `${baseUrl}${route.path}`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'Compare', url: `${baseUrl}/${langCode}/compare` },
+        { name: `${cmp.subjectA} vs ${cmp.subjectB}`, url: canonical },
+      ];
+
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: h1,
+        description,
+        url: canonical,
+        dateModified: cmp.lastUpdated || '',
+        publisher: {
+          '@type': 'Organization',
+          name: globalSeo.defaults?.ogSiteName || config.site.name,
+          url: baseUrl,
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+      };
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const faqSchema = cmp.faq?.length ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: cmp.faq.map(item => ({
+          '@type': 'Question',
+          name: item.question?.[langCode] || item.question?.en || '',
+          acceptedAnswer: { '@type': 'Answer', text: item.answer?.[langCode] || item.answer?.en || '' },
+        })),
+      } : null;
+
+      seoData.set(route.path, {
+        title,
+        description,
+        canonical,
+        h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title,
+        ogDescription: description,
+        ogUrl: canonical,
+        ogType: 'article',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image',
+        twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [],
+        hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs,
+        schemas: [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])],
+        lastUpdated: cmp.lastUpdated,
+      });
+    } else if (route.type === 'glossary') {
+      const term = route.term;
+      const langCode = route.lang;
+      const termName = term.term?.[langCode] || term.term?.en || '';
+      const title = `${termName} — Definition & Guide` + globalSeo.defaults.titleSuffix;
+      const description = term.shortDef?.[langCode] || term.shortDef?.en || '';
+      const canonical = `${baseUrl}${route.path}`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'Glossary', url: `${baseUrl}/${langCode}/glossary` },
+        { name: termName, url: canonical },
+      ];
+
+      const definedTermSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTerm',
+        name: termName,
+        description: term.definition?.[langCode] || term.definition?.en || '',
+        inDefinedTermSet: `${baseUrl}/${langCode}/glossary`,
+        url: canonical,
+      };
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      seoData.set(route.path, {
+        title,
+        description,
+        canonical,
+        h1: termName,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title,
+        ogDescription: description,
+        ogUrl: canonical,
+        ogType: 'article',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary',
+        twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [],
+        hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs,
+        schemas: [definedTermSchema, breadcrumbSchema],
+        lastUpdated: term.lastUpdated,
+      });
+    } else if (route.type === 'guides-index' || route.type === 'compare-index' || route.type === 'glossary-index') {
+      const langCode = route.lang;
+      const labels = {
+        'guides-index': { name: 'Guides', desc: 'In-depth guides to image, PDF, and developer file formats.' },
+        'compare-index': { name: 'Format Comparisons', desc: 'Side-by-side comparisons of image and data formats.' },
+        'glossary-index': { name: 'Glossary', desc: 'Definitions of image, PDF, and developer format terminology.' },
+      };
+      const { name, desc } = labels[route.type];
+      const title = `${name}` + globalSeo.defaults.titleSuffix;
+      const canonical = `${baseUrl}${route.path}`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      seoData.set(route.path, {
+        title,
+        description: desc,
+        canonical,
+        h1: name,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title,
+        ogDescription: desc,
+        ogUrl: canonical,
+        ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary',
+        twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [],
+        hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs,
+        schemas: [breadcrumbSchema],
+      });
     } else if (route.type === 'home') {
       const canonical = `${baseUrl}${route.path}`;
       const homeDesc = globalSeo.homeDescription?.[langCode] || globalSeo.homeDescription?.en || config.site.tagline;

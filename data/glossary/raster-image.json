@@ -1,0 +1,16 @@
+{
+  "slug": "raster-image",
+  "term": { "en": "Raster Image" },
+  "shortDef": { "en": "An image stored as a fixed grid of pixels, each with a defined colour value." },
+  "definition": { "en": "A raster image (also called a bitmap image) stores visual information as a rectangular grid of individual pixels. Each pixel has a specific colour value — typically defined by red, green, and blue channel values (RGB). The quality and detail of a raster image are directly tied to its resolution: the number of pixels wide and tall. When a raster image is scaled beyond its native resolution, the pixels become visible as a blocky, blurry effect (called pixelation). Common raster formats include PNG, JPG, WebP, AVIF, GIF, TIFF, and BMP. Raster images are the natural output of cameras, scanners, and screen captures — any device that captures light produces a raster image." },
+  "examples": [
+    { "en": "A 1920×1080 JPG photograph contains 2,073,600 pixels, each with an RGB colour value." },
+    { "en": "A PNG screenshot of a web page is a raster image — scaling it up in an image editor reveals the individual pixels." },
+    { "en": "Digital camera RAW files are raster images at the sensor's native resolution." }
+  ],
+  "relatedTerms": ["vector-image", "lossless-compression", "lossy-compression", "color-depth"],
+  "relatedTools": ["png-to-jpg", "resize-image", "svg-to-png"],
+  "relatedArticles": ["what-is-png", "what-is-jpg", "what-is-svg"],
+  "category": "image",
+  "lastUpdated": "2026-01-15"
+}

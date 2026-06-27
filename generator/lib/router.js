@@ -27,6 +27,42 @@ export async function generateRoutes(registry, data, config) {
         url: `${config.site.baseUrl}/${lang.code}/${route.slug}`,
       }));
       route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/${route.slug}`;
+    } else if (route.type === 'article') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/guides/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/guides/${route.slug}`;
+    } else if (route.type === 'comparison') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/compare/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/compare/${route.slug}`;
+    } else if (route.type === 'glossary') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/glossary/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/glossary/${route.slug}`;
+    } else if (route.type === 'guides-index') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/guides`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/guides`;
+    } else if (route.type === 'compare-index') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/compare`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/compare`;
+    } else if (route.type === 'glossary-index') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/glossary`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/glossary`;
     } else if (route.type === 'home') {
       route.hreflang = data.languages.map(lang => ({
         lang: lang.hreflang,

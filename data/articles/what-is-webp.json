@@ -1,0 +1,62 @@
+{
+  "slug": "what-is-webp",
+  "articleType": "guide",
+  "category": "image",
+  "lastUpdated": "2026-01-15",
+  "relatedTools": ["webp-to-png", "webp-to-jpg", "png-to-webp", "jpg-to-webp"],
+  "relatedArticles": ["what-is-png", "what-is-jpg", "webp-vs-png", "what-is-avif", "avif-vs-webp"],
+  "title": { "en": "What is WebP? Complete Guide to Google's Modern Image Format" },
+  "h1": { "en": "What is WebP?" },
+  "description": { "en": "A complete guide to WebP — Google's modern image format that outperforms JPG and PNG in file size. Covers compression modes, transparency, animation, and browser support." },
+  "intro": { "en": "WebP is a modern image format developed by Google and released in 2010. It uses more advanced compression algorithms than JPG and PNG, producing files that are typically 25–35% smaller than JPG at equivalent quality, while also supporting transparency and animation in a single format." },
+  "sections": [
+    {
+      "id": "history",
+      "heading": { "en": "Background and Development" },
+      "content": { "en": "WebP was developed by Google based on the intra-frame encoding of the VP8 video codec. Google introduced it in 2010 as part of an initiative to speed up the web by reducing image transfer sizes. The format was controversial at launch due to limited browser support, but adoption grew steadily. By 2020, all major browsers (Chrome, Firefox, Safari, Edge) added support, making WebP a viable format for mainstream web use. Google reports that WebP lossless images are 26% smaller than PNGs and WebP lossy images are 25–34% smaller than comparable JPGs." }
+    },
+    {
+      "id": "compression-modes",
+      "heading": { "en": "Lossy and Lossless Modes" },
+      "content": { "en": "WebP supports both lossy and lossless compression in the same format. Lossy WebP uses predictive coding derived from VP8 video compression: blocks of pixels are predicted from previously processed blocks, and only the differences (residuals) are encoded. This is more efficient than JPEG's DCT-based approach. Lossless WebP uses a completely different algorithm: it applies colour space transformations, palette reduction, a backward reference encoding that reuses previously seen pixel patterns, and Huffman coding. The result is lossless files that are consistently smaller than equivalent PNGs." }
+    },
+    {
+      "id": "features",
+      "heading": { "en": "Key Features" },
+      "content": { "en": "WebP combines the capabilities of JPG, PNG, and GIF into a single format. Like PNG, it supports a full alpha channel for transparency (in both lossy and lossless modes). Like GIF (but better), it supports animated images with smaller file sizes. Like JPG, it excels at compressing photographs. WebP also supports metadata embedding (EXIF, XMP, ICC colour profiles) and extended colour spaces. This versatility makes it a strong choice for web projects that currently use a mix of JPG, PNG, and GIF." }
+    },
+    {
+      "id": "pros-cons",
+      "heading": { "en": "Advantages and Disadvantages" },
+      "content": { "en": "WebP's main advantages are smaller file sizes than JPG and PNG, support for transparency and animation, and now near-universal browser support. The primary disadvantages are lower compatibility with older software (many desktop image editors still have incomplete WebP support), less hardware acceleration compared to JPG and HEIF on mobile devices, and the format is being superseded for cutting-edge use cases by AVIF, which achieves even better compression." }
+    },
+    {
+      "id": "use-cases",
+      "heading": { "en": "When to Use WebP" },
+      "content": { "en": "WebP is ideal for any web-facing image where you control the serving infrastructure and can use the HTML picture element or Content-Type negotiation to serve WebP to supporting browsers with JPG/PNG fallback for others. It is especially valuable for: hero images and large photographic backgrounds, image-heavy product listings, galleries and portfolios, any site where page speed and Core Web Vitals are priorities. WebP animated images replace GIF with far better quality and smaller sizes." }
+    },
+    {
+      "id": "browser-support",
+      "heading": { "en": "Browser Support" },
+      "content": { "en": "As of 2023, WebP is supported by Chrome (23+), Firefox (65+), Safari (14+), Edge (18+), and Opera (12.1+). This covers over 97% of global browser usage. Older Safari versions (pre-14, on macOS Catalina and earlier) do not support WebP, so serving JPG/PNG fallbacks remains best practice for maximum compatibility." }
+    }
+  ],
+  "faq": [
+    {
+      "question": { "en": "Should I convert all my images to WebP?" },
+      "answer": { "en": "For web delivery, yes — WebP is a strong choice for most images. Use the HTML picture element to serve WebP to supporting browsers with a JPG or PNG fallback. Keep the original PNG or JPG as your master file and generate WebP at build time or via an image CDN." }
+    },
+    {
+      "question": { "en": "Does WebP support transparency?" },
+      "answer": { "en": "Yes. WebP supports full alpha channel transparency in both its lossy and lossless modes, making it a direct replacement for PNG in transparency use cases while achieving smaller file sizes." }
+    },
+    {
+      "question": { "en": "Is WebP better than AVIF?" },
+      "answer": { "en": "AVIF generally achieves better compression than WebP — roughly 50% smaller than JPG vs WebP's 25–35%. However, WebP has broader software support and lower encoding times. For new projects prioritising the best compression, AVIF is preferred; use WebP as the fallback for browsers that do not support AVIF yet." }
+    },
+    {
+      "question": { "en": "Can I open WebP files in Photoshop?" },
+      "answer": { "en": "Adobe Photoshop added native WebP support in version 23.2 (February 2022). Older versions require a free plugin. GIMP and most modern image editors also support WebP natively. For older tools, convert WebP to PNG or JPG first using a free online converter." }
+    }
+  ]
+}

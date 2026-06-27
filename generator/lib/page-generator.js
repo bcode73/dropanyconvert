@@ -1,5 +1,6 @@
 import { renderAdBlock } from './ads.js';
 import {
+  djb2,
   enrichTool,
   renderExamplesSection,
   renderUseCasesSection,
@@ -4064,7 +4065,7 @@ function esc(str) {
  * - Hero images get fetchpriority="high" and no lazy loading
  * - All others get loading="lazy" decoding="async"
  */
-export function renderSeoImage({ src, alt, width = 48, height = 48, isHero = false, className = '' }) {
+function renderSeoImage({ src, alt, width = 48, height = 48, isHero = false, className = '' }) {
   const lazy   = isHero ? '' : ' loading="lazy"';
   const decode  = isHero ? '' : ' decoding="async"';
   const priority = isHero ? ' fetchpriority="high"' : '';
@@ -4085,12 +4086,6 @@ const ANCHOR_TEMPLATES = [
   (name) => `${name.toLowerCase()} conversion`,
 ];
 
-function djb2(str) {
-  let h = 5381;
-  for (let i = 0; i < str.length; i++) h = ((h << 5) + h) + str.charCodeAt(i);
-  return Math.abs(h >>> 0);
-}
-
 /**
  * Returns varied anchor text for a tool link, deterministic per (callerSlug, targetSlug).
  */
@@ -4106,7 +4101,7 @@ export function diverseAnchorText(toolName, toolSlug, callerSlug) {
  * Deduplicates FAQ items by first 5-word question stem (case-insensitive).
  * Returns a new array with no duplicate questions.
  */
-export function deduplicateFaqs(faqs, langCode = 'en') {
+function deduplicateFaqs(faqs, langCode = 'en') {
   const seen = new Set();
   return faqs.filter(f => {
     const q = (f.question?.[langCode] || f.question?.en || (typeof f.question === 'string' ? f.question : '')).toLowerCase();
@@ -4120,7 +4115,7 @@ export function deduplicateFaqs(faqs, langCode = 'en') {
 /**
  * Builds a valid FAQPage schema from deduplicated FAQ items.
  */
-export function buildFaqSchema(faqs, langCode = 'en') {
+function buildFaqSchema(faqs, langCode = 'en') {
   const deduplicated = deduplicateFaqs(faqs, langCode);
   if (deduplicated.length === 0) return null;
   return {
@@ -4187,7 +4182,7 @@ export function renderTableOfContents(headings) {
  * Extracts headings from an array of { heading, text } section items.
  * Assigns stable anchor IDs based on heading text.
  */
-export function extractHeadings(sections, baseHeadings = []) {
+function extractHeadings(sections, baseHeadings = []) {
   const headings = [...baseHeadings];
   const seen = new Map();
   for (const s of sections) {

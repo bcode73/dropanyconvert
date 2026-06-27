@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T23:28:09.593Z",
-  "elapsed_ms": 3445,
+  "timestamp": "2026-06-27T23:42:02.605Z",
+  "elapsed_ms": 3151,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -507,6 +507,41 @@
       "errors": 0,
       "toolsCovered": 82,
       "schemasValid": true
+    }
+  },
+  "build_audit": {
+    "health_score": 95,
+    "health_grade": "A",
+    "architecture": 23,
+    "maintainability": 20,
+    "build_stability": 20,
+    "validation_score": 17,
+    "technical_debt": 15,
+    "generator_modules": 31,
+    "generator_js_loc": 13620,
+    "asset_js_loc": 2302,
+    "asset_css_loc": 2745,
+    "data_json_files": 156,
+    "data_json_loc": 18479,
+    "largest_module": "page-generator.js",
+    "smallest_module": "robots.js",
+    "avg_module_lines": 439,
+    "duplicate_routes": 0,
+    "audit_warnings": 1,
+    "performance": {
+      "slowest_phases": [],
+      "largest_html_page": {
+        "path": "fr/png-to-jpg/index.html",
+        "sizeKb": 106
+      },
+      "largest_json_file": {
+        "path": "openapi.json",
+        "sizeKb": 612
+      },
+      "estimated_memory_mb": 91,
+      "total_files_emitted": 1814,
+      "total_size_kb": 119021,
+      "pages_generated": 1784
     }
   },
   "dataset": {

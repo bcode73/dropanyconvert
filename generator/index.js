@@ -23,7 +23,7 @@ import { generateStaticFiles } from './lib/static-files.js';
 import { validateIndexingReadiness } from './lib/indexing-validator.js';
 import { buildAuthorityGraph } from './lib/authority.js';
 import { validatePremiumArchitecture } from './lib/premium-validator.js';
-import { generateDashboardPages, getDashboardRouteCount } from './lib/dashboard-generator.js';
+import { generateDashboardPages } from './lib/dashboard-generator.js';
 import { generateOpenApiFile } from './lib/openapi-generator.js';
 import { generateApiDocPages, generateApiSearchIndex, getApiDocStats } from './lib/api-doc-generator.js';
 import { validateApiDocs } from './lib/api-validator.js';
@@ -32,6 +32,7 @@ import { enrichTool } from './lib/content-engine.js';
 import { generateDatasetFiles } from './lib/dataset-engine.js';
 import { validateDatasets } from './lib/dataset-validator.js';
 import { validateLinkHealth, validateMetadata, buildCrawlHints, computeSeoSweepMetrics } from './lib/seo-sweep.js';
+import { runBuildAudit } from './lib/build-auditor.js';
 
 async function build() {
   const startTime = Date.now();
@@ -209,9 +210,28 @@ async function build() {
   }
   console.log(`  ✓ SEO sweep (links: ${seoSweepMetrics.total_internal_links}, anchor diversity: ${seoSweepMetrics.anchor_diversity_score}%, metadata: ${seoSweepMetrics.metadata_quality_score}%, broken: ${seoSweepMetrics.broken_link_warnings})`);
 
+  // 12b. Phase 26 — Build audit (generator, routes, assets, repo stats, health score)
+  const buildAudit = await runBuildAudit({
+    routes,
+    pages: allEmittedPages,
+    emitResult,
+    timings: {},
+    validation,
+    seoValidation,
+    indexingValidation,
+    apiValidation,
+    datasetValidation,
+    seoSweepMetrics,
+    config,
+  });
+  if (buildAudit.warnings.length > 0) {
+    buildAudit.warnings.slice(0, 2).forEach(w => console.warn(`  ⚠ Audit: ${w}`));
+  }
+  console.log(`  ✓ Build audit complete (health: ${buildAudit.healthScore.total}/100 ${buildAudit.healthScore.grade}, modules: ${buildAudit.modules.length}, routes: ${buildAudit.routeAudit.stats.total_routes}, warnings: ${buildAudit.warnings.length})`);
+
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

@@ -83,6 +83,6 @@ export async function runFreshnessEngine(data, config) {
  * Returns freshness metadata for a given item key.
  * Falls back gracefully when freshness data is unavailable.
  */
-export function getFreshnessEntry(hashes, type, slug) {
+function getFreshnessEntry(hashes, type, slug) {
   return hashes[`${type}:${slug}`] || null;
 }

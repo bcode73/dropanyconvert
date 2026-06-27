@@ -8,7 +8,7 @@
 
 // ── Deterministic hash ────────────────────────────────────────────────────
 
-function djb2(str) {
+export function djb2(str) {
   let h = 5381;
   for (let i = 0; i < str.length; i++) h = ((h << 5) + h) + str.charCodeAt(i);
   return Math.abs(h >>> 0);

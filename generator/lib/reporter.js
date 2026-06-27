@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -315,6 +315,29 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       validator_stats:   (apiValidation?.stats ?? {}),
     },
 
+    // Build Audit (Phase 26)
+    build_audit: {
+      health_score:       buildAudit?.healthScore?.total      ?? 0,
+      health_grade:       buildAudit?.healthScore?.grade      ?? 'N/A',
+      architecture:       buildAudit?.healthScore?.architecture    ?? 0,
+      maintainability:    buildAudit?.healthScore?.maintainability ?? 0,
+      build_stability:    buildAudit?.healthScore?.build_stability ?? 0,
+      validation_score:   buildAudit?.healthScore?.validation      ?? 0,
+      technical_debt:     buildAudit?.healthScore?.technical_debt  ?? 0,
+      generator_modules:  buildAudit?.repoStats?.generator_modules ?? 0,
+      generator_js_loc:   buildAudit?.repoStats?.generator_js_loc  ?? 0,
+      asset_js_loc:       buildAudit?.repoStats?.asset_js_loc      ?? 0,
+      asset_css_loc:      buildAudit?.repoStats?.asset_css_loc     ?? 0,
+      data_json_files:    buildAudit?.repoStats?.data_json_files   ?? 0,
+      data_json_loc:      buildAudit?.repoStats?.data_json_loc     ?? 0,
+      largest_module:     buildAudit?.repoStats?.largest_module     ?? '',
+      smallest_module:    buildAudit?.repoStats?.smallest_module    ?? '',
+      avg_module_lines:   buildAudit?.repoStats?.avg_module_lines   ?? 0,
+      duplicate_routes:   buildAudit?.routeAudit?.stats?.duplicate_paths ?? 0,
+      audit_warnings:     (buildAudit?.warnings?.length ?? 0),
+      performance:        buildAudit?.performance ?? {},
+    },
+
     // Dataset Engine (Phase 24)
     dataset: {
       formats:              datasetStats?.formats              ?? 0,
@@ -451,6 +474,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Quality:  avg FAQs: ${contentQualityStats?.avg_faq_count ?? 0} | avg score: ${contentQualityStats?.avg_quality_score ?? 0}/100 | avg words: ${contentQualityStats?.avg_word_count ?? 0} | dupe pairs: ${contentQualityStats?.duplicate_pairs ?? 0}/${contentQualityStats?.pairs_checked ?? 0}`,
     `  Dataset:  ${datasetStats?.formats ?? 0} formats | ${datasetStats?.conversionPairs ?? 0} conversion pairs | ${datasetStats?.searchItems ?? 0} search items | ${datasetStats?.filesEmitted ?? 0} JSON files | ${datasetValidation?.warnings?.length ?? 0} warnings`,
     `  SEO P25:  links: ${seoSweepMetrics?.total_internal_links ?? 0} | anchor diversity: ${seoSweepMetrics?.anchor_diversity_score ?? 0}% | meta quality: ${seoSweepMetrics?.metadata_quality_score ?? 0}% | link health: ${seoSweepMetrics?.link_health_score ?? 0}% | broken: ${seoSweepMetrics?.broken_link_warnings ?? 0}`,
+    `  Health:   ${buildAudit?.healthScore?.total ?? 0}/100 (${buildAudit?.healthScore?.grade ?? 'N/A'}) | arch: ${buildAudit?.healthScore?.architecture ?? 0} maint: ${buildAudit?.healthScore?.maintainability ?? 0} stability: ${buildAudit?.healthScore?.build_stability ?? 0} valid: ${buildAudit?.healthScore?.validation ?? 0} debt: ${buildAudit?.healthScore?.technical_debt ?? 0} | ${buildAudit?.repoStats?.generator_js_loc ?? 0} LOC (gen) ${buildAudit?.repoStats?.asset_js_loc ?? 0} LOC (js)`,
   ].join('\n');
 
   try {

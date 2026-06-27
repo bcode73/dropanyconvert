@@ -893,6 +893,274 @@ export async function generateSeo(routes, data, config) {
         hreflangDefault: route.hreflangDefault || canonical,
         schemas: [organizationSchema, webSiteSchema],
       });
+
+    // ── Phase 17 route types ──────────────────────────────────────────────
+
+    } else if (route.type === 'intent') {
+      const { intent, modifier, tool } = route;
+      const canonical = `${baseUrl}${route.path}`;
+      const modLabel   = modifier.label?.en || '';
+      const baseTitle  = intent.baseTitle?.en || '';
+      const h1         = `${baseTitle} ${modLabel}`.trim();
+      const title      = `${h1} — Free Online Tool${globalSeo.defaults.titleSuffix}`;
+      const description = modifier.description?.en || intent.description?.en || `${h1}. Free, browser-based, no signup required.`;
+      const searchIntent = modifier.searchIntent || intent.searchIntent || 'transactional';
+
+      const allFaq = [...(intent.faq || []), ...(modifier.faq || [])];
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'How To', url: `${baseUrl}/${langCode}/how-to` },
+        { name: h1, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const webPageSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: title,
+        description,
+        url: canonical,
+        inLanguage: langCode,
+        isPartOf: { '@type': 'WebSite', name: globalSeo.defaults.ogSiteName, url: baseUrl },
+      };
+
+      const schemas = [webPageSchema, breadcrumbSchema];
+
+      if (allFaq.length > 0) {
+        schemas.push({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: allFaq.map(f => ({
+            '@type': 'Question',
+            name: f.question?.en || '',
+            acceptedAnswer: { '@type': 'Answer', text: f.answer?.en || '' },
+          })),
+        });
+      }
+
+      const howToSteps = intent.howToSteps?.en || [];
+      if (howToSteps.length > 0) {
+        schemas.push({
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: h1,
+          tool: [{ '@type': 'HowToTool', name: tool.name?.en || tool.slug }],
+          step: howToSteps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, text: s })),
+        });
+      }
+
+      seoData.set(route.path, {
+        title, description, canonical, h1, searchIntent,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical,
+        ogType: 'website', ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas,
+        primaryKeyword: `${intent.slug} ${modifier.slug}`.replace(/-/g, ' '),
+      });
+
+    } else if (route.type === 'how-to-index') {
+      const canonical = `${baseUrl}${route.path}`;
+      const title = `How-To Guides — Free File Conversion & Tools${globalSeo.defaults.titleSuffix}`;
+      const description = 'Step-by-step guides for converting, compressing, and editing files. All tools are free and browser-based.';
+      const h1 = 'How-To Guides — File Conversion & Tools';
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'How To', url: canonical },
+      ];
+      seoData.set(route.path, {
+        title, description, canonical, h1, searchIntent: 'informational',
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs,
+        schemas: [{
+          '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+          itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+        }],
+      });
+
+    } else if (route.type === 'platform') {
+      const { platform } = route;
+      const canonical = `${baseUrl}${route.path}`;
+      const h1 = platform.h1?.en || platform.title?.en || platform.slug;
+      const title = `${platform.title?.en || platform.slug}${globalSeo.defaults.titleSuffix}`;
+      const description = platform.description?.en || `${h1}. Free, browser-based tools.`;
+      const searchIntent = platform.searchIntent || 'commercial';
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'Platform Tools', url: `${baseUrl}/${langCode}/platform` },
+        { name: platform.title?.en || platform.slug, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const toolList = (route.tools || []).slice(0, 10);
+      const itemListSchema = toolList.length > 0 ? {
+        '@context': 'https://schema.org', '@type': 'ItemList',
+        name: h1,
+        itemListElement: toolList.map((t, i) => ({
+          '@type': 'ListItem', position: i + 1,
+          url: `${baseUrl}/${langCode}/${t.slug}`,
+          name: t.name?.en || t.slug,
+        })),
+      } : null;
+
+      const schemas = [breadcrumbSchema, { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: canonical, inLanguage: langCode }];
+      if (itemListSchema) schemas.push(itemListSchema);
+
+      const faqItems = platform.faq || [];
+      if (faqItems.length > 0) {
+        schemas.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(f => ({ '@type': 'Question', name: f.question?.en || '', acceptedAnswer: { '@type': 'Answer', text: f.answer?.en || '' } })) });
+      }
+
+      seoData.set(route.path, {
+        title, description, canonical, h1, searchIntent,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas,
+        primaryKeyword: platform.seo?.primaryKeyword || platform.slug.replace(/-/g, ' '),
+      });
+
+    } else if (route.type === 'use-case') {
+      const { useCase } = route;
+      const canonical = `${baseUrl}${route.path}`;
+      const h1 = useCase.h1?.en || useCase.title?.en || useCase.slug;
+      const title = `${useCase.title?.en || useCase.slug}${globalSeo.defaults.titleSuffix}`;
+      const description = useCase.description?.en || `${h1}. Free browser-based tools.`;
+      const searchIntent = useCase.searchIntent || 'commercial';
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'Use Cases', url: `${baseUrl}/${langCode}/use-case` },
+        { name: useCase.title?.en || useCase.slug, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const toolList = (route.tools || []).slice(0, 8);
+      const schemas = [breadcrumbSchema, { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: canonical, inLanguage: langCode }];
+      if (toolList.length > 0) {
+        schemas.push({ '@context': 'https://schema.org', '@type': 'ItemList', name: h1, itemListElement: toolList.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: `${baseUrl}/${langCode}/${t.slug}`, name: t.name?.en || t.slug })) });
+      }
+      const faqItems = useCase.faq || [];
+      if (faqItems.length > 0) {
+        schemas.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(f => ({ '@type': 'Question', name: f.question?.en || '', acceptedAnswer: { '@type': 'Answer', text: f.answer?.en || '' } })) });
+      }
+
+      seoData.set(route.path, {
+        title, description, canonical, h1, searchIntent,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas,
+        primaryKeyword: useCase.seo?.primaryKeyword || useCase.slug.replace(/-/g, ' '),
+      });
+
+    } else if (route.type === 'feature') {
+      const { feature } = route;
+      const canonical = `${baseUrl}${route.path}`;
+      const h1 = feature.h1?.en || feature.title?.en || feature.slug;
+      const title = `${feature.title?.en || feature.slug}${globalSeo.defaults.titleSuffix}`;
+      const description = feature.description?.en || `${h1}. Free browser-based tools.`;
+      const searchIntent = feature.searchIntent || 'transactional';
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'Features', url: `${baseUrl}/${langCode}/feature` },
+        { name: feature.title?.en || feature.slug, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const toolList = (route.tools || []).slice(0, 12);
+      const schemas = [breadcrumbSchema, { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: canonical, inLanguage: langCode }];
+      if (toolList.length > 0) {
+        schemas.push({ '@context': 'https://schema.org', '@type': 'ItemList', name: h1, itemListElement: toolList.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: `${baseUrl}/${langCode}/${t.slug}`, name: t.name?.en || t.slug })) });
+      }
+      const faqItems = feature.faq || [];
+      if (faqItems.length > 0) {
+        schemas.push({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqItems.map(f => ({ '@type': 'Question', name: f.question?.en || '', acceptedAnswer: { '@type': 'Answer', text: f.answer?.en || '' } })) });
+      }
+
+      seoData.set(route.path, {
+        title, description, canonical, h1, searchIntent,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas,
+        primaryKeyword: feature.seo?.primaryKeyword || feature.slug.replace(/-/g, ' '),
+      });
+
+    } else if (route.type === 'format-faq') {
+      const { entity } = route;
+      const canonical = `${baseUrl}${route.path}`;
+      const h1 = `${entity.name} FAQ — Common Questions Answered`;
+      const title = `${entity.name} FAQ${globalSeo.defaults.titleSuffix}`;
+      const description = `Frequently asked questions about ${entity.name} (${entity.fullName || entity.name}). What it is, how to use it, common conversions, and more.`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs.homeName[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'FAQ', url: `${baseUrl}/${langCode}/faq` },
+        { name: `${entity.name} FAQ`, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const faqSchema = {
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        mainEntity: (entity.faq || []).map(f => ({
+          '@type': 'Question',
+          name: f.question?.en || f.question || '',
+          acceptedAnswer: { '@type': 'Answer', text: f.answer?.en || f.answer || '' },
+        })),
+      };
+
+      seoData.set(route.path, {
+        title, description, canonical, h1, searchIntent: 'informational',
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas: [breadcrumbSchema, faqSchema],
+        primaryKeyword: `${entity.name.toLowerCase()} faq`,
+      });
     }
   }
 

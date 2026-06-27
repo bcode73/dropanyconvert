@@ -37,7 +37,7 @@ export async function loadData(config) {
   const legal = JSON.parse(legalRaw);
   const analytics = JSON.parse(analyticsRaw);
 
-  const [tools, articles, comparisons, glossary, collections, landings, entities, trustRaw, editorialRaw, changelogRaw, authorsRaw] = await Promise.all([
+  const [tools, articles, comparisons, glossary, collections, landings, entities, intentsRaw, trustRaw, editorialRaw, changelogRaw, authorsRaw, platformsRaw, useCasesRaw, featuresRaw] = await Promise.all([
     loadJsonDir(path.join(dataDir, 'tools')),
     loadJsonDir(path.join(dataDir, 'articles')),
     loadJsonDir(path.join(dataDir, 'comparisons')),
@@ -45,16 +45,25 @@ export async function loadData(config) {
     loadJsonDir(path.join(dataDir, 'collections')),
     loadJsonDir(path.join(dataDir, 'landings')),
     loadJsonDir(path.join(dataDir, 'entities')),
+    loadJsonDir(path.join(dataDir, 'intents')),
     readFile(path.join(dataDir, 'trust.json'), 'utf8').catch(() => null),
     readFile(path.join(dataDir, 'editorial.json'), 'utf8').catch(() => null),
     readFile(path.join(dataDir, 'changelog.json'), 'utf8').catch(() => null),
     readFile(path.join(dataDir, 'authors.json'), 'utf8').catch(() => null),
+    readFile(path.join(dataDir, 'platforms.json'), 'utf8').catch(() => null),
+    readFile(path.join(dataDir, 'use-cases.json'), 'utf8').catch(() => null),
+    readFile(path.join(dataDir, 'features.json'), 'utf8').catch(() => null),
   ]);
 
   const trust     = trustRaw     ? JSON.parse(trustRaw)     : null;
   const editorial = editorialRaw ? JSON.parse(editorialRaw) : { pages: [] };
   const changelog = changelogRaw ? JSON.parse(changelogRaw) : { releases: [] };
   const authors   = authorsRaw   ? JSON.parse(authorsRaw).authors || [] : [];
+  // intentsRaw is array of arrays (one per file) — flatten
+  const intents   = intentsRaw.flat();
+  const platforms = platformsRaw ? JSON.parse(platformsRaw).platforms || [] : [];
+  const useCases  = useCasesRaw  ? JSON.parse(useCasesRaw).useCases   || [] : [];
+  const features  = featuresRaw  ? JSON.parse(featuresRaw).features   || [] : [];
 
-  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary, collections, landings, entities, trust, editorial, changelog, authors };
+  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary, collections, landings, entities, intents, platforms, useCases, features, trust, editorial, changelog, authors };
 }

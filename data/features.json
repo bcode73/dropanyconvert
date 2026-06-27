@@ -1,0 +1,92 @@
+{
+  "features": [
+    {
+      "slug": "batch-converters",
+      "title": { "en": "Batch Converters" },
+      "h1": { "en": "Free Batch File Converters — Process Multiple Files at Once" },
+      "description": { "en": "Convert, compress, or resize multiple images and PDFs simultaneously. Batch processing tools that work in your browser — no upload, no software." },
+      "searchIntent": "transactional",
+      "capability": "batch",
+      "intro": { "en": "Stop converting files one at a time. Our batch tools let you drop multiple files, process them all simultaneously in your browser, and download results as a ZIP file. Everything runs locally — no files uploaded to any server." },
+      "faq": [
+        { "question": { "en": "How many files can I convert at once?" }, "answer": { "en": "Most batch tools accept up to 20 files simultaneously. All files are processed in parallel in your browser for maximum speed." } },
+        { "question": { "en": "Are batch conversions free?" }, "answer": { "en": "Yes. All batch conversion tools are free with no file count limits within the per-session cap." } },
+        { "question": { "en": "How do I download batch results?" }, "answer": { "en": "After processing, all converted files are automatically packaged into a ZIP file for single-click download." } }
+      ],
+      "seo": { "primaryKeyword": "batch file converter online", "secondaryKeywords": ["bulk image converter", "batch pdf converter", "convert multiple files at once"] }
+    },
+    {
+      "slug": "browser-only-converters",
+      "title": { "en": "Browser-Only Converters" },
+      "h1": { "en": "Browser-Only File Converters — No Upload, No Server" },
+      "description": { "en": "File converters that run 100% in your browser. No files are uploaded — all processing happens on your device using JavaScript and WebAssembly." },
+      "searchIntent": "informational",
+      "capability": "browser-native",
+      "intro": { "en": "Traditional file conversion tools upload your files to a server, process them, and send results back. Our converters work differently — all processing happens in your browser using WebAssembly and JavaScript. Your files never leave your device." },
+      "faq": [
+        { "question": { "en": "What does 'browser-only' mean?" }, "answer": { "en": "It means all file processing happens in your web browser using JavaScript and WebAssembly. No files are sent to any server. Your data stays on your device." } },
+        { "question": { "en": "Are browser-only converters as good as desktop software?" }, "answer": { "en": "For most everyday tasks — converting images, compressing PDFs, formatting code — browser-based tools produce identical results to desktop software." } },
+        { "question": { "en": "How is this possible technically?" }, "answer": { "en": "Modern browsers support WebAssembly, which lets us compile native code (like image processing libraries) to run directly in the browser at near-native speed." } }
+      ],
+      "seo": { "primaryKeyword": "browser only file converter", "secondaryKeywords": ["no upload file converter", "offline file converter browser", "convert files without uploading"] }
+    },
+    {
+      "slug": "privacy-first-converters",
+      "title": { "en": "Privacy-First Converters" },
+      "h1": { "en": "Privacy-First File Converters — Your Files Never Leave Your Device" },
+      "description": { "en": "Convert files privately. All processing happens in your browser — your documents, images, and code are never uploaded to any server." },
+      "searchIntent": "informational",
+      "capability": "privacy",
+      "intro": { "en": "When you upload files to a cloud service, you're trusting them with your data. Our privacy-first converters eliminate that risk entirely. Every conversion runs locally in your browser. We literally cannot see your files — there's no server receiving them." },
+      "faq": [
+        { "question": { "en": "How can I verify my files aren't being uploaded?" }, "answer": { "en": "Open your browser's DevTools (F12), go to the Network tab, and watch for any requests when you convert a file. You'll see zero file upload requests — only static asset loads." } },
+        { "question": { "en": "Is this safe for confidential documents?" }, "answer": { "en": "Yes. Because no data is transmitted, there is no risk of interception, data breach, or unauthorized access to your documents." } },
+        { "question": { "en": "Do you store any information about the files I convert?" }, "answer": { "en": "No. We cannot store what we never receive. No file data, metadata, or content is ever transmitted to our servers." } }
+      ],
+      "seo": { "primaryKeyword": "private file converter no upload", "secondaryKeywords": ["safe pdf converter privacy", "convert files without cloud", "privacy first online tools"] }
+    },
+    {
+      "slug": "offline-converters",
+      "title": { "en": "Offline Converters" },
+      "h1": { "en": "Offline File Converters — Works Without Internet After First Load" },
+      "description": { "en": "Convert files without an internet connection. Load the tool once, then disconnect — all processing continues to work offline in your browser." },
+      "searchIntent": "commercial",
+      "capability": "offline",
+      "intro": { "en": "On a plane, in a remote location, or with a spotty connection? Load our tools once and they continue to work offline. All file processing happens in your browser's JavaScript engine — no internet required after the initial page load." },
+      "faq": [
+        { "question": { "en": "How do I use these tools offline?" }, "answer": { "en": "Simply open the tool in your browser while you have an internet connection. After the page loads, you can disconnect and all file conversion features will continue to work." } },
+        { "question": { "en": "Do all tools work offline?" }, "answer": { "en": "Yes. All image and PDF tools are fully offline-capable after the first page load. Developer tools are also offline-capable." } },
+        { "question": { "en": "Can I save these tools to use offline permanently?" }, "answer": { "en": "Yes. Add the page to your browser bookmarks after it loads. As long as the browser keeps the page cached, it will work offline." } }
+      ],
+      "seo": { "primaryKeyword": "offline file converter browser", "secondaryKeywords": ["convert files without internet", "offline image converter", "offline pdf tools"] }
+    },
+    {
+      "slug": "high-quality-converters",
+      "title": { "en": "High-Quality Converters" },
+      "h1": { "en": "High-Quality File Converters — Lossless & Controlled Compression" },
+      "description": { "en": "Convert images and PDFs at maximum quality. Our quality-focused converters let you control compression levels and choose lossless output where available." },
+      "searchIntent": "transactional",
+      "capability": "quality-control",
+      "intro": { "en": "Not all converters are equal. Ours let you control output quality precisely. Use the quality slider to balance file size versus fidelity. Choose lossless formats like PNG or WebP (lossless mode) for images where quality is non-negotiable." },
+      "faq": [
+        { "question": { "en": "What quality setting should I use for the best results?" }, "answer": { "en": "For JPG: 85–95 gives near-lossless quality at reasonable file sizes. For WebP: 80–90 is usually optimal. For screenshots and graphics, use PNG (lossless) instead." } },
+        { "question": { "en": "What is the difference between lossless and lossy compression?" }, "answer": { "en": "Lossless compression (PNG, WebP lossless) preserves every pixel exactly. Lossy compression (JPG, WebP lossy) reduces file size by discarding some detail — the quality slider controls how much." } }
+      ],
+      "seo": { "primaryKeyword": "high quality image converter", "secondaryKeywords": ["lossless image converter online", "image converter best quality", "quality pdf compressor"] }
+    },
+    {
+      "slug": "fast-converters",
+      "title": { "en": "Fast Converters" },
+      "h1": { "en": "Fast File Converters — Instant In-Browser Processing" },
+      "description": { "en": "Convert files instantly. Our browser-based tools process files locally — no upload wait, no server queue, no download delay. Results in seconds." },
+      "searchIntent": "transactional",
+      "capability": "fast",
+      "intro": { "en": "Cloud converters make you upload, wait for a server queue, and download results. Our tools process files instantly in your browser. A 5MB image converts in under a second. A 10-page PDF compresses in two seconds. No waiting." },
+      "faq": [
+        { "question": { "en": "How fast are these converters?" }, "answer": { "en": "Most conversions complete in under 2 seconds for typical file sizes. Large batch operations (20 files) may take 5–10 seconds depending on your device." } },
+        { "question": { "en": "Why are browser-based converters faster than upload-based tools?" }, "answer": { "en": "No upload or download time. The file goes directly from your storage to your browser's processing engine to the output — all on your device. No network roundtrip." } }
+      ],
+      "seo": { "primaryKeyword": "fast online file converter", "secondaryKeywords": ["instant image converter", "fast pdf tools online", "quick file conversion browser"] }
+    }
+  ]
+}

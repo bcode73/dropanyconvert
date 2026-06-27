@@ -164,6 +164,12 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       entity:         routes.filter(r => r.type === 'entity').length,
       'entity-index': routes.filter(r => r.type === 'entity-index').length,
       author:         routes.filter(r => r.type === 'author').length,
+      intent:         routes.filter(r => r.type === 'intent').length,
+      'how-to-index': routes.filter(r => r.type === 'how-to-index').length,
+      platform:       routes.filter(r => r.type === 'platform').length,
+      'use-case':     routes.filter(r => r.type === 'use-case').length,
+      feature:        routes.filter(r => r.type === 'feature').length,
+      'format-faq':   routes.filter(r => r.type === 'format-faq').length,
       root:           1,
     },
     sitemaps_generated: sitemaps.length,
@@ -214,6 +220,28 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     // Knowledge graph stats (Phase 16)
     knowledge_graph: buildKnowledgeGraph(data, routes, seoValidation, freshness),
 
+    // Search intent distribution (Phase 17)
+    search_intent: (() => {
+      const counts = { informational: 0, commercial: 0, navigational: 0, transactional: 0, unclassified: 0 };
+      for (const [, seo] of seoData) {
+        const si = seo.searchIntent;
+        if (si && counts.hasOwnProperty(si)) counts[si]++;
+        else counts.unclassified++;
+      }
+      return counts;
+    })(),
+
+    // Phase 17 programmatic SEO summary
+    programmatic_seo: {
+      intent_pages:      routes.filter(r => r.type === 'intent').length,
+      platform_pages:    routes.filter(r => r.type === 'platform').length,
+      use_case_pages:    routes.filter(r => r.type === 'use-case').length,
+      feature_pages:     routes.filter(r => r.type === 'feature').length,
+      format_faq_pages:  routes.filter(r => r.type === 'format-faq').length,
+      intent_clusters:   (data.intents || []).length,
+      total_modifiers:   (data.intents || []).reduce((s, i) => s + (i.modifiers?.length || 0), 0),
+    },
+
     warnings: validation.warnings,
     errors:   validation.errors,
     toolList: data.tools.map(t => ({
@@ -243,12 +271,14 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
 
   const entityCount2  = (data.entities || []).length;
   const authorCount2  = (data.authors  || []).length;
+  const intentCount2  = (data.intents  || []).length;
+  const platformCount2 = (data.platforms || []).length;
   const summary = [
-    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} cat:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} cmp:${comparisonCount} glossary:${glossaryCount} coll:${collectionCount} landings:${landingCount} trust:${trustCount} editorial:${editorialCount} changelog:${changelogCount} entities:${routes.filter(r=>r.type==='entity').length} authors:${routes.filter(r=>r.type==='author').length})`,
+    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} cat:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} cmp:${comparisonCount} glossary:${glossaryCount} coll:${collectionCount} landings:${landingCount} trust:${trustCount} editorial:${editorialCount} changelog:${changelogCount} entities:${routes.filter(r=>r.type==='entity').length} authors:${routes.filter(r=>r.type==='author').length} intents:${routes.filter(r=>r.type==='intent').length} platforms:${routes.filter(r=>r.type==='platform').length} usecases:${routes.filter(r=>r.type==='use-case').length} features:${routes.filter(r=>r.type==='feature').length} fmtfaq:${routes.filter(r=>r.type==='format-faq').length})`,
     `  Tools:    ${toolCount}`,
     `  Articles: ${articleCount / (langCount || 1)} (${data.articles?.length || 0} guides, ${data.comparisons?.length || 0} comparisons, ${data.glossary?.length || 0} glossary × ${langCount} langs)`,
-    `  Entities: ${entityCount2} file formats`,
-    `  Authors:  ${authorCount2}`,
+    `  Entities: ${entityCount2} file formats | Authors: ${authorCount2}`,
+    `  Intents:  ${intentCount2} clusters | Platforms: ${platformCount2}`,
     `  Languages:${langCount}`,
     `  Sitemaps: ${sitemaps.length}`,
     `  Output:   ${emitResult.sizeKb} KB`,

@@ -123,6 +123,42 @@ export async function generateRoutes(registry, data, config) {
         url: `${config.site.baseUrl}/${lang.code}/author/${route.slug}`,
       }));
       route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/author/${route.slug}`;
+    } else if (route.type === 'intent') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/how-to/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/how-to/${route.slug}`;
+    } else if (route.type === 'how-to-index') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/how-to`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/how-to`;
+    } else if (route.type === 'platform') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/platform/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/platform/${route.slug}`;
+    } else if (route.type === 'use-case') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/use-case/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/use-case/${route.slug}`;
+    } else if (route.type === 'feature') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/feature/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/feature/${route.slug}`;
+    } else if (route.type === 'format-faq') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/faq/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/faq/${route.slug}`;
     } else if (route.type === 'home') {
       route.hreflang = data.languages.map(lang => ({
         lang: lang.hreflang,

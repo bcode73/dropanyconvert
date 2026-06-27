@@ -23,6 +23,15 @@ export async function generateInternalLinks(routes, data, config) {
 
   const toolBySlug = new Map(data.tools.map(t => [t.slug, t]));
 
+  // Build intent index: toolSlug → array of {intent, modifier} for how-to link display
+  const intentsByTool = new Map();
+  for (const intent of (data.intents || [])) {
+    if (!intentsByTool.has(intent.toolSlug)) intentsByTool.set(intent.toolSlug, []);
+    for (const modifier of (intent.modifiers || [])) {
+      intentsByTool.get(intent.toolSlug).push({ intent, modifier });
+    }
+  }
+
   // Build entity lookup once
   const entityBySlug = new Map((data.entities || []).map(e => [e.slug, e]));
 
@@ -197,6 +206,13 @@ export async function generateInternalLinks(routes, data, config) {
         description: e.description ? e.description.slice(0, 100) : '',
       }));
 
+    // How-to intent pages for this tool
+    const howToGuides = (intentsByTool.get(tool.slug) || []).slice(0, 6).map(({ intent, modifier }) => ({
+      slug: `${intent.slug}-${modifier.slug}`,
+      title: `${intent.baseTitle?.en || ''} ${modifier.label?.en || ''}`.trim(),
+      path: `/${lang}/how-to/${intent.slug}-${modifier.slug}`,
+    }));
+
     links.set(route.path, {
       relatedTools,
       guides,
@@ -205,6 +221,7 @@ export async function generateInternalLinks(routes, data, config) {
       collections: relatedCollections,
       landings: relatedLandings,
       entities: relatedEntities,
+      howToGuides,
     });
   }
 

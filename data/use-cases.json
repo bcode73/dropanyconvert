@@ -1,0 +1,119 @@
+{
+  "useCases": [
+    {
+      "slug": "for-students",
+      "title": { "en": "For Students" },
+      "h1": { "en": "Free Online File Tools for Students" },
+      "description": { "en": "Free tools to help students convert images, compress PDFs, and handle common file format tasks for school and university assignments." },
+      "searchIntent": "commercial",
+      "audience": "students",
+      "intro": { "en": "Handle every file format task you'll encounter at school or university. Convert images for presentations, compress large PDFs to meet email size limits, merge assignment files, and format code — all for free, no account required." },
+      "toolSlugs": ["compress-pdf", "merge-pdf", "png-to-jpg", "image-compressor", "image-resizer", "jpg-to-png", "json-beautifier", "pdf-to-images"],
+      "benefits": { "en": ["Compress PDFs to fit email attachment limits", "Convert images to JPG for smaller presentation file sizes", "Merge multiple documents into one PDF", "Format and validate JSON for coding assignments", "Resize images to meet exact dimension requirements"] },
+      "faq": [
+        { "question": { "en": "Are these tools really free for students?" }, "answer": { "en": "Yes. All tools are completely free — no account, no subscription, no watermarks. Every tool runs in your browser." } },
+        { "question": { "en": "Can I use these tools on my school computer?" }, "answer": { "en": "Yes. They run in any modern browser without software installation. No admin rights required." } },
+        { "question": { "en": "Do these tools work offline in the library?" }, "answer": { "en": "After the page first loads, most tools work without an internet connection. Image and PDF tools are fully offline-capable." } }
+      ],
+      "seo": { "primaryKeyword": "free online tools for students", "secondaryKeywords": ["free pdf tools students", "free image converter school", "online tools university"] }
+    },
+    {
+      "slug": "for-designers",
+      "title": { "en": "For Designers" },
+      "h1": { "en": "Free Online File Tools for Designers" },
+      "description": { "en": "Convert, compress, and optimize images in the browser. Essential free tools for graphic designers, UI/UX designers, and illustrators." },
+      "searchIntent": "commercial",
+      "audience": "designers",
+      "intro": { "en": "Designers need format flexibility. Convert between PNG, JPG, WebP, AVIF, and SVG. Compress images for web delivery. Resize for social media specs. Add watermarks to protect your work. All in the browser — no Photoshop needed." },
+      "toolSlugs": ["png-to-jpg", "jpg-to-png", "png-to-webp", "png-to-svg", "svg-to-png", "image-compressor", "image-resizer", "image-watermark", "image-crop", "png-to-avif"],
+      "benefits": { "en": ["Convert between all major image formats in seconds", "Compress images for web without visible quality loss", "Resize images to exact pixel dimensions for any platform", "Add watermarks to protect your designs", "Convert to modern formats like WebP and AVIF for web performance"] },
+      "faq": [
+        { "question": { "en": "Can I convert SVG to PNG in the browser?" }, "answer": { "en": "Yes. Our SVG to PNG converter renders vector SVG files to raster PNG at any resolution you choose." } },
+        { "question": { "en": "Can I compress images for web without quality loss?" }, "answer": { "en": "Yes. Our image compressor uses smart compression that reduces file size while maintaining visual quality." } },
+        { "question": { "en": "Do these tools support batch processing?" }, "answer": { "en": "Yes. Most image tools support uploading and processing multiple files simultaneously." } }
+      ],
+      "seo": { "primaryKeyword": "free tools for designers", "secondaryKeywords": ["image converter graphic designer", "free image tools ux designer", "online tools for illustrators"] }
+    },
+    {
+      "slug": "for-developers",
+      "title": { "en": "For Developers" },
+      "h1": { "en": "Free Browser-Based Developer Tools" },
+      "description": { "en": "Format JSON, encode Base64, validate YAML, generate hashes, decode JWTs, and more. Privacy-first developer utilities — nothing sent to a server." },
+      "searchIntent": "commercial",
+      "audience": "developers",
+      "intro": { "en": "A complete browser-based toolkit for developers. Format and validate JSON, YAML, and XML. Encode and decode Base64, URLs, and HTML entities. Generate cryptographic hashes. Inspect JWTs. Test regular expressions. All processing is local — safe for sensitive data." },
+      "toolSlugs": ["json-beautifier", "json-validator", "json-formatter", "yaml-formatter", "yaml-validator", "xml-beautifier", "xml-validator", "base64-encode", "base64-decode", "md5-generator", "sha256-generator", "jwt-decoder", "regex-tester", "url-encode", "csv-to-json"],
+      "benefits": { "en": ["Format and validate JSON, YAML, and XML instantly", "Encode and decode Base64, URLs, and HTML entities", "Generate MD5, SHA-1, SHA-256, and SHA-512 hashes", "Decode and inspect JWT tokens safely", "Convert between JSON, YAML, XML, and CSV formats", "All processing is local — safe for API keys and credentials"] },
+      "faq": [
+        { "question": { "en": "Are these developer tools safe for sensitive data?" }, "answer": { "en": "Yes. All processing runs in your browser. No data is sent to any server. Safe for JWT tokens, API keys, and confidential JSON." } },
+        { "question": { "en": "Can I use these tools via command line?" }, "answer": { "en": "These are browser-based tools. For CLI use, consider jq (JSON), openssl (hashing), or base64 system utilities." } },
+        { "question": { "en": "Do these tools work offline?" }, "answer": { "en": "Yes. After the page loads, all tools work without an internet connection." } }
+      ],
+      "seo": { "primaryKeyword": "free developer tools browser", "secondaryKeywords": ["online json formatter developer", "privacy first developer tools", "base64 encoder decoder online"] }
+    },
+    {
+      "slug": "for-businesses",
+      "title": { "en": "For Businesses" },
+      "h1": { "en": "Free Online File Tools for Businesses" },
+      "description": { "en": "Compress PDFs for email, merge documents, watermark images, and convert files — free browser tools for business use with no file upload risk." },
+      "searchIntent": "commercial",
+      "audience": "businesses",
+      "intro": { "en": "Handle daily file tasks without expensive software licenses. Compress PDFs before emailing, merge reports, protect documents with passwords, watermark branded images, and convert between formats — all in the browser with no files ever leaving your network." },
+      "toolSlugs": ["compress-pdf", "merge-pdf", "protect-pdf", "image-watermark", "pdf-metadata-editor", "image-compressor", "split-pdf", "png-to-jpg", "images-to-pdf"],
+      "benefits": { "en": ["Compress PDFs to meet email attachment limits", "Merge multiple reports into a single PDF", "Password-protect confidential PDF documents", "Add watermarks to brand or protect images", "No software licenses or subscriptions needed", "Files never leave your organization's devices"] },
+      "faq": [
+        { "question": { "en": "Is it safe to use these tools for confidential business documents?" }, "answer": { "en": "Yes. All processing happens in the browser. Documents are never uploaded to any server. This makes them safer than cloud-based alternatives for confidential files." } },
+        { "question": { "en": "Can multiple employees use these tools?" }, "answer": { "en": "Yes. The tools are available to anyone with a browser, with no seat limits or accounts required." } }
+      ],
+      "seo": { "primaryKeyword": "free tools for business", "secondaryKeywords": ["free pdf tools business", "online file tools no upload business", "free image tools company"] }
+    },
+    {
+      "slug": "for-bloggers",
+      "title": { "en": "For Bloggers" },
+      "h1": { "en": "Free Image & File Tools for Bloggers" },
+      "description": { "en": "Optimize images for your blog, convert to WebP for speed, compress for fast loading, and resize to fit your theme — all free, all in the browser." },
+      "searchIntent": "commercial",
+      "audience": "bloggers",
+      "intro": { "en": "Fast-loading images improve SEO and user experience. Convert images to WebP or AVIF for maximum compression. Resize to your exact theme dimensions. Compress without quality loss. Add watermarks to protect original content." },
+      "toolSlugs": ["image-compressor", "png-to-webp", "jpg-to-webp", "png-to-avif", "image-resizer", "image-watermark", "png-to-jpg", "compress-pdf"],
+      "benefits": { "en": ["Convert images to WebP for 30% smaller file sizes", "Resize to exact blog theme dimensions", "Compress JPG and PNG without visible quality loss", "Add watermarks to protect original blog images", "Convert screenshots to web-optimized formats"] },
+      "faq": [
+        { "question": { "en": "What image format should I use for my blog?" }, "answer": { "en": "WebP offers the best compression for blog images with broad browser support. AVIF is even smaller but has less support. JPG is safe for photographs; PNG for screenshots and graphics." } },
+        { "question": { "en": "How can I speed up my blog by optimizing images?" }, "answer": { "en": "Convert images to WebP, compress them to under 100KB where possible, and resize to your exact display dimensions. This can cut page load time significantly." } }
+      ],
+      "seo": { "primaryKeyword": "free image tools bloggers", "secondaryKeywords": ["optimize images for blog", "webp converter bloggers", "image compressor wordpress"] }
+    },
+    {
+      "slug": "for-ecommerce",
+      "title": { "en": "For Ecommerce" },
+      "h1": { "en": "Free Image & PDF Tools for Ecommerce Sellers" },
+      "description": { "en": "Optimize product images, compress for fast page loads, and prepare PDFs for online stores. Free browser tools for Shopify, WooCommerce, and Etsy sellers." },
+      "searchIntent": "commercial",
+      "audience": "ecommerce",
+      "intro": { "en": "Fast product pages convert better. Compress and optimize product images without losing quality. Convert to WebP for maximum speed. Resize to marketplace-specific dimensions (Amazon, Shopify, Etsy). Process multiple product images at once with batch tools." },
+      "toolSlugs": ["image-compressor", "image-resizer", "png-to-webp", "jpg-to-webp", "png-to-jpg", "png-to-avif", "image-watermark", "compress-pdf"],
+      "benefits": { "en": ["Compress product images for faster page load speeds", "Resize to exact marketplace dimension requirements", "Convert to WebP for 30–50% smaller file sizes", "Batch process hundreds of product images", "Add watermarks to protect product photography", "Prepare PDF product catalogs and spec sheets"] },
+      "faq": [
+        { "question": { "en": "What image size should I use for ecommerce product photos?" }, "answer": { "en": "Most platforms recommend 800×800 to 2000×2000 pixels. Shopify recommends 2048×2048. Keep file sizes under 500KB for fast loading." } },
+        { "question": { "en": "Should I use JPG or WebP for product images?" }, "answer": { "en": "WebP is better — it's 25–35% smaller than JPG at the same quality. All major browsers support WebP. Use our JPG to WebP converter to switch your existing images." } }
+      ],
+      "seo": { "primaryKeyword": "free image tools ecommerce", "secondaryKeywords": ["product image optimizer shopify", "ecommerce image resizer", "compress product photos online"] }
+    },
+    {
+      "slug": "for-teachers",
+      "title": { "en": "For Teachers" },
+      "h1": { "en": "Free Online File Tools for Teachers & Educators" },
+      "description": { "en": "Compress PDFs for sharing, merge handouts, convert images for presentations, and create QR codes. Free tools for teachers and educators." },
+      "searchIntent": "commercial",
+      "audience": "teachers",
+      "intro": { "en": "Prepare teaching materials quickly. Compress PDFs to share via email or learning management systems. Merge multiple handouts into one document. Convert screenshots to presentation-friendly formats. Generate QR codes for student links." },
+      "toolSlugs": ["compress-pdf", "merge-pdf", "png-to-jpg", "image-compressor", "image-resizer", "qr-code-generator", "pdf-to-images", "images-to-pdf"],
+      "benefits": { "en": ["Compress large PDFs for email and LMS upload limits", "Merge multiple handouts and worksheets into one PDF", "Convert images for use in PowerPoint and Google Slides", "Generate QR codes for quick student access to resources", "Convert PDFs to images for embedding in presentations"] },
+      "faq": [
+        { "question": { "en": "Can I compress a PDF to share on Google Classroom?" }, "answer": { "en": "Yes. Our PDF compressor reduces file size significantly while maintaining readability. Compressed PDFs are easier to share via email or upload to Google Classroom." } },
+        { "question": { "en": "How do I convert a PDF to an image for a presentation?" }, "answer": { "en": "Use our PDF to Images tool. It converts each PDF page to a PNG or JPG that you can insert directly into PowerPoint or Google Slides." } }
+      ],
+      "seo": { "primaryKeyword": "free tools for teachers", "secondaryKeywords": ["pdf tools educators", "merge pdf classroom", "free image tools teachers"] }
+    }
+  ]
+}

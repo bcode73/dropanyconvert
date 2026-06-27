@@ -84,6 +84,24 @@ export async function generatePages(routes, seoData, links, data, config) {
     } else if (route.type === 'author') {
       html = renderAuthorPage(route, seo, data, config);
       pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'intent') {
+      html = renderIntentPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'how-to-index') {
+      html = renderHowToIndexPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'platform') {
+      html = renderPlatformPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'use-case') {
+      html = renderUseCasePage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'feature') {
+      html = renderFeaturePage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'format-faq') {
+      html = renderFormatFaqPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
     } else if (route.type === 'root') {
       const d = config.languages.default;
       html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/${d}"><link rel="canonical" href="${config.site.baseUrl}/${d}"></head><body></body></html>`;
@@ -443,6 +461,49 @@ function buildKhIndex(data, langCode) {
       keywords: (a.specialties || []),
     });
   }
+  for (const intent of (data.intents || [])) {
+    for (const modifier of (intent.modifiers || [])) {
+      const pageSlug = `${intent.slug}-${modifier.slug}`;
+      items.push({
+        type: 'how-to',
+        slug: pageSlug,
+        path: `/${langCode}/how-to/${pageSlug}`,
+        name: `${intent.baseTitle?.en || intent.slug} ${modifier.label?.en || modifier.slug}`.trim(),
+        tagline: modifier.description?.en ? modifier.description.en.slice(0, 100) : '',
+        keywords: [`${intent.slug} ${modifier.slug}`.replace(/-/g, ' ')],
+      });
+    }
+  }
+  for (const p of (data.platforms || [])) {
+    items.push({
+      type: 'platform',
+      slug: p.slug,
+      path: `/${langCode}/platform/${p.slug}`,
+      name: p.title?.en || p.slug,
+      tagline: p.description?.en ? p.description.en.slice(0, 100) : '',
+      keywords: (p.seo?.secondaryKeywords || []),
+    });
+  }
+  for (const uc of (data.useCases || [])) {
+    items.push({
+      type: 'use-case',
+      slug: uc.slug,
+      path: `/${langCode}/use-case/${uc.slug}`,
+      name: uc.title?.en || uc.slug,
+      tagline: uc.description?.en ? uc.description.en.slice(0, 100) : '',
+      keywords: (uc.seo?.secondaryKeywords || []),
+    });
+  }
+  for (const f of (data.features || [])) {
+    items.push({
+      type: 'feature',
+      slug: f.slug,
+      path: `/${langCode}/feature/${f.slug}`,
+      name: f.title?.en || f.slug,
+      tagline: f.description?.en ? f.description.en.slice(0, 100) : '',
+      keywords: (f.seo?.secondaryKeywords || []),
+    });
+  }
   return items;
 }
 
@@ -788,7 +849,7 @@ const UPLOAD_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="48" heig
 
 function renderToolPage(route, seo, toolLinks, data, config) {
   if (route.tool.uiGroup === 'developer') return renderDevToolPage(route, seo, toolLinks, data, config);
-  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [], entities: linkerEntities = [] } = toolLinks;
+  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [], entities: linkerEntities = [], howToGuides = [] } = toolLinks;
 
   const tool = route.tool;
   const langCode = route.lang;
@@ -1321,6 +1382,11 @@ ${adTop}
   <div class="dac-entity-chips">${linkerEntities.map(e => `<a href="${esc(e.path)}" class="dac-entity-chip">${esc(e.name)}</a>`).join('')}</div>
 </section>` : ''}
 
+  ${howToGuides.length > 0 ? `<section class="dac-how-to-guides">
+  <h2 class="dac-section-title">How-To Guides</h2>
+  <ul class="dac-how-to-list">${howToGuides.map(g => `<li><a href="${esc(g.path)}" class="dac-how-to-link">${esc(g.title)}</a></li>`).join('')}</ul>
+</section>` : ''}
+
   <!-- Quality Badges -->
   ${renderToolBadges(tool)}
 
@@ -1346,7 +1412,7 @@ ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 // ── Developer Tool Page ────────────────────────────────────────────────────
 
 function renderDevToolPage(route, seo, toolLinks, data, config) {
-  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [], entities: linkerEntities = [] } = toolLinks;
+  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [], entities: linkerEntities = [], howToGuides = [] } = toolLinks;
   const tool     = route.tool;
   const langCode = route.lang;
   const lang     = route.language;
@@ -3509,6 +3575,421 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Phase 17: Intent Page ─────────────────────────────────────────────────
+
+function renderIntentPage(route, seo, data, config) {
+  const { intent, modifier, tool } = route;
+  const langCode = route.lang;
+  const ads = data.ads;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+
+  const allFaq = [...(intent.faq || []), ...(modifier.faq || [])];
+  const howToSteps = intent.howToSteps?.en || [];
+  const relatedEntities = (intent.entitySlugs || [])
+    .map(s => (data.entities || []).find(e => e.slug === s)).filter(Boolean);
+
+  // Other modifier pages for this intent (cross-links)
+  const siblingPages = (intent.modifiers || [])
+    .filter(m => m.slug !== modifier.slug)
+    .map(m => ({ slug: m.slug, label: m.label?.en || m.slug, path: `/${langCode}/how-to/${intent.slug}-${m.slug}` }));
+
+  const faqHtml = allFaq.length > 0 ? `
+<section class="dac-faq" aria-labelledby="dac-faq-title">
+  <h2 class="dac-section-title" id="dac-faq-title">Frequently Asked Questions</h2>
+  <dl class="dac-faq__list">
+    ${allFaq.map(f => `
+    <div class="dac-faq__item">
+      <dt class="dac-faq__question">${esc(f.question?.en || '')}</dt>
+      <dd class="dac-faq__answer">${esc(f.answer?.en || '')}</dd>
+    </div>`).join('')}
+  </dl>
+</section>` : '';
+
+  const stepsHtml = howToSteps.length > 0 ? `
+<section class="dac-how-to-steps" aria-labelledby="dac-steps-title">
+  <h2 class="dac-section-title" id="dac-steps-title">How To ${esc(intent.baseTitle?.en || '')}</h2>
+  <ol class="dac-steps-list">
+    ${howToSteps.map(s => `<li class="dac-steps-list__item">${esc(s)}</li>`).join('')}
+  </ol>
+</section>` : '';
+
+  const intentBadge = `<span class="dac-intent-badge dac-intent-badge--${esc(seo.searchIntent || 'transactional')}">${esc(seo.searchIntent || 'transactional')}</span>`;
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page dac-page--intent">
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+<main class="dac-main" id="main">
+  ${renderBreadcrumb(seo.breadcrumbs)}
+
+  <div class="dac-intent-layout">
+    <article class="dac-intent-article">
+      <header class="dac-page-header">
+        <p class="dac-intent-category">${esc(tool.category)} · ${intentBadge}</p>
+        <h1 class="dac-page-header__title">${esc(seo.h1)}</h1>
+        <p class="dac-intent-desc">${esc(modifier.description?.en || intent.description?.en || '')}</p>
+      </header>
+
+      <div class="dac-intent-cta">
+        <a href="/${langCode}/${tool.slug}" class="dac-btn dac-btn--primary dac-btn--large">
+          Use ${esc(tool.name?.en || tool.slug)} — Free Online Tool →
+        </a>
+        <p class="dac-intent-cta__note">Browser-based · No upload · Instant results</p>
+      </div>
+
+      ${stepsHtml}
+
+      ${relatedEntities.length > 0 ? `<section class="dac-related-entities">
+        <h2 class="dac-section-title">File Format Reference</h2>
+        <div class="dac-entity-chips">
+          ${relatedEntities.map(e => `<a href="/${langCode}/entity/${esc(e.slug)}" class="dac-entity-chip">${esc(e.name)} — ${esc(e.fullName || '')}</a>`).join('')}
+        </div>
+      </section>` : ''}
+
+      ${faqHtml}
+
+      ${siblingPages.length > 0 ? `<section class="dac-related-intents">
+        <h2 class="dac-section-title">More ${esc(intent.baseTitle?.en || '')} Guides</h2>
+        <ul class="dac-how-to-list">
+          ${siblingPages.map(p => `<li><a href="${esc(p.path)}" class="dac-how-to-link">${esc(intent.baseTitle?.en || '')} ${esc(p.label)}</a></li>`).join('')}
+        </ul>
+      </section>` : ''}
+    </article>
+
+    <aside class="dac-intent-sidebar">
+      <div class="dac-sidebar-section">
+        <p class="dac-sidebar-title">Use This Tool</p>
+        <a href="/${langCode}/${tool.slug}" class="dac-btn dac-btn--primary" style="width:100%;text-align:center;display:block">
+          ${esc(tool.name?.en || tool.slug)}
+        </a>
+        <ul class="dac-sidebar-tool-meta" style="margin-top:.75rem;padding:0;list-style:none;font-size:.82rem">
+          <li>✅ Free · No signup</li>
+          <li>🔒 Files stay on your device</li>
+          <li>⚡ Instant browser processing</li>
+        </ul>
+      </div>
+      ${relatedEntities.length > 0 ? `<div class="dac-sidebar-section">
+        <p class="dac-sidebar-title">Format Info</p>
+        ${relatedEntities.map(e => `<a href="/${langCode}/entity/${esc(e.slug)}" class="dac-sidebar-link">${esc(e.name)} — ${esc((e.description || '').slice(0, 60))}…</a>`).join('')}
+      </div>` : ''}
+    </aside>
+  </div>
+</main>
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Phase 17: How-To Index Page ──────────────────────────────────────────
+
+function renderHowToIndexPage(route, seo, data, config) {
+  const langCode = route.lang;
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+  const toolIndex = buildToolIndex(data.tools, langCode);
+
+  const intentGroups = {};
+  for (const intent of (data.intents || [])) {
+    const cat = (data.tools.find(t => t.slug === intent.toolSlug) || {}).category || 'other';
+    if (!intentGroups[cat]) intentGroups[cat] = [];
+    intentGroups[cat].push(intent);
+  }
+
+  const groupsHtml = Object.entries(intentGroups).map(([cat, intents]) => `
+<section class="dac-kh-section">
+  <h2 class="dac-section-title">${esc(cat.charAt(0).toUpperCase() + cat.slice(1))} How-To Guides</h2>
+  <ul class="dac-how-to-list">
+    ${intents.flatMap(i => (i.modifiers || []).map(m => `<li><a href="/${langCode}/how-to/${esc(i.slug)}-${esc(m.slug)}" class="dac-how-to-link">${esc(i.baseTitle?.en || i.slug)} ${esc(m.label?.en || m.slug)}</a></li>`)).join('')}
+  </ul>
+</section>`).join('');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page dac-page--kh">
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+<main class="dac-main" id="main">
+  ${renderBreadcrumb(seo.breadcrumbs)}
+  <header class="dac-page-header">
+    <h1 class="dac-page-header__title">${esc(seo.h1)}</h1>
+    <p class="dac-page-header__desc">Step-by-step guides for every file conversion task. Free, browser-based tools — no upload, no signup.</p>
+  </header>
+  ${groupsHtml}
+</main>
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Phase 17: Platform Page ──────────────────────────────────────────────
+
+function renderPlatformPage(route, seo, data, config) {
+  const { platform } = route;
+  const langCode = route.lang;
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+  const toolIndex = buildToolIndex(data.tools, langCode);
+
+  const toolCards = (route.tools || []).map(t => `
+<a href="/${langCode}/${t.slug}" class="dac-kh-article-card">
+  <h3 class="dac-kh-article-card__title">${esc(t.name?.[langCode] || t.name?.en || t.slug)}</h3>
+  <p class="dac-kh-article-card__desc">${esc(t.tagline?.[langCode] || t.tagline?.en || '')}</p>
+</a>`).join('');
+
+  const faqHtml = (platform.faq || []).length > 0 ? `
+<section class="dac-faq" aria-labelledby="faq-title">
+  <h2 class="dac-section-title" id="faq-title">Frequently Asked Questions</h2>
+  <dl class="dac-faq__list">
+    ${(platform.faq || []).map(f => `
+    <div class="dac-faq__item">
+      <dt class="dac-faq__question">${esc(f.question?.en || '')}</dt>
+      <dd class="dac-faq__answer">${esc(f.answer?.en || '')}</dd>
+    </div>`).join('')}
+  </dl>
+</section>` : '';
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page dac-page--platform">
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+<main class="dac-main" id="main">
+  ${renderBreadcrumb(seo.breadcrumbs)}
+  <header class="dac-page-header">
+    <p class="dac-platform-badge">${esc(platform.platformLabel?.en || platform.platform || '')}</p>
+    <h1 class="dac-page-header__title">${esc(seo.h1)}</h1>
+    <p class="dac-page-header__desc">${esc(platform.intro?.en || platform.description?.en || '')}</p>
+  </header>
+  <div class="dac-platform-features" aria-label="Platform features">
+    <span class="dac-platform-tag">✅ No software install</span>
+    <span class="dac-platform-tag">🔒 Files stay on device</span>
+    <span class="dac-platform-tag">⚡ Works offline</span>
+    <span class="dac-platform-tag">🆓 Completely free</span>
+  </div>
+  <section aria-labelledby="tools-title">
+    <h2 class="dac-section-title" id="tools-title">All ${esc(platform.title?.en || '')} Tools</h2>
+    <div class="dac-kh-article-grid">${toolCards}</div>
+  </section>
+  ${faqHtml}
+</main>
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Phase 17: Use-Case Page ──────────────────────────────────────────────
+
+function renderUseCasePage(route, seo, data, config) {
+  const { useCase } = route;
+  const langCode = route.lang;
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+  const toolIndex = buildToolIndex(data.tools, langCode);
+
+  const toolCards = (route.tools || []).map(t => `
+<a href="/${langCode}/${t.slug}" class="dac-kh-article-card">
+  <h3 class="dac-kh-article-card__title">${esc(t.name?.[langCode] || t.name?.en || t.slug)}</h3>
+  <p class="dac-kh-article-card__desc">${esc(t.tagline?.[langCode] || t.tagline?.en || '')}</p>
+</a>`).join('');
+
+  const benefits = useCase.benefits?.en || [];
+  const faqHtml = (useCase.faq || []).length > 0 ? `
+<section class="dac-faq" aria-labelledby="faq-title">
+  <h2 class="dac-section-title" id="faq-title">Frequently Asked Questions</h2>
+  <dl class="dac-faq__list">
+    ${(useCase.faq || []).map(f => `
+    <div class="dac-faq__item">
+      <dt class="dac-faq__question">${esc(f.question?.en || '')}</dt>
+      <dd class="dac-faq__answer">${esc(f.answer?.en || '')}</dd>
+    </div>`).join('')}
+  </dl>
+</section>` : '';
+
+  // Link to other use-case pages
+  const relatedUseCases = (data.useCases || [])
+    .filter(uc => uc.slug !== useCase.slug)
+    .slice(0, 4)
+    .map(uc => `<a href="/${langCode}/use-case/${esc(uc.slug)}" class="dac-entity-chip">${esc(uc.title?.en || uc.slug)}</a>`)
+    .join('');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page dac-page--use-case">
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+<main class="dac-main" id="main">
+  ${renderBreadcrumb(seo.breadcrumbs)}
+  <header class="dac-page-header">
+    <h1 class="dac-page-header__title">${esc(seo.h1)}</h1>
+    <p class="dac-page-header__desc">${esc(useCase.intro?.en || useCase.description?.en || '')}</p>
+  </header>
+  ${benefits.length > 0 ? `<section class="dac-use-case-benefits">
+    <h2 class="dac-section-title">How These Tools Help</h2>
+    <ul class="dac-benefits-list">
+      ${benefits.map(b => `<li class="dac-benefits-list__item">${esc(b)}</li>`).join('')}
+    </ul>
+  </section>` : ''}
+  <section aria-labelledby="tools-title">
+    <h2 class="dac-section-title" id="tools-title">Essential Tools</h2>
+    <div class="dac-kh-article-grid">${toolCards}</div>
+  </section>
+  ${faqHtml}
+  ${relatedUseCases ? `<section class="dac-related-entities">
+    <h2 class="dac-section-title">Browse More Use Cases</h2>
+    <div class="dac-entity-chips">${relatedUseCases}</div>
+  </section>` : ''}
+</main>
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Phase 17: Feature Page ───────────────────────────────────────────────
+
+function renderFeaturePage(route, seo, data, config) {
+  const { feature } = route;
+  const langCode = route.lang;
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+  const toolIndex = buildToolIndex(data.tools, langCode);
+
+  const tools = route.tools || [];
+  const toolCards = tools.slice(0, 20).map(t => `
+<a href="/${langCode}/${t.slug}" class="dac-kh-article-card">
+  <h3 class="dac-kh-article-card__title">${esc(t.name?.[langCode] || t.name?.en || t.slug)}</h3>
+  <p class="dac-kh-article-card__desc">${esc(t.tagline?.[langCode] || t.tagline?.en || '')}</p>
+</a>`).join('');
+
+  const faqHtml = (feature.faq || []).length > 0 ? `
+<section class="dac-faq" aria-labelledby="faq-title">
+  <h2 class="dac-section-title" id="faq-title">Frequently Asked Questions</h2>
+  <dl class="dac-faq__list">
+    ${(feature.faq || []).map(f => `
+    <div class="dac-faq__item">
+      <dt class="dac-faq__question">${esc(f.question?.en || '')}</dt>
+      <dd class="dac-faq__answer">${esc(f.answer?.en || '')}</dd>
+    </div>`).join('')}
+  </dl>
+</section>` : '';
+
+  const relatedFeatures = (data.features || [])
+    .filter(f => f.slug !== feature.slug)
+    .slice(0, 4)
+    .map(f => `<a href="/${langCode}/feature/${esc(f.slug)}" class="dac-entity-chip">${esc(f.title?.en || f.slug)}</a>`)
+    .join('');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page dac-page--feature">
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+<main class="dac-main" id="main">
+  ${renderBreadcrumb(seo.breadcrumbs)}
+  <header class="dac-page-header">
+    <h1 class="dac-page-header__title">${esc(seo.h1)}</h1>
+    <p class="dac-page-header__desc">${esc(feature.intro?.en || feature.description?.en || '')}</p>
+  </header>
+  <section aria-labelledby="tools-title">
+    <h2 class="dac-section-title" id="tools-title">${esc(feature.title?.en || '')} — ${tools.length} Tools</h2>
+    <div class="dac-kh-article-grid">${toolCards}</div>
+  </section>
+  ${faqHtml}
+  ${relatedFeatures ? `<section class="dac-related-entities">
+    <h2 class="dac-section-title">Browse More Features</h2>
+    <div class="dac-entity-chips">${relatedFeatures}</div>
+  </section>` : ''}
+</main>
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Phase 17: Format FAQ Page ────────────────────────────────────────────
+
+function renderFormatFaqPage(route, seo, data, config) {
+  const { entity } = route;
+  const langCode = route.lang;
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+  const toolIndex = buildToolIndex(data.tools, langCode);
+
+  const faqItems = entity.faq || [];
+  const relatedEntities = (entity.relatedEntities || [])
+    .map(s => (data.entities || []).find(e => e.slug === s)).filter(Boolean);
+
+  const toolCards = (route.tools || []).slice(0, 6).map(t => `
+<a href="/${langCode}/${t.slug}" class="dac-kh-article-card">
+  <h3 class="dac-kh-article-card__title">${esc(t.name?.[langCode] || t.name?.en || t.slug)}</h3>
+  <p class="dac-kh-article-card__desc">${esc(t.tagline?.[langCode] || t.tagline?.en || '')}</p>
+</a>`).join('');
+
+  // Links to other format FAQs
+  const otherFaqs = (data.entities || [])
+    .filter(e => e.slug !== entity.slug && e.faq?.length > 0)
+    .slice(0, 6)
+    .map(e => `<a href="/${langCode}/faq/${esc(e.slug)}" class="dac-entity-chip">${esc(e.name)} FAQ</a>`)
+    .join('');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page dac-page--format-faq">
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+<main class="dac-main" id="main">
+  ${renderBreadcrumb(seo.breadcrumbs)}
+  <header class="dac-page-header">
+    <h1 class="dac-page-header__title">${esc(seo.h1)}</h1>
+    <p class="dac-page-header__desc">${esc(entity.description ? entity.description.slice(0, 200) : '')} <a href="/${langCode}/entity/${esc(entity.slug)}">Learn more about ${esc(entity.name)} →</a></p>
+  </header>
+  <section class="dac-faq" aria-labelledby="faq-title">
+    <h2 class="dac-section-title" id="faq-title">${esc(entity.name)} Questions &amp; Answers</h2>
+    <dl class="dac-faq__list">
+      ${faqItems.map(f => `
+      <div class="dac-faq__item">
+        <dt class="dac-faq__question">${esc(f.question?.en || f.question || '')}</dt>
+        <dd class="dac-faq__answer">${esc(f.answer?.en || f.answer || '')}</dd>
+      </div>`).join('')}
+    </dl>
+  </section>
+  ${toolCards ? `<section>
+    <h2 class="dac-section-title">${esc(entity.name)} Tools</h2>
+    <div class="dac-kh-article-grid">${toolCards}</div>
+  </section>` : ''}
+  ${relatedEntities.length > 0 ? `<section class="dac-related-entities">
+    <h2 class="dac-section-title">Related Formats</h2>
+    <div class="dac-entity-chips">${relatedEntities.map(e => `<a href="/${langCode}/entity/${esc(e.slug)}" class="dac-entity-chip">${esc(e.name)}</a>`).join('')}</div>
+  </section>` : ''}
+  ${otherFaqs ? `<section class="dac-related-entities">
+    <h2 class="dac-section-title">More Format FAQs</h2>
+    <div class="dac-entity-chips">${otherFaqs}</div>
+  </section>` : ''}
+</main>
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;

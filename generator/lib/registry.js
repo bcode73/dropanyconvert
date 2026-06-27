@@ -308,6 +308,117 @@ export async function buildRegistry(data, config) {
     }
   }
 
+  // ── Phase 17: Programmatic Long-tail SEO routes ─────────────────────────
+
+  const toolBySlug = new Map(data.tools.map(t => [t.slug, t]));
+
+  // Intent pages: /en/how-to/{intent-slug}-{modifier-slug}
+  for (const intent of (data.intents || [])) {
+    const tool = toolBySlug.get(intent.toolSlug);
+    if (!tool) continue;
+    for (const modifier of (intent.modifiers || [])) {
+      const pageSlug = `${intent.slug}-${modifier.slug}`;
+      for (const lang of data.languages) {
+        routes.push({
+          type: 'intent',
+          lang: lang.code,
+          slug: pageSlug,
+          path: `/${lang.code}/how-to/${pageSlug}`,
+          intent,
+          modifier,
+          pageSlug,
+          tool,
+          language: lang,
+        });
+      }
+    }
+  }
+
+  // How-to index per language
+  if ((data.intents || []).length > 0) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'how-to-index',
+        lang: lang.code,
+        slug: 'how-to',
+        path: `/${lang.code}/how-to`,
+        intents: data.intents,
+        language: lang,
+      });
+    }
+  }
+
+  // Platform pages: /en/platform/{slug}
+  for (const platform of (data.platforms || [])) {
+    for (const lang of data.languages) {
+      // Filter tools by category, optionally by mobile capability
+      let filteredTools = data.tools.filter(t => t.category === platform.category);
+      if (platform.mobileOnly) {
+        filteredTools = filteredTools.filter(t => (t.capabilities || []).includes('mobile-supported'));
+      }
+      routes.push({
+        type: 'platform',
+        lang: lang.code,
+        slug: platform.slug,
+        path: `/${lang.code}/platform/${platform.slug}`,
+        platform,
+        tools: filteredTools,
+        language: lang,
+      });
+    }
+  }
+
+  // Use-case pages: /en/use-case/{slug}
+  for (const useCase of (data.useCases || [])) {
+    for (const lang of data.languages) {
+      const tools = (useCase.toolSlugs || []).map(s => toolBySlug.get(s)).filter(Boolean);
+      routes.push({
+        type: 'use-case',
+        lang: lang.code,
+        slug: useCase.slug,
+        path: `/${lang.code}/use-case/${useCase.slug}`,
+        useCase,
+        tools,
+        language: lang,
+      });
+    }
+  }
+
+  // Feature pages: /en/feature/{slug}
+  for (const feature of (data.features || [])) {
+    for (const lang of data.languages) {
+      const cap = feature.capability;
+      const featureTools = cap === 'browser-native' || cap === 'privacy' || cap === 'offline' || cap === 'fast'
+        ? data.tools  // all tools qualify
+        : data.tools.filter(t => (t.capabilities || []).includes(cap));
+      routes.push({
+        type: 'feature',
+        lang: lang.code,
+        slug: feature.slug,
+        path: `/${lang.code}/feature/${feature.slug}`,
+        feature,
+        tools: featureTools,
+        language: lang,
+      });
+    }
+  }
+
+  // Format FAQ pages: /en/faq/{entity-slug}  (entities with at least 1 FAQ item)
+  for (const entity of (data.entities || [])) {
+    if (!entity.faq || entity.faq.length === 0) continue;
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'format-faq',
+        lang: lang.code,
+        slug: entity.slug,
+        path: `/${lang.code}/faq/${entity.slug}`,
+        entity,
+        language: lang,
+        tools: (entity.relatedTools || []).map(s => toolBySlug.get(s)).filter(Boolean),
+      });
+    }
+  }
+
   // Root redirect
   routes.push({
     type: 'root',

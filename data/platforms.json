@@ -1,0 +1,137 @@
+{
+  "platforms": [
+    {
+      "slug": "image-tools-for-mac",
+      "title": { "en": "Image Tools for Mac" },
+      "h1": { "en": "Free Image Tools for Mac — Browser-Based, No Install Required" },
+      "description": { "en": "Free browser-based image converter, compressor, and editor tools for macOS. Works in Safari and Chrome — no software installation needed." },
+      "searchIntent": "commercial",
+      "category": "image",
+      "platform": "mac",
+      "platformLabel": { "en": "macOS" },
+      "intro": { "en": "All these image tools run directly in your browser on Mac. They work in Safari, Chrome, and Firefox on any Mac running macOS 10.14 (Mojave) or later. No installation, no subscription, no file uploads — your images stay on your Mac." },
+      "faq": [
+        { "question": { "en": "Do these image tools work on Mac?" }, "answer": { "en": "Yes. All tools run in your browser using standard Web APIs (Canvas, WebAssembly). They work on any Mac with Safari, Chrome, or Firefox — no software download required." } },
+        { "question": { "en": "Are these image tools free on Mac?" }, "answer": { "en": "Completely free. No account, no trial period, no watermarks." } },
+        { "question": { "en": "Do the tools work offline on Mac?" }, "answer": { "en": "Yes. Once the page loads, all processing happens in your browser. You can disconnect from the internet and continue converting images." } }
+      ],
+      "seo": { "primaryKeyword": "image tools for mac", "secondaryKeywords": ["free image converter mac", "image compressor mac", "online image editor mac"] }
+    },
+    {
+      "slug": "image-tools-for-windows",
+      "title": { "en": "Image Tools for Windows" },
+      "h1": { "en": "Free Image Tools for Windows — Browser-Based, No Install" },
+      "description": { "en": "Free browser-based image tools for Windows 10 and 11. Convert, compress, resize, and edit images in Chrome or Edge — no software needed." },
+      "searchIntent": "commercial",
+      "category": "image",
+      "platform": "windows",
+      "platformLabel": { "en": "Windows" },
+      "intro": { "en": "These image tools work in any modern browser on Windows 10 and Windows 11. Open in Chrome, Edge, or Firefox — no software to install, no account required." },
+      "faq": [
+        { "question": { "en": "Do these image tools work on Windows 10 and 11?" }, "answer": { "en": "Yes. All tools run in Chrome, Edge, or Firefox on Windows 10 and Windows 11. No installation required." } },
+        { "question": { "en": "Are the image tools free on Windows?" }, "answer": { "en": "Yes, completely free. No account, no watermarks, no time limits." } }
+      ],
+      "seo": { "primaryKeyword": "image tools for windows", "secondaryKeywords": ["free image converter windows", "image tools windows 10", "online image editor windows"] }
+    },
+    {
+      "slug": "image-tools-for-iphone",
+      "title": { "en": "Image Tools for iPhone" },
+      "h1": { "en": "Free Image Tools for iPhone & iPad — Works in Safari" },
+      "description": { "en": "Convert, compress, and resize images on your iPhone or iPad using Safari. No app download needed — works directly in your mobile browser." },
+      "searchIntent": "commercial",
+      "category": "image",
+      "platform": "ios",
+      "platformLabel": { "en": "iPhone / iPad (iOS)" },
+      "mobileOnly": true,
+      "intro": { "en": "These image tools are optimized for iPhone and iPad. Open in Safari on iOS 14 or later. Tap to select photos from your camera roll or Files app, process them in the browser, and save results directly to your device." },
+      "faq": [
+        { "question": { "en": "Can I use image tools on my iPhone?" }, "answer": { "en": "Yes. Open our tools in Safari on iOS 14+. You can select photos from your camera roll or Files app, and results save directly back to your iPhone." } },
+        { "question": { "en": "Do I need to download an app for image tools on iPhone?" }, "answer": { "en": "No. All tools work in Safari without any app installation. Your photos stay on your device — nothing is uploaded." } }
+      ],
+      "seo": { "primaryKeyword": "image tools for iphone", "secondaryKeywords": ["image converter iphone", "compress image iphone", "free image tools ios"] }
+    },
+    {
+      "slug": "image-tools-for-android",
+      "title": { "en": "Image Tools for Android" },
+      "h1": { "en": "Free Image Tools for Android — Works in Chrome" },
+      "description": { "en": "Convert, compress, and resize images on Android phones and tablets using Chrome. No app download — runs in your mobile browser." },
+      "searchIntent": "commercial",
+      "category": "image",
+      "platform": "android",
+      "platformLabel": { "en": "Android" },
+      "mobileOnly": true,
+      "intro": { "en": "These image tools work in Chrome and Firefox on Android smartphones and tablets. No app to install. Select images from your gallery, process them in the browser, and share or save results." },
+      "faq": [
+        { "question": { "en": "Do these image tools work on Android?" }, "answer": { "en": "Yes. Open in Chrome or Firefox on Android. Select photos from your gallery and convert or compress them in the browser." } },
+        { "question": { "en": "Is there an Android app for these tools?" }, "answer": { "en": "No app needed. Our browser-based tools work on any Android device with Chrome 90+ or Firefox 90+." } }
+      ],
+      "seo": { "primaryKeyword": "image tools for android", "secondaryKeywords": ["image converter android", "compress image android chrome", "free image tools android"] }
+    },
+    {
+      "slug": "browser-based-pdf-tools",
+      "title": { "en": "Browser-Based PDF Tools" },
+      "h1": { "en": "Free Browser-Based PDF Tools — No Upload, No Software" },
+      "description": { "en": "Compress, merge, split, and edit PDF files directly in your browser. Privacy-first: your PDFs never leave your device." },
+      "searchIntent": "commercial",
+      "category": "pdf",
+      "platform": "browser",
+      "platformLabel": { "en": "All Browsers" },
+      "intro": { "en": "All PDF tools run in your browser using WebAssembly and standard Web APIs. Your PDFs are processed on your device — never uploaded to a server. Works in Chrome, Firefox, Safari, and Edge on any operating system." },
+      "faq": [
+        { "question": { "en": "Are these PDF tools really browser-based?" }, "answer": { "en": "Yes. All PDF processing uses WebAssembly compiled from open-source libraries. Everything runs on your device." } },
+        { "question": { "en": "Are my PDFs safe?" }, "answer": { "en": "Yes. Your files never leave your device. Once you close the browser tab, all data is cleared from memory." } },
+        { "question": { "en": "Do these PDF tools work offline?" }, "answer": { "en": "Yes. Once the page loads, you can process PDFs without an internet connection." } }
+      ],
+      "seo": { "primaryKeyword": "browser based pdf tools", "secondaryKeywords": ["online pdf tools no upload", "free pdf tools browser", "privacy pdf tools"] }
+    },
+    {
+      "slug": "offline-image-tools",
+      "title": { "en": "Offline Image Tools" },
+      "h1": { "en": "Free Offline Image Converter & Editor — No Internet Required" },
+      "description": { "en": "Convert and compress images without an internet connection. Our browser-based tools work offline after the first page load." },
+      "searchIntent": "commercial",
+      "category": "image",
+      "platform": "offline",
+      "platformLabel": { "en": "Offline / No Internet" },
+      "intro": { "en": "Load the page once and use our image tools without internet access. Powered by browser-native Canvas API and JavaScript — all processing runs locally on your device." },
+      "faq": [
+        { "question": { "en": "Can I use these image tools without internet?" }, "answer": { "en": "Yes. After the page first loads, all image processing is done locally in your browser. You can disconnect from the internet and the tools will still work." } },
+        { "question": { "en": "Do these offline image tools work on all devices?" }, "answer": { "en": "Yes. They work on Windows, Mac, Linux, iPhone, and Android — any device with a modern browser." } }
+      ],
+      "seo": { "primaryKeyword": "offline image converter", "secondaryKeywords": ["image tools without internet", "offline image editor", "local image converter browser"] }
+    },
+    {
+      "slug": "privacy-first-developer-tools",
+      "title": { "en": "Privacy-First Developer Tools" },
+      "h1": { "en": "Privacy-First Online Developer Tools — Nothing Sent to a Server" },
+      "description": { "en": "Format JSON, encode Base64, generate hashes, and more — all in your browser. No data is sent to any server. Perfect for sensitive code and credentials." },
+      "searchIntent": "commercial",
+      "category": "developer",
+      "platform": "browser",
+      "platformLabel": { "en": "Browser / Privacy-First" },
+      "intro": { "en": "Every developer tool runs entirely in your browser. Paste sensitive JSON, Base64, JWT tokens, or hash inputs — nothing leaves your machine. Essential for security-conscious developers and teams handling confidential data." },
+      "faq": [
+        { "question": { "en": "Are these developer tools safe for sensitive data?" }, "answer": { "en": "Yes. All processing happens in your browser's JavaScript engine. No data is sent to any server. You can verify this by watching network traffic in DevTools." } },
+        { "question": { "en": "Can I use these tools with confidential API keys or tokens?" }, "answer": { "en": "Yes. Because processing is entirely local, pasting API keys, JWT tokens, or private credentials is safe. Nothing is logged or transmitted." } },
+        { "question": { "en": "Do these developer tools work offline?" }, "answer": { "en": "Yes. After the page loads, you can use the tools without an internet connection." } }
+      ],
+      "seo": { "primaryKeyword": "privacy first developer tools", "secondaryKeywords": ["online developer tools no server", "safe json formatter", "private base64 encoder"] }
+    },
+    {
+      "slug": "pdf-tools-for-mac",
+      "title": { "en": "PDF Tools for Mac" },
+      "h1": { "en": "Free PDF Tools for Mac — Browser-Based, No Install" },
+      "description": { "en": "Compress, merge, split, and edit PDFs on macOS using Safari or Chrome. No software installation, no file uploads." },
+      "searchIntent": "commercial",
+      "category": "pdf",
+      "platform": "mac",
+      "platformLabel": { "en": "macOS" },
+      "intro": { "en": "All PDF tools work in Safari, Chrome, and Firefox on macOS. No Adobe Acrobat or third-party software needed. Your PDFs are processed locally and never uploaded." },
+      "faq": [
+        { "question": { "en": "Do these PDF tools work on Mac?" }, "answer": { "en": "Yes. All tools run in Safari, Chrome, and Firefox on macOS 10.14 (Mojave) and later." } },
+        { "question": { "en": "Do I need to install software to edit PDFs on Mac?" }, "answer": { "en": "No. Our browser-based PDF tools require no installation. Open your browser and start processing PDFs immediately." } }
+      ],
+      "seo": { "primaryKeyword": "pdf tools for mac", "secondaryKeywords": ["free pdf editor mac browser", "compress pdf mac online", "merge pdf mac free"] }
+    }
+  ]
+}

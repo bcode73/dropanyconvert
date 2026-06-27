@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "format-json",
+    "toolSlug": "json-beautifier",
+    "entitySlugs": ["json"],
+    "searchIntent": "transactional",
+    "audience": ["developers", "general"],
+    "baseTitle": { "en": "Format JSON" },
+    "description": { "en": "Format, beautify, and validate JSON in your browser for free. Paste messy JSON and get clean, indented output instantly — no server required." },
+    "howToSteps": { "en": [
+      "Paste your JSON text into the editor or upload a .json file",
+      "Click Beautify to format and indent the JSON automatically",
+      "Review any validation errors highlighted in the editor",
+      "Copy the formatted JSON or download it as a file"
+    ]},
+    "modifiers": [
+      {
+        "slug": "online",
+        "label": { "en": "Online" },
+        "searchIntent": "transactional",
+        "description": { "en": "Format JSON online for free. Paste any JSON string and get beautifully indented output instantly — no software install required." },
+        "faq": [
+          { "question": { "en": "Is there a free online JSON formatter?" }, "answer": { "en": "Yes. Our JSON beautifier is free, requires no account, and runs entirely in your browser. Paste any JSON and get formatted output instantly." } },
+          { "question": { "en": "Is it safe to paste sensitive JSON data into an online formatter?" }, "answer": { "en": "Yes. Our formatter runs entirely in your browser — no data is sent to any server. You can safely paste API responses, config files, and sensitive JSON." } }
+        ]
+      },
+      {
+        "slug": "prettify-json",
+        "label": { "en": "Prettify JSON" },
+        "searchIntent": "transactional",
+        "description": { "en": "Prettify JSON by adding indentation and line breaks to minified or compact JSON. Makes JSON human-readable in one click." },
+        "faq": [
+          { "question": { "en": "What does prettify JSON mean?" }, "answer": { "en": "Prettifying JSON means converting compact, single-line JSON into an indented, multi-line format that is easy to read. Our tool adds consistent indentation and line breaks automatically." } },
+          { "question": { "en": "How do I prettify minified JSON?" }, "answer": { "en": "Paste your minified JSON into our beautifier and click Beautify. The tool will expand the JSON with proper indentation — typically 2 or 4 spaces per level." } }
+        ]
+      },
+      {
+        "slug": "validate-and-format",
+        "label": { "en": "Validate and Format" },
+        "searchIntent": "transactional",
+        "description": { "en": "Validate and format JSON in one step. Our formatter highlights syntax errors and shows exactly where your JSON is invalid." },
+        "faq": [
+          { "question": { "en": "How do I validate and format JSON at the same time?" }, "answer": { "en": "Paste your JSON into our tool and click Beautify. Invalid JSON will be flagged with a clear error message showing the line and character position of the problem." } },
+          { "question": { "en": "What are common JSON validation errors?" }, "answer": { "en": "Common errors include trailing commas (not allowed in JSON), single quotes instead of double quotes, unescaped special characters, and missing or extra brackets and braces." } }
+        ]
+      },
+      {
+        "slug": "minify-json",
+        "label": { "en": "Minify JSON" },
+        "searchIntent": "transactional",
+        "description": { "en": "Minify JSON by removing whitespace and line breaks. Produce compact JSON for API payloads, configuration files, and production code." },
+        "faq": [
+          { "question": { "en": "How do I minify JSON online?" }, "answer": { "en": "Paste your formatted JSON into our tool and click Minify. All whitespace, indentation, and line breaks are removed to produce the smallest possible valid JSON string." } },
+          { "question": { "en": "Why would I want to minify JSON?" }, "answer": { "en": "Minified JSON is smaller, which reduces data transfer sizes in APIs and web applications. It is the standard for production API payloads and embedded JSON configuration." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is the JSON formatter free?" }, "answer": { "en": "Yes, completely free. No account, no sign-up, no limits. Works in any browser." } },
+      { "question": { "en": "Does the JSON formatter work offline?" }, "answer": { "en": "Yes. After the page loads, all JSON formatting happens in your browser. You can disconnect from the internet and continue using the tool." } },
+      { "question": { "en": "What is the difference between JSON beautify and minify?" }, "answer": { "en": "Beautify adds indentation and line breaks to make JSON human-readable. Minify removes all whitespace to make JSON as compact as possible for machine processing." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["json", "minification"]
+  },
+  {
+    "slug": "encode-decode-base64",
+    "toolSlug": "base64-encode",
+    "entitySlugs": ["base64"],
+    "searchIntent": "transactional",
+    "audience": ["developers", "general"],
+    "baseTitle": { "en": "Encode / Decode Base64" },
+    "description": { "en": "Encode text or files to Base64 and decode Base64 strings back to plain text or binary — all free, all in your browser." },
+    "howToSteps": { "en": [
+      "Choose Encode or Decode mode using the toggle",
+      "Paste your text, or upload a file to encode",
+      "Click Encode or Decode to process instantly",
+      "Copy the result or download the output file"
+    ]},
+    "modifiers": [
+      {
+        "slug": "online",
+        "label": { "en": "Online" },
+        "searchIntent": "transactional",
+        "description": { "en": "Encode and decode Base64 online for free. No software installation — works in any modern browser with no data sent to a server." },
+        "faq": [
+          { "question": { "en": "Is there a free online Base64 encoder and decoder?" }, "answer": { "en": "Yes. Our Base64 encoder/decoder is free, requires no account, and runs entirely in your browser. Both encoding and decoding are instantaneous." } },
+          { "question": { "en": "Is it safe to encode sensitive data with an online Base64 tool?" }, "answer": { "en": "Yes. Our tool processes everything locally in your browser. No data is sent to any server, so it is safe to encode passwords, tokens, and confidential strings." } }
+        ]
+      },
+      {
+        "slug": "from-text",
+        "label": { "en": "from Text" },
+        "searchIntent": "transactional",
+        "description": { "en": "Encode plain text to Base64 or decode a Base64 string back to plain text. Handles UTF-8 text including Unicode characters." },
+        "faq": [
+          { "question": { "en": "How do I encode a text string to Base64?" }, "answer": { "en": "Select 'Encode' mode, paste your text into the input box, and click Encode. The Base64 output appears instantly in the result field." } },
+          { "question": { "en": "Does the Base64 encoder handle Unicode and special characters?" }, "answer": { "en": "Yes. Our encoder handles full UTF-8 text including accented characters, emoji, and non-Latin scripts. The encoded output is valid Base64 that can be decoded back to the original text." } }
+        ]
+      },
+      {
+        "slug": "from-image",
+        "label": { "en": "from Image" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert an image file to a Base64 data URL. Useful for embedding images directly in HTML, CSS, or JSON without external file references." },
+        "faq": [
+          { "question": { "en": "How do I convert an image to Base64?" }, "answer": { "en": "Upload your image file using the file picker. Our tool reads the image and outputs a Base64-encoded data URL (e.g., data:image/png;base64,...) that you can paste directly into HTML or CSS." } },
+          { "question": { "en": "Why would I convert an image to Base64?" }, "answer": { "en": "Base64 images can be embedded inline in HTML, CSS, or JSON without needing a separate image file or HTTP request. This is useful for small icons, email templates, and data URIs." } }
+        ]
+      },
+      {
+        "slug": "decode-base64-online",
+        "label": { "en": "Decode Base64 Online" },
+        "searchIntent": "transactional",
+        "description": { "en": "Decode Base64 strings back to plain text or binary files online. Paste any Base64 string and get the original content instantly in your browser." },
+        "faq": [
+          { "question": { "en": "How do I decode a Base64 string online?" }, "answer": { "en": "Select 'Decode' mode, paste your Base64 string into the input, and click Decode. If the original data was text, it appears in the output. If it was a file, you can download it." } },
+          { "question": { "en": "What can I decode from Base64?" }, "answer": { "en": "Base64 can encode any binary data — plain text, images, PDFs, or any file type. Our decoder handles all of these and lets you download the decoded binary output." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "What is Base64?" }, "answer": { "en": "Base64 is an encoding scheme that converts binary data into a set of 64 printable ASCII characters. It is commonly used to embed binary data in text-based formats like JSON, HTML, CSS, and email." } },
+      { "question": { "en": "Is Base64 encoding the same as encryption?" }, "answer": { "en": "No. Base64 is encoding, not encryption. Anyone can decode a Base64 string — it provides no security. Use it only for format compatibility, not to protect sensitive data." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["base64"]
+  },
+  {
+    "slug": "convert-csv-to-json",
+    "toolSlug": "csv-to-json",
+    "entitySlugs": ["csv", "json"],
+    "searchIntent": "transactional",
+    "audience": ["developers", "general"],
+    "baseTitle": { "en": "Convert CSV to JSON" },
+    "description": { "en": "Convert CSV files to JSON format for free in your browser. Paste CSV data or upload a file and get valid JSON output instantly — no server required." },
+    "howToSteps": { "en": [
+      "Paste your CSV text or upload a .csv file",
+      "Confirm that column headers are detected correctly",
+      "Click Convert to generate JSON in your browser",
+      "Copy the JSON output or download it as a .json file"
+    ]},
+    "modifiers": [
+      {
+        "slug": "online-free",
+        "label": { "en": "Online Free" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert CSV to JSON online for free. No account, no upload, no limits — paste your CSV and get JSON output instantly in your browser." },
+        "faq": [
+          { "question": { "en": "Is there a free tool to convert CSV to JSON online?" }, "answer": { "en": "Yes. Our CSV to JSON converter is free and requires no account. Paste your CSV data and get formatted JSON output immediately — all in your browser." } },
+          { "question": { "en": "Is it safe to use an online tool to convert CSV to JSON?" }, "answer": { "en": "Yes. Our tool processes data entirely in your browser. No CSV data is sent to any server, so it is safe for sensitive spreadsheet data." } }
+        ]
+      },
+      {
+        "slug": "with-headers",
+        "label": { "en": "with Headers" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert CSV with headers to JSON objects. The first row of your CSV becomes the keys in each JSON object — perfect for structured data." },
+        "faq": [
+          { "question": { "en": "How do CSV headers map to JSON when converting?" }, "answer": { "en": "The first row of your CSV is treated as column headers. Each subsequent row becomes a JSON object where the header names are the keys and the row values are the values." } },
+          { "question": { "en": "What if my CSV does not have headers?" }, "answer": { "en": "Disable the 'First row is header' option. Our converter will then use column indexes (column_0, column_1, etc.) as JSON keys, or output an array of arrays." } }
+        ]
+      },
+      {
+        "slug": "from-excel",
+        "label": { "en": "from Excel" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert Excel spreadsheet data to JSON by exporting to CSV first. Our tool handles CSV files exported from Excel, Google Sheets, and LibreOffice Calc." },
+        "faq": [
+          { "question": { "en": "How do I convert an Excel file to JSON?" }, "answer": { "en": "In Excel, go to File > Save As and choose CSV format. Then upload the CSV file to our converter to get JSON output. This works with Excel, Google Sheets, and LibreOffice Calc." } },
+          { "question": { "en": "Does the CSV to JSON converter handle Excel-style CSV with commas in quoted fields?" }, "answer": { "en": "Yes. Our converter correctly parses RFC 4180 CSV, including fields enclosed in double quotes that contain commas, newlines, or other special characters." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is the CSV to JSON converter free?" }, "answer": { "en": "Yes, completely free. No account, no file size limits, no watermarks. All conversion runs in your browser." } },
+      { "question": { "en": "What JSON structure does the CSV produce?" }, "answer": { "en": "By default, each CSV row becomes a JSON object with header names as keys. The result is an array of objects — the most common format for working with tabular data in JavaScript and APIs." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["json", "csv"]
+  }
+]

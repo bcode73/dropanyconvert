@@ -1,0 +1,214 @@
+[
+  {
+    "slug": "compress-pdf",
+    "toolSlug": "compress-pdf",
+    "entitySlugs": ["pdf"],
+    "searchIntent": "transactional",
+    "audience": ["general", "businesses", "students"],
+    "baseTitle": { "en": "Compress PDF" },
+    "description": { "en": "Compress PDF files for free in your browser. Reduce file size without uploading to any server — instant, private, and free." },
+    "howToSteps": { "en": [
+      "Upload your PDF by dragging and dropping or clicking to browse",
+      "Choose a compression level — low, medium, or high",
+      "Click Compress to process the PDF in your browser",
+      "Download your compressed PDF instantly"
+    ]},
+    "modifiers": [
+      {
+        "slug": "under-5mb",
+        "label": { "en": "Under 5MB" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress a PDF to under 5MB for easy sharing. Our browser-based compressor reduces PDF file size without uploading your document." },
+        "faq": [
+          { "question": { "en": "How do I compress a PDF to under 5MB?" }, "answer": { "en": "Open our PDF compressor, upload your file, and select 'Medium' or 'High' compression. Most PDFs compress to under 5MB easily. For image-heavy PDFs, try 'High' compression." } },
+          { "question": { "en": "Why do I need my PDF to be under 5MB?" }, "answer": { "en": "Many email providers, online forms, and learning management systems have a 5MB file size limit for uploads and attachments. Compressing your PDF ensures it fits within these limits." } }
+        ]
+      },
+      {
+        "slug": "under-1mb",
+        "label": { "en": "Under 1MB" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress a PDF to under 1MB for strict size limits. Use high compression to dramatically reduce file size while keeping the document readable." },
+        "faq": [
+          { "question": { "en": "Can I compress a PDF to under 1MB?" }, "answer": { "en": "Yes, for most PDFs. Select 'High' compression in our tool. Text-heavy PDFs compress very well — often to under 500KB. Image-heavy PDFs may need the images themselves to be resized for extreme compression." } },
+          { "question": { "en": "Will the text still be readable after compressing a PDF to under 1MB?" }, "answer": { "en": "Yes. Text and vector elements in PDFs are not affected by compression — they remain sharp and fully readable. Only embedded images are compressed." } }
+        ]
+      },
+      {
+        "slug": "under-500kb",
+        "label": { "en": "Under 500KB" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress a PDF to under 500KB for the strictest upload requirements. Ideal for government forms, job applications, and online portals with tight file size limits." },
+        "faq": [
+          { "question": { "en": "How do I compress a PDF to under 500KB?" }, "answer": { "en": "Use 'High' compression in our tool. This aggressively compresses embedded images. For a 10-page document with images, this typically achieves 70–80% file size reduction." } },
+          { "question": { "en": "What types of PDFs can be compressed to under 500KB?" }, "answer": { "en": "Text-only PDFs are easy to get under 500KB. Mixed documents with images are harder — the final size depends on the number and resolution of embedded images." } }
+        ]
+      },
+      {
+        "slug": "for-email",
+        "label": { "en": "for Email" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress a PDF to send as an email attachment. Reduce file size to fit within Gmail's, Outlook's, and Yahoo Mail's attachment limits." },
+        "faq": [
+          { "question": { "en": "What is the maximum PDF size for email attachments?" }, "answer": { "en": "Gmail allows up to 25MB per email. Outlook allows 20MB. Yahoo Mail allows 25MB. For PDF attachments, aim for under 10MB for reliable delivery and quick download." } },
+          { "question": { "en": "How do I send a large PDF by email?" }, "answer": { "en": "Compress the PDF using our tool first. If it's still over 25MB after compression, consider splitting it with our PDF splitter or sharing via a cloud link instead." } }
+        ]
+      },
+      {
+        "slug": "without-losing-quality",
+        "label": { "en": "Without Losing Quality" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress PDF without visible quality loss. Use low or medium compression to reduce file size while keeping images sharp and text crisp." },
+        "faq": [
+          { "question": { "en": "Can I compress a PDF without losing quality?" }, "answer": { "en": "Yes. Use 'Low' or 'Medium' compression. This removes hidden data, optimizes fonts, and lightly compresses images with minimal visible impact. Typical size reduction is 20–50%." } },
+          { "question": { "en": "What does PDF compression actually do to the file?" }, "answer": { "en": "PDF compression removes redundant data, re-encodes embedded images at lower resolution, and optimizes the file structure. Text and vector graphics are not degraded." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is it free to compress a PDF?" }, "answer": { "en": "Yes. Our PDF compressor is completely free — no account, no watermarks, no file count limits. Processing happens entirely in your browser." } },
+      { "question": { "en": "Are my PDFs safe when using this compressor?" }, "answer": { "en": "Yes. Your PDF is never uploaded to any server. All compression happens in your browser using WebAssembly. Once you close the tab, all data is cleared from memory." } },
+      { "question": { "en": "How much can I compress a PDF?" }, "answer": { "en": "Compression results depend on the PDF content. Image-heavy PDFs can be reduced by 70–80%. Text-only PDFs typically compress by 20–40%." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["lossy-compression", "pdf"]
+  },
+  {
+    "slug": "merge-pdf",
+    "toolSlug": "merge-pdf",
+    "entitySlugs": ["pdf"],
+    "searchIntent": "transactional",
+    "audience": ["general", "businesses", "students"],
+    "baseTitle": { "en": "Merge PDF" },
+    "description": { "en": "Merge multiple PDF files into one document for free in your browser. Drag to reorder pages, then download the combined PDF — no upload required." },
+    "howToSteps": { "en": [
+      "Upload two or more PDF files by dragging and dropping or clicking to browse",
+      "Drag to reorder the files if needed",
+      "Click Merge to combine the PDFs in your browser",
+      "Download your merged PDF instantly"
+    ]},
+    "modifiers": [
+      {
+        "slug": "for-email",
+        "label": { "en": "for Email" },
+        "searchIntent": "transactional",
+        "description": { "en": "Merge multiple PDF documents into one file before sending by email. One attachment is easier for recipients than several separate files." },
+        "faq": [
+          { "question": { "en": "How do I merge PDFs to send in one email?" }, "answer": { "en": "Upload all your PDF files to our merger, reorder them if needed, and click Merge. Download the single combined PDF and attach it to your email." } },
+          { "question": { "en": "Is there a limit to how many PDFs I can merge?" }, "answer": { "en": "You can merge up to 20 PDF files in one session. If you need to merge more, you can merge in batches and then merge the results." } }
+        ]
+      },
+      {
+        "slug": "on-mac",
+        "label": { "en": "on Mac" },
+        "searchIntent": "transactional",
+        "description": { "en": "Merge PDF files on Mac using Safari or Chrome. No software download needed — our browser-based PDF merger works on any Mac." },
+        "faq": [
+          { "question": { "en": "How do I merge PDFs on a Mac without software?" }, "answer": { "en": "Open our PDF merger in Safari or Chrome on your Mac. Drag your PDF files onto the page, arrange them in order, and click Merge. The combined PDF downloads to your Mac immediately." } },
+          { "question": { "en": "Is there a free way to merge PDFs on Mac without Preview?" }, "answer": { "en": "Yes. Our browser-based PDF merger is a fast alternative to Preview's PDF merge feature. It works in Safari and Chrome with no software installation." } }
+        ]
+      },
+      {
+        "slug": "on-windows",
+        "label": { "en": "on Windows" },
+        "searchIntent": "transactional",
+        "description": { "en": "Merge PDF files on Windows 10 and 11 using Chrome or Edge. Free browser tool — no Adobe Acrobat or third-party software required." },
+        "faq": [
+          { "question": { "en": "How do I merge PDFs on Windows for free?" }, "answer": { "en": "Open our PDF merger in Chrome or Edge on Windows. Upload your PDF files, drag to reorder them, and click Merge. No Adobe Acrobat or software installation needed." } },
+          { "question": { "en": "What is the easiest way to merge PDFs on Windows 11?" }, "answer": { "en": "Use our free online PDF merger in Microsoft Edge. It comes built into Windows 11 and works seamlessly with our tool — no additional software needed." } }
+        ]
+      },
+      {
+        "slug": "on-iphone",
+        "label": { "en": "on iPhone" },
+        "searchIntent": "transactional",
+        "description": { "en": "Merge PDF files on iPhone or iPad using Safari. Combine documents from Files app directly in your browser — no app download required." },
+        "faq": [
+          { "question": { "en": "Can I merge PDFs on my iPhone?" }, "answer": { "en": "Yes. Open our PDF merger in Safari on iOS 14 or later. Tap to select PDFs from your Files app, arrange them in order, and tap Merge. The combined PDF saves to your Files app." } },
+          { "question": { "en": "Is there a free app to merge PDFs on iPhone?" }, "answer": { "en": "You do not need to download an app. Our browser-based PDF merger works directly in Safari on iPhone and iPad. No installation required." } }
+        ]
+      },
+      {
+        "slug": "free-online",
+        "label": { "en": "Free Online" },
+        "searchIntent": "transactional",
+        "description": { "en": "Merge PDF files online for free. No account, no watermark, no file upload — everything happens in your browser." },
+        "faq": [
+          { "question": { "en": "Is there a completely free online PDF merger?" }, "answer": { "en": "Yes. Our PDF merger is free with no registration, no watermarks, and no file count limits per session. All processing happens in your browser." } },
+          { "question": { "en": "Do merged PDFs have a watermark?" }, "answer": { "en": "No. Our tool never adds watermarks to merged PDFs. The output is a clean, standard PDF file." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is it free to merge PDFs?" }, "answer": { "en": "Yes, completely free. No account required, no watermarks added, no file size limits. Your PDFs are processed entirely in your browser." } },
+      { "question": { "en": "Can I reorder pages when merging PDFs?" }, "answer": { "en": "Yes. You can drag the uploaded PDF files to change their order before merging. The merged PDF will follow the order you specify." } },
+      { "question": { "en": "Are my PDFs private when merging?" }, "answer": { "en": "Yes. Your PDFs are never uploaded to any server. All merging is done in your browser using JavaScript and WebAssembly." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["pdf"]
+  },
+  {
+    "slug": "split-pdf",
+    "toolSlug": "split-pdf",
+    "entitySlugs": ["pdf"],
+    "searchIntent": "transactional",
+    "audience": ["general", "businesses", "students"],
+    "baseTitle": { "en": "Split PDF" },
+    "description": { "en": "Split a PDF into separate pages or sections for free in your browser. Extract specific pages or divide by range — no upload required." },
+    "howToSteps": { "en": [
+      "Upload your PDF by dragging and dropping or clicking to browse",
+      "Choose how to split — by page range, extract specific pages, or split into single pages",
+      "Click Split to process the PDF in your browser",
+      "Download individual pages or a ZIP of all split files"
+    ]},
+    "modifiers": [
+      {
+        "slug": "by-page-number",
+        "label": { "en": "by Page Number" },
+        "searchIntent": "transactional",
+        "description": { "en": "Split a PDF by specific page numbers or ranges. Extract pages 1–5, 6–10, or any custom range from your document in seconds." },
+        "faq": [
+          { "question": { "en": "How do I split a PDF by page numbers?" }, "answer": { "en": "Upload your PDF to our splitter and enter the page ranges you want to extract (e.g., 1-5, 6-10). Each range becomes a separate PDF file, all processed in your browser." } },
+          { "question": { "en": "Can I split a PDF into non-consecutive pages?" }, "answer": { "en": "Yes. You can specify individual pages and ranges separated by commas (e.g., 1, 3, 5-8) to extract exactly the pages you need." } }
+        ]
+      },
+      {
+        "slug": "into-single-pages",
+        "label": { "en": "into Single Pages" },
+        "searchIntent": "transactional",
+        "description": { "en": "Split a PDF into individual single-page PDF files. Each page becomes a separate file, all downloaded as a ZIP." },
+        "faq": [
+          { "question": { "en": "How do I split a PDF so each page is a separate file?" }, "answer": { "en": "Upload your PDF and select 'Split into single pages'. Our tool creates one PDF per page and packages them all into a ZIP file for download." } },
+          { "question": { "en": "How many pages can I split a PDF into?" }, "answer": { "en": "Our splitter handles PDFs of any page count. All splitting is done in your browser — no server upload required, regardless of page count." } }
+        ]
+      },
+      {
+        "slug": "online-free",
+        "label": { "en": "Online Free" },
+        "searchIntent": "transactional",
+        "description": { "en": "Split PDF files online for free. No account needed, no watermarks, no file uploads. Browser-based splitting in seconds." },
+        "faq": [
+          { "question": { "en": "Is there a free online tool to split PDFs?" }, "answer": { "en": "Yes. Our PDF splitter is completely free. Upload your PDF, choose your split method, and download the results — no account or payment required." } },
+          { "question": { "en": "Are there any limits on the free PDF splitter?" }, "answer": { "en": "No. There is no page limit or file size limit for the free tool. All splitting happens in your browser." } }
+        ]
+      },
+      {
+        "slug": "on-mac",
+        "label": { "en": "on Mac" },
+        "searchIntent": "transactional",
+        "description": { "en": "Split PDF files on Mac using Safari or Chrome. Free browser-based PDF splitter — no software or Acrobat subscription required on macOS." },
+        "faq": [
+          { "question": { "en": "How do I split a PDF on Mac without Adobe?" }, "answer": { "en": "Open our PDF splitter in Safari or Chrome on your Mac. Upload your PDF, choose your split options, and download the results. No Adobe Acrobat or additional software needed." } },
+          { "question": { "en": "Can I split a PDF on Mac using Preview?" }, "answer": { "en": "Yes, Preview on Mac can split PDFs, but it requires manual drag-and-drop of pages. Our online splitter lets you split by page range or into all single pages automatically — much faster for large documents." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is it free to split a PDF?" }, "answer": { "en": "Yes, completely free. No sign-up, no watermarks, and no upload — all splitting happens in your browser." } },
+      { "question": { "en": "Can I extract specific pages from a PDF?" }, "answer": { "en": "Yes. Use the page range feature to extract any specific pages or ranges from your PDF into a new document." } },
+      { "question": { "en": "Are my PDFs private when splitting?" }, "answer": { "en": "Yes. Your PDF is never sent to any server. All processing happens locally in your browser using WebAssembly." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["pdf"]
+  }
+]

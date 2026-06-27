@@ -1,0 +1,348 @@
+[
+  {
+    "slug": "convert-png-to-jpg",
+    "toolSlug": "png-to-jpg",
+    "entitySlugs": ["png", "jpg"],
+    "searchIntent": "transactional",
+    "audience": ["general", "designers", "bloggers"],
+    "baseTitle": { "en": "Convert PNG to JPG" },
+    "description": { "en": "Convert PNG images to JPG format for free in your browser. No upload, instant results." },
+    "howToSteps": { "en": [
+      "Upload your PNG file by dragging and dropping or clicking to browse",
+      "Choose quality settings if needed",
+      "Click Convert to process your image in the browser",
+      "Download your JPG file instantly"
+    ]},
+    "modifiers": [
+      {
+        "slug": "without-losing-quality",
+        "label": { "en": "Without Losing Quality" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to JPG without visible quality loss using our browser-based converter. Adjust the quality slider to 90–100 for best results." },
+        "faq": [
+          { "question": { "en": "Can I convert PNG to JPG without quality loss?" }, "answer": { "en": "PNG uses lossless compression while JPG is lossy. You can minimize quality loss by setting the quality slider to 90 or higher in our converter. The result will be visually identical to the original in most cases." } },
+          { "question": { "en": "What quality setting should I use to avoid quality loss?" }, "answer": { "en": "Use a quality setting of 85–95. Values above 95 produce very large files with negligible visual improvement. For most uses, 90 is the sweet spot." } }
+        ]
+      },
+      {
+        "slug": "on-mac",
+        "label": { "en": "on Mac" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to JPG on Mac for free using our browser-based tool. Works in Safari, Chrome, and Firefox on macOS — no software to install." },
+        "faq": [
+          { "question": { "en": "How do I convert PNG to JPG on a Mac?" }, "answer": { "en": "Open our PNG to JPG converter in Safari, Chrome, or Firefox on your Mac. Drag and drop your PNG file onto the page, adjust quality if needed, and click Convert. Your JPG downloads instantly — no software installation required." } },
+          { "question": { "en": "Does the PNG to JPG converter work on macOS?" }, "answer": { "en": "Yes. Our converter runs entirely in your browser using standard Web APIs, so it works on any Mac running macOS 10.14 or later with a modern browser." } }
+        ]
+      },
+      {
+        "slug": "on-windows",
+        "label": { "en": "on Windows" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to JPG on Windows using our free browser-based tool. Works in Chrome, Edge, and Firefox — no installation needed." },
+        "faq": [
+          { "question": { "en": "How do I convert PNG to JPG on Windows?" }, "answer": { "en": "Open our PNG to JPG converter in Chrome, Edge, or Firefox on Windows. Upload your PNG file, set your preferred quality, and click Convert. The JPG is downloaded directly to your computer." } },
+          { "question": { "en": "Is there a free PNG to JPG converter for Windows 10 and 11?" }, "answer": { "en": "Yes. Our online converter works on Windows 10 and Windows 11 in any modern browser. No download or installation is required." } }
+        ]
+      },
+      {
+        "slug": "on-iphone",
+        "label": { "en": "on iPhone" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to JPG on iPhone or iPad directly in Safari. Your images stay on your device — nothing is uploaded to a server." },
+        "faq": [
+          { "question": { "en": "Can I convert PNG to JPG on an iPhone?" }, "answer": { "en": "Yes. Open our converter in Safari on your iPhone or iPad. Tap to select a photo from your camera roll, then tap Convert. The JPG saves directly to your Files app." } },
+          { "question": { "en": "Does the PNG to JPG converter work on iOS?" }, "answer": { "en": "Yes. Our converter works on iOS 14 and above in Safari. Processing happens on your device using JavaScript — your photos are never sent to any server." } }
+        ]
+      },
+      {
+        "slug": "bulk",
+        "label": { "en": "Bulk" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert multiple PNG files to JPG at once using our free batch converter. Upload up to 20 files simultaneously and download them as a ZIP." },
+        "faq": [
+          { "question": { "en": "Can I convert multiple PNG files to JPG at once?" }, "answer": { "en": "Yes. Our batch converter lets you upload multiple PNG files and converts them all in parallel in your browser. Results are packaged as a ZIP file for easy download." } },
+          { "question": { "en": "How many PNG files can I convert to JPG at once?" }, "answer": { "en": "You can upload up to 20 PNG files simultaneously. All files are processed in your browser — nothing is uploaded to a server." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is it free to convert PNG to JPG?" }, "answer": { "en": "Yes, completely free. No account required, no watermarks, no file size limits for most images." } },
+      { "question": { "en": "What is the difference between PNG and JPG?" }, "answer": { "en": "PNG uses lossless compression and supports transparency. JPG uses lossy compression and produces smaller files without transparency support. JPG is better for photographs; PNG is better for graphics and screenshots." } },
+      { "question": { "en": "Are my files safe when converting PNG to JPG?" }, "answer": { "en": "Yes. All conversion happens in your browser using JavaScript. Your files are never uploaded to any server. Once you close the page, the files are gone." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["lossless-compression", "raster-image"]
+  },
+  {
+    "slug": "convert-jpg-to-png",
+    "toolSlug": "jpg-to-png",
+    "entitySlugs": ["jpg", "png"],
+    "searchIntent": "transactional",
+    "audience": ["general", "designers", "developers"],
+    "baseTitle": { "en": "Convert JPG to PNG" },
+    "description": { "en": "Convert JPG images to PNG format for free in your browser. Lossless output with transparency support — no upload required." },
+    "howToSteps": { "en": [
+      "Upload your JPG file by dragging and dropping or clicking to browse",
+      "Optionally adjust output settings",
+      "Click Convert to process your image locally in the browser",
+      "Download your PNG file instantly"
+    ]},
+    "modifiers": [
+      {
+        "slug": "without-losing-quality",
+        "label": { "en": "Without Losing Quality" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert JPG to PNG without additional quality loss. PNG output is lossless, so no further degradation occurs after conversion." },
+        "faq": [
+          { "question": { "en": "Will converting JPG to PNG improve image quality?" }, "answer": { "en": "No. Converting JPG to PNG will not recover quality lost during original JPG compression, but the PNG output will not introduce any additional quality loss. The result is a lossless copy of your JPG." } },
+          { "question": { "en": "Does JPG to PNG conversion degrade the image?" }, "answer": { "en": "No. Our converter reads the JPG pixel data and writes it directly to a lossless PNG file. No re-compression occurs, so the output is as good as the input JPG allows." } }
+        ]
+      },
+      {
+        "slug": "on-mac",
+        "label": { "en": "on Mac" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert JPG to PNG on Mac using Safari, Chrome, or Firefox. No software needed — our browser-based tool handles it all." },
+        "faq": [
+          { "question": { "en": "How do I convert JPG to PNG on a Mac?" }, "answer": { "en": "Open our JPG to PNG converter in any browser on your Mac. Drag your JPG onto the page and click Convert. The PNG file downloads immediately — no installation required." } },
+          { "question": { "en": "What browsers support JPG to PNG conversion on Mac?" }, "answer": { "en": "Safari, Chrome, and Firefox on macOS 10.14 and later all work perfectly with our converter." } }
+        ]
+      },
+      {
+        "slug": "on-windows",
+        "label": { "en": "on Windows" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert JPG to PNG on Windows 10 or 11 using Chrome, Edge, or Firefox. Free, instant, and no installation required." },
+        "faq": [
+          { "question": { "en": "How do I convert JPG to PNG on Windows?" }, "answer": { "en": "Open our converter in Chrome, Edge, or Firefox on Windows. Upload your JPG, then click Convert. The PNG downloads to your default downloads folder instantly." } },
+          { "question": { "en": "Is there a free JPG to PNG converter for Windows?" }, "answer": { "en": "Yes. Our browser-based tool is completely free and works on Windows 10 and 11 without any installation or sign-up." } }
+        ]
+      },
+      {
+        "slug": "for-transparency",
+        "label": { "en": "for Transparency" },
+        "searchIntent": "informational",
+        "description": { "en": "Convert JPG to PNG to enable transparency. PNG supports alpha channels — essential when you need a transparent background for logos or graphics." },
+        "faq": [
+          { "question": { "en": "Can converting JPG to PNG give me a transparent background?" }, "answer": { "en": "Converting a JPG to PNG does not automatically create transparency — JPG files do not store transparency data. However, PNG supports transparency, so you can then use an image editor to remove the background from your PNG." } },
+          { "question": { "en": "Why do I need PNG for transparency instead of JPG?" }, "answer": { "en": "JPG does not support transparent pixels. PNG supports full alpha transparency, making it the standard format for logos, icons, and graphics that need transparent backgrounds." } }
+        ]
+      },
+      {
+        "slug": "free-online",
+        "label": { "en": "Free Online" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert JPG to PNG online for free — no account, no watermark, no file size limit. Works in any browser without installing software." },
+        "faq": [
+          { "question": { "en": "Is there a free online tool to convert JPG to PNG?" }, "answer": { "en": "Yes. Our JPG to PNG converter is completely free. Open it in any browser, upload your file, and download the PNG in seconds — no account or payment required." } },
+          { "question": { "en": "Are there any limits on the free JPG to PNG conversion?" }, "answer": { "en": "No strict file size limit for individual conversions. Batch conversions support up to 20 files at once. All free, all browser-based." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Why would I convert JPG to PNG?" }, "answer": { "en": "The main reason is to get a lossless format that supports transparency. PNG is better for screenshots, logos, and graphics where sharp edges and exact colors matter." } },
+      { "question": { "en": "Does PNG produce larger files than JPG?" }, "answer": { "en": "Usually yes. PNG is lossless and produces larger files than JPG for photographs. For graphics, screenshots, and illustrations with flat colors, PNG sizes are often comparable or even smaller." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["transparency", "lossless-compression"]
+  },
+  {
+    "slug": "compress-image",
+    "toolSlug": "image-compressor",
+    "entitySlugs": ["jpg", "png"],
+    "searchIntent": "transactional",
+    "audience": ["general", "bloggers", "designers"],
+    "baseTitle": { "en": "Compress Image" },
+    "description": { "en": "Compress JPG, PNG, and WebP images in your browser for free. Reduce file size without visible quality loss — no upload required." },
+    "howToSteps": { "en": [
+      "Upload your image by dragging and dropping or clicking to browse",
+      "Adjust the quality or compression level slider",
+      "Preview the compressed result and compare file sizes",
+      "Download your compressed image instantly"
+    ]},
+    "modifiers": [
+      {
+        "slug": "without-losing-quality",
+        "label": { "en": "Without Losing Quality" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress images without visible quality loss using smart compression. Set the quality slider to 80–90 for an optimal balance of size reduction and visual fidelity." },
+        "faq": [
+          { "question": { "en": "Can I compress an image without losing quality?" }, "answer": { "en": "You can compress images with minimal perceptible quality loss by using a quality setting of 80–90. Our compressor shows a before/after preview so you can judge quality before downloading." } },
+          { "question": { "en": "What is the best quality setting to compress without losing quality?" }, "answer": { "en": "For JPG and WebP, a quality setting of 85 typically reduces file size by 40–60% with no visible quality difference. For lossless output, use PNG format." } }
+        ]
+      },
+      {
+        "slug": "for-web",
+        "label": { "en": "for Web" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress images for web use. Reduce JPG, PNG, and WebP sizes to improve page load speed and Core Web Vitals scores." },
+        "faq": [
+          { "question": { "en": "What is the ideal image file size for websites?" }, "answer": { "en": "Aim for under 100KB per image for most web pages. Hero images can be up to 200KB if necessary. Smaller images load faster and improve your Largest Contentful Paint (LCP) score." } },
+          { "question": { "en": "Which format should I use for web images?" }, "answer": { "en": "WebP is the best choice for web — it produces 25–35% smaller files than JPG at the same quality. AVIF is even smaller but has lower browser support. JPG is a safe fallback for all browsers." } }
+        ]
+      },
+      {
+        "slug": "for-email",
+        "label": { "en": "for Email" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress images for email attachments. Reduce JPG and PNG file sizes to stay within email provider attachment limits." },
+        "faq": [
+          { "question": { "en": "How do I compress an image to send by email?" }, "answer": { "en": "Open our image compressor, upload your image, and set quality to 75–85. This typically reduces a 3MB photo to under 500KB — well within Gmail's 25MB attachment limit." } },
+          { "question": { "en": "What is the maximum image size for email?" }, "answer": { "en": "Most email providers (Gmail, Outlook) allow up to 25MB total per email. For inline images, keep each under 1MB. For thumbnails and previews, aim for under 100KB." } }
+        ]
+      },
+      {
+        "slug": "for-instagram",
+        "label": { "en": "for Instagram" },
+        "searchIntent": "transactional",
+        "description": { "en": "Compress images for Instagram without losing sharpness. Optimize JPG and PNG files before uploading to avoid Instagram's automatic re-compression." },
+        "faq": [
+          { "question": { "en": "What is the best image size for Instagram?" }, "answer": { "en": "Instagram recommends 1080×1080 pixels for square posts, 1080×1350 for portrait, and 1080×566 for landscape. Keep file size under 8MB to avoid automatic re-compression." } },
+          { "question": { "en": "Does Instagram compress images automatically?" }, "answer": { "en": "Yes. Instagram re-compresses images when you upload them. Pre-compressing with our tool at quality 85–90 gives you control over how the compression is applied, often producing better results than Instagram's automatic compression." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is the image compressor free?" }, "answer": { "en": "Yes, completely free. No account, no watermarks, no limits. All compression happens in your browser." } },
+      { "question": { "en": "What image formats can I compress?" }, "answer": { "en": "Our compressor supports JPG, PNG, WebP, and GIF. Upload any of these formats and download a compressed version instantly." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["lossy-compression", "raster-image"]
+  },
+  {
+    "slug": "resize-image",
+    "toolSlug": "image-resizer",
+    "entitySlugs": ["jpg", "png"],
+    "searchIntent": "transactional",
+    "audience": ["general", "bloggers", "designers"],
+    "baseTitle": { "en": "Resize Image" },
+    "description": { "en": "Resize images to any dimension for free in your browser. No upload, no quality loss, instant download." },
+    "howToSteps": { "en": [
+      "Upload your image by dragging and dropping or clicking to browse",
+      "Enter the target width and height in pixels, or choose a preset",
+      "Select whether to maintain the aspect ratio",
+      "Download your resized image instantly"
+    ]},
+    "modifiers": [
+      {
+        "slug": "for-instagram",
+        "label": { "en": "for Instagram" },
+        "searchIntent": "transactional",
+        "description": { "en": "Resize images to Instagram's recommended dimensions. Square (1080×1080), portrait (1080×1350), or landscape (1080×566) — all in your browser." },
+        "faq": [
+          { "question": { "en": "What size should I resize my image to for Instagram?" }, "answer": { "en": "Use 1080×1080 for square posts, 1080×1350 for portrait posts, and 1080×566 for landscape posts. These are Instagram's recommended dimensions for optimal display quality." } },
+          { "question": { "en": "Will resizing my image for Instagram reduce quality?" }, "answer": { "en": "Our resizer maintains image quality during the resize. Instagram may apply its own compression after upload, so we recommend uploading at the exact recommended dimensions." } }
+        ]
+      },
+      {
+        "slug": "for-linkedin",
+        "label": { "en": "for LinkedIn" },
+        "searchIntent": "transactional",
+        "description": { "en": "Resize images to LinkedIn's recommended sizes for profile photos, banners, and post images. Pixel-perfect output in your browser." },
+        "faq": [
+          { "question": { "en": "What are LinkedIn's recommended image sizes?" }, "answer": { "en": "Profile photo: 400×400 pixels. Banner image: 1584×396 pixels. Post images: 1200×627 pixels. Company logo: 300×300 pixels." } },
+          { "question": { "en": "How do I resize an image for a LinkedIn banner?" }, "answer": { "en": "Open our image resizer, upload your image, and enter 1584 for width and 396 for height. Click Resize and download your optimized LinkedIn banner." } }
+        ]
+      },
+      {
+        "slug": "for-whatsapp",
+        "label": { "en": "for WhatsApp" },
+        "searchIntent": "transactional",
+        "description": { "en": "Resize images for WhatsApp profile photos and sharing. Reduce dimensions to send faster and avoid WhatsApp's automatic re-compression." },
+        "faq": [
+          { "question": { "en": "What size should a WhatsApp profile picture be?" }, "answer": { "en": "WhatsApp displays profile photos at 640×640 pixels. To avoid blurriness, upload at least 640×640. Larger images are automatically cropped to a circle." } },
+          { "question": { "en": "How do I resize a photo to send on WhatsApp without quality loss?" }, "answer": { "en": "Resize your photo to under 1600 pixels on the longest side before sending. WhatsApp compresses images sent in chats — send as a document attachment to preserve full quality." } }
+        ]
+      },
+      {
+        "slug": "for-email",
+        "label": { "en": "for Email" },
+        "searchIntent": "transactional",
+        "description": { "en": "Resize large photos before attaching them to emails. Reduce dimensions to speed up sending and stay within attachment size limits." },
+        "faq": [
+          { "question": { "en": "What image size is best for email attachments?" }, "answer": { "en": "For email, resize photos to 1200–1600 pixels on the longest side. This provides sufficient detail for most purposes while keeping file sizes manageable." } },
+          { "question": { "en": "How small should I resize an image for email?" }, "answer": { "en": "For inline images in email newsletters, 600px wide is standard. For attachments you want recipients to view on screen, 1200px wide is a good balance of quality and file size." } }
+        ]
+      },
+      {
+        "slug": "to-specific-size",
+        "label": { "en": "to Specific Size" },
+        "searchIntent": "transactional",
+        "description": { "en": "Resize an image to exact pixel dimensions. Enter any width and height to create pixel-perfect outputs for any platform or specification." },
+        "faq": [
+          { "question": { "en": "Can I resize an image to exact pixel dimensions?" }, "answer": { "en": "Yes. Enter the exact width and height in pixels in our resizer. You can lock the aspect ratio to prevent distortion, or uncheck it to force exact dimensions." } },
+          { "question": { "en": "Can I resize an image without distorting it?" }, "answer": { "en": "Yes. Enable the 'Lock aspect ratio' option. When you change the width, the height adjusts automatically to maintain the original proportions." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "Is the image resizer free?" }, "answer": { "en": "Yes. Our image resizer is completely free with no account required. Resize any number of images directly in your browser." } },
+      { "question": { "en": "What image formats does the resizer support?" }, "answer": { "en": "Our resizer supports JPG, PNG, WebP, GIF, and BMP. Upload any of these and download the resized image in the same format or convert to a different one." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["raster-image", "aspect-ratio"]
+  },
+  {
+    "slug": "convert-png-to-webp",
+    "toolSlug": "png-to-webp",
+    "entitySlugs": ["png", "webp"],
+    "searchIntent": "transactional",
+    "audience": ["developers", "bloggers", "designers"],
+    "baseTitle": { "en": "Convert PNG to WebP" },
+    "description": { "en": "Convert PNG images to WebP format for free in your browser. Get 25–35% smaller file sizes for faster web performance — no upload required." },
+    "howToSteps": { "en": [
+      "Upload your PNG file by dragging and dropping or clicking to browse",
+      "Adjust the WebP quality slider (80 is recommended for web use)",
+      "Click Convert to process your image locally in the browser",
+      "Download your WebP file instantly"
+    ]},
+    "modifiers": [
+      {
+        "slug": "for-web",
+        "label": { "en": "for Web" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to WebP for faster web page loading. WebP images are 25–35% smaller than PNG at equivalent quality, improving Core Web Vitals and user experience." },
+        "faq": [
+          { "question": { "en": "Why should I convert PNG to WebP for my website?" }, "answer": { "en": "WebP produces significantly smaller file sizes than PNG — typically 25–35% smaller at equivalent quality. Smaller images mean faster page loads, better Core Web Vitals scores, and improved SEO." } },
+          { "question": { "en": "Do all browsers support WebP?" }, "answer": { "en": "Yes. WebP is supported by all modern browsers including Chrome, Firefox, Safari (since iOS 14 and macOS Big Sur), Edge, and Opera. Browser support is now above 95% globally." } }
+        ]
+      },
+      {
+        "slug": "without-losing-quality",
+        "label": { "en": "Without Losing Quality" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to WebP with lossless or near-lossless settings. Use WebP's lossless mode to preserve every pixel while still saving space over PNG." },
+        "faq": [
+          { "question": { "en": "Can I convert PNG to WebP without quality loss?" }, "answer": { "en": "Yes. WebP supports a lossless compression mode that perfectly preserves image quality while still producing smaller files than PNG in many cases. Select 'Lossless' in our converter for this output." } },
+          { "question": { "en": "Is lossless WebP smaller than PNG?" }, "answer": { "en": "For photographs and complex images, lossless WebP is typically 20–30% smaller than PNG. For simple graphics with flat colors, PNG may occasionally be smaller." } }
+        ]
+      },
+      {
+        "slug": "on-mac",
+        "label": { "en": "on Mac" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to WebP on Mac using Safari or Chrome. Free browser-based conversion — no software download or installation needed on macOS." },
+        "faq": [
+          { "question": { "en": "How do I convert PNG to WebP on a Mac?" }, "answer": { "en": "Open our PNG to WebP converter in Safari, Chrome, or Firefox on your Mac. Drag your PNG onto the page, set your preferred quality, and click Convert. The WebP file downloads immediately." } },
+          { "question": { "en": "Is there a free PNG to WebP converter for macOS?" }, "answer": { "en": "Yes. Our browser-based converter works on any Mac with Safari 14+ or Chrome. No software installation or Homebrew command needed." } }
+        ]
+      },
+      {
+        "slug": "free-online",
+        "label": { "en": "Free Online" },
+        "searchIntent": "transactional",
+        "description": { "en": "Convert PNG to WebP online for free — no account, no watermark, no file size limit. Instant browser-based conversion with quality control." },
+        "faq": [
+          { "question": { "en": "Is there a free online PNG to WebP converter?" }, "answer": { "en": "Yes. Our converter is completely free. Open it in any browser, upload your PNG, and download the WebP in seconds. No account or payment required." } },
+          { "question": { "en": "Can I convert multiple PNG files to WebP for free?" }, "answer": { "en": "Yes. Our batch mode lets you convert up to 20 PNG files to WebP simultaneously. All results are packaged in a ZIP file for download." } }
+        ]
+      }
+    ],
+    "faq": [
+      { "question": { "en": "What is WebP and why should I use it?" }, "answer": { "en": "WebP is a modern image format developed by Google that provides superior compression for both lossless and lossy images. It produces smaller files than PNG and JPG while maintaining visual quality, making websites faster." } },
+      { "question": { "en": "Is it free to convert PNG to WebP?" }, "answer": { "en": "Yes. Our PNG to WebP converter is completely free with no limits, no account, and no watermarks. All processing happens in your browser." } }
+    ],
+    "relatedArticles": [],
+    "relatedGlossary": ["lossless-compression", "raster-image"]
+  }
+]

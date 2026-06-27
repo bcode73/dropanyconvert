@@ -14,7 +14,7 @@ export async function generateSitemaps(routes, config) {
 
   // Per-language sitemap
   for (const lang of langCodes) {
-    const knowledgeTypes = new Set(['tool','category','home','legal','article','comparison','glossary','guides-index','compare-index','glossary-index','collection','collections-index','landing','faq-hub','trust','editorial','changelog','entity','entity-index','author']);
+    const knowledgeTypes = new Set(['tool','category','home','legal','article','comparison','glossary','guides-index','compare-index','glossary-index','collection','collections-index','landing','faq-hub','trust','editorial','changelog','entity','entity-index','author','intent','how-to-index','platform','use-case','feature','format-faq']);
     const langRoutes = routes.filter(r => r.lang === lang && knowledgeTypes.has(r.type));
 
     // Deterministic order
@@ -24,8 +24,8 @@ export async function generateSitemaps(routes, config) {
     });
 
     const urls = sorted.map(r => {
-      const priorityMap = { home: '1.0', category: '0.9', 'guides-index': '0.8', 'compare-index': '0.8', 'glossary-index': '0.7', 'collections-index': '0.8', 'faq-hub': '0.7', trust: '0.8', editorial: '0.6', changelog: '0.6', article: '0.7', comparison: '0.7', glossary: '0.6', collection: '0.8', landing: '0.8', legal: '0.3', entity: '0.8', 'entity-index': '0.7', author: '0.5' };
-      const changefreqMap = { home: 'weekly', category: 'weekly', 'guides-index': 'weekly', 'compare-index': 'weekly', 'glossary-index': 'weekly', 'collections-index': 'weekly', 'faq-hub': 'monthly', trust: 'monthly', editorial: 'monthly', changelog: 'weekly', article: 'monthly', comparison: 'monthly', glossary: 'monthly', collection: 'weekly', landing: 'monthly', legal: 'yearly', entity: 'monthly', 'entity-index': 'monthly', author: 'monthly' };
+      const priorityMap = { home: '1.0', category: '0.9', 'guides-index': '0.8', 'compare-index': '0.8', 'glossary-index': '0.7', 'collections-index': '0.8', 'faq-hub': '0.7', trust: '0.8', editorial: '0.6', changelog: '0.6', article: '0.7', comparison: '0.7', glossary: '0.6', collection: '0.8', landing: '0.8', legal: '0.3', entity: '0.8', 'entity-index': '0.7', author: '0.5', intent: '0.8', 'how-to-index': '0.7', platform: '0.8', 'use-case': '0.7', feature: '0.7', 'format-faq': '0.7' };
+      const changefreqMap = { home: 'weekly', category: 'weekly', 'guides-index': 'weekly', 'compare-index': 'weekly', 'glossary-index': 'weekly', 'collections-index': 'weekly', 'faq-hub': 'monthly', trust: 'monthly', editorial: 'monthly', changelog: 'weekly', article: 'monthly', comparison: 'monthly', glossary: 'monthly', collection: 'weekly', landing: 'monthly', legal: 'yearly', entity: 'monthly', 'entity-index': 'monthly', author: 'monthly', intent: 'monthly', 'how-to-index': 'weekly', platform: 'monthly', 'use-case': 'monthly', feature: 'monthly', 'format-faq': 'monthly' };
       const priority   = priorityMap[r.type] || '0.8';
       const changefreq = changefreqMap[r.type] || 'monthly';
       return `  <url>

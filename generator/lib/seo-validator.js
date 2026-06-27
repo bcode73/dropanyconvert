@@ -104,7 +104,7 @@ export function validateSeo(routes, seoData, data) {
 
   // Missing H1 on content pages (error — critical for SEO)
   // Exclude home, root, and index pages which generate H1 dynamically
-  const H1_REQUIRED_TYPES = new Set(['tool', 'category', 'article', 'comparison', 'glossary', 'legal', 'trust', 'editorial', 'changelog']);
+  const H1_REQUIRED_TYPES = new Set(['tool', 'category', 'article', 'comparison', 'glossary', 'legal', 'trust', 'editorial', 'changelog', 'intent', 'how-to-index', 'platform', 'use-case', 'feature', 'format-faq']);
   for (const route of routes) {
     if (!H1_REQUIRED_TYPES.has(route.type)) continue;
     const seo = seoData.get(route.path);
@@ -114,7 +114,7 @@ export function validateSeo(routes, seoData, data) {
   }
 
   // Missing breadcrumbs on content pages (warning — important for structured data)
-  const CRUMB_REQUIRED_TYPES = new Set(['tool', 'category', 'article', 'comparison', 'glossary', 'legal', 'trust', 'editorial', 'changelog']);
+  const CRUMB_REQUIRED_TYPES = new Set(['tool', 'category', 'article', 'comparison', 'glossary', 'legal', 'trust', 'editorial', 'changelog', 'intent', 'platform', 'use-case', 'feature', 'format-faq']);
   for (const route of routes) {
     if (!CRUMB_REQUIRED_TYPES.has(route.type)) continue;
     const seo = seoData.get(route.path);

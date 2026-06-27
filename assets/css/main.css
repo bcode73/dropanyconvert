@@ -1917,3 +1917,65 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
   .dac-author-header { flex-direction: column; }
   .dac-entity-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ── Phase 17: Intent / How-To Pages ───────────────────────────────────── */
+.dac-intent-layout { display: grid; grid-template-columns: 1fr 280px; gap: 2rem; align-items: start; }
+.dac-intent-article { min-width: 0; }
+.dac-intent-sidebar { position: sticky; top: 1.5rem; }
+.dac-intent-cta { display: block; background: var(--color-primary); color: #fff; text-align: center; padding: .85rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 1rem; text-decoration: none; margin-bottom: .5rem; transition: opacity .15s; }
+.dac-intent-cta:hover { opacity: .9; }
+.dac-intent-cta__note { font-size: .78rem; color: var(--color-muted); text-align: center; display: block; }
+.dac-intent-desc { font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.dac-intent-category { font-size: .82rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem; }
+.dac-intent-badge { display: inline-block; font-size: .72rem; font-weight: 600; padding: .2rem .55rem; border-radius: 4px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: .75rem; }
+.dac-intent-badge--transactional { background: #fef3c7; color: #92400e; }
+.dac-intent-badge--commercial    { background: #dbeafe; color: #1e40af; }
+.dac-intent-badge--informational { background: #d1fae5; color: #065f46; }
+.dac-intent-badge--navigational  { background: #ede9fe; color: #5b21b6; }
+.dac-steps-list { list-style: none; counter-reset: steps; padding: 0; margin: 0 0 1.5rem; }
+.dac-steps-list__item { counter-increment: steps; display: flex; gap: .75rem; align-items: flex-start; padding: .75rem 0; border-bottom: 1px solid var(--color-border); }
+.dac-steps-list__item:last-child { border-bottom: none; }
+.dac-steps-list__item::before { content: counter(steps); display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--color-primary); color: #fff; font-size: .8rem; font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
+.dac-related-intents { margin-top: 1.5rem; }
+.dac-how-to-guides  { margin-top: 1.5rem; }
+.dac-how-to-list { list-style: none; padding: 0; margin: .5rem 0 0; }
+.dac-how-to-link { display: flex; align-items: center; gap: .4rem; padding: .3rem 0; font-size: .85rem; text-decoration: none; color: var(--color-link); border-bottom: 1px solid var(--color-border); }
+.dac-how-to-link:last-child { border-bottom: none; }
+.dac-how-to-link::before { content: "→"; font-size: .75rem; color: var(--color-muted); flex-shrink: 0; }
+.dac-how-to-link:hover { text-decoration: underline; }
+
+/* ── Phase 17: How-To Index ─────────────────────────────────────────────── */
+.dac-how-to-group { margin-bottom: 2.5rem; }
+.dac-how-to-group__title { font-size: 1.1rem; font-weight: 600; margin-bottom: .75rem; padding-bottom: .35rem; border-bottom: 2px solid var(--color-border); }
+.dac-how-to-index-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .4rem; }
+.dac-how-to-index-list li a { display: block; font-size: .88rem; padding: .3rem .5rem; text-decoration: none; color: var(--color-link); border-radius: 4px; transition: background .1s; }
+.dac-how-to-index-list li a:hover { background: var(--color-surface); text-decoration: underline; }
+
+/* ── Phase 17: Platform Pages ───────────────────────────────────────────── */
+.dac-platform-badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 20px; padding: .3rem .85rem; font-size: .85rem; font-weight: 600; margin-bottom: 1rem; }
+.dac-platform-features { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.dac-platform-tag { display: inline-block; padding: .25rem .65rem; background: var(--color-primary-light, #e8f0fe); color: var(--color-primary); border-radius: 12px; font-size: .78rem; font-weight: 500; }
+
+/* ── Phase 17: Use-Case Pages ───────────────────────────────────────────── */
+.dac-use-case-benefits { margin: 1.25rem 0; padding: 1.25rem; background: var(--color-surface); border-radius: 8px; border: 1px solid var(--color-border); }
+.dac-benefits-list { list-style: none; padding: 0; margin: 0; }
+.dac-benefits-list__item { display: flex; align-items: flex-start; gap: .6rem; padding: .45rem 0; font-size: .92rem; }
+.dac-benefits-list__item::before { content: "✓"; color: var(--color-primary); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+
+/* ── Phase 17: Feature Pages ────────────────────────────────────────────── */
+.dac-feature-tool-count { font-size: 1rem; color: var(--color-muted); margin-bottom: 1.25rem; }
+.dac-related-features { margin-top: 1.5rem; }
+.dac-related-use-cases { margin-top: 1.5rem; }
+
+/* ── Phase 17: Format-FAQ Pages ─────────────────────────────────────────── */
+.dac-format-faq-overview { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; font-size: .95rem; line-height: 1.7; }
+.dac-format-faq-other { margin-top: 1.5rem; }
+
+@media (max-width: 768px) {
+  .dac-intent-layout { grid-template-columns: 1fr; }
+  .dac-intent-sidebar { position: static; }
+  .dac-how-to-index-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .dac-how-to-index-list { grid-template-columns: 1fr; }
+}

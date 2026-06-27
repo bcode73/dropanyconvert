@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -289,6 +289,20 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     // Authority Graph (Phase 20)
     authority_graph: buildAuthorityDashboard(graph),
 
+    // API Platform (Phase 22)
+    api_platform: {
+      openapi_version:   '3.1.0',
+      endpoints:         (apiStats?.endpoints ?? 0),
+      topic_pages:       (apiStats?.topic_pages ?? 0),
+      tool_api_pages:    (apiStats?.tool_api_pages ?? 0),
+      sdk_pages:         (apiStats?.sdk_pages ?? 0),
+      total_pages:       (apiStats?.total_pages ?? 0),
+      sdks:              (apiStats?.sdks ?? 0),
+      languages:         (apiStats?.languages ?? 0),
+      validator_warnings: (apiValidation?.warnings?.length ?? 0),
+      validator_stats:   (apiValidation?.stats ?? {}),
+    },
+
     // Premium Architecture (Phase 21)
     premium_architecture: {
       stats:    premiumValidation?.stats    || {},
@@ -387,6 +401,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Warnings: ${validation.warnings.length}`,
     `  SEO:      ${seoStatus}`,
     `  Indexing: ${(indexingValidation?.errors || []).length} errors, ${(indexingValidation?.warnings || []).length} warnings | sitemap:${indexingValidation?.stats?.sitemap_urls || 0} urls`,
+    `  API:      ${apiStats?.endpoints ?? 0} endpoints | ${apiStats?.total_pages ?? 0} doc pages | ${apiStats?.sdks ?? 0} SDKs | validator: ${apiValidation?.warnings?.length ?? 0} warnings`,
   ].join('\n');
 
   try {

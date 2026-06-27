@@ -24,6 +24,9 @@ import { validateIndexingReadiness } from './lib/indexing-validator.js';
 import { buildAuthorityGraph } from './lib/authority.js';
 import { validatePremiumArchitecture } from './lib/premium-validator.js';
 import { generateDashboardPages, getDashboardRouteCount } from './lib/dashboard-generator.js';
+import { generateOpenApiFile } from './lib/openapi-generator.js';
+import { generateApiDocPages, generateApiSearchIndex, getApiDocStats } from './lib/api-doc-generator.js';
+import { validateApiDocs } from './lib/api-validator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -132,17 +135,31 @@ async function build() {
   const dashboardPages = generateDashboardPages(data, config);
   console.log(`  ✓ Dashboard pages generated (${dashboardPages.length} pages across ${data.languages.length} languages)`);
 
+  // 11e. Generate API ecosystem (OpenAPI spec + developer doc pages + search index)
+  const openApiFile    = generateOpenApiFile(data, config);
+  const apiDocPages    = generateApiDocPages(data, config);
+  const apiSearchIndex = generateApiSearchIndex(data, config);
+  const apiStats       = getApiDocStats(data);
+  const apiValidation  = validateApiDocs(openApiFile, apiDocPages, data, config);
+  if (apiValidation.errors.length > 0) {
+    console.error('\n  ✗ API validation errors:\n');
+    apiValidation.errors.forEach(e => console.error(`    - ${e}`));
+    process.exit(1);
+  }
+  apiValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ API: ${w}`));
+  console.log(`  ✓ API platform generated (${apiStats.total_pages} pages, ${apiStats.endpoints} endpoints, ${apiStats.sdks} SDKs, ${apiValidation.warnings.length} warnings)`);
+
   // 11. Generate AI discoverability files (/llms.txt, /ai.txt)
   const aiFiles = generateAiDiscoverability(data, routes, config);
   console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
 
   // 12. Emit everything to dist/
-  const emitResult = await emitDist({ pages: [...pages, ...dashboardPages], sitemaps, robots, staticFiles, aiFiles }, config);
+  const emitResult = await emitDist({ pages: [...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, staticFiles: [...staticFiles, openApiFile, apiSearchIndex], aiFiles }, config);
   console.log(`  ✓ Dist emitted   (${emitResult.fileCount} files, ${emitResult.sizeKb} KB)`);
 
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

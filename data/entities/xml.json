@@ -1,0 +1,66 @@
+{
+  "slug": "xml",
+  "name": "XML",
+  "fullName": "Extensible Markup Language",
+  "aliases": ["Extensible Markup Language"],
+  "category": "data",
+  "mimeTypes": ["application/xml", "text/xml"],
+  "extensions": [".xml"],
+  "invented": "1996",
+  "firstSpec": "XML 1.0 (W3C Recommendation, 1998)",
+  "description": "XML (Extensible Markup Language) is a flexible, text-based markup language developed by the W3C for storing and transporting structured data. Unlike HTML, which has predefined tags, XML allows authors to define their own tags and document structures. XML was the dominant data-interchange format for enterprise software and web services throughout the 2000s (SOAP, RSS, Atom, SVG, DOCX). While JSON has largely replaced XML for web APIs, XML remains critical in enterprise integration, document formats (OOXML, ODF), and configuration files.",
+  "technicalDetails": "XML documents must be well-formed (properly nested elements, quoted attributes, a single root element) and optionally valid against a Document Type Definition (DTD) or XML Schema (XSD). The W3C ecosystem includes XPath for node addressing, XSLT for transformation, and XQuery for querying. XML parsers are either DOM-based (load entire tree) or SAX/StAX-based (streaming event model).",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Enterprise data exchange and SOAP web services",
+    "Office document formats (DOCX, XLSX, PPTX)",
+    "RSS and Atom feed syndication",
+    "Configuration files (Maven, Spring, Android resources)",
+    "SVG and MathML markup"
+  ],
+  "advantages": [
+    "Self-describing with custom element names",
+    "Rich ecosystem: XPath, XSLT, XML Schema, XQuery",
+    "Supports namespaces for combining vocabularies",
+    "Strong validation tooling via DTD and XSD",
+    "Widely used in enterprise and legacy systems"
+  ],
+  "disadvantages": [
+    "Verbose — higher byte overhead than JSON or YAML",
+    "More complex to parse and generate",
+    "Less readable than JSON or YAML for simple data",
+    "Largely supplanted by JSON for web APIs"
+  ],
+  "relatedEntities": ["json", "yaml"],
+  "relatedTools": [
+    "xml-beautifier",
+    "xml-formatter",
+    "xml-minifier",
+    "xml-validator",
+    "xml-to-json",
+    "json-to-xml"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["mime-type"],
+  "faq": [
+    {
+      "question": "What is the difference between XML and HTML?",
+      "answer": "HTML has a fixed set of predefined tags for web content and browsers tolerate malformed HTML. XML has no predefined tags — you define your own — and requires strict well-formedness. XML is for data; HTML is for presentation."
+    },
+    {
+      "question": "Is XML still used today?",
+      "answer": "Yes. XML remains the backbone of Microsoft Office file formats (DOCX, XLSX), Android resource files, Maven build files, RSS feeds, SOAP services, and many enterprise integration platforms. For new web APIs, JSON is generally preferred."
+    },
+    {
+      "question": "What is the difference between well-formed and valid XML?",
+      "answer": "Well-formed XML follows basic syntax rules: one root element, properly nested tags, quoted attributes, and correct character encoding declaration. Valid XML is additionally conformant to a specific schema (DTD or XSD) that defines which elements and attributes are allowed."
+    }
+  ]
+}

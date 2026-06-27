@@ -1,0 +1,62 @@
+{
+  "slug": "svg",
+  "name": "SVG",
+  "fullName": "Scalable Vector Graphics",
+  "aliases": ["Scalable Vector Graphics"],
+  "category": "image",
+  "mimeTypes": ["image/svg+xml"],
+  "extensions": [".svg"],
+  "invented": "1999",
+  "firstSpec": "SVG 1.0 (W3C Recommendation, 2001)",
+  "description": "SVG (Scalable Vector Graphics) is an XML-based vector image format developed by the W3C. Unlike raster formats (PNG, JPEG), SVG describes images as geometric shapes, paths, and text, allowing them to scale to any size without losing quality. This makes SVG the ideal format for logos, icons, illustrations, charts, and UI graphics that need to look sharp at any resolution — from mobile screens to large displays and print. SVG files are human-readable XML and can be styled with CSS or manipulated with JavaScript.",
+  "technicalDetails": "SVG is an XML vocabulary that encodes geometry (paths, polygons, circles, etc.), transforms, fills, strokes, gradients, filters, and text. Browsers render SVG natively via their layout engine. SVG files can be embedded inline in HTML, referenced as an img src, or used as CSS backgrounds, each with different capabilities for scripting and styling.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Logos and brand marks",
+    "Icons and UI elements",
+    "Data visualizations and charts",
+    "Illustrations and infographics",
+    "Animated graphics via CSS or JavaScript"
+  ],
+  "advantages": [
+    "Resolution-independent — perfect at any size",
+    "Small file sizes for vector artwork",
+    "Styleable with CSS and scriptable with JavaScript",
+    "Accessible (text content is searchable/indexable)",
+    "Native browser support"
+  ],
+  "disadvantages": [
+    "Not suitable for photographs or complex raster imagery",
+    "Complex SVGs with many paths can be slow to render",
+    "Some advanced features have inconsistent browser support",
+    "Requires vector source artwork — raster images cannot be losslessly converted to SVG"
+  ],
+  "relatedEntities": ["png", "gif"],
+  "relatedTools": [
+    "svg-to-png",
+    "png-to-svg"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["vector-image", "mime-type"],
+  "faq": [
+    {
+      "question": "What is SVG and why should I use it?",
+      "answer": "SVG is a vector format, meaning images are stored as mathematical descriptions of shapes rather than pixels. This makes SVG graphics infinitely scalable without blurring, and typically smaller than raster equivalents for logos, icons, and simple illustrations."
+    },
+    {
+      "question": "Can I convert a photo to SVG?",
+      "answer": "Not meaningfully in most cases. SVG is a vector format and photos are raster data. Automatic tracing tools can approximate a photo as vector paths, but the result is typically a poor likeness and a very large file. SVG is best authored from scratch in a vector editor."
+    },
+    {
+      "question": "Is SVG safe to use on the web?",
+      "answer": "SVG is safe when served as a static file or referenced via an img tag, which prevents script execution. Be careful with inline SVG from untrusted sources, as it can execute embedded JavaScript. Always sanitize user-supplied SVGs before rendering them inline."
+    }
+  ]
+}

@@ -15,6 +15,8 @@ export function generateAiDiscoverability(data, routes, config) {
   const comparisonCount = (data.comparisons || []).length;
   const glossaryCount = (data.glossary || []).length;
   const collectionCount = (data.collections || []).length;
+  const entityCount = (data.entities || []).length;
+  const authorCount = (data.authors || []).length;
 
   // Category summary
   const catLines = (data.categories || []).map(c =>
@@ -43,6 +45,14 @@ export function generateAiDiscoverability(data, routes, config) {
     `  - ${c.title?.en || c.slug} (/${defaultLang}/collections/${c.slug}) [${(c.toolSlugs||[]).length} tools]`
   ).join('\n');
 
+  const entityLines = (data.entities || []).map(e =>
+    `  - ${e.name} — ${e.fullName || ''} (/${defaultLang}/entity/${e.slug})`
+  ).join('\n');
+
+  const authorLines = (data.authors || []).map(a =>
+    `  - ${a.name} [${a.role || ''}] (/${defaultLang}/author/${a.slug})`
+  ).join('\n');
+
   // Languages
   const langLine = data.languages.map(l => `${l.name} (${l.code})`).join(', ');
 
@@ -69,6 +79,8 @@ Guides: ${articleCount}
 Comparisons: ${comparisonCount}
 Glossary Terms: ${glossaryCount}
 Collections: ${collectionCount}
+File Format Entities: ${entityCount}
+Authors: ${authorCount}
 
 ## Tool Categories
 
@@ -94,6 +106,14 @@ ${glossLines}
 
 ${collLines}
 
+## File Format Reference (Entities)
+
+${entityLines}
+
+## Authors & Editorial Team
+
+${authorLines}
+
 ## Key Pages
 
 - Home: ${baseUrl}/${defaultLang}
@@ -103,6 +123,7 @@ ${collLines}
 - All Comparisons: ${baseUrl}/${defaultLang}/compare
 - All Glossary Terms: ${baseUrl}/${defaultLang}/glossary
 - All Collections: ${baseUrl}/${defaultLang}/collections
+- File Format Reference: ${baseUrl}/${defaultLang}/entity
 - Editorial Process: ${baseUrl}/${defaultLang}/editorial/editorial-process
 - Changelog: ${baseUrl}/${defaultLang}/changelog
 - Privacy Policy: ${baseUrl}/${defaultLang}/privacy-policy
@@ -136,6 +157,8 @@ account_required: false
 tool_count: ${toolCount}
 language_count: ${langCount}
 knowledge_article_count: ${articleCount + comparisonCount + glossaryCount}
+entity_count: ${entityCount}
+author_count: ${authorCount}
 
 primary_language: ${defaultLang}
 supported_languages: ${data.languages.map(l => l.code).join(', ')}

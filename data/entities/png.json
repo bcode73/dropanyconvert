@@ -1,0 +1,72 @@
+{
+  "slug": "png",
+  "name": "PNG",
+  "fullName": "Portable Network Graphics",
+  "aliases": ["Portable Network Graphics", "Ping"],
+  "category": "image",
+  "mimeTypes": ["image/png"],
+  "extensions": [".png"],
+  "invented": "1995",
+  "firstSpec": "RFC 2083 (1997)",
+  "description": "PNG (Portable Network Graphics) is a lossless raster image format developed in 1995 as a patent-free replacement for GIF. It supports full 24-bit color, grayscale, and palette-based images, and is unique among common web formats for offering full alpha-channel (8-bit) transparency. Because compression is entirely lossless, PNG preserves every pixel exactly as captured, making it ideal for logos, screenshots, icons, and other graphics where sharpness and accuracy matter more than file size.",
+  "technicalDetails": "PNG uses DEFLATE compression (a combination of LZ77 and Huffman coding) applied after a filtering step that improves compressibility. It stores metadata in chunks (IHDR, IDAT, PLTE, etc.) defined by the PNG specification maintained by the W3C.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Web graphics requiring transparency",
+    "Screenshots and screen recordings",
+    "Logos and icons",
+    "Digital illustrations",
+    "Source files before lossy export"
+  ],
+  "advantages": [
+    "Lossless compression — no quality loss on save",
+    "Full 8-bit alpha transparency",
+    "Wide browser and OS support",
+    "Supports 16-bit color depth per channel",
+    "Patent-free and open standard"
+  ],
+  "disadvantages": [
+    "Larger file size than JPEG for photographic images",
+    "No native animation support (see APNG for extension)",
+    "Not suited for print workflows (use TIFF instead)"
+  ],
+  "relatedEntities": ["jpg", "webp", "gif", "avif", "svg"],
+  "relatedTools": [
+    "png-to-jpg",
+    "png-to-webp",
+    "png-to-avif",
+    "png-to-bmp",
+    "png-to-tiff",
+    "png-to-svg",
+    "jpg-to-png",
+    "webp-to-png",
+    "avif-to-png",
+    "bmp-to-png",
+    "tiff-to-png",
+    "gif-to-png",
+    "svg-to-png"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["lossless-compression", "raster-image", "mime-type"],
+  "faq": [
+    {
+      "question": "What is PNG used for?",
+      "answer": "PNG is used wherever image quality must be preserved exactly — logos, icons, UI screenshots, and graphics with transparent backgrounds. Its lossless nature means repeatedly saving a PNG never degrades the image, unlike JPEG."
+    },
+    {
+      "question": "Should I use PNG or JPEG for photos?",
+      "answer": "For photographs, JPEG (or modern formats like WebP and AVIF) produces far smaller files with acceptable quality. PNG is better for images with sharp edges, solid colors, text overlays, or transparency, where compression artifacts would be noticeable."
+    },
+    {
+      "question": "Does PNG support transparency?",
+      "answer": "Yes. PNG supports full 8-bit alpha-channel transparency, meaning each pixel can have any level of opacity from fully transparent to fully opaque. This makes it the go-to format for logos and UI elements placed over variable backgrounds."
+    }
+  ]
+}

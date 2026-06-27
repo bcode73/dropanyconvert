@@ -732,6 +732,123 @@ export async function generateSeo(routes, data, config) {
         hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
         breadcrumbs, schemas: [breadcrumbSchema],
       });
+    } else if (route.type === 'entity') {
+      const entity = route.entity;
+      const title  = `${entity.name} Format — ${entity.fullName || entity.name} Guide` + globalSeo.defaults.titleSuffix;
+      const description = entity.description
+        ? entity.description.slice(0, 160)
+        : `Learn about the ${entity.name} format: history, technical details, browser support, advantages, and tools.`;
+      const canonical = `${baseUrl}${route.path}`;
+      const h1 = `What is ${entity.name}? — ${entity.fullName || entity.name} Complete Guide`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'File Formats', url: `${baseUrl}/${langCode}/entity` },
+        { name: entity.name, url: canonical },
+      ];
+
+      const definedTermSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'DefinedTerm',
+        name: entity.fullName || entity.name,
+        alternateName: entity.name,
+        description: entity.description || '',
+        url: canonical,
+        inDefinedTermSet: `${baseUrl}/${langCode}/entity`,
+      };
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      const faqSchema = entity.faq?.length ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: entity.faq.map(f => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      } : null;
+
+      seoData.set(route.path, {
+        title, description, canonical, h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'article',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs,
+        schemas: [definedTermSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])],
+      });
+    } else if (route.type === 'entity-index') {
+      const canonical = `${baseUrl}${route.path}`;
+      const title     = `File Format Reference — Complete Format Guide` + globalSeo.defaults.titleSuffix;
+      const description = 'Complete reference for image, PDF, and developer file formats. Learn about PNG, JPG, WebP, PDF, JSON, YAML, XML, CSV, Base64, and more.';
+      const h1 = 'File Format Reference';
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'File Formats', url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      seoData.set(route.path, {
+        title, description, canonical, h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary_large_image', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas: [breadcrumbSchema],
+      });
+    } else if (route.type === 'author') {
+      const author = route.author;
+      const title  = `${author.name} — ${author.role}` + globalSeo.defaults.titleSuffix;
+      const description = author.bio ? author.bio.slice(0, 160) : `${author.name} — ${author.role} at DropAnyConvert.`;
+      const canonical = `${baseUrl}${route.path}`;
+      const h1 = author.name;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: author.name, url: canonical },
+      ];
+
+      const personSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: author.name,
+        description: author.bio || '',
+        url: canonical,
+        worksFor: { '@type': 'Organization', name: config.site.name, url: baseUrl },
+        knowsAbout: author.specialties || [],
+      };
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      seoData.set(route.path, {
+        title, description, canonical, h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'profile',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas: [personSchema, breadcrumbSchema],
+      });
     } else if (route.type === 'home') {
       const canonical = `${baseUrl}${route.path}`;
       const homeDesc = globalSeo.homeDescription?.[langCode] || globalSeo.homeDescription?.en || config.site.tagline;

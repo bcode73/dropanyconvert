@@ -23,6 +23,29 @@ export async function generateInternalLinks(routes, data, config) {
 
   const toolBySlug = new Map(data.tools.map(t => [t.slug, t]));
 
+  // Build entity lookup once
+  const entityBySlug = new Map((data.entities || []).map(e => [e.slug, e]));
+
+  // Build category → tools index to avoid O(N²) same-category scan
+  const toolsByCategory = new Map();
+  for (const tool of data.tools) {
+    if (!toolsByCategory.has(tool.category)) toolsByCategory.set(tool.category, []);
+    toolsByCategory.get(tool.category).push(tool);
+  }
+
+  // Build format → tools index to avoid repeated intersection checks
+  const toolsByMime = new Map();
+  for (const tool of data.tools) {
+    const mimes = [
+      ...tool.inputFormats,
+      ...tool.outputFormats.map(f => f.mime),
+    ];
+    for (const mime of mimes) {
+      if (!toolsByMime.has(mime)) toolsByMime.set(mime, []);
+      toolsByMime.get(mime).push(tool);
+    }
+  }
+
   // Compute ranked candidate list per tool slug — done once, shared across languages
   const rankedCandidates = new Map();
 
@@ -42,30 +65,30 @@ export async function generateInternalLinks(routes, data, config) {
       }
     }
 
-    // 2. Same category
-    for (const candidate of data.tools) {
+    // 2. Same category — use pre-built index (O(cat-size) not O(N))
+    for (const candidate of (toolsByCategory.get(tool.category) || [])) {
       if (seen.has(candidate.slug)) continue;
-      if (candidate.category === tool.category) {
-        candidates.push({ slug: candidate.slug, score: 50, source: 'category', tool: candidate });
-        seen.add(candidate.slug);
-      }
+      candidates.push({ slug: candidate.slug, score: 50, source: 'category', tool: candidate });
+      seen.add(candidate.slug);
     }
 
-    // 3. Format similarity
-    const toolFormats = new Set([
+    // 3. Format similarity — use pre-built MIME index (O(formats × tools-per-mime) not O(N²))
+    const toolMimes = new Set([
       ...tool.inputFormats,
       ...tool.outputFormats.map(f => f.mime),
     ]);
-    for (const candidate of data.tools) {
-      if (seen.has(candidate.slug)) continue;
-      const candidateFormats = new Set([
-        ...candidate.inputFormats,
-        ...candidate.outputFormats.map(f => f.mime),
-      ]);
-      const intersection = [...toolFormats].filter(f => candidateFormats.has(f)).length;
-      if (intersection > 0) {
-        candidates.push({ slug: candidate.slug, score: intersection * 10, source: 'format', tool: candidate });
-        seen.add(candidate.slug);
+    const formatScores = new Map();
+    for (const mime of toolMimes) {
+      for (const candidate of (toolsByMime.get(mime) || [])) {
+        if (seen.has(candidate.slug)) continue;
+        formatScores.set(candidate.slug, (formatScores.get(candidate.slug) || 0) + 10);
+      }
+    }
+    for (const [slug, score] of formatScores) {
+      const candidate = toolBySlug.get(slug);
+      if (candidate && !seen.has(slug)) {
+        candidates.push({ slug, score, source: 'format', tool: candidate });
+        seen.add(slug);
       }
     }
 
@@ -156,6 +179,24 @@ export async function generateInternalLinks(routes, data, config) {
         description: l.description?.[lang] || l.description?.en || '',
       }));
 
+    // Entities: match by tool's input/output MIME types → entity slug
+    const toolMimeSet = new Set([
+      ...tool.inputFormats,
+      ...tool.outputFormats.map(f => f.mime),
+    ]);
+    const relatedEntities = (data.entities || [])
+      .filter(e =>
+        (e.relatedTools || []).includes(tool.slug) ||
+        (e.mimeTypes || []).some(m => toolMimeSet.has(m))
+      )
+      .slice(0, 4)
+      .map(e => ({
+        slug: e.slug,
+        name: e.name,
+        path: `/${lang}/entity/${e.slug}`,
+        description: e.description ? e.description.slice(0, 100) : '',
+      }));
+
     links.set(route.path, {
       relatedTools,
       guides,
@@ -163,6 +204,7 @@ export async function generateInternalLinks(routes, data, config) {
       glossary: relatedGlossary,
       collections: relatedCollections,
       landings: relatedLandings,
+      entities: relatedEntities,
     });
   }
 

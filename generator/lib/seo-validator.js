@@ -1,4 +1,60 @@
 /**
+ * Content quality score: rates pages on internal links, schema, FAQ, entity coverage.
+ * Returns a score object rather than modifying errors/warnings.
+ */
+function computeContentQuality(routes, seoData, data) {
+  const entitySlugs = new Set((data.entities || []).map(e => e.slug));
+
+  let totalScore  = 0;
+  let scoredPages = 0;
+
+  const toolRoutes = routes.filter(r => r.type === 'tool');
+  for (const route of toolRoutes) {
+    const seo  = seoData.get(route.path);
+    if (!seo) continue;
+    const tool = route.tool;
+    let score  = 0;
+
+    if (seo.schemas?.length > 0)                          score += 20; // schema present
+    if (seo.schemas?.find(s => s['@type'] === 'FAQPage')) score += 20; // FAQ schema
+    if (seo.breadcrumbs?.length > 0)                      score += 10; // breadcrumbs
+    if ((tool.relatedTools || []).length > 0)             score += 15; // internal links
+    if ((tool.features || []).length > 0)                 score += 10; // feature content
+    if ((tool.faq || []).length >= 3)                     score += 15; // sufficient FAQ
+    const hasMimeEntity = (tool.inputFormats || []).some(m =>
+      entitySlugs.has(m.split('/')[1]?.toLowerCase())
+    );
+    if (hasMimeEntity)                                    score += 10; // entity coverage
+
+    totalScore  += Math.min(score, 100);
+    scoredPages += 1;
+  }
+
+  const avgScore = scoredPages > 0 ? Math.round(totalScore / scoredPages) : 0;
+
+  const articleRoutes = routes.filter(r => r.type === 'article');
+  let articleScore = 0;
+  for (const route of articleRoutes) {
+    const article = route.article;
+    let s = 0;
+    if ((article.sections || []).length >= 3) s += 30;
+    if ((article.faq     || []).length >= 2)  s += 25;
+    if ((article.relatedTools || []).length > 0) s += 20;
+    if (article.reviewedBy)                   s += 15;
+    if (article.lastUpdated)                  s += 10;
+    articleScore += Math.min(s, 100);
+  }
+  const avgArticleScore = articleRoutes.length > 0 ? Math.round(articleScore / articleRoutes.length) : 0;
+
+  return {
+    tool_pages_avg:    `${avgScore}/100`,
+    article_pages_avg: `${avgArticleScore}/100`,
+    scored_tool_pages: scoredPages,
+    scored_article_pages: articleRoutes.length,
+  };
+}
+
+/**
  * Post-generation SEO quality validator.
  * Runs after generateSeo() so it can inspect the full SEO dataset.
  * Critical errors fail the build. Warnings are logged only.
@@ -118,5 +174,8 @@ export function validateSeo(routes, seoData, data) {
     }
   }
 
-  return { errors, warnings };
+  // Content Quality Score — thin pages, missing FAQs, poor internal linking
+  const qualityScore = computeContentQuality(routes, seoData, data);
+
+  return { errors, warnings, qualityScore };
 }

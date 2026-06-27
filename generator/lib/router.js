@@ -105,6 +105,24 @@ export async function generateRoutes(registry, data, config) {
         url: `${config.site.baseUrl}/${lang.code}/changelog`,
       }));
       route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/changelog`;
+    } else if (route.type === 'entity') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/entity/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/entity/${route.slug}`;
+    } else if (route.type === 'entity-index') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/entity`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/entity`;
+    } else if (route.type === 'author') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/author/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/author/${route.slug}`;
     } else if (route.type === 'home') {
       route.hreflang = data.languages.map(lang => ({
         lang: lang.hreflang,

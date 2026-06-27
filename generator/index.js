@@ -107,7 +107,7 @@ async function build() {
 
   // 12. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData, freshness });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

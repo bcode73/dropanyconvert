@@ -1,0 +1,75 @@
+{
+  "slug": "pdf",
+  "name": "PDF",
+  "fullName": "Portable Document Format",
+  "aliases": ["Portable Document Format", "Acrobat PDF"],
+  "category": "document",
+  "mimeTypes": ["application/pdf"],
+  "extensions": [".pdf"],
+  "invented": "1993",
+  "firstSpec": "PDF 1.0 (Adobe Systems, 1993); ISO 32000-1 (2008)",
+  "description": "PDF (Portable Document Format) was created by Adobe in 1993 to enable documents to be shared and printed consistently regardless of the operating system, fonts, or software used to create them. A PDF encapsulates text, vector graphics, raster images, fonts, and interactive elements (forms, bookmarks, hyperlinks) in a single self-contained file. PDF became an open ISO standard in 2008. It is the universal format for contracts, reports, invoices, ebooks, and any document requiring exact visual fidelity across platforms.",
+  "technicalDetails": "PDF files use a cross-reference table (or cross-reference stream in PDF 1.5+) to locate objects within the file. Content streams describe pages using PDF operators for text, paths, and images. Fonts can be embedded or subset. PDF supports multiple compression filters (FlateDecode, DCTDecode, JBIG2, etc.) for different content types within the same file.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Contracts and legal documents",
+    "Reports and whitepapers",
+    "Invoices and receipts",
+    "Ebooks and manuals",
+    "Print-ready artwork and forms"
+  ],
+  "advantages": [
+    "Consistent rendering across all platforms and printers",
+    "Embeds fonts, images, and layout in one file",
+    "Supports password protection and permissions",
+    "Interactive forms, annotations, and hyperlinks",
+    "Open ISO standard (ISO 32000)"
+  ],
+  "disadvantages": [
+    "Not easily editable without specialized software",
+    "Can produce very large files for image-heavy documents",
+    "Accessibility requires deliberate tagging (PDF/UA)",
+    "Complex reflowing for responsive reading"
+  ],
+  "relatedEntities": [],
+  "relatedTools": [
+    "compress-pdf",
+    "merge-pdf",
+    "split-pdf",
+    "protect-pdf",
+    "unlock-pdf",
+    "rotate-pdf",
+    "pdf-to-images",
+    "images-to-pdf",
+    "pdf-page-extract",
+    "pdf-delete-pages",
+    "pdf-reorder-pages",
+    "pdf-metadata-editor",
+    "pdf-metadata-viewer",
+    "pdf-page-counter",
+    "pdf-thumbnail"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["pdf-a", "metadata"],
+  "faq": [
+    {
+      "question": "What is PDF/A and why does it matter?",
+      "answer": "PDF/A is an ISO-standardized subset of PDF designed for long-term archiving. It prohibits features that depend on external resources (like linked fonts or JavaScript) and requires all content to be self-contained, ensuring documents can be reliably reproduced decades later."
+    },
+    {
+      "question": "How can I reduce a PDF file size?",
+      "answer": "PDF file size is commonly reduced by recompressing embedded images at lower quality, removing embedded fonts that can be substituted, flattening form fields and annotations, and removing hidden layers or metadata. Our compress PDF tool handles these optimizations automatically."
+    },
+    {
+      "question": "Can I edit a PDF?",
+      "answer": "PDFs are primarily a presentation format, not an editing format. Simple edits (adding annotations, filling forms, rotating pages) are straightforward. Reflowing or editing body text requires either the original source file or dedicated PDF editing software that reconstructs the content stream."
+    }
+  ]
+}

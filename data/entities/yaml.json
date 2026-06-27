@@ -1,0 +1,64 @@
+{
+  "slug": "yaml",
+  "name": "YAML",
+  "fullName": "YAML Ain't Markup Language",
+  "aliases": ["YAML Ain't Markup Language", "Yet Another Markup Language"],
+  "category": "data",
+  "mimeTypes": ["application/yaml", "text/yaml"],
+  "extensions": [".yaml", ".yml"],
+  "invented": "2001",
+  "firstSpec": "YAML 1.0 (2001); YAML 1.2 (2009)",
+  "description": "YAML (YAML Ain't Markup Language) is a human-friendly data serialization language designed for configuration files and data exchange between languages with different data models. Introduced in 2001, YAML uses indentation and minimal punctuation to represent hierarchical data structures, making it highly readable compared to JSON or XML. It is the format of choice for CI/CD pipelines (GitHub Actions, GitLab CI), infrastructure-as-code tools (Ansible, Kubernetes manifests), and application configuration across the developer ecosystem.",
+  "technicalDetails": "YAML is a superset of JSON — every valid JSON document is valid YAML 1.2. It supports scalars (strings, numbers, booleans, null, dates), sequences (lists), and mappings (key-value objects). YAML natively supports comments (#), multi-line strings (literal and folded block scalars), anchors (&) and aliases (*) for deduplication, and multiple documents in one file separated by ---.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "CI/CD pipeline configuration (GitHub Actions, GitLab CI)",
+    "Kubernetes and Docker Compose manifests",
+    "Ansible playbooks",
+    "Application configuration files",
+    "Static site generator data files"
+  ],
+  "advantages": [
+    "Highly human-readable with minimal syntax",
+    "Native support for comments",
+    "Supports anchors and aliases to avoid repetition",
+    "Superset of JSON — easy migration path",
+    "Multi-document support in one file"
+  ],
+  "disadvantages": [
+    "Indentation-sensitive — whitespace errors cause parse failures",
+    "Complex specification with many edge cases",
+    "Norway Problem: some unquoted values are parsed as unexpected types",
+    "Slower to parse than JSON due to specification complexity"
+  ],
+  "relatedEntities": ["json", "xml"],
+  "relatedTools": [
+    "yaml-formatter",
+    "yaml-validator",
+    "json-to-yaml",
+    "yaml-to-json"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["mime-type"],
+  "faq": [
+    {
+      "question": "What is the difference between .yaml and .yml?",
+      "answer": "There is no technical difference. Both extensions refer to the same YAML format. The .yml extension became common on Windows systems that preferred shorter extensions. Most modern projects use .yaml for clarity, but either works in all tools."
+    },
+    {
+      "question": "Why is YAML indentation-sensitive?",
+      "answer": "YAML uses indentation to represent nesting instead of braces or tags. This makes documents cleaner to read but means a misplaced space or tab will change the structure or cause a parse error. Using a YAML linter or validator catches these issues early."
+    },
+    {
+      "question": "Is YAML a superset of JSON?",
+      "answer": "Yes, as of YAML 1.2. Any valid JSON document is also valid YAML and will parse to the same data structure. This means you can use JSON syntax inside a YAML file, which is occasionally useful for embedding complex objects."
+    }
+  ]
+}

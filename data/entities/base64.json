@@ -1,0 +1,63 @@
+{
+  "slug": "base64",
+  "name": "Base64",
+  "fullName": "Base64 Encoding",
+  "aliases": ["Base-64", "Base64 encoding"],
+  "category": "encoding",
+  "mimeTypes": ["text/plain"],
+  "extensions": [".b64", ".txt"],
+  "invented": "1987",
+  "firstSpec": "RFC 989 (1987); RFC 4648 (2006)",
+  "description": "Base64 is a binary-to-text encoding scheme that represents arbitrary binary data as a sequence of printable ASCII characters. It works by mapping every 3 bytes of binary input to 4 ASCII characters chosen from an alphabet of 64 characters (A–Z, a–z, 0–9, +, /), with = used for padding. Base64 is widely used to embed binary data — images, files, cryptographic keys — inside text-only contexts such as HTML data URIs, JSON payloads, email attachments (MIME), and HTTP headers, where raw binary data would be misinterpreted.",
+  "technicalDetails": "Base64 divides binary input into 6-bit groups (4 groups per 3 bytes) and maps each group to one character from a 64-character alphabet per RFC 4648. Output length is ceil(n/3)*4 bytes — approximately 33% larger than the input. URL-safe Base64 (Base64url) replaces + with - and / with _ to avoid issues in URLs and filenames.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Embedding images as data URIs in HTML and CSS",
+    "Encoding email attachments in MIME",
+    "Transmitting binary data in JSON API payloads",
+    "Storing cryptographic keys and certificates (PEM format)",
+    "Basic authentication headers (HTTP)"
+  ],
+  "advantages": [
+    "Safely embeds binary data in text-only protocols",
+    "Universally supported — built into browsers, languages, and standards",
+    "Deterministic and reversible encoding",
+    "URL-safe variant available for use in URLs"
+  ],
+  "disadvantages": [
+    "Increases data size by approximately 33%",
+    "Not a compression or encryption scheme — provides no security",
+    "Not human-readable (output appears as random characters)",
+    "Decoding overhead adds CPU cost for large payloads"
+  ],
+  "relatedEntities": ["json"],
+  "relatedTools": [
+    "base64-encode",
+    "base64-decode",
+    "base64-to-image",
+    "image-to-base64"
+  ],
+  "relatedArticles": ["what-is-base64"],
+  "relatedGlossary": ["base64-encoding", "mime-type"],
+  "faq": [
+    {
+      "question": "What is Base64 used for?",
+      "answer": "Base64 is used to encode binary data so it can be safely transmitted over channels that only handle text, such as email (MIME attachments), JSON APIs, HTML data URIs, and HTTP headers. It ensures binary content is not corrupted by text-processing systems."
+    },
+    {
+      "question": "Is Base64 the same as encryption?",
+      "answer": "No. Base64 is an encoding scheme, not encryption. It transforms data into a different representation but provides no confidentiality — anyone can decode Base64 instantly. Do not use Base64 to secure sensitive data; use proper encryption (AES, RSA, etc.) for that purpose."
+    },
+    {
+      "question": "Why does Base64 make files larger?",
+      "answer": "Base64 encodes 3 bytes of binary data as 4 ASCII characters, adding approximately 33% overhead. This size increase is the trade-off for being able to embed binary data safely in text-based contexts. For large files, prefer direct binary transfer protocols instead."
+    }
+  ]
+}

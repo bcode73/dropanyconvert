@@ -37,21 +37,24 @@ export async function loadData(config) {
   const legal = JSON.parse(legalRaw);
   const analytics = JSON.parse(analyticsRaw);
 
-  const [tools, articles, comparisons, glossary, collections, landings, trustRaw, editorialRaw, changelogRaw] = await Promise.all([
+  const [tools, articles, comparisons, glossary, collections, landings, entities, trustRaw, editorialRaw, changelogRaw, authorsRaw] = await Promise.all([
     loadJsonDir(path.join(dataDir, 'tools')),
     loadJsonDir(path.join(dataDir, 'articles')),
     loadJsonDir(path.join(dataDir, 'comparisons')),
     loadJsonDir(path.join(dataDir, 'glossary')),
     loadJsonDir(path.join(dataDir, 'collections')),
     loadJsonDir(path.join(dataDir, 'landings')),
+    loadJsonDir(path.join(dataDir, 'entities')),
     readFile(path.join(dataDir, 'trust.json'), 'utf8').catch(() => null),
     readFile(path.join(dataDir, 'editorial.json'), 'utf8').catch(() => null),
     readFile(path.join(dataDir, 'changelog.json'), 'utf8').catch(() => null),
+    readFile(path.join(dataDir, 'authors.json'), 'utf8').catch(() => null),
   ]);
 
   const trust     = trustRaw     ? JSON.parse(trustRaw)     : null;
   const editorial = editorialRaw ? JSON.parse(editorialRaw) : { pages: [] };
   const changelog = changelogRaw ? JSON.parse(changelogRaw) : { releases: [] };
+  const authors   = authorsRaw   ? JSON.parse(authorsRaw).authors || [] : [];
 
-  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary, collections, landings, trust, editorial, changelog };
+  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary, collections, landings, entities, trust, editorial, changelog, authors };
 }

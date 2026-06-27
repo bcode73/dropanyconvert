@@ -266,6 +266,48 @@ export async function buildRegistry(data, config) {
     }
   }
 
+  // Entity routes per language
+  for (const entity of (data.entities || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'entity',
+        lang: lang.code,
+        slug: entity.slug,
+        path: `/${lang.code}/entity/${entity.slug}`,
+        entity,
+        language: lang,
+      });
+    }
+  }
+
+  // Entity index per language
+  if ((data.entities || []).length > 0) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'entity-index',
+        lang: lang.code,
+        slug: 'entity',
+        path: `/${lang.code}/entity`,
+        entities: data.entities,
+        language: lang,
+      });
+    }
+  }
+
+  // Author routes per language
+  for (const author of (data.authors || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'author',
+        lang: lang.code,
+        slug: author.slug,
+        path: `/${lang.code}/author/${author.slug}`,
+        author,
+        language: lang,
+      });
+    }
+  }
+
   // Root redirect
   routes.push({
     type: 'root',

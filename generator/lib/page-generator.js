@@ -75,6 +75,15 @@ export async function generatePages(routes, seoData, links, data, config) {
     } else if (route.type === 'changelog') {
       html = renderChangelogPage(route, seo, data, config);
       pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'entity') {
+      html = renderEntityPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'entity-index') {
+      html = renderEntityIndexPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'author') {
+      html = renderAuthorPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
     } else if (route.type === 'root') {
       const d = config.languages.default;
       html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/${d}"><link rel="canonical" href="${config.site.baseUrl}/${d}"></head><body></body></html>`;
@@ -412,6 +421,26 @@ function buildKhIndex(data, langCode) {
       name: 'Changelog',
       tagline: 'Version history and release notes for DropAnyConvert.',
       keywords: ['changelog', 'release notes', 'updates'],
+    });
+  }
+  for (const e of (data.entities || [])) {
+    items.push({
+      type: 'entity',
+      slug: e.slug,
+      path: `/${langCode}/entity/${e.slug}`,
+      name: e.name,
+      tagline: e.description ? e.description.slice(0, 100) : '',
+      keywords: [e.fullName || '', ...(e.aliases || [])].filter(Boolean),
+    });
+  }
+  for (const a of (data.authors || [])) {
+    items.push({
+      type: 'author',
+      slug: a.slug,
+      path: `/${langCode}/author/${a.slug}`,
+      name: a.name,
+      tagline: a.bio ? a.bio.slice(0, 100) : '',
+      keywords: (a.specialties || []),
     });
   }
   return items;
@@ -759,7 +788,7 @@ const UPLOAD_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="48" heig
 
 function renderToolPage(route, seo, toolLinks, data, config) {
   if (route.tool.uiGroup === 'developer') return renderDevToolPage(route, seo, toolLinks, data, config);
-  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [] } = toolLinks;
+  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [], entities: linkerEntities = [] } = toolLinks;
 
   const tool = route.tool;
   const langCode = route.lang;
@@ -1287,6 +1316,11 @@ ${adTop}
   <div class="dac-kh-article-grid">${linkerLandings.map(l => `<a href="${esc(l.path)}" class="dac-kh-article-card"><h3 class="dac-kh-article-card__title">${esc(l.title)}</h3>${l.description ? `<p class="dac-kh-article-card__desc">${esc(l.description)}</p>` : ''}</a>`).join('')}</div>
 </section>` : ''}
 
+  ${linkerEntities.length > 0 ? `<section class="dac-related-entities">
+  <h2 class="dac-section-title">File Format Reference</h2>
+  <div class="dac-entity-chips">${linkerEntities.map(e => `<a href="${esc(e.path)}" class="dac-entity-chip">${esc(e.name)}</a>`).join('')}</div>
+</section>` : ''}
+
   <!-- Quality Badges -->
   ${renderToolBadges(tool)}
 
@@ -1312,7 +1346,7 @@ ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 // ── Developer Tool Page ────────────────────────────────────────────────────
 
 function renderDevToolPage(route, seo, toolLinks, data, config) {
-  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [] } = toolLinks;
+  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [], entities: linkerEntities = [] } = toolLinks;
   const tool     = route.tool;
   const langCode = route.lang;
   const lang     = route.language;
@@ -1553,6 +1587,10 @@ ${adTop}
   ${linkerLandings.length > 0 ? `<section class="dac-related-landings">
   <h2 class="dac-section-title">More Use Cases</h2>
   <div class="dac-kh-article-grid">${linkerLandings.map(l => `<a href="${esc(l.path)}" class="dac-kh-article-card"><h3 class="dac-kh-article-card__title">${esc(l.title)}</h3>${l.description ? `<p class="dac-kh-article-card__desc">${esc(l.description)}</p>` : ''}</a>`).join('')}</div>
+</section>` : ''}
+  ${linkerEntities.length > 0 ? `<section class="dac-related-entities">
+  <h2 class="dac-section-title">File Format Reference</h2>
+  <div class="dac-entity-chips">${linkerEntities.map(e => `<a href="${esc(e.path)}" class="dac-entity-chip">${esc(e.name)}</a>`).join('')}</div>
 </section>` : ''}
   ${renderToolBadges(tool)}
   ${renderCompatibilityTable(tool, langCode)}
@@ -1823,6 +1861,22 @@ ${adTop}
     </div>
     <div id="dac-history-list"></div>
   </section>
+
+  ${(() => {
+    const recentArticles = [...(data.articles || [])].filter(a => a.lastUpdated).sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated)).slice(0, 4);
+    const recentComparisons = [...(data.comparisons || [])].filter(c => c.lastUpdated).sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated)).slice(0, 2);
+    const recentGlossary = [...(data.glossary || [])].filter(g => g.lastUpdated).sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated)).slice(0, 3);
+    const allRecent = [
+      ...recentArticles.map(a => ({ type: 'article', title: a.h1?.[langCode] || a.h1?.en || a.slug, path: `/${langCode}/guides/${a.slug}`, date: a.lastUpdated })),
+      ...recentComparisons.map(c => ({ type: 'comparison', title: c.h1?.[langCode] || c.h1?.en || `${c.subjectA} vs ${c.subjectB}`, path: `/${langCode}/compare/${c.slug}`, date: c.lastUpdated })),
+      ...recentGlossary.map(g => ({ type: 'glossary', title: g.term?.[langCode] || g.term?.en || g.slug, path: `/${langCode}/glossary/${g.slug}`, date: g.lastUpdated })),
+    ].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
+    if (allRecent.length === 0) return '';
+    return `<section class="dac-freshness-section" aria-labelledby="dac-freshness-title">
+  <h2 class="dac-section-title" id="dac-freshness-title">Recently Updated</h2>
+  <div class="dac-kh-article-grid">${allRecent.map(item => `<a href="${esc(item.path)}" class="dac-kh-article-card"><span class="dac-kh-type-badge">${esc(item.type)}</span><h3 class="dac-kh-article-card__title">${esc(item.title)}</h3><p class="dac-kh-article-card__desc">${esc(item.date)}</p></a>`).join('')}</div>
+</section>`;
+  })()}
 
   ${adBottom}
 </main>
@@ -3139,6 +3193,319 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   <div class="dac-cl-feed">
     ${releasesHtml}
   </div>
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Entity Page ────────────────────────────────────────────────────────────
+
+function renderEntityPage(route, seo, data, config) {
+  const entity  = route.entity;
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+
+  const h1 = seo.h1 || `What is ${entity.name}?`;
+  const relatedToolObjects = (entity.relatedTools || [])
+    .map(s => data.tools.find(t => t.slug === s)).filter(Boolean).slice(0, 8);
+  const relatedEntityObjects = (entity.relatedEntities || [])
+    .map(s => (data.entities || []).find(e => e.slug === s)).filter(Boolean);
+  const relatedArticleObjects = (entity.relatedArticles || [])
+    .map(s => (data.articles || []).find(a => a.slug === s)).filter(Boolean);
+  const relatedGlossaryObjects = (entity.relatedGlossary || [])
+    .map(s => (data.glossary || []).find(g => g.slug === s)).filter(Boolean);
+
+  const mimeList  = (entity.mimeTypes || []).join(', ') || '—';
+  const extList   = (entity.extensions || []).join(', ') || '—';
+  const bsEntries = Object.entries(entity.browserSupport || {});
+
+  const toolCardsHtml = relatedToolObjects.map(t => {
+    const name    = t.name?.[langCode] || t.name?.en || t.slug;
+    const tagline = t.tagline?.[langCode] || t.tagline?.en || '';
+    return `<a href="/${langCode}/${t.slug}" class="dac-kh-tool-card">
+      <span class="dac-kh-tool-card__name">${esc(name)}</span>
+      ${tagline ? `<span class="dac-kh-tool-card__desc">${esc(tagline)}</span>` : ''}
+    </a>`;
+  }).join('\n');
+
+  const entityChipsHtml = relatedEntityObjects.map(e =>
+    `<a href="/${langCode}/entity/${e.slug}" class="dac-entity-chip">${esc(e.name)}</a>`
+  ).join('\n');
+
+  const bsTableHtml = bsEntries.length ? `
+  <table class="dac-compat-table">
+    <tbody>
+      ${bsEntries.map(([browser, status]) =>
+        `<tr><th scope="row">${esc(browser.charAt(0).toUpperCase() + browser.slice(1))}</th><td class="dac-compat-status">${esc(status)}</td></tr>`
+      ).join('\n      ')}
+    </tbody>
+  </table>` : '';
+
+  const faqHtml = (entity.faq || []).map(f =>
+    `<details class="dac-faq__item">
+      <summary class="dac-faq__question">${esc(f.question)}</summary>
+      <div class="dac-faq__answer">${esc(f.answer)}</div>
+    </details>`
+  ).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--entity">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderBreadcrumb(seo.breadcrumbs || [])}
+</nav>
+
+<main class="dac-main dac-article-layout" id="main">
+  <article class="dac-article" itemscope itemtype="https://schema.org/DefinedTerm">
+    <header class="dac-article__header">
+      <div class="dac-article__meta">
+        <span class="dac-article__tag">File Format</span>
+        ${entity.category ? `<span class="dac-article__tag dac-article__tag--cat">${esc(entity.category)}</span>` : ''}
+        ${entity.invented ? `<span class="dac-article__reading-time">Since ${esc(entity.invented)}</span>` : ''}
+      </div>
+      <h1 class="dac-article__title" itemprop="name">${esc(h1)}</h1>
+      ${entity.description ? `<p class="dac-article__intro" itemprop="description">${esc(entity.description)}</p>` : ''}
+    </header>
+
+    <div class="dac-article__body">
+
+      <!-- Technical Details -->
+      <section class="dac-kh-section">
+        <h2 class="dac-kh-section-title">Technical Details</h2>
+        <div class="dac-compat-table-wrap">
+          <table class="dac-compat-table">
+            <tbody>
+              <tr><th scope="row">MIME Type</th><td>${esc(mimeList)}</td></tr>
+              <tr><th scope="row">File Extensions</th><td>${esc(extList)}</td></tr>
+              ${entity.fullName ? `<tr><th scope="row">Full Name</th><td>${esc(entity.fullName)}</td></tr>` : ''}
+              ${entity.invented ? `<tr><th scope="row">Invented</th><td>${esc(entity.invented)}</td></tr>` : ''}
+              ${entity.firstSpec ? `<tr><th scope="row">First Specification</th><td>${esc(entity.firstSpec)}</td></tr>` : ''}
+              ${entity.category ? `<tr><th scope="row">Category</th><td>${esc(entity.category)}</td></tr>` : ''}
+            </tbody>
+          </table>
+        </div>
+        ${entity.technicalDetails ? `<p style="margin-top:.75rem">${esc(entity.technicalDetails)}</p>` : ''}
+      </section>
+
+      <!-- Browser Support -->
+      ${bsTableHtml ? `<section class="dac-kh-section">
+        <h2 class="dac-kh-section-title">Browser Support</h2>
+        <div class="dac-compat-table-wrap">${bsTableHtml}</div>
+      </section>` : ''}
+
+      <!-- Advantages -->
+      ${(entity.advantages || []).length > 0 ? `<section class="dac-kh-section">
+        <h2 class="dac-kh-section-title">Advantages</h2>
+        <ul class="dac-entity-list dac-entity-list--pro">
+          ${entity.advantages.map(a => `<li>${esc(a)}</li>`).join('\n          ')}
+        </ul>
+      </section>` : ''}
+
+      <!-- Disadvantages -->
+      ${(entity.disadvantages || []).length > 0 ? `<section class="dac-kh-section">
+        <h2 class="dac-kh-section-title">Disadvantages</h2>
+        <ul class="dac-entity-list dac-entity-list--con">
+          ${entity.disadvantages.map(d => `<li>${esc(d)}</li>`).join('\n          ')}
+        </ul>
+      </section>` : ''}
+
+      <!-- Common Uses -->
+      ${(entity.commonUses || []).length > 0 ? `<section class="dac-kh-section">
+        <h2 class="dac-kh-section-title">Common Uses</h2>
+        <ul class="dac-entity-list">
+          ${entity.commonUses.map(u => `<li>${esc(u)}</li>`).join('\n          ')}
+        </ul>
+      </section>` : ''}
+
+      <!-- Related Entities -->
+      ${entityChipsHtml ? `<section class="dac-kh-section">
+        <h2 class="dac-kh-section-title">Related Formats</h2>
+        <div class="dac-entity-chips">${entityChipsHtml}</div>
+      </section>` : ''}
+
+      <!-- FAQ -->
+      ${faqHtml ? `<section class="dac-kh-faq">
+        <h2 class="dac-kh-section-title">Frequently Asked Questions</h2>
+        <div class="dac-faq">${faqHtml}</div>
+      </section>` : ''}
+
+    </div>
+  </article>
+
+  <aside class="dac-article-sidebar">
+    ${relatedArticleObjects.length > 0 ? `<div class="dac-sidebar-section">
+      <h3 class="dac-sidebar-title">Related Guides</h3>
+      ${relatedArticleObjects.map(a => `<a href="/${langCode}/guides/${a.slug}" class="dac-sidebar-link">${esc(a.h1?.[langCode] || a.h1?.en || a.slug)}</a>`).join('\n')}
+    </div>` : ''}
+    ${relatedGlossaryObjects.length > 0 ? `<div class="dac-sidebar-section">
+      <h3 class="dac-sidebar-title">Key Terms</h3>
+      ${relatedGlossaryObjects.map(g => `<a href="/${langCode}/glossary/${g.slug}" class="dac-sidebar-link">${esc(g.term?.[langCode] || g.term?.en || g.slug)}</a>`).join('\n')}
+    </div>` : ''}
+  </aside>
+</main>
+
+${toolCardsHtml ? `<div class="dac-article-related-wrapper">
+  <section class="dac-kh-related" aria-labelledby="entity-tools-title">
+    <h2 class="dac-kh-related__title" id="entity-tools-title">Tools for ${esc(entity.name)} Files</h2>
+    <div class="dac-kh-tool-grid">${toolCardsHtml}</div>
+  </section>
+</div>` : ''}
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Entity Index Page ──────────────────────────────────────────────────────
+
+function renderEntityIndexPage(route, seo, data, config) {
+  const langCode = route.lang;
+  const entities = route.entities || data.entities || [];
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+
+  const byCategory = {};
+  for (const e of entities) {
+    const cat = e.category || 'other';
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(e);
+  }
+
+  const groupsHtml = Object.entries(byCategory).map(([cat, items]) => `
+  <section class="dac-entity-group">
+    <h2 class="dac-section-title dac-entity-group__title">${esc(cat.charAt(0).toUpperCase() + cat.slice(1))} Formats</h2>
+    <div class="dac-entity-grid">
+      ${items.map(e => `<a href="/${langCode}/entity/${e.slug}" class="dac-entity-card">
+        <span class="dac-entity-card__name">${esc(e.name)}</span>
+        <span class="dac-entity-card__full">${esc(e.fullName || e.name)}</span>
+        ${(e.extensions || []).length > 0 ? `<span class="dac-entity-card__ext">${esc(e.extensions.join(', '))}</span>` : ''}
+      </a>`).join('\n      ')}
+    </div>
+  </section>`).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--entity-index">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderBreadcrumb(seo.breadcrumbs || [])}
+</nav>
+
+<main class="dac-main" id="main">
+  <header class="dac-page-header">
+    <h1 class="dac-page-header__title">${esc(seo.h1 || 'File Format Reference')}</h1>
+    <p class="dac-page-header__desc">Complete reference for image, PDF, and developer file formats.</p>
+  </header>
+  ${groupsHtml}
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Author Page ────────────────────────────────────────────────────────────
+
+function renderAuthorPage(route, seo, data, config) {
+  const author  = route.author;
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+
+  // Articles authored/reviewed by this author
+  const reviewedArticles = (data.articles || []).filter(a =>
+    a.reviewedBy === author.name || a.reviewedBy === author.role || a.writtenBy === author.slug
+  ).slice(0, 12);
+  const reviewedComparisons = (data.comparisons || []).filter(c =>
+    c.reviewedBy === author.name || c.reviewedBy === author.role
+  ).slice(0, 6);
+  const reviewedGlossary = (data.glossary || []).filter(g =>
+    g.reviewedBy === author.name || g.reviewedBy === author.role
+  ).slice(0, 6);
+
+  const articlesHtml = reviewedArticles.map(a => {
+    const title = a.h1?.[langCode] || a.h1?.en || a.title?.[langCode] || a.title?.en || a.slug;
+    return `<a href="/${langCode}/guides/${a.slug}" class="dac-kh-article-card">
+      <span class="dac-kh-article-card__tag">Guide</span>
+      <span class="dac-kh-article-card__title">${esc(title)}</span>
+    </a>`;
+  }).join('\n');
+
+  const comparisonsHtml = reviewedComparisons.map(c => {
+    const title = c.h1?.[langCode] || c.h1?.en || `${c.subjectA} vs ${c.subjectB}`;
+    return `<a href="/${langCode}/compare/${c.slug}" class="dac-kh-article-card">
+      <span class="dac-kh-article-card__tag">Compare</span>
+      <span class="dac-kh-article-card__title">${esc(title)}</span>
+    </a>`;
+  }).join('\n');
+
+  const specialtiesHtml = (author.specialties || []).map(s =>
+    `<span class="dac-entity-chip">${esc(s)}</span>`
+  ).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--author">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderBreadcrumb(seo.breadcrumbs || [])}
+</nav>
+
+<main class="dac-main" id="main">
+  <header class="dac-author-header">
+    <div class="dac-author-avatar" aria-hidden="true">
+      <span class="dac-author-avatar__initials">${esc((author.name || '?').split(' ').map(w => w[0]).join('').slice(0, 2))}</span>
+    </div>
+    <div class="dac-author-info">
+      <h1 class="dac-author-info__name" itemprop="name">${esc(author.name)}</h1>
+      <p class="dac-author-info__role">${esc(author.role)}</p>
+      ${author.since ? `<p class="dac-author-info__since">Contributing since ${esc(author.since)}</p>` : ''}
+      ${author.bio ? `<p class="dac-author-info__bio">${esc(author.bio)}</p>` : ''}
+      ${specialtiesHtml ? `<div class="dac-author-specialties" aria-label="Specialties">${specialtiesHtml}</div>` : ''}
+    </div>
+  </header>
+
+  ${articlesHtml ? `<section class="dac-author-section">
+    <h2 class="dac-section-title">Reviewed Guides (${reviewedArticles.length})</h2>
+    <div class="dac-kh-article-grid">${articlesHtml}</div>
+  </section>` : ''}
+
+  ${comparisonsHtml ? `<section class="dac-author-section">
+    <h2 class="dac-section-title">Reviewed Comparisons (${reviewedComparisons.length})</h2>
+    <div class="dac-kh-article-grid">${comparisonsHtml}</div>
+  </section>` : ''}
+
+  ${reviewedGlossary.length > 0 ? `<section class="dac-author-section">
+    <h2 class="dac-section-title">Reviewed Definitions (${reviewedGlossary.length})</h2>
+    <div class="dac-entity-chips">
+      ${reviewedGlossary.map(g => `<a href="/${langCode}/glossary/${g.slug}" class="dac-entity-chip">${esc(g.term?.[langCode] || g.term?.en || g.slug)}</a>`).join('\n      ')}
+    </div>
+  </section>` : ''}
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}

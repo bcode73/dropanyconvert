@@ -1,0 +1,61 @@
+{
+  "slug": "markdown",
+  "name": "Markdown",
+  "fullName": "Markdown",
+  "aliases": ["MD", "CommonMark", "GitHub Flavored Markdown"],
+  "category": "text",
+  "mimeTypes": ["text/markdown"],
+  "extensions": [".md", ".markdown"],
+  "invented": "2004",
+  "firstSpec": "Markdown 1.0 (John Gruber, 2004); CommonMark 1.0 (2019)",
+  "description": "Markdown is a lightweight plain-text formatting syntax created by John Gruber in 2004, designed to be readable as-is while also converting cleanly to HTML. Writers use simple punctuation conventions — asterisks for bold, hashes for headings, hyphens for lists — rather than verbose HTML tags. Markdown has become the de facto format for documentation, README files, blogs, and developer content. Multiple dialects exist (CommonMark, GitHub Flavored Markdown, MultiMarkdown), with CommonMark being the most rigorously specified.",
+  "technicalDetails": "Markdown is a plain-text format parsed by a converter (marked, markdown-it, Pandoc, etc.) into HTML or other output formats. CommonMark provides a formal unambiguous specification. GitHub Flavored Markdown (GFM) adds tables, task lists, strikethrough, and fenced code blocks. Markdown files are UTF-8 text and can be rendered natively by many editors and platforms without conversion.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "README files and project documentation",
+    "Static site generator content (Jekyll, Hugo, Astro)",
+    "Developer blogs and technical writing",
+    "GitHub, GitLab, and Bitbucket issues and wikis",
+    "Note-taking apps (Obsidian, Notion, Bear)"
+  ],
+  "advantages": [
+    "Human-readable even without rendering",
+    "Simple syntax with a gentle learning curve",
+    "Converts easily to HTML, PDF, and other formats",
+    "Widely supported by platforms and editors",
+    "Version-control friendly plain text"
+  ],
+  "disadvantages": [
+    "No single canonical standard — dialects vary between platforms",
+    "Limited layout control compared to HTML or Word",
+    "Complex tables and formatting can be cumbersome",
+    "No built-in support for variables or includes"
+  ],
+  "relatedEntities": ["json", "csv"],
+  "relatedTools": [
+    "html-beautifier"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["mime-type"],
+  "faq": [
+    {
+      "question": "What is Markdown?",
+      "answer": "Markdown is a plain-text formatting syntax that converts to HTML. You write with simple punctuation conventions (# for headings, ** for bold, - for lists) and a Markdown processor converts it to properly formatted HTML or other output. It is designed to be readable even in its raw plain-text form."
+    },
+    {
+      "question": "What is the difference between Markdown and CommonMark?",
+      "answer": "The original Markdown specification by John Gruber left many edge cases ambiguous. CommonMark is a community-maintained formal specification that resolves these ambiguities with a comprehensive test suite, ensuring consistent rendering across all compliant parsers."
+    },
+    {
+      "question": "Can browsers display Markdown natively?",
+      "answer": "Browsers do not render Markdown formatting natively — they display the raw text. Markdown must be converted to HTML (by a static site generator, a JavaScript library like marked.js, or a server-side processor) before the browser can display it as formatted content."
+    }
+  ]
+}

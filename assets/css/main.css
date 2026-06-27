@@ -1873,3 +1873,47 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
   white-space: nowrap;
   border: 0;
 }
+
+/* ── Entity Pages ───────────────────────────────────────────────────────── */
+.dac-entity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.dac-entity-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit; transition: box-shadow .15s; display: block; }
+.dac-entity-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.dac-entity-card__name { font-weight: 700; font-size: 1rem; margin-bottom: .25rem; }
+.dac-entity-card__full { font-size: .8rem; color: var(--color-muted); margin-bottom: .4rem; }
+.dac-entity-card__desc { font-size: .82rem; color: var(--color-text-secondary); }
+.dac-entity-group { margin-bottom: 2.5rem; }
+.dac-entity-group__title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: .4rem; border-bottom: 2px solid var(--color-border); }
+.dac-entity-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.dac-entity-chip { display: inline-flex; align-items: center; padding: .3rem .75rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 20px; font-size: .82rem; text-decoration: none; color: var(--color-link); transition: background .15s; }
+.dac-entity-chip:hover { background: var(--color-border); }
+.dac-entity-list { list-style: none; padding: 0; margin: 0; }
+.dac-entity-list li { padding: .4rem 0; border-bottom: 1px solid var(--color-border); font-size: .9rem; }
+.dac-entity-list li:last-child { border-bottom: none; }
+.dac-related-entities { margin-top: 1.5rem; }
+
+/* ── Author Pages ───────────────────────────────────────────────────────── */
+.dac-author-header { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; padding: 1.5rem; background: var(--color-surface); border-radius: 12px; border: 1px solid var(--color-border); }
+.dac-author-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; flex-shrink: 0; }
+.dac-author-info { flex: 1; }
+.dac-author-name { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
+.dac-author-role { font-size: .9rem; color: var(--color-muted); margin-bottom: .75rem; }
+.dac-author-bio { font-size: .95rem; line-height: 1.6; }
+.dac-author-specialties { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.dac-author-specialty { display: inline-block; padding: .25rem .6rem; background: var(--color-primary-light, #e8f0fe); color: var(--color-primary); border-radius: 12px; font-size: .78rem; font-weight: 500; }
+.dac-author-section { margin-bottom: 2rem; }
+.dac-author-section h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; }
+
+/* ── Freshness / Recently Updated ───────────────────────────────────────── */
+.dac-freshness-section { margin-top: 2.5rem; }
+.dac-kh-type-badge { display: inline-block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 4px; padding: .1rem .35rem; margin-bottom: .3rem; color: var(--color-muted); }
+
+/* ── Sidebar Sections ───────────────────────────────────────────────────── */
+.dac-sidebar-section { margin-bottom: 1.5rem; padding: 1rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; }
+.dac-sidebar-title { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--color-muted); margin-bottom: .6rem; }
+.dac-sidebar-link { display: block; font-size: .85rem; padding: .2rem 0; text-decoration: none; color: var(--color-link); }
+.dac-sidebar-link:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .dac-author-header { flex-direction: column; }
+  .dac-entity-grid { grid-template-columns: 1fr 1fr; }
+}

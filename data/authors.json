@@ -1,0 +1,24 @@
+{
+  "authors": [
+    {
+      "slug": "dropanyconvert-editorial-team",
+      "name": "DropAnyConvert Editorial Team",
+      "role": "Editorial Team",
+      "bio": "The DropAnyConvert editorial team comprises format specialists, web developers, and technical writers dedicated to providing accurate, practical guidance on file conversion, image formats, PDF tools, and developer utilities. Our content follows strict editorial standards reviewed for technical accuracy.",
+      "specialties": ["Image formats", "PDF tools", "Developer tools", "File conversion", "Web standards"],
+      "avatar": "/assets/images/author-editorial.png",
+      "social": {},
+      "since": "2024"
+    },
+    {
+      "slug": "format-specialists",
+      "name": "Format Specialists",
+      "role": "Technical Reviewers",
+      "bio": "Our format specialists have deep expertise in digital media standards, compression algorithms, and browser compatibility. They review all technical content for accuracy and currency.",
+      "specialties": ["Image compression", "PDF standards", "Data formats", "Browser APIs"],
+      "avatar": "/assets/images/author-specialist.png",
+      "social": {},
+      "since": "2024"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "json",
+  "name": "JSON",
+  "fullName": "JavaScript Object Notation",
+  "aliases": ["JavaScript Object Notation"],
+  "category": "data",
+  "mimeTypes": ["application/json"],
+  "extensions": [".json"],
+  "invented": "2001",
+  "firstSpec": "RFC 4627 (2006); ECMA-404 (2013); RFC 8259 (2017)",
+  "description": "JSON (JavaScript Object Notation) is a lightweight, human-readable data-interchange format derived from JavaScript object syntax. Introduced by Douglas Crockford in the early 2000s, JSON has become the dominant format for data exchange between web clients and servers, configuration files, and APIs. It represents data as ordered arrays and key-value objects using a minimal syntax that parsers in every programming language can handle. Its simplicity, readability, and near-universal tooling support make it the default choice for REST APIs and modern configuration systems.",
+  "technicalDetails": "JSON supports six data types: strings (UTF-8 encoded, double-quoted), numbers, booleans (true/false), null, arrays (ordered lists), and objects (unordered key-value maps with string keys). The grammar is formally specified in ECMA-404 and RFC 8259, which prohibit comments and trailing commas — though many parsers accept these as extensions.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "REST and GraphQL API responses",
+    "Application configuration files",
+    "Data serialization between services",
+    "Browser localStorage and IndexedDB storage",
+    "Package manifests (package.json, etc.)"
+  ],
+  "advantages": [
+    "Human-readable and easy to debug",
+    "Native support in JavaScript (JSON.parse / JSON.stringify)",
+    "Parsers available in every major programming language",
+    "Lightweight syntax with minimal overhead",
+    "Well-defined, stable specification"
+  ],
+  "disadvantages": [
+    "No support for comments natively",
+    "No binary data type (binary must be Base64-encoded)",
+    "Verbose for large datasets compared to binary formats",
+    "No schema enforcement without additional tooling (JSON Schema)"
+  ],
+  "relatedEntities": ["yaml", "xml", "csv"],
+  "relatedTools": [
+    "json-beautifier",
+    "json-formatter",
+    "json-minifier",
+    "json-validator",
+    "json-to-csv",
+    "json-to-xml",
+    "json-to-yaml",
+    "csv-to-json",
+    "yaml-to-json",
+    "xml-to-json"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["mime-type"],
+  "faq": [
+    {
+      "question": "What is JSON used for?",
+      "answer": "JSON is primarily used to transmit structured data between a server and a web application, and to store configuration and settings. It is the standard response format for REST APIs and is used in package managers, IDEs, databases, and countless developer tools."
+    },
+    {
+      "question": "Can JSON contain comments?",
+      "answer": "No. The official JSON specification (RFC 8259 and ECMA-404) does not allow comments. Some tools like JSON5 or JSONC (used in VS Code configs) extend JSON to support comments, but these are non-standard extensions and not valid JSON."
+    },
+    {
+      "question": "What is the difference between JSON and YAML?",
+      "answer": "Both are human-readable data formats. YAML is a superset of JSON (valid JSON is valid YAML) but uses indentation instead of braces/brackets and natively supports comments. YAML is more readable for complex configs; JSON is simpler, faster to parse, and universally supported."
+    }
+  ]
+}

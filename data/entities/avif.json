@@ -1,0 +1,60 @@
+{
+  "slug": "avif",
+  "name": "AVIF",
+  "fullName": "AV1 Image File Format",
+  "aliases": ["AV1 Image File Format"],
+  "category": "image",
+  "mimeTypes": ["image/avif"],
+  "extensions": [".avif"],
+  "invented": "2019",
+  "firstSpec": "AV1 Image File Format Specification v1.0 (Alliance for Open Media, 2019)",
+  "description": "AVIF (AV1 Image File Format) is a cutting-edge image format developed by the Alliance for Open Media and finalized in 2019. It is derived from keyframes of the AV1 video codec, delivering exceptional compression efficiency — typically 50% smaller than JPEG at comparable quality. AVIF supports lossy and lossless compression, HDR, wide color gamut (up to 12-bit color depth), and transparency. Browser support has grown rapidly, with Chrome, Firefox, and Safari all supporting AVIF as of 2022–2023.",
+  "technicalDetails": "AVIF uses the AV1 intra-frame codec for image data, stored in an ISOBMFF (MP4/HEIF) container. It supports 8-, 10-, and 12-bit color depths, multiple color spaces including BT.2020 for HDR, and both YUV and RGB color models.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "High-efficiency web images",
+    "HDR photography delivery",
+    "Replacing JPEG where bandwidth is constrained",
+    "Next-generation responsive image sets"
+  ],
+  "advantages": [
+    "Best-in-class compression — smaller than WebP and JPEG",
+    "Supports HDR and wide color gamut",
+    "Lossless and lossy modes",
+    "Full alpha transparency",
+    "Royalty-free and open standard"
+  ],
+  "disadvantages": [
+    "Slower encoding than JPEG or WebP",
+    "Limited support in desktop image editors",
+    "Older browsers (Safari pre-16, Chrome pre-85) do not support it"
+  ],
+  "relatedEntities": ["webp", "jpg", "png"],
+  "relatedTools": [
+    "avif-to-png",
+    "png-to-avif"
+  ],
+  "relatedArticles": ["what-is-avif"],
+  "relatedGlossary": ["lossy-compression", "raster-image"],
+  "faq": [
+    {
+      "question": "What is AVIF?",
+      "answer": "AVIF is a modern image format based on the AV1 video codec. It offers significantly better compression than JPEG and WebP, while supporting HDR, wide color gamut, transparency, and both lossy and lossless modes."
+    },
+    {
+      "question": "Is AVIF supported in all browsers?",
+      "answer": "AVIF is supported in Chrome 85+, Firefox 93+, Safari 16+, and their mobile equivalents. For broader compatibility, provide a WebP or JPEG fallback using the HTML picture element with multiple source elements."
+    },
+    {
+      "question": "Should I switch from WebP to AVIF?",
+      "answer": "AVIF produces smaller files than WebP at the same quality, making it attractive for performance-critical sites. However, AVIF encoding is slower, and you may still need a WebP or JPEG fallback for older browsers."
+    }
+  ]
+}

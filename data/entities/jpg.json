@@ -1,0 +1,62 @@
+{
+  "slug": "jpg",
+  "name": "JPG",
+  "fullName": "Joint Photographic Experts Group",
+  "aliases": ["JPEG", "Joint Photographic Experts Group"],
+  "category": "image",
+  "mimeTypes": ["image/jpeg"],
+  "extensions": [".jpg", ".jpeg"],
+  "invented": "1992",
+  "firstSpec": "ISO/IEC 10918-1 (1994)",
+  "description": "JPEG (commonly saved as .jpg) is the dominant lossy image format for photographs on the web and in digital cameras. Developed by the Joint Photographic Experts Group in 1992, it achieves dramatic file-size reductions by discarding fine detail that the human eye is least sensitive to. A quality slider lets users balance file size against visual fidelity. Despite being over 30 years old, JPEG remains ubiquitous thanks to universal browser, OS, and hardware decoder support.",
+  "technicalDetails": "JPEG compresses images using Discrete Cosine Transform (DCT), dividing each color channel into 8×8 pixel blocks, transforming them to frequency coefficients, and quantizing the result. Chroma subsampling (4:2:0 or 4:2:2) further reduces size by storing color at lower resolution than luminance.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Photographs on websites and social media",
+    "Digital camera output",
+    "Email attachments and sharing",
+    "Print-ready photo exports"
+  ],
+  "advantages": [
+    "Very small file sizes for photographs",
+    "Adjustable quality/size trade-off",
+    "Universal compatibility across all platforms",
+    "Efficient hardware decoding on mobile devices"
+  ],
+  "disadvantages": [
+    "Lossy — quality degrades each time the file is re-saved",
+    "No transparency support",
+    "Visible compression artifacts at low quality settings",
+    "Not ideal for text, line art, or sharp-edged graphics"
+  ],
+  "relatedEntities": ["png", "webp", "avif", "gif"],
+  "relatedTools": [
+    "jpg-to-png",
+    "jpg-to-webp",
+    "png-to-jpg",
+    "webp-to-jpg"
+  ],
+  "relatedArticles": ["what-is-jpg"],
+  "relatedGlossary": ["lossy-compression", "raster-image", "mime-type"],
+  "faq": [
+    {
+      "question": "What is the difference between JPG and JPEG?",
+      "answer": "There is no technical difference. JPEG is the official name of the standard; .jpg became the common file extension on Windows systems that limited extensions to three characters. Both extensions refer to the same format and are interchangeable."
+    },
+    {
+      "question": "Does JPEG support transparency?",
+      "answer": "No. JPEG has no transparency channel. If you need a transparent background, use PNG (for lossless quality) or WebP (for smaller lossy files with transparency)."
+    },
+    {
+      "question": "Why does JPEG quality degrade when re-saved?",
+      "answer": "Each save applies lossy DCT compression again, discarding more image data. This generational loss accumulates. To avoid it, keep a lossless master (PNG or TIFF) and export JPEG only as the final delivery format."
+    }
+  ]
+}

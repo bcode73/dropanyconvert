@@ -1,0 +1,60 @@
+{
+  "slug": "gif",
+  "name": "GIF",
+  "fullName": "Graphics Interchange Format",
+  "aliases": ["Graphics Interchange Format"],
+  "category": "image",
+  "mimeTypes": ["image/gif"],
+  "extensions": [".gif"],
+  "invented": "1987",
+  "firstSpec": "GIF87a (CompuServe, 1987); GIF89a (1989)",
+  "description": "GIF (Graphics Interchange Format) was introduced by CompuServe in 1987 and remains one of the oldest image formats still in widespread use. Its defining feature is support for short looping animations using multiple frames stored in a single file. GIF is limited to a palette of 256 colors per frame, making it unsuitable for photographs but workable for simple graphics and pixel art. Despite its age and limitations, GIF thrives as the de-facto format for short reaction clips and memes on social media platforms.",
+  "technicalDetails": "GIF uses LZW (Lempel–Ziv–Welch) lossless compression on an indexed color model limited to 256 colors (8-bit palette) per frame. The GIF89a extension adds animation via multiple image blocks with per-frame delays, disposal methods, and optional transparency using a single transparent color index.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Short looping animations and reaction GIFs",
+    "Simple pixel art and icons",
+    "Social media memes and stickers",
+    "Low-color diagrams and illustrations"
+  ],
+  "advantages": [
+    "Universal support across all browsers and platforms",
+    "Supports simple animation with looping",
+    "1-bit binary transparency",
+    "Small file size for low-color graphics"
+  ],
+  "disadvantages": [
+    "Limited to 256 colors per frame — poor for photos",
+    "Very large file sizes for animations compared to WebP or video",
+    "Only 1-bit transparency (no partial transparency)",
+    "Inefficient for any use case that WebP or video can fulfill"
+  ],
+  "relatedEntities": ["png", "webp", "svg"],
+  "relatedTools": [
+    "gif-to-png",
+    "gif-to-webp"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["lossless-compression", "raster-image", "color-depth"],
+  "faq": [
+    {
+      "question": "Is GIF lossless?",
+      "answer": "GIF uses LZW lossless compression, so pixel data is stored without compression artifacts. However, because GIF only supports 256 colors per frame, converting a full-color photo to GIF forces color quantization, which is itself a lossy process."
+    },
+    {
+      "question": "Why are GIF files so large for animations?",
+      "answer": "Each animation frame is stored as a full image with LZW compression. There is no inter-frame encoding (like video), so even small changes between frames require storing the entire frame. WebP animated and video formats are far more efficient."
+    },
+    {
+      "question": "What should I use instead of GIF for animation?",
+      "answer": "Animated WebP offers the same looping animation with dramatically smaller file sizes and support for full color. For longer clips, an HTML5 video element with MP4/H.264 is even more efficient and widely supported."
+    }
+  ]
+}

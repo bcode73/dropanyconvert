@@ -1,6 +1,69 @@
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
+function buildKnowledgeGraph(data, routes, seoValidation, freshness) {
+  const entityCount  = (data.entities || []).length;
+  const authorCount  = (data.authors  || []).length;
+  const articleCount = (data.articles || []).length;
+  const cmpCount     = (data.comparisons || []).length;
+  const glossCount   = (data.glossary || []).length;
+  const collCount    = (data.collections || []).length;
+
+  const khSize = articleCount + cmpCount + glossCount + collCount + entityCount;
+
+  // Most-linked tool (tool with most relatedTools references from other tools)
+  const linkCounts = new Map();
+  for (const tool of data.tools) {
+    for (const s of (tool.relatedTools || [])) {
+      linkCounts.set(s, (linkCounts.get(s) || 0) + 1);
+    }
+  }
+  let mostLinkedTool = '';
+  let maxLinks = 0;
+  for (const [slug, count] of linkCounts) {
+    if (count > maxLinks) { maxLinks = count; mostLinkedTool = slug; }
+  }
+
+  // Most-linked article (article referenced by most tools)
+  const artLinkCounts = new Map();
+  for (const tool of data.tools) {
+    for (const a of (data.articles || [])) {
+      if ((a.relatedTools || []).includes(tool.slug)) {
+        artLinkCounts.set(a.slug, (artLinkCounts.get(a.slug) || 0) + 1);
+      }
+    }
+  }
+  let mostLinkedArticle = '';
+  let maxArtLinks = 0;
+  for (const [slug, count] of artLinkCounts) {
+    if (count > maxArtLinks) { maxArtLinks = count; mostLinkedArticle = slug; }
+  }
+
+  // Average FAQ count across tool pages
+  const totalFaq = data.tools.reduce((sum, t) => sum + (t.faq?.length || 0), 0);
+  const avgFaq   = data.tools.length > 0 ? (totalFaq / data.tools.length).toFixed(1) : 0;
+
+  const staleCount = (freshness?.staleItems?.length || 0);
+  const newCount   = (freshness?.newItems?.length || 0);
+
+  return {
+    entity_count:       entityCount,
+    author_count:       authorCount,
+    knowledge_hub_size: khSize,
+    avg_faq_per_tool:   parseFloat(avgFaq),
+    most_linked_tool:   mostLinkedTool,
+    most_linked_article: mostLinkedArticle,
+    content_quality:    seoValidation?.qualityScore || {},
+    freshness_stale:    staleCount,
+    freshness_new:      newCount,
+    entity_index_size:  entityCount,
+    largest_entity:     (data.entities || []).reduce((m, e) =>
+      JSON.stringify(e).length > JSON.stringify(m).length ? e : m,
+      data.entities?.[0] || {}
+    ).slug || '',
+  };
+}
+
 function buildDashboard(routes, pages, seoData) {
   if (!seoData) return {};
 
@@ -57,7 +120,7 @@ function buildDashboard(routes, pages, seoData) {
 /**
  * Generates an expanded build report and writes it to build-report.json.
  */
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData, freshness }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -98,6 +161,9 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       trust:          routes.filter(r => r.type === 'trust').length,
       editorial:      routes.filter(r => r.type === 'editorial').length,
       changelog:      routes.filter(r => r.type === 'changelog').length,
+      entity:         routes.filter(r => r.type === 'entity').length,
+      'entity-index': routes.filter(r => r.type === 'entity-index').length,
+      author:         routes.filter(r => r.type === 'author').length,
       root:           1,
     },
     sitemaps_generated: sitemaps.length,
@@ -145,6 +211,9 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     // Build dashboard (Phase 15)
     build_dashboard: buildDashboard(routes, pages, seoData),
 
+    // Knowledge graph stats (Phase 16)
+    knowledge_graph: buildKnowledgeGraph(data, routes, seoValidation, freshness),
+
     warnings: validation.warnings,
     errors:   validation.errors,
     toolList: data.tools.map(t => ({
@@ -172,10 +241,14 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
   const editorialCount  = routes.filter(r => r.type === 'editorial').length;
   const changelogCount  = routes.filter(r => r.type === 'changelog').length;
 
+  const entityCount2  = (data.entities || []).length;
+  const authorCount2  = (data.authors  || []).length;
   const summary = [
-    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} cat:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} cmp:${comparisonCount} glossary:${glossaryCount} coll:${collectionCount} landings:${landingCount} trust:${trustCount} editorial:${editorialCount} changelog:${changelogCount})`,
+    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} cat:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} cmp:${comparisonCount} glossary:${glossaryCount} coll:${collectionCount} landings:${landingCount} trust:${trustCount} editorial:${editorialCount} changelog:${changelogCount} entities:${routes.filter(r=>r.type==='entity').length} authors:${routes.filter(r=>r.type==='author').length})`,
     `  Tools:    ${toolCount}`,
     `  Articles: ${articleCount / (langCount || 1)} (${data.articles?.length || 0} guides, ${data.comparisons?.length || 0} comparisons, ${data.glossary?.length || 0} glossary × ${langCount} langs)`,
+    `  Entities: ${entityCount2} file formats`,
+    `  Authors:  ${authorCount2}`,
     `  Languages:${langCount}`,
     `  Sitemaps: ${sitemaps.length}`,
     `  Output:   ${emitResult.sizeKb} KB`,

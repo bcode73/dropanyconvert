@@ -1,0 +1,62 @@
+{
+  "slug": "csv",
+  "name": "CSV",
+  "fullName": "Comma-Separated Values",
+  "aliases": ["Comma-Separated Values", "Comma-Delimited"],
+  "category": "data",
+  "mimeTypes": ["text/csv"],
+  "extensions": [".csv"],
+  "invented": "1972",
+  "firstSpec": "RFC 4180 (2005)",
+  "description": "CSV (Comma-Separated Values) is one of the simplest and most widely used formats for representing tabular data. Each line in a CSV file corresponds to a row, and values within each row are separated by commas (or sometimes tabs or semicolons). CSV has no formal standard — RFC 4180 describes common practice rather than mandating behavior — yet it is universally supported by spreadsheet software, databases, data science tools, and ETL pipelines. Its plaintext nature makes it easy to inspect, diff, and process with basic text tools.",
+  "technicalDetails": "A CSV file consists of lines of text, each containing fields separated by a delimiter (commonly a comma). Fields containing the delimiter, newlines, or double-quotes must be enclosed in double-quotes, with any embedded double-quotes escaped by doubling them (\"\"). Encoding is typically UTF-8 or Windows-1252 depending on the generating application. RFC 4180 defines CRLF line endings, though LF-only is common on Unix systems.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Spreadsheet data import and export (Excel, Google Sheets)",
+    "Database bulk import and export",
+    "Data science and machine learning datasets",
+    "Report exports from CRMs and analytics tools",
+    "ETL pipelines and data migration"
+  ],
+  "advantages": [
+    "Extremely simple format — readable in any text editor",
+    "Universally supported by spreadsheets, databases, and languages",
+    "Compact for flat tabular data",
+    "Easy to diff and version control",
+    "No library needed to parse simple files"
+  ],
+  "disadvantages": [
+    "No standard for encoding, delimiters, or quoting — interoperability issues are common",
+    "No support for nested or hierarchical data",
+    "No data types — everything is a string",
+    "No built-in support for multiple sheets or metadata"
+  ],
+  "relatedEntities": ["json", "xml"],
+  "relatedTools": [
+    "csv-to-json",
+    "json-to-csv"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["mime-type"],
+  "faq": [
+    {
+      "question": "What does CSV stand for?",
+      "answer": "CSV stands for Comma-Separated Values. It is a plain-text format where each row of a table is a line of text and each column value is separated by a comma. Despite the name, many CSV files use other delimiters such as semicolons or tabs."
+    },
+    {
+      "question": "Why does my CSV look wrong when opened in Excel?",
+      "answer": "The most common causes are delimiter mismatch (your system may expect semicolons, not commas), encoding issues (non-ASCII characters corrupted when UTF-8 is interpreted as Windows-1252), or date/number formatting differences between locales. Try importing via the data import wizard rather than double-clicking the file."
+    },
+    {
+      "question": "Can CSV store nested data?",
+      "answer": "No. CSV is a flat, two-dimensional format. For hierarchical or nested data, JSON or XML are better choices. If nested data must be represented in CSV, it is typically either flattened (repeated parent values) or stored as serialized JSON strings within a column."
+    }
+  ]
+}

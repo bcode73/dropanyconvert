@@ -1,0 +1,63 @@
+{
+  "slug": "webp",
+  "name": "WebP",
+  "fullName": "Web Picture Format",
+  "aliases": ["Web Picture", "Google WebP"],
+  "category": "image",
+  "mimeTypes": ["image/webp"],
+  "extensions": [".webp"],
+  "invented": "2010",
+  "firstSpec": "WebP Container Specification (Google, 2010)",
+  "description": "WebP is a modern image format developed by Google and released in 2010, designed to replace both JPEG and PNG on the web. It supports both lossy and lossless compression, animated images, and full alpha-channel transparency — all in one format. Lossy WebP images are typically 25–35% smaller than equivalent JPEG files, while lossless WebP is 26% smaller than PNG on average. All major browsers have supported WebP since 2020, making it the practical default for web image delivery.",
+  "technicalDetails": "Lossy WebP is based on the VP8 video codec's intra-frame encoding, using block prediction and DCT-based transforms. Lossless WebP uses a separate algorithm with spatial prediction, color transform, and LZ77+Huffman entropy coding. The RIFF-based container supports transparency, metadata (Exif, XMP), and animation frames.",
+  "browserSupport": {
+    "chrome": "✅",
+    "firefox": "✅",
+    "safari": "✅",
+    "edge": "✅",
+    "ios": "✅",
+    "android": "✅"
+  },
+  "commonUses": [
+    "Web images to reduce page load times",
+    "Responsive image sets (srcset)",
+    "Animated image replacements for GIF",
+    "Photos and graphics with transparency"
+  ],
+  "advantages": [
+    "Smaller file sizes than JPEG and PNG",
+    "Supports both lossy and lossless modes",
+    "Full alpha transparency support",
+    "Supports animation",
+    "Universal browser support since 2020"
+  ],
+  "disadvantages": [
+    "Limited support in older desktop software (Photoshop pre-2021, etc.)",
+    "Not ideal for print workflows",
+    "Lossless mode can be slower to encode than PNG"
+  ],
+  "relatedEntities": ["jpg", "png", "avif", "gif"],
+  "relatedTools": [
+    "webp-to-jpg",
+    "webp-to-png",
+    "jpg-to-webp",
+    "png-to-webp",
+    "gif-to-webp"
+  ],
+  "relatedArticles": [],
+  "relatedGlossary": ["lossy-compression", "lossless-compression", "raster-image"],
+  "faq": [
+    {
+      "question": "Is WebP better than JPEG?",
+      "answer": "For web use, WebP typically produces smaller files at equivalent visual quality, and additionally supports transparency and animation that JPEG cannot. However, JPEG has broader support in older software and printing workflows."
+    },
+    {
+      "question": "Can WebP replace PNG?",
+      "answer": "In most web scenarios, yes. WebP lossless mode is smaller than PNG, and WebP supports transparency. For pixel-perfect archiving or workflows requiring maximum compatibility with non-browser tools, PNG remains a safer choice."
+    },
+    {
+      "question": "Do all browsers support WebP?",
+      "answer": "Yes. As of 2020, Chrome, Firefox, Safari, Edge, and their mobile counterparts all support WebP. You only need a fallback for very old browsers (Safari pre-14, IE11)."
+    }
+  ]
+}

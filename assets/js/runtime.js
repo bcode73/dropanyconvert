@@ -411,7 +411,9 @@
           a.href = url;
           a.download = 'converted-files.zip';
           a.click();
-          setTimeout(() => URL.revokeObjectURL(url), 60000);
+          const zipRevoke = () => URL.revokeObjectURL(url);
+          setTimeout(zipRevoke, 60000);
+          window.addEventListener('pagehide', zipRevoke, { once: true });
           window.DAC?.analytics?.track('download_completed', { toolId, type: 'zip', files: outputs.length });
           zipBtn.textContent = 'Downloaded!';
         } catch {
@@ -580,6 +582,9 @@
     downloadUrls.forEach(u => u && URL.revokeObjectURL(u));
     downloadUrls = [];
   }
+
+  // Revoke all tracked URLs when the page is unloaded
+  window.addEventListener('pagehide', () => { revokeAllPreviews(); revokeAllDownloads(); });
 
   function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 

@@ -74,6 +74,7 @@ function parsePageRange(str, total) {
     const to   = m[2] ? parseInt(m[2], 10) - 1 : from;
     for (let i = Math.max(0, from); i <= Math.min(total - 1, to); i++) {
       indices.add(i);
+      if (indices.size > 1000) throw new Error('Page range too large. Maximum 1000 pages per operation.');
     }
   }
   return [...indices].sort((a, b) => a - b);
@@ -126,7 +127,10 @@ async function canvasToBlob(canvas, mime, quality = 0.90) {
   if (canvas instanceof OffscreenCanvas) {
     return canvas.convertToBlob({ type: mime, quality });
   }
-  return new Promise(resolve => canvas.toBlob(resolve, mime, quality));
+  return new Promise((resolve, reject) => {
+    const t = setTimeout(() => reject(new Error('Canvas rendering timed out. Try reducing DPI or file size.')), 30000);
+    canvas.toBlob(blob => { clearTimeout(t); resolve(blob); }, mime, quality);
+  });
 }
 
 // ── 1. Merge PDFs ─────────────────────────────────────────────────────────────
@@ -289,7 +293,7 @@ export async function unlockPdf(files, context) {
   const { PDFDocument } = await loadPdfLib();
   const outputs = [];
   const errors  = [];
-  const password = context.password || '';
+  const password = String(context.password || '').slice(0, 256);
 
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
@@ -326,8 +330,8 @@ export async function protectPdf(files, context) {
   const { PDFDocument } = await loadPdfLib();
   const outputs = [];
   const errors  = [];
-  const userPw  = context.userPassword  || '';
-  const ownerPw = context.ownerPassword || userPw + '_owner';
+  const userPw  = String(context.userPassword  || '').slice(0, 256);
+  const ownerPw = String(context.ownerPassword || userPw + '_owner').slice(0, 256);
 
   if (!userPw) {
     return { outputs: [], errors: ['Please enter an open password before protecting.'] };
@@ -378,7 +382,7 @@ export async function pdfToImages(files, context) {
   const pdfjsLib = await loadPdfJs();
   const outputs  = [];
   const errors   = [];
-  const dpi      = parseFloat(context.dpi ?? '150');
+  const dpi      = Math.min(Math.max(parseFloat(context.dpi ?? '150') || 150, 72), 600);
   const scale    = dpi / 72;  // pdfjs default viewport is at 72 DPI
 
   const fmtMap = {
@@ -737,7 +741,7 @@ export async function generatePdfThumbnails(files, context) {
   const pdfjsLib = await loadPdfJs();
   const outputs  = [];
   const errors   = [];
-  const dpi      = parseFloat(context.dpi ?? '96');
+  const dpi      = Math.min(Math.max(parseFloat(context.dpi ?? '96') || 96, 72), 600);
   const scale    = dpi / 72;
   const mime     = context.outputFormat === 'jpg' ? 'image/jpeg' : 'image/png';
   const ext      = context.outputFormat === 'jpg' ? 'jpg' : 'png';

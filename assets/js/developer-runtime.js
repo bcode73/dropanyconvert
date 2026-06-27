@@ -142,8 +142,10 @@
       const img = outputImgEl();
       const textarea = outputEl();
       if (img) {
+        if (_svgBlobUrl) { URL.revokeObjectURL(_svgBlobUrl); _svgBlobUrl = null; }
         const blob = new Blob([result.output], { type: 'image/svg+xml' });
-        img.src = URL.createObjectURL(blob);
+        _svgBlobUrl = URL.createObjectURL(blob);
+        img.src = _svgBlobUrl;
         img.hidden = false;
       }
       if (textarea) { textarea.value = result.output; textarea.hidden = false; }
@@ -191,6 +193,7 @@
   let _downloadExt  = 'txt';
   let _downloadMime = 'text/plain';
   let _isSvg        = false;
+  let _svgBlobUrl   = null;   // tracked so we can revoke on next render / clear
 
   function storeDownload(data, ext, mime, isSvg = false) {
     _downloadData = data;
@@ -271,8 +274,14 @@
   }
 
   function handleFile(file) {
+    const maxBytes = config.inputType === 'image' ? 10 * 1024 * 1024 : 2 * 1024 * 1024;
+    if (file.size > maxBytes) {
+      showStatus(`File is too large (${(file.size/1048576).toFixed(1)} MB). Max ${maxBytes/1048576} MB for in-browser processing.`, 'error');
+      return;
+    }
     if (config.inputType === 'image') {
       const reader = new FileReader();
+      reader.onerror = () => showStatus('Failed to read file.', 'error');
       reader.onload = e => {
         const inp = inputEl();
         if (inp) inp.dataset.dataUrl = e.target.result;
@@ -283,6 +292,7 @@
       reader.readAsDataURL(file);
     } else {
       const reader = new FileReader();
+      reader.onerror = () => showStatus('Failed to read file.', 'error');
       reader.onload = e => {
         const inp = inputEl();
         if (inp) { inp.value = e.target.result; inp.dispatchEvent(new Event('input')); }
@@ -313,7 +323,10 @@
     const out = outputEl();
     if (out) { out.value = ''; out.hidden = true; }
     const img = outputImgEl();
-    if (img) { img.src = ''; img.hidden = true; }
+    if (img) {
+      if (_svgBlobUrl) { URL.revokeObjectURL(_svgBlobUrl); _svgBlobUrl = null; }
+      img.src = ''; img.hidden = true;
+    }
     const preview = colorPreview();
     if (preview) preview.hidden = true;
     const wrap = outputWrap();

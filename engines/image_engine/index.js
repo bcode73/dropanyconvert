@@ -263,8 +263,10 @@ function canvasConvert(file, mime, quality, fillWhite) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
+    const loadTimeout = setTimeout(() => { URL.revokeObjectURL(url); reject(new Error('Image load timed out.')); }, 30000);
 
     img.onload = () => {
+      clearTimeout(loadTimeout);
       URL.revokeObjectURL(url);
       guardDimensions(img, reject);
 
@@ -280,8 +282,13 @@ function canvasConvert(file, mime, quality, fillWhite) {
 
       ctx.drawImage(img, 0, 0);
 
+      const blobTimeout = setTimeout(() => {
+        releaseCanvas(canvas);
+        reject(new Error('Canvas encoding timed out. Try a smaller image or different format.'));
+      }, 30000);
       canvas.toBlob(
         blob => {
+          clearTimeout(blobTimeout);
           releaseCanvas(canvas);
           if (blob) resolve(blob);
           else reject(new Error('Canvas failed to encode image'));
@@ -291,7 +298,7 @@ function canvasConvert(file, mime, quality, fillWhite) {
       );
     };
 
-    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Image could not be decoded')); };
+    img.onerror = () => { clearTimeout(loadTimeout); URL.revokeObjectURL(url); reject(new Error('Image could not be decoded')); };
     img.src = url;
   });
 }

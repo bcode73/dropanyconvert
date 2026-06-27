@@ -183,6 +183,16 @@ function formatXmlStr(xmlStr) {
   return out.trim();
 }
 
+// ── Input size guard ──────────────────────────────────────────────────────
+
+const MAX_INPUT_BYTES = 2 * 1024 * 1024; // 2 MB
+
+function guardInputSize(input) {
+  if (new TextEncoder().encode(input).length > MAX_INPUT_BYTES) {
+    throw new Error('Input is too large (max 2 MB). Paste a smaller snippet for in-browser processing.');
+  }
+}
+
 // ── CSV helpers ───────────────────────────────────────────────────────────
 
 function csvEscapeField(v) {
@@ -199,10 +209,15 @@ function parseCsv(text) {
       if (ch === '"') { if (text[i+1] === '"') { cur += '"'; i++; } else inQuote = false; }
       else cur += ch;
     } else if (ch === '"') { inQuote = true; }
-    else if (ch === ',') { row.push(cur); cur = ''; }
+    else if (ch === ',') {
+      if (row.length >= 1000) throw new Error('Too many columns (max 1000). Reduce the CSV width.');
+      row.push(cur); cur = '';
+    }
     else if (ch === '\n' || (ch === '\r' && text[i+1] === '\n')) {
       if (ch === '\r') i++;
-      row.push(cur); cur = ''; rows.push(row); row = [];
+      row.push(cur); cur = '';
+      if (rows.length >= 10000) throw new Error('Too many rows (max 10,000). Split the CSV into smaller files.');
+      rows.push(row); row = [];
     } else cur += ch;
   }
   if (cur || row.length) { row.push(cur); rows.push(row); }
@@ -339,11 +354,13 @@ function rgbToHsl(r, g, b) {
 
 // JSON
 export function devFormatJson(input, opts = {}) {
+  guardInputSize(input);
   const indent = opts.indent === '\t' ? '\t' : (parseInt(opts.indent, 10) || 2);
   return { output: JSON.stringify(JSON.parse(input.trim()), null, indent), outputExt: 'json', outputMime: 'application/json' };
 }
 export function devBeautifyJson(input, opts = {}) { return devFormatJson(input, opts); }
 export function devMinifyJson(input) {
+  guardInputSize(input);
   return { output: JSON.stringify(JSON.parse(input.trim())), outputExt: 'json', outputMime: 'application/json' };
 }
 export function devValidateJson(input) {
@@ -358,15 +375,18 @@ export function devValidateJson(input) {
   }
 }
 export function devJsonToYaml(input) {
+  guardInputSize(input);
   return { output: jsonToYamlStr(JSON.parse(input.trim())), outputExt: 'yaml', outputMime: 'text/yaml' };
 }
 export async function devYamlToJson(input) {
+  guardInputSize(input);
   let yaml;
   try { yaml = await loadLib('https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js', 'jsyaml'); }
   catch { throw new Error('Could not load YAML library. Check your internet connection and try again.'); }
   return { output: JSON.stringify(yaml.load(input), null, 2), outputExt: 'json', outputMime: 'application/json' };
 }
 export function devJsonToXml(input) {
+  guardInputSize(input);
   const p = JSON.parse(input.trim());
   const keys = typeof p === 'object' && p !== null && !Array.isArray(p) ? Object.keys(p) : [];
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
@@ -374,6 +394,7 @@ export function devJsonToXml(input) {
   return { output: xml, outputExt: 'xml', outputMime: 'application/xml' };
 }
 export function devXmlToJson(input) {
+  guardInputSize(input);
   const doc = new DOMParser().parseFromString(input.trim(), 'application/xml');
   const err = doc.querySelector('parsererror');
   if (err) throw new Error('Invalid XML: ' + err.textContent.split('\n')[0]);
@@ -381,6 +402,7 @@ export function devXmlToJson(input) {
   return { output: JSON.stringify({ [root.nodeName]: xmlNodeToObj(root) }, null, 2), outputExt: 'json', outputMime: 'application/json' };
 }
 export function devJsonToCsv(input) {
+  guardInputSize(input);
   const data = JSON.parse(input.trim());
   if (!Array.isArray(data)) throw new Error('Input must be a JSON array of objects.');
   if (!data.length) return { output: '', outputExt: 'csv', outputMime: 'text/csv' };
@@ -389,6 +411,7 @@ export function devJsonToCsv(input) {
   return { output: rows.join('\r\n'), outputExt: 'csv', outputMime: 'text/csv' };
 }
 export function devCsvToJson(input) {
+  guardInputSize(input);
   const rows = parseCsv(input.trim());
   if (rows.length < 2) throw new Error('CSV must have a header row and at least one data row.');
   const [headers, ...data] = rows;
@@ -402,6 +425,7 @@ export function devCsvToJson(input) {
 
 // XML
 export function devFormatXml(input) {
+  guardInputSize(input);
   const doc = new DOMParser().parseFromString(input.trim(), 'application/xml');
   const err = doc.querySelector('parsererror');
   if (err) throw new Error('Invalid XML: ' + err.textContent.split('\n')[0]);
@@ -409,6 +433,7 @@ export function devFormatXml(input) {
 }
 export function devBeautifyXml(input) { return devFormatXml(input); }
 export function devValidateXml(input) {
+  guardInputSize(input);
   const doc = new DOMParser().parseFromString(input.trim(), 'application/xml');
   const err = doc.querySelector('parsererror');
   if (err) { const msg = err.textContent.split('\n').slice(0,2).join(' — ').trim(); return { output: `✗ Invalid XML\n\n${msg}`, valid: false, error: msg }; }
@@ -416,6 +441,7 @@ export function devValidateXml(input) {
   return { output: `✓ Well-formed XML\nRoot element : <${root.nodeName}>\nElements     : ${doc.querySelectorAll('*').length}\nEncoding     : ${doc.xmlEncoding || 'UTF-8'}`, valid: true };
 }
 export function devMinifyXml(input) {
+  guardInputSize(input);
   const doc = new DOMParser().parseFromString(input.trim(), 'application/xml');
   const err = doc.querySelector('parsererror');
   if (err) throw new Error('Invalid XML: ' + err.textContent.split('\n')[0]);
@@ -424,12 +450,14 @@ export function devMinifyXml(input) {
 
 // YAML
 export async function devFormatYaml(input) {
+  guardInputSize(input);
   let yaml;
   try { yaml = await loadLib('https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js', 'jsyaml'); }
   catch { throw new Error('Could not load YAML library. Check your internet connection and try again.'); }
   return { output: yaml.dump(yaml.load(input), { indent: 2, lineWidth: 120 }), outputExt: 'yaml', outputMime: 'text/yaml' };
 }
 export async function devValidateYaml(input) {
+  guardInputSize(input);
   let yaml;
   try { yaml = await loadLib('https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js', 'jsyaml'); }
   catch { throw new Error('Could not load YAML library. Check your internet connection and try again.'); }
@@ -611,15 +639,18 @@ export function devRegex(pattern, opts = {}) {
   let re;
   try { re = new RegExp(pattern, flags); }
   catch (e) { return { output: `✗ Invalid regex\n\n${e.message}`, valid: false, error: e.message }; }
+  const MAX_MATCHES = 500;
   const matches = [];
   let m;
   if (flags.includes('g')) {
     while ((m = re.exec(testStr)) !== null) {
       matches.push({ index: m.index, match: m[0], groups: [...m.slice(1)], namedGroups: m.groups||{} });
       if (m.index === re.lastIndex) re.lastIndex++;
+      if (matches.length >= MAX_MATCHES) break;
     }
   } else { m = re.exec(testStr); if (m) matches.push({ index: m.index, match: m[0], groups: [...m.slice(1)], namedGroups: m.groups||{} }); }
-  const lines = [`Pattern : /${pattern}/${flags}`, `Matches : ${matches.length}`, ''];
+  const truncated = matches.length >= MAX_MATCHES;
+  const lines = [`Pattern : /${pattern}/${flags}`, `Matches : ${truncated ? `${matches.length}+ (first ${MAX_MATCHES} shown)` : matches.length}`, ''];
   if (!matches.length) { lines.push('No matches found.'); }
   else {
     matches.forEach((match, i) => {
@@ -683,11 +714,11 @@ export function devColor(input) {
 }
 
 // Minifiers
-export function devHtmlMinify(input) { return { output: minifyHtml(input), outputExt: 'html', outputMime: 'text/html' }; }
-export function devCssMinify(input)  { return { output: minifyCss(input),  outputExt: 'css',  outputMime: 'text/css' }; }
-export function devJsMinify(input)   { return { output: minifyJs(input),   outputExt: 'js',   outputMime: 'text/javascript' }; }
+export function devHtmlMinify(input)   { guardInputSize(input); return { output: minifyHtml(input), outputExt: 'html', outputMime: 'text/html' }; }
+export function devCssMinify(input)    { guardInputSize(input); return { output: minifyCss(input),  outputExt: 'css',  outputMime: 'text/css' }; }
+export function devJsMinify(input)     { guardInputSize(input); return { output: minifyJs(input),   outputExt: 'js',   outputMime: 'text/javascript' }; }
 
 // Beautifiers
-export function devHtmlBeautify(input) { return { output: beautifyHtml(input), outputExt: 'html', outputMime: 'text/html' }; }
-export function devCssBeautify(input)  { return { output: beautifyCss(input),  outputExt: 'css',  outputMime: 'text/css' }; }
-export function devJsBeautify(input)   { return { output: beautifyJs(input),   outputExt: 'js',   outputMime: 'text/javascript' }; }
+export function devHtmlBeautify(input) { guardInputSize(input); return { output: beautifyHtml(input), outputExt: 'html', outputMime: 'text/html' }; }
+export function devCssBeautify(input)  { guardInputSize(input); return { output: beautifyCss(input),  outputExt: 'css',  outputMime: 'text/css' }; }
+export function devJsBeautify(input)   { guardInputSize(input); return { output: beautifyJs(input),   outputExt: 'js',   outputMime: 'text/javascript' }; }

@@ -1,0 +1,20 @@
+{
+  "enabled": false,
+  "provider": null,
+  "providers": {
+    "ga4": {
+      "measurementId": ""
+    },
+    "gtm": {
+      "containerId": ""
+    },
+    "plausible": {
+      "domain": "dropanyconvert.com",
+      "src": "https://plausible.io/js/script.js"
+    },
+    "umami": {
+      "websiteId": "",
+      "src": "https://analytics.umami.is/script.js"
+    }
+  }
+}

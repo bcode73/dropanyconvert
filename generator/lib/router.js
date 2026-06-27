@@ -21,6 +21,12 @@ export async function generateRoutes(registry, data, config) {
         url: `${config.site.baseUrl}/${lang.code}/${route.slug}`,
       }));
       route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/${route.slug}`;
+    } else if (route.type === 'legal') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/${route.slug}`;
     } else if (route.type === 'home') {
       route.hreflang = data.languages.map(lang => ({
         lang: lang.hreflang,

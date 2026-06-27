@@ -1,13 +1,50 @@
 {
-  "timestamp": "2026-06-27T11:28:51.142Z",
-  "elapsed_ms": 921,
+  "timestamp": "2026-06-27T11:48:47.213Z",
+  "elapsed_ms": 828,
   "tools": 82,
   "languages": 5,
-  "routes": 446,
-  "pages_generated": 446,
+  "routes": 466,
+  "pages_generated": 466,
+  "pages_by_type": {
+    "tool": 410,
+    "category": 30,
+    "home": 5,
+    "legal": 20,
+    "root": 1
+  },
   "sitemaps_generated": 6,
-  "files_emitted": 460,
-  "output_size_kb": 20096,
+  "files_emitted": 480,
+  "output_size_kb": 20825,
+  "build_errors": 0,
+  "build_warnings": 0,
+  "seo_errors": 0,
+  "seo_warnings": 0,
+  "seo_summary": {
+    "errors": [],
+    "warnings": [],
+    "warning_count": 0
+  },
+  "accessibility_summary": {
+    "skip_link": true,
+    "aria_landmarks": true,
+    "form_labels": true,
+    "lang_attribute": true,
+    "focus_management": true,
+    "note": "Run axe-core or Lighthouse for full a11y audit"
+  },
+  "deployment": {
+    "netlify_toml": true,
+    "cloudflare_headers": true,
+    "vercel_json": true,
+    "github_pages_nojekyll": true,
+    "robots_txt": true,
+    "sitemap_index": true,
+    "security_headers": true,
+    "csp_configured": true,
+    "hsts_configured": true,
+    "legal_pages": true,
+    "error_pages": true
+  },
   "warnings": [],
   "errors": [],
   "toolList": [

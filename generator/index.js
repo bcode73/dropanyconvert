@@ -16,6 +16,7 @@ import { generateSitemaps } from './lib/sitemap.js';
 import { generateRobots } from './lib/robots.js';
 import { emitDist } from './lib/emitter.js';
 import { generateReport } from './lib/reporter.js';
+import { validateSeo } from './lib/seo-validator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -58,7 +59,17 @@ async function build() {
   const links = await generateInternalLinks(routes, data, config);
   console.log(`  ✓ Internal links resolved`);
 
-  // 8. Generate all pages (HTML)
+  // 8a. SEO quality validation (post-generation)
+  const seoValidation = validateSeo(routes, seoData, data, config);
+  if (seoValidation.errors.length > 0) {
+    console.error('\n  ✗ SEO validation errors:\n');
+    seoValidation.errors.forEach(e => console.error(`    - ${e}`));
+    process.exit(1);
+  }
+  seoValidation.warnings.forEach(w => console.warn(`  ⚠ SEO: ${w}`));
+  console.log(`  ✓ SEO validated    (${seoValidation.warnings.length} warnings)`);
+
+  // 8b. Generate all pages (HTML)
   const pages = await generatePages(routes, seoData, links, data, config);
   console.log(`  ✓ Pages generated (${pages.length} files)`);
 
@@ -76,7 +87,7 @@ async function build() {
 
   // 12. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, emitResult, elapsed, config });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

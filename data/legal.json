@@ -1,0 +1,52 @@
+{
+  "pages": {
+    "privacy-policy": {
+      "slug": "privacy-policy",
+      "titles": {
+        "en": "Privacy Policy",
+        "es": "Política de Privacidad",
+        "fr": "Politique de Confidentialité",
+        "de": "Datenschutzerklärung",
+        "pt": "Política de Privacidade"
+      },
+      "lastUpdated": "2025-01-01",
+      "description": "How DropAnyConvert handles your data — and why we never see your files."
+    },
+    "terms-of-service": {
+      "slug": "terms-of-service",
+      "titles": {
+        "en": "Terms of Service",
+        "es": "Términos de Servicio",
+        "fr": "Conditions d'Utilisation",
+        "de": "Nutzungsbedingungen",
+        "pt": "Termos de Serviço"
+      },
+      "lastUpdated": "2025-01-01",
+      "description": "Terms governing use of DropAnyConvert, the free browser-based file conversion platform."
+    },
+    "cookie-policy": {
+      "slug": "cookie-policy",
+      "titles": {
+        "en": "Cookie Policy",
+        "es": "Política de Cookies",
+        "fr": "Politique de Cookies",
+        "de": "Cookie-Richtlinie",
+        "pt": "Política de Cookies"
+      },
+      "lastUpdated": "2025-01-01",
+      "description": "What cookies DropAnyConvert uses and why."
+    },
+    "disclaimer": {
+      "slug": "disclaimer",
+      "titles": {
+        "en": "Disclaimer",
+        "es": "Aviso Legal",
+        "fr": "Avertissement",
+        "de": "Haftungsausschluss",
+        "pt": "Aviso Legal"
+      },
+      "lastUpdated": "2025-01-01",
+      "description": "Liability disclaimer for DropAnyConvert file conversion tools."
+    }
+  }
+}

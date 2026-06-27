@@ -12,6 +12,12 @@
   status = 301
   force  = false
 
+# Custom 404 page
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
+
 # Security headers applied to all routes
 [[headers]]
   for = "/*"

@@ -20,6 +20,9 @@ export async function generatePages(routes, seoData, links, data, config) {
     } else if (route.type === 'home') {
       html = renderHubPage(route, seo, data, config);
       pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'legal') {
+      html = renderLegalPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
     } else if (route.type === 'root') {
       const d = config.languages.default;
       html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/${d}"><link rel="canonical" href="${config.site.baseUrl}/${d}"></head><body></body></html>`;
@@ -32,7 +35,29 @@ export async function generatePages(routes, seoData, links, data, config) {
 
 // ── SEO Head ──────────────────────────────────────────────────────────────
 
-function renderHead(seo, config, toolIndex) {
+function renderAnalyticsSnippet(analytics) {
+  if (!analytics?.enabled || !analytics?.provider) return '';
+  const p = analytics.provider;
+  const cfg = analytics.providers?.[p];
+  if (!cfg) return '';
+  if (p === 'ga4' && cfg.measurementId) {
+    return `  <script async src="https://www.googletagmanager.com/gtag/js?id=${cfg.measurementId}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${cfg.measurementId}');</script>`;
+  }
+  if (p === 'gtm' && cfg.containerId) {
+    return `  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${cfg.containerId}');</script>`;
+  }
+  if (p === 'plausible' && cfg.domain) {
+    return `  <script defer data-domain="${cfg.domain}" src="${cfg.src || 'https://plausible.io/js/script.js'}"></script>`;
+  }
+  if (p === 'umami' && cfg.websiteId) {
+    return `  <script defer data-website-id="${cfg.websiteId}" src="${cfg.src || 'https://analytics.umami.is/script.js'}"></script>`;
+  }
+  return '';
+}
+
+function renderHead(seo, config, toolIndex, opts = {}) {
+  const { ads = null, analytics = null, isLegal = false } = opts;
   const schemas = (seo.schemas || [])
     .map(s => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
     .join('\n');
@@ -44,6 +69,14 @@ function renderHead(seo, config, toolIndex) {
   const xDefault = seo.hreflangDefault
     ? `  <link rel="alternate" hreflang="x-default" href="${seo.hreflangDefault}">`
     : '';
+
+  // AdSense publisher script (non-legal pages only, when client ID is configured)
+  const adsenseScript = (!isLegal && ads?.enabled && ads?.clientId && !ads.clientId.includes('XXXX'))
+    ? `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ads.clientId}" crossorigin="anonymous"></script>`
+    : '';
+
+  // Provider-agnostic analytics snippet
+  const analyticsSnippet = renderAnalyticsSnippet(analytics);
 
   // Inline theme init to prevent flash of unstyled content
   const themeInit = `<script>try{var t=JSON.parse(localStorage.getItem('dac_settings')||'{}').theme||'auto';document.documentElement.dataset.theme=t==='auto'?(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'):t;}catch(e){}</script>`;
@@ -77,6 +110,8 @@ ${xDefault}
   <link rel="stylesheet" href="/assets/css/main.css">
   ${themeInit}
   ${toolIndexScript}
+${adsenseScript}
+${analyticsSnippet}
 ${schemas}`;
 }
 
@@ -198,11 +233,11 @@ function renderFooter(langCode, config, categories, popularTools) {
     <div class="dac-footer__col">
       <h3 class="dac-footer__col-title">Company</h3>
       <div class="dac-footer__col-links">
-        <a href="/${langCode}/about" class="dac-footer__link">About</a>
-        <a href="/${langCode}/blog" class="dac-footer__link">Blog</a>
-        <a href="/${langCode}/contact" class="dac-footer__link">Contact</a>
+        <a href="/about" class="dac-footer__link">About</a>
+        <a href="/press" class="dac-footer__link">Press</a>
         <a href="/${langCode}/privacy-policy" class="dac-footer__link">Privacy Policy</a>
         <a href="/${langCode}/terms-of-service" class="dac-footer__link">Terms of Service</a>
+        <a href="/${langCode}/disclaimer" class="dac-footer__link">Disclaimer</a>
       </div>
     </div>
   </div>
@@ -590,14 +625,16 @@ function renderToolPage(route, seo, relatedTools, data, config) {
   const breadcrumbHtml = renderBreadcrumb(seo.breadcrumbs || []);
   const toolIndex = buildToolIndex(data.tools, langCode);
 
+  const headOpts = { ads: data.ads, analytics: data.analytics };
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
 <head>
-${renderHead(seo, config, toolIndex)}
+${renderHead(seo, config, toolIndex, headOpts)}
 </head>
 <body class="dac-page dac-page--tool">
 
 ${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
+
 
 <nav class="dac-breadcrumb" aria-label="Breadcrumb">
   ${breadcrumbHtml}
@@ -909,10 +946,11 @@ function renderDevToolPage(route, seo, relatedTools, data, config) {
     `data-extra-options="${esc(extraOptions)}"`,
   ].join('\n         ');
 
+  const headOpts = { ads: data.ads, analytics: data.analytics };
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
 <head>
-${renderHead(seo, config, toolIndex)}
+${renderHead(seo, config, toolIndex, headOpts)}
 </head>
 <body class="dac-page dac-page--tool dac-page--developer">
 
@@ -1048,10 +1086,11 @@ function renderCategoryPage(route, seo, data, config) {
   const breadcrumbHtml = renderBreadcrumb(seo.breadcrumbs || []);
   const toolIndex = buildToolIndex(data.tools, langCode);
 
+  const headOpts = { ads: data.ads, analytics: data.analytics };
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
 <head>
-${renderHead(seo, config, toolIndex)}
+${renderHead(seo, config, toolIndex, headOpts)}
 </head>
 <body class="dac-page dac-page--category">
 
@@ -1140,10 +1179,11 @@ function renderHubPage(route, seo, data, config) {
   const adBottom = renderAdBlock('bottom', ads, langCode);
   const toolIndex = buildToolIndex(data.tools, langCode);
 
+  const headOpts = { ads: data.ads, analytics: data.analytics };
   return `<!DOCTYPE html>
 <html lang="${langCode}" dir="ltr">
 <head>
-${renderHead(seo, config, toolIndex)}
+${renderHead(seo, config, toolIndex, headOpts)}
 </head>
 <body class="dac-page dac-page--hub">
 
@@ -1244,6 +1284,184 @@ function inputFormatsLabel(tool) {
 
 function outputFormatsLabel(tool) {
   return tool.outputFormats.map(f => f.label).join('/');
+}
+
+// ── Legal Pages ────────────────────────────────────────────────────────────
+
+function getLegalContent(slug) {
+  switch (slug) {
+    case 'privacy-policy': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">1. Overview</h2>
+        <p>DropAnyConvert is a browser-based file conversion platform. We are committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">2. Data We Do Not Collect</h2>
+        <p>All file conversions run entirely in your browser using standard Web APIs (Canvas, WebAssembly, Web Crypto). <strong>Your files are never uploaded to any server.</strong> We cannot see, store, or access the files you process.</p>
+        <p>We do not require account registration. We do not collect names, email addresses, or any personally identifiable information.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">3. Local Storage</h2>
+        <p>We use browser <code>localStorage</code> to store your preferences (theme, recent tools, favourites). This data never leaves your device and is not transmitted to us.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">4. Analytics</h2>
+        <p>If analytics are enabled on your deployment, we may collect aggregated, anonymised usage data (page views, tool usage frequency) to improve the service. No personal data or file content is included. See our <a href="cookie-policy" rel="noopener">Cookie Policy</a> for details.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">5. Advertising</h2>
+        <p>We display advertisements via Google AdSense. Google may use cookies to serve personalised ads based on your browsing activity. You can opt out via <a href="https://adssettings.google.com" rel="noopener noreferrer" target="_blank">Google Ad Settings</a> or by enabling Do Not Track in your browser.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">6. Your Rights (GDPR)</h2>
+        <p>If you are located in the European Economic Area, you have the right to access, rectify, and erase personal data we hold about you. Because we hold no personal data beyond anonymous analytics, there is typically nothing to erase. For advertising-related data, please refer to Google's privacy controls.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">7. Children's Privacy</h2>
+        <p>DropAnyConvert does not knowingly collect data from children under 13. If you believe a child has provided personal information, please contact us and we will take appropriate action.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">8. Changes to This Policy</h2>
+        <p>We may update this policy periodically. The "Last Updated" date at the top of this page indicates when the most recent revision was made. Continued use of the service constitutes acceptance of the updated policy.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">9. Contact</h2>
+        <p>For privacy inquiries, contact us at <a href="mailto:privacy@dropanyconvert.com">privacy@dropanyconvert.com</a>.</p>
+      </section>`;
+
+    case 'terms-of-service': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">1. Acceptance</h2>
+        <p>By accessing or using DropAnyConvert, you agree to be bound by these Terms of Service. If you do not agree, please do not use the service.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">2. License to Use</h2>
+        <p>We grant you a limited, non-exclusive, non-transferable, revocable licence to use DropAnyConvert for personal and commercial purposes, subject to these Terms.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">3. Acceptable Use</h2>
+        <p>You agree not to use DropAnyConvert to process files that contain malware, violate third-party intellectual property rights, or contravene applicable law. You are solely responsible for the content of any files you process.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">4. No Warranties</h2>
+        <p>DropAnyConvert is provided "as is" and "as available" without warranties of any kind, express or implied. We do not warrant that the service will be uninterrupted, error-free, or that output files will be accurate or fit for any particular purpose.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">5. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, DropAnyConvert and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the service.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">6. Intellectual Property</h2>
+        <p>The DropAnyConvert name, logo, and platform code are proprietary. You retain all rights to any files you process. You grant no rights to us by using the service — we never receive your files.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">7. Changes and Termination</h2>
+        <p>We reserve the right to modify or discontinue the service at any time without notice. We may also revise these Terms at any time. Continued use after changes constitutes acceptance.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">8. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with applicable law. Any disputes shall be subject to the exclusive jurisdiction of the competent courts.</p>
+      </section>`;
+
+    case 'cookie-policy': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">1. What Are Cookies?</h2>
+        <p>Cookies are small text files stored in your browser. DropAnyConvert uses cookies and similar technologies minimally and only for the purposes described below.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">2. Essential Storage (localStorage)</h2>
+        <p>We use browser <code>localStorage</code> (not cookies) to remember your preferences: colour theme, recently used tools, and favourites. This storage is local to your device and is never transmitted to a server.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">3. Advertising Cookies (Google AdSense)</h2>
+        <p>We display ads via Google AdSense. Google sets cookies (<code>IDE</code>, <code>DSID</code>, and others) to serve personalised advertisements based on your interests. These cookies are set by Google domains, not by us. You can manage these preferences at <a href="https://adssettings.google.com" rel="noopener noreferrer" target="_blank">Google Ad Settings</a>.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">4. Analytics Cookies (optional)</h2>
+        <p>If analytics are enabled, anonymous usage data may be collected to help us understand how the service is used. No personal data is included. The analytics provider may set session cookies. You can opt out via your browser's Do Not Track setting or by using a browser extension such as uBlock Origin.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">5. How to Manage Cookies</h2>
+        <p>You can control cookies through your browser settings. Blocking all cookies may affect the functionality of some websites, but DropAnyConvert's core conversion tools will continue to work because they do not rely on cookies.</p>
+      </section>`;
+
+    case 'disclaimer': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">1. General Disclaimer</h2>
+        <p>The information and tools provided by DropAnyConvert are for general informational and utility purposes only. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or fitness for a particular purpose of any output produced by the tools.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">2. File Conversion Accuracy</h2>
+        <p>File conversions are performed using browser APIs (Canvas, WebAssembly) and open-source libraries. Output quality may vary depending on the input file, browser version, and device capabilities. Always verify output files before relying on them for critical purposes.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">3. No Liability for File Loss</h2>
+        <p>DropAnyConvert processes files entirely within your browser. We are not responsible for any data loss, corruption, or unintended modification of your files. We strongly recommend keeping backups of original files before conversion.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">4. Third-Party Links</h2>
+        <p>Our service may contain links to third-party websites. We have no control over the content or privacy practices of these sites and accept no responsibility for them.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">5. No Guarantee of Availability</h2>
+        <p>We do not guarantee that DropAnyConvert will be available at all times or that it will be free from errors or interruptions. We may suspend, withdraw, or restrict the availability of all or any part of the service at any time.</p>
+      </section>`;
+
+    default: return '<p>Page not found.</p>';
+  }
+}
+
+function renderLegalPage(route, seo, data, config) {
+  const langCode = route.lang;
+  const legalPage = route.legal;
+  const pageTitle = legalPage.titles[langCode] || legalPage.titles.en;
+  const isEnglish = langCode === 'en';
+
+  const breadcrumbHtml = renderBreadcrumb(seo.breadcrumbs || []);
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, isLegal: true };
+
+  const langNotice = !isEnglish
+    ? `<div style="background:var(--dac-surface-2,#f3f4f6);border-left:3px solid var(--dac-primary,#6366f1);padding:.75rem 1rem;margin-bottom:1.5rem;font-size:.875rem">
+        This document is only available in English. The English version governs in all cases.
+      </div>`
+    : '';
+
+  const content = getLegalContent(legalPage.slug);
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page dac-page--legal">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${breadcrumbHtml}
+</nav>
+
+<main class="dac-main" id="main" style="max-width:760px;margin:0 auto;padding:2rem 1.5rem 4rem">
+  <h1 style="font-size:2rem;margin-bottom:.5rem">${esc(pageTitle)}</h1>
+  <p style="font-size:.875rem;color:var(--dac-text-muted,#666);margin-bottom:2rem">Last updated: ${esc(legalPage.lastUpdated)}</p>
+
+  ${langNotice}
+
+  <div class="dac-legal-body" style="line-height:1.75;color:var(--dac-text,#111)">
+    ${content}
+  </div>
+
+  <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--dac-border,#e5e7eb)">
+    <a href="/${langCode}" class="dac-btn dac-btn--ghost">← Back to tools</a>
+  </div>
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
 }
 
 // ── HTML Escape ────────────────────────────────────────────────────────────

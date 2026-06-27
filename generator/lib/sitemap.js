@@ -15,18 +15,18 @@ export async function generateSitemaps(routes, config) {
   // Per-language sitemap
   for (const lang of langCodes) {
     const langRoutes = routes.filter(r =>
-      r.lang === lang && (r.type === 'tool' || r.type === 'category' || r.type === 'home')
+      r.lang === lang && (r.type === 'tool' || r.type === 'category' || r.type === 'home' || r.type === 'legal')
     );
 
-    // Deterministic order: home → categories → tools
+    // Deterministic order: home → categories → tools → legal
     const sorted = [...langRoutes].sort((a, b) => {
-      const order = { home: 0, category: 1, tool: 2 };
-      return (order[a.type] ?? 3) - (order[b.type] ?? 3) || a.path.localeCompare(b.path);
+      const order = { home: 0, category: 1, tool: 2, legal: 3 };
+      return (order[a.type] ?? 4) - (order[b.type] ?? 4) || a.path.localeCompare(b.path);
     });
 
     const urls = sorted.map(r => {
-      const priority   = r.type === 'home' ? '1.0' : r.type === 'category' ? '0.9' : '0.8';
-      const changefreq = r.type === 'home' ? 'weekly' : r.type === 'category' ? 'weekly' : 'monthly';
+      const priority   = r.type === 'home' ? '1.0' : r.type === 'category' ? '0.9' : r.type === 'legal' ? '0.3' : '0.8';
+      const changefreq = r.type === 'home' ? 'weekly' : r.type === 'category' ? 'weekly' : r.type === 'legal' ? 'yearly' : 'monthly';
       return `  <url>
     <loc>${baseUrl}${r.path}</loc>
     <lastmod>${lastmod}</lastmod>

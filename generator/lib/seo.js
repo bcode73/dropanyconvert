@@ -144,6 +144,48 @@ export async function generateSeo(routes, data, config) {
         breadcrumbs,
         schemas: [breadcrumbSchema, ...(itemListSchema ? [itemListSchema] : [])],
       });
+    } else if (route.type === 'legal') {
+      const legalPage = route.legal;
+      const pageTitle = legalPage.titles[langCode] || legalPage.titles.en;
+      const title = `${pageTitle} — ${config.site.name}`;
+      const canonical = `${baseUrl}${route.path}`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: pageTitle, url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((crumb, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: crumb.name,
+          item: crumb.url,
+        })),
+      };
+
+      seoData.set(route.path, {
+        title,
+        description: legalPage.description,
+        canonical,
+        h1: pageTitle,
+        robots: 'index, follow',
+        ogTitle: title,
+        ogDescription: legalPage.description,
+        ogUrl: canonical,
+        ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary',
+        twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [],
+        hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs,
+        schemas: [breadcrumbSchema],
+        lastUpdated: legalPage.lastUpdated,
+      });
     } else if (route.type === 'home') {
       const canonical = `${baseUrl}${route.path}`;
       const homeDesc = globalSeo.homeDescription?.[langCode] || globalSeo.homeDescription?.en || config.site.tagline;

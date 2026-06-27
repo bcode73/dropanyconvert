@@ -69,6 +69,22 @@ export async function buildRegistry(data, config) {
     });
   }
 
+  // Legal page routes (per language)
+  if (data.legal?.pages) {
+    for (const [, legalPage] of Object.entries(data.legal.pages)) {
+      for (const lang of data.languages) {
+        routes.push({
+          type: 'legal',
+          lang: lang.code,
+          slug: legalPage.slug,
+          path: `/${lang.code}/${legalPage.slug}`,
+          legal: legalPage,
+          language: lang,
+        });
+      }
+    }
+  }
+
   // Root redirect
   routes.push({
     type: 'root',

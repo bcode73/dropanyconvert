@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -289,6 +289,18 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     // Authority Graph (Phase 20)
     authority_graph: buildAuthorityDashboard(graph),
 
+    // Content Quality (Phase 23)
+    content_quality: {
+      pages_enriched:    contentQualityStats?.pages_enriched    ?? 0,
+      avg_faq_count:     contentQualityStats?.avg_faq_count     ?? 0,
+      avg_quality_score: contentQualityStats?.avg_quality_score ?? 0,
+      avg_word_count:    contentQualityStats?.avg_word_count    ?? 0,
+      duplicate_pairs:   contentQualityStats?.duplicate_pairs   ?? 0,
+      pairs_checked:     contentQualityStats?.pairs_checked     ?? 0,
+      duplicate_warnings: (dupResult?.warnings || []).slice(0, 20),
+      sections_added: ['examples', 'use-cases', 'reading-quality-badge', 'enriched-faq'],
+    },
+
     // API Platform (Phase 22)
     api_platform: {
       openapi_version:   '3.1.0',
@@ -402,6 +414,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  SEO:      ${seoStatus}`,
     `  Indexing: ${(indexingValidation?.errors || []).length} errors, ${(indexingValidation?.warnings || []).length} warnings | sitemap:${indexingValidation?.stats?.sitemap_urls || 0} urls`,
     `  API:      ${apiStats?.endpoints ?? 0} endpoints | ${apiStats?.total_pages ?? 0} doc pages | ${apiStats?.sdks ?? 0} SDKs | validator: ${apiValidation?.warnings?.length ?? 0} warnings`,
+    `  Quality:  avg FAQs: ${contentQualityStats?.avg_faq_count ?? 0} | avg score: ${contentQualityStats?.avg_quality_score ?? 0}/100 | avg words: ${contentQualityStats?.avg_word_count ?? 0} | dupe pairs: ${contentQualityStats?.duplicate_pairs ?? 0}/${contentQualityStats?.pairs_checked ?? 0}`,
   ].join('\n');
 
   try {

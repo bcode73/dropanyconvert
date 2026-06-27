@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T22:43:51.842Z",
-  "elapsed_ms": 6015,
+  "timestamp": "2026-06-27T22:57:50.138Z",
+  "elapsed_ms": 2728,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 1806,
-  "output_size_kb": 115483,
+  "output_size_kb": 118292,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -80,7 +80,7 @@
     "duplicate_title_count": 766,
     "duplicate_desc_count": 604,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 99536,
+    "largest_page_bytes": 105803,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "15.0.0"
@@ -453,6 +453,42 @@
       "avg_keywords": "6.4"
     }
   },
+  "content_quality": {
+    "pages_enriched": 82,
+    "avg_faq_count": 14,
+    "avg_quality_score": 91,
+    "avg_word_count": 527,
+    "duplicate_pairs": 273,
+    "pairs_checked": 1284,
+    "duplicate_warnings": [
+      "[en/image] Intro similarity 94% between \"avif-to-png\" and \"gif-to-png\"",
+      "[en/image] Conclusion similarity 92% between \"avif-to-png\" and \"gif-to-png\"",
+      "[en/image] Intro similarity 100% between \"avif-to-png\" and \"png-to-avif\"",
+      "[en/image] Conclusion similarity 100% between \"avif-to-png\" and \"png-to-avif\"",
+      "[en/image] Intro similarity 89% between \"avif-to-png\" and \"png-to-webp\"",
+      "[en/image] Conclusion similarity 85% between \"avif-to-png\" and \"png-to-webp\"",
+      "[en/image] Intro similarity 89% between \"avif-to-png\" and \"webp-to-png\"",
+      "[en/image] Conclusion similarity 85% between \"avif-to-png\" and \"webp-to-png\"",
+      "[en/image] Intro similarity 83% between \"base64-to-image\" and \"image-compressor\"",
+      "[en/image] Conclusion similarity 81% between \"base64-to-image\" and \"image-compressor\"",
+      "[en/image] Intro similarity 89% between \"base64-to-image\" and \"image-to-base64\"",
+      "[en/image] Conclusion similarity 88% between \"base64-to-image\" and \"image-to-base64\"",
+      "[en/image] Intro similarity 95% between \"bmp-to-png\" and \"gif-to-webp\"",
+      "[en/image] Conclusion similarity 93% between \"bmp-to-png\" and \"gif-to-webp\"",
+      "[en/image] Intro similarity 100% between \"bmp-to-png\" and \"png-to-bmp\"",
+      "[en/image] Conclusion similarity 100% between \"bmp-to-png\" and \"png-to-bmp\"",
+      "[en/image] Intro similarity 94% between \"gif-to-png\" and \"png-to-avif\"",
+      "[en/image] Conclusion similarity 92% between \"gif-to-png\" and \"png-to-avif\"",
+      "[en/image] Intro similarity 94% between \"gif-to-png\" and \"png-to-webp\"",
+      "[en/image] Conclusion similarity 92% between \"gif-to-png\" and \"png-to-webp\""
+    ],
+    "sections_added": [
+      "examples",
+      "use-cases",
+      "reading-quality-badge",
+      "enriched-faq"
+    ]
+  },
   "api_platform": {
     "openapi_version": "3.1.0",
     "endpoints": 82,
@@ -564,7 +600,7 @@
   "performance_audit": {
     "js_size_kb": 59,
     "css_size_kb": 59,
-    "html_size_kb": 115483,
+    "html_size_kb": 118292,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

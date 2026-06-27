@@ -1,4 +1,11 @@
 import { renderAdBlock } from './ads.js';
+import {
+  enrichTool,
+  renderExamplesSection,
+  renderUseCasesSection,
+  renderReadingQualityBadge,
+  renderEnrichedFaq,
+} from './content-engine.js';
 
 // ── HTML Minifier ─────────────────────────────────────────────────────────────
 // Safe whitespace collapse: preserves <pre>, <script>, <style>, <textarea> content.
@@ -28,6 +35,16 @@ function minifyHtml(html) {
  */
 export async function generatePages(routes, seoData, links, data, config) {
   const pages = [];
+
+  // Pre-compute tool enrichments (Phase 23) — once per unique tool slug
+  const enrichmentCache = new Map();
+  for (const tool of data.tools) {
+    if (!enrichmentCache.has(tool.slug)) {
+      enrichmentCache.set(tool.slug, enrichTool(tool, data));
+    }
+  }
+  // Expose for duplicate detection in index.js
+  generatePages._enrichmentCache = enrichmentCache;
 
   // Build article prev/next map once
   const sortedArticles = [...(data.articles || [])].sort((a, b) =>
@@ -852,13 +869,18 @@ function renderToolPage(route, seo, toolLinks, data, config) {
 
   const tool = route.tool;
   const langCode = route.lang;
+
+  // Phase 23 enrichment
+  const enrichment   = (generatePages._enrichmentCache || new Map()).get(tool.slug) || enrichTool(tool, data);
+  const { variants, examples, faqs, useCases, readingQuality } = enrichment;
   const lang = route.language;
   const ui = lang.ui;
   const ads = data.ads;
 
   const toolName = tool.name[langCode] || tool.name.en;
   const h1 = seo.h1 || toolName;
-  const intro = tool.seo.intro?.[langCode] || tool.seo.intro?.en || '';
+  // Phase 23: use engine-generated unique intro when no lang-specific intro exists
+  const intro = tool.seo.intro?.[langCode] || tool.seo.intro?.en || variants.intro;
   const inputAccept = tool.inputFormats.join(',');
   const category = data.categories.find(c => c.id === tool.category);
   const hasQuality    = tool.capabilities.includes('quality-control');
@@ -1155,13 +1177,8 @@ function renderToolPage(route, seo, toolLinks, data, config) {
       </div>`
   ).join('\n      ');
 
-  // ── FAQ ───────────────────────────────────────────────────────────────
-  const faqHtml = tool.faq.map(item =>
-    `<details class="dac-faq__item">
-      <summary class="dac-faq__question">${esc(item.question[langCode] || item.question.en)}</summary>
-      <div class="dac-faq__answer">${esc(item.answer[langCode] || item.answer.en)}</div>
-    </details>`
-  ).join('\n    ');
+  // ── FAQ (Phase 23 — enriched, 8–15 questions) ────────────────────────
+  const faqHtml = renderEnrichedFaq(faqs, langCode);
 
   // ── Related tools ─────────────────────────────────────────────────────
   const relatedHtml = relatedTools.map(r =>
@@ -1350,11 +1367,20 @@ ${adTop}
     </div>
   </section>` : ''}
 
+  <!-- Phase 23: Reading Quality Badge -->
+  ${renderReadingQualityBadge(readingQuality)}
+
+  <!-- Phase 23: Common Use Cases / Examples -->
+  ${renderExamplesSection(examples)}
+
   <!-- FAQ -->
   <section class="dac-faq" aria-labelledby="dac-faq-title">
     <h2 class="dac-section-title" id="dac-faq-title">${esc(ui.faq)}</h2>
     ${faqHtml}
   </section>
+
+  <!-- Phase 23: When to Use / Use Cases -->
+  ${renderUseCasesSection(useCases, toolName)}
 
   <!-- Related Tools -->
   ${relatedHtml ? `<section class="dac-related" aria-labelledby="dac-related-title">
@@ -1418,7 +1444,12 @@ function renderDevToolPage(route, seo, toolLinks, data, config) {
   const ui       = lang.ui;
   const ads      = data.ads;
   const devOpts  = tool.devOptions || {};
-  const intro    = tool.seo.intro?.[langCode] || tool.seo.intro?.en || '';
+
+  // Phase 23 enrichment
+  const enrichment = (generatePages._enrichmentCache || new Map()).get(tool.slug) || enrichTool(tool, data);
+  const { variants: devVariants, examples: devExamples, faqs: devFaqs, useCases: devUseCases, readingQuality: devRQ } = enrichment;
+
+  const intro    = tool.seo.intro?.[langCode] || tool.seo.intro?.en || devVariants.intro;
   const toolName = tool.name[langCode] || tool.name.en;
   const h1       = seo.h1 || toolName;
 
@@ -1516,14 +1547,9 @@ function renderDevToolPage(route, seo, toolLinks, data, config) {
 
   const statusBar = `<p class="dac-dev-status" id="dac-dev-status" hidden aria-live="polite"></p>`;
 
-  // ── FAQ ───────────────────────────────────────────────────────────────────
+  // ── FAQ (Phase 23 — enriched) ─────────────────────────────────────────────
 
-  const faqHtml = tool.faq.map(item =>
-    `<details class="dac-faq__item">
-      <summary class="dac-faq__question">${esc(item.question[langCode] || item.question.en)}</summary>
-      <div class="dac-faq__answer">${esc(item.answer[langCode] || item.answer.en)}</div>
-    </details>`
-  ).join('\n    ');
+  const faqHtml = renderEnrichedFaq(devFaqs, langCode);
 
   // ── Features ──────────────────────────────────────────────────────────────
 
@@ -1657,6 +1683,16 @@ ${adTop}
   <h2 class="dac-section-title">File Format Reference</h2>
   <div class="dac-entity-chips">${linkerEntities.map(e => `<a href="${esc(e.path)}" class="dac-entity-chip">${esc(e.name)}</a>`).join('')}</div>
 </section>` : ''}
+
+  <!-- Phase 23: Reading Quality Badge -->
+  ${renderReadingQualityBadge(devRQ)}
+
+  <!-- Phase 23: Common Use Cases -->
+  ${renderExamplesSection(devExamples)}
+
+  <!-- Phase 23: When to Use -->
+  ${renderUseCasesSection(devUseCases, tool.name[langCode] || tool.name.en)}
+
   ${renderToolBadges(tool)}
   ${renderCompatibilityTable(tool, langCode)}
   ${renderPerformanceMetrics(tool)}

@@ -12,9 +12,10 @@
     "build": "node generator/index.js",
     "build:clean": "npm run prebuild-vendor && node scripts/copy-vendor.js && rm -rf dist && node generator/index.js",
     "validate": "node generator/index.js --validate-only",
-    "preview": "npx serve dist",
+    "preview": "wrangler dev",
     "lint": "node --experimental-vm-modules node_modules/.bin/eslint generator/ engines/",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "deploy": "wrangler deploy"
   },
   "keywords": [
     "converter",
@@ -34,5 +35,8 @@
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^6.0.227",
     "qrcode": "^1.5.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.105.0"
   }
 }

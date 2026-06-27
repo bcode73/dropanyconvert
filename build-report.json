@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T23:15:54.841Z",
-  "elapsed_ms": 2621,
+  "timestamp": "2026-06-27T23:28:09.593Z",
+  "elapsed_ms": 3445,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 1814,
-  "output_size_kb": 118533,
+  "output_size_kb": 119021,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -80,7 +80,7 @@
     "duplicate_title_count": 766,
     "duplicate_desc_count": 604,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 105803,
+    "largest_page_bytes": 108313,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "15.0.0"
@@ -532,6 +532,42 @@
       "warnings_total": 5
     }
   },
+  "seo_sweep": {
+    "total_internal_links": 70695,
+    "avg_outgoing_links": 40,
+    "anchor_diversity_score": 85,
+    "metadata_quality_score": 58,
+    "crawl_optimization_score": 100,
+    "image_seo_score": 92,
+    "broken_link_warnings": 46,
+    "link_health_score": 100,
+    "pages_with_prev_next": 55,
+    "canonical_issues": 0,
+    "metadata_warnings": 81,
+    "metadata_stats": {
+      "pages_checked": 1225,
+      "title_ok": 604,
+      "desc_ok": 823,
+      "og_ok": 1194,
+      "twitter_ok": 997,
+      "missing_og_image": 0,
+      "missing_canonical": 0,
+      "metadata_score": 58
+    },
+    "link_health_stats": {
+      "pages_checked": 1784,
+      "total_links": 115513,
+      "broken_links": 46,
+      "empty_hrefs": 2505,
+      "duplicate_ids": 0,
+      "health_score": 100
+    },
+    "crawl_stats": {
+      "routes_with_prev_next": 55,
+      "canonical_issues": 0,
+      "article_sequences": 5
+    }
+  },
   "premium_architecture": {
     "stats": {
       "plans": 3,
@@ -623,7 +659,7 @@
   "performance_audit": {
     "js_size_kb": 59,
     "css_size_kb": 59,
-    "html_size_kb": 118533,
+    "html_size_kb": 119021,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

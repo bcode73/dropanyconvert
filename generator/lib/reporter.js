@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -331,6 +331,24 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       validator_stats:      (datasetValidation?.stats ?? {}),
     },
 
+    // SEO Sweep (Phase 25)
+    seo_sweep: {
+      total_internal_links:     seoSweepMetrics?.total_internal_links     ?? 0,
+      avg_outgoing_links:       seoSweepMetrics?.avg_outgoing_links       ?? 0,
+      anchor_diversity_score:   seoSweepMetrics?.anchor_diversity_score   ?? 0,
+      metadata_quality_score:   seoSweepMetrics?.metadata_quality_score   ?? 0,
+      crawl_optimization_score: seoSweepMetrics?.crawl_optimization_score ?? 0,
+      image_seo_score:          seoSweepMetrics?.image_seo_score          ?? 0,
+      broken_link_warnings:     seoSweepMetrics?.broken_link_warnings     ?? 0,
+      link_health_score:        seoSweepMetrics?.link_health_score        ?? 0,
+      pages_with_prev_next:     seoSweepMetrics?.pages_with_prev_next     ?? 0,
+      canonical_issues:         seoSweepMetrics?.canonical_issues         ?? 0,
+      metadata_warnings:        (metaValidation?.warnings?.length ?? 0),
+      metadata_stats:           (metaValidation?.stats ?? {}),
+      link_health_stats:        (linkHealth?.stats ?? {}),
+      crawl_stats:              (crawlHints?.stats ?? {}),
+    },
+
     // Premium Architecture (Phase 21)
     premium_architecture: {
       stats:    premiumValidation?.stats    || {},
@@ -432,6 +450,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  API:      ${apiStats?.endpoints ?? 0} endpoints | ${apiStats?.total_pages ?? 0} doc pages | ${apiStats?.sdks ?? 0} SDKs | validator: ${apiValidation?.warnings?.length ?? 0} warnings`,
     `  Quality:  avg FAQs: ${contentQualityStats?.avg_faq_count ?? 0} | avg score: ${contentQualityStats?.avg_quality_score ?? 0}/100 | avg words: ${contentQualityStats?.avg_word_count ?? 0} | dupe pairs: ${contentQualityStats?.duplicate_pairs ?? 0}/${contentQualityStats?.pairs_checked ?? 0}`,
     `  Dataset:  ${datasetStats?.formats ?? 0} formats | ${datasetStats?.conversionPairs ?? 0} conversion pairs | ${datasetStats?.searchItems ?? 0} search items | ${datasetStats?.filesEmitted ?? 0} JSON files | ${datasetValidation?.warnings?.length ?? 0} warnings`,
+    `  SEO P25:  links: ${seoSweepMetrics?.total_internal_links ?? 0} | anchor diversity: ${seoSweepMetrics?.anchor_diversity_score ?? 0}% | meta quality: ${seoSweepMetrics?.metadata_quality_score ?? 0}% | link health: ${seoSweepMetrics?.link_health_score ?? 0}% | broken: ${seoSweepMetrics?.broken_link_warnings ?? 0}`,
   ].join('\n');
 
   try {

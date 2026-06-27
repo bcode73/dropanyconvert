@@ -19,9 +19,10 @@ function relatedQuota(authority) {
 }
 
 function knowledgeQuota(authority, type) {
-  const base = authority >= 50 ? 4 : 3;
-  if (type === 'glossary') return base + 1;
-  return base;
+  if (type === 'article')    return authority >= 50 ? 6 : 4;   // 4–6 guides (Part 3)
+  if (type === 'glossary')   return authority >= 50 ? 5 : 3;   // 3–5 glossary terms
+  if (type === 'comparison') return authority >= 50 ? 5 : 3;   // 3–5 comparisons
+  return authority >= 50 ? 5 : 3;
 }
 
 export async function generateInternalLinks(routes, data, config, graph = null) {
@@ -224,7 +225,7 @@ export async function generateInternalLinks(routes, data, config, graph = null) 
         (e.relatedTools || []).includes(tool.slug) ||
         (e.mimeTypes || []).some(m => toolMimeSet.has(m))
       )
-      .slice(0, 4)
+      .slice(0, 5)
       .map(e => ({
         slug: e.slug,
         name: e.name,

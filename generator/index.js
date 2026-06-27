@@ -31,6 +31,7 @@ import { detectDuplicates, buildDuplicateInputs } from './lib/duplicate-detector
 import { enrichTool } from './lib/content-engine.js';
 import { generateDatasetFiles } from './lib/dataset-engine.js';
 import { validateDatasets } from './lib/dataset-validator.js';
+import { validateLinkHealth, validateMetadata, buildCrawlHints, computeSeoSweepMetrics } from './lib/seo-sweep.js';
 
 async function build() {
   const startTime = Date.now();
@@ -194,9 +195,23 @@ async function build() {
   const emitResult = await emitDist({ pages: [...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, staticFiles: [...staticFiles, openApiFile, apiSearchIndex, ...datasetFiles], aiFiles }, config);
   console.log(`  ✓ Dist emitted   (${emitResult.fileCount} files, ${emitResult.sizeKb} KB)`);
 
+  // 12a. Phase 25 — SEO Sweep validation (post-emit, report only)
+  const allEmittedPages = [...pages, ...dashboardPages, ...apiDocPages];
+  const linkHealth    = validateLinkHealth(allEmittedPages, routes);
+  const metaValidation = validateMetadata(seoData, config);
+  const crawlHints    = buildCrawlHints(routes, seoData);
+  const seoSweepMetrics = computeSeoSweepMetrics(allEmittedPages, routes, seoData, linkHealth, metaValidation, crawlHints);
+  if (linkHealth.warnings.length > 0) {
+    linkHealth.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ Link: ${w}`));
+  }
+  if (metaValidation.warnings.length > 0) {
+    metaValidation.warnings.slice(0, 2).forEach(w => console.warn(`  ⚠ Meta: ${w}`));
+  }
+  console.log(`  ✓ SEO sweep (links: ${seoSweepMetrics.total_internal_links}, anchor diversity: ${seoSweepMetrics.anchor_diversity_score}%, metadata: ${seoSweepMetrics.metadata_quality_score}%, broken: ${seoSweepMetrics.broken_link_warnings})`);
+
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

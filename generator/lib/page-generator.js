@@ -1180,13 +1180,25 @@ function renderToolPage(route, seo, toolLinks, data, config) {
   // ── FAQ (Phase 23 — enriched, 8–15 questions) ────────────────────────
   const faqHtml = renderEnrichedFaq(faqs, langCode);
 
-  // ── Related tools ─────────────────────────────────────────────────────
+  // ── Part 4: Anchor text diversity — varied anchors per related tool ──────
   const relatedHtml = relatedTools.map(r =>
     `<a href="${r.path}" class="dac-related-tool">
-        <span class="dac-related-tool__name">${esc(r.name)}</span>
+        <span class="dac-related-tool__name">${esc(diverseAnchorText(r.name, r.slug, tool.slug))}</span>
         ${r.tagline ? `<span class="dac-related-tool__tagline">${esc(r.tagline)}</span>` : ''}
       </a>`
   ).join('\n      ');
+
+  // ── Part 6: Table of Contents ─────────────────────────────────────────
+  const tocHeadings = [
+    { level: 2, text: 'How to Use', id: 'how-to-use' },
+    ...(tool.features?.length > 0 ? [{ level: 2, text: 'Features', id: 'features' }] : []),
+    { level: 2, text: 'Frequently Asked Questions', id: 'faq' },
+    ...(relatedTools.length > 0 ? [{ level: 2, text: 'Related Tools', id: 'related-tools' }] : []),
+    ...(guides.length > 0 ? [{ level: 2, text: 'Related Guides', id: 'related-guides' }] : []),
+    { level: 2, text: 'Compatibility', id: 'compatibility' },
+    { level: 2, text: 'Performance & Privacy', id: 'performance-privacy' },
+  ];
+  const tocHtml = renderTableOfContents(tocHeadings);
 
   // ── Related guides (from knowledge hub) ──────────────────────────────
   const guidesHtml = guides.length > 0 ? `<section class="dac-kh-related" aria-labelledby="dac-guides-title">
@@ -1351,8 +1363,11 @@ ${adTop}
     </div>
   </section>
 
+  <!-- Part 6: Table of Contents -->
+  ${tocHtml}
+
   <!-- How To -->
-  <section class="dac-howto" aria-labelledby="dac-howto-title">
+  <section class="dac-howto" aria-labelledby="dac-howto-title" id="how-to-use">
     <h2 class="dac-section-title" id="dac-howto-title">How to convert ${esc(inputFormatsLabel(tool))} to ${esc(outputFormatsLabel(tool))}</h2>
     <ol class="dac-howto__steps">
       ${howToHtml}
@@ -1360,7 +1375,7 @@ ${adTop}
   </section>
 
   <!-- Features -->
-  ${featuresHtml ? `<section class="dac-features" aria-label="${esc(ui.features)}">
+  ${featuresHtml ? `<section class="dac-features" aria-label="${esc(ui.features)}" id="features">
     <h2 class="dac-section-title">${esc(ui.features)}</h2>
     <div class="dac-features__grid">
       ${featuresHtml}
@@ -1374,7 +1389,7 @@ ${adTop}
   ${renderExamplesSection(examples)}
 
   <!-- FAQ -->
-  <section class="dac-faq" aria-labelledby="dac-faq-title">
+  <section class="dac-faq" aria-labelledby="dac-faq-title" id="faq">
     <h2 class="dac-section-title" id="dac-faq-title">${esc(ui.faq)}</h2>
     ${faqHtml}
   </section>
@@ -1383,7 +1398,7 @@ ${adTop}
   ${renderUseCasesSection(useCases, toolName)}
 
   <!-- Related Tools -->
-  ${relatedHtml ? `<section class="dac-related" aria-labelledby="dac-related-title">
+  ${relatedHtml ? `<section class="dac-related" aria-labelledby="dac-related-title" id="related-tools">
     <h2 class="dac-section-title" id="dac-related-title">${esc(ui.relatedTools)}</h2>
     <div class="dac-related__grid">
       ${relatedHtml}
@@ -1416,10 +1431,10 @@ ${adTop}
   ${renderToolBadges(tool)}
 
   <!-- Compatibility -->
-  ${renderCompatibilityTable(tool, langCode)}
+  <div id="compatibility">${renderCompatibilityTable(tool, langCode)}</div>
 
   <!-- Performance -->
-  ${renderPerformanceMetrics(tool)}
+  <div id="performance-privacy">${renderPerformanceMetrics(tool)}</div>
 
   ${adBottom}
 
@@ -4040,4 +4055,148 @@ function esc(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+// ── Phase 25 — Part 1: Image SEO ─────────────────────────────────────────────
+
+/**
+ * Builds an SEO-optimised <img> tag for tool icons / hero images.
+ * - Hero images get fetchpriority="high" and no lazy loading
+ * - All others get loading="lazy" decoding="async"
+ */
+export function renderSeoImage({ src, alt, width = 48, height = 48, isHero = false, className = '' }) {
+  const lazy   = isHero ? '' : ' loading="lazy"';
+  const decode  = isHero ? '' : ' decoding="async"';
+  const priority = isHero ? ' fetchpriority="high"' : '';
+  const cls     = className ? ` class="${esc(className)}"` : '';
+  return `<img src="${esc(src)}" alt="${esc(alt)}" width="${width}" height="${height}"${cls}${lazy}${decode}${priority}>`;
+}
+
+// ── Phase 25 — Part 4: Anchor Text Diversity ─────────────────────────────────
+
+const ANCHOR_TEMPLATES = [
+  (name) => name,
+  (name, slug) => `${slug.replace(/-/g, ' ')} tool`,
+  (name) => `convert ${name.toLowerCase()} online`,
+  (name) => `${name} converter`,
+  (name) => `free ${name.toLowerCase()}`,
+  (name) => `browser-based ${name.toLowerCase()}`,
+  (name) => `online ${name.toLowerCase()}`,
+  (name) => `${name.toLowerCase()} conversion`,
+];
+
+function djb2(str) {
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) + h) + str.charCodeAt(i);
+  return Math.abs(h >>> 0);
+}
+
+/**
+ * Returns varied anchor text for a tool link, deterministic per (callerSlug, targetSlug).
+ */
+export function diverseAnchorText(toolName, toolSlug, callerSlug) {
+  const seed = djb2(`${callerSlug}:${toolSlug}`);
+  const fn   = ANCHOR_TEMPLATES[seed % ANCHOR_TEMPLATES.length];
+  return fn(toolName, toolSlug);
+}
+
+// ── Phase 25 — Part 5: FAQ Schema Validation ─────────────────────────────────
+
+/**
+ * Deduplicates FAQ items by first 5-word question stem (case-insensitive).
+ * Returns a new array with no duplicate questions.
+ */
+export function deduplicateFaqs(faqs, langCode = 'en') {
+  const seen = new Set();
+  return faqs.filter(f => {
+    const q = (f.question?.[langCode] || f.question?.en || (typeof f.question === 'string' ? f.question : '')).toLowerCase();
+    const stem = q.split(/\s+/).slice(0, 5).join(' ');
+    if (seen.has(stem)) return false;
+    seen.add(stem);
+    return true;
+  });
+}
+
+/**
+ * Builds a valid FAQPage schema from deduplicated FAQ items.
+ */
+export function buildFaqSchema(faqs, langCode = 'en') {
+  const deduplicated = deduplicateFaqs(faqs, langCode);
+  if (deduplicated.length === 0) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: deduplicated.map(f => ({
+      '@type': 'Question',
+      name: f.question?.[langCode] || f.question?.en || (typeof f.question === 'string' ? f.question : ''),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer?.[langCode] || f.answer?.en || (typeof f.answer === 'string' ? f.answer : ''),
+      },
+    })),
+  };
+}
+
+// ── Phase 25 — Part 6: Table of Contents ─────────────────────────────────────
+
+/**
+ * Generates a TOC from a list of heading objects { level, text, id }.
+ * Skips pages with fewer than 3 headings.
+ */
+export function renderTableOfContents(headings) {
+  if (!headings || headings.length < 3) return '';
+  const items = headings.map(h =>
+    `<li class="dac-toc__item dac-toc__item--h${h.level}">
+      <a href="#${esc(h.id)}" class="dac-toc__link">${esc(h.text)}</a>
+    </li>`
+  ).join('\n    ');
+
+  return `<nav class="dac-toc" aria-label="Table of contents">
+  <h2 class="dac-toc__title">On this page</h2>
+  <ul class="dac-toc__list" id="dac-toc-list">
+    ${items}
+  </ul>
+</nav>
+<script>
+(function(){
+  var toc=document.getElementById('dac-toc-list');
+  if(!toc)return;
+  var links=[].slice.call(toc.querySelectorAll('.dac-toc__link'));
+  var targets=links.map(function(l){return document.querySelector(l.getAttribute('href'))});
+  function onScroll(){
+    var y=window.scrollY+80;
+    var active=null;
+    for(var i=0;i<targets.length;i++){if(targets[i]&&targets[i].offsetTop<=y)active=links[i];}
+    links.forEach(function(l){l.classList.remove('dac-toc__link--active');});
+    if(active)active.classList.add('dac-toc__link--active');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  toc.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');
+    if(!a)return;
+    e.preventDefault();
+    var target=document.querySelector(a.getAttribute('href'));
+    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+</script>`;
+}
+
+/**
+ * Extracts headings from an array of { heading, text } section items.
+ * Assigns stable anchor IDs based on heading text.
+ */
+export function extractHeadings(sections, baseHeadings = []) {
+  const headings = [...baseHeadings];
+  const seen = new Map();
+  for (const s of sections) {
+    const text = s.heading?.en || s.heading || '';
+    if (!text) continue;
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const count = seen.get(id) || 0;
+    seen.set(id, count + 1);
+    headings.push({ level: 2, text, id: count > 0 ? `${id}-${count}` : id });
+  }
+  return headings;
 }

@@ -29,6 +29,8 @@ import { generateApiDocPages, generateApiSearchIndex, getApiDocStats } from './l
 import { validateApiDocs } from './lib/api-validator.js';
 import { detectDuplicates, buildDuplicateInputs } from './lib/duplicate-detector.js';
 import { enrichTool } from './lib/content-engine.js';
+import { generateDatasetFiles } from './lib/dataset-engine.js';
+import { validateDatasets } from './lib/dataset-validator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -176,17 +178,25 @@ async function build() {
   apiValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ API: ${w}`));
   console.log(`  ✓ API platform generated (${apiStats.total_pages} pages, ${apiStats.endpoints} endpoints, ${apiStats.sdks} SDKs, ${apiValidation.warnings.length} warnings)`);
 
+  // 11f. Generate dataset files (Phase 24 — Research Center & AI Training Foundation)
+  const { files: datasetFiles, datasetStats, formatDb, convMatrix, capDb } = generateDatasetFiles(data, config);
+  const datasetValidation = validateDatasets(formatDb, convMatrix, capDb, data);
+  if (datasetValidation.warnings.length > 0) {
+    datasetValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ Dataset: ${w}`));
+  }
+  console.log(`  ✓ Dataset engine ran (${datasetStats.formats} formats, ${datasetStats.conversionPairs} pairs, ${datasetStats.filesEmitted} files, ${datasetValidation.warnings.length} warnings)`);
+
   // 11. Generate AI discoverability files (/llms.txt, /ai.txt)
   const aiFiles = generateAiDiscoverability(data, routes, config);
   console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
 
   // 12. Emit everything to dist/
-  const emitResult = await emitDist({ pages: [...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, staticFiles: [...staticFiles, openApiFile, apiSearchIndex], aiFiles }, config);
+  const emitResult = await emitDist({ pages: [...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, staticFiles: [...staticFiles, openApiFile, apiSearchIndex, ...datasetFiles], aiFiles }, config);
   console.log(`  ✓ Dist emitted   (${emitResult.fileCount} files, ${emitResult.sizeKb} KB)`);
 
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -315,6 +315,22 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       validator_stats:   (apiValidation?.stats ?? {}),
     },
 
+    // Dataset Engine (Phase 24)
+    dataset: {
+      formats:              datasetStats?.formats              ?? 0,
+      conversion_pairs:     datasetStats?.conversionPairs      ?? 0,
+      capability_tools:     datasetStats?.capabilityEntries    ?? 0,
+      comparison_pairs:     datasetStats?.comparisonPairs      ?? 0,
+      recommendation_rules: datasetStats?.recommendations      ?? 0,
+      search_items:         datasetStats?.searchItems          ?? 0,
+      knowledge_nodes:      datasetStats?.knowledgeNodes       ?? 0,
+      knowledge_relationships: datasetStats?.knowledgeRelationships ?? 0,
+      files_emitted:        datasetStats?.filesEmitted         ?? 0,
+      total_bytes:          datasetStats?.totalBytes           ?? 0,
+      validator_warnings:   (datasetValidation?.warnings?.length ?? 0),
+      validator_stats:      (datasetValidation?.stats ?? {}),
+    },
+
     // Premium Architecture (Phase 21)
     premium_architecture: {
       stats:    premiumValidation?.stats    || {},
@@ -415,6 +431,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Indexing: ${(indexingValidation?.errors || []).length} errors, ${(indexingValidation?.warnings || []).length} warnings | sitemap:${indexingValidation?.stats?.sitemap_urls || 0} urls`,
     `  API:      ${apiStats?.endpoints ?? 0} endpoints | ${apiStats?.total_pages ?? 0} doc pages | ${apiStats?.sdks ?? 0} SDKs | validator: ${apiValidation?.warnings?.length ?? 0} warnings`,
     `  Quality:  avg FAQs: ${contentQualityStats?.avg_faq_count ?? 0} | avg score: ${contentQualityStats?.avg_quality_score ?? 0}/100 | avg words: ${contentQualityStats?.avg_word_count ?? 0} | dupe pairs: ${contentQualityStats?.duplicate_pairs ?? 0}/${contentQualityStats?.pairs_checked ?? 0}`,
+    `  Dataset:  ${datasetStats?.formats ?? 0} formats | ${datasetStats?.conversionPairs ?? 0} conversion pairs | ${datasetStats?.searchItems ?? 0} search items | ${datasetStats?.filesEmitted ?? 0} JSON files | ${datasetValidation?.warnings?.length ?? 0} warnings`,
   ].join('\n');
 
   try {

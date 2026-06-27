@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T23:01:56.044Z",
-  "elapsed_ms": 2831,
+  "timestamp": "2026-06-27T23:15:54.841Z",
+  "elapsed_ms": 2621,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1806,
-  "output_size_kb": 118292,
+  "files_emitted": 1814,
+  "output_size_kb": 118533,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -509,6 +509,29 @@
       "schemasValid": true
     }
   },
+  "dataset": {
+    "formats": 17,
+    "conversion_pairs": 50,
+    "capability_tools": 82,
+    "comparison_pairs": 34,
+    "recommendation_rules": 12,
+    "search_items": 139,
+    "knowledge_nodes": 17,
+    "knowledge_relationships": 301,
+    "files_emitted": 8,
+    "total_bytes": 245816,
+    "validator_warnings": 5,
+    "validator_stats": {
+      "formats_validated": 17,
+      "conversion_pairs": 50,
+      "capability_tools": 82,
+      "duplicate_mimes": 0,
+      "invalid_pairs": 5,
+      "malformed_pairs": 0,
+      "no_mime_coverage": 0,
+      "warnings_total": 5
+    }
+  },
   "premium_architecture": {
     "stats": {
       "plans": 3,
@@ -600,7 +623,7 @@
   "performance_audit": {
     "js_size_kb": 59,
     "css_size_kb": 59,
-    "html_size_kb": 118292,
+    "html_size_kb": 118533,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

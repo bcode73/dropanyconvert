@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-27T21:38:33.526Z",
-  "elapsed_ms": 6102,
+  "timestamp": "2026-06-27T21:55:10.438Z",
+  "elapsed_ms": 6625,
   "tools": 82,
   "languages": 5,
   "routes": 1226,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1246,
-  "output_size_kb": 103445,
+  "files_emitted": 1254,
+  "output_size_kb": 103493,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -453,6 +453,48 @@
       "avg_keywords": "6.4"
     }
   },
+  "premium_architecture": {
+    "stats": {
+      "plans": 3,
+      "feature_flags": 16,
+      "premium_tools_declared": 0,
+      "cloud_tools": 0,
+      "login_tools": 0,
+      "orphaned_declarations": 0,
+      "auth_providers": 4,
+      "payment_adapters": 5,
+      "storage_adapters": 5,
+      "api_routes": 29,
+      "admin_modules": 8
+    },
+    "warnings": [],
+    "dashboard_pages": 8,
+    "plans": [
+      "free",
+      "pro",
+      "business"
+    ],
+    "auth_providers": [
+      "email",
+      "google",
+      "apple",
+      "github"
+    ],
+    "payment_adapters": [
+      "stripe",
+      "paddle",
+      "lemonsqueezy",
+      "paystack",
+      "flutterwave"
+    ],
+    "storage_adapters": [
+      "local",
+      "s3",
+      "r2",
+      "firebase",
+      "supabase"
+    ]
+  },
   "indexing_readiness": {
     "errors": [],
     "warnings": [
@@ -502,7 +544,7 @@
   "performance_audit": {
     "js_size_kb": 59,
     "css_size_kb": 59,
-    "html_size_kb": 103445,
+    "html_size_kb": 103493,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

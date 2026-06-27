@@ -22,6 +22,8 @@ import { runFreshnessEngine } from './lib/freshness.js';
 import { generateStaticFiles } from './lib/static-files.js';
 import { validateIndexingReadiness } from './lib/indexing-validator.js';
 import { buildAuthorityGraph } from './lib/authority.js';
+import { validatePremiumArchitecture } from './lib/premium-validator.js';
+import { generateDashboardPages, getDashboardRouteCount } from './lib/dashboard-generator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -121,17 +123,26 @@ async function build() {
   }
   console.log(`  ✓ Indexing validated  (${indexingValidation.errors.length} errors, ${indexingValidation.warnings.length} warnings)`);
 
+  // 11c. Premium architecture validation (warnings only — never fails build)
+  const premiumValidation = validatePremiumArchitecture(data, config);
+  premiumValidation.warnings.forEach(w => console.warn(`  ⚠ ${w}`));
+  console.log(`  ✓ Premium architecture validated (${premiumValidation.stats.plans} plans, ${premiumValidation.stats.feature_flags} flags, ${premiumValidation.stats.premium_tools_declared} premium tools declared)`);
+
+  // 11d. Generate dashboard pages (static HTML shells — empty state)
+  const dashboardPages = generateDashboardPages(data, config);
+  console.log(`  ✓ Dashboard pages generated (${dashboardPages.length} pages across ${data.languages.length} languages)`);
+
   // 11. Generate AI discoverability files (/llms.txt, /ai.txt)
   const aiFiles = generateAiDiscoverability(data, routes, config);
   console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
 
   // 12. Emit everything to dist/
-  const emitResult = await emitDist({ pages, sitemaps, robots, staticFiles, aiFiles }, config);
+  const emitResult = await emitDist({ pages: [...pages, ...dashboardPages], sitemaps, robots, staticFiles, aiFiles }, config);
   console.log(`  ✓ Dist emitted   (${emitResult.fileCount} files, ${emitResult.sizeKb} KB)`);
 
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

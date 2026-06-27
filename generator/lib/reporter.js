@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -288,6 +288,17 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
 
     // Authority Graph (Phase 20)
     authority_graph: buildAuthorityDashboard(graph),
+
+    // Premium Architecture (Phase 21)
+    premium_architecture: {
+      stats:    premiumValidation?.stats    || {},
+      warnings: premiumValidation?.warnings || [],
+      dashboard_pages: (dashboardPages || []).length,
+      plans: ['free', 'pro', 'business'],
+      auth_providers:    ['email', 'google', 'apple', 'github'],
+      payment_adapters:  ['stripe', 'paddle', 'lemonsqueezy', 'paystack', 'flutterwave'],
+      storage_adapters:  ['local', 's3', 'r2', 'firebase', 'supabase'],
+    },
 
     // Indexing Readiness (Phase 19)
     indexing_readiness: {

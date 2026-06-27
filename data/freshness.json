@@ -1,0 +1,164 @@
+{
+  "article:what-is-avif": {
+    "hash": "138997b88cd3",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-base64": {
+    "hash": "23e647b1d82d",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-jpg": {
+    "hash": "15f22b09b09e",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-json": {
+    "hash": "1f5ca9bb41fa",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-markdown": {
+    "hash": "b3a934126179",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-pdf-compression": {
+    "hash": "0cb29466315d",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-pdf": {
+    "hash": "7468592d3b41",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-png": {
+    "hash": "73c004ad81fc",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-svg": {
+    "hash": "012550b5340d",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-webp": {
+    "hash": "9057092bdbca",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "article:what-is-yaml": {
+    "hash": "f77fa6870483",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "comparison:avif-vs-webp": {
+    "hash": "1dc43ca67e6d",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "comparison:json-vs-xml": {
+    "hash": "db1f376c7c8c",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "comparison:json-vs-yaml": {
+    "hash": "5f22e538f8d6",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "comparison:markdown-vs-html": {
+    "hash": "14f364586259",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "comparison:png-vs-jpg": {
+    "hash": "7829fafffcc2",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "comparison:webp-vs-png": {
+    "hash": "fb9a0195345e",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:base64-encoding": {
+    "hash": "b4d47808bbeb",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:checksum": {
+    "hash": "c4f77ced140d",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:color-depth": {
+    "hash": "d703185725ff",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:lossless-compression": {
+    "hash": "ae25ec3b39f4",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:lossy-compression": {
+    "hash": "233f55327624",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:metadata": {
+    "hash": "8a5f51be4317",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:mime-type": {
+    "hash": "9ae939000279",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:pdf-a": {
+    "hash": "ff8e709d479c",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:raster-image": {
+    "hash": "e19624bbe629",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  },
+  "glossary:vector-image": {
+    "hash": "7eaf6e103a72",
+    "publishedDate": "2026-01-15",
+    "lastReviewed": "2026-06-27",
+    "version": "1.0"
+  }
+}

@@ -64,6 +64,17 @@ export async function generateSeo(routes, data, config) {
         })),
       };
 
+      const webPageSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: title,
+        description,
+        url: canonical,
+        breadcrumb: { '@id': canonical + '#breadcrumb' },
+        isPartOf: { '@type': 'WebSite', name: globalSeo.defaults.ogSiteName, url: baseUrl },
+        inLanguage: langCode,
+      };
+
       seoData.set(route.path, {
         title,
         description,
@@ -83,7 +94,7 @@ export async function generateSeo(routes, data, config) {
         hreflang: route.hreflang || [],
         hreflangDefault: route.hreflangDefault || canonical,
         breadcrumbs,
-        schemas: [appSchema, faqSchema, breadcrumbSchema],
+        schemas: [webPageSchema, appSchema, faqSchema, breadcrumbSchema],
         primaryKeyword: tool.seo.primaryKeyword,
         secondaryKeywords: tool.seo.secondaryKeywords || [],
       });
@@ -203,17 +214,24 @@ export async function generateSeo(routes, data, config) {
 
       const articleSchema = {
         '@context': 'https://schema.org',
-        '@type': 'Article',
+        '@type': 'TechArticle',
         headline: h1,
         description,
         url: canonical,
+        datePublished: article.publishedDate || article.lastUpdated || '',
         dateModified: article.lastUpdated || '',
+        author: {
+          '@type': 'Organization',
+          name: article.reviewedBy || 'Editorial Team',
+          url: baseUrl,
+        },
         publisher: {
           '@type': 'Organization',
           name: globalSeo.defaults?.ogSiteName || config.site.name,
           url: baseUrl,
         },
         mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+        inLanguage: langCode,
       };
 
       const breadcrumbSchema = {

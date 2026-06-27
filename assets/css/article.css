@@ -661,3 +661,102 @@
 /* ── Related Collections / Landings ────────────────────────────────────── */
 .dac-related-collections,
 .dac-related-landings { margin: 1.5rem 0; }
+
+/* ── Phase 15: AI Citation Blocks ─────────────────────────────────────── */
+.dac-ai-citation {
+  background: var(--dac-surface-2, #f8f9fa);
+  border: 1px solid var(--dac-border, #e5e7eb);
+  border-left: 4px solid var(--dac-primary, #6366f1);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.dac-citation__header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+.dac-citation__icon { font-size: 1.25rem; }
+.dac-citation__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--dac-text, #111);
+}
+.dac-citation__body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.dac-citation__block {
+  background: var(--dac-surface, #fff);
+  border-radius: 6px;
+  padding: .75rem 1rem;
+  border: 1px solid var(--dac-border, #e5e7eb);
+}
+.dac-citation__label {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--dac-text-muted, #6b7280);
+  margin: 0 0 .35rem;
+}
+.dac-citation__text {
+  font-size: .875rem;
+  margin: 0;
+  color: var(--dac-text, #111);
+  line-height: 1.5;
+}
+.dac-citation__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: .875rem;
+  color: var(--dac-text, #111);
+}
+.dac-citation__list li { margin-bottom: .25rem; }
+.dac-citation__tool-link {
+  display: inline-block;
+  padding: .35rem .75rem;
+  background: var(--dac-primary, #6366f1);
+  color: #fff;
+  border-radius: 5px;
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.dac-citation__tool-link:hover { opacity: .9; }
+
+/* ── Phase 15: Star Ratings in Perf Metrics ───────────────────────────── */
+.dac-perf-stars {
+  color: #f59e0b;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+}
+.dac-perf-sub {
+  display: block;
+  font-size: .75rem;
+  color: var(--dac-text-muted, #6b7280);
+  margin-top: .15rem;
+}
+
+/* ── Phase 15: Browser Compat Table enhancements ─────────────────────── */
+.dac-compat-status { font-size: 1.1rem; text-align: center; width: 3rem; }
+.dac-compat-note   { font-size: .8rem; color: var(--dac-text-muted, #6b7280); }
+.dac-compat-section-header {
+  background: var(--dac-surface-2, #f3f4f6);
+  font-weight: 600;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--dac-text-muted, #6b7280);
+  padding: .5rem .75rem;
+}
+.dac-compat-legend {
+  font-size: .75rem;
+  color: var(--dac-text-muted, #6b7280);
+  margin-top: .5rem;
+  display: flex;
+  gap: 1rem;
+}

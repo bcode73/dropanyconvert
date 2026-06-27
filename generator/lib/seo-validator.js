@@ -46,6 +46,27 @@ export function validateSeo(routes, seoData, data) {
     }
   }
 
+  // Missing H1 on content pages (error — critical for SEO)
+  // Exclude home, root, and index pages which generate H1 dynamically
+  const H1_REQUIRED_TYPES = new Set(['tool', 'category', 'article', 'comparison', 'glossary', 'legal', 'trust', 'editorial', 'changelog']);
+  for (const route of routes) {
+    if (!H1_REQUIRED_TYPES.has(route.type)) continue;
+    const seo = seoData.get(route.path);
+    if (seo && !seo.h1) {
+      errors.push(`SEO: missing H1 at ${route.path}`);
+    }
+  }
+
+  // Missing breadcrumbs on content pages (warning — important for structured data)
+  const CRUMB_REQUIRED_TYPES = new Set(['tool', 'category', 'article', 'comparison', 'glossary', 'legal', 'trust', 'editorial', 'changelog']);
+  for (const route of routes) {
+    if (!CRUMB_REQUIRED_TYPES.has(route.type)) continue;
+    const seo = seoData.get(route.path);
+    if (seo && (!seo.breadcrumbs || seo.breadcrumbs.length === 0)) {
+      warnings.push(`SEO: missing breadcrumbs at ${route.path}`);
+    }
+  }
+
   // Missing schemas on tool pages
   for (const route of routes) {
     if (route.type !== 'tool') continue;
@@ -55,6 +76,28 @@ export function validateSeo(routes, seoData, data) {
     }
     if (!seo?.schemas?.find(s => s['@type'] === 'FAQPage')) {
       warnings.push(`SEO: no FAQPage schema on tool page ${route.path}`);
+    }
+  }
+
+  // Missing schemas on article pages (warning)
+  for (const route of routes) {
+    if (route.type !== 'article') continue;
+    const seo = seoData.get(route.path);
+    if (!seo?.schemas?.find(s => s['@type'] === 'Article' || s['@type'] === 'TechArticle')) {
+      warnings.push(`SEO: no Article schema on article page ${route.path}`);
+    }
+  }
+
+  // Duplicate descriptions within same language
+  const descByLang = {};
+  for (const [routePath, seo] of seoData) {
+    if (!seo.description) continue;
+    const lang = routePath.split('/')[1] || 'root';
+    if (!descByLang[lang]) descByLang[lang] = new Map();
+    if (descByLang[lang].has(seo.description)) {
+      warnings.push(`SEO: duplicate description within "${lang}" at ${routePath}`);
+    } else {
+      descByLang[lang].set(seo.description, routePath);
     }
   }
 

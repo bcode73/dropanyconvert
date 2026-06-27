@@ -18,6 +18,7 @@ import { emitDist } from './lib/emitter.js';
 import { generateReport } from './lib/reporter.js';
 import { validateSeo } from './lib/seo-validator.js';
 import { generateAiDiscoverability } from './lib/llms.js';
+import { runFreshnessEngine } from './lib/freshness.js';
 
 async function build() {
   const startTime = Date.now();
@@ -90,6 +91,12 @@ async function build() {
   const robots = await generateRobots(config);
   console.log(`  ✓ robots.txt generated`);
 
+  // 11a. Freshness Engine — track content hashes, detect stale content
+  const freshness = await runFreshnessEngine(data, config);
+  if (freshness.staleItems.length > 0) {
+    console.log(`  ⚡ Freshness: ${freshness.staleItems.length} updated, ${freshness.newItems.length} new`);
+  }
+
   // 11. Generate AI discoverability files (/llms.txt, /ai.txt)
   const aiFiles = generateAiDiscoverability(data, routes, config);
   console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
@@ -100,7 +107,7 @@ async function build() {
 
   // 12. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

@@ -77,6 +77,11 @@ export async function generateInternalLinks(routes, data, config) {
   const articles    = data.articles    || [];
   const comparisons = data.comparisons || [];
   const glossary    = data.glossary    || [];
+  const collections = data.collections || [];
+  const landings    = data.landings    || [];
+
+  const MAX_COLL    = 3;
+  const MAX_LANDING = 2;
 
   // Resolve to display-ready objects per route (language-specific names/paths)
   const toolRoutes = routes.filter(r => r.type === 'tool');
@@ -131,7 +136,34 @@ export async function generateInternalLinks(routes, data, config) {
         shortDef: g.shortDef?.[lang] || g.shortDef?.en || '',
       }));
 
-    links.set(route.path, { relatedTools, guides, comparisons: relatedComparisons, glossary: relatedGlossary });
+    const relatedCollections = collections
+      .filter(c => (c.toolSlugs || []).includes(tool.slug))
+      .slice(0, MAX_COLL)
+      .map(c => ({
+        slug: c.slug,
+        title: c.title?.[lang] || c.title?.en || c.slug,
+        path: `/${lang}/collections/${c.slug}`,
+        description: c.description?.[lang] || c.description?.en || '',
+      }));
+
+    const relatedLandings = landings
+      .filter(l => (l.toolSlugs || []).includes(tool.slug))
+      .slice(0, MAX_LANDING)
+      .map(l => ({
+        slug: l.slug,
+        title: l.h1?.[lang] || l.h1?.en || l.slug,
+        path: `/${lang}/for/${l.slug}`,
+        description: l.description?.[lang] || l.description?.en || '',
+      }));
+
+    links.set(route.path, {
+      relatedTools,
+      guides,
+      comparisons: relatedComparisons,
+      glossary: relatedGlossary,
+      collections: relatedCollections,
+      landings: relatedLandings,
+    });
   }
 
   return links;

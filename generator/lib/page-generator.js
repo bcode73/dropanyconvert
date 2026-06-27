@@ -461,6 +461,25 @@ function renderToolBadges(tool) {
 
 // ── Compatibility Table ────────────────────────────────────────────────────
 
+function browserCompat(tool) {
+  const hints = tool.runtimeHints || {};
+  const caps  = new Set(tool.capabilities || []);
+  // Derive per-browser support from runtime and hints
+  const isBrowser = tool.runtime === 'browser' || tool.runtime === 'hybrid';
+  // offscreenCanvas usage → Safari/iOS may have partial support
+  const safariPartial = hints.preferOffscreenCanvas || caps.has('webgl');
+  const mobileOk = caps.has('mobile-supported') || tool.runtime === 'browser';
+
+  return [
+    { browser: 'Chrome',  icon: '🟠', status: isBrowser ? '✅' : '✅', note: 'Full support' },
+    { browser: 'Firefox', icon: '🦊', status: isBrowser ? '✅' : '✅', note: 'Full support' },
+    { browser: 'Safari',  icon: '🧭', status: safariPartial ? '⚠' : isBrowser ? '✅' : '✅', note: safariPartial ? 'Partial support' : 'Full support' },
+    { browser: 'Edge',    icon: '🔵', status: isBrowser ? '✅' : '✅', note: 'Full support' },
+    { browser: 'iOS',     icon: '📱', status: mobileOk ? (safariPartial ? '⚠' : '✅') : '⚠', note: mobileOk && !safariPartial ? 'Full support' : 'Partial support' },
+    { browser: 'Android', icon: '🤖', status: mobileOk ? '✅' : '⚠', note: mobileOk ? 'Full support' : 'Partial support' },
+  ];
+}
+
 function renderCompatibilityTable(tool, langCode) {
   const hints = tool.runtimeHints || {};
   const inputExts = (tool.inputFormats || []).map(f => {
@@ -475,51 +494,92 @@ function renderCompatibilityTable(tool, langCode) {
   const maxSize = hints.maxFileSizeMb ? `${hints.maxFileSizeMb} MB` : 'Browser RAM';
   const batchMax = tool.batch?.supported ? (tool.batch.maxFiles ? `Yes (max ${tool.batch.maxFiles})` : 'Yes') : 'No';
   const cloudRequired = tool.runtime === 'cloud' ? 'Yes' : tool.runtime === 'hybrid' ? 'Optional' : 'No';
-  const browserSupport = 'Chrome 90+, Firefox 88+, Safari 14+, Edge 90+';
+
+  const browserRows = browserCompat(tool).map(b =>
+    `<tr><th scope="row">${b.icon} ${esc(b.browser)}</th><td class="dac-compat-status">${b.status}</td><td class="dac-compat-note">${esc(b.note)}</td></tr>`
+  ).join('\n        ');
 
   return `<section class="dac-compat-table-section">
   <h2 class="dac-section-title">Compatibility</h2>
   <div class="dac-compat-table-wrap">
     <table class="dac-compat-table">
       <tbody>
-        <tr><th scope="row">Supported Input</th><td>${esc(inputExts)}</td></tr>
-        <tr><th scope="row">Supported Output</th><td>${esc(outputExts)}</td></tr>
-        <tr><th scope="row">Batch Processing</th><td>${esc(batchMax)}</td></tr>
-        <tr><th scope="row">Max File Size</th><td>${esc(maxSize)}</td></tr>
-        <tr><th scope="row">Runtime</th><td>${esc(tool.runtime === 'browser' ? 'In-Browser' : tool.runtime === 'cloud' ? 'Cloud Server' : 'Hybrid')}</td></tr>
-        <tr><th scope="row">Cloud Required</th><td>${esc(cloudRequired)}</td></tr>
-        <tr><th scope="row">Browser Support</th><td>${esc(browserSupport)}</td></tr>
+        <tr><th scope="row">Supported Input</th><td colspan="2">${esc(inputExts)}</td></tr>
+        <tr><th scope="row">Supported Output</th><td colspan="2">${esc(outputExts)}</td></tr>
+        <tr><th scope="row">Batch Processing</th><td colspan="2">${esc(batchMax)}</td></tr>
+        <tr><th scope="row">Max File Size</th><td colspan="2">${esc(maxSize)}</td></tr>
+        <tr><th scope="row">Runtime</th><td colspan="2">${esc(tool.runtime === 'browser' ? 'In-Browser' : tool.runtime === 'cloud' ? 'Cloud Server' : 'Hybrid')}</td></tr>
+        <tr><th scope="row">Cloud Required</th><td colspan="2">${esc(cloudRequired)}</td></tr>
+      </tbody>
+      <tbody>
+        <tr><th scope="row" colspan="3" class="dac-compat-section-header">Browser Support</th></tr>
+        ${browserRows}
       </tbody>
     </table>
   </div>
+  <p class="dac-compat-legend"><span>✅ Full</span> <span>⚠ Partial</span> <span>❌ Not supported</span></p>
 </section>`;
 }
 
-// ── Performance Metrics ────────────────────────────────────────────────────
+// ── Performance Metrics (star ratings) ────────────────────────────────────
+
+function starRating(score, max = 5) {
+  const filled = Math.round(score);
+  return '★'.repeat(filled) + '☆'.repeat(max - filled);
+}
 
 function renderPerformanceMetrics(tool) {
   const hints = tool.runtimeHints || {};
-  if (!hints.memoryBudgetMb && !hints.maxFileSizeMb && tool.runtime === 'cloud') return '';
+  const caps  = new Set(tool.capabilities || []);
 
-  const memory = hints.memoryBudgetMb ? `~${hints.memoryBudgetMb} MB` : 'Low';
-  const maxFile = hints.maxFileSizeMb ? `Up to ${hints.maxFileSizeMb} MB` : 'Limited by browser RAM';
-  const speed = tool.runtime === 'browser'
-    ? (hints.memoryBudgetMb > 512 ? 'Fast (seconds)' : 'Instant')
+  // Derive speed score (1–5 stars)
+  let speedScore = 3;
+  if (tool.runtime === 'browser') speedScore = hints.memoryBudgetMb > 512 ? 4 : 5;
+  else if (tool.runtime === 'hybrid') speedScore = 3;
+  else if (tool.runtime === 'cloud') speedScore = 2;
+
+  const privacyLabel = tool.runtime === 'browser' ? '100% Local' : tool.runtime === 'hybrid' ? 'Mostly Local' : 'Server-side';
+  const internetRequired = tool.runtime === 'cloud' ? 'Yes' : tool.runtime === 'hybrid' ? 'Optional' : 'No';
+  const batchLabel = tool.batch?.supported ? (tool.batch.maxFiles ? `Yes (up to ${tool.batch.maxFiles} files)` : 'Yes') : 'No';
+  const maxSize = hints.maxFileSizeMb ? `${hints.maxFileSizeMb} MB` : 'Limited by RAM';
+  const speedLabel = tool.runtime === 'browser'
+    ? (hints.memoryBudgetMb > 512 ? 'Fast (1–5 seconds)' : 'Instant')
     : tool.runtime === 'cloud' ? 'Server-dependent' : 'Fast';
-  const bestFor = tool.runtime === 'browser'
-    ? (tool.batch?.supported ? 'Individual files and small batches' : 'Individual files')
-    : 'Large or complex files';
-  const device = hints.memoryBudgetMb > 512 ? 'Mid-range or better' : 'Any device';
+
+  // Compatibility score — more capabilities = higher compat rating
+  const compatScore = tool.runtime === 'browser'
+    ? (caps.has('mobile-supported') ? 5 : 4)
+    : tool.runtime === 'hybrid' ? 4 : 3;
 
   return `<section class="dac-perf-metrics">
-  <h2 class="dac-section-title">Performance</h2>
+  <h2 class="dac-section-title">Performance &amp; Privacy</h2>
   <div class="dac-perf-grid">
-    <div class="dac-perf-item"><span class="dac-perf-label">Estimated Speed</span><span class="dac-perf-value">${esc(speed)}</span></div>
-    <div class="dac-perf-item"><span class="dac-perf-label">Memory Usage</span><span class="dac-perf-value">${esc(memory)}</span></div>
-    <div class="dac-perf-item"><span class="dac-perf-label">Max File Size</span><span class="dac-perf-value">${esc(maxFile)}</span></div>
-    <div class="dac-perf-item"><span class="dac-perf-label">Best For</span><span class="dac-perf-value">${esc(bestFor)}</span></div>
-    <div class="dac-perf-item"><span class="dac-perf-label">Recommended Device</span><span class="dac-perf-value">${esc(device)}</span></div>
-    <div class="dac-perf-item"><span class="dac-perf-label">Browser Compatibility</span><span class="dac-perf-value">All modern browsers</span></div>
+    <div class="dac-perf-item">
+      <span class="dac-perf-label">Processing Speed</span>
+      <span class="dac-perf-value dac-perf-stars" aria-label="${speedScore} out of 5 stars">${starRating(speedScore)}</span>
+      <span class="dac-perf-sub">${esc(speedLabel)}</span>
+    </div>
+    <div class="dac-perf-item">
+      <span class="dac-perf-label">Browser Compatibility</span>
+      <span class="dac-perf-value dac-perf-stars" aria-label="${compatScore} out of 5 stars">${starRating(compatScore)}</span>
+      <span class="dac-perf-sub">All modern browsers</span>
+    </div>
+    <div class="dac-perf-item">
+      <span class="dac-perf-label">Privacy</span>
+      <span class="dac-perf-value">${esc(privacyLabel)}</span>
+    </div>
+    <div class="dac-perf-item">
+      <span class="dac-perf-label">Internet Required</span>
+      <span class="dac-perf-value">${esc(internetRequired)}</span>
+    </div>
+    <div class="dac-perf-item">
+      <span class="dac-perf-label">Batch Support</span>
+      <span class="dac-perf-value">${esc(batchLabel)}</span>
+    </div>
+    <div class="dac-perf-item">
+      <span class="dac-perf-label">Max Recommended Size</span>
+      <span class="dac-perf-value">${esc(maxSize)}</span>
+    </div>
   </div>
 </section>`;
 }
@@ -527,22 +587,109 @@ function renderPerformanceMetrics(tool) {
 // ── Article / Knowledge Hub Metadata ─────────────────────────────────────
 
 function renderKhMeta(item, langCode) {
-  const lastUpdated = item.lastUpdated || '';
-  const reviewedBy  = item.reviewedBy  || 'Editorial Team';
-  const version     = item.version     || '1.0';
+  const lastUpdated   = item.lastUpdated   || '';
+  const publishedDate = item.publishedDate || '';
+  const reviewedBy    = item.reviewedBy    || 'Editorial Team';
+  const version       = item.version       || '1.0';
+  const sectionCount  = (item.sections || []).length;
 
   // Estimate reading time from stringified sections
   const textLength = JSON.stringify(item.sections || item.body || '').length;
   const words = Math.round(textLength / 5);
   const readMins = Math.max(1, Math.round(words / 200));
 
+  // Update frequency: derive from version number
+  const vNum = parseFloat(version) || 1.0;
+  const updateFreq = vNum >= 2 ? 'Regularly updated' : 'Published once, reviewed';
+
   const parts = [];
-  if (lastUpdated) parts.push(`<span class="dac-kh-meta__item">Updated: <time datetime="${esc(lastUpdated)}">${esc(lastUpdated)}</time></span>`);
+  if (publishedDate) parts.push(`<span class="dac-kh-meta__item">Published: <time datetime="${esc(publishedDate)}">${esc(publishedDate)}</time></span>`);
+  if (lastUpdated)   parts.push(`<span class="dac-kh-meta__item">Updated: <time datetime="${esc(lastUpdated)}">${esc(lastUpdated)}</time></span>`);
   parts.push(`<span class="dac-kh-meta__item">Reviewed by: ${esc(reviewedBy)}</span>`);
   parts.push(`<span class="dac-kh-meta__item">v${esc(version)}</span>`);
   parts.push(`<span class="dac-kh-meta__item">${readMins} min read</span>`);
+  if (sectionCount > 0) parts.push(`<span class="dac-kh-meta__item">${sectionCount} sections</span>`);
+  parts.push(`<span class="dac-kh-meta__item">${esc(updateFreq)}</span>`);
 
   return `<div class="dac-kh-meta" aria-label="Article metadata">${parts.join('')}</div>`;
+}
+
+// ── AI Citation Blocks ────────────────────────────────────────────────────
+
+function renderAiCitationBlock(item, langCode, data) {
+  const sections = item.sections || [];
+  const intro    = item.intro?.[langCode] || item.intro?.en || '';
+  const faq      = item.faq || [];
+
+  // Key Takeaways from section headings
+  const takeaways = sections.slice(0, 5).map(s =>
+    s.heading?.[langCode] || s.heading?.en || ''
+  ).filter(Boolean);
+
+  // Quick Answer from intro or description
+  const quickAnswer = intro
+    ? (intro.length > 200 ? intro.slice(0, 197) + '…' : intro)
+    : (item.description?.[langCode] || item.description?.en || '').slice(0, 200);
+
+  // Common Mistakes from FAQ questions that contain "mistake"/"avoid"/"wrong"/"don't"
+  const mistakes = faq
+    .filter(f => {
+      const q = (f.question?.[langCode] || f.question?.en || '').toLowerCase();
+      return q.includes('avoid') || q.includes('mistake') || q.includes("don't") || q.includes('wrong') || q.includes('problem');
+    })
+    .slice(0, 3)
+    .map(f => f.question?.[langCode] || f.question?.en || '');
+
+  // Best Tool from relatedTools[0]
+  const bestToolSlug = (item.relatedTools || [])[0];
+  const bestTool = bestToolSlug ? data.tools.find(t => t.slug === bestToolSlug) : null;
+
+  if (!takeaways.length && !quickAnswer && !mistakes.length && !bestTool) return '';
+
+  const parts = [];
+
+  if (quickAnswer) {
+    parts.push(`<div class="dac-citation__block">
+      <h3 class="dac-citation__label">Quick Answer</h3>
+      <p class="dac-citation__text">${esc(quickAnswer)}</p>
+    </div>`);
+  }
+
+  if (takeaways.length > 0) {
+    parts.push(`<div class="dac-citation__block">
+      <h3 class="dac-citation__label">Key Takeaways</h3>
+      <ul class="dac-citation__list">
+        ${takeaways.map(t => `<li>${esc(t)}</li>`).join('\n        ')}
+      </ul>
+    </div>`);
+  }
+
+  if (mistakes.length > 0) {
+    parts.push(`<div class="dac-citation__block">
+      <h3 class="dac-citation__label">Common Questions</h3>
+      <ul class="dac-citation__list">
+        ${mistakes.map(m => `<li>${esc(m)}</li>`).join('\n        ')}
+      </ul>
+    </div>`);
+  }
+
+  if (bestTool) {
+    const toolName = bestTool.name?.[langCode] || bestTool.name?.en || bestTool.slug;
+    parts.push(`<div class="dac-citation__block">
+      <h3 class="dac-citation__label">Recommended Tool</h3>
+      <a href="/${langCode}/${bestTool.slug}" class="dac-citation__tool-link">${esc(toolName)}</a>
+    </div>`);
+  }
+
+  return `<aside class="dac-ai-citation" aria-label="Summary for AI and quick reference">
+  <div class="dac-citation__header">
+    <span class="dac-citation__icon" aria-hidden="true">⚡</span>
+    <h2 class="dac-citation__title">At a Glance</h2>
+  </div>
+  <div class="dac-citation__body">
+    ${parts.join('\n    ')}
+  </div>
+</aside>`;
 }
 
 // ── Related Collections & Landings ────────────────────────────────────────
@@ -612,7 +759,7 @@ const UPLOAD_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="48" heig
 
 function renderToolPage(route, seo, toolLinks, data, config) {
   if (route.tool.uiGroup === 'developer') return renderDevToolPage(route, seo, toolLinks, data, config);
-  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [] } = toolLinks;
+  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [] } = toolLinks;
 
   const tool = route.tool;
   const langCode = route.lang;
@@ -1131,8 +1278,14 @@ ${adTop}
   ${guidesHtml}
   ${glossaryHtml}
   ${cmpHtml}
-  ${relatedCollectionCards(tool.slug, data.collections, langCode)}
-  ${relatedLandingCards(tool.slug, data.landings, langCode)}
+  ${linkerCollections.length > 0 ? `<section class="dac-related-collections">
+  <h2 class="dac-section-title">Related Collections</h2>
+  <div class="dac-kh-article-grid">${linkerCollections.map(c => `<a href="${esc(c.path)}" class="dac-kh-article-card"><h3 class="dac-kh-article-card__title">${esc(c.title)}</h3>${c.description ? `<p class="dac-kh-article-card__desc">${esc(c.description)}</p>` : ''}</a>`).join('')}</div>
+</section>` : ''}
+  ${linkerLandings.length > 0 ? `<section class="dac-related-landings">
+  <h2 class="dac-section-title">More Use Cases</h2>
+  <div class="dac-kh-article-grid">${linkerLandings.map(l => `<a href="${esc(l.path)}" class="dac-kh-article-card"><h3 class="dac-kh-article-card__title">${esc(l.title)}</h3>${l.description ? `<p class="dac-kh-article-card__desc">${esc(l.description)}</p>` : ''}</a>`).join('')}</div>
+</section>` : ''}
 
   <!-- Quality Badges -->
   ${renderToolBadges(tool)}
@@ -1159,7 +1312,7 @@ ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 // ── Developer Tool Page ────────────────────────────────────────────────────
 
 function renderDevToolPage(route, seo, toolLinks, data, config) {
-  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [] } = toolLinks;
+  const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [] } = toolLinks;
   const tool     = route.tool;
   const langCode = route.lang;
   const lang     = route.language;
@@ -1393,8 +1546,14 @@ ${adTop}
     </div>
   </section>` : ''}
 
-  ${relatedCollectionCards(tool.slug, data.collections, langCode)}
-  ${relatedLandingCards(tool.slug, data.landings, langCode)}
+  ${linkerCollections.length > 0 ? `<section class="dac-related-collections">
+  <h2 class="dac-section-title">Related Collections</h2>
+  <div class="dac-kh-article-grid">${linkerCollections.map(c => `<a href="${esc(c.path)}" class="dac-kh-article-card"><h3 class="dac-kh-article-card__title">${esc(c.title)}</h3>${c.description ? `<p class="dac-kh-article-card__desc">${esc(c.description)}</p>` : ''}</a>`).join('')}</div>
+</section>` : ''}
+  ${linkerLandings.length > 0 ? `<section class="dac-related-landings">
+  <h2 class="dac-section-title">More Use Cases</h2>
+  <div class="dac-kh-article-grid">${linkerLandings.map(l => `<a href="${esc(l.path)}" class="dac-kh-article-card"><h3 class="dac-kh-article-card__title">${esc(l.title)}</h3>${l.description ? `<p class="dac-kh-article-card__desc">${esc(l.description)}</p>` : ''}</a>`).join('')}</div>
+</section>` : ''}
   ${renderToolBadges(tool)}
   ${renderCompatibilityTable(tool, langCode)}
   ${renderPerformanceMetrics(tool)}
@@ -2048,6 +2207,8 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
       <h1 class="dac-article__title" itemprop="headline">${esc(h1)}</h1>
       ${intro ? `<p class="dac-article__intro" itemprop="description">${esc(intro)}</p>` : ''}
     </header>
+
+    ${renderAiCitationBlock(article, langCode, data)}
 
     ${tocHtml}
 

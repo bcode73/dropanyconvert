@@ -1,10 +1,63 @@
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
+function buildDashboard(routes, pages, seoData) {
+  if (!seoData) return {};
+
+  const allSeo = [...(seoData?.values?.() || [])];
+  const total  = allSeo.length;
+  if (total === 0) return {};
+
+  const withTitle   = allSeo.filter(s => s.title).length;
+  const withDesc    = allSeo.filter(s => s.description).length;
+  const withH1      = allSeo.filter(s => s.h1).length;
+  const withSchema  = allSeo.filter(s => s.schemas?.length > 0).length;
+  const withCrumbs  = allSeo.filter(s => s.breadcrumbs?.length > 0).length;
+
+  const titles = allSeo.map(s => s.title || '').filter(Boolean);
+  const descs  = allSeo.map(s => s.description || '').filter(Boolean);
+  const avgTitleLen = titles.length ? Math.round(titles.reduce((a, t) => a + t.length, 0) / titles.length) : 0;
+  const avgDescLen  = descs.length  ? Math.round(descs.reduce((a, d)  => a + d.length,  0) / descs.length)  : 0;
+
+  // Duplicate detection
+  const titleSet = new Set();
+  let dupTitles = 0;
+  for (const t of titles) { if (titleSet.has(t)) dupTitles++; else titleSet.add(t); }
+
+  const descSet = new Set();
+  let dupDescs = 0;
+  for (const d of descs) { if (descSet.has(d)) dupDescs++; else descSet.add(d); }
+
+  const seoScore   = Math.round((withTitle + withDesc + withH1 + withSchema) / (total * 4) * 100);
+  const schemaCov  = Math.round(withSchema / total * 100);
+
+  const pageSizes = pages.map(p => ({ path: p.path, size: (p.content || '').length }));
+  pageSizes.sort((a, b) => b.size - a.size);
+
+  return {
+    seo_score:               `${seoScore}%`,
+    schema_coverage:         `${schemaCov}%`,
+    pages_with_title:        withTitle,
+    pages_with_description:  withDesc,
+    pages_with_h1:           withH1,
+    pages_with_schema:       withSchema,
+    pages_with_breadcrumbs:  withCrumbs,
+    avg_title_length:        avgTitleLen,
+    avg_description_length:  avgDescLen,
+    duplicate_title_count:   dupTitles,
+    duplicate_desc_count:    dupDescs,
+    largest_page:            pageSizes[0]?.path || '',
+    largest_page_bytes:      pageSizes[0]?.size || 0,
+    smallest_page:           pageSizes[pageSizes.length - 1]?.path || '',
+    smallest_page_bytes:     pageSizes[pageSizes.length - 1]?.size || 0,
+    generator_version:       '15.0.0',
+  };
+}
+
 /**
  * Generates an expanded build report and writes it to build-report.json.
  */
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, emitResult, elapsed, config, seoData }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -88,6 +141,9 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       legal_pages:      legalPages > 0,
       error_pages:      true,
     },
+
+    // Build dashboard (Phase 15)
+    build_dashboard: buildDashboard(routes, pages, seoData),
 
     warnings: validation.warnings,
     errors:   validation.errors,

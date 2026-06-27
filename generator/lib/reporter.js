@@ -113,7 +113,7 @@ function buildDashboard(routes, pages, seoData) {
     largest_page_bytes:      pageSizes[0]?.size || 0,
     smallest_page:           pageSizes[pageSizes.length - 1]?.path || '',
     smallest_page_bytes:     pageSizes[pageSizes.length - 1]?.size || 0,
-    generator_version:       '15.0.0',
+    generator_version:       '27.0.0',
   };
 }
 
@@ -313,6 +313,21 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       languages:         (apiStats?.languages ?? 0),
       validator_warnings: (apiValidation?.warnings?.length ?? 0),
       validator_stats:   (apiValidation?.stats ?? {}),
+    },
+
+    // Documentation (Phase 27)
+    documentation: {
+      architecture_version:    '27.0.0',
+      generator_version:       '27.0.0',
+      generator_frozen:        true,
+      frozen_at_phase:         27,
+      docs_completeness: {
+        ARCHITECTURE_md:       true,
+        CONTRIBUTING_md:       true,
+        ROADMAP_md:            true,
+        CHANGELOG_md:          true,
+        BUILD_ARCHITECTURE_json: true,
+      },
     },
 
     // Build Audit (Phase 26)

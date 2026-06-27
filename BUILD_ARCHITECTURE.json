@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "architecture_version": "27.0.0",
+  "generator_version": "27.0.0",
+  "frozen": true,
+  "frozen_at_phase": 27,
+
+  "pipeline": [
+    { "step": 1,  "name": "loadConfig",                "module": "generator/lib/config.js",              "outputs": ["config"] },
+    { "step": 2,  "name": "loadData",                  "module": "generator/lib/loader.js",              "outputs": ["data"] },
+    { "step": 3,  "name": "validateData",              "module": "generator/lib/validator.js",           "outputs": ["validation"], "fatal_on_error": true },
+    { "step": 4,  "name": "buildRegistry",             "module": "generator/lib/registry.js",           "outputs": ["registry"] },
+    { "step": 5,  "name": "generateRoutes",            "module": "generator/lib/router.js",             "outputs": ["routes"] },
+    { "step": "5a","name": "validateRoutes",           "module": "generator/lib/validator.js",           "outputs": ["routeValidation"], "fatal_on_error": true },
+    { "step": 6,  "name": "generateSeo",               "module": "generator/lib/seo.js",                "outputs": ["seoData"] },
+    { "step": "6a","name": "runFreshnessEngine",       "module": "generator/lib/freshness.js",           "outputs": ["freshness"] },
+    { "step": "6b","name": "buildAuthorityGraph",      "module": "generator/lib/authority.js",           "outputs": ["graph"] },
+    { "step": 7,  "name": "generateInternalLinks",     "module": "generator/lib/linker.js",             "outputs": ["links"] },
+    { "step": "8a","name": "validateSeo",              "module": "generator/lib/seo-validator.js",       "outputs": ["seoValidation"], "fatal_on_error": true },
+    { "step": "8b","name": "generatePages",            "module": "generator/lib/page-generator.js",     "outputs": ["pages"] },
+    { "step": "8c","name": "detectDuplicates",         "module": "generator/lib/duplicate-detector.js", "outputs": ["dupResult", "contentQualityStats"] },
+    { "step": 9,  "name": "generateSitemaps",          "module": "generator/lib/sitemap.js",            "outputs": ["sitemaps"] },
+    { "step": 10, "name": "generateRobots",            "module": "generator/lib/robots.js",             "outputs": ["robots"] },
+    { "step": "10a","name": "generateStaticFiles",     "module": "generator/lib/static-files.js",       "outputs": ["staticFiles"] },
+    { "step": "10b","name": "validateIndexingReadiness","module": "generator/lib/indexing-validator.js","outputs": ["indexingValidation"], "fatal_on_error": true },
+    { "step": "11c","name": "validatePremiumArchitecture","module": "generator/lib/premium-validator.js","outputs": ["premiumValidation"] },
+    { "step": "11d","name": "generateDashboardPages",  "module": "generator/lib/dashboard-generator.js","outputs": ["dashboardPages"] },
+    { "step": "11e","name": "generateApiEcosystem",    "module": "generator/lib/openapi-generator.js + generator/lib/api-doc-generator.js + generator/lib/api-validator.js", "outputs": ["openApiFile", "apiDocPages", "apiSearchIndex", "apiValidation"], "fatal_on_error": true },
+    { "step": "11f","name": "generateDatasetFiles",    "module": "generator/lib/dataset-engine.js",     "outputs": ["datasetFiles", "datasetStats"] },
+    { "step": 11,  "name": "generateAiDiscoverability","module": "generator/lib/llms.js",               "outputs": ["aiFiles"] },
+    { "step": 12,  "name": "emitDist",                 "module": "generator/lib/emitter.js",            "outputs": ["emitResult"] },
+    { "step": "12a","name": "seoSweep",                "module": "generator/lib/seo-sweep.js",          "outputs": ["seoSweepMetrics", "linkHealth", "metaValidation", "crawlHints"] },
+    { "step": "12b","name": "runBuildAudit",           "module": "generator/lib/build-auditor.js",      "outputs": ["buildAudit"] },
+    { "step": 13,  "name": "generateReport",           "module": "generator/lib/reporter.js",           "outputs": ["build-report.json"] }
+  ],
+
+  "data_sources": {
+    "tools":       "data/tools/*.json",
+    "categories":  "data/categories.json",
+    "languages":   "data/languages.json",
+    "articles":    "data/articles/*.json",
+    "comparisons": "data/comparisons/*.json",
+    "glossary":    "data/glossary/*.json",
+    "entities":    "data/entities/*.json",
+    "collections": "data/collections/*.json",
+    "authors":     "data/authors.json",
+    "intents":     "data/intents.json",
+    "platforms":   "data/platforms.json",
+    "seo_global":  "data/seo-global.json",
+    "ads":         "data/ads.json"
+  },
+
+  "content_counts": {
+    "tools": 82,
+    "languages": 5,
+    "tool_routes": 410,
+    "total_routes": 1226,
+    "emitted_files": 1814
+  },
+
+  "page_types": [
+    "tool", "category", "home", "legal", "article", "comparison", "glossary",
+    "guides-index", "compare-index", "glossary-index", "collection",
+    "collections-index", "landing", "faq-hub", "trust", "editorial", "changelog",
+    "entity", "entity-index", "author", "intent", "how-to-index", "platform",
+    "use-case", "feature", "format-faq", "root"
+  ],
+
+  "emitted_file_types": [
+    "html",
+    "json (sitemaps, datasets, openapi, search indexes, build report)",
+    "txt (robots, humans, security, llms, ai)",
+    "xml (browserconfig)",
+    "webmanifest"
+  ],
+
+  "validators": [
+    { "name": "validateData",              "module": "generator/lib/validator.js",           "fatal": true  },
+    { "name": "validateRoutes",            "module": "generator/lib/validator.js",           "fatal": true  },
+    { "name": "validateSeo",              "module": "generator/lib/seo-validator.js",        "fatal": true  },
+    { "name": "validateIndexingReadiness","module": "generator/lib/indexing-validator.js",   "fatal": true  },
+    { "name": "validateApiDocs",          "module": "generator/lib/api-validator.js",        "fatal": true  },
+    { "name": "validatePremiumArchitecture","module": "generator/lib/premium-validator.js",  "fatal": false },
+    { "name": "validateDatasets",         "module": "generator/lib/dataset-validator.js",    "fatal": false },
+    { "name": "validateLinkHealth",       "module": "generator/lib/seo-sweep.js",            "fatal": false },
+    { "name": "validateMetadata",         "module": "generator/lib/seo-sweep.js",            "fatal": false },
+    { "name": "auditRoutes",             "module": "generator/lib/build-auditor.js",         "fatal": false }
+  ],
+
+  "generator_modules": {
+    "count": 32,
+    "premium_modules": 10,
+    "largest": "page-generator.js",
+    "approximate_total_loc": 18000
+  },
+
+  "key_algorithms": {
+    "djb2_hash": "content-engine.js — deterministic 32-bit hash for content variation seeding",
+    "jaccard_similarity": "duplicate-detector.js — set intersection / union for near-duplicate detection",
+    "pagerank_authority": "authority.js — iterative authority propagation over content node graph",
+    "anchor_diversity": "page-generator.js — djb2(caller:target) selects from 8 anchor templates",
+    "faq_dedup": "page-generator.js — 5-word stem deduplication across enriched FAQs"
+  },
+
+  "deployment_targets": [
+    "Cloudflare Pages (primary)",
+    "Netlify",
+    "Vercel",
+    "GitHub Pages"
+  ],
+
+  "constraints": [
+    "No runtime server required",
+    "No API keys in source or data files",
+    "No new npm dependencies",
+    "No URL changes after Phase 10",
+    "Deterministic output — same data produces identical dist/",
+    "All conversions run in the user's browser"
+  ]
+}

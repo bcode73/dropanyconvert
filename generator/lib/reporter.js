@@ -42,6 +42,9 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       'collections-index': routes.filter(r => r.type === 'collections-index').length,
       landing:        routes.filter(r => r.type === 'landing').length,
       'faq-hub':      routes.filter(r => r.type === 'faq-hub').length,
+      trust:          routes.filter(r => r.type === 'trust').length,
+      editorial:      routes.filter(r => r.type === 'editorial').length,
+      changelog:      routes.filter(r => r.type === 'changelog').length,
       root:           1,
     },
     sitemaps_generated: sitemaps.length,
@@ -109,9 +112,12 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
 
   const collectionCount = routes.filter(r => r.type === 'collection').length;
   const landingCount    = routes.filter(r => r.type === 'landing').length;
+  const trustCount      = routes.filter(r => r.type === 'trust').length;
+  const editorialCount  = routes.filter(r => r.type === 'editorial').length;
+  const changelogCount  = routes.filter(r => r.type === 'changelog').length;
 
   const summary = [
-    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} category:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} comparisons:${comparisonCount} glossary:${glossaryCount} collections:${collectionCount} landings:${landingCount})`,
+    `  Pages:    ${pageCount} (tools:${routes.filter(r=>r.type==='tool').length} cat:${categoryPages} home:${homePages} legal:${legalPages} articles:${articleCount} cmp:${comparisonCount} glossary:${glossaryCount} coll:${collectionCount} landings:${landingCount} trust:${trustCount} editorial:${editorialCount} changelog:${changelogCount})`,
     `  Tools:    ${toolCount}`,
     `  Articles: ${articleCount / (langCount || 1)} (${data.articles?.length || 0} guides, ${data.comparisons?.length || 0} comparisons, ${data.glossary?.length || 0} glossary × ${langCount} langs)`,
     `  Languages:${langCount}`,

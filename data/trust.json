@@ -1,0 +1,190 @@
+{
+  "slug": "trust",
+  "h1": {
+    "en": "Trust & Security Center",
+    "es": "Centro de Confianza y Seguridad",
+    "fr": "Centre de Confiance et Sécurité",
+    "de": "Vertrauens- und Sicherheitszentrum",
+    "pt": "Central de Confiança e Segurança"
+  },
+  "description": {
+    "en": "How DropAnyConvert keeps your files private, your data safe, and your experience reliable — explained transparently.",
+    "es": "Cómo DropAnyConvert mantiene tus archivos privados, tus datos seguros y tu experiencia confiable, explicado de forma transparente.",
+    "fr": "Comment DropAnyConvert garde vos fichiers privés, vos données sécurisées et votre expérience fiable, expliqué en toute transparence.",
+    "de": "Wie DropAnyConvert deine Dateien privat, deine Daten sicher und deine Erfahrung zuverlässig hält — transparent erklärt.",
+    "pt": "Como o DropAnyConvert mantém seus arquivos privados, seus dados seguros e sua experiência confiável — explicado de forma transparente."
+  },
+  "lastUpdated": "2026-06-27",
+  "organization": {
+    "name": "DropAnyConvert",
+    "url": "https://dropanyconvert.com",
+    "description": "Browser-first file conversion and developer tools platform. Privacy by design. No uploads required.",
+    "foundingYear": "2024",
+    "areaServed": "Worldwide",
+    "knowsAbout": ["File Conversion", "Image Processing", "PDF Tools", "Developer Utilities", "Privacy Technology"]
+  },
+  "sections": [
+    {
+      "id": "browser-first",
+      "icon": "shield",
+      "title": {
+        "en": "Browser-First Architecture",
+        "es": "Arquitectura centrada en el navegador",
+        "fr": "Architecture axée sur le navigateur",
+        "de": "Browser-zentrierte Architektur",
+        "pt": "Arquitetura centrada no navegador"
+      },
+      "body": {
+        "en": "Every tool on DropAnyConvert runs entirely inside your web browser using WebAssembly, Canvas API, Web Workers, and modern JavaScript APIs. Your files are processed locally on your device — they never leave it.",
+        "es": "Todas las herramientas de DropAnyConvert se ejecutan completamente dentro de tu navegador web usando WebAssembly, Canvas API, Web Workers y APIs modernas de JavaScript. Tus archivos se procesan localmente en tu dispositivo y nunca lo abandonan.",
+        "fr": "Tous les outils de DropAnyConvert fonctionnent entièrement dans votre navigateur web grâce à WebAssembly, Canvas API, Web Workers et les API JavaScript modernes. Vos fichiers sont traités localement sur votre appareil — ils ne le quittent jamais.",
+        "de": "Jedes Tool auf DropAnyConvert läuft vollständig in deinem Webbrowser mit WebAssembly, Canvas API, Web Workers und modernen JavaScript-APIs. Deine Dateien werden lokal auf deinem Gerät verarbeitet — sie verlassen es nie.",
+        "pt": "Todas as ferramentas do DropAnyConvert funcionam inteiramente dentro do seu navegador usando WebAssembly, Canvas API, Web Workers e APIs JavaScript modernas. Seus arquivos são processados localmente no seu dispositivo — eles nunca o deixam."
+      }
+    },
+    {
+      "id": "privacy-by-design",
+      "icon": "lock",
+      "title": {
+        "en": "Privacy by Design",
+        "es": "Privacidad por diseño",
+        "fr": "Vie privée dès la conception",
+        "de": "Datenschutz durch Design",
+        "pt": "Privacidade por design"
+      },
+      "body": {
+        "en": "We do not collect, store, or transmit the files you process. No account is required. No cookies are used to track you across sites. Our analytics are anonymous and aggregate-only.",
+        "es": "No recopilamos, almacenamos ni transmitimos los archivos que procesas. No se requiere cuenta. No se utilizan cookies para rastrearte en otros sitios. Nuestros análisis son anónimos y solo de datos agregados.",
+        "fr": "Nous ne collectons pas, ne stockons pas et ne transmettons pas les fichiers que vous traitez. Aucun compte n'est requis. Aucun cookie n'est utilisé pour vous suivre sur d'autres sites. Nos analyses sont anonymes et uniquement agrégées.",
+        "de": "Wir sammeln, speichern oder übertragen die Dateien, die du verarbeitest, nicht. Es ist kein Konto erforderlich. Keine Cookies werden verwendet, um dich seitenübergreifend zu verfolgen. Unsere Analysen sind anonym und nur aggregiert.",
+        "pt": "Não coletamos, armazenamos nem transmitimos os arquivos que você processa. Nenhuma conta é necessária. Nenhum cookie é usado para rastreá-lo em outros sites. Nossas análises são anônimas e apenas agregadas."
+      }
+    },
+    {
+      "id": "no-uploads",
+      "icon": "upload-off",
+      "title": {
+        "en": "No File Uploads",
+        "es": "Sin subida de archivos",
+        "fr": "Aucun téléversement de fichier",
+        "de": "Keine Datei-Uploads",
+        "pt": "Sem upload de arquivos"
+      },
+      "body": {
+        "en": "For the vast majority of our tools, your files are never uploaded to any server. The conversion, compression, or analysis happens entirely within your browser tab. The exception is a small number of tools that require cloud processing (e.g., OCR), which are clearly labeled.",
+        "es": "Para la gran mayoría de nuestras herramientas, tus archivos nunca se cargan en ningún servidor. La conversión, compresión o análisis ocurre completamente dentro de tu pestaña del navegador. La excepción es un pequeño número de herramientas que requieren procesamiento en la nube (por ejemplo, OCR), que están claramente etiquetadas.",
+        "fr": "Pour la grande majorité de nos outils, vos fichiers ne sont jamais téléversés sur un serveur. La conversion, la compression ou l'analyse se passe entièrement dans votre onglet de navigateur. L'exception concerne un petit nombre d'outils nécessitant un traitement cloud (par exemple, OCR), qui sont clairement étiquetés.",
+        "de": "Für die überwiegende Mehrheit unserer Tools werden deine Dateien nie auf einen Server hochgeladen. Die Konvertierung, Komprimierung oder Analyse erfolgt vollständig in deinem Browser-Tab. Die Ausnahme bildet eine kleine Anzahl von Tools, die Cloud-Verarbeitung erfordern (z.B. OCR), die klar gekennzeichnet sind.",
+        "pt": "Para a grande maioria das nossas ferramentas, seus arquivos nunca são enviados para nenhum servidor. A conversão, compressão ou análise acontece inteiramente dentro da guia do seu navegador. A exceção é um pequeno número de ferramentas que requerem processamento em nuvem (por exemplo, OCR), que são claramente rotuladas."
+      }
+    },
+    {
+      "id": "cloud-tools",
+      "icon": "cloud",
+      "title": {
+        "en": "Which Tools Use Cloud Processing",
+        "es": "Qué herramientas usan procesamiento en la nube",
+        "fr": "Quels outils utilisent le traitement cloud",
+        "de": "Welche Tools Cloud-Verarbeitung nutzen",
+        "pt": "Quais ferramentas usam processamento em nuvem"
+      },
+      "body": {
+        "en": "Tools requiring cloud processing are always clearly marked with a 'Cloud Assisted' badge on their page. These tools handle data under strict data-handling policies and delete uploaded files immediately after processing. No file is ever retained beyond the processing window.",
+        "es": "Las herramientas que requieren procesamiento en la nube siempre están claramente marcadas con una insignia 'Asistido por nube' en su página. Estas herramientas manejan datos bajo estrictas políticas de manejo de datos y eliminan los archivos subidos inmediatamente después del procesamiento.",
+        "fr": "Les outils nécessitant un traitement cloud sont toujours clairement marqués avec un badge 'Assisté par le cloud' sur leur page. Ces outils gèrent les données selon des politiques strictes et suppriment les fichiers téléversés immédiatement après le traitement.",
+        "de": "Tools, die Cloud-Verarbeitung erfordern, sind immer deutlich mit einem 'Cloud-unterstützt'-Badge auf ihrer Seite gekennzeichnet. Diese Tools verwalten Daten unter strengen Datenverarbeitungsrichtlinien und löschen hochgeladene Dateien sofort nach der Verarbeitung.",
+        "pt": "Ferramentas que requerem processamento em nuvem são sempre claramente marcadas com um emblema 'Assistido por nuvem' em sua página. Essas ferramentas lidam com dados sob políticas estritas de manuseio de dados e excluem arquivos enviados imediatamente após o processamento."
+      }
+    },
+    {
+      "id": "security",
+      "icon": "shield-check",
+      "title": {
+        "en": "Security Practices",
+        "es": "Prácticas de seguridad",
+        "fr": "Pratiques de sécurité",
+        "de": "Sicherheitspraktiken",
+        "pt": "Práticas de segurança"
+      },
+      "body": {
+        "en": "DropAnyConvert is served over HTTPS with HSTS headers. We implement a strict Content Security Policy (CSP) to prevent XSS. No third-party scripts are loaded from untrusted origins. Our static architecture eliminates entire classes of server-side vulnerabilities.",
+        "es": "DropAnyConvert se sirve a través de HTTPS con encabezados HSTS. Implementamos una estricta Política de Seguridad de Contenido (CSP) para prevenir XSS. No se cargan scripts de terceros desde orígenes no confiables. Nuestra arquitectura estática elimina clases enteras de vulnerabilidades del lado del servidor.",
+        "fr": "DropAnyConvert est servi via HTTPS avec des en-têtes HSTS. Nous mettons en œuvre une politique stricte de sécurité du contenu (CSP) pour prévenir les XSS. Aucun script tiers n'est chargé depuis des origines non fiables. Notre architecture statique élimine des classes entières de vulnérabilités côté serveur.",
+        "de": "DropAnyConvert wird über HTTPS mit HSTS-Headern ausgeliefert. Wir implementieren eine strenge Content Security Policy (CSP) zur Verhinderung von XSS. Keine Drittanbieter-Skripte werden von nicht vertrauenswürdigen Quellen geladen. Unsere statische Architektur eliminiert ganze Klassen von serverseitigen Schwachstellen.",
+        "pt": "O DropAnyConvert é servido via HTTPS com cabeçalhos HSTS. Implementamos uma Política de Segurança de Conteúdo (CSP) estrita para prevenir XSS. Nenhum script de terceiros é carregado de origens não confiáveis. Nossa arquitetura estática elimina classes inteiras de vulnerabilidades do lado do servidor."
+      }
+    },
+    {
+      "id": "open-architecture",
+      "icon": "code",
+      "title": {
+        "en": "Open Architecture",
+        "es": "Arquitectura abierta",
+        "fr": "Architecture ouverte",
+        "de": "Offene Architektur",
+        "pt": "Arquitetura aberta"
+      },
+      "body": {
+        "en": "Our tools are built on well-known open-source libraries: PDF.js, pdf-lib, Sharp, FFmpeg.wasm, and others. We use no proprietary black-box processing. The libraries we rely on are auditable and widely used across the web.",
+        "es": "Nuestras herramientas están construidas sobre bibliotecas de código abierto bien conocidas: PDF.js, pdf-lib, Sharp, FFmpeg.wasm y otras. No utilizamos procesamiento propietario de caja negra. Las bibliotecas en las que nos basamos son auditables y ampliamente utilizadas en la web.",
+        "fr": "Nos outils sont construits sur des bibliothèques open source bien connues : PDF.js, pdf-lib, Sharp, FFmpeg.wasm et d'autres. Nous n'utilisons aucun traitement propriétaire en boîte noire. Les bibliothèques sur lesquelles nous nous appuyons sont vérifiables et largement utilisées sur le web.",
+        "de": "Unsere Tools basieren auf bekannten Open-Source-Bibliotheken: PDF.js, pdf-lib, Sharp, FFmpeg.wasm und anderen. Wir verwenden keine proprietäre Blackbox-Verarbeitung. Die Bibliotheken, auf die wir uns verlassen, sind prüfbar und weit verbreitet im Web.",
+        "pt": "Nossas ferramentas são construídas sobre bibliotecas open-source bem conhecidas: PDF.js, pdf-lib, Sharp, FFmpeg.wasm e outras. Não usamos processamento proprietário de caixa preta. As bibliotecas em que nos baseamos são auditáveis e amplamente usadas na web."
+      }
+    },
+    {
+      "id": "how-it-works",
+      "icon": "cpu",
+      "title": {
+        "en": "How Conversions Work",
+        "es": "Cómo funcionan las conversiones",
+        "fr": "Comment fonctionnent les conversions",
+        "de": "Wie Konvertierungen funktionieren",
+        "pt": "Como as conversões funcionam"
+      },
+      "body": {
+        "en": "When you drop a file into a DropAnyConvert tool, the browser reads it into memory using the File API. Our engine (running as a Web Worker) processes the file data and produces a new output file in memory. The result is then offered to you as a download — the original file and the output never touch our servers.",
+        "es": "Cuando sueltas un archivo en una herramienta de DropAnyConvert, el navegador lo lee en la memoria usando la API de archivos. Nuestro motor (que se ejecuta como un Web Worker) procesa los datos del archivo y produce un nuevo archivo de salida en la memoria. El resultado se te ofrece como descarga: el archivo original y la salida nunca tocan nuestros servidores.",
+        "fr": "Lorsque vous déposez un fichier dans un outil DropAnyConvert, le navigateur le lit en mémoire à l'aide de l'API File. Notre moteur (s'exécutant comme un Web Worker) traite les données du fichier et produit un nouveau fichier de sortie en mémoire. Le résultat vous est ensuite proposé en téléchargement — le fichier original et la sortie ne touchent jamais nos serveurs.",
+        "de": "Wenn du eine Datei in ein DropAnyConvert-Tool ablegst, liest der Browser sie mit der File API in den Speicher. Unser Engine (der als Web Worker läuft) verarbeitet die Dateidaten und erzeugt eine neue Ausgabedatei im Speicher. Das Ergebnis wird dir dann als Download angeboten — die Originaldatei und die Ausgabe berühren nie unsere Server.",
+        "pt": "Quando você solta um arquivo em uma ferramenta DropAnyConvert, o navegador o lê na memória usando a File API. Nosso engine (executando como um Web Worker) processa os dados do arquivo e produz um novo arquivo de saída na memória. O resultado é então oferecido a você como download — o arquivo original e a saída nunca tocam nossos servidores."
+      }
+    },
+    {
+      "id": "browser-support",
+      "icon": "globe",
+      "title": {
+        "en": "Supported Browsers",
+        "es": "Navegadores compatibles",
+        "fr": "Navigateurs pris en charge",
+        "de": "Unterstützte Browser",
+        "pt": "Navegadores suportados"
+      },
+      "body": {
+        "en": "DropAnyConvert works in all modern browsers: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+, and Opera 76+. Tools that use WebAssembly require a browser with Wasm support (all modern browsers). Tools using OffscreenCanvas require Chrome/Edge 69+ or Firefox 105+.",
+        "es": "DropAnyConvert funciona en todos los navegadores modernos: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+ y Opera 76+. Las herramientas que usan WebAssembly requieren un navegador con soporte Wasm (todos los navegadores modernos). Las herramientas que usan OffscreenCanvas requieren Chrome/Edge 69+ o Firefox 105+.",
+        "fr": "DropAnyConvert fonctionne dans tous les navigateurs modernes : Chrome 90+, Firefox 88+, Safari 14+, Edge 90+ et Opera 76+. Les outils utilisant WebAssembly nécessitent un navigateur avec support Wasm (tous les navigateurs modernes). Les outils utilisant OffscreenCanvas nécessitent Chrome/Edge 69+ ou Firefox 105+.",
+        "de": "DropAnyConvert funktioniert in allen modernen Browsern: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+ und Opera 76+. Tools, die WebAssembly verwenden, benötigen einen Browser mit Wasm-Unterstützung (alle modernen Browser). Tools mit OffscreenCanvas benötigen Chrome/Edge 69+ oder Firefox 105+.",
+        "pt": "O DropAnyConvert funciona em todos os navegadores modernos: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+ e Opera 76+. Ferramentas que usam WebAssembly requerem um navegador com suporte a Wasm (todos os navegadores modernos). Ferramentas que usam OffscreenCanvas requerem Chrome/Edge 69+ ou Firefox 105+."
+      }
+    },
+    {
+      "id": "accessibility",
+      "icon": "accessibility",
+      "title": {
+        "en": "Accessibility Commitment",
+        "es": "Compromiso de accesibilidad",
+        "fr": "Engagement en matière d'accessibilité",
+        "de": "Barrierefreiheitsverpflichtung",
+        "pt": "Compromisso de acessibilidade"
+      },
+      "body": {
+        "en": "We target WCAG 2.1 AA compliance across the platform. All pages include skip links, ARIA landmarks, semantic HTML, sufficient colour contrast, keyboard navigation, and visible focus indicators. Screen reader compatibility is tested with NVDA and VoiceOver.",
+        "es": "Apuntamos al cumplimiento de WCAG 2.1 AA en toda la plataforma. Todas las páginas incluyen enlaces de salto, puntos de referencia ARIA, HTML semántico, contraste de color suficiente, navegación por teclado e indicadores de enfoque visibles.",
+        "fr": "Nous visons la conformité WCAG 2.1 AA sur toute la plateforme. Toutes les pages incluent des liens de saut, des points de repère ARIA, du HTML sémantique, un contraste de couleur suffisant, une navigation au clavier et des indicateurs de focus visibles.",
+        "de": "Wir streben WCAG 2.1 AA-Konformität auf der gesamten Plattform an. Alle Seiten enthalten Skip-Links, ARIA-Landmarks, semantisches HTML, ausreichenden Farbkontrast, Tastaturnavigation und sichtbare Fokusindikatoren.",
+        "pt": "Visamos conformidade com WCAG 2.1 AA em toda a plataforma. Todas as páginas incluem links de salto, marcos ARIA, HTML semântico, contraste de cor suficiente, navegação por teclado e indicadores de foco visíveis."
+      }
+    }
+  ]
+}

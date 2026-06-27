@@ -1,16 +1,38 @@
 {
   "slug": "vector-image",
-  "term": { "en": "Vector Image" },
-  "shortDef": { "en": "An image defined by mathematical shapes and paths rather than pixels, scaling without quality loss." },
-  "definition": { "en": "A vector image stores visual information as mathematical descriptions of geometric shapes — points, lines, curves, and polygons — rather than as a fixed grid of pixels. Because the shapes are described mathematically, a vector image can be rendered at any resolution without any loss of quality: a vector logo looks equally sharp at 16 pixels or 10 metres. Vector files contain instructions like 'draw a circle at position (100, 100) with radius 50 and fill colour #FF0000' that the rendering engine executes at display time. Common vector formats include SVG (the web standard), PDF (which supports both vector and raster content), AI (Adobe Illustrator), and EPS. Vector graphics are created with design tools (Figma, Illustrator, Inkscape) rather than cameras." },
+  "term": {
+    "en": "Vector Image"
+  },
+  "shortDef": {
+    "en": "An image defined by mathematical shapes and paths rather than pixels, scaling without quality loss."
+  },
+  "definition": {
+    "en": "A vector image stores visual information as mathematical descriptions of geometric shapes — points, lines, curves, and polygons — rather than as a fixed grid of pixels. Because the shapes are described mathematically, a vector image can be rendered at any resolution without any loss of quality: a vector logo looks equally sharp at 16 pixels or 10 metres. Vector files contain instructions like 'draw a circle at position (100, 100) with radius 50 and fill colour #FF0000' that the rendering engine executes at display time. Common vector formats include SVG (the web standard), PDF (which supports both vector and raster content), AI (Adobe Illustrator), and EPS. Vector graphics are created with design tools (Figma, Illustrator, Inkscape) rather than cameras."
+  },
   "examples": [
-    { "en": "A company logo saved as SVG looks identical whether displayed at 32px (favicon) or 3000px (banner)." },
-    { "en": "Font characters (letters, numbers) are vector objects — they are described as curves and rendered sharply at any point size." },
-    { "en": "A D3.js chart renders as SVG vector graphics that scale perfectly on any screen resolution." }
+    {
+      "en": "A company logo saved as SVG looks identical whether displayed at 32px (favicon) or 3000px (banner)."
+    },
+    {
+      "en": "Font characters (letters, numbers) are vector objects — they are described as curves and rendered sharply at any point size."
+    },
+    {
+      "en": "A D3.js chart renders as SVG vector graphics that scale perfectly on any screen resolution."
+    }
   ],
-  "relatedTerms": ["raster-image", "lossless-compression"],
-  "relatedTools": ["svg-to-png"],
-  "relatedArticles": ["what-is-svg", "what-is-png"],
+  "relatedTerms": [
+    "raster-image",
+    "lossless-compression"
+  ],
+  "relatedTools": [
+    "svg-to-png"
+  ],
+  "relatedArticles": [
+    "what-is-svg",
+    "what-is-png"
+  ],
   "category": "image",
-  "lastUpdated": "2026-01-15"
+  "lastUpdated": "2026-01-15",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

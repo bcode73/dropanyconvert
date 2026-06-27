@@ -1,16 +1,39 @@
 {
   "slug": "checksum",
-  "term": { "en": "Checksum" },
-  "shortDef": { "en": "A small value derived from data that can verify the data has not been altered or corrupted." },
-  "definition": { "en": "A checksum is a fixed-size value computed from a block of data using a mathematical algorithm. It is used to detect whether data has been altered — either accidentally (due to transmission errors or storage corruption) or intentionally (tampering). When you download a file, the provider often publishes its checksum (e.g., MD5, SHA-256). After downloading, you compute the checksum of the received file and compare it to the published value. If they match, the file is intact. If they differ, the file was corrupted or tampered with. Checksums are different from cryptographic hash functions used for security (though there is overlap): a simple checksum like CRC32 is fast but easy to forge; a cryptographic hash like SHA-256 is collision-resistant and suitable for security-critical verification." },
+  "term": {
+    "en": "Checksum"
+  },
+  "shortDef": {
+    "en": "A small value derived from data that can verify the data has not been altered or corrupted."
+  },
+  "definition": {
+    "en": "A checksum is a fixed-size value computed from a block of data using a mathematical algorithm. It is used to detect whether data has been altered — either accidentally (due to transmission errors or storage corruption) or intentionally (tampering). When you download a file, the provider often publishes its checksum (e.g., MD5, SHA-256). After downloading, you compute the checksum of the received file and compare it to the published value. If they match, the file is intact. If they differ, the file was corrupted or tampered with. Checksums are different from cryptographic hash functions used for security (though there is overlap): a simple checksum like CRC32 is fast but easy to forge; a cryptographic hash like SHA-256 is collision-resistant and suitable for security-critical verification."
+  },
   "examples": [
-    { "en": "SHA-256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 is the SHA-256 of an empty file" },
-    { "en": "Linux ISO downloads always include SHA-256 checksums so users can verify the download was not corrupted" },
-    { "en": "Git uses SHA-1 (transitioning to SHA-256) checksums to identify every commit, file, and tree object" }
+    {
+      "en": "SHA-256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 is the SHA-256 of an empty file"
+    },
+    {
+      "en": "Linux ISO downloads always include SHA-256 checksums so users can verify the download was not corrupted"
+    },
+    {
+      "en": "Git uses SHA-1 (transitioning to SHA-256) checksums to identify every commit, file, and tree object"
+    }
   ],
-  "relatedTerms": ["mime-type", "metadata"],
-  "relatedTools": ["sha256-hash", "md5-hash", "crc32-hash"],
-  "relatedArticles": ["what-is-base64"],
+  "relatedTerms": [
+    "mime-type",
+    "metadata"
+  ],
+  "relatedTools": [
+    "sha256-hash",
+    "md5-hash",
+    "crc32-hash"
+  ],
+  "relatedArticles": [
+    "what-is-base64"
+  ],
   "category": "developer",
-  "lastUpdated": "2026-01-15"
+  "lastUpdated": "2026-01-15",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

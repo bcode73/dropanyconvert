@@ -1,0 +1,114 @@
+{
+  "releases": [
+    {
+      "version": "14.0.0",
+      "date": "2026-06-27",
+      "summary": {
+        "en": "Trust Center, editorial system, tool quality signals, AI discoverability, and expanded search.",
+        "es": "Centro de confianza, sistema editorial, señales de calidad de herramientas, visibilidad para IA y búsqueda ampliada.",
+        "fr": "Centre de confiance, système éditorial, signaux de qualité des outils, découvrabilité par l'IA et recherche étendue.",
+        "de": "Trust Center, redaktionelles System, Tool-Qualitätssignale, KI-Auffindbarkeit und erweiterte Suche.",
+        "pt": "Central de confiança, sistema editorial, sinais de qualidade de ferramentas, descobribilidade por IA e pesquisa expandida."
+      },
+      "added": [
+        "Trust & Security Center at /en/trust",
+        "Editorial system with 7 editorial pages at /en/editorial/*",
+        "Changelog page at /en/changelog",
+        "Tool quality badges (Browser First, Privacy Friendly, Batch Supported, etc.)",
+        "Compatibility tables on every tool page",
+        "Performance metrics section on every tool page",
+        "/llms.txt and /ai.txt for AI discoverability",
+        "Site statistics auto-generated at build time",
+        "Expanded related content (collections + landing pages + newest + popular)"
+      ],
+      "improved": [
+        "Search now indexes Trust, Editorial, Changelog, and Landing pages",
+        "Footer expanded with Knowledge Hub, Trust, Editorial, and Changelog links",
+        "Every article/guide/comparison/glossary page now displays Last Updated, Reviewed By, Version, and Reading Time",
+        "Build validation now catches orphan pages, duplicate canonicals, empty collections, and missing metadata"
+      ],
+      "fixed": [],
+      "security": [
+        "Content Security Policy strengthened",
+        "HSTS headers verified across all routes"
+      ],
+      "performance": [
+        "Build time maintained under 5 seconds for 800+ pages",
+        "Zero build warnings"
+      ]
+    },
+    {
+      "version": "13.0.0",
+      "date": "2026-06-20",
+      "summary": {
+        "en": "Tool collections, programmatic landing pages, FAQ hub, and massive internal linking expansion.",
+        "es": "Colecciones de herramientas, páginas de destino programáticas, hub de preguntas frecuentes y expansión masiva de enlaces internos.",
+        "fr": "Collections d'outils, pages de destination programmatiques, hub FAQ et expansion massive des liens internes.",
+        "de": "Tool-Sammlungen, programmatische Landing Pages, FAQ-Hub und massive Ausbau interner Verlinkungen.",
+        "pt": "Coleções de ferramentas, páginas de destino programáticas, hub de FAQ e expansão massiva de links internos."
+      },
+      "added": [
+        "8 tool collections at /en/collections/*",
+        "7 programmatic landing pages at /en/for/*",
+        "FAQ Hub at /en/faq",
+        "Related guides, comparisons, and glossary terms on every tool page",
+        "Prev/next article navigation",
+        "Unified knowledge hub search index (DAC_KH_INDEX)",
+        "CollectionPage + ItemList schema.org for collections",
+        "FAQPage schema for landing pages"
+      ],
+      "improved": [
+        "Internal linker now returns structured {relatedTools, guides, comparisons, glossary} per route",
+        "sitemap.xml updated with all new page types"
+      ],
+      "fixed": [],
+      "security": [],
+      "performance": [
+        "701 pages generated in under 4 seconds"
+      ]
+    },
+    {
+      "version": "12.0.0",
+      "date": "2026-05-15",
+      "summary": {
+        "en": "Developer tools suite: 43 new browser-based developer utilities.",
+        "es": "Suite de herramientas para desarrolladores: 43 nuevas utilidades de desarrollador basadas en navegador.",
+        "fr": "Suite d'outils développeur : 43 nouveaux utilitaires développeur basés sur navigateur.",
+        "de": "Entwicklertools-Suite: 43 neue browserbasierte Entwickler-Utilities.",
+        "pt": "Suite de ferramentas para desenvolvedores: 43 novos utilitários de desenvolvedor baseados em navegador."
+      },
+      "added": [
+        "43 developer tools (JSON, Base64, URL, JWT, regex, hashing, UUID, etc.)",
+        "Developer-specific UI with input/output panels",
+        "Syntax highlighting for developer tools",
+        "Code copy-to-clipboard functionality"
+      ],
+      "improved": [],
+      "fixed": [],
+      "security": [],
+      "performance": []
+    },
+    {
+      "version": "11.0.0",
+      "date": "2026-04-01",
+      "summary": {
+        "en": "Knowledge Hub: guides, comparisons, and glossary across 5 languages.",
+        "es": "Centro de conocimiento: guías, comparaciones y glosario en 5 idiomas.",
+        "fr": "Knowledge Hub : guides, comparaisons et glossaire en 5 langues.",
+        "de": "Knowledge Hub: Leitfäden, Vergleiche und Glossar in 5 Sprachen.",
+        "pt": "Knowledge Hub: guias, comparações e glossário em 5 idiomas."
+      },
+      "added": [
+        "11 in-depth guides",
+        "6 format comparison pages",
+        "10 glossary terms",
+        "Guides index, compare index, and glossary index pages",
+        "TechArticle, DefinedTerm, and BreadcrumbList schema.org"
+      ],
+      "improved": [],
+      "fixed": [],
+      "security": [],
+      "performance": []
+    }
+  ]
+}

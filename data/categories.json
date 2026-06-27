@@ -41,7 +41,13 @@
       "features": [
         {
           "icon": "lock",
-          "title": { "en": "100% Private", "es": "100% Privado", "fr": "100% Privé", "de": "100% Privat", "pt": "100% Privado" },
+          "title": {
+            "en": "100% Private",
+            "es": "100% Privado",
+            "fr": "100% Privé",
+            "de": "100% Privat",
+            "pt": "100% Privado"
+          },
           "description": {
             "en": "Every conversion happens entirely in your browser. Your images never leave your device and are never sent to any server.",
             "es": "Cada conversión ocurre completamente en tu navegador. Tus imágenes nunca abandonan tu dispositivo.",
@@ -52,7 +58,13 @@
         },
         {
           "icon": "bolt",
-          "title": { "en": "Instant Results", "es": "Resultados Instantáneos", "fr": "Résultats Instantanés", "de": "Sofortige Ergebnisse", "pt": "Resultados Instantâneos" },
+          "title": {
+            "en": "Instant Results",
+            "es": "Resultados Instantáneos",
+            "fr": "Résultats Instantanés",
+            "de": "Sofortige Ergebnisse",
+            "pt": "Resultados Instantâneos"
+          },
           "description": {
             "en": "No waiting for uploads or server queues. Conversions run at full GPU speed using the browser's native Canvas API.",
             "es": "Sin espera de subidas ni colas de servidor. Las conversiones se ejecutan a plena velocidad usando la API Canvas del navegador.",
@@ -63,7 +75,13 @@
         },
         {
           "icon": "stack",
-          "title": { "en": "Batch Processing", "es": "Procesamiento por Lotes", "fr": "Traitement par Lots", "de": "Stapelverarbeitung", "pt": "Processamento em Lote" },
+          "title": {
+            "en": "Batch Processing",
+            "es": "Procesamiento por Lotes",
+            "fr": "Traitement par Lots",
+            "de": "Stapelverarbeitung",
+            "pt": "Processamento em Lote"
+          },
           "description": {
             "en": "Convert up to 20 images at once. Multiple outputs are automatically packaged as a ZIP file — one click to download everything.",
             "es": "Convierte hasta 20 imágenes a la vez. Las salidas múltiples se empaquetan automáticamente como un archivo ZIP.",
@@ -74,7 +92,13 @@
         },
         {
           "icon": "mobile",
-          "title": { "en": "Works on Mobile", "es": "Funciona en Móvil", "fr": "Fonctionne sur Mobile", "de": "Funktioniert auf Mobilgeräten", "pt": "Funciona no Celular" },
+          "title": {
+            "en": "Works on Mobile",
+            "es": "Funciona en Móvil",
+            "fr": "Fonctionne sur Mobile",
+            "de": "Funktioniert auf Mobilgeräten",
+            "pt": "Funciona no Celular"
+          },
           "description": {
             "en": "Fully optimised for phones and tablets. Drag, drop, tap, or paste from your camera roll — no app download required.",
             "es": "Completamente optimizado para teléfonos y tabletas. Arrastra, suelta, toca o pega desde tu galería — sin descargar aplicaciones.",
@@ -191,7 +215,13 @@
       "features": [
         {
           "icon": "lock",
-          "title": { "en": "100% Private", "es": "100% Privado", "fr": "100% Privé", "de": "100% Privat", "pt": "100% Privado" },
+          "title": {
+            "en": "100% Private",
+            "es": "100% Privado",
+            "fr": "100% Privé",
+            "de": "100% Privat",
+            "pt": "100% Privado"
+          },
           "description": {
             "en": "All PDF processing runs locally in your browser using pdf-lib and PDF.js. Your documents are never uploaded to any server.",
             "es": "Todo el procesamiento de PDF se realiza localmente en tu navegador. Tus documentos nunca se suben a ningún servidor.",
@@ -202,7 +232,13 @@
         },
         {
           "icon": "stack",
-          "title": { "en": "All Major PDF Operations", "es": "Todas las Operaciones PDF Principales", "fr": "Toutes les Opérations PDF Principales", "de": "Alle wichtigen PDF-Operationen", "pt": "Todas as Operações PDF Principais" },
+          "title": {
+            "en": "All Major PDF Operations",
+            "es": "Todas las Operaciones PDF Principales",
+            "fr": "Toutes les Opérations PDF Principales",
+            "de": "Alle wichtigen PDF-Operationen",
+            "pt": "Todas as Operações PDF Principais"
+          },
           "description": {
             "en": "Merge, split, compress, rotate, extract pages, delete pages, reorder, protect, unlock, and convert PDFs — 15 tools covering every common PDF task.",
             "es": "Combina, divide, comprime, rota, extrae páginas, elimina páginas, reordena, protege, desbloquea y convierte PDF — 15 herramientas para cada tarea PDF común.",
@@ -213,7 +249,13 @@
         },
         {
           "icon": "bolt",
-          "title": { "en": "No Watermarks or Limits", "es": "Sin Marcas de Agua ni Límites", "fr": "Sans Filigrane ni Limites", "de": "Keine Wasserzeichen oder Limits", "pt": "Sem Marcas d'Água ou Limites" },
+          "title": {
+            "en": "No Watermarks or Limits",
+            "es": "Sin Marcas de Agua ni Límites",
+            "fr": "Sans Filigrane ni Limites",
+            "de": "Keine Wasserzeichen oder Limits",
+            "pt": "Sem Marcas d'Água ou Limites"
+          },
           "description": {
             "en": "Every PDF tool is completely free with no watermarks, no page count limits, and no file size paywalls.",
             "es": "Todas las herramientas PDF son completamente gratuitas, sin marcas de agua, sin límites de páginas y sin límites de tamaño de archivo.",
@@ -224,7 +266,13 @@
         },
         {
           "icon": "mobile",
-          "title": { "en": "Works on Any Device", "es": "Funciona en Cualquier Dispositivo", "fr": "Fonctionne sur N'importe Quel Appareil", "de": "Funktioniert auf jedem Gerät", "pt": "Funciona em Qualquer Dispositivo" },
+          "title": {
+            "en": "Works on Any Device",
+            "es": "Funciona en Cualquier Dispositivo",
+            "fr": "Fonctionne sur N'importe Quel Appareil",
+            "de": "Funktioniert auf jedem Gerät",
+            "pt": "Funciona em Qualquer Dispositivo"
+          },
           "description": {
             "en": "All PDF tools work on desktop, tablet, and mobile. No software to install — just open your browser and start working.",
             "es": "Todas las herramientas PDF funcionan en escritorio, tableta y móvil. Sin software que instalar — solo abre tu navegador.",
@@ -300,120 +348,6 @@
           }
         }
       ]
-    },
-    {
-      "id": "video",
-      "slug": "video-converter",
-      "engine": "video_engine",
-      "name": {
-        "en": "Video Converter",
-        "es": "Conversor de Video",
-        "fr": "Convertisseur Vidéo",
-        "de": "Videokonverter",
-        "pt": "Conversor de Vídeo"
-      },
-      "description": {
-        "en": "Convert video files between formats in your browser. MP4, WebM, MOV, AVI, and more.",
-        "es": "Convierte archivos de video entre formatos en tu navegador. MP4, WebM, MOV, AVI y más.",
-        "fr": "Convertissez des fichiers vidéo entre formats dans votre navigateur. MP4, WebM, MOV, AVI et plus encore.",
-        "de": "Konvertiere Videodateien zwischen Formaten in deinem Browser. MP4, WebM, MOV, AVI und mehr.",
-        "pt": "Converta arquivos de vídeo entre formatos no seu navegador. MP4, WebM, MOV, AVI e muito mais."
-      },
-      "icon": "video",
-      "color": "#8b5cf6",
-      "order": 3,
-      "sectionLabels": {
-        "conversionSection": {
-          "en": "Video Converters",
-          "es": "Conversores de Video",
-          "fr": "Convertisseurs Vidéo",
-          "de": "Videokonverter",
-          "pt": "Conversores de Vídeo"
-        },
-        "utilitySection": {
-          "en": "Video Tools",
-          "es": "Herramientas de Video",
-          "fr": "Outils Vidéo",
-          "de": "Videowerkzeuge",
-          "pt": "Ferramentas de Vídeo"
-        }
-      }
-    },
-    {
-      "id": "audio",
-      "slug": "audio-converter",
-      "engine": "audio_engine",
-      "name": {
-        "en": "Audio Converter",
-        "es": "Conversor de Audio",
-        "fr": "Convertisseur Audio",
-        "de": "Audiokonverter",
-        "pt": "Conversor de Áudio"
-      },
-      "description": {
-        "en": "Convert audio files between formats in your browser. MP3, WAV, OGG, FLAC, and more.",
-        "es": "Convierte archivos de audio entre formatos en tu navegador. MP3, WAV, OGG, FLAC y más.",
-        "fr": "Convertissez des fichiers audio entre formats dans votre navigateur. MP3, WAV, OGG, FLAC et plus encore.",
-        "de": "Konvertiere Audiodateien zwischen Formaten in deinem Browser. MP3, WAV, OGG, FLAC und mehr.",
-        "pt": "Converta arquivos de áudio entre formatos no seu navegador. MP3, WAV, OGG, FLAC e muito mais."
-      },
-      "icon": "audio",
-      "color": "#10b981",
-      "order": 4,
-      "sectionLabels": {
-        "conversionSection": {
-          "en": "Audio Converters",
-          "es": "Conversores de Audio",
-          "fr": "Convertisseurs Audio",
-          "de": "Audiokonverter",
-          "pt": "Conversores de Áudio"
-        },
-        "utilitySection": {
-          "en": "Audio Tools",
-          "es": "Herramientas de Audio",
-          "fr": "Outils Audio",
-          "de": "Audiowerkzeuge",
-          "pt": "Ferramentas de Áudio"
-        }
-      }
-    },
-    {
-      "id": "text",
-      "slug": "text-tools",
-      "engine": "text_engine",
-      "name": {
-        "en": "Text Tools",
-        "es": "Herramientas de Texto",
-        "fr": "Outils Texte",
-        "de": "Textwerkzeuge",
-        "pt": "Ferramentas de Texto"
-      },
-      "description": {
-        "en": "Convert and transform text files. CSV, JSON, XML, Markdown, and more.",
-        "es": "Convierte y transforma archivos de texto. CSV, JSON, XML, Markdown y más.",
-        "fr": "Convertissez et transformez des fichiers texte. CSV, JSON, XML, Markdown et plus encore.",
-        "de": "Konvertiere und transformiere Textdateien. CSV, JSON, XML, Markdown und mehr.",
-        "pt": "Converta e transforme arquivos de texto. CSV, JSON, XML, Markdown e muito mais."
-      },
-      "icon": "text",
-      "color": "#f59e0b",
-      "order": 5,
-      "sectionLabels": {
-        "conversionSection": {
-          "en": "Text Converters",
-          "es": "Conversores de Texto",
-          "fr": "Convertisseurs de Texte",
-          "de": "Textkonverter",
-          "pt": "Conversores de Texto"
-        },
-        "utilitySection": {
-          "en": "Text Tools",
-          "es": "Herramientas de Texto",
-          "fr": "Outils Texte",
-          "de": "Textwerkzeuge",
-          "pt": "Ferramentas de Texto"
-        }
-      }
     },
     {
       "id": "developer",

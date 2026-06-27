@@ -37,14 +37,21 @@ export async function loadData(config) {
   const legal = JSON.parse(legalRaw);
   const analytics = JSON.parse(analyticsRaw);
 
-  const [tools, articles, comparisons, glossary, collections, landings] = await Promise.all([
+  const [tools, articles, comparisons, glossary, collections, landings, trustRaw, editorialRaw, changelogRaw] = await Promise.all([
     loadJsonDir(path.join(dataDir, 'tools')),
     loadJsonDir(path.join(dataDir, 'articles')),
     loadJsonDir(path.join(dataDir, 'comparisons')),
     loadJsonDir(path.join(dataDir, 'glossary')),
     loadJsonDir(path.join(dataDir, 'collections')),
     loadJsonDir(path.join(dataDir, 'landings')),
+    readFile(path.join(dataDir, 'trust.json'), 'utf8').catch(() => null),
+    readFile(path.join(dataDir, 'editorial.json'), 'utf8').catch(() => null),
+    readFile(path.join(dataDir, 'changelog.json'), 'utf8').catch(() => null),
   ]);
 
-  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary, collections, landings };
+  const trust     = trustRaw     ? JSON.parse(trustRaw)     : null;
+  const editorial = editorialRaw ? JSON.parse(editorialRaw) : { pages: [] };
+  const changelog = changelogRaw ? JSON.parse(changelogRaw) : { releases: [] };
+
+  return { categories, languages, seoGlobal, ads, legal, analytics, tools, articles, comparisons, glossary, collections, landings, trust, editorial, changelog };
 }

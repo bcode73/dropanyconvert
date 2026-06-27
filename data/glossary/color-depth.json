@@ -1,16 +1,40 @@
 {
   "slug": "color-depth",
-  "term": { "en": "Color Depth" },
-  "shortDef": { "en": "The number of bits used to represent the colour of each pixel in an image." },
-  "definition": { "en": "Color depth (also called bit depth) refers to the number of bits used to represent the colour of each pixel in an image. Higher bit depth means more possible colour values per pixel, resulting in smoother gradients, more accurate colour representation, and less banding. Common colour depths: 1-bit (2 colours, black and white), 8-bit indexed (256 colours from a palette, used in GIF), 8-bit per channel / 24-bit true colour (16.7 million colours, used in JPG and PNG-24, the standard for web images), 8-bit per channel with alpha / 32-bit (24-bit colour + 8-bit transparency, used in PNG-32), 10-bit per channel / 30-bit (over 1 billion colours, used in HDR displays and professional video), 16-bit per channel / 48-bit (used in RAW photography and professional image editing). Standard monitors display 8 bits per channel; modern HDR monitors handle 10 bits; professional photo editing uses 16 bits per channel to avoid rounding errors during colour correction." },
+  "term": {
+    "en": "Color Depth"
+  },
+  "shortDef": {
+    "en": "The number of bits used to represent the colour of each pixel in an image."
+  },
+  "definition": {
+    "en": "Color depth (also called bit depth) refers to the number of bits used to represent the colour of each pixel in an image. Higher bit depth means more possible colour values per pixel, resulting in smoother gradients, more accurate colour representation, and less banding. Common colour depths: 1-bit (2 colours, black and white), 8-bit indexed (256 colours from a palette, used in GIF), 8-bit per channel / 24-bit true colour (16.7 million colours, used in JPG and PNG-24, the standard for web images), 8-bit per channel with alpha / 32-bit (24-bit colour + 8-bit transparency, used in PNG-32), 10-bit per channel / 30-bit (over 1 billion colours, used in HDR displays and professional video), 16-bit per channel / 48-bit (used in RAW photography and professional image editing). Standard monitors display 8 bits per channel; modern HDR monitors handle 10 bits; professional photo editing uses 16 bits per channel to avoid rounding errors during colour correction."
+  },
   "examples": [
-    { "en": "A standard JPG photograph uses 8 bits per channel (24-bit total) — 256 × 256 × 256 = 16.7 million possible colours." },
-    { "en": "AVIF and WebP support 10-bit colour depth for HDR content, displaying more subtle colour gradations on compatible monitors." },
-    { "en": "GIF is limited to 8-bit indexed colour (256 colours), which is why animated GIFs have visible colour banding in gradient areas." }
+    {
+      "en": "A standard JPG photograph uses 8 bits per channel (24-bit total) — 256 × 256 × 256 = 16.7 million possible colours."
+    },
+    {
+      "en": "AVIF and WebP support 10-bit colour depth for HDR content, displaying more subtle colour gradations on compatible monitors."
+    },
+    {
+      "en": "GIF is limited to 8-bit indexed colour (256 colours), which is why animated GIFs have visible colour banding in gradient areas."
+    }
   ],
-  "relatedTerms": ["raster-image", "lossless-compression"],
-  "relatedTools": ["png-to-jpg", "png-to-avif"],
-  "relatedArticles": ["what-is-png", "what-is-avif", "what-is-jpg"],
+  "relatedTerms": [
+    "raster-image",
+    "lossless-compression"
+  ],
+  "relatedTools": [
+    "png-to-jpg",
+    "png-to-avif"
+  ],
+  "relatedArticles": [
+    "what-is-png",
+    "what-is-avif",
+    "what-is-jpg"
+  ],
   "category": "image",
-  "lastUpdated": "2026-01-15"
+  "lastUpdated": "2026-01-15",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

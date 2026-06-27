@@ -3,55 +3,108 @@
   "articleType": "guide",
   "category": "developer",
   "lastUpdated": "2026-01-15",
-  "relatedTools": ["yaml-to-json", "json-to-yaml"],
-  "relatedArticles": ["what-is-json", "json-vs-yaml", "json-vs-xml"],
-  "title": { "en": "What is YAML? Complete Guide to YAML Syntax and Use Cases" },
-  "h1": { "en": "What is YAML?" },
-  "description": { "en": "A complete guide to YAML — syntax, data types, anchors and aliases, comparison with JSON and TOML, and common use cases in CI/CD, Kubernetes, and application configuration." },
-  "intro": { "en": "YAML (YAML Ain't Markup Language, a recursive acronym) is a human-readable data serialisation standard. It was designed to be easy for humans to read and write, making it the preferred format for configuration files in DevOps tooling, CI/CD pipelines (GitHub Actions, GitLab CI), container orchestration (Kubernetes, Docker Compose), and application configuration frameworks." },
+  "relatedTools": [
+    "yaml-to-json",
+    "json-to-yaml"
+  ],
+  "relatedArticles": [
+    "what-is-json",
+    "json-vs-yaml",
+    "json-vs-xml"
+  ],
+  "title": {
+    "en": "What is YAML? Complete Guide to YAML Syntax and Use Cases"
+  },
+  "h1": {
+    "en": "What is YAML?"
+  },
+  "description": {
+    "en": "A complete guide to YAML — syntax, data types, anchors and aliases, comparison with JSON and TOML, and common use cases in CI/CD, Kubernetes, and application configuration."
+  },
+  "intro": {
+    "en": "YAML (YAML Ain't Markup Language, a recursive acronym) is a human-readable data serialisation standard. It was designed to be easy for humans to read and write, making it the preferred format for configuration files in DevOps tooling, CI/CD pipelines (GitHub Actions, GitLab CI), container orchestration (Kubernetes, Docker Compose), and application configuration frameworks."
+  },
   "sections": [
     {
       "id": "syntax",
-      "heading": { "en": "YAML Syntax Basics" },
-      "content": { "en": "YAML uses indentation (spaces, not tabs) to denote structure. Key-value pairs are written as key: value on separate lines. Lists use a dash (- item) for each item. Strings do not require quotes unless they contain special characters. Comments start with #. A YAML document starts with --- (optional) and ends with ... (optional). YAML is a superset of JSON — every valid JSON document is also valid YAML, making migration between the two formats straightforward." }
+      "heading": {
+        "en": "YAML Syntax Basics"
+      },
+      "content": {
+        "en": "YAML uses indentation (spaces, not tabs) to denote structure. Key-value pairs are written as key: value on separate lines. Lists use a dash (- item) for each item. Strings do not require quotes unless they contain special characters. Comments start with #. A YAML document starts with --- (optional) and ends with ... (optional). YAML is a superset of JSON — every valid JSON document is also valid YAML, making migration between the two formats straightforward."
+      }
     },
     {
       "id": "data-types",
-      "heading": { "en": "YAML Data Types" },
-      "content": { "en": "YAML supports strings, integers, floats, booleans (true/false/yes/no/on/off), null (null/~), and dates (2024-01-15). It also supports multi-line strings using the | (literal block) or > (folded block) indicators. Block scalars with | preserve newlines; folded blocks with > convert newlines to spaces. YAML's type detection is implicit — the value 42 is parsed as an integer and true as a boolean without quotes. To force a value to be treated as a string, wrap it in quotes." }
+      "heading": {
+        "en": "YAML Data Types"
+      },
+      "content": {
+        "en": "YAML supports strings, integers, floats, booleans (true/false/yes/no/on/off), null (null/~), and dates (2024-01-15). It also supports multi-line strings using the | (literal block) or > (folded block) indicators. Block scalars with | preserve newlines; folded blocks with > convert newlines to spaces. YAML's type detection is implicit — the value 42 is parsed as an integer and true as a boolean without quotes. To force a value to be treated as a string, wrap it in quotes."
+      }
     },
     {
       "id": "advanced-features",
-      "heading": { "en": "Anchors, Aliases, and Merges" },
-      "content": { "en": "YAML's anchors (&name) and aliases (*name) allow values to be defined once and reused throughout the document, reducing duplication. The merge key (<<:) allows one mapping to be merged into another. These features are particularly powerful in CI/CD configurations where the same steps, environment variables, or settings appear in multiple places. No other common data format (JSON, TOML) supports this kind of in-document reference." }
+      "heading": {
+        "en": "Anchors, Aliases, and Merges"
+      },
+      "content": {
+        "en": "YAML's anchors (&name) and aliases (*name) allow values to be defined once and reused throughout the document, reducing duplication. The merge key (<<:) allows one mapping to be merged into another. These features are particularly powerful in CI/CD configurations where the same steps, environment variables, or settings appear in multiple places. No other common data format (JSON, TOML) supports this kind of in-document reference."
+      }
     },
     {
       "id": "use-cases",
-      "heading": { "en": "Where YAML Is Used" },
-      "content": { "en": "YAML is the configuration language of choice for: GitHub Actions (.github/workflows/*.yml), GitLab CI/CD (.gitlab-ci.yml), Kubernetes manifests (deployments, services, configmaps), Docker Compose (docker-compose.yml), Ansible playbooks, Helm charts, OpenAPI/Swagger API specifications, and many application frameworks (Ruby on Rails' database.yml, Spring Boot's application.yml). Its human-readable syntax and comment support make it ideal for files that developers read and write directly." }
+      "heading": {
+        "en": "Where YAML Is Used"
+      },
+      "content": {
+        "en": "YAML is the configuration language of choice for: GitHub Actions (.github/workflows/*.yml), GitLab CI/CD (.gitlab-ci.yml), Kubernetes manifests (deployments, services, configmaps), Docker Compose (docker-compose.yml), Ansible playbooks, Helm charts, OpenAPI/Swagger API specifications, and many application frameworks (Ruby on Rails' database.yml, Spring Boot's application.yml). Its human-readable syntax and comment support make it ideal for files that developers read and write directly."
+      }
     },
     {
       "id": "pitfalls",
-      "heading": { "en": "YAML Pitfalls and Gotchas" },
-      "content": { "en": "YAML's implicit typing can cause surprises. The value yes is parsed as boolean true, which can break configuration values like country codes ('NO' for Norway). The value 1.0 is a float; 01 is an octal integer in YAML 1.1 (a common source of bugs with port numbers). Tabs are forbidden for indentation. Special characters in strings (:, #, {, [) require quoting. These gotchas have led to jokes about YAML being 'Yet Another Minefield for Aspiring Linguists' and prompted projects to switch to TOML for simpler configs." }
+      "heading": {
+        "en": "YAML Pitfalls and Gotchas"
+      },
+      "content": {
+        "en": "YAML's implicit typing can cause surprises. The value yes is parsed as boolean true, which can break configuration values like country codes ('NO' for Norway). The value 1.0 is a float; 01 is an octal integer in YAML 1.1 (a common source of bugs with port numbers). Tabs are forbidden for indentation. Special characters in strings (:, #, {, [) require quoting. These gotchas have led to jokes about YAML being 'Yet Another Minefield for Aspiring Linguists' and prompted projects to switch to TOML for simpler configs."
+      }
     }
   ],
   "faq": [
     {
-      "question": { "en": "Is YAML the same as JSON?" },
-      "answer": { "en": "YAML and JSON represent the same fundamental data structures (mappings, sequences, scalars) but with very different syntax. YAML is more human-readable and supports comments and anchors; JSON is simpler, has faster parsers, and is more widely used in APIs. Valid JSON is valid YAML, so you can always convert between the two." }
+      "question": {
+        "en": "Is YAML the same as JSON?"
+      },
+      "answer": {
+        "en": "YAML and JSON represent the same fundamental data structures (mappings, sequences, scalars) but with very different syntax. YAML is more human-readable and supports comments and anchors; JSON is simpler, has faster parsers, and is more widely used in APIs. Valid JSON is valid YAML, so you can always convert between the two."
+      }
     },
     {
-      "question": { "en": "Why is YAML used for Kubernetes?" },
-      "answer": { "en": "Kubernetes chose YAML for its manifests because YAML is more readable than JSON for long configuration documents, supports comments for documentation, and allows multi-document files (multiple --- separated documents in one file). The tradeoff is YAML's complexity and pitfalls, which have prompted community tools like kustomize and Helm to generate YAML programmatically." }
+      "question": {
+        "en": "Why is YAML used for Kubernetes?"
+      },
+      "answer": {
+        "en": "Kubernetes chose YAML for its manifests because YAML is more readable than JSON for long configuration documents, supports comments for documentation, and allows multi-document files (multiple --- separated documents in one file). The tradeoff is YAML's complexity and pitfalls, which have prompted community tools like kustomize and Helm to generate YAML programmatically."
+      }
     },
     {
-      "question": { "en": "How do I convert YAML to JSON?" },
-      "answer": { "en": "Use our YAML to JSON converter tool — paste your YAML and get formatted JSON instantly in your browser, with no server upload. In code: Python's PyYAML library (yaml.safe_load + json.dumps), Node.js's js-yaml library (yaml.load + JSON.stringify), or the yq command-line tool." }
+      "question": {
+        "en": "How do I convert YAML to JSON?"
+      },
+      "answer": {
+        "en": "Use our YAML to JSON converter tool — paste your YAML and get formatted JSON instantly in your browser, with no server upload. In code: Python's PyYAML library (yaml.safe_load + json.dumps), Node.js's js-yaml library (yaml.load + JSON.stringify), or the yq command-line tool."
+      }
     },
     {
-      "question": { "en": "Why can YAML have comments but JSON cannot?" },
-      "answer": { "en": "YAML was designed as a human-writable configuration format, so comments were included as a first-class feature. JSON was designed as a minimal data interchange format for machine parsing, and its creator deliberately excluded comments to prevent config-directive abuse. If you need comments in a JSON-like format, use JSONC or TOML instead." }
+      "question": {
+        "en": "Why can YAML have comments but JSON cannot?"
+      },
+      "answer": {
+        "en": "YAML was designed as a human-writable configuration format, so comments were included as a first-class feature. JSON was designed as a minimal data interchange format for machine parsing, and its creator deliberately excluded comments to prevent config-directive abuse. If you need comments in a JSON-like format, use JSONC or TOML instead."
+      }
     }
-  ]
+  ],
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

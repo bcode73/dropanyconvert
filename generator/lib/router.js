@@ -87,6 +87,24 @@ export async function generateRoutes(registry, data, config) {
         url: `${config.site.baseUrl}/${lang.code}/faq`,
       }));
       route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/faq`;
+    } else if (route.type === 'trust') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/trust`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/trust`;
+    } else if (route.type === 'editorial') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/editorial/${route.slug}`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/editorial/${route.slug}`;
+    } else if (route.type === 'changelog') {
+      route.hreflang = data.languages.map(lang => ({
+        lang: lang.hreflang,
+        url: `${config.site.baseUrl}/${lang.code}/changelog`,
+      }));
+      route.hreflangDefault = `${config.site.baseUrl}/${config.languages.default}/changelog`;
     } else if (route.type === 'home') {
       route.hreflang = data.languages.map(lang => ({
         lang: lang.hreflang,

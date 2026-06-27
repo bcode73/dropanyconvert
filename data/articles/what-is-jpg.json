@@ -3,64 +3,128 @@
   "articleType": "guide",
   "category": "image",
   "lastUpdated": "2026-01-15",
-  "relatedTools": ["jpg-to-png", "jpg-to-webp", "jpg-to-avif", "resize-image"],
-  "relatedArticles": ["what-is-png", "what-is-webp", "png-vs-jpg", "what-is-avif"],
-  "title": { "en": "What is JPG? Complete Guide to the JPEG Image Format" },
-  "h1": { "en": "What is JPG (JPEG)?" },
-  "description": { "en": "A complete guide to the JPG/JPEG image format — how lossy compression works, when to use JPG, quality settings, and how it compares to PNG and WebP." },
-  "intro": { "en": "JPG (also written JPEG) is the world's most widely used image format for photographs and complex images. Its lossy compression algorithm achieves dramatic file size reductions by discarding image information that the human visual system is least sensitive to, resulting in files that look nearly identical to the original at a fraction of the size." },
+  "relatedTools": [
+    "jpg-to-png",
+    "jpg-to-webp",
+    "jpg-to-avif",
+    "resize-image"
+  ],
+  "relatedArticles": [
+    "what-is-png",
+    "what-is-webp",
+    "png-vs-jpg",
+    "what-is-avif"
+  ],
+  "title": {
+    "en": "What is JPG? Complete Guide to the JPEG Image Format"
+  },
+  "h1": {
+    "en": "What is JPG (JPEG)?"
+  },
+  "description": {
+    "en": "A complete guide to the JPG/JPEG image format — how lossy compression works, when to use JPG, quality settings, and how it compares to PNG and WebP."
+  },
+  "intro": {
+    "en": "JPG (also written JPEG) is the world's most widely used image format for photographs and complex images. Its lossy compression algorithm achieves dramatic file size reductions by discarding image information that the human visual system is least sensitive to, resulting in files that look nearly identical to the original at a fraction of the size."
+  },
   "sections": [
     {
       "id": "history",
-      "heading": { "en": "History of JPEG" },
-      "content": { "en": "JPEG stands for Joint Photographic Experts Group, the committee that created the standard in 1992. The format was designed specifically for photographic images, where its lossy compression achieves superior compression ratios compared to the lossless alternatives available at the time. The .jpg file extension (and the equivalent .jpeg) has been the default for digital camera images, email attachments, and web photos ever since. Despite newer formats like WebP and AVIF offering better compression, JPEG remains dominant due to its universal compatibility." }
+      "heading": {
+        "en": "History of JPEG"
+      },
+      "content": {
+        "en": "JPEG stands for Joint Photographic Experts Group, the committee that created the standard in 1992. The format was designed specifically for photographic images, where its lossy compression achieves superior compression ratios compared to the lossless alternatives available at the time. The .jpg file extension (and the equivalent .jpeg) has been the default for digital camera images, email attachments, and web photos ever since. Despite newer formats like WebP and AVIF offering better compression, JPEG remains dominant due to its universal compatibility."
+      }
     },
     {
       "id": "how-compression-works",
-      "heading": { "en": "How JPG Compression Works" },
-      "content": { "en": "JPG compression works in three stages. First, the image is converted from RGB colour space to YCbCr, which separates brightness (luminance) from colour (chrominance) information. Because the human eye is more sensitive to brightness than to colour, the colour channels are downsampled. Second, the image is divided into 8×8 pixel blocks, and each block is transformed using the Discrete Cosine Transform (DCT), which converts pixel values into frequency components. Third, the high-frequency components (fine detail) are quantised — rounded to fewer values — and then compressed with Huffman coding. The quality setting controls how aggressively the quantisation step discards high-frequency detail." }
+      "heading": {
+        "en": "How JPG Compression Works"
+      },
+      "content": {
+        "en": "JPG compression works in three stages. First, the image is converted from RGB colour space to YCbCr, which separates brightness (luminance) from colour (chrominance) information. Because the human eye is more sensitive to brightness than to colour, the colour channels are downsampled. Second, the image is divided into 8×8 pixel blocks, and each block is transformed using the Discrete Cosine Transform (DCT), which converts pixel values into frequency components. Third, the high-frequency components (fine detail) are quantised — rounded to fewer values — and then compressed with Huffman coding. The quality setting controls how aggressively the quantisation step discards high-frequency detail."
+      }
     },
     {
       "id": "quality-settings",
-      "heading": { "en": "Understanding JPG Quality Settings" },
-      "content": { "en": "JPG quality is typically expressed on a scale of 1–100, where 100 means least compression and highest quality. Quality 85–95 is generally indistinguishable from the original for most photos. Quality 60–80 offers good quality at significantly smaller file sizes. Quality below 60 introduces visible artefacts — blocky patterns and colour bleeding around edges, especially noticeable in areas of flat colour or fine text. For web use, quality 75–85 is the industry standard. It is important to avoid repeatedly saving a JPG at a lossy setting, as each save cycle introduces additional artefacts." }
+      "heading": {
+        "en": "Understanding JPG Quality Settings"
+      },
+      "content": {
+        "en": "JPG quality is typically expressed on a scale of 1–100, where 100 means least compression and highest quality. Quality 85–95 is generally indistinguishable from the original for most photos. Quality 60–80 offers good quality at significantly smaller file sizes. Quality below 60 introduces visible artefacts — blocky patterns and colour bleeding around edges, especially noticeable in areas of flat colour or fine text. For web use, quality 75–85 is the industry standard. It is important to avoid repeatedly saving a JPG at a lossy setting, as each save cycle introduces additional artefacts."
+      }
     },
     {
       "id": "pros-cons",
-      "heading": { "en": "Advantages and Disadvantages" },
-      "content": { "en": "JPG's main advantages are very small file sizes for photographic images and universal compatibility with every device and software. A high-quality JPG photograph is typically 5–10× smaller than the equivalent PNG. The disadvantages are lossy compression (you cannot get back the original pixels), no support for transparency (no alpha channel), and visible compression artefacts at low quality settings. JPG is also a poor choice for images with sharp edges, flat colours, or text, where its block-based compression introduces noticeable blurring." }
+      "heading": {
+        "en": "Advantages and Disadvantages"
+      },
+      "content": {
+        "en": "JPG's main advantages are very small file sizes for photographic images and universal compatibility with every device and software. A high-quality JPG photograph is typically 5–10× smaller than the equivalent PNG. The disadvantages are lossy compression (you cannot get back the original pixels), no support for transparency (no alpha channel), and visible compression artefacts at low quality settings. JPG is also a poor choice for images with sharp edges, flat colours, or text, where its block-based compression introduces noticeable blurring."
+      }
     },
     {
       "id": "use-cases",
-      "heading": { "en": "When to Use JPG" },
-      "content": { "en": "Use JPG for: photographs shared on the web or social media, product images in e-commerce, photographic thumbnails and previews, email attachments where file size matters, and any continuous-tone image where transparency is not needed. Avoid JPG for: logos and icons (use PNG or SVG), screenshots with text (PNG preserves sharpness), images that will be edited and re-saved multiple times (use a lossless master), and graphics with flat colours or sharp edges." }
+      "heading": {
+        "en": "When to Use JPG"
+      },
+      "content": {
+        "en": "Use JPG for: photographs shared on the web or social media, product images in e-commerce, photographic thumbnails and previews, email attachments where file size matters, and any continuous-tone image where transparency is not needed. Avoid JPG for: logos and icons (use PNG or SVG), screenshots with text (PNG preserves sharpness), images that will be edited and re-saved multiple times (use a lossless master), and graphics with flat colours or sharp edges."
+      }
     },
     {
       "id": "browser-support",
-      "heading": { "en": "Browser and Platform Support" },
-      "content": { "en": "JPG is supported by every browser, operating system, camera, phone, and image application ever created. It is the universal fallback format. If you need a single format that will work everywhere without exception, JPG is that format." }
+      "heading": {
+        "en": "Browser and Platform Support"
+      },
+      "content": {
+        "en": "JPG is supported by every browser, operating system, camera, phone, and image application ever created. It is the universal fallback format. If you need a single format that will work everywhere without exception, JPG is that format."
+      }
     }
   ],
   "faq": [
     {
-      "question": { "en": "What is the difference between JPG and JPEG?" },
-      "answer": { "en": "There is no difference. JPEG is the full name of the format (Joint Photographic Experts Group). JPG is simply the shortened three-letter file extension used on early Windows systems that required extensions to be at most three characters long. Both .jpg and .jpeg files are identical in format." }
+      "question": {
+        "en": "What is the difference between JPG and JPEG?"
+      },
+      "answer": {
+        "en": "There is no difference. JPEG is the full name of the format (Joint Photographic Experts Group). JPG is simply the shortened three-letter file extension used on early Windows systems that required extensions to be at most three characters long. Both .jpg and .jpeg files are identical in format."
+      }
     },
     {
-      "question": { "en": "Does JPG support transparency?" },
-      "answer": { "en": "No. JPG does not support transparency or an alpha channel. If you open a PNG with a transparent background and save it as JPG, the transparent areas will be filled with white (or another background colour). Use PNG, WebP, or AVIF if transparency is needed." }
+      "question": {
+        "en": "Does JPG support transparency?"
+      },
+      "answer": {
+        "en": "No. JPG does not support transparency or an alpha channel. If you open a PNG with a transparent background and save it as JPG, the transparent areas will be filled with white (or another background colour). Use PNG, WebP, or AVIF if transparency is needed."
+      }
     },
     {
-      "question": { "en": "What JPG quality setting should I use?" },
-      "answer": { "en": "For web photographs, quality 75–85 is the sweet spot — good visual quality at a fraction of the file size of quality 100. For images where quality is paramount (printing, archiving), use quality 90–95. Avoid quality below 60 for any image where artefacts would be visible." }
+      "question": {
+        "en": "What JPG quality setting should I use?"
+      },
+      "answer": {
+        "en": "For web photographs, quality 75–85 is the sweet spot — good visual quality at a fraction of the file size of quality 100. For images where quality is paramount (printing, archiving), use quality 90–95. Avoid quality below 60 for any image where artefacts would be visible."
+      }
     },
     {
-      "question": { "en": "Can I convert JPG to PNG to improve quality?" },
-      "answer": { "en": "No. Converting a JPG to PNG saves the already-compressed image data into a lossless container. It does not recover any quality that was lost when the JPG was created. The resulting PNG will simply be a larger file with the same quality as the JPG." }
+      "question": {
+        "en": "Can I convert JPG to PNG to improve quality?"
+      },
+      "answer": {
+        "en": "No. Converting a JPG to PNG saves the already-compressed image data into a lossless container. It does not recover any quality that was lost when the JPG was created. The resulting PNG will simply be a larger file with the same quality as the JPG."
+      }
     },
     {
-      "question": { "en": "Is WebP better than JPG?" },
-      "answer": { "en": "For most uses, yes. WebP achieves similar visual quality to JPG at roughly 25–35% smaller file sizes. WebP also supports transparency and animation. However, JPG has superior software and hardware compatibility. For new web projects, WebP or AVIF are recommended with JPG as a fallback." }
+      "question": {
+        "en": "Is WebP better than JPG?"
+      },
+      "answer": {
+        "en": "For most uses, yes. WebP achieves similar visual quality to JPG at roughly 25–35% smaller file sizes. WebP also supports transparency and animation. However, JPG has superior software and hardware compatibility. For new web projects, WebP or AVIF are recommended with JPG as a fallback."
+      }
     }
-  ]
+  ],
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

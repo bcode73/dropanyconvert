@@ -6,7 +6,7 @@
 
 import { loadConfig } from './lib/config.js';
 import { loadData } from './lib/loader.js';
-import { validateData } from './lib/validator.js';
+import { validateData, validateRoutes } from './lib/validator.js';
 import { buildRegistry } from './lib/registry.js';
 import { generateRoutes } from './lib/router.js';
 import { generateSeo } from './lib/seo.js';
@@ -17,6 +17,7 @@ import { generateRobots } from './lib/robots.js';
 import { emitDist } from './lib/emitter.js';
 import { generateReport } from './lib/reporter.js';
 import { validateSeo } from './lib/seo-validator.js';
+import { generateAiDiscoverability } from './lib/llms.js';
 
 async function build() {
   const startTime = Date.now();
@@ -51,6 +52,14 @@ async function build() {
   const routes = await generateRoutes(registry, data, config);
   console.log(`  ✓ Routes resolved (${routes.length} pages)`);
 
+  // 5a. Route integrity validation
+  const routeValidation = validateRoutes(routes);
+  if (routeValidation.errors.length > 0) {
+    console.error('\n  ✗ Route validation errors:\n');
+    routeValidation.errors.forEach(e => console.error(`    - ${e}`));
+    process.exit(1);
+  }
+
   // 6. Generate SEO data per route
   const seoData = await generateSeo(routes, data, config);
   console.log(`  ✓ SEO generated`);
@@ -81,8 +90,12 @@ async function build() {
   const robots = await generateRobots(config);
   console.log(`  ✓ robots.txt generated`);
 
-  // 11. Emit everything to dist/
-  const emitResult = await emitDist({ pages, sitemaps, robots }, config);
+  // 11. Generate AI discoverability files (/llms.txt, /ai.txt)
+  const aiFiles = generateAiDiscoverability(data, routes, config);
+  console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
+
+  // 12. Emit everything to dist/
+  const emitResult = await emitDist({ pages, sitemaps, robots, aiFiles }, config);
   console.log(`  ✓ Dist emitted   (${emitResult.fileCount} files, ${emitResult.sizeKb} KB)`);
 
   // 12. Build report

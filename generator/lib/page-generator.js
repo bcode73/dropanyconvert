@@ -66,6 +66,15 @@ export async function generatePages(routes, seoData, links, data, config) {
     } else if (route.type === 'faq-hub') {
       html = renderFaqHubPage(route, seo, data, config);
       pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'trust') {
+      html = renderTrustPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'editorial') {
+      html = renderEditorialPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
+    } else if (route.type === 'changelog') {
+      html = renderChangelogPage(route, seo, data, config);
+      pages.push({ path: route.path + '/index.html', content: html });
     } else if (route.type === 'root') {
       const d = config.languages.default;
       html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/${d}"><link rel="canonical" href="${config.site.baseUrl}/${d}"></head><body></body></html>`;
@@ -274,10 +283,21 @@ function renderFooter(langCode, config, categories, popularTools) {
       <div class="dac-footer__col-links" id="dac-footer-recent" style="margin-top:8px"></div>
     </div>
     <div class="dac-footer__col">
+      <h3 class="dac-footer__col-title">Knowledge Hub</h3>
+      <div class="dac-footer__col-links">
+        <a href="/${langCode}/guides" class="dac-footer__link">Guides</a>
+        <a href="/${langCode}/compare" class="dac-footer__link">Comparisons</a>
+        <a href="/${langCode}/glossary" class="dac-footer__link">Glossary</a>
+        <a href="/${langCode}/collections" class="dac-footer__link">Collections</a>
+        <a href="/${langCode}/faq" class="dac-footer__link">FAQ</a>
+        <a href="/${langCode}/changelog" class="dac-footer__link">Changelog</a>
+      </div>
+    </div>
+    <div class="dac-footer__col">
       <h3 class="dac-footer__col-title">Company</h3>
       <div class="dac-footer__col-links">
-        <a href="/about" class="dac-footer__link">About</a>
-        <a href="/press" class="dac-footer__link">Press</a>
+        <a href="/${langCode}/trust" class="dac-footer__link">Trust &amp; Security</a>
+        <a href="/${langCode}/editorial/editorial-process" class="dac-footer__link">Editorial</a>
         <a href="/${langCode}/privacy-policy" class="dac-footer__link">Privacy Policy</a>
         <a href="/${langCode}/terms-of-service" class="dac-footer__link">Terms of Service</a>
         <a href="/${langCode}/disclaimer" class="dac-footer__link">Disclaimer</a>
@@ -354,7 +374,215 @@ function buildKhIndex(data, langCode) {
       keywords: [col.seo?.primaryKeyword || '', ...(col.seo?.secondaryKeywords || [])].filter(Boolean),
     });
   }
+  for (const l of (data.landings || [])) {
+    items.push({
+      type: 'landing',
+      slug: l.slug,
+      path: `/${langCode}/for/${l.slug}`,
+      name: l.h1?.[langCode] || l.h1?.en || l.slug,
+      tagline: l.description?.[langCode] || l.description?.en || '',
+      keywords: [l.seo?.primaryKeyword || '', ...(l.seo?.secondaryKeywords || [])].filter(Boolean),
+    });
+  }
+  if (data.trust) {
+    items.push({
+      type: 'trust',
+      slug: 'trust',
+      path: `/${langCode}/trust`,
+      name: data.trust.h1?.[langCode] || data.trust.h1?.en || 'Trust & Security Center',
+      tagline: data.trust.description?.[langCode] || data.trust.description?.en || '',
+      keywords: ['privacy', 'security', 'browser-first', 'no upload'],
+    });
+  }
+  for (const ep of (data.editorial?.pages || [])) {
+    items.push({
+      type: 'editorial',
+      slug: ep.slug,
+      path: `/${langCode}/editorial/${ep.slug}`,
+      name: ep.h1?.[langCode] || ep.h1?.en || ep.slug,
+      tagline: ep.description?.[langCode] || ep.description?.en || '',
+      keywords: ['editorial', 'policy'],
+    });
+  }
+  if ((data.changelog?.releases || []).length > 0) {
+    items.push({
+      type: 'changelog',
+      slug: 'changelog',
+      path: `/${langCode}/changelog`,
+      name: 'Changelog',
+      tagline: 'Version history and release notes for DropAnyConvert.',
+      keywords: ['changelog', 'release notes', 'updates'],
+    });
+  }
   return items;
+}
+
+// ── Tool Quality Badges ───────────────────────────────────────────────────
+
+function toolQualityBadges(tool) {
+  const caps = new Set(tool.capabilities || []);
+  const hints = tool.runtimeHints || {};
+  const badges = [];
+
+  if (tool.runtime === 'browser') {
+    badges.push({ label: 'Browser First', icon: '🌐' });
+    badges.push({ label: 'Privacy Friendly', icon: '🔒' });
+    badges.push({ label: 'No Upload Required', icon: '🚫' });
+    badges.push({ label: 'Free', icon: '✓' });
+  } else if (tool.runtime === 'hybrid') {
+    badges.push({ label: 'Hybrid Processing', icon: '⚡' });
+    badges.push({ label: 'Free', icon: '✓' });
+  } else if (tool.runtime === 'cloud') {
+    badges.push({ label: 'Cloud Assisted', icon: '☁' });
+    badges.push({ label: 'Free', icon: '✓' });
+  }
+
+  if (tool.batch?.supported || caps.has('batch')) {
+    badges.push({ label: 'Batch Supported', icon: '📦' });
+  }
+  if (caps.has('mobile-supported')) {
+    badges.push({ label: 'Mobile Friendly', icon: '📱' });
+  }
+  if (caps.has('offline') || hints.requiresWorker) {
+    badges.push({ label: 'Works Offline', icon: '📶' });
+  }
+  badges.push({ label: 'Open Source Libraries', icon: '⚙' });
+
+  return badges.map(b =>
+    `<span class="dac-badge" title="${esc(b.label)}">${b.icon} ${esc(b.label)}</span>`
+  ).join('');
+}
+
+function renderToolBadges(tool) {
+  const badgesHtml = toolQualityBadges(tool);
+  if (!badgesHtml) return '';
+  return `<div class="dac-tool-badges" aria-label="Tool quality badges">${badgesHtml}</div>`;
+}
+
+// ── Compatibility Table ────────────────────────────────────────────────────
+
+function renderCompatibilityTable(tool, langCode) {
+  const hints = tool.runtimeHints || {};
+  const inputExts = (tool.inputFormats || []).map(f => {
+    if (typeof f === 'string') return f.split('/').pop().toUpperCase();
+    return (f.ext || f.mime?.split('/').pop() || '?').toUpperCase();
+  }).join(', ') || '—';
+
+  const outputExts = (tool.outputFormats || []).map(f =>
+    (f.ext || f.label || '?').toUpperCase()
+  ).join(', ') || '—';
+
+  const maxSize = hints.maxFileSizeMb ? `${hints.maxFileSizeMb} MB` : 'Browser RAM';
+  const batchMax = tool.batch?.supported ? (tool.batch.maxFiles ? `Yes (max ${tool.batch.maxFiles})` : 'Yes') : 'No';
+  const cloudRequired = tool.runtime === 'cloud' ? 'Yes' : tool.runtime === 'hybrid' ? 'Optional' : 'No';
+  const browserSupport = 'Chrome 90+, Firefox 88+, Safari 14+, Edge 90+';
+
+  return `<section class="dac-compat-table-section">
+  <h2 class="dac-section-title">Compatibility</h2>
+  <div class="dac-compat-table-wrap">
+    <table class="dac-compat-table">
+      <tbody>
+        <tr><th scope="row">Supported Input</th><td>${esc(inputExts)}</td></tr>
+        <tr><th scope="row">Supported Output</th><td>${esc(outputExts)}</td></tr>
+        <tr><th scope="row">Batch Processing</th><td>${esc(batchMax)}</td></tr>
+        <tr><th scope="row">Max File Size</th><td>${esc(maxSize)}</td></tr>
+        <tr><th scope="row">Runtime</th><td>${esc(tool.runtime === 'browser' ? 'In-Browser' : tool.runtime === 'cloud' ? 'Cloud Server' : 'Hybrid')}</td></tr>
+        <tr><th scope="row">Cloud Required</th><td>${esc(cloudRequired)}</td></tr>
+        <tr><th scope="row">Browser Support</th><td>${esc(browserSupport)}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>`;
+}
+
+// ── Performance Metrics ────────────────────────────────────────────────────
+
+function renderPerformanceMetrics(tool) {
+  const hints = tool.runtimeHints || {};
+  if (!hints.memoryBudgetMb && !hints.maxFileSizeMb && tool.runtime === 'cloud') return '';
+
+  const memory = hints.memoryBudgetMb ? `~${hints.memoryBudgetMb} MB` : 'Low';
+  const maxFile = hints.maxFileSizeMb ? `Up to ${hints.maxFileSizeMb} MB` : 'Limited by browser RAM';
+  const speed = tool.runtime === 'browser'
+    ? (hints.memoryBudgetMb > 512 ? 'Fast (seconds)' : 'Instant')
+    : tool.runtime === 'cloud' ? 'Server-dependent' : 'Fast';
+  const bestFor = tool.runtime === 'browser'
+    ? (tool.batch?.supported ? 'Individual files and small batches' : 'Individual files')
+    : 'Large or complex files';
+  const device = hints.memoryBudgetMb > 512 ? 'Mid-range or better' : 'Any device';
+
+  return `<section class="dac-perf-metrics">
+  <h2 class="dac-section-title">Performance</h2>
+  <div class="dac-perf-grid">
+    <div class="dac-perf-item"><span class="dac-perf-label">Estimated Speed</span><span class="dac-perf-value">${esc(speed)}</span></div>
+    <div class="dac-perf-item"><span class="dac-perf-label">Memory Usage</span><span class="dac-perf-value">${esc(memory)}</span></div>
+    <div class="dac-perf-item"><span class="dac-perf-label">Max File Size</span><span class="dac-perf-value">${esc(maxFile)}</span></div>
+    <div class="dac-perf-item"><span class="dac-perf-label">Best For</span><span class="dac-perf-value">${esc(bestFor)}</span></div>
+    <div class="dac-perf-item"><span class="dac-perf-label">Recommended Device</span><span class="dac-perf-value">${esc(device)}</span></div>
+    <div class="dac-perf-item"><span class="dac-perf-label">Browser Compatibility</span><span class="dac-perf-value">All modern browsers</span></div>
+  </div>
+</section>`;
+}
+
+// ── Article / Knowledge Hub Metadata ─────────────────────────────────────
+
+function renderKhMeta(item, langCode) {
+  const lastUpdated = item.lastUpdated || '';
+  const reviewedBy  = item.reviewedBy  || 'Editorial Team';
+  const version     = item.version     || '1.0';
+
+  // Estimate reading time from stringified sections
+  const textLength = JSON.stringify(item.sections || item.body || '').length;
+  const words = Math.round(textLength / 5);
+  const readMins = Math.max(1, Math.round(words / 200));
+
+  const parts = [];
+  if (lastUpdated) parts.push(`<span class="dac-kh-meta__item">Updated: <time datetime="${esc(lastUpdated)}">${esc(lastUpdated)}</time></span>`);
+  parts.push(`<span class="dac-kh-meta__item">Reviewed by: ${esc(reviewedBy)}</span>`);
+  parts.push(`<span class="dac-kh-meta__item">v${esc(version)}</span>`);
+  parts.push(`<span class="dac-kh-meta__item">${readMins} min read</span>`);
+
+  return `<div class="dac-kh-meta" aria-label="Article metadata">${parts.join('')}</div>`;
+}
+
+// ── Related Collections & Landings ────────────────────────────────────────
+
+function relatedCollectionCards(toolSlug, collections, langCode) {
+  const relevant = (collections || []).filter(c => (c.toolSlugs || []).includes(toolSlug)).slice(0, 3);
+  if (!relevant.length) return '';
+  const cards = relevant.map(c => `
+    <a href="/${langCode}/collections/${c.slug}" class="dac-kh-article-card">
+      <h3 class="dac-kh-article-card__title">${esc(c.title?.[langCode] || c.title?.en || c.slug)}</h3>
+      <p class="dac-kh-article-card__desc">${esc(c.description?.[langCode] || c.description?.en || '')}</p>
+    </a>`).join('');
+  return `<section class="dac-related-collections">
+  <h2 class="dac-section-title">Related Collections</h2>
+  <div class="dac-kh-article-grid">${cards}</div>
+</section>`;
+}
+
+function relatedLandingCards(toolSlug, landings, langCode) {
+  const relevant = (landings || []).filter(l => (l.toolSlugs || []).includes(toolSlug)).slice(0, 2);
+  if (!relevant.length) return '';
+  const cards = relevant.map(l => `
+    <a href="/${langCode}/for/${l.slug}" class="dac-kh-article-card">
+      <h3 class="dac-kh-article-card__title">${esc(l.h1?.[langCode] || l.h1?.en || l.slug)}</h3>
+      <p class="dac-kh-article-card__desc">${esc(l.description?.[langCode] || l.description?.en || '')}</p>
+    </a>`).join('');
+  return `<section class="dac-related-landings">
+  <h2 class="dac-section-title">More Use Cases</h2>
+  <div class="dac-kh-article-grid">${cards}</div>
+</section>`;
+}
+
+// ── Site Statistics (auto-computed) ───────────────────────────────────────
+
+function buildSiteStats(data) {
+  const toolCount = data.tools.length;
+  const langCount = data.languages.length;
+  const knowledgeCount = (data.articles?.length || 0) + (data.comparisons?.length || 0) + (data.glossary?.length || 0) + (data.collections?.length || 0);
+  const pageApprox = toolCount * langCount + knowledgeCount * langCount;
+  return { toolCount, langCount, knowledgeCount, pageApprox };
 }
 
 // ── Popular tools selection ───────────────────────────────────────────────
@@ -903,6 +1131,17 @@ ${adTop}
   ${guidesHtml}
   ${glossaryHtml}
   ${cmpHtml}
+  ${relatedCollectionCards(tool.slug, data.collections, langCode)}
+  ${relatedLandingCards(tool.slug, data.landings, langCode)}
+
+  <!-- Quality Badges -->
+  ${renderToolBadges(tool)}
+
+  <!-- Compatibility -->
+  ${renderCompatibilityTable(tool, langCode)}
+
+  <!-- Performance -->
+  ${renderPerformanceMetrics(tool)}
 
   ${adBottom}
 
@@ -1153,6 +1392,12 @@ ${adTop}
       </a>`).join('\n')}
     </div>
   </section>` : ''}
+
+  ${relatedCollectionCards(tool.slug, data.collections, langCode)}
+  ${relatedLandingCards(tool.slug, data.landings, langCode)}
+  ${renderToolBadges(tool)}
+  ${renderCompatibilityTable(tool, langCode)}
+  ${renderPerformanceMetrics(tool)}
 
   ${adBottom}
 
@@ -1818,7 +2063,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
         <button class="dac-btn dac-btn--ghost dac-btn--sm" id="dac-share-btn">Share</button>
         <a href="#" class="dac-btn dac-btn--ghost dac-btn--sm" id="dac-back-top">↑ Back to top</a>
       </div>
-      ${lastUpdated ? `<p class="dac-article__footer-meta">Last reviewed: <time datetime="${esc(lastUpdated)}">${esc(lastUpdated)}</time></p>` : ''}
+      ${renderKhMeta(article, langCode)}
       ${(prev || next) ? `<nav class="dac-article-nav" aria-label="Article navigation">
         ${prev ? `<a href="/${langCode}/guides/${prev.slug}" class="dac-article-nav__prev">
           <span class="dac-article-nav__label">← Previous</span>
@@ -1989,7 +2234,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
         <button class="dac-btn dac-btn--ghost dac-btn--sm" onclick="window.print()">Print</button>
         <button class="dac-btn dac-btn--ghost dac-btn--sm" id="dac-share-btn">Share</button>
       </div>
-      ${lastUpdated ? `<p class="dac-article__footer-meta">Last reviewed: <time datetime="${esc(lastUpdated)}">${esc(lastUpdated)}</time></p>` : ''}
+      ${renderKhMeta(cmp, langCode)}
     </footer>
   </article>
   <aside class="dac-article-sidebar"></aside>
@@ -2073,6 +2318,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
     </div>
 
     <footer class="dac-article__footer">
+      ${renderKhMeta(term, langCode)}
       <a href="/${langCode}/glossary" class="dac-btn dac-btn--ghost dac-btn--sm">← All Glossary Terms</a>
     </footer>
   </article>
@@ -2515,6 +2761,223 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   <h1 class="dac-hero__title" style="margin-bottom:2rem">${esc(seo.h1 || 'Frequently Asked Questions')}</h1>
   <p style="margin-bottom:2rem;color:var(--dac-text-muted,#6b7280)">Answers to the most common questions about our image, PDF, and developer tools.</p>
   ${groupsHtml}
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Trust Center Page ─────────────────────────────────────────────────────
+
+function renderTrustPage(route, seo, data, config) {
+  const trust = route.trust;
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+
+  const h1 = seo.h1 || trust.h1?.en || 'Trust & Security Center';
+  const description = seo.description || trust.description?.[langCode] || trust.description?.en || '';
+
+  const stats = buildSiteStats(data);
+
+  const sectionsHtml = (trust.sections || []).map(s => {
+    const title = s.title?.[langCode] || s.title?.en || '';
+    const body  = s.body?.[langCode]  || s.body?.en  || '';
+    return `<section class="dac-trust-section" id="${esc(s.id)}">
+      <h2 class="dac-trust-section__title">${esc(title)}</h2>
+      <p class="dac-trust-section__body">${esc(body)}</p>
+    </section>`;
+  }).join('\n');
+
+  const editorialLinks = (data.editorial?.pages || []).slice(0, 4).map(ep =>
+    `<a href="/${langCode}/editorial/${ep.slug}" class="dac-footer__link">${esc(ep.h1?.[langCode] || ep.h1?.en || ep.slug)}</a>`
+  ).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--trust">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main dac-article-layout" id="main">
+  <article class="dac-article">
+    <header class="dac-article__header">
+      <div class="dac-article__meta">
+        <span class="dac-article__tag">Trust Center</span>
+        <time class="dac-article__date" datetime="${esc(trust.lastUpdated || '')}">${esc(trust.lastUpdated || '')}</time>
+      </div>
+      <h1 class="dac-article__title">${esc(h1)}</h1>
+      <p class="dac-article__intro">${esc(description)}</p>
+    </header>
+
+    <!-- Platform stats -->
+    <div class="dac-trust-stats" aria-label="Platform statistics">
+      <div class="dac-trust-stat"><strong>${stats.toolCount}+</strong><span>Browser Tools</span></div>
+      <div class="dac-trust-stat"><strong>${stats.langCount}</strong><span>Languages</span></div>
+      <div class="dac-trust-stat"><strong>${stats.knowledgeCount * stats.langCount}+</strong><span>Knowledge Pages</span></div>
+      <div class="dac-trust-stat"><strong>0</strong><span>File Uploads (browser tools)</span></div>
+    </div>
+
+    <div class="dac-article__body">
+      ${sectionsHtml}
+    </div>
+
+    <footer class="dac-article__footer">
+      <p class="dac-article__footer-meta">Last updated: <time datetime="${esc(trust.lastUpdated || '')}">${esc(trust.lastUpdated || '')}</time></p>
+    </footer>
+  </article>
+
+  <!-- Editorial Links -->
+  ${editorialLinks ? `<aside class="dac-trust-editorial">
+    <h2 class="dac-section-title">Editorial Policies</h2>
+    <nav aria-label="Editorial pages">${editorialLinks}</nav>
+  </aside>` : ''}
+
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Editorial Page ─────────────────────────────────────────────────────────
+
+function renderEditorialPage(route, seo, data, config) {
+  const page = route.editorialPage;
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+
+  const h1 = seo.h1 || page.h1?.[langCode] || page.h1?.en || '';
+  const description = seo.description || page.description?.[langCode] || page.description?.en || '';
+
+  const sectionsHtml = (page.sections || []).map(s => {
+    const heading = s.heading?.[langCode] || s.heading?.en || '';
+    const body    = s.body?.[langCode]    || s.body?.en    || '';
+    return `<section class="dac-kh-section">
+      <h2 class="dac-kh-section-title">${esc(heading)}</h2>
+      <p class="dac-kh-section-content">${esc(body)}</p>
+    </section>`;
+  }).join('\n');
+
+  // Sidebar: other editorial pages
+  const siblingLinks = (data.editorial?.pages || []).map(ep =>
+    `<a href="/${langCode}/editorial/${ep.slug}" class="dac-footer__link${ep.slug === page.slug ? ' dac-footer__link--active' : ''}">${esc(ep.h1?.[langCode] || ep.h1?.en || ep.slug)}</a>`
+  ).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--editorial">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main dac-article-layout" id="main">
+  <article class="dac-article">
+    <header class="dac-article__header">
+      <div class="dac-article__meta">
+        <span class="dac-article__tag">Editorial</span>
+        ${page.lastUpdated ? `<time class="dac-article__date" datetime="${esc(page.lastUpdated)}">Updated ${esc(page.lastUpdated)}</time>` : ''}
+      </div>
+      <h1 class="dac-article__title">${esc(h1)}</h1>
+      <p class="dac-article__intro">${esc(description)}</p>
+    </header>
+
+    <div class="dac-article__body">
+      ${sectionsHtml}
+    </div>
+
+    <footer class="dac-article__footer">
+      ${renderKhMeta(page, langCode)}
+      <a href="/${langCode}/trust" class="dac-btn dac-btn--ghost dac-btn--sm">← Trust Center</a>
+    </footer>
+  </article>
+
+  <!-- Sibling editorial pages -->
+  <aside class="dac-article-sidebar">
+    <nav class="dac-sidebar-nav" aria-label="Editorial pages">
+      <h2 class="dac-sidebar-nav__title">Editorial Policies</h2>
+      <div class="dac-sidebar-nav__links">${siblingLinks}</div>
+    </nav>
+  </aside>
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── Changelog Page ─────────────────────────────────────────────────────────
+
+function renderChangelogPage(route, seo, data, config) {
+  const changelog = route.changelog;
+  const langCode = route.lang;
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics, khIndex: buildKhIndex(data, langCode) };
+
+  const h1 = seo.h1 || 'Changelog';
+
+  const releasesHtml = (changelog.releases || []).map(r => {
+    const summary = r.summary?.[langCode] || r.summary?.en || '';
+    const listItems = (items, label) => items?.length
+      ? `<div class="dac-cl-group"><strong class="dac-cl-group__label">${esc(label)}</strong><ul class="dac-cl-list">${items.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`
+      : '';
+    return `<article class="dac-cl-release" id="v${esc(r.version)}">
+      <header class="dac-cl-release__header">
+        <h2 class="dac-cl-release__version">v${esc(r.version)}</h2>
+        <time class="dac-cl-release__date" datetime="${esc(r.date)}">${esc(r.date)}</time>
+      </header>
+      ${summary ? `<p class="dac-cl-release__summary">${esc(summary)}</p>` : ''}
+      ${listItems(r.added, 'Added')}
+      ${listItems(r.improved, 'Improved')}
+      ${listItems(r.fixed, 'Fixed')}
+      ${listItems(r.security, 'Security')}
+      ${listItems(r.performance, 'Performance')}
+    </article>`;
+  }).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+  <link rel="stylesheet" href="/assets/css/article.css">
+</head>
+<body class="dac-page dac-page--changelog">
+
+${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  ${renderKnowledgeBreadcrumb(seo)}
+</nav>
+
+<main class="dac-main" id="main">
+  <header class="dac-page-header">
+    <h1 class="dac-page-header__title">${esc(h1)}</h1>
+    <p class="dac-page-header__desc">Version history, new features, and improvements for ${esc(config.site.name)}.</p>
+  </header>
+
+  <div class="dac-cl-feed">
+    ${releasesHtml}
+  </div>
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}

@@ -5,76 +5,244 @@
   "subjectB": "JPG",
   "category": "image",
   "lastUpdated": "2026-01-15",
-  "relatedTools": ["png-to-jpg", "jpg-to-png", "resize-image", "compress-image"],
-  "relatedArticles": ["what-is-png", "what-is-jpg", "what-is-webp", "webp-vs-png"],
-  "title": { "en": "PNG vs JPG: Which Image Format Should You Use?" },
-  "h1": { "en": "PNG vs JPG: Complete Comparison" },
-  "description": { "en": "PNG vs JPG — a detailed comparison of compression, quality, transparency, file size, browser support, and when to use each format for web and design." },
-  "intro": { "en": "PNG and JPG are the two most widely used image formats on the web, but they serve completely different purposes. PNG uses lossless compression and supports transparency, making it ideal for graphics and logos. JPG uses lossy compression optimised for photographs, achieving much smaller file sizes at the cost of some quality. Choosing the wrong format can double your page load time or make your images look poor." },
+  "relatedTools": [
+    "png-to-jpg",
+    "jpg-to-png",
+    "resize-image",
+    "compress-image"
+  ],
+  "relatedArticles": [
+    "what-is-png",
+    "what-is-jpg",
+    "what-is-webp",
+    "webp-vs-png"
+  ],
+  "title": {
+    "en": "PNG vs JPG: Which Image Format Should You Use?"
+  },
+  "h1": {
+    "en": "PNG vs JPG: Complete Comparison"
+  },
+  "description": {
+    "en": "PNG vs JPG — a detailed comparison of compression, quality, transparency, file size, browser support, and when to use each format for web and design."
+  },
+  "intro": {
+    "en": "PNG and JPG are the two most widely used image formats on the web, but they serve completely different purposes. PNG uses lossless compression and supports transparency, making it ideal for graphics and logos. JPG uses lossy compression optimised for photographs, achieving much smaller file sizes at the cost of some quality. Choosing the wrong format can double your page load time or make your images look poor."
+  },
   "comparisonTable": {
     "rows": [
-      { "aspect": { "en": "Compression" }, "a": { "en": "Lossless" }, "b": { "en": "Lossy" } },
-      { "aspect": { "en": "Transparency" }, "a": { "en": "Yes (alpha channel)" }, "b": { "en": "No" } },
-      { "aspect": { "en": "Best for" }, "a": { "en": "Graphics, logos, screenshots" }, "b": { "en": "Photographs" } },
-      { "aspect": { "en": "File size (photos)" }, "a": { "en": "Very large" }, "b": { "en": "Small" } },
-      { "aspect": { "en": "File size (graphics)" }, "a": { "en": "Small–medium" }, "b": { "en": "Medium (artefacts)" } },
-      { "aspect": { "en": "Quality loss on save" }, "a": { "en": "None" }, "b": { "en": "Yes, each save cycle" } },
-      { "aspect": { "en": "Animation" }, "a": { "en": "No (use APNG or WebP)" }, "b": { "en": "No" } },
-      { "aspect": { "en": "Browser support" }, "a": { "en": "Universal" }, "b": { "en": "Universal" } },
-      { "aspect": { "en": "Colour depth" }, "a": { "en": "Up to 48-bit" }, "b": { "en": "24-bit" } }
+      {
+        "aspect": {
+          "en": "Compression"
+        },
+        "a": {
+          "en": "Lossless"
+        },
+        "b": {
+          "en": "Lossy"
+        }
+      },
+      {
+        "aspect": {
+          "en": "Transparency"
+        },
+        "a": {
+          "en": "Yes (alpha channel)"
+        },
+        "b": {
+          "en": "No"
+        }
+      },
+      {
+        "aspect": {
+          "en": "Best for"
+        },
+        "a": {
+          "en": "Graphics, logos, screenshots"
+        },
+        "b": {
+          "en": "Photographs"
+        }
+      },
+      {
+        "aspect": {
+          "en": "File size (photos)"
+        },
+        "a": {
+          "en": "Very large"
+        },
+        "b": {
+          "en": "Small"
+        }
+      },
+      {
+        "aspect": {
+          "en": "File size (graphics)"
+        },
+        "a": {
+          "en": "Small–medium"
+        },
+        "b": {
+          "en": "Medium (artefacts)"
+        }
+      },
+      {
+        "aspect": {
+          "en": "Quality loss on save"
+        },
+        "a": {
+          "en": "None"
+        },
+        "b": {
+          "en": "Yes, each save cycle"
+        }
+      },
+      {
+        "aspect": {
+          "en": "Animation"
+        },
+        "a": {
+          "en": "No (use APNG or WebP)"
+        },
+        "b": {
+          "en": "No"
+        }
+      },
+      {
+        "aspect": {
+          "en": "Browser support"
+        },
+        "a": {
+          "en": "Universal"
+        },
+        "b": {
+          "en": "Universal"
+        }
+      },
+      {
+        "aspect": {
+          "en": "Colour depth"
+        },
+        "a": {
+          "en": "Up to 48-bit"
+        },
+        "b": {
+          "en": "24-bit"
+        }
+      }
     ]
   },
   "advantages": {
     "a": [
-      { "en": "Perfect quality — every pixel stored exactly" },
-      { "en": "Full alpha channel transparency support" },
-      { "en": "No quality degradation from repeated saves" },
-      { "en": "Sharp text and flat-colour graphics" },
-      { "en": "Ideal for source/master files" }
+      {
+        "en": "Perfect quality — every pixel stored exactly"
+      },
+      {
+        "en": "Full alpha channel transparency support"
+      },
+      {
+        "en": "No quality degradation from repeated saves"
+      },
+      {
+        "en": "Sharp text and flat-colour graphics"
+      },
+      {
+        "en": "Ideal for source/master files"
+      }
     ],
     "b": [
-      { "en": "Very small file sizes for photographs" },
-      { "en": "Universal device and software compatibility" },
-      { "en": "Adjustable quality–size trade-off" },
-      { "en": "Good for bandwidth-constrained environments" },
-      { "en": "Natively supported by all cameras and scanners" }
+      {
+        "en": "Very small file sizes for photographs"
+      },
+      {
+        "en": "Universal device and software compatibility"
+      },
+      {
+        "en": "Adjustable quality–size trade-off"
+      },
+      {
+        "en": "Good for bandwidth-constrained environments"
+      },
+      {
+        "en": "Natively supported by all cameras and scanners"
+      }
     ]
   },
   "disadvantages": {
     "a": [
-      { "en": "Very large files for photographic images" },
-      { "en": "No animation support (except APNG)" },
-      { "en": "Not suitable for high-resolution photography delivery" }
+      {
+        "en": "Very large files for photographic images"
+      },
+      {
+        "en": "No animation support (except APNG)"
+      },
+      {
+        "en": "Not suitable for high-resolution photography delivery"
+      }
     ],
     "b": [
-      { "en": "No transparency support" },
-      { "en": "Visible artefacts on graphics, text, and flat colours" },
-      { "en": "Quality degrades with each save cycle" },
-      { "en": "Not suitable as a master/source file format" }
+      {
+        "en": "No transparency support"
+      },
+      {
+        "en": "Visible artefacts on graphics, text, and flat colours"
+      },
+      {
+        "en": "Quality degrades with each save cycle"
+      },
+      {
+        "en": "Not suitable as a master/source file format"
+      }
     ]
   },
   "whenToUse": {
-    "a": { "en": "Use PNG for logos, icons, UI screenshots, diagrams, illustrations with transparency, and any image that will be edited multiple times. PNG is the correct format whenever pixel-perfect quality or transparency is needed." },
-    "b": { "en": "Use JPG for photographs, hero images, product photos, and any continuous-tone image where file size is important and transparency is not needed. JPG is the standard format for camera output and most web photography." }
+    "a": {
+      "en": "Use PNG for logos, icons, UI screenshots, diagrams, illustrations with transparency, and any image that will be edited multiple times. PNG is the correct format whenever pixel-perfect quality or transparency is needed."
+    },
+    "b": {
+      "en": "Use JPG for photographs, hero images, product photos, and any continuous-tone image where file size is important and transparency is not needed. JPG is the standard format for camera output and most web photography."
+    }
   },
-  "performanceNote": { "en": "For a typical 1920×1080 photograph, a JPG at quality 80 might be 200–400 KB while the same image as PNG could be 3–8 MB — 10–20× larger. For a logo with flat colours and transparency, a PNG might be 10–50 KB while a JPG would be similar size but with ugly artefacts and no transparency." },
+  "performanceNote": {
+    "en": "For a typical 1920×1080 photograph, a JPG at quality 80 might be 200–400 KB while the same image as PNG could be 3–8 MB — 10–20× larger. For a logo with flat colours and transparency, a PNG might be 10–50 KB while a JPG would be similar size but with ugly artefacts and no transparency."
+  },
   "browserSupport": {
-    "a": { "en": "All browsers, all platforms, all versions" },
-    "b": { "en": "All browsers, all platforms, all versions" }
+    "a": {
+      "en": "All browsers, all platforms, all versions"
+    },
+    "b": {
+      "en": "All browsers, all platforms, all versions"
+    }
   },
-  "verdict": { "en": "There is no universally better format — the right choice depends entirely on the image content. For photographs: use JPG (or better, WebP with JPG fallback). For graphics, logos, and images requiring transparency: use PNG. For the best of both worlds on the modern web, consider AVIF and WebP as primary formats with JPG/PNG fallbacks." },
+  "verdict": {
+    "en": "There is no universally better format — the right choice depends entirely on the image content. For photographs: use JPG (or better, WebP with JPG fallback). For graphics, logos, and images requiring transparency: use PNG. For the best of both worlds on the modern web, consider AVIF and WebP as primary formats with JPG/PNG fallbacks."
+  },
   "faq": [
     {
-      "question": { "en": "Can I convert PNG to JPG without losing quality?" },
-      "answer": { "en": "Converting PNG to JPG always involves some quality loss because JPG is a lossy format. At high quality settings (85–95), the loss is often imperceptible for photographic content but very visible for graphics, text, and areas of flat colour. Converting JPG to PNG does not restore lost quality — it just wraps existing lossy data in a lossless container." }
+      "question": {
+        "en": "Can I convert PNG to JPG without losing quality?"
+      },
+      "answer": {
+        "en": "Converting PNG to JPG always involves some quality loss because JPG is a lossy format. At high quality settings (85–95), the loss is often imperceptible for photographic content but very visible for graphics, text, and areas of flat colour. Converting JPG to PNG does not restore lost quality — it just wraps existing lossy data in a lossless container."
+      }
     },
     {
-      "question": { "en": "Which is better for web use?" },
-      "answer": { "en": "It depends on the image. For photographs, JPG (or WebP) is better because of smaller file sizes. For logos and UI elements, PNG is better because of quality and transparency. Modern best practice is to use WebP or AVIF for both use cases and provide JPG/PNG fallbacks for older browsers." }
+      "question": {
+        "en": "Which is better for web use?"
+      },
+      "answer": {
+        "en": "It depends on the image. For photographs, JPG (or WebP) is better because of smaller file sizes. For logos and UI elements, PNG is better because of quality and transparency. Modern best practice is to use WebP or AVIF for both use cases and provide JPG/PNG fallbacks for older browsers."
+      }
     },
     {
-      "question": { "en": "Why do some websites use PNG for photos?" },
-      "answer": { "en": "This is usually a mistake or oversight. A PNG version of a photograph is many times larger than an equivalent JPG with no perceptible quality improvement. Always convert photographic images to JPG or WebP before web publication unless you specifically need lossless quality (e.g., medical imaging or archival photography)." }
+      "question": {
+        "en": "Why do some websites use PNG for photos?"
+      },
+      "answer": {
+        "en": "This is usually a mistake or oversight. A PNG version of a photograph is many times larger than an equivalent JPG with no perceptible quality improvement. Always convert photographic images to JPG or WebP before web publication unless you specifically need lossless quality (e.g., medical imaging or archival photography)."
+      }
     }
-  ]
+  ],
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

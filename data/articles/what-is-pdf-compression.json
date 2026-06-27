@@ -3,55 +3,107 @@
   "articleType": "guide",
   "category": "pdf",
   "lastUpdated": "2026-01-15",
-  "relatedTools": ["compress-pdf", "pdf-to-images", "images-to-pdf"],
-  "relatedArticles": ["what-is-pdf"],
-  "title": { "en": "What is PDF Compression? How to Reduce PDF File Size" },
-  "h1": { "en": "What is PDF Compression?" },
-  "description": { "en": "Learn how PDF compression works, the difference between lossless and lossy PDF compression, what makes PDFs large, and how to reduce PDF file size without losing quality." },
-  "intro": { "en": "PDF compression reduces the file size of a PDF document by applying compression algorithms to its content streams, embedded images, and other internal structures. A well-compressed PDF is faster to upload, share via email, and download — while remaining fully readable and printable." },
+  "relatedTools": [
+    "compress-pdf",
+    "pdf-to-images",
+    "images-to-pdf"
+  ],
+  "relatedArticles": [
+    "what-is-pdf"
+  ],
+  "title": {
+    "en": "What is PDF Compression? How to Reduce PDF File Size"
+  },
+  "h1": {
+    "en": "What is PDF Compression?"
+  },
+  "description": {
+    "en": "Learn how PDF compression works, the difference between lossless and lossy PDF compression, what makes PDFs large, and how to reduce PDF file size without losing quality."
+  },
+  "intro": {
+    "en": "PDF compression reduces the file size of a PDF document by applying compression algorithms to its content streams, embedded images, and other internal structures. A well-compressed PDF is faster to upload, share via email, and download — while remaining fully readable and printable."
+  },
   "sections": [
     {
       "id": "what-makes-pdfs-large",
-      "heading": { "en": "What Makes PDFs Large?" },
-      "content": { "en": "The size of a PDF is determined primarily by its embedded images. A PDF created from scanned documents can contain dozens of high-resolution images, each several megabytes. PDFs can also be large due to embedded fonts (especially when multiple weights and styles are embedded), unoptimised internal structure (accumulated edits and revisions), unused resources (fonts, images referenced but not visible), and content streams that were not compressed at creation time." }
+      "heading": {
+        "en": "What Makes PDFs Large?"
+      },
+      "content": {
+        "en": "The size of a PDF is determined primarily by its embedded images. A PDF created from scanned documents can contain dozens of high-resolution images, each several megabytes. PDFs can also be large due to embedded fonts (especially when multiple weights and styles are embedded), unoptimised internal structure (accumulated edits and revisions), unused resources (fonts, images referenced but not visible), and content streams that were not compressed at creation time."
+      }
     },
     {
       "id": "compression-types",
-      "heading": { "en": "Types of PDF Compression" },
-      "content": { "en": "PDF supports multiple compression methods internally. FLATE (similar to ZIP/DEFLATE) is a lossless algorithm used for text and vector graphics — it reduces size without any quality loss. JPEG compression is applied to colour and greyscale images within the PDF, reducing file size at the cost of some image quality. JBIG2 is used for bitonal (black and white) images like scanned text documents, achieving excellent compression for that specific content type. PDF/A-3 and PDF 2.0 also support JPEG 2000 and LZW compression for images." }
+      "heading": {
+        "en": "Types of PDF Compression"
+      },
+      "content": {
+        "en": "PDF supports multiple compression methods internally. FLATE (similar to ZIP/DEFLATE) is a lossless algorithm used for text and vector graphics — it reduces size without any quality loss. JPEG compression is applied to colour and greyscale images within the PDF, reducing file size at the cost of some image quality. JBIG2 is used for bitonal (black and white) images like scanned text documents, achieving excellent compression for that specific content type. PDF/A-3 and PDF 2.0 also support JPEG 2000 and LZW compression for images."
+      }
     },
     {
       "id": "lossy-vs-lossless",
-      "heading": { "en": "Lossy vs Lossless PDF Compression" },
-      "content": { "en": "Lossless PDF compression (FLATE) reduces size by reorganising and compressing the internal structure, removing unused objects, and compressing content streams. It preserves every pixel of every embedded image. Lossy PDF compression downsizes embedded images — resampling them to a lower resolution (e.g., 300 DPI → 150 DPI for screen viewing) and recompressing them with JPEG at a lower quality setting. Lossy compression typically achieves 5–10× size reduction but slightly reduces image quality. For documents that will only be viewed on screen, 150 DPI at JPEG quality 75 is usually imperceptible." }
+      "heading": {
+        "en": "Lossy vs Lossless PDF Compression"
+      },
+      "content": {
+        "en": "Lossless PDF compression (FLATE) reduces size by reorganising and compressing the internal structure, removing unused objects, and compressing content streams. It preserves every pixel of every embedded image. Lossy PDF compression downsizes embedded images — resampling them to a lower resolution (e.g., 300 DPI → 150 DPI for screen viewing) and recompressing them with JPEG at a lower quality setting. Lossy compression typically achieves 5–10× size reduction but slightly reduces image quality. For documents that will only be viewed on screen, 150 DPI at JPEG quality 75 is usually imperceptible."
+      }
     },
     {
       "id": "use-cases",
-      "heading": { "en": "When to Compress PDFs" },
-      "content": { "en": "Compress PDFs before: emailing them as attachments (most email services have a 10–25 MB limit), uploading to web forms and portals, sharing via messaging apps, and hosting for download on websites where bandwidth and load time matter. Keep the uncompressed original for: print production (requires full resolution), long-term archiving (PDF/A standards), and legal or official documents where image quality may be examined closely." }
+      "heading": {
+        "en": "When to Compress PDFs"
+      },
+      "content": {
+        "en": "Compress PDFs before: emailing them as attachments (most email services have a 10–25 MB limit), uploading to web forms and portals, sharing via messaging apps, and hosting for download on websites where bandwidth and load time matter. Keep the uncompressed original for: print production (requires full resolution), long-term archiving (PDF/A standards), and legal or official documents where image quality may be examined closely."
+      }
     },
     {
       "id": "how-to-compress",
-      "heading": { "en": "How to Compress a PDF" },
-      "content": { "en": "You can compress a PDF directly in your browser using our PDF Compressor tool — no upload required, files stay on your device. Alternatively, Adobe Acrobat's PDF Optimizer provides fine-grained control. Preview on macOS can export a reduced-size PDF. The ghostscript command-line tool (gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite ...) offers the most control for batch compression. Online services can also compress PDFs, though this involves uploading your document to a third-party server." }
+      "heading": {
+        "en": "How to Compress a PDF"
+      },
+      "content": {
+        "en": "You can compress a PDF directly in your browser using our PDF Compressor tool — no upload required, files stay on your device. Alternatively, Adobe Acrobat's PDF Optimizer provides fine-grained control. Preview on macOS can export a reduced-size PDF. The ghostscript command-line tool (gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite ...) offers the most control for batch compression. Online services can also compress PDFs, though this involves uploading your document to a third-party server."
+      }
     }
   ],
   "faq": [
     {
-      "question": { "en": "How much can PDF compression reduce file size?" },
-      "answer": { "en": "It depends on the content. A PDF with high-resolution scanned images can be reduced by 80–95% with lossy image downsampling. A PDF with mostly text and vector graphics may only compress by 10–30% even with lossless compression. PDFs that were already well-compressed at creation may see minimal benefit." }
+      "question": {
+        "en": "How much can PDF compression reduce file size?"
+      },
+      "answer": {
+        "en": "It depends on the content. A PDF with high-resolution scanned images can be reduced by 80–95% with lossy image downsampling. A PDF with mostly text and vector graphics may only compress by 10–30% even with lossless compression. PDFs that were already well-compressed at creation may see minimal benefit."
+      }
     },
     {
-      "question": { "en": "Does compressing a PDF affect quality?" },
-      "answer": { "en": "Lossless compression does not affect quality at all. Lossy compression (image downsampling) reduces image quality — but for screen viewing, the reduction is often imperceptible at moderate settings. For print or archival purposes, always keep the original uncompressed PDF." }
+      "question": {
+        "en": "Does compressing a PDF affect quality?"
+      },
+      "answer": {
+        "en": "Lossless compression does not affect quality at all. Lossy compression (image downsampling) reduces image quality — but for screen viewing, the reduction is often imperceptible at moderate settings. For print or archival purposes, always keep the original uncompressed PDF."
+      }
     },
     {
-      "question": { "en": "Can I compress a PDF without losing text quality?" },
-      "answer": { "en": "Yes. Text and vector content in PDFs are stored as scalable objects, not images. Compressing a PDF's text and vector streams (lossless FLATE compression) does not affect their quality. Only embedded raster images are affected by lossy compression settings." }
+      "question": {
+        "en": "Can I compress a PDF without losing text quality?"
+      },
+      "answer": {
+        "en": "Yes. Text and vector content in PDFs are stored as scalable objects, not images. Compressing a PDF's text and vector streams (lossless FLATE compression) does not affect their quality. Only embedded raster images are affected by lossy compression settings."
+      }
     },
     {
-      "question": { "en": "Is it safe to compress a PDF online?" },
-      "answer": { "en": "If you use a browser-based tool like ours, your PDF never leaves your device — compression happens entirely in JavaScript in your browser, making it completely private. Server-side online compression tools upload your document to a third-party server, which may pose privacy risks for sensitive documents." }
+      "question": {
+        "en": "Is it safe to compress a PDF online?"
+      },
+      "answer": {
+        "en": "If you use a browser-based tool like ours, your PDF never leaves your device — compression happens entirely in JavaScript in your browser, making it completely private. Server-side online compression tools upload your document to a third-party server, which may pose privacy risks for sensitive documents."
+      }
     }
-  ]
+  ],
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

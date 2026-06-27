@@ -1,0 +1,305 @@
+{
+  "pages": [
+    {
+      "slug": "editorial-process",
+      "title": {
+        "en": "About Our Editorial Process",
+        "es": "Sobre nuestro proceso editorial",
+        "fr": "À propos de notre processus éditorial",
+        "de": "Über unseren redaktionellen Prozess",
+        "pt": "Sobre nosso processo editorial"
+      },
+      "h1": {
+        "en": "Editorial Process",
+        "es": "Proceso Editorial",
+        "fr": "Processus Éditorial",
+        "de": "Redaktioneller Prozess",
+        "pt": "Processo Editorial"
+      },
+      "description": {
+        "en": "How DropAnyConvert researches, writes, tests, and maintains every guide, comparison, and glossary page.",
+        "es": "Cómo DropAnyConvert investiga, escribe, prueba y mantiene cada guía, comparación y página de glosario.",
+        "fr": "Comment DropAnyConvert recherche, rédige, teste et maintient chaque guide, comparaison et page de glossaire.",
+        "de": "Wie DropAnyConvert jeden Leitfaden, Vergleich und Glossareintrag recherchiert, schreibt, testet und pflegt.",
+        "pt": "Como o DropAnyConvert pesquisa, escreve, testa e mantém cada guia, comparação e página de glossário."
+      },
+      "lastUpdated": "2026-06-27",
+      "sections": [
+        {
+          "heading": {
+            "en": "Research First",
+            "es": "Primero la investigación",
+            "fr": "La recherche d'abord",
+            "de": "Forschung zuerst",
+            "pt": "Pesquisa primeiro"
+          },
+          "body": {
+            "en": "Every article begins with primary research: testing file formats, benchmarking tools, reading technical specifications, and consulting authoritative sources such as the W3C, IETF RFCs, and format vendor documentation.",
+            "es": "Cada artículo comienza con investigación primaria: pruebas de formatos de archivo, evaluación comparativa de herramientas, lectura de especificaciones técnicas y consulta de fuentes autorizadas como W3C, RFC de IETF y documentación de proveedores de formatos.",
+            "fr": "Chaque article commence par une recherche primaire : tests de formats de fichiers, benchmarking d'outils, lecture de spécifications techniques et consultation de sources faisant autorité telles que le W3C, les RFC IETF et la documentation des fournisseurs de formats.",
+            "de": "Jeder Artikel beginnt mit primärer Recherche: Testen von Dateiformaten, Benchmarking von Tools, Lesen technischer Spezifikationen und Konsultation autoritativer Quellen wie W3C, IETF RFCs und Format-Anbieterdokumentation.",
+            "pt": "Cada artigo começa com pesquisa primária: testes de formatos de arquivo, benchmarking de ferramentas, leitura de especificações técnicas e consulta de fontes autoritativas como W3C, RFCs do IETF e documentação de fornecedores de formatos."
+          }
+        },
+        {
+          "heading": {
+            "en": "Expert Review",
+            "es": "Revisión por expertos",
+            "fr": "Révision par des experts",
+            "de": "Expertenüberprüfung",
+            "pt": "Revisão especializada"
+          },
+          "body": {
+            "en": "All content is reviewed by at least one technical editor before publication. Reviewers check factual accuracy, code correctness (for developer content), and relevance to the target audience.",
+            "es": "Todo el contenido es revisado por al menos un editor técnico antes de su publicación. Los revisores verifican la precisión factual, la corrección del código (para contenido de desarrolladores) y la relevancia para el público objetivo.",
+            "fr": "Tout le contenu est révisé par au moins un éditeur technique avant publication. Les relecteurs vérifient l'exactitude factuelle, la correction du code (pour le contenu développeur) et la pertinence pour le public cible.",
+            "de": "Alle Inhalte werden von mindestens einem technischen Redakteur vor der Veröffentlichung überprüft. Prüfer kontrollieren sachliche Richtigkeit, Codekorrektheit (für Entwicklerinhalte) und Relevanz für die Zielgruppe.",
+            "pt": "Todo o conteúdo é revisado por pelo menos um editor técnico antes da publicação. Os revisores verificam a precisão factual, a correção do código (para conteúdo de desenvolvedor) e a relevância para o público-alvo."
+          }
+        },
+        {
+          "heading": {
+            "en": "Regular Updates",
+            "es": "Actualizaciones regulares",
+            "fr": "Mises à jour régulières",
+            "de": "Regelmäßige Updates",
+            "pt": "Atualizações regulares"
+          },
+          "body": {
+            "en": "Technical content evolves. We revisit all guides and comparisons quarterly to ensure accuracy. Major format or browser changes trigger immediate updates. Every page displays its last-updated date.",
+            "es": "El contenido técnico evoluciona. Revisamos todas las guías y comparaciones trimestralmente para garantizar la precisión. Los cambios importantes de formato o navegador desencadenan actualizaciones inmediatas. Cada página muestra su fecha de última actualización.",
+            "fr": "Le contenu technique évolue. Nous revoyons tous les guides et comparaisons trimestriellement pour garantir l'exactitude. Les changements majeurs de format ou de navigateur déclenchent des mises à jour immédiates. Chaque page affiche sa date de dernière mise à jour.",
+            "de": "Technische Inhalte entwickeln sich weiter. Wir überarbeiten alle Leitfäden und Vergleiche vierteljährlich, um Genauigkeit sicherzustellen. Größere Format- oder Browser-Änderungen lösen sofortige Updates aus. Jede Seite zeigt ihr Datum der letzten Aktualisierung.",
+            "pt": "O conteúdo técnico evolui. Revisamos todos os guias e comparações trimestralmente para garantir precisão. Mudanças importantes de formato ou navegador desencadeiam atualizações imediatas. Cada página exibe sua data de última atualização."
+          }
+        }
+      ]
+    },
+    {
+      "slug": "accuracy-policy",
+      "title": {
+        "en": "Accuracy Policy",
+        "es": "Política de precisión",
+        "fr": "Politique d'exactitude",
+        "de": "Genauigkeitsrichtlinie",
+        "pt": "Política de precisão"
+      },
+      "h1": {
+        "en": "Accuracy Policy",
+        "es": "Política de Precisión",
+        "fr": "Politique d'Exactitude",
+        "de": "Genauigkeitsrichtlinie",
+        "pt": "Política de Precisão"
+      },
+      "description": {
+        "en": "DropAnyConvert's commitment to factual accuracy across all technical content.",
+        "es": "El compromiso de DropAnyConvert con la precisión factual en todo el contenido técnico.",
+        "fr": "L'engagement de DropAnyConvert envers l'exactitude factuelle dans tout le contenu technique.",
+        "de": "DropAnyConverts Verpflichtung zur sachlichen Genauigkeit in allen technischen Inhalten.",
+        "pt": "O compromisso do DropAnyConvert com a precisão factual em todo o conteúdo técnico."
+      },
+      "lastUpdated": "2026-06-27",
+      "sections": [
+        {
+          "heading": { "en": "Zero Tolerance for Misinformation" },
+          "body": { "en": "We do not publish claims we cannot verify. If a technical specification is unclear, we acknowledge the uncertainty rather than speculate. Corrections are applied within 48 hours of discovery." }
+        },
+        {
+          "heading": { "en": "Source Standards" },
+          "body": { "en": "We cite primary sources: official format specifications, browser vendor docs, W3C/IETF documents, and peer-reviewed benchmarks. Secondary sources are used only to corroborate primary findings." }
+        },
+        {
+          "heading": { "en": "Correction Process" },
+          "body": { "en": "If you spot an error, contact us. We investigate within 24 hours, correct verified errors immediately, and update the article's version number and last-updated date." }
+        }
+      ]
+    },
+    {
+      "slug": "content-standards",
+      "title": {
+        "en": "Content Standards",
+        "es": "Estándares de contenido",
+        "fr": "Normes de contenu",
+        "de": "Inhaltsstandards",
+        "pt": "Padrões de conteúdo"
+      },
+      "h1": {
+        "en": "Content Standards",
+        "es": "Estándares de Contenido",
+        "fr": "Normes de Contenu",
+        "de": "Inhaltsstandards",
+        "pt": "Padrões de Conteúdo"
+      },
+      "description": {
+        "en": "The standards every piece of content on DropAnyConvert must meet before publication.",
+        "es": "Los estándares que debe cumplir cada pieza de contenido en DropAnyConvert antes de su publicación.",
+        "fr": "Les normes que chaque contenu de DropAnyConvert doit respecter avant publication.",
+        "de": "Die Standards, die jeder Inhalt auf DropAnyConvert vor der Veröffentlichung erfüllen muss.",
+        "pt": "Os padrões que cada conteúdo no DropAnyConvert deve atender antes da publicação."
+      },
+      "lastUpdated": "2026-06-27",
+      "sections": [
+        {
+          "heading": { "en": "Technical Accuracy" },
+          "body": { "en": "All technical claims are verified against primary sources. Code examples are tested. Benchmarks are reproducible." }
+        },
+        {
+          "heading": { "en": "Clarity and Readability" },
+          "body": { "en": "Content targets a Flesch-Kincaid grade of 10 or below. Jargon is defined on first use. Every guide includes a practical takeaway." }
+        },
+        {
+          "heading": { "en": "Independence" },
+          "body": { "en": "Tool recommendations are based solely on technical merit. We do not accept payment to recommend tools. Affiliate relationships, if any, are disclosed." }
+        }
+      ]
+    },
+    {
+      "slug": "tool-testing-methodology",
+      "title": {
+        "en": "Tool Testing Methodology",
+        "es": "Metodología de prueba de herramientas",
+        "fr": "Méthodologie de test des outils",
+        "de": "Tool-Testmethodik",
+        "pt": "Metodologia de teste de ferramentas"
+      },
+      "h1": {
+        "en": "Tool Testing Methodology",
+        "es": "Metodología de Prueba de Herramientas",
+        "fr": "Méthodologie de Test des Outils",
+        "de": "Tool-Testmethodik",
+        "pt": "Metodologia de Teste de Ferramentas"
+      },
+      "description": {
+        "en": "How we test every tool on DropAnyConvert for accuracy, speed, compatibility, and privacy.",
+        "es": "Cómo probamos cada herramienta en DropAnyConvert para precisión, velocidad, compatibilidad y privacidad.",
+        "fr": "Comment nous testons chaque outil de DropAnyConvert pour la précision, la vitesse, la compatibilité et la confidentialité.",
+        "de": "Wie wir jedes Tool auf DropAnyConvert auf Genauigkeit, Geschwindigkeit, Kompatibilität und Datenschutz testen.",
+        "pt": "Como testamos cada ferramenta no DropAnyConvert quanto a precisão, velocidade, compatibilidade e privacidade."
+      },
+      "lastUpdated": "2026-06-27",
+      "sections": [
+        {
+          "heading": { "en": "Output Accuracy" },
+          "body": { "en": "Converted files are verified by comparing pixel-perfect output (for images), lossless round-trip validation (for data formats), and checksum verification against reference implementations." }
+        },
+        {
+          "heading": { "en": "Performance Benchmarks" },
+          "body": { "en": "Each tool is tested on three device classes: high-end desktop, mid-range laptop, and entry-level mobile. We measure time-to-first-output and peak memory usage." }
+        },
+        {
+          "heading": { "en": "Privacy Verification" },
+          "body": { "en": "Every browser-runtime tool is verified with network inspection (DevTools) to confirm zero outbound requests during file processing. Cloud tools are audited for data retention policies." }
+        },
+        {
+          "heading": { "en": "Cross-Browser Testing" },
+          "body": { "en": "Tools are tested across Chrome, Firefox, Safari, and Edge before release. Critical tools are also tested on iOS Safari and Android Chrome." }
+        }
+      ]
+    },
+    {
+      "slug": "review-process",
+      "title": {
+        "en": "Review Process",
+        "es": "Proceso de revisión",
+        "fr": "Processus de révision",
+        "de": "Überprüfungsprozess",
+        "pt": "Processo de revisão"
+      },
+      "h1": {
+        "en": "Review Process",
+        "es": "Proceso de Revisión",
+        "fr": "Processus de Révision",
+        "de": "Überprüfungsprozess",
+        "pt": "Processo de Revisão"
+      },
+      "description": {
+        "en": "How content is reviewed and approved before appearing on DropAnyConvert.",
+        "es": "Cómo se revisa y aprueba el contenido antes de aparecer en DropAnyConvert.",
+        "fr": "Comment le contenu est révisé et approuvé avant d'apparaître sur DropAnyConvert.",
+        "de": "Wie Inhalte überprüft und genehmigt werden, bevor sie auf DropAnyConvert erscheinen.",
+        "pt": "Como o conteúdo é revisado e aprovado antes de aparecer no DropAnyConvert."
+      },
+      "lastUpdated": "2026-06-27",
+      "sections": [
+        {
+          "heading": { "en": "Two-Stage Review" },
+          "body": { "en": "Every piece of content goes through a technical review (facts and code) and an editorial review (clarity and structure) before publication." }
+        },
+        {
+          "heading": { "en": "Quarterly Audits" },
+          "body": { "en": "All published content is audited quarterly. Outdated information is updated or clearly marked as historical." }
+        }
+      ]
+    },
+    {
+      "slug": "content-update-policy",
+      "title": {
+        "en": "Content Update Policy",
+        "es": "Política de actualización de contenido",
+        "fr": "Politique de mise à jour du contenu",
+        "de": "Inhaltsaktualisierungsrichtlinie",
+        "pt": "Política de atualização de conteúdo"
+      },
+      "h1": {
+        "en": "Content Update Policy",
+        "es": "Política de Actualización de Contenido",
+        "fr": "Politique de Mise à Jour du Contenu",
+        "de": "Inhaltsaktualisierungsrichtlinie",
+        "pt": "Política de Atualização de Conteúdo"
+      },
+      "description": {
+        "en": "How and when DropAnyConvert updates existing guides, comparisons, and glossary entries.",
+        "es": "Cómo y cuándo DropAnyConvert actualiza guías, comparaciones y entradas de glosario existentes.",
+        "fr": "Comment et quand DropAnyConvert met à jour les guides, comparaisons et entrées de glossaire existants.",
+        "de": "Wie und wann DropAnyConvert bestehende Leitfäden, Vergleiche und Glossareinträge aktualisiert.",
+        "pt": "Como e quando o DropAnyConvert atualiza guias, comparações e entradas de glossário existentes."
+      },
+      "lastUpdated": "2026-06-27",
+      "sections": [
+        {
+          "heading": { "en": "Triggers for Updates" },
+          "body": { "en": "Content is updated when: a format specification changes, browser support shifts, benchmarks become outdated, or reader feedback identifies inaccuracies." }
+        },
+        {
+          "heading": { "en": "Versioning" },
+          "body": { "en": "Each article carries a version number. Minor corrections increment the patch version. Structural rewrites increment the minor version. Every update refreshes the last-updated date." }
+        }
+      ]
+    },
+    {
+      "slug": "editorial-independence",
+      "title": {
+        "en": "Editorial Independence",
+        "es": "Independencia editorial",
+        "fr": "Indépendance éditoriale",
+        "de": "Redaktionelle Unabhängigkeit",
+        "pt": "Independência editorial"
+      },
+      "h1": {
+        "en": "Editorial Independence",
+        "es": "Independencia Editorial",
+        "fr": "Indépendance Éditoriale",
+        "de": "Redaktionelle Unabhängigkeit",
+        "pt": "Independência Editorial"
+      },
+      "description": {
+        "en": "DropAnyConvert's commitment to unbiased, commercially independent content.",
+        "es": "El compromiso de DropAnyConvert con contenido imparcial e independiente comercialmente.",
+        "fr": "L'engagement de DropAnyConvert envers un contenu impartial et commercialement indépendant.",
+        "de": "DropAnyConverts Verpflichtung zu unvoreingenommenen, kommerziell unabhängigen Inhalten.",
+        "pt": "O compromisso do DropAnyConvert com conteúdo imparcial e comercialmente independente."
+      },
+      "lastUpdated": "2026-06-27",
+      "sections": [
+        {
+          "heading": { "en": "No Pay-to-Feature" },
+          "body": { "en": "No company can pay to be featured or recommended in our guides. Tool rankings are based purely on technical performance, privacy practices, and usability." }
+        },
+        {
+          "heading": { "en": "Disclosure" },
+          "body": { "en": "If we ever incorporate affiliate links or sponsored content, it will be clearly disclosed at the top of the affected page. Currently, DropAnyConvert carries no such relationships." }
+        }
+      ]
+    }
+  ]
+}

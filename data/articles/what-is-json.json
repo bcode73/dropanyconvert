@@ -3,55 +3,112 @@
   "articleType": "guide",
   "category": "developer",
   "lastUpdated": "2026-01-15",
-  "relatedTools": ["json-format", "json-minify", "json-to-yaml", "json-validate", "json-to-csv"],
-  "relatedArticles": ["what-is-yaml", "what-is-base64", "json-vs-yaml", "json-vs-xml"],
-  "title": { "en": "What is JSON? Complete Guide to JavaScript Object Notation" },
-  "h1": { "en": "What is JSON?" },
-  "description": { "en": "A complete guide to JSON (JavaScript Object Notation) — syntax, data types, use cases in APIs and configuration, and comparison with XML and YAML." },
-  "intro": { "en": "JSON (JavaScript Object Notation) is a lightweight, text-based data interchange format that is easy for humans to read and write and easy for machines to parse and generate. It has become the dominant format for web APIs, configuration files, and data storage, replacing XML in most modern web development contexts." },
+  "relatedTools": [
+    "json-format",
+    "json-minify",
+    "json-to-yaml",
+    "json-validate",
+    "json-to-csv"
+  ],
+  "relatedArticles": [
+    "what-is-yaml",
+    "what-is-base64",
+    "json-vs-yaml",
+    "json-vs-xml"
+  ],
+  "title": {
+    "en": "What is JSON? Complete Guide to JavaScript Object Notation"
+  },
+  "h1": {
+    "en": "What is JSON?"
+  },
+  "description": {
+    "en": "A complete guide to JSON (JavaScript Object Notation) — syntax, data types, use cases in APIs and configuration, and comparison with XML and YAML."
+  },
+  "intro": {
+    "en": "JSON (JavaScript Object Notation) is a lightweight, text-based data interchange format that is easy for humans to read and write and easy for machines to parse and generate. It has become the dominant format for web APIs, configuration files, and data storage, replacing XML in most modern web development contexts."
+  },
   "sections": [
     {
       "id": "syntax",
-      "heading": { "en": "JSON Syntax" },
-      "content": { "en": "JSON is built on two structures: objects (key-value pairs enclosed in {}) and arrays (ordered lists enclosed in []). Keys must be strings enclosed in double quotes. Values can be strings (double-quoted), numbers (integer or float), booleans (true or false), null, objects, or arrays. JSON does not support comments, trailing commas, or single-quoted strings — these are the most common causes of JSON parse errors. Whitespace (spaces, tabs, newlines) outside of string values is ignored." }
+      "heading": {
+        "en": "JSON Syntax"
+      },
+      "content": {
+        "en": "JSON is built on two structures: objects (key-value pairs enclosed in {}) and arrays (ordered lists enclosed in []). Keys must be strings enclosed in double quotes. Values can be strings (double-quoted), numbers (integer or float), booleans (true or false), null, objects, or arrays. JSON does not support comments, trailing commas, or single-quoted strings — these are the most common causes of JSON parse errors. Whitespace (spaces, tabs, newlines) outside of string values is ignored."
+      }
     },
     {
       "id": "data-types",
-      "heading": { "en": "JSON Data Types" },
-      "content": { "en": "JSON supports exactly six data types. String: a sequence of Unicode characters in double quotes (\"hello\"). Number: an integer or floating-point number without quotes (42, 3.14, -7). Boolean: the literal values true or false (no quotes). Null: the literal value null. Object: an unordered set of key-value pairs ({\"name\": \"Alice\", \"age\": 30}). Array: an ordered list of values ([1, 2, 3] or [\"a\", \"b\", \"c\"]). JSON has no separate date, binary, or undefined types — dates are typically represented as ISO 8601 strings, and binary data as Base64 strings." }
+      "heading": {
+        "en": "JSON Data Types"
+      },
+      "content": {
+        "en": "JSON supports exactly six data types. String: a sequence of Unicode characters in double quotes (\"hello\"). Number: an integer or floating-point number without quotes (42, 3.14, -7). Boolean: the literal values true or false (no quotes). Null: the literal value null. Object: an unordered set of key-value pairs ({\"name\": \"Alice\", \"age\": 30}). Array: an ordered list of values ([1, 2, 3] or [\"a\", \"b\", \"c\"]). JSON has no separate date, binary, or undefined types — dates are typically represented as ISO 8601 strings, and binary data as Base64 strings."
+      }
     },
     {
       "id": "use-cases",
-      "heading": { "en": "Use Cases" },
-      "content": { "en": "JSON is used everywhere in modern software development. REST APIs return JSON responses — nearly every web API (GitHub, Twitter, Stripe, Google Maps) uses JSON. Configuration files use JSON (package.json, tsconfig.json, .eslintrc.json). Databases like MongoDB store documents as BSON (Binary JSON). NoSQL databases (Firebase, DynamoDB, CouchDB) use JSON-like document models. Application state (Redux, Zustand) is typically serialised as JSON. Browser local storage and cookies often use JSON-serialised values." }
+      "heading": {
+        "en": "Use Cases"
+      },
+      "content": {
+        "en": "JSON is used everywhere in modern software development. REST APIs return JSON responses — nearly every web API (GitHub, Twitter, Stripe, Google Maps) uses JSON. Configuration files use JSON (package.json, tsconfig.json, .eslintrc.json). Databases like MongoDB store documents as BSON (Binary JSON). NoSQL databases (Firebase, DynamoDB, CouchDB) use JSON-like document models. Application state (Redux, Zustand) is typically serialised as JSON. Browser local storage and cookies often use JSON-serialised values."
+      }
     },
     {
       "id": "json-vs-xml",
-      "heading": { "en": "JSON vs XML" },
-      "content": { "en": "JSON has largely replaced XML in web API development. JSON is more compact (no opening and closing tags), easier to read, natively parseable in JavaScript with JSON.parse(), and maps directly to programming language data structures. XML offers advantages in document-oriented use cases: schema validation (XSD), transformation (XSLT), namespaces, and mixed content (text with embedded elements). For configuration and APIs, JSON wins on simplicity; for document processing and enterprise integration, XML retains strengths." }
+      "heading": {
+        "en": "JSON vs XML"
+      },
+      "content": {
+        "en": "JSON has largely replaced XML in web API development. JSON is more compact (no opening and closing tags), easier to read, natively parseable in JavaScript with JSON.parse(), and maps directly to programming language data structures. XML offers advantages in document-oriented use cases: schema validation (XSD), transformation (XSLT), namespaces, and mixed content (text with embedded elements). For configuration and APIs, JSON wins on simplicity; for document processing and enterprise integration, XML retains strengths."
+      }
     },
     {
       "id": "limitations",
-      "heading": { "en": "Limitations of JSON" },
-      "content": { "en": "JSON has several limitations. No comments: you cannot add explanatory comments in a JSON file (unlike YAML or TOML). Verbose for binary data: binary must be Base64-encoded, adding 33% overhead. No trailing commas: adding a comma after the last item in an array or object is a syntax error. No support for dates or undefined. Limited number precision: JSON numbers are IEEE 754 doubles, which can lose precision for very large integers (above 2^53). For configuration files where comments are important, YAML or TOML may be preferred." }
+      "heading": {
+        "en": "Limitations of JSON"
+      },
+      "content": {
+        "en": "JSON has several limitations. No comments: you cannot add explanatory comments in a JSON file (unlike YAML or TOML). Verbose for binary data: binary must be Base64-encoded, adding 33% overhead. No trailing commas: adding a comma after the last item in an array or object is a syntax error. No support for dates or undefined. Limited number precision: JSON numbers are IEEE 754 doubles, which can lose precision for very large integers (above 2^53). For configuration files where comments are important, YAML or TOML may be preferred."
+      }
     }
   ],
   "faq": [
     {
-      "question": { "en": "What does JSON stand for?" },
-      "answer": { "en": "JSON stands for JavaScript Object Notation. It was derived from JavaScript object syntax and popularised by Douglas Crockford in the early 2000s. Despite the name, JSON is a language-independent format supported by virtually every programming language." }
+      "question": {
+        "en": "What does JSON stand for?"
+      },
+      "answer": {
+        "en": "JSON stands for JavaScript Object Notation. It was derived from JavaScript object syntax and popularised by Douglas Crockford in the early 2000s. Despite the name, JSON is a language-independent format supported by virtually every programming language."
+      }
     },
     {
-      "question": { "en": "How do I validate JSON?" },
-      "answer": { "en": "You can validate JSON using our online JSON Validator tool. In code, JSON.parse() in JavaScript will throw a SyntaxError if the JSON is invalid. Python's json.loads() raises a JSONDecodeError. Many IDEs also show JSON syntax errors inline." }
+      "question": {
+        "en": "How do I validate JSON?"
+      },
+      "answer": {
+        "en": "You can validate JSON using our online JSON Validator tool. In code, JSON.parse() in JavaScript will throw a SyntaxError if the JSON is invalid. Python's json.loads() raises a JSONDecodeError. Many IDEs also show JSON syntax errors inline."
+      }
     },
     {
-      "question": { "en": "Why can't JSON have comments?" },
-      "answer": { "en": "Douglas Crockford, who formalised JSON, deliberately excluded comments. His reasoning was that comments in config files tend to be used to include parsing directives, breaking interoperability. If you need comments in configuration, use YAML (which supports them) or JSONC (JSON with Comments, used by VS Code's settings)." }
+      "question": {
+        "en": "Why can't JSON have comments?"
+      },
+      "answer": {
+        "en": "Douglas Crockford, who formalised JSON, deliberately excluded comments. His reasoning was that comments in config files tend to be used to include parsing directives, breaking interoperability. If you need comments in configuration, use YAML (which supports them) or JSONC (JSON with Comments, used by VS Code's settings)."
+      }
     },
     {
-      "question": { "en": "What is the difference between JSON and YAML?" },
-      "answer": { "en": "JSON and YAML represent the same data structures but have different syntax. YAML is a superset of JSON (valid JSON is valid YAML) with a more human-readable indentation-based syntax, comment support, and additional features like anchors and aliases. JSON is more widely supported in APIs and has faster parsers. Use JSON for APIs and machine-to-machine data; YAML for configuration files where humans write and read the data." }
+      "question": {
+        "en": "What is the difference between JSON and YAML?"
+      },
+      "answer": {
+        "en": "JSON and YAML represent the same data structures but have different syntax. YAML is a superset of JSON (valid JSON is valid YAML) with a more human-readable indentation-based syntax, comment support, and additional features like anchors and aliases. JSON is more widely supported in APIs and has faster parsers. Use JSON for APIs and machine-to-machine data; YAML for configuration files where humans write and read the data."
+      }
     }
-  ]
+  ],
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

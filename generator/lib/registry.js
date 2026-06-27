@@ -224,6 +224,48 @@ export async function buildRegistry(data, config) {
     });
   }
 
+  // Trust Center per language
+  if (data.trust) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'trust',
+        lang: lang.code,
+        slug: 'trust',
+        path: `/${lang.code}/trust`,
+        trust: data.trust,
+        language: lang,
+      });
+    }
+  }
+
+  // Editorial pages per language
+  for (const page of (data.editorial?.pages || [])) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'editorial',
+        lang: lang.code,
+        slug: page.slug,
+        path: `/${lang.code}/editorial/${page.slug}`,
+        editorialPage: page,
+        language: lang,
+      });
+    }
+  }
+
+  // Changelog per language
+  if ((data.changelog?.releases || []).length > 0) {
+    for (const lang of data.languages) {
+      routes.push({
+        type: 'changelog',
+        lang: lang.code,
+        slug: 'changelog',
+        path: `/${lang.code}/changelog`,
+        changelog: data.changelog,
+        language: lang,
+      });
+    }
+  }
+
   // Root redirect
   routes.push({
     type: 'root',

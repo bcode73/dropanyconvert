@@ -3,55 +3,110 @@
   "articleType": "guide",
   "category": "pdf",
   "lastUpdated": "2026-01-15",
-  "relatedTools": ["pdf-to-images", "images-to-pdf", "compress-pdf", "merge-pdf", "split-pdf"],
-  "relatedArticles": ["what-is-png", "what-is-jpg"],
-  "title": { "en": "What is PDF? Complete Guide to the Portable Document Format" },
-  "h1": { "en": "What is PDF?" },
-  "description": { "en": "A complete guide to PDF — how the Portable Document Format works, its structure, versions, PDF/A archival format, compression, security features, and common use cases." },
-  "intro": { "en": "PDF (Portable Document Format) is a file format created by Adobe Systems in 1992 that presents documents — including text, images, graphics, and interactive elements — in a way that is independent of application software, hardware, and operating systems. A PDF document looks identical on every device and platform, making it the standard format for sharing documents that must retain their exact appearance." },
+  "relatedTools": [
+    "pdf-to-images",
+    "images-to-pdf",
+    "compress-pdf",
+    "merge-pdf",
+    "split-pdf"
+  ],
+  "relatedArticles": [
+    "what-is-png",
+    "what-is-jpg"
+  ],
+  "title": {
+    "en": "What is PDF? Complete Guide to the Portable Document Format"
+  },
+  "h1": {
+    "en": "What is PDF?"
+  },
+  "description": {
+    "en": "A complete guide to PDF — how the Portable Document Format works, its structure, versions, PDF/A archival format, compression, security features, and common use cases."
+  },
+  "intro": {
+    "en": "PDF (Portable Document Format) is a file format created by Adobe Systems in 1992 that presents documents — including text, images, graphics, and interactive elements — in a way that is independent of application software, hardware, and operating systems. A PDF document looks identical on every device and platform, making it the standard format for sharing documents that must retain their exact appearance."
+  },
   "sections": [
     {
       "id": "history",
-      "heading": { "en": "History and Standardisation" },
-      "content": { "en": "Adobe co-founder John Warnock conceived PDF in 1991 as a way to share documents electronically while preserving their layout. The format was initially proprietary and required the expensive Adobe Acrobat software. Adobe made the format specification freely available in 1993 and released the free Adobe Reader. In 2008, PDF became an open standard (ISO 32000-1), meaning any company can implement PDF support without licensing fees. Today, PDF is the world's most widely used document format, with billions of PDF files created annually." }
+      "heading": {
+        "en": "History and Standardisation"
+      },
+      "content": {
+        "en": "Adobe co-founder John Warnock conceived PDF in 1991 as a way to share documents electronically while preserving their layout. The format was initially proprietary and required the expensive Adobe Acrobat software. Adobe made the format specification freely available in 1993 and released the free Adobe Reader. In 2008, PDF became an open standard (ISO 32000-1), meaning any company can implement PDF support without licensing fees. Today, PDF is the world's most widely used document format, with billions of PDF files created annually."
+      }
     },
     {
       "id": "structure",
-      "heading": { "en": "How PDF Works" },
-      "content": { "en": "A PDF file is structured as a hierarchy of objects: the document catalog (the root), pages (each an independent object), resources (fonts, images, colour spaces), and content streams (the actual drawing instructions). Content streams use a page description language to specify text rendering, image placement, and vector graphics. Fonts can be embedded in the PDF (ensuring consistent rendering) or referenced (smaller files but dependent on the viewer having the font installed). Images within PDFs can use various compression: JPEG for photographs, FLATE (similar to PNG) for graphics, JBIG2 for bitonal images." }
+      "heading": {
+        "en": "How PDF Works"
+      },
+      "content": {
+        "en": "A PDF file is structured as a hierarchy of objects: the document catalog (the root), pages (each an independent object), resources (fonts, images, colour spaces), and content streams (the actual drawing instructions). Content streams use a page description language to specify text rendering, image placement, and vector graphics. Fonts can be embedded in the PDF (ensuring consistent rendering) or referenced (smaller files but dependent on the viewer having the font installed). Images within PDFs can use various compression: JPEG for photographs, FLATE (similar to PNG) for graphics, JBIG2 for bitonal images."
+      }
     },
     {
       "id": "versions",
-      "heading": { "en": "PDF Versions and PDF/A" },
-      "content": { "en": "PDF has evolved through many versions (1.0 through 2.0, published in 2017). Each version added features: PDF 1.4 introduced transparency, PDF 1.5 added cross-reference streams, PDF 2.0 modernised cryptography and improved accessibility. PDF/A is a special ISO-standardised subset of PDF designed for long-term archival preservation. PDF/A files must embed all fonts, colour profiles, and metadata; they cannot contain encryption, JavaScript, or external dependencies. PDF/A is required for legal, government, and archival documents that must remain readable decades into the future." }
+      "heading": {
+        "en": "PDF Versions and PDF/A"
+      },
+      "content": {
+        "en": "PDF has evolved through many versions (1.0 through 2.0, published in 2017). Each version added features: PDF 1.4 introduced transparency, PDF 1.5 added cross-reference streams, PDF 2.0 modernised cryptography and improved accessibility. PDF/A is a special ISO-standardised subset of PDF designed for long-term archival preservation. PDF/A files must embed all fonts, colour profiles, and metadata; they cannot contain encryption, JavaScript, or external dependencies. PDF/A is required for legal, government, and archival documents that must remain readable decades into the future."
+      }
     },
     {
       "id": "security",
-      "heading": { "en": "PDF Security Features" },
-      "content": { "en": "PDF supports several layers of security. Password protection restricts who can open a document. Permission restrictions (a separate password) limit printing, copying, and editing. Digital signatures embed a cryptographic signature that verifies the document has not been altered since signing. Encryption (RC4 in older versions, AES in modern versions) protects document content from unauthorised access. Redaction permanently removes sensitive information from the document." }
+      "heading": {
+        "en": "PDF Security Features"
+      },
+      "content": {
+        "en": "PDF supports several layers of security. Password protection restricts who can open a document. Permission restrictions (a separate password) limit printing, copying, and editing. Digital signatures embed a cryptographic signature that verifies the document has not been altered since signing. Encryption (RC4 in older versions, AES in modern versions) protects document content from unauthorised access. Redaction permanently removes sensitive information from the document."
+      }
     },
     {
       "id": "use-cases",
-      "heading": { "en": "Common Use Cases" },
-      "content": { "en": "PDF is the universal standard for: legal contracts and agreements (preserves exact formatting), government and official documents, academic papers and research publications, product manuals and technical documentation, invoices and financial documents, ebooks and digital publications, print-ready files for professional printing, and any document that must look identical regardless of where it is opened." }
+      "heading": {
+        "en": "Common Use Cases"
+      },
+      "content": {
+        "en": "PDF is the universal standard for: legal contracts and agreements (preserves exact formatting), government and official documents, academic papers and research publications, product manuals and technical documentation, invoices and financial documents, ebooks and digital publications, print-ready files for professional printing, and any document that must look identical regardless of where it is opened."
+      }
     }
   ],
   "faq": [
     {
-      "question": { "en": "Can I edit a PDF?" },
-      "answer": { "en": "PDFs are designed to be read, not edited. However, PDF editors like Adobe Acrobat, PDF-XChange, or online tools can modify text, add annotations, fill forms, and merge or split pages. The extent of editing depends on whether the PDF contains actual editable text or just scanned images of text." }
+      "question": {
+        "en": "Can I edit a PDF?"
+      },
+      "answer": {
+        "en": "PDFs are designed to be read, not edited. However, PDF editors like Adobe Acrobat, PDF-XChange, or online tools can modify text, add annotations, fill forms, and merge or split pages. The extent of editing depends on whether the PDF contains actual editable text or just scanned images of text."
+      }
     },
     {
-      "question": { "en": "Why is my PDF file so large?" },
-      "answer": { "en": "Large PDFs usually contain high-resolution embedded images. Compressing a PDF typically means downsampling embedded images to screen resolution (72–150 DPI for screen viewing vs 300+ DPI for print). PDF compression tools can reduce file size by 50–90% while maintaining acceptable quality for digital use." }
+      "question": {
+        "en": "Why is my PDF file so large?"
+      },
+      "answer": {
+        "en": "Large PDFs usually contain high-resolution embedded images. Compressing a PDF typically means downsampling embedded images to screen resolution (72–150 DPI for screen viewing vs 300+ DPI for print). PDF compression tools can reduce file size by 50–90% while maintaining acceptable quality for digital use."
+      }
     },
     {
-      "question": { "en": "What is the difference between PDF and PDF/A?" },
-      "answer": { "en": "PDF/A is a constrained subset of PDF designed for long-term archiving. A PDF/A file must be self-contained (all fonts and colour profiles embedded), must not rely on external resources or JavaScript, and must include specific metadata. Regular PDFs can contain any PDF feature; PDF/A restricts them for future-proof readability." }
+      "question": {
+        "en": "What is the difference between PDF and PDF/A?"
+      },
+      "answer": {
+        "en": "PDF/A is a constrained subset of PDF designed for long-term archiving. A PDF/A file must be self-contained (all fonts and colour profiles embedded), must not rely on external resources or JavaScript, and must include specific metadata. Regular PDFs can contain any PDF feature; PDF/A restricts them for future-proof readability."
+      }
     },
     {
-      "question": { "en": "Can I convert a PDF to an image?" },
-      "answer": { "en": "Yes. PDF pages can be rendered as PNG, JPG, or other image formats by rasterising them at a specified DPI. 150 DPI is suitable for screen display; 300 DPI is needed for print-quality images. Our PDF to Images tool can convert any PDF page to a high-resolution image directly in your browser." }
+      "question": {
+        "en": "Can I convert a PDF to an image?"
+      },
+      "answer": {
+        "en": "Yes. PDF pages can be rendered as PNG, JPG, or other image formats by rasterising them at a specified DPI. 150 DPI is suitable for screen display; 300 DPI is needed for print-quality images. Our PDF to Images tool can convert any PDF page to a high-resolution image directly in your browser."
+      }
     }
-  ]
+  ],
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

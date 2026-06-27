@@ -3,55 +3,106 @@
   "articleType": "guide",
   "category": "image",
   "lastUpdated": "2026-01-15",
-  "relatedTools": ["svg-to-png"],
-  "relatedArticles": ["what-is-png", "what-is-jpg"],
-  "title": { "en": "What is SVG? Complete Guide to Scalable Vector Graphics" },
-  "h1": { "en": "What is SVG?" },
-  "description": { "en": "SVG (Scalable Vector Graphics) is an XML-based image format that scales to any resolution without quality loss. Learn how SVG works, when to use it, and how it compares to raster formats." },
-  "intro": { "en": "SVG (Scalable Vector Graphics) is an XML-based vector image format. Unlike raster formats (PNG, JPG, WebP) that store images as grids of pixels, SVG stores images as mathematical descriptions of shapes, paths, and text. This means an SVG can be scaled to any size — from a 16px favicon to a 10-metre billboard — with no loss of quality." },
+  "relatedTools": [
+    "svg-to-png"
+  ],
+  "relatedArticles": [
+    "what-is-png",
+    "what-is-jpg"
+  ],
+  "title": {
+    "en": "What is SVG? Complete Guide to Scalable Vector Graphics"
+  },
+  "h1": {
+    "en": "What is SVG?"
+  },
+  "description": {
+    "en": "SVG (Scalable Vector Graphics) is an XML-based image format that scales to any resolution without quality loss. Learn how SVG works, when to use it, and how it compares to raster formats."
+  },
+  "intro": {
+    "en": "SVG (Scalable Vector Graphics) is an XML-based vector image format. Unlike raster formats (PNG, JPG, WebP) that store images as grids of pixels, SVG stores images as mathematical descriptions of shapes, paths, and text. This means an SVG can be scaled to any size — from a 16px favicon to a 10-metre billboard — with no loss of quality."
+  },
   "sections": [
     {
       "id": "how-it-works",
-      "heading": { "en": "How SVG Works" },
-      "content": { "en": "An SVG file is a plain text XML document that describes graphics using elements like <circle>, <rect>, <path>, <line>, <text>, and <image>. Browsers render SVG directly using their built-in rendering engine, computing the precise position and appearance of each element at the display resolution. Because the rendering is resolution-independent, an SVG looks equally sharp on a 72 dpi screen and a 600 dpi printer. SVG also supports CSS styling, JavaScript interaction, animations, filters, and gradients — making it the most feature-rich image format for web use." }
+      "heading": {
+        "en": "How SVG Works"
+      },
+      "content": {
+        "en": "An SVG file is a plain text XML document that describes graphics using elements like <circle>, <rect>, <path>, <line>, <text>, and <image>. Browsers render SVG directly using their built-in rendering engine, computing the precise position and appearance of each element at the display resolution. Because the rendering is resolution-independent, an SVG looks equally sharp on a 72 dpi screen and a 600 dpi printer. SVG also supports CSS styling, JavaScript interaction, animations, filters, and gradients — making it the most feature-rich image format for web use."
+      }
     },
     {
       "id": "advantages",
-      "heading": { "en": "Advantages of SVG" },
-      "content": { "en": "SVG offers several unique advantages. Resolution independence means perfect sharpness at any scale. Small file sizes for simple graphics — a logo that would be 200 KB as a PNG might be 2 KB as an SVG. CSS and JavaScript accessibility means SVG elements can be styled, animated, and manipulated with code. SVG is fully accessible to screen readers when proper ARIA attributes are added. SVG can be embedded directly in HTML without an extra HTTP request, further improving page performance." }
+      "heading": {
+        "en": "Advantages of SVG"
+      },
+      "content": {
+        "en": "SVG offers several unique advantages. Resolution independence means perfect sharpness at any scale. Small file sizes for simple graphics — a logo that would be 200 KB as a PNG might be 2 KB as an SVG. CSS and JavaScript accessibility means SVG elements can be styled, animated, and manipulated with code. SVG is fully accessible to screen readers when proper ARIA attributes are added. SVG can be embedded directly in HTML without an extra HTTP request, further improving page performance."
+      }
     },
     {
       "id": "limitations",
-      "heading": { "en": "Limitations of SVG" },
-      "content": { "en": "SVG is not suitable for photographic images. A photograph represented as an SVG path would be astronomically large and look terrible. SVG is also more complex to create — it requires a vector design tool (Adobe Illustrator, Figma, Inkscape) rather than a camera or screenshot tool. Very complex SVG files with thousands of paths can be slow to render. For raster image needs (photography, screenshots), PNG, JPG, or WebP remain the correct choice." }
+      "heading": {
+        "en": "Limitations of SVG"
+      },
+      "content": {
+        "en": "SVG is not suitable for photographic images. A photograph represented as an SVG path would be astronomically large and look terrible. SVG is also more complex to create — it requires a vector design tool (Adobe Illustrator, Figma, Inkscape) rather than a camera or screenshot tool. Very complex SVG files with thousands of paths can be slow to render. For raster image needs (photography, screenshots), PNG, JPG, or WebP remain the correct choice."
+      }
     },
     {
       "id": "use-cases",
-      "heading": { "en": "When to Use SVG" },
-      "content": { "en": "Use SVG for: logos and brand marks, icons and icon systems, illustrations and infographics, charts and data visualisations (D3.js outputs SVG), UI elements like borders and decorative shapes, and any graphic that must look sharp on high-DPI (Retina) displays. If your design uses flat colours, gradients, and defined shapes rather than photographic content, SVG is almost certainly the right choice." }
+      "heading": {
+        "en": "When to Use SVG"
+      },
+      "content": {
+        "en": "Use SVG for: logos and brand marks, icons and icon systems, illustrations and infographics, charts and data visualisations (D3.js outputs SVG), UI elements like borders and decorative shapes, and any graphic that must look sharp on high-DPI (Retina) displays. If your design uses flat colours, gradients, and defined shapes rather than photographic content, SVG is almost certainly the right choice."
+      }
     },
     {
       "id": "browser-support",
-      "heading": { "en": "Browser Support" },
-      "content": { "en": "SVG is supported by all modern browsers including Chrome, Firefox, Safari, and Edge. Inline SVG in HTML is supported in all modern browsers. SVG as an image source (<img src='logo.svg'>) is supported in all modern browsers. There are minor rendering differences between browsers for complex SVG features (filters, animations), but basic SVG is universally supported." }
+      "heading": {
+        "en": "Browser Support"
+      },
+      "content": {
+        "en": "SVG is supported by all modern browsers including Chrome, Firefox, Safari, and Edge. Inline SVG in HTML is supported in all modern browsers. SVG as an image source (<img src='logo.svg'>) is supported in all modern browsers. There are minor rendering differences between browsers for complex SVG features (filters, animations), but basic SVG is universally supported."
+      }
     }
   ],
   "faq": [
     {
-      "question": { "en": "What is the difference between SVG and PNG?" },
-      "answer": { "en": "SVG is a vector format (mathematical shapes) that scales without quality loss; PNG is a raster format (pixels) that becomes blurry when scaled up. SVG is ideal for logos and icons; PNG is ideal for photographs and screenshots." }
+      "question": {
+        "en": "What is the difference between SVG and PNG?"
+      },
+      "answer": {
+        "en": "SVG is a vector format (mathematical shapes) that scales without quality loss; PNG is a raster format (pixels) that becomes blurry when scaled up. SVG is ideal for logos and icons; PNG is ideal for photographs and screenshots."
+      }
     },
     {
-      "question": { "en": "Can I convert SVG to PNG?" },
-      "answer": { "en": "Yes. Converting SVG to PNG renders the vector graphic at a specific pixel size. You choose the output dimensions, and the converter renders the SVG at that resolution. The resulting PNG will be sharp at that exact size but will blur if scaled beyond it." }
+      "question": {
+        "en": "Can I convert SVG to PNG?"
+      },
+      "answer": {
+        "en": "Yes. Converting SVG to PNG renders the vector graphic at a specific pixel size. You choose the output dimensions, and the converter renders the SVG at that resolution. The resulting PNG will be sharp at that exact size but will blur if scaled beyond it."
+      }
     },
     {
-      "question": { "en": "Is SVG safe to use on websites?" },
-      "answer": { "en": "SVG files can contain JavaScript, which poses an XSS risk if you allow users to upload and serve arbitrary SVG files. Always sanitise user-supplied SVG before serving it. For your own SVG assets, there is no security concern." }
+      "question": {
+        "en": "Is SVG safe to use on websites?"
+      },
+      "answer": {
+        "en": "SVG files can contain JavaScript, which poses an XSS risk if you allow users to upload and serve arbitrary SVG files. Always sanitise user-supplied SVG before serving it. For your own SVG assets, there is no security concern."
+      }
     },
     {
-      "question": { "en": "How do I make an SVG?" },
-      "answer": { "en": "SVG files can be created with vector design tools such as Adobe Illustrator, Figma, Inkscape (free), or Affinity Designer. Many tools (Figma, Illustrator) export SVG directly. You can also write SVG by hand in a text editor, though this is only practical for simple shapes." }
+      "question": {
+        "en": "How do I make an SVG?"
+      },
+      "answer": {
+        "en": "SVG files can be created with vector design tools such as Adobe Illustrator, Figma, Inkscape (free), or Affinity Designer. Many tools (Figma, Illustrator) export SVG directly. You can also write SVG by hand in a text editor, though this is only practical for simple shapes."
+      }
     }
-  ]
+  ],
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

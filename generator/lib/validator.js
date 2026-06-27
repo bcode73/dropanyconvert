@@ -142,6 +142,69 @@ export async function validateData(data, config) {
     }
   }
 
+  // Phase 14: Extended validation
+
+  // No empty categories
+  for (const cat of data.categories) {
+    const count = data.tools.filter(t => t.category === cat.id).length;
+    if (count === 0) {
+      errors.push(`Category "${cat.id}" has no tools — empty categories produce orphan hub pages`);
+    }
+  }
+
+  // No empty collections
+  for (const coll of (data.collections || [])) {
+    const resolvedTools = (coll.toolSlugs || []).filter(s => slugsSeen.has(s));
+    if (resolvedTools.length === 0) {
+      errors.push(`Collection "${coll.slug}" has no valid tool slugs — would produce an empty page`);
+    }
+  }
+
+  // No missing lastUpdated on articles
+  for (const article of (data.articles || [])) {
+    if (!article.lastUpdated) {
+      errors.push(`Article "${article.slug}" is missing required field: lastUpdated`);
+    }
+  }
+
+  // No missing reviewedBy on articles/comparisons/glossary
+  for (const article of (data.articles || [])) {
+    if (!article.reviewedBy) {
+      errors.push(`Article "${article.slug}" is missing required field: reviewedBy`);
+    }
+  }
+  for (const cmp of (data.comparisons || [])) {
+    if (!cmp.reviewedBy) {
+      errors.push(`Comparison "${cmp.slug}" is missing required field: reviewedBy`);
+    }
+  }
+  for (const term of (data.glossary || [])) {
+    if (!term.reviewedBy) {
+      errors.push(`Glossary term "${term.slug}" is missing required field: reviewedBy`);
+    }
+  }
+
+  return { errors, warnings };
+}
+
+/**
+ * Post-route validation: checks for duplicate canonical URLs and orphan pages.
+ * Call after registry is built with the full routes array.
+ */
+export function validateRoutes(routes) {
+  const errors = [];
+  const warnings = [];
+
+  // Duplicate canonical paths
+  const pathsSeen = new Map();
+  for (const route of routes) {
+    if (pathsSeen.has(route.path)) {
+      errors.push(`Duplicate route path: "${route.path}" (types: ${pathsSeen.get(route.path)} and ${route.type})`);
+    } else {
+      pathsSeen.set(route.path, route.type);
+    }
+  }
+
   return { errors, warnings };
 }
 

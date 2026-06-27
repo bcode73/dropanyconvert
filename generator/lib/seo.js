@@ -603,6 +603,117 @@ export async function generateSeo(routes, data, config) {
         breadcrumbs,
         schemas: [breadcrumbSchema],
       });
+    } else if (route.type === 'trust') {
+      const trust = route.trust;
+      const langCode = route.lang;
+      const h1 = trust.h1?.[langCode] || trust.h1?.en || 'Trust & Security Center';
+      const description = trust.description?.[langCode] || trust.description?.en;
+      const canonical = `${baseUrl}${route.path}`;
+      const title = `${h1}${globalSeo.defaults.titleSuffix}`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: h1, url: canonical },
+      ];
+
+      const orgData = trust.organization || {};
+      const organizationSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: orgData.name || config.site.name,
+        url: orgData.url || baseUrl,
+        logo: `${baseUrl}/assets/images/icon-512.png`,
+        description: orgData.description || config.site.tagline,
+        foundingDate: orgData.foundingYear,
+        areaServed: orgData.areaServed || 'Worldwide',
+        knowsAbout: orgData.knowsAbout || [],
+        sameAs: [],
+      };
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      seoData.set(route.path, {
+        title, description, canonical, h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas: [organizationSchema, breadcrumbSchema],
+      });
+    } else if (route.type === 'editorial') {
+      const page = route.editorialPage;
+      const langCode = route.lang;
+      const h1 = page.h1?.[langCode] || page.h1?.en;
+      const title = `${page.title?.[langCode] || page.title?.en}${globalSeo.defaults.titleSuffix}`;
+      const description = page.description?.[langCode] || page.description?.en;
+      const canonical = `${baseUrl}${route.path}`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'Editorial', url: `${baseUrl}/${langCode}/editorial/editorial-process` },
+        { name: h1, url: canonical },
+      ];
+
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: h1,
+        description,
+        url: canonical,
+        dateModified: page.lastUpdated,
+        publisher: { '@type': 'Organization', name: config.site.name, url: baseUrl },
+      };
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      seoData.set(route.path, {
+        title, description, canonical, h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'article',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas: [articleSchema, breadcrumbSchema],
+      });
+    } else if (route.type === 'changelog') {
+      const langCode = route.lang;
+      const h1 = 'Changelog';
+      const title = `Changelog${globalSeo.defaults.titleSuffix}`;
+      const description = 'Version history, new features, and improvements for DropAnyConvert.';
+      const canonical = `${baseUrl}${route.path}`;
+
+      const breadcrumbs = [
+        { name: globalSeo.breadcrumbs?.homeName?.[langCode] || 'Home', url: `${baseUrl}/${langCode}` },
+        { name: 'Changelog', url: canonical },
+      ];
+
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+      };
+
+      seoData.set(route.path, {
+        title, description, canonical, h1,
+        robots: globalSeo.defaults.robots,
+        ogTitle: title, ogDescription: description, ogUrl: canonical, ogType: 'website',
+        ogSiteName: globalSeo.defaults.ogSiteName,
+        ogImage: `${baseUrl}${globalSeo.seo?.defaultImagePath || '/assets/images/og-default.png'}`,
+        twitterCard: 'summary', twitterSite: globalSeo.seo?.twitterHandle || '',
+        hreflang: route.hreflang || [], hreflangDefault: route.hreflangDefault || canonical,
+        breadcrumbs, schemas: [breadcrumbSchema],
+      });
     } else if (route.type === 'home') {
       const canonical = `${baseUrl}${route.path}`;
       const homeDesc = globalSeo.homeDescription?.[langCode] || globalSeo.homeDescription?.en || config.site.tagline;

@@ -1,16 +1,38 @@
 {
   "slug": "pdf-a",
-  "term": { "en": "PDF/A" },
-  "shortDef": { "en": "An ISO-standardised subset of PDF designed for long-term digital preservation of documents." },
-  "definition": { "en": "PDF/A is an ISO standard (ISO 19005) that defines a subset of the PDF format optimised for long-term archiving of electronic documents. A PDF/A file must be entirely self-contained: all fonts must be embedded (so the document renders identically regardless of what fonts are installed), all colour profiles must be embedded, and all content must be within the file (no external dependencies, no links to external resources). PDF/A prohibits features that might not be reproducible in the future: encryption, JavaScript, audio and video content, and external references. There are several conformance levels: PDF/A-1 (2005, based on PDF 1.4), PDF/A-2 (2011, based on PDF 1.7, adds JPEG 2000 and OpenType font support), and PDF/A-3 (2012, allows embedding non-PDF files as attachments). PDF/A is required by governments, courts, libraries, and regulated industries (healthcare, finance, legal) for documents that must remain readable for decades." },
+  "term": {
+    "en": "PDF/A"
+  },
+  "shortDef": {
+    "en": "An ISO-standardised subset of PDF designed for long-term digital preservation of documents."
+  },
+  "definition": {
+    "en": "PDF/A is an ISO standard (ISO 19005) that defines a subset of the PDF format optimised for long-term archiving of electronic documents. A PDF/A file must be entirely self-contained: all fonts must be embedded (so the document renders identically regardless of what fonts are installed), all colour profiles must be embedded, and all content must be within the file (no external dependencies, no links to external resources). PDF/A prohibits features that might not be reproducible in the future: encryption, JavaScript, audio and video content, and external references. There are several conformance levels: PDF/A-1 (2005, based on PDF 1.4), PDF/A-2 (2011, based on PDF 1.7, adds JPEG 2000 and OpenType font support), and PDF/A-3 (2012, allows embedding non-PDF files as attachments). PDF/A is required by governments, courts, libraries, and regulated industries (healthcare, finance, legal) for documents that must remain readable for decades."
+  },
   "examples": [
-    { "en": "Legal contracts are often stored as PDF/A to ensure they remain readable and unaltered for decades." },
-    { "en": "Court filings in many jurisdictions must be submitted as PDF/A documents." },
-    { "en": "National archives accept electronic records only in PDF/A format." }
+    {
+      "en": "Legal contracts are often stored as PDF/A to ensure they remain readable and unaltered for decades."
+    },
+    {
+      "en": "Court filings in many jurisdictions must be submitted as PDF/A documents."
+    },
+    {
+      "en": "National archives accept electronic records only in PDF/A format."
+    }
   ],
-  "relatedTerms": ["metadata"],
-  "relatedTools": ["compress-pdf", "pdf-metadata-editor", "merge-pdf"],
-  "relatedArticles": ["what-is-pdf"],
+  "relatedTerms": [
+    "metadata"
+  ],
+  "relatedTools": [
+    "compress-pdf",
+    "pdf-metadata-editor",
+    "merge-pdf"
+  ],
+  "relatedArticles": [
+    "what-is-pdf"
+  ],
   "category": "pdf",
-  "lastUpdated": "2026-01-15"
+  "lastUpdated": "2026-01-15",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
 }

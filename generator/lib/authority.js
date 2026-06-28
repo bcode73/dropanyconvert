@@ -78,7 +78,7 @@ export function buildAuthorityGraph(data, freshness) {
       keywords:  kw,
       mimeTypes: [...t.inputFormats, ...t.outputFormats.map(f => f.mime)],
       engine:    t.engine,
-      langs:     data.languages.supported || ['en'],
+      langs:     data.languages.map(l => l.code),
     });
   }
 
@@ -88,7 +88,7 @@ export function buildAuthorityGraph(data, freshness) {
       category:    a.category,
       keywords:    [a.slug, ...(a.relatedTools || [])],
       lastUpdated: a.lastUpdated || '',
-      langs:       data.languages.supported || ['en'],
+      langs:       data.languages.map(l => l.code),
     });
   }
 
@@ -98,7 +98,7 @@ export function buildAuthorityGraph(data, freshness) {
       category:    c.category,
       keywords:    [c.subjectA, c.subjectB, ...(c.relatedTools || [])],
       lastUpdated: c.lastUpdated || '',
-      langs:       data.languages.supported || ['en'],
+      langs:       data.languages.map(l => l.code),
     });
   }
 
@@ -109,7 +109,7 @@ export function buildAuthorityGraph(data, freshness) {
       category:    g.category,
       keywords:    [term, g.slug, ...(g.relatedTools || []), ...(g.relatedTerms || [])],
       lastUpdated: g.lastUpdated || '',
-      langs:       data.languages.supported || ['en'],
+      langs:       data.languages.map(l => l.code),
     });
   }
 
@@ -119,7 +119,7 @@ export function buildAuthorityGraph(data, freshness) {
       category:  e.category,
       keywords:  [e.name, e.slug, e.fullName || '', ...e.aliases || [], ...(e.extensions || [])],
       mimeTypes: e.mimeTypes || [],
-      langs:     data.languages.supported || ['en'],
+      langs:     data.languages.map(l => l.code),
     });
   }
 
@@ -129,7 +129,7 @@ export function buildAuthorityGraph(data, freshness) {
       category:    c.category,
       keywords:    [c.slug, ...(c.toolSlugs || [])],
       lastUpdated: c.lastUpdated || '',
-      langs:       data.languages.supported || ['en'],
+      langs:       data.languages.map(l => l.code),
     });
   }
 
@@ -138,7 +138,7 @@ export function buildAuthorityGraph(data, freshness) {
     addNode(`landing:${l.slug}`, NODE.LANDING, {
       category:  l.category || 'general',
       keywords:  [l.slug, ...(l.toolSlugs || [])],
-      langs:     data.languages.supported || ['en'],
+      langs:     data.languages.map(l => l.code),
     });
   }
 
@@ -146,7 +146,7 @@ export function buildAuthorityGraph(data, freshness) {
   for (const a of (data.authors || [])) {
     addNode(`author:${a.slug}`, NODE.AUTHOR, {
       keywords: [a.name || a.slug],
-      langs:    data.languages.supported || ['en'],
+      langs:    data.languages.map(l => l.code),
     });
   }
 
@@ -157,7 +157,7 @@ export function buildAuthorityGraph(data, freshness) {
       addNode(id, NODE.INTENT, {
         category: 'intent',
         keywords: [i.slug, m.slug, i.toolSlug],
-        langs:    data.languages.supported || ['en'],
+        langs:    data.languages.map(l => l.code),
       });
     }
   }
@@ -167,7 +167,7 @@ export function buildAuthorityGraph(data, freshness) {
     addNode(`platform:${p.slug}`, NODE.PLATFORM, {
       category: p.category || 'general',
       keywords: [p.slug, ...(p.toolSlugs || [])],
-      langs:    data.languages.supported || ['en'],
+      langs:    data.languages.map(l => l.code),
     });
   }
 
@@ -176,7 +176,7 @@ export function buildAuthorityGraph(data, freshness) {
     addNode(`use-case:${u.slug}`, NODE.USE_CASE, {
       category: u.category || 'general',
       keywords: [u.slug, ...(u.toolSlugs || [])],
-      langs:    data.languages.supported || ['en'],
+      langs:    data.languages.map(l => l.code),
     });
   }
 
@@ -185,7 +185,7 @@ export function buildAuthorityGraph(data, freshness) {
     addNode(`feature:${f.slug}`, NODE.FEATURE, {
       category: f.slug,
       keywords: [f.slug, f.capability || ''],
-      langs:    data.languages.supported || ['en'],
+      langs:    data.languages.map(l => l.code),
     });
   }
 

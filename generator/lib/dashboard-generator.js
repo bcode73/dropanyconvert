@@ -328,7 +328,7 @@ function renderSettings(t) {
 
 export function generateDashboardPages(data, config) {
   const pages = [];
-  const langs = data.languages?.supported || ['en'];
+  const langs = data.languages.map(l => l.code);
 
   for (const lang of langs) {
     for (const section of SECTIONS) {
@@ -345,6 +345,6 @@ export function generateDashboardPages(data, config) {
 // ── Route metadata (for sitemap exclusion + report) ───────────────────────
 
 export function getDashboardRouteCount(data) {
-  const langs = data.languages?.supported || ['en'];
+  const langs = data.languages.map(l => l.code);
   return langs.length * SECTIONS.length;
 }

@@ -1,0 +1,38 @@
+{
+  "slug": "deflate-algorithm",
+  "term": {
+    "en": "DEFLATE Algorithm"
+  },
+  "shortDef": {
+    "en": "A lossless compression algorithm combining LZ77 and Huffman coding, used in ZIP, PNG, and gzip."
+  },
+  "definition": {
+    "en": "DEFLATE is a lossless data compression algorithm that combines two techniques: LZ77 (which replaces repeated byte sequences with back-references to earlier occurrences) and Huffman coding (which assigns shorter bit patterns to more frequent symbols). Developed by Phil Katz and published in RFC 1951, DEFLATE is widely used in formats including ZIP archives, PNG images, PDF files, gzip-compressed HTTP responses, and the zlib library. It achieves a good balance between compression ratio and speed, making it one of the most deployed compression algorithms in computing history."
+  },
+  "examples": [
+    {
+      "en": "PNG images are internally compressed with DEFLATE — this is why converting a PNG to JPG often reduces file size dramatically."
+    },
+    {
+      "en": "ZIP files use DEFLATE to compress each file entry before storing it in the archive."
+    },
+    {
+      "en": "Web servers use gzip (which wraps DEFLATE) to compress HTML, CSS, and JS responses before sending them to browsers."
+    }
+  ],
+  "relatedTerms": [
+    "lossless-compression",
+    "lossy-compression"
+  ],
+  "relatedTools": [
+    "png-to-jpg",
+    "compress-pdf"
+  ],
+  "relatedArticles": [
+    "what-is-png"
+  ],
+  "category": "image",
+  "lastUpdated": "2026-06-28",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
+}

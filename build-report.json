@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-06-28T00:48:51.969Z",
-  "elapsed_ms": 8466,
+  "timestamp": "2026-06-28T00:54:44.390Z",
+  "elapsed_ms": 3762,
   "tools": 82,
   "languages": 5,
-  "routes": 1226,
-  "pages_generated": 1226,
+  "routes": 1231,
+  "pages_generated": 1231,
   "pages_by_type": {
     "tool": 410,
     "category": 15,
@@ -12,7 +12,7 @@
     "legal": 20,
     "article": 55,
     "comparison": 30,
-    "glossary": 50,
+    "glossary": 55,
     "guides-index": 5,
     "compare-index": 5,
     "glossary-index": 5,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1814,
-  "output_size_kb": 119021,
+  "files_emitted": 1851,
+  "output_size_kb": 119886,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -70,17 +70,17 @@
   "build_dashboard": {
     "seo_score": "100%",
     "schema_coverage": "100%",
-    "pages_with_title": 1225,
-    "pages_with_description": 1225,
-    "pages_with_h1": 1220,
-    "pages_with_schema": 1225,
-    "pages_with_breadcrumbs": 1220,
+    "pages_with_title": 1230,
+    "pages_with_description": 1230,
+    "pages_with_h1": 1225,
+    "pages_with_schema": 1230,
+    "pages_with_breadcrumbs": 1225,
     "avg_title_length": 56,
     "avg_description_length": 130,
-    "duplicate_title_count": 766,
-    "duplicate_desc_count": 604,
+    "duplicate_title_count": 770,
+    "duplicate_desc_count": 608,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 108313,
+    "largest_page_bytes": 108555,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -88,7 +88,7 @@
   "knowledge_graph": {
     "entity_count": 13,
     "author_count": 2,
-    "knowledge_hub_size": 48,
+    "knowledge_hub_size": 49,
     "avg_faq_per_tool": 4,
     "most_linked_tool": "image-compressor",
     "most_linked_article": "what-is-pdf",
@@ -99,7 +99,7 @@
       "scored_article_pages": 55
     },
     "freshness_stale": 0,
-    "freshness_new": 0,
+    "freshness_new": 1,
     "entity_index_size": 13,
     "largest_entity": "pdf"
   },
@@ -108,7 +108,7 @@
     "commercial": 80,
     "navigational": 0,
     "transactional": 250,
-    "unclassified": 810
+    "unclassified": 815
   },
   "programmatic_seo": {
     "intent_pages": 240,
@@ -120,7 +120,7 @@
     "total_modifiers": 48
   },
   "authority_graph": {
-    "total_nodes": 208,
+    "total_nodes": 209,
     "average_authority": 6,
     "average_links_per_page": 4,
     "top_authority_pages": [
@@ -218,7 +218,7 @@
     },
     "semantic_clusters": {
       "png": {
-        "size": 65,
+        "size": 66,
         "avg_authority": 7,
         "types": [
           "tool",
@@ -233,8 +233,8 @@
         ]
       },
       "jpg": {
-        "size": 49,
-        "avg_authority": 8,
+        "size": 50,
+        "avg_authority": 7,
         "types": [
           "tool",
           "article",
@@ -300,8 +300,8 @@
         ]
       },
       "pdf": {
-        "size": 48,
-        "avg_authority": 6,
+        "size": 49,
+        "avg_authority": 5,
         "types": [
           "tool",
           "article",
@@ -369,7 +369,7 @@
         ]
       },
       "compression": {
-        "size": 36,
+        "size": 37,
         "avg_authority": 7,
         "types": [
           "tool",
@@ -423,7 +423,7 @@
         ]
       },
       "image": {
-        "size": 83,
+        "size": 84,
         "avg_authority": 6,
         "types": [
           "tool",
@@ -447,10 +447,10 @@
         ]
       }
     },
-    "link_validation_warnings": 23,
+    "link_validation_warnings": 24,
     "ai_readiness": {
-      "nodes_with_keywords": 140,
-      "avg_keywords": "6.4"
+      "nodes_with_keywords": 141,
+      "avg_keywords": "6.3"
     }
   },
   "content_quality": {
@@ -534,8 +534,8 @@
     "generator_js_loc": 13635,
     "asset_js_loc": 2302,
     "asset_css_loc": 2745,
-    "data_json_files": 156,
-    "data_json_loc": 18479,
+    "data_json_files": 157,
+    "data_json_loc": 18524,
     "largest_module": "page-generator.js",
     "smallest_module": "robots.js",
     "avg_module_lines": 440,
@@ -551,10 +551,10 @@
         "path": "openapi.json",
         "sizeKb": 612
       },
-      "estimated_memory_mb": 91,
-      "total_files_emitted": 1814,
-      "total_size_kb": 119021,
-      "pages_generated": 1784
+      "estimated_memory_mb": 93,
+      "total_files_emitted": 1851,
+      "total_size_kb": 119886,
+      "pages_generated": 1821
     }
   },
   "dataset": {
@@ -563,11 +563,11 @@
     "capability_tools": 82,
     "comparison_pairs": 34,
     "recommendation_rules": 12,
-    "search_items": 139,
+    "search_items": 140,
     "knowledge_nodes": 17,
     "knowledge_relationships": 301,
     "files_emitted": 8,
-    "total_bytes": 245816,
+    "total_bytes": 246185,
     "validator_warnings": 5,
     "validator_stats": {
       "formats_validated": 17,
@@ -581,32 +581,32 @@
     }
   },
   "seo_sweep": {
-    "total_internal_links": 70695,
-    "avg_outgoing_links": 40,
+    "total_internal_links": 71200,
+    "avg_outgoing_links": 39,
     "anchor_diversity_score": 85,
     "metadata_quality_score": 58,
     "crawl_optimization_score": 100,
     "image_seo_score": 92,
-    "broken_link_warnings": 46,
+    "broken_link_warnings": 85,
     "link_health_score": 100,
     "pages_with_prev_next": 55,
     "canonical_issues": 0,
     "metadata_warnings": 81,
     "metadata_stats": {
-      "pages_checked": 1225,
-      "title_ok": 604,
+      "pages_checked": 1230,
+      "title_ok": 609,
       "desc_ok": 823,
-      "og_ok": 1194,
-      "twitter_ok": 997,
+      "og_ok": 1199,
+      "twitter_ok": 1002,
       "missing_og_image": 0,
       "missing_canonical": 0,
       "metadata_score": 58
     },
     "link_health_stats": {
-      "pages_checked": 1784,
-      "total_links": 115513,
-      "broken_links": 46,
-      "empty_hrefs": 2505,
+      "pages_checked": 1821,
+      "total_links": 116461,
+      "broken_links": 85,
+      "empty_hrefs": 2515,
       "duplicate_ids": 0,
       "health_score": 100
     },
@@ -631,7 +631,7 @@
       "admin_modules": 8
     },
     "warnings": [],
-    "dashboard_pages": 8,
+    "dashboard_pages": 40,
     "plans": [
       "free",
       "pro",
@@ -675,7 +675,7 @@
     ],
     "warning_count": 11,
     "stats": {
-      "sitemap_urls": 1225,
+      "sitemap_urls": 1230,
       "canonical_mismatches": 0,
       "sitemap_without_canonical": 0,
       "orphan_pages_en": 49,
@@ -707,7 +707,7 @@
   "performance_audit": {
     "js_size_kb": 59,
     "css_size_kb": 59,
-    "html_size_kb": 119021,
+    "html_size_kb": 119886,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

@@ -55,7 +55,7 @@
       navigator.clipboard?.writeText(url).then(() => {
         btn.textContent = '✓';
         setTimeout(() => { btn.textContent = '#'; }, 1500);
-      });
+      }).catch(() => {});
     });
     heading.appendChild(btn);
   });
@@ -84,7 +84,7 @@
         navigator.clipboard?.writeText(location.href).then(() => {
           shareBtn.textContent = 'Link copied!';
           setTimeout(() => { shareBtn.textContent = 'Share'; }, 2000);
-        });
+        }).catch(() => {});
       });
     }
   }

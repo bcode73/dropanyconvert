@@ -233,7 +233,7 @@
       navigator.clipboard?.writeText(textarea.value).then(() => {
         const btn = copyBtn();
         if (btn) { btn.textContent = '✓ Copied'; setTimeout(() => { btn.textContent = 'Copy'; }, 2000); }
-      });
+      }).catch(() => {});
     } else if (img && !img.hidden) {
       showStatus('Right-click the image to copy or save.', 'info');
     }

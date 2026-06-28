@@ -160,5 +160,11 @@
     "publishedDate": "2026-01-15",
     "lastReviewed": "2026-06-27",
     "version": "1.0"
+  },
+  "glossary:deflate-algorithm": {
+    "hash": "f0f13277a7f1",
+    "publishedDate": "2026-06-28",
+    "lastReviewed": "2026-06-28",
+    "version": "1.0"
   }
 }

@@ -2231,7 +2231,7 @@ ${adTop}
     if (allRecent.length === 0) return '';
     return `<section class="dac-freshness-section" aria-labelledby="dac-freshness-title">
   <h2 class="dac-section-title" id="dac-freshness-title">Recently Updated</h2>
-  <div class="dac-kh-article-grid">${allRecent.map(item => `<a href="${esc(item.path)}" class="dac-kh-article-card"><span class="dac-kh-type-badge">${esc(item.type)}</span><h3 class="dac-kh-article-card__title">${esc(item.title)}</h3><p class="dac-kh-article-card__desc">${esc(item.date)}</p></a>`).join('')}</div>
+  <div class="dac-kh-article-grid">${allRecent.map(item => `<a href="${esc(item.path)}" class="dac-kh-article-card"><span class="dac-kh-type-badge">${esc(item.type)}</span><h3 class="dac-kh-article-card__title">${esc(item.title)}</h3><p class="dac-kh-article-card__desc">Updated ${esc(item.date)}</p></a>`).join('')}</div>
 </section>`;
   })()}
 

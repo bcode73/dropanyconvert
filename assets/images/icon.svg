@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
   <rect width="192" height="192" rx="32" fill="#6366f1"/>
-  <text x="96" y="130" font-family="system-ui,sans-serif" font-size="110" font-weight="700" text-anchor="middle" fill="#fff">D</text>
+  <!-- Down arrow: file going in -->
+  <path d="M64 48 L64 108 L44 88 M64 108 L84 88" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Up arrow: file coming out (converted) -->
+  <path d="M128 144 L128 84 L108 104 M128 84 L148 104" stroke="#c7d2fe" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Horizontal connector -->
+  <path d="M64 128 Q96 148 128 128" stroke="#fff" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="6 5"/>
+  <path d="M128 64 Q96 44 64 64" stroke="#c7d2fe" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="6 5"/>
 </svg>

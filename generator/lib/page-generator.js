@@ -158,24 +158,30 @@ export async function generatePages(routes, seoData, links, data, config) {
 // ── SEO Head ──────────────────────────────────────────────────────────────
 
 function renderAnalyticsSnippet(analytics) {
-  if (!analytics?.enabled || !analytics?.provider) return '';
+  if (!analytics?.enabled) return '';
+  const snippets = [];
+  const providers = analytics.providers || {};
+
+  // Primary provider
   const p = analytics.provider;
-  const cfg = analytics.providers?.[p];
-  if (!cfg) return '';
-  if (p === 'ga4' && cfg.measurementId) {
-    return `  <script async src="https://www.googletagmanager.com/gtag/js?id=${cfg.measurementId}"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${cfg.measurementId}');</script>`;
+  const cfg = providers[p];
+  if (p === 'ga4' && cfg?.measurementId) {
+    snippets.push(`<script async src="https://www.googletagmanager.com/gtag/js?id=${cfg.measurementId}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${cfg.measurementId}');</script>`);
+  } else if (p === 'gtm' && cfg?.containerId) {
+    snippets.push(`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${cfg.containerId}');</script>`);
+  } else if (p === 'plausible' && cfg?.domain) {
+    snippets.push(`<script defer data-domain="${cfg.domain}" src="${cfg.src || 'https://plausible.io/js/script.js'}"></script>`);
+  } else if (p === 'umami' && cfg?.websiteId) {
+    snippets.push(`<script defer data-website-id="${cfg.websiteId}" src="${cfg.src || 'https://analytics.umami.is/script.js'}"></script>`);
   }
-  if (p === 'gtm' && cfg.containerId) {
-    return `  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${cfg.containerId}');</script>`;
+
+  // Microsoft Clarity (secondary — runs alongside primary)
+  const clarity = providers.clarity;
+  if (clarity?.projectId) {
+    snippets.push(`<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","${clarity.projectId}");</script>`);
   }
-  if (p === 'plausible' && cfg.domain) {
-    return `  <script defer data-domain="${cfg.domain}" src="${cfg.src || 'https://plausible.io/js/script.js'}"></script>`;
-  }
-  if (p === 'umami' && cfg.websiteId) {
-    return `  <script defer data-website-id="${cfg.websiteId}" src="${cfg.src || 'https://analytics.umami.is/script.js'}"></script>`;
-  }
-  return '';
+
+  return snippets.join('');
 }
 
 function renderHead(seo, config, toolIndex, opts = {}) {

@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-29T21:09:46.361Z",
-  "elapsed_ms": 7140,
+  "timestamp": "2026-06-29T21:55:56.191Z",
+  "elapsed_ms": 11376,
   "tools": 82,
   "languages": 5,
   "routes": 1312,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 1937,
-  "output_size_kb": 135406,
+  "output_size_kb": 135766,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -80,7 +80,7 @@
     "duplicate_title_count": 818,
     "duplicate_desc_count": 672,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 115141,
+    "largest_page_bytes": 115422,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -672,11 +672,11 @@
     "validation_score": 17,
     "technical_debt": 15,
     "generator_modules": 35,
-    "generator_js_loc": 14594,
+    "generator_js_loc": 14600,
     "asset_js_loc": 3086,
-    "asset_css_loc": 3839,
+    "asset_css_loc": 3843,
     "data_json_files": 190,
-    "data_json_loc": 24514,
+    "data_json_loc": 24517,
     "largest_module": "page-generator.js",
     "smallest_module": "robots.js",
     "avg_module_lines": 417,
@@ -694,7 +694,7 @@
       },
       "estimated_memory_mb": 97,
       "total_files_emitted": 1937,
-      "total_size_kb": 135406,
+      "total_size_kb": 135766,
       "pages_generated": 1902
     }
   },
@@ -850,7 +850,7 @@
   "performance_audit": {
     "js_size_kb": 77,
     "css_size_kb": 86,
-    "html_size_kb": 135406,
+    "html_size_kb": 135766,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

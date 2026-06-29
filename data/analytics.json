@@ -15,6 +15,9 @@
     "umami": {
       "websiteId": "",
       "src": "https://analytics.umami.is/script.js"
+    },
+    "clarity": {
+      "projectId": "xet7h84z5z"
     }
   }
 }

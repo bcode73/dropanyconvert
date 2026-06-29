@@ -310,7 +310,7 @@ function renderFooter(langCode, config, categories, popularTools) {
       <p class="dac-footer__brand-desc">${esc(config.site.tagline)}</p>
       <div class="dac-footer__social" aria-label="Social links">
         <a href="#" class="dac-footer__social-link" aria-label="Twitter / X" rel="noopener">𝕏</a>
-        <a href="#" class="dac-footer__social-link" aria-label="GitHub" rel="noopener">⌥</a>
+        <a href="#" class="dac-footer__social-link" aria-label="GitHub" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
       </div>
     </div>
     <div class="dac-footer__col">
@@ -2575,11 +2575,11 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
       </div>
       ${renderKhMeta(article, langCode)}
       ${(prev || next) ? `<nav class="dac-article-nav" aria-label="Article navigation">
-        ${prev ? `<a href="/${langCode}/guides/${prev.slug}" class="dac-article-nav__prev">
+        ${prev ? `<a class="dac-article-nav__card dac-article-nav__card--prev" href="/${langCode}/guides/${prev.slug}">
           <span class="dac-article-nav__label">← Previous</span>
           <span class="dac-article-nav__title">${esc(prev.h1?.[langCode] || prev.h1?.en || prev.slug)}</span>
         </a>` : '<span></span>'}
-        ${next ? `<a href="/${langCode}/guides/${next.slug}" class="dac-article-nav__next">
+        ${next ? `<a class="dac-article-nav__card dac-article-nav__card--next" href="/${langCode}/guides/${next.slug}">
           <span class="dac-article-nav__label">Next →</span>
           <span class="dac-article-nav__title">${esc(next.h1?.[langCode] || next.h1?.en || next.slug)}</span>
         </a>` : '<span></span>'}
@@ -2747,7 +2747,6 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
       ${renderKhMeta(cmp, langCode)}
     </footer>
   </article>
-  <aside class="dac-article-sidebar"></aside>
 </main>
 
 <div class="dac-article-related-wrapper">
@@ -2832,7 +2831,6 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
       <a href="/${langCode}/glossary" class="dac-btn dac-btn--ghost dac-btn--sm">← All Glossary Terms</a>
     </footer>
   </article>
-  <aside class="dac-article-sidebar"></aside>
 </main>
 
 <div class="dac-article-related-wrapper">
@@ -2878,12 +2876,14 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${renderKnowledgeBreadcrumb(seo)}
 </nav>
 
-<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+<main class="dac-main" id="main">
+  <div class="dac-container">
   <header class="dac-kh-index-header">
     <h1 class="dac-kh-index-title">Guides</h1>
     <p class="dac-kh-index-desc">In-depth guides to image, PDF, and developer file formats — how they work, when to use them, and how to convert between them.</p>
   </header>
   <div class="dac-kh-index-grid">${cards}</div>
+  </div>
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
@@ -2925,12 +2925,14 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${renderKnowledgeBreadcrumb(seo)}
 </nav>
 
-<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+<main class="dac-main" id="main">
+  <div class="dac-container">
   <header class="dac-kh-index-header">
     <h1 class="dac-kh-index-title">Format Comparisons</h1>
     <p class="dac-kh-index-desc">Side-by-side comparisons of image formats, data formats, and document types — which to choose and when.</p>
   </header>
   <div class="dac-kh-index-grid">${cards}</div>
+  </div>
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
@@ -2974,12 +2976,14 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${renderKnowledgeBreadcrumb(seo)}
 </nav>
 
-<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+<main class="dac-main" id="main">
+  <div class="dac-container">
   <header class="dac-kh-index-header">
     <h1 class="dac-kh-index-title">Glossary</h1>
     <p class="dac-kh-index-desc">Definitions and explanations of image, PDF, and developer terminology.</p>
   </header>
   <div class="dac-kh-index-grid">${cards}</div>
+  </div>
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
@@ -3057,7 +3061,8 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${renderBreadcrumb(seo.breadcrumbs || [])}
 </nav>
 
-<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+<main class="dac-main" id="main">
+  <div class="dac-container">
   <header class="dac-kh-index-header">
     <h1 class="dac-kh-index-title">${esc(h1)}</h1>
     ${intro ? `<p class="dac-kh-index-desc">${esc(intro)}</p>` : ''}
@@ -3067,6 +3072,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
 
   ${guidesHtml}
   ${cmpHtml}
+  </div>
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
@@ -3109,12 +3115,14 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${renderKnowledgeBreadcrumb(seo)}
 </nav>
 
-<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+<main class="dac-main" id="main">
+  <div class="dac-container">
   <header class="dac-kh-index-header">
     <h1 class="dac-kh-index-title">Tool Collections</h1>
     <p class="dac-kh-index-desc">Curated collections of the best free online tools for images, PDFs, and web development.</p>
   </header>
   <div class="dac-kh-index-grid">${cards}</div>
+  </div>
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
@@ -3194,7 +3202,8 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${renderBreadcrumb(seo.breadcrumbs || [])}
 </nav>
 
-<main class="dac-main" id="main" style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem">
+<main class="dac-main" id="main">
+  <div class="dac-container">
   <header class="dac-kh-index-header">
     <h1 class="dac-kh-index-title">${esc(h1)}</h1>
     ${intro ? `<p class="dac-kh-index-desc">${esc(intro)}</p>` : ''}
@@ -3205,6 +3214,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${faqHtml}
   ${guidesHtml}
   ${cmpHtml}
+  </div>
 </main>
 
 ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}

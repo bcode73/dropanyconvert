@@ -48,6 +48,19 @@
   --dac-font:        -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
   --dac-mono:        'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
 
+  /* Spacing tokens (Phase 32) */
+  --dac-space-1: 4px;
+  --dac-space-2: 8px;
+  --dac-space-3: 12px;
+  --dac-space-4: 16px;
+  --dac-space-5: 24px;
+  --dac-space-6: 32px;
+  --dac-space-7: 48px;
+  --dac-space-8: 64px;
+
+  /* Breakpoint reference (use in @media queries as magic numbers matching these) */
+  /* --dac-bp-sm: 480px; --dac-bp-md: 768px; --dac-bp-lg: 1024px; */
+
   /* Motion */
   --dac-ease:         cubic-bezier(.4,0,.2,1);
   --dac-dur-fast:     120ms;
@@ -179,7 +192,7 @@ a { color: inherit; }
   font-size: 17px;
   line-height: 1.6;
   color: var(--dac-text-2);
-  max-width: 540px;
+  max-width: 100%;
   margin: 0 auto 16px;
 }
 .dac-privacy-note {
@@ -819,7 +832,7 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 
 .dac-categories__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
   margin: 28px 0;
 }
@@ -1115,10 +1128,21 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 }
 [data-theme="dark"] .dac-header {
   background: rgba(15,17,23,.92);
+  border-bottom-color: var(--dac-border);
 }
 [data-theme="dark"] .dac-search-overlay {
   background: rgba(15,17,23,.94);
 }
+[data-theme="dark"] .dac-footer { background: #0a0a0a; border-top-color: var(--dac-border); }
+[data-theme="dark"] .dac-dropzone { background: var(--dac-surface); border-color: var(--dac-border); }
+[data-theme="dark"] .dac-dropzone:hover { background: var(--dac-brand-light); }
+[data-theme="dark"] .dac-feature, [data-theme="dark"] .dac-howto__step, [data-theme="dark"] .dac-options { background: var(--dac-surface); border-color: var(--dac-border); }
+[data-theme="dark"] .dac-queue-item { background: var(--dac-surface); border-color: var(--dac-border); }
+[data-theme="dark"] .dac-select { background-color: var(--dac-surface); border-color: var(--dac-border); color: var(--dac-text); }
+[data-theme="dark"] .dac-tool-card { background: var(--dac-surface); border-color: var(--dac-border); }
+[data-theme="dark"] .dac-prose table { border-color: var(--dac-border); }
+[data-theme="dark"] .dac-prose th { background: var(--dac-surface-2); }
+[data-theme="dark"] .dac-sidebar-link { border-left-color: var(--dac-border); }
 
 /* ── Upgraded Header ─────────────────────────────────────────────────────── */
 .dac-header {
@@ -1860,6 +1884,69 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
   .dac-dev-opt        { min-width: auto; }
 }
 
+/* ── Phase 32: Universal Container System ────────────────────────────────── */
+.dac-container        { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+.dac-container--content { max-width: 760px;  margin: 0 auto; padding: 0 28px; }
+.dac-container--narrow  { max-width: 680px;  margin: 0 auto; padding: 0 28px; }
+@media (max-width: 768px) {
+  .dac-container, .dac-container--content, .dac-container--narrow { padding: 0 16px; }
+}
+
+/* ── Phase 32: Article Layout / Sidebar ──────────────────────────────────── */
+.dac-layout-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .dac-layout-sidebar { grid-template-columns: 1fr; gap: 32px; }
+}
+.dac-article-sidebar {
+  position: sticky;
+  top: 80px;
+}
+.dac-sidebar-toc { /* table of contents styles */ }
+.dac-sidebar-section { margin-bottom: 28px; }
+.dac-sidebar-section__title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--dac-text-3); margin-bottom: 10px; }
+.dac-sidebar-link { display: block; font-size: 13.5px; color: var(--dac-text-2); text-decoration: none; padding: 4px 0; border-left: 2px solid var(--dac-border); padding-left: 10px; margin-bottom: 4px; transition: color var(--dac-dur-fast), border-color var(--dac-dur-fast); }
+.dac-sidebar-link:hover { color: var(--dac-brand); border-left-color: var(--dac-brand); }
+
+/* ── Phase 32: Prose System ──────────────────────────────────────────────── */
+.dac-prose {
+  line-height: 1.75;
+  font-size: 16px;
+  color: var(--dac-text);
+  max-width: 65ch;
+}
+.dac-prose h2 { font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 .75rem; line-height: 1.3; }
+.dac-prose h3 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .5rem; line-height: 1.4; }
+.dac-prose p  { margin-bottom: 1.25rem; }
+.dac-prose ul, .dac-prose ol { margin: 0 0 1.25rem 1.5rem; }
+.dac-prose li { margin-bottom: .4rem; }
+.dac-prose blockquote { border-left: 3px solid var(--dac-brand); padding: .75rem 1.25rem; background: var(--dac-brand-light); border-radius: 0 var(--dac-radius-sm) var(--dac-radius-sm) 0; margin: 1.5rem 0; color: var(--dac-text-2); }
+.dac-prose code { font-family: var(--dac-mono); font-size: .875em; background: var(--dac-surface-2); padding: .15em .4em; border-radius: var(--dac-radius-xs); }
+.dac-prose pre { background: var(--dac-surface-2); border: 1px solid var(--dac-border); border-radius: var(--dac-radius-sm); padding: 1rem 1.25rem; overflow-x: auto; margin: 1.5rem 0; }
+.dac-prose pre code { background: none; padding: 0; }
+.dac-prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 14px; }
+.dac-prose th, .dac-prose td { text-align: left; padding: 10px 14px; border: 1px solid var(--dac-border); }
+.dac-prose th { background: var(--dac-surface); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .4px; color: var(--dac-text-2); }
+.dac-prose a { color: var(--dac-brand); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── Phase 32: Ad-Ready Layout ───────────────────────────────────────────── */
+.dac-ad--leaderboard  { min-height: 90px; }
+.dac-ad--rectangle    { min-height: 250px; }
+.dac-ad--large-rect   { min-height: 600px; }
+
+/* ── Phase 32: Article Nav Cards ─────────────────────────────────────────── */
+.dac-article-nav { display: flex; gap: 16px; margin-top: 48px; justify-content: space-between; }
+.dac-article-nav__card { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 16px 20px; border: 1px solid var(--dac-border); border-radius: var(--dac-radius); text-decoration: none; color: inherit; background: var(--dac-surface); transition: border-color var(--dac-dur-fast), box-shadow var(--dac-dur-fast); }
+.dac-article-nav__card:hover { border-color: var(--dac-brand); box-shadow: var(--dac-shadow-sm); }
+.dac-article-nav__card--next { text-align: right; }
+.dac-article-nav__label { font-size: 12px; font-weight: 600; color: var(--dac-brand); text-transform: uppercase; letter-spacing: .4px; }
+.dac-article-nav__title { font-size: 14px; font-weight: 500; color: var(--dac-text); }
+@media (max-width: 600px) { .dac-article-nav { flex-direction: column; } .dac-article-nav__card--next { text-align: left; } }
+
 /* ── Utilities ───────────────────────────────────────────────────────────── */
 [hidden] { display: none !important; }
 .sr-only {
@@ -1876,41 +1963,41 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 
 /* ── Entity Pages ───────────────────────────────────────────────────────── */
 .dac-entity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
-.dac-entity-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit; transition: box-shadow .15s; display: block; }
+.dac-entity-card { background: var(--dac-surface); border: 1px solid var(--dac-border); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit; transition: box-shadow .15s; display: block; }
 .dac-entity-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.1); }
 .dac-entity-card__name { font-weight: 700; font-size: 1rem; margin-bottom: .25rem; }
-.dac-entity-card__full { font-size: .8rem; color: var(--color-muted); margin-bottom: .4rem; }
-.dac-entity-card__desc { font-size: .82rem; color: var(--color-text-secondary); }
+.dac-entity-card__full { font-size: .8rem; color: var(--dac-text-3); margin-bottom: .4rem; }
+.dac-entity-card__desc { font-size: .82rem; color: var(--dac-text-2); }
 .dac-entity-group { margin-bottom: 2.5rem; }
-.dac-entity-group__title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: .4rem; border-bottom: 2px solid var(--color-border); }
+.dac-entity-group__title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: .4rem; border-bottom: 2px solid var(--dac-border); }
 .dac-entity-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
-.dac-entity-chip { display: inline-flex; align-items: center; padding: .3rem .75rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 20px; font-size: .82rem; text-decoration: none; color: var(--color-link); transition: background .15s; }
-.dac-entity-chip:hover { background: var(--color-border); }
+.dac-entity-chip { display: inline-flex; align-items: center; padding: .3rem .75rem; background: var(--dac-surface); border: 1px solid var(--dac-border); border-radius: 20px; font-size: .82rem; text-decoration: none; color: var(--dac-brand); transition: background .15s; }
+.dac-entity-chip:hover { background: var(--dac-border); }
 .dac-entity-list { list-style: none; padding: 0; margin: 0; }
-.dac-entity-list li { padding: .4rem 0; border-bottom: 1px solid var(--color-border); font-size: .9rem; }
+.dac-entity-list li { padding: .4rem 0; border-bottom: 1px solid var(--dac-border); font-size: .9rem; }
 .dac-entity-list li:last-child { border-bottom: none; }
 .dac-related-entities { margin-top: 1.5rem; }
 
 /* ── Author Pages ───────────────────────────────────────────────────────── */
-.dac-author-header { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; padding: 1.5rem; background: var(--color-surface); border-radius: 12px; border: 1px solid var(--color-border); }
-.dac-author-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; flex-shrink: 0; }
+.dac-author-header { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2rem; padding: 1.5rem; background: var(--dac-surface); border-radius: 12px; border: 1px solid var(--dac-border); }
+.dac-author-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--dac-brand); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; flex-shrink: 0; }
 .dac-author-info { flex: 1; }
 .dac-author-name { font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; }
-.dac-author-role { font-size: .9rem; color: var(--color-muted); margin-bottom: .75rem; }
+.dac-author-role { font-size: .9rem; color: var(--dac-text-3); margin-bottom: .75rem; }
 .dac-author-bio { font-size: .95rem; line-height: 1.6; }
 .dac-author-specialties { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
-.dac-author-specialty { display: inline-block; padding: .25rem .6rem; background: var(--color-primary-light, #e8f0fe); color: var(--color-primary); border-radius: 12px; font-size: .78rem; font-weight: 500; }
+.dac-author-specialty { display: inline-block; padding: .25rem .6rem; background: var(--color-primary-light, #e8f0fe); color: var(--dac-brand); border-radius: 12px; font-size: .78rem; font-weight: 500; }
 .dac-author-section { margin-bottom: 2rem; }
 .dac-author-section h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; }
 
 /* ── Freshness / Recently Updated ───────────────────────────────────────── */
 .dac-freshness-section { margin-top: 2.5rem; }
-.dac-kh-type-badge { display: inline-block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 4px; padding: .1rem .35rem; margin-bottom: .3rem; color: var(--color-muted); }
+.dac-kh-type-badge { display: inline-block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; background: var(--dac-surface); border: 1px solid var(--dac-border); border-radius: 4px; padding: .1rem .35rem; margin-bottom: .3rem; color: var(--dac-text-3); }
 
 /* ── Sidebar Sections ───────────────────────────────────────────────────── */
-.dac-sidebar-section { margin-bottom: 1.5rem; padding: 1rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; }
-.dac-sidebar-title { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--color-muted); margin-bottom: .6rem; }
-.dac-sidebar-link { display: block; font-size: .85rem; padding: .2rem 0; text-decoration: none; color: var(--color-link); }
+.dac-sidebar-section { margin-bottom: 1.5rem; padding: 1rem; background: var(--dac-surface); border: 1px solid var(--dac-border); border-radius: 8px; }
+.dac-sidebar-title { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dac-text-3); margin-bottom: .6rem; }
+.dac-sidebar-link { display: block; font-size: .85rem; padding: .2rem 0; text-decoration: none; color: var(--dac-brand); }
 .dac-sidebar-link:hover { text-decoration: underline; }
 
 @media (max-width: 600px) {
@@ -1922,53 +2009,53 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 .dac-intent-layout { display: grid; grid-template-columns: 1fr 280px; gap: 2rem; align-items: start; }
 .dac-intent-article { min-width: 0; }
 .dac-intent-sidebar { position: sticky; top: 1.5rem; }
-.dac-intent-cta { display: block; background: var(--color-primary); color: #fff; text-align: center; padding: .85rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 1rem; text-decoration: none; margin-bottom: .5rem; transition: opacity .15s; }
+.dac-intent-cta { display: block; background: var(--dac-brand); color: #fff; text-align: center; padding: .85rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 1rem; text-decoration: none; margin-bottom: .5rem; transition: opacity .15s; }
 .dac-intent-cta:hover { opacity: .9; }
-.dac-intent-cta__note { font-size: .78rem; color: var(--color-muted); text-align: center; display: block; }
+.dac-intent-cta__note { font-size: .78rem; color: var(--dac-text-3); text-align: center; display: block; }
 .dac-intent-desc { font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem; }
-.dac-intent-category { font-size: .82rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem; }
+.dac-intent-category { font-size: .82rem; color: var(--dac-text-3); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .5rem; }
 .dac-intent-badge { display: inline-block; font-size: .72rem; font-weight: 600; padding: .2rem .55rem; border-radius: 4px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: .75rem; }
 .dac-intent-badge--transactional { background: #fef3c7; color: #92400e; }
 .dac-intent-badge--commercial    { background: #dbeafe; color: #1e40af; }
 .dac-intent-badge--informational { background: #d1fae5; color: #065f46; }
 .dac-intent-badge--navigational  { background: #ede9fe; color: #5b21b6; }
 .dac-steps-list { list-style: none; counter-reset: steps; padding: 0; margin: 0 0 1.5rem; }
-.dac-steps-list__item { counter-increment: steps; display: flex; gap: .75rem; align-items: flex-start; padding: .75rem 0; border-bottom: 1px solid var(--color-border); }
+.dac-steps-list__item { counter-increment: steps; display: flex; gap: .75rem; align-items: flex-start; padding: .75rem 0; border-bottom: 1px solid var(--dac-border); }
 .dac-steps-list__item:last-child { border-bottom: none; }
-.dac-steps-list__item::before { content: counter(steps); display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--color-primary); color: #fff; font-size: .8rem; font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
+.dac-steps-list__item::before { content: counter(steps); display: flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--dac-brand); color: #fff; font-size: .8rem; font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
 .dac-related-intents { margin-top: 1.5rem; }
 .dac-how-to-guides  { margin-top: 1.5rem; }
 .dac-how-to-list { list-style: none; padding: 0; margin: .5rem 0 0; }
-.dac-how-to-link { display: flex; align-items: center; gap: .4rem; padding: .3rem 0; font-size: .85rem; text-decoration: none; color: var(--color-link); border-bottom: 1px solid var(--color-border); }
+.dac-how-to-link { display: flex; align-items: center; gap: .4rem; padding: .3rem 0; font-size: .85rem; text-decoration: none; color: var(--dac-brand); border-bottom: 1px solid var(--dac-border); }
 .dac-how-to-link:last-child { border-bottom: none; }
-.dac-how-to-link::before { content: "→"; font-size: .75rem; color: var(--color-muted); flex-shrink: 0; }
+.dac-how-to-link::before { content: "→"; font-size: .75rem; color: var(--dac-text-3); flex-shrink: 0; }
 .dac-how-to-link:hover { text-decoration: underline; }
 
 /* ── Phase 17: How-To Index ─────────────────────────────────────────────── */
 .dac-how-to-group { margin-bottom: 2.5rem; }
-.dac-how-to-group__title { font-size: 1.1rem; font-weight: 600; margin-bottom: .75rem; padding-bottom: .35rem; border-bottom: 2px solid var(--color-border); }
+.dac-how-to-group__title { font-size: 1.1rem; font-weight: 600; margin-bottom: .75rem; padding-bottom: .35rem; border-bottom: 2px solid var(--dac-border); }
 .dac-how-to-index-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .4rem; }
-.dac-how-to-index-list li a { display: block; font-size: .88rem; padding: .3rem .5rem; text-decoration: none; color: var(--color-link); border-radius: 4px; transition: background .1s; }
-.dac-how-to-index-list li a:hover { background: var(--color-surface); text-decoration: underline; }
+.dac-how-to-index-list li a { display: block; font-size: .88rem; padding: .3rem .5rem; text-decoration: none; color: var(--dac-brand); border-radius: 4px; transition: background .1s; }
+.dac-how-to-index-list li a:hover { background: var(--dac-surface); text-decoration: underline; }
 
 /* ── Phase 17: Platform Pages ───────────────────────────────────────────── */
-.dac-platform-badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 20px; padding: .3rem .85rem; font-size: .85rem; font-weight: 600; margin-bottom: 1rem; }
+.dac-platform-badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--dac-surface); border: 1px solid var(--dac-border); border-radius: 20px; padding: .3rem .85rem; font-size: .85rem; font-weight: 600; margin-bottom: 1rem; }
 .dac-platform-features { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
-.dac-platform-tag { display: inline-block; padding: .25rem .65rem; background: var(--color-primary-light, #e8f0fe); color: var(--color-primary); border-radius: 12px; font-size: .78rem; font-weight: 500; }
+.dac-platform-tag { display: inline-block; padding: .25rem .65rem; background: var(--color-primary-light, #e8f0fe); color: var(--dac-brand); border-radius: 12px; font-size: .78rem; font-weight: 500; }
 
 /* ── Phase 17: Use-Case Pages ───────────────────────────────────────────── */
-.dac-use-case-benefits { margin: 1.25rem 0; padding: 1.25rem; background: var(--color-surface); border-radius: 8px; border: 1px solid var(--color-border); }
+.dac-use-case-benefits { margin: 1.25rem 0; padding: 1.25rem; background: var(--dac-surface); border-radius: 8px; border: 1px solid var(--dac-border); }
 .dac-benefits-list { list-style: none; padding: 0; margin: 0; }
 .dac-benefits-list__item { display: flex; align-items: flex-start; gap: .6rem; padding: .45rem 0; font-size: .92rem; }
-.dac-benefits-list__item::before { content: "✓"; color: var(--color-primary); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+.dac-benefits-list__item::before { content: "✓"; color: var(--dac-brand); font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
 
 /* ── Phase 17: Feature Pages ────────────────────────────────────────────── */
-.dac-feature-tool-count { font-size: 1rem; color: var(--color-muted); margin-bottom: 1.25rem; }
+.dac-feature-tool-count { font-size: 1rem; color: var(--dac-text-3); margin-bottom: 1.25rem; }
 .dac-related-features { margin-top: 1.5rem; }
 .dac-related-use-cases { margin-top: 1.5rem; }
 
 /* ── Phase 17: Format-FAQ Pages ─────────────────────────────────────────── */
-.dac-format-faq-overview { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; font-size: .95rem; line-height: 1.7; }
+.dac-format-faq-overview { background: var(--dac-surface); border: 1px solid var(--dac-border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; font-size: .95rem; line-height: 1.7; }
 .dac-format-faq-other { margin-top: 1.5rem; }
 
 @media (max-width: 768px) {

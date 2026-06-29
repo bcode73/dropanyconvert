@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -473,6 +473,14 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
         estimated_cls:  '< 0.05',
       };
     })(),
+
+    // Layout Validation (Phase 32)
+    layout_validation: {
+      errors:          (layoutValidation?.errors   || []),
+      warnings:        (layoutValidation?.warnings || []).slice(0, 20),
+      warning_count:   (layoutValidation?.warnings || []).length,
+      stats:           (layoutValidation?.stats    || {}),
+    },
 
     warnings: validation.warnings,
     errors:   validation.errors,

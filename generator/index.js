@@ -33,6 +33,7 @@ import { generateDatasetFiles } from './lib/dataset-engine.js';
 import { validateDatasets } from './lib/dataset-validator.js';
 import { validateLinkHealth, validateMetadata, buildCrawlHints, computeSeoSweepMetrics } from './lib/seo-sweep.js';
 import { runBuildAudit } from './lib/build-auditor.js';
+import { validateLayout } from './lib/layout-validator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -251,9 +252,17 @@ async function build() {
   }
   console.log(`  ✓ Build audit complete (health: ${buildAudit.healthScore.total}/100 ${buildAudit.healthScore.grade}, modules: ${buildAudit.modules.length}, routes: ${buildAudit.routeAudit.stats.total_routes}, warnings: ${buildAudit.warnings.length})`);
 
+  // 12c. Phase 32 — Layout validation
+  const layoutValidation = validateLayout([...pages, ...dashboardPages, ...apiDocPages]);
+  if (layoutValidation.errors.length > 0) {
+    layoutValidation.errors.slice(0, 3).forEach(e => console.error(`  ✗ Layout: ${e}`));
+  }
+  layoutValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ Layout: ${w}`));
+  console.log(`  ✓ Layout validated (${layoutValidation.errors.length} errors, ${layoutValidation.warnings.length} warnings)`);
+
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

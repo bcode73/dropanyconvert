@@ -87,5 +87,10 @@ Acknowledgments: ${baseUrl}/security-acknowledgments
     content: 'google-site-verification: googlebec6d3a13f0244af.html',
   };
 
-  return [humansTxt, securityTxt, browserconfigXml, siteWebmanifest, googleVerification];
+  const indexNowKey = {
+    path: '/cb5d5f917b0c4c68bb296712fe79ada5.txt',
+    content: 'cb5d5f917b0c4c68bb296712fe79ada5',
+  };
+
+  return [humansTxt, securityTxt, browserconfigXml, siteWebmanifest, googleVerification, indexNowKey];
 }

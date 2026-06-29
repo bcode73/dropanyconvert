@@ -1,47 +1,59 @@
 /**
- * Phase 33 — Footer validation.
+ * Phase 33 — Footer validator for premium redesign.
  */
 export function validateFooter(pages, config) {
   const errors   = [];
   const warnings = [];
-  const stats    = { pages_checked: 0, duplicate_links: 0, empty_columns: 0, total_links: 0 };
+  const stats    = {
+    pages_checked:    0,
+    columns:          0,
+    total_links:      0,
+    duplicate_links:  0,
+    github_refs:      0,
+    over_link_limit:  false,
+    validation_score: 0,
+  };
 
-  // Sample footer from first English home page
   const homePage = pages.find(p => p.path === '/en/index.html' || p.path === '/index.html');
-  if (!homePage) return { errors, warnings, stats };
+  if (!homePage) { warnings.push('Home page not found for footer validation'); return { errors, warnings, stats }; }
 
   stats.pages_checked = 1;
-
-  // Extract all footer links
   const footerMatch = homePage.content.match(/<footer[\s\S]*?<\/footer>/i);
-  if (!footerMatch) {
-    warnings.push('Footer not found in home page');
-    return { errors, warnings, stats };
-  }
+  if (!footerMatch) { warnings.push('Footer not found in home page'); return { errors, warnings, stats }; }
+
   const footerHtml = footerMatch[0];
 
-  // Check for duplicate hrefs
-  const hrefMatches = [...footerHtml.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
-  stats.total_links = hrefMatches.length;
+  // Column count
+  stats.columns = (footerHtml.match(/class="[^"]*dac-footer__col[^"]*"/g) || []).length;
+
+  // Total links
+  const hrefs = [...footerHtml.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
+  stats.total_links = hrefs.length;
+
+  // Duplicate links
   const seen = new Set();
   const dupes = new Set();
-  for (const href of hrefMatches) {
-    if (seen.has(href)) dupes.add(href);
-    seen.add(href);
-  }
+  for (const h of hrefs) { if (seen.has(h)) dupes.add(h); seen.add(h); }
   stats.duplicate_links = dupes.size;
-  if (dupes.size > 0) {
-    warnings.push(`Footer has ${dupes.size} duplicate link(s): ${[...dupes].slice(0, 3).join(', ')}`);
-  }
+  if (dupes.size > 0) warnings.push(`${dupes.size} duplicate link(s): ${[...dupes].slice(0,2).join(', ')}`);
 
-  // Check for empty columns (column title with no links following)
-  const emptyColMatches = footerHtml.match(/dac-footer__col-title[\s\S]*?<\/p>\s*<\/div>/g);
-  if (emptyColMatches) {
-    stats.empty_columns = emptyColMatches.length;
-    warnings.push(`${emptyColMatches.length} empty footer column(s) detected`);
-  }
+  // GitHub references (must be zero)
+  const ghRefs = (footerHtml.match(/github/gi) || []).length;
+  stats.github_refs = ghRefs;
+  if (ghRefs > 0) errors.push(`Footer contains ${ghRefs} GitHub reference(s) — must be removed`);
 
-  const validationScore = Math.max(0, 100 - (stats.duplicate_links * 5) - (stats.empty_columns * 10) - (errors.length * 20) - (warnings.length * 2));
+  // Link count sanity
+  stats.over_link_limit = stats.total_links > 35;
+  if (stats.over_link_limit) warnings.push(`Footer has ${stats.total_links} links — target is ≤30`);
 
-  return { errors, warnings, stats: { ...stats, validation_score: validationScore } };
+  // Score
+  let score = 100;
+  score -= errors.length * 20;
+  score -= stats.duplicate_links * 3;
+  score -= Math.max(0, stats.total_links - 30) * 2;
+  score -= stats.github_refs * 15;
+  score -= warnings.filter(w => !w.includes('duplicate') && !w.includes('links')).length * 5;
+  stats.validation_score = Math.max(0, Math.min(100, score));
+
+  return { errors, warnings, stats };
 }

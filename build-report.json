@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-29T16:17:36.896Z",
-  "elapsed_ms": 4305,
+  "timestamp": "2026-06-29T16:34:03.987Z",
+  "elapsed_ms": 4139,
   "tools": 82,
   "languages": 5,
   "routes": 1291,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 1912,
-  "output_size_kb": 137704,
+  "output_size_kb": 132322,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -80,7 +80,7 @@
     "duplicate_title_count": 818,
     "duplicate_desc_count": 656,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 118421,
+    "largest_page_bytes": 114153,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -672,14 +672,14 @@
     "validation_score": 17,
     "technical_debt": 14,
     "generator_modules": 33,
-    "generator_js_loc": 14054,
+    "generator_js_loc": 14031,
     "asset_js_loc": 3086,
-    "asset_css_loc": 2898,
+    "asset_css_loc": 2911,
     "data_json_files": 190,
     "data_json_loc": 24459,
     "largest_module": "page-generator.js",
     "smallest_module": "robots.js",
-    "avg_module_lines": 426,
+    "avg_module_lines": 425,
     "duplicate_routes": 0,
     "audit_warnings": 1,
     "performance": {
@@ -694,7 +694,7 @@
       },
       "estimated_memory_mb": 96,
       "total_files_emitted": 1912,
-      "total_size_kb": 137704,
+      "total_size_kb": 132322,
       "pages_generated": 1881
     }
   },
@@ -722,14 +722,14 @@
     }
   },
   "seo_sweep": {
-    "total_internal_links": 112005,
-    "avg_outgoing_links": 60,
-    "anchor_diversity_score": 89,
+    "total_internal_links": 77175,
+    "avg_outgoing_links": 41,
+    "anchor_diversity_score": 84,
     "metadata_quality_score": 57,
     "crawl_optimization_score": 100,
     "image_seo_score": 92,
-    "broken_link_warnings": 10405,
-    "link_health_score": 94,
+    "broken_link_warnings": 6535,
+    "link_health_score": 95,
     "pages_with_prev_next": 85,
     "canonical_issues": 0,
     "metadata_warnings": 81,
@@ -745,11 +745,11 @@
     },
     "link_health_stats": {
       "pages_checked": 1881,
-      "total_links": 165926,
-      "broken_links": 10405,
+      "total_links": 128516,
+      "broken_links": 6535,
       "empty_hrefs": 85,
       "duplicate_ids": 0,
-      "health_score": 94
+      "health_score": 95
     },
     "crawl_stats": {
       "routes_with_prev_next": 85,
@@ -850,7 +850,7 @@
   "performance_audit": {
     "js_size_kb": 77,
     "css_size_kb": 65,
-    "html_size_kb": 137704,
+    "html_size_kb": 132322,
     "optimizations": [
       "html-minified",
       "json-ld-minified",
@@ -906,13 +906,11 @@
   },
   "footer": {
     "columns": 5,
-    "total_links": 60,
-    "duplicate_links": 2,
+    "total_links": 31,
+    "duplicate_links": 0,
     "empty_columns": 0,
-    "validation_score": 88,
-    "warnings": [
-      "Footer has 2 duplicate link(s): /en, https://github.com/dropanyconvert"
-    ]
+    "validation_score": 98,
+    "warnings": []
   },
   "warnings": [],
   "errors": [],

@@ -298,147 +298,112 @@ const GITHUB_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="curren
 const GITHUB_SVG_SMALL = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
 
 function renderFooter(langCode, config, data, hreflang) {
-  const siteName = esc(config.site.name);
-  const version  = config.site.version || '1.0';
-  const year     = new Date().getFullYear();
+  const version = config.site.version || '1.0';
+  const year    = new Date().getFullYear();
 
-  // Helper: render a column (returns empty string if no links)
-  function renderFooterCol(title, linksHtml) {
-    if (!linksHtml.trim()) return '';
-    return `<div class="dac-footer__col">
-    <p class="dac-footer__col-title">${title}</p>
-    <div class="dac-footer__col-links">${linksHtml}</div>
-  </div>`;
-  }
+  // ── Product column ────────────────────────────────────────────────────────
+  const PRIORITY_CATS = ['image-converter', 'pdf-tools', 'developer-tools'];
+  const topCats = [
+    ...PRIORITY_CATS.map(id => (data.categories || []).find(c => c.slug === id)).filter(Boolean),
+    ...(data.categories || []).filter(c => !PRIORITY_CATS.includes(c.slug)).slice(0, 1),
+  ].slice(0, 4);
 
-  // Deduplication set
-  const emittedHrefs = new Set();
-  function dedupeLink(href, html) {
-    if (emittedHrefs.has(href)) return '';
-    emittedHrefs.add(href);
-    return html;
-  }
+  const productLinks = topCats.map(c =>
+    `<a href="/${langCode}/${c.slug}" class="dac-footer__link">${esc(c.name[langCode] || c.name.en)}</a>`
+  ).join('') + `<a href="/${langCode}/" class="dac-footer__link dac-footer__link--cta">All Tools →</a>`;
 
-  // ── Brand column ──────────────────────────────────────────────────────────
-  const brandCol = `<div class="dac-footer__brand-col">
-  <a href="/${langCode}" class="dac-footer__logo" aria-label="${siteName} — Home">
-    ${FOOTER_LOGO_SVG}
-    <span>${siteName}</span>
-  </a>
-  <p class="dac-footer__tagline">Free browser-based conversion tools built for speed, privacy and simplicity.</p>
-  <ul class="dac-footer__trust-pills">
-    <li>✓ Browser-based</li>
-    <li>✓ Privacy-first</li>
-    <li>✓ Fast</li>
-    <li>✓ Free</li>
-  </ul>
-  <a href="https://github.com/dropanyconvert" class="dac-footer__gh-link" rel="noopener" aria-label="GitHub">
-    ${GITHUB_SVG}
-    View on GitHub
-  </a>
-</div>`;
-
-  // Pre-register hrefs used in brand section so columns don't trigger dupe warnings
-  emittedHrefs.add(`/${langCode}`);
-  emittedHrefs.add('https://github.com/dropanyconvert');
-
-  // ── Tools column ─────────────────────────────────────────────────────────
-  const toolLinksHtml = (data.categories || []).slice(0, 8).map(c => {
-    const href = `/${langCode}/${c.slug}`;
-    return dedupeLink(href, `<a href="${href}" class="dac-footer__link">${esc(c.name[langCode] || c.name.en)}</a>`);
-  }).join('') + `<a href="/${langCode}" class="dac-footer__link dac-footer__link--all">All Tools →</a>`;
-  const toolsCol = renderFooterCol('Tools', toolLinksHtml);
-
-  // ── Resources column ─────────────────────────────────────────────────────
-  const resourceLinks = [];
-  if ((data.articles || []).length > 0)     resourceLinks.push([`/${langCode}/guides`, 'Guides']);
-  if ((data.comparisons || []).length > 0)  resourceLinks.push([`/${langCode}/compare`, 'Comparisons']);
-  if ((data.glossary || []).length > 0)     resourceLinks.push([`/${langCode}/glossary`, 'Glossary']);
-  if ((data.collections || []).length > 0)  resourceLinks.push([`/${langCode}/collections`, 'Collections']);
-  if ((data.entities || []).length > 0)     resourceLinks.push([`/${langCode}/entities`, 'Entities']);
-  resourceLinks.push([`/${langCode}/faq`, 'FAQ Hub']);
-  resourceLinks.push([`/${langCode}/api-docs`, 'API Docs']);
-  resourceLinks.push([`/${langCode}/api/developer-docs`, 'Developer Docs']);
-  const resourceLinksHtml = resourceLinks.map(([href, label]) =>
-    dedupeLink(href, `<a href="${href}" class="dac-footer__link">${label}</a>`)
-  ).join('');
-  const resourcesCol = renderFooterCol('Resources', resourceLinksHtml);
+  // ── Resources column ──────────────────────────────────────────────────────
+  const resourceLinks = [
+    (data.articles || []).length    ? `<a href="/${langCode}/guides" class="dac-footer__link">Guides</a>` : '',
+    (data.comparisons || []).length ? `<a href="/${langCode}/compare" class="dac-footer__link">Comparisons</a>` : '',
+    (data.glossary || []).length    ? `<a href="/${langCode}/glossary" class="dac-footer__link">Glossary</a>` : '',
+    `<a href="/${langCode}/faq" class="dac-footer__link">FAQ</a>`,
+    (data.categories || []).some(c => c.id === 'developer')
+      ? `<a href="/${langCode}/api-docs" class="dac-footer__link">API Docs</a>` : '',
+  ].filter(Boolean).join('');
 
   // ── Company column ────────────────────────────────────────────────────────
   const companyLinks = [
-    [`/${langCode}/about`, 'About'],
-    [`/${langCode}/trust`, 'Trust Center'],
-    [`/${langCode}/editorial/editorial-process`, 'Editorial Standards'],
-    [`/${langCode}/editorial/update-policy`, 'Update Policy'],
-    [`/${langCode}/changelog`, 'Changelog'],
-    [`/${langCode}/authors`, 'Authors'],
-  ];
-  const companyLinksHtml = companyLinks.map(([href, label]) =>
-    dedupeLink(href, `<a href="${href}" class="dac-footer__link">${label}</a>`)
-  ).join('');
-  const companyCol = renderFooterCol('Company', companyLinksHtml);
+    `<a href="/${langCode}/about" class="dac-footer__link">About</a>`,
+    `<a href="/${langCode}/trust" class="dac-footer__link">Trust Center</a>`,
+    `<a href="/${langCode}/editorial/editorial-process" class="dac-footer__link">Editorial Standards</a>`,
+    `<a href="/${langCode}/changelog" class="dac-footer__link">Changelog</a>`,
+    `<a href="/${langCode}/contact" class="dac-footer__link">Contact</a>`,
+  ].join('');
 
   // ── Legal column ──────────────────────────────────────────────────────────
   const legalLinks = [
-    [`/${langCode}/privacy-policy`, 'Privacy Policy'],
-    [`/${langCode}/terms-of-service`, 'Terms'],
-    [`/${langCode}/cookie-policy`, 'Cookies'],
-    [`/${langCode}/security`, 'Security'],
-    [`/${langCode}/disclaimer`, 'Disclaimer'],
-    [`/${langCode}/accessibility`, 'Accessibility'],
-  ];
-  const legalLinksHtml = legalLinks.map(([href, label]) =>
-    dedupeLink(href, `<a href="${href}" class="dac-footer__link">${label}</a>`)
-  ).join('');
-  const legalCol = renderFooterCol('Legal', legalLinksHtml);
+    `<a href="/${langCode}/privacy-policy" class="dac-footer__link">Privacy</a>`,
+    `<a href="/${langCode}/terms-of-service" class="dac-footer__link">Terms</a>`,
+    `<a href="/${langCode}/cookie-policy" class="dac-footer__link">Cookies</a>`,
+    `<a href="/${langCode}/security" class="dac-footer__link">Security</a>`,
+    `<a href="/${langCode}/accessibility" class="dac-footer__link">Accessibility</a>`,
+  ].join('');
 
-  // ── Popular tools strip ───────────────────────────────────────────────────
+  // ── Popular tools (6–8) ───────────────────────────────────────────────────
   const allTools = data.tools || [];
-  const popularFirst = allTools.filter(t => t.popular || t.featured);
-  const toolsForStrip = (popularFirst.length >= 10
-    ? popularFirst
-    : [...popularFirst, ...allTools.filter(t => !t.popular && !t.featured)]
-  ).slice(0, 28);
+  const popularTools = [
+    ...allTools.filter(t => t.popular === true || t.featured === true),
+    ...allTools.filter(t => !t.popular && !t.featured),
+  ].slice(0, 6);
 
-  const stripLinks = toolsForStrip.map((t, i) => {
-    const href = `/${langCode}/${t.slug}`;
+  const popularLinksHtml = popularTools.map((t, i) => {
     const name = esc(t.name[langCode] || t.name.en);
-    const link = `<a href="${href}">${name}</a>`;
-    return i < toolsForStrip.length - 1
-      ? link + `<span class="dac-footer__dot" aria-hidden="true">·</span>`
-      : link;
+    const dot = i < popularTools.length - 1 ? `<span aria-hidden="true" class="dac-footer__dot">•</span>` : '';
+    return `<a href="/${langCode}/${t.slug}" class="dac-footer__pop-link">${name}</a>${dot}`;
   }).join('');
 
-  const toolsStrip = stripLinks ? `<div class="dac-footer__tools-strip">
-  <p class="dac-footer__tools-strip__label">Popular tools</p>
-  <div class="dac-footer__tools-strip__links">${stripLinks}</div>
-</div>` : '';
-
-  // ── Bottom bar ────────────────────────────────────────────────────────────
+  // ── Lang switcher ─────────────────────────────────────────────────────────
   const langLinksHtml = (hreflang || []).map(h =>
-    `<a href="${h.url}"${h.lang === langCode ? ' aria-current="true"' : ''}>${h.lang.toUpperCase()}</a>`
-  ).join(' · ');
-
-  const bottomBar = `<div class="dac-footer__bottom">
-  <p class="dac-footer__copy">&copy; ${year} ${siteName}. All rights reserved. v${esc(String(version))}</p>
-  <div class="dac-footer__bottom-right">
-    ${langLinksHtml ? `<div class="dac-footer__langs">${langLinksHtml}</div>` : ''}
-    <button class="dac-icon-btn" id="dac-footer-theme-btn" aria-label="Toggle theme">⬤</button>
-    <a href="https://github.com/dropanyconvert" class="dac-footer__icon-link" aria-label="GitHub" rel="noopener">${GITHUB_SVG_SMALL}</a>
-  </div>
-</div>`;
+    `<a href="${h.url}" class="dac-footer__lang-link"${h.lang === langCode ? ' aria-current="true"' : ''}>${h.lang.toUpperCase()}</a>`
+  ).join('<span class="dac-footer__lang-sep">·</span>');
 
   return `<footer class="dac-footer" role="contentinfo">
   <div class="dac-footer__inner">
-    <div class="dac-footer__grid">
-      ${brandCol}
-      ${toolsCol}
-      ${resourcesCol}
-      ${companyCol}
-      ${legalCol}
+    <div class="dac-footer__top">
+      <div class="dac-footer__brand">
+        <a href="/${langCode}" class="dac-footer__logo" aria-label="DropAnyConvert — Home">
+          ${FOOTER_LOGO_SVG}
+          <span>DropAnyConvert</span>
+        </a>
+        <p class="dac-footer__desc">Fast, privacy-first browser tools for images, PDFs and developer workflows.</p>
+      </div>
+      <div class="dac-footer__col">
+        <p class="dac-footer__col-title">Product</p>
+        ${productLinks}
+      </div>
+      <div class="dac-footer__col">
+        <p class="dac-footer__col-title">Resources</p>
+        ${resourceLinks}
+      </div>
+      <div class="dac-footer__col">
+        <p class="dac-footer__col-title">Company</p>
+        ${companyLinks}
+      </div>
+      <div class="dac-footer__col">
+        <p class="dac-footer__col-title">Legal</p>
+        ${legalLinks}
+      </div>
     </div>
-    ${toolsStrip}
-    ${bottomBar}
+    <div class="dac-footer__popular">
+      <span class="dac-footer__popular-label">Popular:</span>
+      <div class="dac-footer__popular-links">${popularLinksHtml}</div>
+    </div>
+    <div class="dac-footer__bottom">
+      <div class="dac-footer__bottom-left">
+        <span class="dac-footer__copy">© ${year} DropAnyConvert</span>
+        <span class="dac-footer__tagline-pills">
+          <span>Privacy-first</span>
+          <span>Browser-based</span>
+          <span>No uploads required</span>
+        </span>
+      </div>
+      <div class="dac-footer__bottom-right">
+        <div class="dac-footer__langs">${langLinksHtml}</div>
+        <button class="dac-icon-btn" id="dac-footer-theme-btn" aria-label="Toggle theme" title="Toggle theme">⬤</button>
+        <span class="dac-footer__version">v${esc(String(version))}</span>
+      </div>
+    </div>
   </div>
 </footer>
 <script src="/assets/js/sw-register.js" defer></script>`;

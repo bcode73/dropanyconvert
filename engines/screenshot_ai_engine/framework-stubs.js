@@ -26,6 +26,7 @@ export async function generateAngular()        { _notImplemented('Angular'); }
 export async function generateFlutter()        { _notImplemented('Flutter'); }
 export async function generateSwiftUI()        { _notImplemented('SwiftUI'); }
 export async function generateEmail()          { _notImplemented('HTML Email'); }
+export async function generateEmailTemplate()  { _notImplemented('HTML Email'); }
 export async function generateSvg()            { _notImplemented('SVG'); }
 export async function generateCssGrid()        { _notImplemented('CSS Grid'); }
 export async function generateWireframe()      { _notImplemented('Wireframe'); }

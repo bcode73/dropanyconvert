@@ -46,6 +46,7 @@ export {
   generateJetpackCompose,
   generateBlazor,
   generateAlpine,
+  generateEmailTemplate,
 } from './framework-stubs.js';
 
 // ── Engine metadata (read by generator for API docs + dataset) ────────────────

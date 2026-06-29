@@ -315,11 +315,26 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       validator_stats:   (apiValidation?.stats ?? {}),
     },
 
+    // AI Platform (Phase 28)
+    ai_platform: {
+      category:              'ai-development',
+      tools:                 routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length / Math.max(1, data.languages?.length || 5),
+      frameworks:            20,
+      providers:             ['deepseek', 'openai', 'anthropic', 'gemini', 'openrouter', 'ollama'],
+      default_provider:      'deepseek',
+      routing_strategy:      'cost-aware + latency-aware + health-check + fallback',
+      requires_premium:      true,
+      engine:                'screenshot_ai_engine',
+      engine_status:         'architecture',
+      credit_tiers:          { free: 0, pro: 500, business: 5000 },
+      ai_tool_routes:        routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length,
+    },
+
     // Documentation (Phase 27)
     documentation: {
-      architecture_version:    '27.0.0',
-      generator_version:       '27.0.0',
-      generator_frozen:        true,
+      architecture_version:    '28.0.0',
+      generator_version:       '28.0.0',
+      generator_frozen:        false,
       frozen_at_phase:         27,
       docs_completeness: {
         ARCHITECTURE_md:       true,
@@ -490,6 +505,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Dataset:  ${datasetStats?.formats ?? 0} formats | ${datasetStats?.conversionPairs ?? 0} conversion pairs | ${datasetStats?.searchItems ?? 0} search items | ${datasetStats?.filesEmitted ?? 0} JSON files | ${datasetValidation?.warnings?.length ?? 0} warnings`,
     `  SEO P25:  links: ${seoSweepMetrics?.total_internal_links ?? 0} | anchor diversity: ${seoSweepMetrics?.anchor_diversity_score ?? 0}% | meta quality: ${seoSweepMetrics?.metadata_quality_score ?? 0}% | link health: ${seoSweepMetrics?.link_health_score ?? 0}% | broken: ${seoSweepMetrics?.broken_link_warnings ?? 0}`,
     `  Health:   ${buildAudit?.healthScore?.total ?? 0}/100 (${buildAudit?.healthScore?.grade ?? 'N/A'}) | arch: ${buildAudit?.healthScore?.architecture ?? 0} maint: ${buildAudit?.healthScore?.maintainability ?? 0} stability: ${buildAudit?.healthScore?.build_stability ?? 0} valid: ${buildAudit?.healthScore?.validation ?? 0} debt: ${buildAudit?.healthScore?.technical_debt ?? 0} | ${buildAudit?.repoStats?.generator_js_loc ?? 0} LOC (gen) ${buildAudit?.repoStats?.asset_js_loc ?? 0} LOC (js)`,
+    `  AI P28:   ${routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length} ai-tool routes | providers: deepseek(default) openai anthropic gemini openrouter ollama | status: architecture`,
   ].join('\n');
 
   try {

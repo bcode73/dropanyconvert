@@ -51,12 +51,12 @@
     "category": {
       "type": "string",
       "description": "Category id from categories.json.",
-      "enum": ["image", "pdf", "video", "audio", "text", "developer"]
+      "enum": ["image", "pdf", "video", "audio", "text", "developer", "ai-development"]
     },
     "engine": {
       "type": "string",
       "description": "Engine module directory.",
-      "enum": ["image_engine", "pdf_engine", "video_engine", "audio_engine", "text_engine", "developer_engine"]
+      "enum": ["image_engine", "pdf_engine", "video_engine", "audio_engine", "text_engine", "developer_engine", "screenshot_ai_engine"]
     },
     "engineFn": {
       "type": "string",
@@ -85,12 +85,14 @@
     },
     "batch": {
       "type": "object",
-      "required": ["supported", "maxFiles"],
+      "required": ["supported"],
       "properties": {
         "supported": { "type": "boolean" },
         "maxFiles": { "type": "integer", "minimum": 1 },
         "zipOutput": { "type": "boolean" }
-      }
+      },
+      "if": { "properties": { "supported": { "const": true } } },
+      "then": { "required": ["supported", "maxFiles"] }
     },
     "runtime": {
       "type": "string",
@@ -115,7 +117,7 @@
     "uiGroup": {
       "type": "string",
       "description": "UI rendering group: 'conversion' shows variant picker, 'utility' shows related utilities, 'developer' shows the text-editor dev tool UI.",
-      "enum": ["conversion", "utility", "developer"]
+      "enum": ["conversion", "utility", "developer", "ai-screenshot"]
     },
     "devOptions": {
       "type": "object",
@@ -175,7 +177,17 @@
           "convert-from-pdf",
           "ai-enhance",
           "image-dpi",
-          "metadata-read"
+          "metadata-read",
+          "screenshot-upload",
+          "stream-output",
+          "copy-code",
+          "download-code",
+          "regenerate",
+          "premium-required",
+          "vision-ai",
+          "multi-provider",
+          "compare-generations",
+          "generation-history"
         ]
       }
     },
@@ -256,6 +268,33 @@
       "type": "array",
       "description": "Explicit related tool slugs. Boosts auto-generated related list.",
       "items": { "type": "string" }
+    },
+    "requiresLogin": {
+      "type": "boolean",
+      "description": "If true, user must be logged in to use this tool."
+    },
+    "requiresPremium": {
+      "type": "boolean",
+      "description": "If true, tool requires a paid plan."
+    },
+    "requiresCloud": {
+      "type": "boolean",
+      "description": "If true, tool requires server-side cloud runtime."
+    },
+    "aiProvider": {
+      "type": "string",
+      "description": "Default AI provider for this tool.",
+      "enum": ["deepseek", "openai", "anthropic", "gemini", "openrouter", "ollama"]
+    },
+    "creditsPerUse": {
+      "type": "integer",
+      "description": "Credits deducted per generation.",
+      "minimum": 0
+    },
+    "lastUpdated": {
+      "type": "string",
+      "description": "ISO 8601 date string for when this tool definition was last updated.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     }
   }
 }

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-email",
+  "slug": "screenshot-to-email",
+  "name": {
+    "en": "Screenshot to Email Template",
+    "es": "Captura de pantalla a plantilla de email",
+    "fr": "Capture d'écran en modèle d'email",
+    "de": "Screenshot zu E-Mail-Vorlage",
+    "pt": "Captura de tela para template de email"
+  },
+  "tagline": {
+    "en": "Turn email design screenshots into cross-client HTML email templates using AI.",
+    "es": "Convierte capturas de pantalla de diseños de email en plantillas HTML de email compatibles con múltiples clientes usando IA.",
+    "fr": "Transformez les captures d'écran de designs d'email en templates HTML d'email compatibles multi-clients grâce à l'IA.",
+    "de": "Konvertiere E-Mail-Design-Screenshots mit KI in client-übergreifende HTML-E-Mail-Vorlagen.",
+    "pt": "Transforme capturas de tela de designs de email em templates HTML de email compatíveis com múltiplos clientes usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateEmailTemplate",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "html",
+      "mime": "text/html",
+      "label": "Email HTML",
+      "default": true
+    }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": ["screenshot-upload","drag-and-drop","clipboard-paste","preview","stream-output","copy-code","download-code","regenerate","premium-required"],
+  "seo": {
+    "primaryKeyword": "screenshot to email template",
+    "secondaryKeywords": ["convert screenshot to html email","ai email template generator","screenshot to email html","image to email template converter"],
+    "title": {
+      "en": "Screenshot to Email Template — AI HTML Email Generator",
+      "es": "Captura de pantalla a plantilla de email — Generador de email HTML IA",
+      "fr": "Capture d'écran en modèle d'email — Générateur d'email HTML IA",
+      "de": "Screenshot zu E-Mail-Vorlage — KI HTML-E-Mail-Generator",
+      "pt": "Captura de tela para template de email — Gerador de email HTML IA"
+    },
+    "description": {
+      "en": "Convert screenshots of email designs into cross-client HTML email templates using AI. Get table-based layouts compatible with Gmail, Outlook, Apple Mail, and all major email clients.",
+      "es": "Convierte capturas de pantalla de diseños de email en plantillas HTML de email compatibles con múltiples clientes usando IA. Obtén diseños basados en tablas compatibles con Gmail, Outlook, Apple Mail y todos los principales clientes de email.",
+      "fr": "Convertissez des captures d'écran de designs d'email en templates HTML d'email multi-clients grâce à l'IA. Obtenez des mises en page basées sur des tableaux compatibles avec Gmail, Outlook, Apple Mail et tous les principaux clients de messagerie.",
+      "de": "Screenshots von E-Mail-Designs mit KI in client-übergreifende HTML-E-Mail-Vorlagen konvertieren. Erhalte tabellenbasierte Layouts kompatibel mit Gmail, Outlook, Apple Mail und allen großen E-Mail-Clients.",
+      "pt": "Converta capturas de tela de designs de email em templates HTML de email compatíveis com múltiplos clientes usando IA. Obtenha layouts baseados em tabelas compatíveis com Gmail, Outlook, Apple Mail e todos os principais clientes de email."
+    },
+    "h1": {
+      "en": "Convert Screenshot to HTML Email Template with AI",
+      "es": "Convierte capturas de pantalla a plantilla de email HTML con IA",
+      "fr": "Convertir une capture d'écran en modèle d'email HTML avec l'IA",
+      "de": "Screenshot mit KI in HTML-E-Mail-Vorlage konvertieren",
+      "pt": "Converter captura de tela para template de email HTML com IA"
+    },
+    "intro": {
+      "en": "Upload an email design screenshot and get a production-ready HTML email template compatible with all major email clients — including Outlook, Gmail, and Apple Mail. Our AI generates table-based layouts with inline styles that survive email client rendering quirks.",
+      "es": "Sube una captura de pantalla de diseño de email y obtén una plantilla de email HTML lista para producción compatible con todos los principales clientes de email, incluidos Outlook, Gmail y Apple Mail. Nuestra IA genera diseños basados en tablas con estilos en línea que sobreviven a las peculiaridades de renderizado de los clientes de email.",
+      "fr": "Téléchargez une capture d'écran de design d'email et obtenez un template d'email HTML prêt pour la production compatible avec tous les principaux clients de messagerie — incluant Outlook, Gmail et Apple Mail. Notre IA génère des mises en page basées sur des tableaux avec des styles inline qui survivent aux particularités de rendu des clients de messagerie.",
+      "de": "Lade einen E-Mail-Design-Screenshot hoch und erhalte eine produktionsfertige HTML-E-Mail-Vorlage, die mit allen großen E-Mail-Clients kompatibel ist — einschließlich Outlook, Gmail und Apple Mail. Unsere KI generiert tabellenbasierte Layouts mit Inline-Styles, die E-Mail-Client-Rendering-Quirks überstehen.",
+      "pt": "Envie uma captura de tela de design de email e obtenha um template de email HTML pronto para produção compatível com todos os principais clientes de email — incluindo Outlook, Gmail e Apple Mail. Nossa IA gera layouts baseados em tabelas com estilos inline que sobrevivem às peculiaridades de renderização dos clientes de email."
+    }
+  },
+  "features": [
+    {
+      "icon": "mail",
+      "title": {"en": "Cross-Client Compatibility","es": "Compatibilidad con múltiples clientes","fr": "Compatibilité multi-clients","de": "Client-übergreifende Kompatibilität","pt": "Compatibilidade entre clientes"},
+      "description": {"en": "Generated HTML uses table-based layouts and inline styles — the gold standard for email that renders correctly in Outlook, Gmail, Apple Mail, and Yahoo.","es": "El HTML generado usa diseños basados en tablas y estilos en línea, el estándar de oro para email que se renderiza correctamente en Outlook, Gmail, Apple Mail y Yahoo.","fr": "Le HTML généré utilise des mises en page basées sur des tableaux et des styles inline — la norme d'or pour les emails qui s'affichent correctement dans Outlook, Gmail, Apple Mail et Yahoo.","de": "Generiertes HTML verwendet tabellenbasierte Layouts und Inline-Styles — der Goldstandard für E-Mails, der korrekt in Outlook, Gmail, Apple Mail und Yahoo rendert.","pt": "O HTML gerado usa layouts baseados em tabelas e estilos inline — o padrão ouro para email que renderiza corretamente no Outlook, Gmail, Apple Mail e Yahoo."}
+    },
+    {
+      "icon": "smartphone",
+      "title": {"en": "Mobile-Responsive Email","es": "Email responsivo para móvil","fr": "Email responsive pour mobile","de": "Mobile-responsive E-Mail","pt": "Email responsivo para mobile"},
+      "description": {"en": "Media query-based responsive breakpoints ensure your email looks great on mobile devices alongside desktop email clients.","es": "Los puntos de quiebre responsivos basados en media queries aseguran que tu email se vea genial en dispositivos móviles junto con los clientes de email de escritorio.","fr": "Les points d'arrêt responsifs basés sur des media queries garantissent que votre email s'affiche bien sur les appareils mobiles ainsi que sur les clients de messagerie de bureau.","de": "Media-Query-basierte responsive Breakpoints stellen sicher, dass deine E-Mail auf mobilen Geräten neben Desktop-E-Mail-Clients gut aussieht.","pt": "Breakpoints responsivos baseados em media queries garantem que seu email tenha boa aparência em dispositivos móveis ao lado de clientes de email desktop."}
+    },
+    {
+      "icon": "cpu",
+      "title": {"en": "Inline Style Generation","es": "Generación de estilos en línea","fr": "Génération de styles inline","de": "Inline-Stil-Generierung","pt": "Geração de estilos inline"},
+      "description": {"en": "All CSS is automatically inlined for maximum email client compatibility — no external stylesheets that get stripped by email providers.","es": "Todo el CSS se incluye automáticamente en línea para la máxima compatibilidad con los clientes de email, sin hojas de estilo externas que sean eliminadas por los proveedores de email.","fr": "Tout le CSS est automatiquement intégré en ligne pour une compatibilité maximale avec les clients de messagerie — pas de feuilles de style externes qui sont supprimées par les fournisseurs de messagerie.","de": "Alle CSS werden automatisch für maximale E-Mail-Client-Kompatibilität eingefügt — keine externen Stylesheets, die von E-Mail-Anbietern entfernt werden.","pt": "Todo o CSS é automaticamente inserido inline para máxima compatibilidade com clientes de email — sem folhas de estilo externas que são removidas pelos provedores de email."}
+    },
+    {
+      "icon": "zap",
+      "title": {"en": "ESP-Ready Output","es": "Salida lista para ESP","fr": "Sortie prête pour ESP","de": "ESP-bereite Ausgabe","pt": "Saída pronta para ESP"},
+      "description": {"en": "Generated templates are compatible with Mailchimp, SendGrid, HubSpot, Klaviyo, and other email service providers — paste and send.","es": "Las plantillas generadas son compatibles con Mailchimp, SendGrid, HubSpot, Klaviyo y otros proveedores de servicios de email: pega y envía.","fr": "Les templates générés sont compatibles avec Mailchimp, SendGrid, HubSpot, Klaviyo et d'autres fournisseurs de services de messagerie — collez et envoyez.","de": "Generierte Vorlagen sind kompatibel mit Mailchimp, SendGrid, HubSpot, Klaviyo und anderen E-Mail-Service-Anbietern — einfügen und senden.","pt": "Os templates gerados são compatíveis com Mailchimp, SendGrid, HubSpot, Klaviyo e outros provedores de serviços de email — cole e envie."}
+    }
+  ],
+  "faq": [
+    {
+      "question": {"en": "Why use tables instead of CSS flexbox for email?","es": "¿Por qué usar tablas en lugar de CSS flexbox para email?","fr": "Pourquoi utiliser des tableaux plutôt que CSS flexbox pour les emails ?","de": "Warum Tabellen statt CSS Flexbox für E-Mails verwenden?","pt": "Por que usar tabelas em vez de CSS flexbox para email?"},
+      "answer": {"en": "Email clients — especially Outlook — do not fully support modern CSS layouts like flexbox or grid. Table-based layouts are the only reliable way to achieve consistent multi-column layouts across all email clients. The AI generates table-based layouts specifically because they are the industry standard for cross-client email HTML.","es": "Los clientes de email, especialmente Outlook, no admiten completamente los diseños CSS modernos como flexbox o grid. Los diseños basados en tablas son la única forma confiable de lograr diseños de varias columnas consistentes en todos los clientes de email. La IA genera diseños basados en tablas específicamente porque son el estándar de la industria para HTML de email entre clientes.","fr": "Les clients de messagerie — en particulier Outlook — ne supportent pas entièrement les mises en page CSS modernes comme flexbox ou grid. Les mises en page basées sur des tableaux sont le seul moyen fiable d'obtenir des mises en page multi-colonnes cohérentes sur tous les clients de messagerie. L'IA génère des mises en page basées sur des tableaux spécifiquement parce qu'elles sont la norme de l'industrie pour le HTML d'email multi-clients.","de": "E-Mail-Clients — besonders Outlook — unterstützen moderne CSS-Layouts wie Flexbox oder Grid nicht vollständig. Tabellenbasierte Layouts sind der einzige zuverlässige Weg, um konsistente mehrspaltiger Layouts über alle E-Mail-Clients zu erreichen. Die KI generiert tabellenbasierte Layouts speziell weil sie der Industriestandard für client-übergreifendes E-Mail-HTML sind.","pt": "Clientes de email — especialmente o Outlook — não suportam totalmente layouts CSS modernos como flexbox ou grid. Layouts baseados em tabelas são a única forma confiável de alcançar layouts de múltiplas colunas consistentes em todos os clientes de email. A IA gera layouts baseados em tabelas especificamente porque são o padrão da indústria para HTML de email entre clientes."}
+    },
+    {
+      "question": {"en": "Can I use the template in Mailchimp or Klaviyo?","es": "¿Puedo usar la plantilla en Mailchimp o Klaviyo?","fr": "Puis-je utiliser le template dans Mailchimp ou Klaviyo ?","de": "Kann ich die Vorlage in Mailchimp oder Klaviyo verwenden?","pt": "Posso usar o template no Mailchimp ou Klaviyo?"},
+      "answer": {"en": "Yes. The generated HTML is designed to be pasted into the code editor of any ESP — Mailchimp, Klaviyo, SendGrid, HubSpot, ActiveCampaign, and others. Replace placeholder text and images with your actual content, and the template is ready to send.","es": "Sí. El HTML generado está diseñado para pegarse en el editor de código de cualquier ESP: Mailchimp, Klaviyo, SendGrid, HubSpot, ActiveCampaign y otros. Reemplaza el texto e imágenes de marcador de posición con tu contenido real y la plantilla está lista para enviar.","fr": "Oui. Le HTML généré est conçu pour être collé dans l'éditeur de code de n'importe quel ESP — Mailchimp, Klaviyo, SendGrid, HubSpot, ActiveCampaign et autres. Remplacez le texte et les images de remplacement par votre contenu réel, et le template est prêt à être envoyé.","de": "Ja. Das generierte HTML ist dafür konzipiert, in den Code-Editor eines beliebigen ESP eingefügt zu werden — Mailchimp, Klaviyo, SendGrid, HubSpot, ActiveCampaign und andere. Ersetze Platzhaltertext und -bilder durch deine tatsächlichen Inhalte, und die Vorlage ist bereit zum Senden.","pt": "Sim. O HTML gerado foi projetado para ser colado no editor de código de qualquer ESP — Mailchimp, Klaviyo, SendGrid, HubSpot, ActiveCampaign e outros. Substitua o texto e imagens de espaço reservado pelo seu conteúdo real, e o template está pronto para enviar."}
+    },
+    {
+      "question": {"en": "Does the email template support dark mode?","es": "¿La plantilla de email admite el modo oscuro?","fr": "Le modèle d'email prend-il en charge le mode sombre ?","de": "Unterstützt die E-Mail-Vorlage den Dark Mode?","pt": "O template de email suporta dark mode?"},
+      "answer": {"en": "Yes. The AI adds @media (prefers-color-scheme: dark) CSS media queries for Apple Mail and other clients that support dark mode email rendering. Outlook does not support dark mode CSS, but uses automatic color inversion — the generated light-mode backgrounds are chosen with Outlook's inversion behavior in mind.","es": "Sí. La IA agrega consultas de medios CSS @media (prefers-color-scheme: dark) para Apple Mail y otros clientes que admiten renderizado de email en modo oscuro. Outlook no admite CSS de modo oscuro, pero usa inversión automática de color: los fondos de modo claro generados se eligen teniendo en cuenta el comportamiento de inversión de Outlook.","fr": "Oui. L'IA ajoute des media queries CSS @media (prefers-color-scheme: dark) pour Apple Mail et d'autres clients qui prennent en charge le rendu des emails en mode sombre. Outlook ne prend pas en charge le CSS du mode sombre, mais utilise l'inversion automatique des couleurs — les arrière-plans du mode clair générés sont choisis en tenant compte du comportement d'inversion d'Outlook.","de": "Ja. Die KI fügt @media (prefers-color-scheme: dark) CSS Media Queries für Apple Mail und andere Clients hinzu, die Dark Mode E-Mail-Rendering unterstützen. Outlook unterstützt kein Dark Mode CSS, verwendet aber automatische Farbinversion — die generierten Hellmodus-Hintergründe werden unter Berücksichtigung von Outlooks Inversionsverhalten gewählt.","pt": "Sim. A IA adiciona media queries CSS @media (prefers-color-scheme: dark) para Apple Mail e outros clientes que suportam renderização de email em dark mode. O Outlook não suporta CSS de dark mode, mas usa inversão automática de cores — os fundos de modo claro gerados são escolhidos levando em consideração o comportamento de inversão do Outlook."}
+    },
+    {
+      "question": {"en": "What image format should I use for the email screenshot?","es": "¿Qué formato de imagen debo usar para la captura de pantalla del email?","fr": "Quel format d'image dois-je utiliser pour la capture d'écran de l'email ?","de": "Welches Bildformat soll ich für den E-Mail-Screenshot verwenden?","pt": "Qual formato de imagem devo usar para a captura de tela do email?"},
+      "answer": {"en": "PNG or JPG at full resolution (no compression) gives the best results. A screenshot taken directly from a design tool like Figma, Sketch, or Adobe XD at 2x resolution works excellently. The AI uses the fine visual details in your screenshot to accurately replicate spacing, fonts, button styles, and colors in the HTML output.","es": "PNG o JPG a resolución completa (sin compresión) ofrece los mejores resultados. Una captura de pantalla tomada directamente de una herramienta de diseño como Figma, Sketch o Adobe XD a resolución 2x funciona excelentemente. La IA usa los detalles visuales finos de tu captura de pantalla para replicar con precisión el espaciado, las fuentes, los estilos de botón y los colores en la salida HTML.","fr": "PNG ou JPG en pleine résolution (sans compression) donne les meilleurs résultats. Une capture d'écran prise directement depuis un outil de design comme Figma, Sketch ou Adobe XD à résolution 2x fonctionne excellemment. L'IA utilise les détails visuels fins de votre capture d'écran pour reproduire avec précision l'espacement, les polices, les styles de bouton et les couleurs dans la sortie HTML.","de": "PNG oder JPG in voller Auflösung (ohne Komprimierung) liefert die besten Ergebnisse. Ein Screenshot direkt aus einem Design-Tool wie Figma, Sketch oder Adobe XD in 2x Auflösung funktioniert hervorragend. Die KI verwendet die feinen visuellen Details in deinem Screenshot, um Abstände, Schriften, Button-Stile und Farben im HTML-Output genau zu replizieren.","pt": "PNG ou JPG em resolução completa (sem compressão) oferece os melhores resultados. Uma captura de tela tirada diretamente de uma ferramenta de design como Figma, Sketch ou Adobe XD em resolução 2x funciona excelentemente. A IA usa os detalhes visuais finos da sua captura de tela para replicar com precisão o espaçamento, fontes, estilos de botão e cores na saída HTML."}
+    }
+  ],
+  "relatedTools": ["screenshot-to-html","screenshot-to-html-css","screenshot-to-tailwind","screenshot-to-react","html-beautifier","css-beautifier","html-minifier"]
+}

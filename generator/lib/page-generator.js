@@ -866,6 +866,7 @@ const UPLOAD_ICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="48" heig
 
 function renderToolPage(route, seo, toolLinks, data, config) {
   if (route.tool.uiGroup === 'developer') return renderDevToolPage(route, seo, toolLinks, data, config);
+  if (route.tool.uiGroup === 'ai-screenshot') return renderAiScreenshotToolPage(route, seo, toolLinks, data, config);
   const { relatedTools = [], guides = [], comparisons: relatedComparisons = [], glossary: relatedGlossary = [], collections: linkerCollections = [], landings: linkerLandings = [], entities: linkerEntities = [], howToGuides = [] } = toolLinks;
 
   const tool = route.tool;
@@ -1722,6 +1723,182 @@ ${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 <script src="/assets/js/developer-runtime.js" defer></script>
+</body>
+</html>`;
+}
+
+// ── AI Screenshot Tool Page ───────────────────────────────────────────────────
+
+function renderAiScreenshotToolPage(route, seo, toolLinks, data, config) {
+  const tool = route.tool;
+  const langCode = route.lang;
+  const lang = route.language;
+  const ui = lang.ui;
+
+  const toolName   = tool.name[langCode] || tool.name.en;
+  const tagline    = tool.tagline?.[langCode] || tool.tagline?.en || '';
+  const intro      = tool.seo?.intro?.[langCode] || tool.seo?.intro?.en || '';
+  const framework  = tool.engineFn?.replace('generate', '').toLowerCase() || tool.slug.replace('screenshot-to-', '');
+
+  const { relatedTools = [], guides = [] } = toolLinks;
+
+  const enrichment = (generatePages._enrichmentCache || new Map()).get(tool.slug) || enrichTool(tool, data);
+  const { faqs } = enrichment;
+  const allFaqs = deduplicateFaqs([...(tool.faq || []).map(f => ({ q: f.question?.[langCode] || f.question?.en, a: f.answer?.[langCode] || f.answer?.en })), ...faqs], langCode);
+  const faqSchema = buildFaqSchema(allFaqs, langCode);
+
+  const toolIndex = `<script>window.__DAC_TOOL=${JSON.stringify({ slug: tool.slug, category: tool.category, runtime: 'cloud', framework, requiresPremium: true, requiresLogin: true })};</script>`;
+  const headOpts = { schemas: [faqSchema], ogType: 'website' };
+  const ads = data.ads;
+
+  // Related tools
+  const relatedToolCards = relatedTools.slice(0, 6).map(r =>
+    `<a href="/${langCode}/${r.slug}" class="dac-tool-card dac-tool-card--sm">
+      <span class="dac-tool-card__name">${esc(r.name?.[langCode] || r.name?.en || r.slug)}</span>
+    </a>`
+  ).join('');
+
+  const guidesHtml = guides.slice(0, 4).map(g =>
+    `<a href="/${langCode}/guides/${g.slug}" class="dac-kh-card">
+      <span class="dac-kh-card__title">${esc(g.title?.[langCode] || g.title?.en || g.slug)}</span>
+    </a>`
+  ).join('');
+
+  return `<!DOCTYPE html>
+<html lang="${langCode}" dir="ltr">
+<head>
+${renderHead(seo, config, toolIndex, headOpts)}
+<meta name="dac-framework" content="${esc(framework)}">
+</head>
+<body class="dac-page dac-page--tool dac-page--ai-screenshot" data-framework="${esc(framework)}">
+
+${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
+
+<nav class="dac-breadcrumb" aria-label="Breadcrumb">
+  <ol class="dac-breadcrumb__list">
+    <li><a href="/${langCode}/">${ui.home || 'Home'}</a></li>
+    <li><a href="/${langCode}/ai-development">${ui.aiDevelopment || 'AI Development'}</a></li>
+    <li aria-current="page">${esc(toolName)}</li>
+  </ol>
+</nav>
+
+<main id="main-content" class="dac-page__main">
+  <div class="dac-ai-tool">
+
+    <header class="dac-ai-tool__header">
+      <div class="dac-ai-premium-badge" id="dac-ai-premium-badge" style="display:none">
+        <span class="dac-badge dac-badge--premium">✦ Premium</span>
+        <span>${ui.premiumRequired || 'Premium plan required'}</span>
+      </div>
+      <h1 class="dac-ai-tool__title">${esc(seo.h1?.[langCode] || seo.h1 || toolName)}</h1>
+      <p class="dac-ai-tool__tagline">${esc(tagline)}</p>
+      ${intro ? `<p class="dac-ai-tool__intro">${esc(intro)}</p>` : ''}
+    </header>
+
+    <!-- Upload / Drop zone -->
+    <section class="dac-ai-upload" aria-label="Upload screenshot">
+      <div class="dac-ai-dropzone" id="dac-ai-dropzone" role="button" tabindex="0" aria-label="Drop your screenshot here or click to upload">
+        <div class="dac-ai-dropzone__icon">📷</div>
+        <p class="dac-ai-dropzone__title">${ui.dropScreenshot || 'Drop your screenshot here'}</p>
+        <p class="dac-ai-dropzone__sub">${ui.orClickUpload || 'or click to upload • PNG, JPG, WebP • max 10 MB'}</p>
+        <p class="dac-ai-dropzone__paste">${ui.orPaste || 'Or paste from clipboard (Ctrl+V / ⌘V)'}</p>
+      </div>
+      <input type="file" id="dac-ai-file-input" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none" aria-label="Upload screenshot file">
+    </section>
+
+    <!-- Preview -->
+    <section class="dac-ai-preview-wrap" id="dac-ai-preview" style="display:none" aria-label="Screenshot preview">
+      <div class="dac-ai-preview-controls">
+        <button id="dac-ai-zoom-out" class="dac-btn dac-btn--icon" aria-label="Zoom out">−</button>
+        <button id="dac-ai-zoom-in"  class="dac-btn dac-btn--icon" aria-label="Zoom in">+</button>
+        <button id="dac-ai-preview-clear" class="dac-btn dac-btn--ghost" aria-label="Remove screenshot">${ui.remove || 'Remove'}</button>
+      </div>
+      <div class="dac-ai-preview-canvas">
+        <img id="dac-ai-preview-img" src="" alt="Uploaded screenshot" style="transform-origin:top left;transition:transform .2s">
+      </div>
+    </section>
+
+    <!-- Generate controls -->
+    <section class="dac-ai-controls" aria-label="Generation controls">
+      <button id="dac-ai-generate" class="dac-btn dac-btn--primary dac-btn--lg" disabled>
+        ✦ ${ui.generateCode || 'Generate'} ${esc(toolName)}
+      </button>
+      <div class="dac-ai-credits-row">
+        <span id="dac-ai-credits" class="dac-ai-credits-label"></span>
+      </div>
+    </section>
+
+    <!-- Progress -->
+    <div class="dac-ai-progress" id="dac-ai-progress" style="display:none" role="status" aria-live="polite">
+      <div class="dac-ai-progress-bar-wrap">
+        <div class="dac-ai-progress-bar" id="dac-ai-progress-bar" style="width:0%"></div>
+      </div>
+      <p class="dac-ai-progress-label" id="dac-ai-progress-label"></p>
+    </div>
+
+    <!-- Error -->
+    <div class="dac-ai-error" id="dac-ai-error" style="display:none" role="alert" aria-live="assertive"></div>
+
+    <!-- Output -->
+    <section class="dac-ai-output" id="dac-ai-output" style="display:none" aria-label="Generated code">
+      <div class="dac-ai-output-toolbar">
+        <span id="dac-ai-provider-label" class="dac-ai-provider-label"></span>
+        <button id="dac-ai-copy"        class="dac-btn dac-btn--ghost">${ui.copy || 'Copy'}</button>
+        <button id="dac-ai-download"    class="dac-btn dac-btn--ghost">${ui.download || 'Download'}</button>
+        <button id="dac-ai-regenerate"  class="dac-btn dac-btn--ghost" disabled>${ui.regenerate || 'Regenerate'}</button>
+        <button id="dac-ai-compare"     class="dac-btn dac-btn--ghost" disabled>${ui.compare || 'Compare'}</button>
+      </div>
+      <pre class="dac-ai-code-viewer"><code id="dac-ai-code" class="language-${esc(langCode)}"></code></pre>
+      <div id="dac-ai-history" class="dac-ai-history" aria-label="Generation history"></div>
+    </section>
+
+    <!-- Premium login prompt -->
+    <div class="dac-ai-login-prompt" id="dac-ai-login-prompt" style="display:none">
+      <div class="dac-ai-login-prompt__inner">
+        <h2>${ui.unlockAi || 'Unlock AI Code Generation'}</h2>
+        <p>${ui.aiPremiumDesc || 'Screenshot → Code requires a Pro or Business plan. Upgrade to get 500+ AI credits per month.'}</p>
+        <div class="dac-ai-login-prompt__actions">
+          <a href="/${langCode}/pricing" class="dac-btn dac-btn--primary">${ui.seePricing || 'See Pricing'}</a>
+          <a href="/${langCode}/login"   class="dac-btn dac-btn--ghost">${ui.signIn || 'Sign In'}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    ${allFaqs.length > 0 ? `
+    <section class="dac-faq" id="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">${ui.faqTitle || 'Frequently Asked Questions'}</h2>
+      <dl class="dac-faq__list">
+        ${allFaqs.map(f => `
+        <div class="dac-faq__item">
+          <dt class="dac-faq__question">${esc(f.q)}</dt>
+          <dd class="dac-faq__answer">${esc(f.a)}</dd>
+        </div>`).join('')}
+      </dl>
+    </section>` : ''}
+
+    <!-- Related tools -->
+    ${relatedToolCards ? `
+    <section class="dac-related" id="related-tools" aria-labelledby="related-heading">
+      <h2 id="related-heading">${ui.relatedTools || 'Related Tools'}</h2>
+      <div class="dac-tool-grid dac-tool-grid--sm">${relatedToolCards}</div>
+    </section>` : ''}
+
+    <!-- Related guides -->
+    ${guidesHtml ? `
+    <section class="dac-related" id="related-guides" aria-labelledby="guides-heading">
+      <h2 id="guides-heading">${ui.relatedGuides || 'Related Guides'}</h2>
+      <div class="dac-kh-grid">${guidesHtml}</div>
+    </section>` : ''}
+
+  </div>
+</main>
+
+${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+
+<script src="/assets/js/analytics.js" defer></script>
+<script src="/assets/js/platform.js" defer></script>
+<script src="/assets/js/screenshot-ai-runtime.js" defer></script>
 </body>
 </html>`;
 }

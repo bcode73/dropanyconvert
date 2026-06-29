@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-html",
+  "slug": "screenshot-to-html",
+  "name": {
+    "en": "Screenshot to HTML",
+    "es": "Captura de pantalla a HTML",
+    "fr": "Capture d'écran en HTML",
+    "de": "Screenshot zu HTML",
+    "pt": "Captura de tela para HTML"
+  },
+  "tagline": {
+    "en": "Convert any screenshot into clean HTML code using AI.",
+    "es": "Convierte cualquier captura de pantalla en código HTML limpio con IA.",
+    "fr": "Convertissez n'importe quelle capture d'écran en code HTML propre grâce à l'IA.",
+    "de": "Konvertiere jeden Screenshot mit KI in sauberen HTML-Code.",
+    "pt": "Converta qualquer captura de tela em código HTML limpo usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateCode",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "html",
+      "mime": "text/html",
+      "label": "HTML",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to html",
+    "secondaryKeywords": [
+      "convert screenshot to html code",
+      "ai screenshot to html",
+      "image to html converter",
+      "screenshot to html online"
+    ],
+    "title": {
+      "en": "Screenshot to HTML — AI-Powered Code Generator",
+      "es": "Captura de pantalla a HTML — Generador de código con IA",
+      "fr": "Capture d'écran en HTML — Générateur de code IA",
+      "de": "Screenshot zu HTML — KI-gestützter Code-Generator",
+      "pt": "Captura de tela para HTML — Gerador de código com IA"
+    },
+    "description": {
+      "en": "Convert screenshots to clean HTML code instantly using AI. Upload any image of a website or UI and get production-ready HTML in seconds.",
+      "es": "Convierte capturas de pantalla a código HTML limpio al instante con IA. Sube cualquier imagen de un sitio web o interfaz y obtén HTML listo para producción en segundos.",
+      "fr": "Convertissez des captures d'écran en code HTML propre instantanément grâce à l'IA. Téléchargez n'importe quelle image d'un site web ou d'une interface et obtenez du HTML prêt à la production en quelques secondes.",
+      "de": "Konvertiere Screenshots sofort mit KI in sauberen HTML-Code. Lade ein beliebiges Bild einer Website oder UI hoch und erhalte in Sekunden produktionsfertiges HTML.",
+      "pt": "Converta capturas de tela em código HTML limpo instantaneamente usando IA. Envie qualquer imagem de um site ou interface e obtenha HTML pronto para produção em segundos."
+    },
+    "h1": {
+      "en": "Convert Screenshot to HTML with AI",
+      "es": "Convierte capturas de pantalla a HTML con IA",
+      "fr": "Convertir une capture d'écran en HTML avec l'IA",
+      "de": "Screenshot mit KI in HTML konvertieren",
+      "pt": "Converter captura de tela para HTML com IA"
+    },
+    "intro": {
+      "en": "Upload a screenshot of any website, UI design, or wireframe and our AI instantly generates clean, semantic HTML code. Perfect for developers who want to accelerate prototyping and turn designs into code without manual markup.",
+      "es": "Sube una captura de pantalla de cualquier sitio web, diseño de interfaz o wireframe y nuestra IA genera al instante código HTML limpio y semántico. Ideal para desarrolladores que quieren acelerar el prototipado y convertir diseños en código sin marcado manual.",
+      "fr": "Téléchargez une capture d'écran de n'importe quel site web, design d'interface ou wireframe et notre IA génère instantanément du code HTML propre et sémantique. Parfait pour les développeurs qui souhaitent accélérer le prototypage et transformer les designs en code sans balisage manuel.",
+      "de": "Lade einen Screenshot einer beliebigen Website, eines UI-Designs oder Wireframes hoch und unsere KI generiert sofort sauberen, semantischen HTML-Code. Perfekt für Entwickler, die das Prototyping beschleunigen und Designs ohne manuelle Auszeichnung in Code umwandeln wollen.",
+      "pt": "Envie uma captura de tela de qualquer site, design de interface ou wireframe e nossa IA gera instantaneamente código HTML limpo e semântico. Perfeito para desenvolvedores que desejam acelerar a prototipagem e transformar designs em código sem marcação manual."
+    }
+  },
+  "features": [
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "AI-Powered Conversion",
+        "es": "Conversión impulsada por IA",
+        "fr": "Conversion propulsée par IA",
+        "de": "KI-gestützte Konvertierung",
+        "pt": "Conversão com IA"
+      },
+      "description": {
+        "en": "Advanced AI analyzes your screenshot and generates accurate, semantic HTML that mirrors the original layout.",
+        "es": "La IA avanzada analiza tu captura de pantalla y genera HTML semántico y preciso que refleja el diseño original.",
+        "fr": "L'IA avancée analyse votre capture d'écran et génère un HTML sémantique et précis qui reproduit la mise en page originale.",
+        "de": "Fortschrittliche KI analysiert deinen Screenshot und generiert präzises, semantisches HTML, das das ursprüngliche Layout widerspiegelt.",
+        "pt": "IA avançada analisa sua captura de tela e gera HTML semântico e preciso que reflete o layout original."
+      }
+    },
+    {
+      "icon": "cloud",
+      "title": {
+        "en": "Cloud Processing",
+        "es": "Procesamiento en la nube",
+        "fr": "Traitement dans le cloud",
+        "de": "Cloud-Verarbeitung",
+        "pt": "Processamento em nuvem"
+      },
+      "description": {
+        "en": "Powered by cloud AI infrastructure for fast, reliable code generation regardless of your device's processing power.",
+        "es": "Impulsado por infraestructura de IA en la nube para una generación de código rápida y confiable, independientemente de la potencia de procesamiento de tu dispositivo.",
+        "fr": "Alimenté par une infrastructure IA cloud pour une génération de code rapide et fiable, quelle que soit la puissance de traitement de votre appareil.",
+        "de": "Betrieben von Cloud-KI-Infrastruktur für schnelle, zuverlässige Code-Generierung unabhängig von der Rechenleistung deines Geräts.",
+        "pt": "Alimentado por infraestrutura de IA em nuvem para geração de código rápida e confiável, independentemente do poder de processamento do seu dispositivo."
+      }
+    },
+    {
+      "icon": "code",
+      "title": {
+        "en": "Clean, Semantic Output",
+        "es": "Salida limpia y semántica",
+        "fr": "Sortie propre et sémantique",
+        "de": "Sauberer, semantischer Output",
+        "pt": "Saída limpa e semântica"
+      },
+      "description": {
+        "en": "Generated HTML uses proper semantic tags, accessible attributes, and clean structure ready for production use.",
+        "es": "El HTML generado usa etiquetas semánticas adecuadas, atributos accesibles y una estructura limpia lista para uso en producción.",
+        "fr": "Le HTML généré utilise des balises sémantiques appropriées, des attributs accessibles et une structure propre prête pour la production.",
+        "de": "Generiertes HTML verwendet korrekte semantische Tags, barrierefreie Attribute und eine saubere Struktur, die für den Produktionseinsatz bereit ist.",
+        "pt": "O HTML gerado usa tags semânticas adequadas, atributos acessíveis e estrutura limpa pronta para uso em produção."
+      }
+    },
+    {
+      "icon": "refresh-cw",
+      "title": {
+        "en": "Regenerate & Refine",
+        "es": "Regenerar y refinar",
+        "fr": "Régénérer et affiner",
+        "de": "Regenerieren & Verfeinern",
+        "pt": "Regenerar e refinar"
+      },
+      "description": {
+        "en": "Not satisfied with the first output? Regenerate with one click to get alternative code structures for your screenshot.",
+        "es": "¿No estás satisfecho con el primer resultado? Regenera con un clic para obtener estructuras de código alternativas para tu captura de pantalla.",
+        "fr": "Pas satisfait du premier résultat ? Régénérez en un clic pour obtenir des structures de code alternatives pour votre capture d'écran.",
+        "de": "Mit dem ersten Ergebnis nicht zufrieden? Mit einem Klick neu generieren, um alternative Code-Strukturen für deinen Screenshot zu erhalten.",
+        "pt": "Não satisfeito com o primeiro resultado? Regenere com um clique para obter estruturas de código alternativas para sua captura de tela."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What types of screenshots work best?",
+        "es": "¿Qué tipos de capturas de pantalla funcionan mejor?",
+        "fr": "Quels types de captures d'écran fonctionnent le mieux ?",
+        "de": "Welche Screenshot-Typen funktionieren am besten?",
+        "pt": "Quais tipos de capturas de tela funcionam melhor?"
+      },
+      "answer": {
+        "en": "The tool works best with clear screenshots of websites, web app interfaces, landing pages, and UI mockups. High-resolution screenshots with visible text and distinct layout sections yield the most accurate HTML output.",
+        "es": "La herramienta funciona mejor con capturas de pantalla claras de sitios web, interfaces de aplicaciones web, páginas de destino y maquetas de interfaz. Las capturas de pantalla de alta resolución con texto visible y secciones de diseño distintas producen el HTML más preciso.",
+        "fr": "L'outil fonctionne mieux avec des captures d'écran claires de sites web, d'interfaces d'applications web, de pages d'atterrissage et de maquettes d'interface. Les captures d'écran haute résolution avec du texte visible et des sections de mise en page distinctes produisent le HTML le plus précis.",
+        "de": "Das Tool funktioniert am besten mit klaren Screenshots von Websites, Web-App-Schnittstellen, Landing Pages und UI-Mockups. Hochauflösende Screenshots mit sichtbarem Text und klar erkennbaren Layout-Abschnitten liefern den genauesten HTML-Output.",
+        "pt": "A ferramenta funciona melhor com capturas de tela claras de sites, interfaces de aplicativos web, páginas de destino e mockups de UI. Capturas de tela de alta resolução com texto visível e seções de layout distintas produzem a saída HTML mais precisa."
+      }
+    },
+    {
+      "question": {
+        "en": "Does the generated HTML include CSS styles?",
+        "es": "¿El HTML generado incluye estilos CSS?",
+        "fr": "Le HTML généré inclut-il des styles CSS ?",
+        "de": "Enthält das generierte HTML CSS-Stile?",
+        "pt": "O HTML gerado inclui estilos CSS?"
+      },
+      "answer": {
+        "en": "This tool outputs pure structural HTML. For HTML with embedded CSS styles, use our Screenshot to HTML + CSS tool. For utility-class styling, try Screenshot to Tailwind CSS.",
+        "es": "Esta herramienta genera HTML estructural puro. Para HTML con estilos CSS incorporados, usa nuestra herramienta Screenshot to HTML + CSS. Para estilos con clases de utilidad, prueba Screenshot to Tailwind CSS.",
+        "fr": "Cet outil génère du HTML structurel pur. Pour du HTML avec des styles CSS intégrés, utilisez notre outil Screenshot vers HTML + CSS. Pour le style avec des classes utilitaires, essayez Screenshot vers Tailwind CSS.",
+        "de": "Dieses Tool gibt reines strukturelles HTML aus. Für HTML mit eingebetteten CSS-Stilen verwende unser Screenshot zu HTML + CSS Tool. Für Utility-Class-Styling probiere Screenshot zu Tailwind CSS.",
+        "pt": "Esta ferramenta gera HTML estrutural puro. Para HTML com estilos CSS incorporados, use nossa ferramenta Screenshot para HTML + CSS. Para estilo com classes utilitárias, experimente Screenshot para Tailwind CSS."
+      }
+    },
+    {
+      "question": {
+        "en": "Why is a premium account required?",
+        "es": "¿Por qué se requiere una cuenta premium?",
+        "fr": "Pourquoi un compte premium est-il requis ?",
+        "de": "Warum ist ein Premium-Konto erforderlich?",
+        "pt": "Por que uma conta premium é necessária?"
+      },
+      "answer": {
+        "en": "AI code generation uses powerful cloud models that have significant infrastructure costs. Premium access ensures fast response times, priority processing, and high-quality output without degraded performance during peak usage.",
+        "es": "La generación de código con IA utiliza potentes modelos en la nube que tienen costos significativos de infraestructura. El acceso premium garantiza tiempos de respuesta rápidos, procesamiento prioritario y salida de alta calidad sin rendimiento degradado durante los picos de uso.",
+        "fr": "La génération de code IA utilise de puissants modèles cloud qui ont des coûts d'infrastructure significatifs. L'accès premium garantit des temps de réponse rapides, un traitement prioritaire et une sortie de haute qualité sans dégradation des performances lors des pics d'utilisation.",
+        "de": "KI-Code-Generierung verwendet leistungsstarke Cloud-Modelle mit erheblichen Infrastrukturkosten. Premium-Zugang gewährleistet schnelle Antwortzeiten, Prioritätsverarbeitung und hochwertige Ausgabe ohne Leistungseinbußen in Spitzenzeiten.",
+        "pt": "A geração de código com IA usa modelos de nuvem poderosos que têm custos significativos de infraestrutura. O acesso premium garante tempos de resposta rápidos, processamento prioritário e saída de alta qualidade sem degradação de desempenho durante os picos de uso."
+      }
+    },
+    {
+      "question": {
+        "en": "How accurate is the HTML output compared to the original design?",
+        "es": "¿Qué tan preciso es el HTML generado en comparación con el diseño original?",
+        "fr": "Quelle est la précision de la sortie HTML par rapport au design original ?",
+        "de": "Wie genau ist der HTML-Output im Vergleich zum ursprünglichen Design?",
+        "pt": "Quão preciso é o HTML gerado em comparação com o design original?"
+      },
+      "answer": {
+        "en": "Our AI captures layout structure, hierarchy, and text content with high fidelity. For pixel-perfect results, minor CSS tweaks may be needed. The output serves as an excellent starting point that saves hours of manual coding compared to writing HTML from scratch.",
+        "es": "Nuestra IA captura la estructura del diseño, la jerarquía y el contenido de texto con alta fidelidad. Para resultados perfectos a nivel de píxel, pueden ser necesarios pequeños ajustes de CSS. La salida sirve como un excelente punto de partida que ahorra horas de codificación manual en comparación con escribir HTML desde cero.",
+        "fr": "Notre IA capture la structure de mise en page, la hiérarchie et le contenu textuel avec une haute fidélité. Pour des résultats parfaits au pixel près, de petits ajustements CSS peuvent être nécessaires. La sortie sert d'excellent point de départ qui économise des heures de codage manuel par rapport à l'écriture du HTML de zéro.",
+        "de": "Unsere KI erfasst Layout-Struktur, Hierarchie und Textinhalt mit hoher Genauigkeit. Für pixelgenaue Ergebnisse können kleinere CSS-Anpassungen erforderlich sein. Die Ausgabe dient als ausgezeichneter Ausgangspunkt, der im Vergleich zum manuellen Schreiben von HTML von Grund auf Stunden spart.",
+        "pt": "Nossa IA captura estrutura de layout, hierarquia e conteúdo de texto com alta fidelidade. Para resultados perfeitos em pixel, pequenos ajustes de CSS podem ser necessários. A saída serve como um excelente ponto de partida que economiza horas de codificação manual em comparação com escrever HTML do zero."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-html-css",
+    "screenshot-to-tailwind",
+    "screenshot-to-react",
+    "screenshot-to-bootstrap",
+    "html-beautifier",
+    "css-beautifier",
+    "html-minifier"
+  ]
+}

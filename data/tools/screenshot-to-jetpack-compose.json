@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-jetpack-compose",
+  "slug": "screenshot-to-jetpack-compose",
+  "name": {
+    "en": "Screenshot to Jetpack Compose Converter",
+    "es": "Captura a Jetpack Compose",
+    "fr": "Capture vers Jetpack Compose",
+    "de": "Screenshot zu Jetpack Compose",
+    "pt": "Captura para Jetpack Compose"
+  },
+  "tagline": {
+    "en": "Convert any screenshot to Jetpack Compose code using AI. Premium feature.",
+    "es": "Convierte capturas de pantalla a código Jetpack Compose con IA. Función premium.",
+    "fr": "Convertissez des captures d'écran en code Jetpack Compose avec l'IA. Fonction premium.",
+    "de": "Konvertiere Screenshots mit KI zu Jetpack Compose-Code. Premium-Funktion.",
+    "pt": "Converta capturas de tela em código Jetpack Compose com IA. Recurso premium."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateJetpackCompose",
+  "inputFormats": [
+    "image/png",
+    "image/jpeg",
+    "image/webp",
+    "image/gif"
+  ],
+  "outputFormats": [
+    {
+      "ext": "kt",
+      "mime": "text/plain",
+      "label": "Kotlin Compose",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "creditsPerUse": 3,
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to jetpack compose converter",
+    "secondaryKeywords": [
+      "convert screenshot to jetpack compose",
+      "image to jetpack compose code",
+      "AI jetpack compose generator",
+      "design to jetpack compose"
+    ],
+    "title": {
+      "en": "Screenshot to Jetpack Compose Converter — AI Code Generator",
+      "es": "Captura a Jetpack Compose — Generador de Código IA",
+      "fr": "Capture vers Jetpack Compose — Générateur de Code IA",
+      "de": "Screenshot zu Jetpack Compose — KI Code Generator",
+      "pt": "Captura para Jetpack Compose — Gerador de Código IA"
+    },
+    "description": {
+      "en": "Convert any UI screenshot to Jetpack Compose code instantly using AI. Upload your design, get production-ready Jetpack Compose code. Premium feature powered by DeepSeek.",
+      "es": "Convierte cualquier captura de pantalla de UI a código Jetpack Compose instantáneamente usando IA. Sube tu diseño, obtén código Jetpack Compose listo para producción. Función premium.",
+      "fr": "Convertissez n'importe quelle capture d'écran d'interface en code Jetpack Compose instantanément avec l'IA. Téléversez votre design, obtenez du code Jetpack Compose prêt pour la production.",
+      "de": "Konvertiere jeden UI-Screenshot sofort mit KI zu Jetpack Compose-Code. Lade dein Design hoch, erhalte produktionsreifen Jetpack Compose-Code. Premium-Funktion.",
+      "pt": "Converta qualquer captura de tela de UI para código Jetpack Compose instantaneamente usando IA. Carregue seu design, obtenha código Jetpack Compose pronto para produção."
+    },
+    "h1": {
+      "en": "Screenshot to Jetpack Compose — AI Code Generator",
+      "es": "Captura de Pantalla a Jetpack Compose — Generador IA",
+      "fr": "Capture d'Écran vers Jetpack Compose — Générateur IA",
+      "de": "Screenshot zu Jetpack Compose — KI-Code-Generator",
+      "pt": "Captura para Jetpack Compose — Gerador de Código IA"
+    },
+    "intro": {
+      "en": "Upload a screenshot of any UI — web app, mobile app, or design mockup — and our AI generates clean, production-ready Jetpack Compose code instantly. Powered by DeepSeek with OpenAI and Anthropic as fallbacks.",
+      "es": "Sube una captura de pantalla de cualquier UI — aplicación web, móvil o maqueta de diseño — y nuestra IA genera código Jetpack Compose limpio y listo para producción al instante.",
+      "fr": "Téléversez une capture d'écran de n'importe quelle interface — application web, mobile ou maquette — et notre IA génère instantanément du code Jetpack Compose propre et prêt pour la production.",
+      "de": "Lade einen Screenshot einer beliebigen UI hoch — Web-App, Mobile-App oder Design-Mockup — und unsere KI generiert sofort sauberen, produktionsreifen Jetpack Compose-Code.",
+      "pt": "Carregue uma captura de tela de qualquer UI — aplicativo web, móvel ou mockup de design — e nossa IA gera código Jetpack Compose limpo e pronto para produção instantaneamente."
+    },
+    "searchIntent": "commercial"
+  },
+  "features": [
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "AI-Powered",
+        "es": "IA Avanzada",
+        "fr": "Propulsé par IA",
+        "de": "KI-gestützt",
+        "pt": "IA Avançada"
+      },
+      "description": {
+        "en": "DeepSeek V4 generates accurate Jetpack Compose code from your screenshot in seconds.",
+        "es": "DeepSeek V4 genera código Jetpack Compose preciso desde tu captura en segundos.",
+        "fr": "DeepSeek V4 génère du code Jetpack Compose précis depuis votre capture en quelques secondes.",
+        "de": "DeepSeek V4 generiert in Sekunden präzisen Jetpack Compose-Code aus deinem Screenshot.",
+        "pt": "DeepSeek V4 gera código Jetpack Compose preciso da sua captura em segundos."
+      }
+    },
+    {
+      "icon": "zap",
+      "title": {
+        "en": "Instant Output",
+        "es": "Salida Instantánea",
+        "fr": "Sortie Instantanée",
+        "de": "Sofortige Ausgabe",
+        "pt": "Saída Instantânea"
+      },
+      "description": {
+        "en": "Streaming code output — see results appear as they are generated, not after a long wait.",
+        "es": "Salida de código en streaming — ve los resultados aparecer mientras se generan, no después de una larga espera.",
+        "fr": "Sortie de code en streaming — voyez les résultats apparaître au fur et à mesure de leur génération.",
+        "de": "Streaming-Code-Ausgabe — sieh die Ergebnisse erscheinen während sie generiert werden.",
+        "pt": "Saída de código em streaming — veja os resultados aparecerem conforme são gerados."
+      }
+    },
+    {
+      "icon": "refresh",
+      "title": {
+        "en": "Regenerate & Compare",
+        "es": "Regenerar y Comparar",
+        "fr": "Régénérer et Comparer",
+        "de": "Regenerieren & Vergleichen",
+        "pt": "Regenerar e Comparar"
+      },
+      "description": {
+        "en": "Not satisfied? Regenerate with one click or compare outputs from multiple AI providers.",
+        "es": "¿No estás satisfecho? Regenera con un clic o compara salidas de múltiples proveedores de IA.",
+        "fr": "Pas satisfait ? Régénérez d'un clic ou comparez les sorties de plusieurs fournisseurs IA.",
+        "de": "Nicht zufrieden? Regeneriere mit einem Klick oder vergleiche Ausgaben von mehreren KI-Anbietern.",
+        "pt": "Não ficou satisfeito? Regenere com um clique ou compare saídas de vários provedores de IA."
+      }
+    },
+    {
+      "icon": "shield",
+      "title": {
+        "en": "3 Credits Per Generation",
+        "es": "3 Créditos por Generación",
+        "fr": "3 Crédits par Génération",
+        "de": "3 Credits pro Generierung",
+        "pt": "3 Créditos por Geração"
+      },
+      "description": {
+        "en": "Pro plan: 500 credits/month. Business plan: 5,000 credits/month. Credits reset monthly.",
+        "es": "Plan Pro: 500 créditos/mes. Plan Business: 5.000 créditos/mes. Los créditos se reinician mensualmente.",
+        "fr": "Plan Pro : 500 crédits/mois. Plan Business : 5 000 crédits/mois. Les crédits se réinitialisent mensuellement.",
+        "de": "Pro-Plan: 500 Credits/Monat. Business-Plan: 5.000 Credits/Monat. Credits werden monatlich zurückgesetzt.",
+        "pt": "Plano Pro: 500 créditos/mês. Plano Business: 5.000 créditos/mês. Créditos redefinem mensalmente."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What is Screenshot to Jetpack Compose?",
+        "es": "¿Qué es Captura a Jetpack Compose?",
+        "fr": "Qu'est-ce que Capture vers Jetpack Compose ?",
+        "de": "Was ist Screenshot zu Jetpack Compose?",
+        "pt": "O que é Captura para Jetpack Compose?"
+      },
+      "answer": {
+        "en": "Screenshot to Jetpack Compose is an AI-powered tool that converts any UI screenshot into Jetpack Compose code. Upload a screenshot of a website, app, or design, and the AI generates clean, production-ready Jetpack Compose code.",
+        "es": "Captura a Jetpack Compose es una herramienta impulsada por IA que convierte cualquier captura de pantalla de UI en código Jetpack Compose. Sube una captura de un sitio web, aplicación o diseño, y la IA genera código Jetpack Compose limpio y listo para producción.",
+        "fr": "Capture vers Jetpack Compose est un outil alimenté par IA qui convertit n'importe quelle capture d'écran d'interface en code Jetpack Compose. Téléversez une capture d'un site web, d'une app ou d'un design, et l'IA génère du code Jetpack Compose propre et prêt pour la production.",
+        "de": "Screenshot zu Jetpack Compose ist ein KI-gestütztes Tool, das jeden UI-Screenshot in Jetpack Compose-Code konvertiert. Lade einen Screenshot einer Website, App oder eines Designs hoch, und die KI generiert sauberen, produktionsreifen Jetpack Compose-Code.",
+        "pt": "Captura para Jetpack Compose é uma ferramenta alimentada por IA que converte qualquer captura de tela de UI em código Jetpack Compose. Carregue uma captura de um site, aplicativo ou design, e a IA gera código Jetpack Compose limpo e pronto para produção."
+      }
+    },
+    {
+      "question": {
+        "en": "Does it require a premium plan?",
+        "es": "¿Requiere un plan premium?",
+        "fr": "Nécessite-t-il un plan premium ?",
+        "de": "Erfordert es einen Premium-Plan?",
+        "pt": "Requer um plano premium?"
+      },
+      "answer": {
+        "en": "Yes. Screenshot to Jetpack Compose requires a Pro or Business plan because it uses AI cloud computing. Pro plan includes 500 credits/month; Business plan includes 5,000 credits/month. Each generation costs 3 credits.",
+        "es": "Sí. Captura a Jetpack Compose requiere un plan Pro o Business porque usa computación en la nube con IA. El plan Pro incluye 500 créditos/mes; el plan Business incluye 5.000 créditos/mes. Cada generación cuesta 3 créditos.",
+        "fr": "Oui. Capture vers Jetpack Compose nécessite un plan Pro ou Business car il utilise le cloud computing IA. Le plan Pro inclut 500 crédits/mois ; le plan Business en inclut 5 000. Chaque génération coûte 3 crédits.",
+        "de": "Ja. Screenshot zu Jetpack Compose erfordert einen Pro- oder Business-Plan, da KI-Cloud-Computing genutzt wird. Pro-Plan: 500 Credits/Monat; Business-Plan: 5.000 Credits/Monat. Jede Generierung kostet 3 Credits.",
+        "pt": "Sim. Captura para Jetpack Compose requer um plano Pro ou Business porque usa computação em nuvem com IA. Plano Pro inclui 500 créditos/mês; Plano Business inclui 5.000 créditos/mês. Cada geração custa 3 créditos."
+      }
+    },
+    {
+      "question": {
+        "en": "Which AI model generates the code?",
+        "es": "¿Qué modelo de IA genera el código?",
+        "fr": "Quel modèle IA génère le code ?",
+        "de": "Welches KI-Modell generiert den Code?",
+        "pt": "Qual modelo de IA gera o código?"
+      },
+      "answer": {
+        "en": "DeepSeek V4 is the default model (excellent code quality at low cost). The system automatically falls back to OpenAI GPT-4o or Anthropic Claude if needed. You can also request a specific provider.",
+        "es": "DeepSeek V4 es el modelo predeterminado (excelente calidad de código a bajo costo). El sistema recae automáticamente en OpenAI GPT-4o o Anthropic Claude si es necesario. También puedes solicitar un proveedor específico.",
+        "fr": "DeepSeek V4 est le modèle par défaut (excellente qualité de code à faible coût). Le système bascule automatiquement vers OpenAI GPT-4o ou Anthropic Claude si nécessaire.",
+        "de": "DeepSeek V4 ist das Standardmodell (hervorragende Codequalität bei niedrigen Kosten). Das System fällt bei Bedarf automatisch auf OpenAI GPT-4o oder Anthropic Claude zurück.",
+        "pt": "DeepSeek V4 é o modelo padrão (excelente qualidade de código a baixo custo). O sistema retorna automaticamente para OpenAI GPT-4o ou Anthropic Claude se necessário."
+      }
+    },
+    {
+      "question": {
+        "en": "How accurate is the generated code?",
+        "es": "¿Qué tan preciso es el código generado?",
+        "fr": "Quelle est la précision du code généré ?",
+        "de": "Wie genau ist der generierte Code?",
+        "pt": "Quão preciso é o código gerado?"
+      },
+      "answer": {
+        "en": "For standard UI layouts, expect 80–95% accuracy. Complex animations, custom fonts, or highly detailed designs may need manual refinement. The generated Jetpack Compose code is always clean and production-ready as a starting point.",
+        "es": "Para diseños de UI estándar, espera 80–95% de precisión. Las animaciones complejas, fuentes personalizadas o diseños muy detallados pueden necesitar refinamiento manual. El código Jetpack Compose generado siempre es limpio y listo para producción como punto de partida.",
+        "fr": "Pour les mises en page UI standard, attendez-vous à 80–95% de précision. Les animations complexes, les polices personnalisées ou les designs très détaillés peuvent nécessiter un ajustement manuel.",
+        "de": "Für Standard-UI-Layouts erwarte 80–95% Genauigkeit. Komplexe Animationen, benutzerdefinierte Schriftarten oder sehr detaillierte Designs erfordern möglicherweise manuelle Nachbearbeitung.",
+        "pt": "Para layouts de UI padrão, espere 80–95% de precisão. Animações complexas, fontes personalizadas ou designs muito detalhados podem precisar de refinamento manual."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-html",
+    "screenshot-to-react",
+    "screenshot-to-tailwind",
+    "screenshot-to-html-css"
+  ],
+  "lastUpdated": "2026-06-29"
+}

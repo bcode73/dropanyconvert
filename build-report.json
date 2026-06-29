@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-06-28T00:54:44.390Z",
-  "elapsed_ms": 3762,
-  "tools": 82,
+  "timestamp": "2026-06-29T00:09:54.358Z",
+  "elapsed_ms": 7902,
+  "tools": 102,
   "languages": 5,
-  "routes": 1231,
-  "pages_generated": 1231,
+  "routes": 1336,
+  "pages_generated": 1336,
   "pages_by_type": {
-    "tool": 410,
-    "category": 15,
+    "tool": 510,
+    "category": 20,
     "home": 5,
     "legal": 20,
     "article": 55,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1851,
-  "output_size_kb": 119886,
+  "files_emitted": 2057,
+  "output_size_kb": 134352,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -70,17 +70,17 @@
   "build_dashboard": {
     "seo_score": "100%",
     "schema_coverage": "100%",
-    "pages_with_title": 1230,
-    "pages_with_description": 1230,
-    "pages_with_h1": 1225,
-    "pages_with_schema": 1230,
-    "pages_with_breadcrumbs": 1225,
+    "pages_with_title": 1335,
+    "pages_with_description": 1335,
+    "pages_with_h1": 1330,
+    "pages_with_schema": 1335,
+    "pages_with_breadcrumbs": 1330,
     "avg_title_length": 56,
-    "avg_description_length": 130,
+    "avg_description_length": 133,
     "duplicate_title_count": 770,
     "duplicate_desc_count": 608,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 108555,
+    "largest_page_bytes": 116529,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -93,13 +93,13 @@
     "most_linked_tool": "image-compressor",
     "most_linked_article": "what-is-pdf",
     "content_quality": {
-      "tool_pages_avg": "90/100",
+      "tool_pages_avg": "92/100",
       "article_pages_avg": "100/100",
-      "scored_tool_pages": 410,
+      "scored_tool_pages": 510,
       "scored_article_pages": 55
     },
     "freshness_stale": 0,
-    "freshness_new": 1,
+    "freshness_new": 0,
     "entity_index_size": 13,
     "largest_entity": "pdf"
   },
@@ -108,7 +108,7 @@
     "commercial": 80,
     "navigational": 0,
     "transactional": 250,
-    "unclassified": 815
+    "unclassified": 920
   },
   "programmatic_seo": {
     "intent_pages": 240,
@@ -120,9 +120,9 @@
     "total_modifiers": 48
   },
   "authority_graph": {
-    "total_nodes": 209,
+    "total_nodes": 229,
     "average_authority": 6,
-    "average_links_per_page": 4,
+    "average_links_per_page": 4.2,
     "top_authority_pages": [
       {
         "id": "tool:image-compressor",
@@ -202,10 +202,10 @@
         "authority": 0
       }
     ],
-    "largest_cluster": "developer",
-    "largest_cluster_size": 84,
+    "largest_cluster": "image",
+    "largest_cluster_size": 104,
     "weakest_cluster": "markdown",
-    "strongest_cluster": "developer",
+    "strongest_cluster": "image",
     "dead_ends": 14,
     "most_linked": "tool:png-to-jpg",
     "crawl_depth": {
@@ -213,13 +213,13 @@
       "max": 1,
       "deep_pages": 0,
       "distribution": {
-        "1": 82
+        "1": 102
       }
     },
     "semantic_clusters": {
       "png": {
-        "size": 66,
-        "avg_authority": 7,
+        "size": 86,
+        "avg_authority": 6,
         "types": [
           "tool",
           "article",
@@ -233,8 +233,8 @@
         ]
       },
       "jpg": {
-        "size": 50,
-        "avg_authority": 7,
+        "size": 70,
+        "avg_authority": 6,
         "types": [
           "tool",
           "article",
@@ -248,8 +248,8 @@
         ]
       },
       "webp": {
-        "size": 35,
-        "avg_authority": 10,
+        "size": 55,
+        "avg_authority": 7,
         "types": [
           "tool",
           "article",
@@ -277,7 +277,7 @@
         ]
       },
       "svg": {
-        "size": 12,
+        "size": 13,
         "avg_authority": 0,
         "types": [
           "tool",
@@ -290,8 +290,8 @@
         ]
       },
       "gif": {
-        "size": 11,
-        "avg_authority": 4,
+        "size": 31,
+        "avg_authority": 2,
         "types": [
           "tool",
           "entity",
@@ -315,7 +315,7 @@
         ]
       },
       "json": {
-        "size": 29,
+        "size": 30,
         "avg_authority": 6,
         "types": [
           "tool",
@@ -370,7 +370,7 @@
       },
       "compression": {
         "size": 37,
-        "avg_authority": 7,
+        "avg_authority": 8,
         "types": [
           "tool",
           "article",
@@ -407,8 +407,8 @@
         ]
       },
       "developer": {
-        "size": 84,
-        "avg_authority": 6,
+        "size": 86,
+        "avg_authority": 7,
         "types": [
           "tool",
           "article",
@@ -423,8 +423,8 @@
         ]
       },
       "image": {
-        "size": 84,
-        "avg_authority": 6,
+        "size": 104,
+        "avg_authority": 5,
         "types": [
           "tool",
           "article",
@@ -447,19 +447,19 @@
         ]
       }
     },
-    "link_validation_warnings": 24,
+    "link_validation_warnings": 27,
     "ai_readiness": {
-      "nodes_with_keywords": 141,
-      "avg_keywords": "6.3"
+      "nodes_with_keywords": 161,
+      "avg_keywords": "6.8"
     }
   },
   "content_quality": {
-    "pages_enriched": 82,
+    "pages_enriched": 102,
     "avg_faq_count": 14,
-    "avg_quality_score": 91,
-    "avg_word_count": 527,
-    "duplicate_pairs": 273,
-    "pairs_checked": 1284,
+    "avg_quality_score": 92,
+    "avg_word_count": 538,
+    "duplicate_pairs": 349,
+    "pairs_checked": 1474,
     "duplicate_warnings": [
       "[en/image] Intro similarity 94% between \"avif-to-png\" and \"gif-to-png\"",
       "[en/image] Conclusion similarity 92% between \"avif-to-png\" and \"gif-to-png\"",
@@ -491,28 +491,52 @@
   },
   "api_platform": {
     "openapi_version": "3.1.0",
-    "endpoints": 82,
+    "endpoints": 102,
     "topic_pages": 105,
-    "tool_api_pages": 410,
+    "tool_api_pages": 510,
     "sdk_pages": 35,
-    "total_pages": 550,
+    "total_pages": 650,
     "sdks": 7,
     "languages": 5,
     "validator_warnings": 0,
     "validator_stats": {
-      "operationIds": 86,
+      "operationIds": 106,
       "expectedPages": null,
-      "actualPages": 550,
+      "actualPages": 650,
       "warnings": 0,
       "errors": 0,
-      "toolsCovered": 82,
+      "toolsCovered": 102,
       "schemasValid": true
     }
   },
+  "ai_platform": {
+    "category": "ai-development",
+    "tools": 20,
+    "frameworks": 20,
+    "providers": [
+      "deepseek",
+      "openai",
+      "anthropic",
+      "gemini",
+      "openrouter",
+      "ollama"
+    ],
+    "default_provider": "deepseek",
+    "routing_strategy": "cost-aware + latency-aware + health-check + fallback",
+    "requires_premium": true,
+    "engine": "screenshot_ai_engine",
+    "engine_status": "architecture",
+    "credit_tiers": {
+      "free": 0,
+      "pro": 500,
+      "business": 5000
+    },
+    "ai_tool_routes": 100
+  },
   "documentation": {
-    "architecture_version": "27.0.0",
-    "generator_version": "27.0.0",
-    "generator_frozen": true,
+    "architecture_version": "28.0.0",
+    "generator_version": "28.0.0",
+    "generator_frozen": false,
     "frozen_at_phase": 27,
     "docs_completeness": {
       "ARCHITECTURE_md": true,
@@ -531,14 +555,14 @@
     "validation_score": 17,
     "technical_debt": 15,
     "generator_modules": 31,
-    "generator_js_loc": 13635,
-    "asset_js_loc": 2302,
+    "generator_js_loc": 13828,
+    "asset_js_loc": 2772,
     "asset_css_loc": 2745,
-    "data_json_files": 157,
-    "data_json_loc": 18524,
+    "data_json_files": 177,
+    "data_json_loc": 23111,
     "largest_module": "page-generator.js",
     "smallest_module": "robots.js",
-    "avg_module_lines": 440,
+    "avg_module_lines": 446,
     "duplicate_routes": 0,
     "audit_warnings": 1,
     "performance": {
@@ -551,28 +575,28 @@
         "path": "openapi.json",
         "sizeKb": 612
       },
-      "estimated_memory_mb": 93,
-      "total_files_emitted": 1851,
-      "total_size_kb": 119886,
-      "pages_generated": 1821
+      "estimated_memory_mb": 103,
+      "total_files_emitted": 2057,
+      "total_size_kb": 134352,
+      "pages_generated": 2026
     }
   },
   "dataset": {
     "formats": 17,
-    "conversion_pairs": 50,
-    "capability_tools": 82,
+    "conversion_pairs": 77,
+    "capability_tools": 102,
     "comparison_pairs": 34,
     "recommendation_rules": 12,
-    "search_items": 140,
+    "search_items": 160,
     "knowledge_nodes": 17,
-    "knowledge_relationships": 301,
+    "knowledge_relationships": 439,
     "files_emitted": 8,
-    "total_bytes": 246185,
+    "total_bytes": 303624,
     "validator_warnings": 5,
     "validator_stats": {
       "formats_validated": 17,
-      "conversion_pairs": 50,
-      "capability_tools": 82,
+      "conversion_pairs": 77,
+      "capability_tools": 102,
       "duplicate_mimes": 0,
       "invalid_pairs": 5,
       "malformed_pairs": 0,
@@ -581,32 +605,32 @@
     }
   },
   "seo_sweep": {
-    "total_internal_links": 71200,
-    "avg_outgoing_links": 39,
-    "anchor_diversity_score": 85,
-    "metadata_quality_score": 58,
+    "total_internal_links": 83370,
+    "avg_outgoing_links": 41,
+    "anchor_diversity_score": 83,
+    "metadata_quality_score": 56,
     "crawl_optimization_score": 100,
     "image_seo_score": 92,
-    "broken_link_warnings": 85,
+    "broken_link_warnings": 285,
     "link_health_score": 100,
     "pages_with_prev_next": 55,
     "canonical_issues": 0,
     "metadata_warnings": 81,
     "metadata_stats": {
-      "pages_checked": 1230,
-      "title_ok": 609,
-      "desc_ok": 823,
-      "og_ok": 1199,
-      "twitter_ok": 1002,
+      "pages_checked": 1335,
+      "title_ok": 631,
+      "desc_ok": 853,
+      "og_ok": 1286,
+      "twitter_ok": 1076,
       "missing_og_image": 0,
       "missing_canonical": 0,
-      "metadata_score": 58
+      "metadata_score": 56
     },
     "link_health_stats": {
-      "pages_checked": 1821,
-      "total_links": 116461,
-      "broken_links": 85,
-      "empty_hrefs": 2515,
+      "pages_checked": 2026,
+      "total_links": 132266,
+      "broken_links": 285,
+      "empty_hrefs": 2725,
       "duplicate_ids": 0,
       "health_score": 100
     },
@@ -665,22 +689,22 @@
       "INDEXING: possible orphan page (no linker path) — /en/gif-to-webp",
       "INDEXING: possible orphan page (no linker path) — /en/jwt-inspector",
       "INDEXING: possible orphan page (no linker path) — /en/regex-tester",
+      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-component-tree",
+      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-css-grid",
+      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-email",
+      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-svg",
+      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-wireframe",
       "INDEXING: possible orphan page (no linker path) — /en/unix-timestamp",
-      "INDEXING: possible orphan page (no linker path) — /en/compare/markdown-vs-html",
-      "INDEXING: possible orphan page (no linker path) — /en/trust",
-      "INDEXING: possible orphan page (no linker path) — /en/editorial/editorial-process",
-      "INDEXING: possible orphan page (no linker path) — /en/editorial/accuracy-policy",
-      "INDEXING: possible orphan page (no linker path) — /en/editorial/content-standards",
-      "INDEXING: 39 more possible orphan pages (suppressed)"
+      "INDEXING: 44 more possible orphan pages (suppressed)"
     ],
     "warning_count": 11,
     "stats": {
-      "sitemap_urls": 1230,
+      "sitemap_urls": 1335,
       "canonical_mismatches": 0,
       "sitemap_without_canonical": 0,
-      "orphan_pages_en": 49,
+      "orphan_pages_en": 54,
       "orphan_by_type": {
-        "tool": 5,
+        "tool": 10,
         "comparison": 1,
         "trust": 1,
         "editorial": 7,
@@ -705,9 +729,9 @@
     ]
   },
   "performance_audit": {
-    "js_size_kb": 59,
+    "js_size_kb": 70,
     "css_size_kb": 59,
-    "html_size_kb": 119886,
+    "html_size_kb": 134352,
     "optimizations": [
       "html-minified",
       "json-ld-minified",
@@ -722,7 +746,7 @@
       "passive-scroll-listeners",
       "immutable-cache-headers"
     ],
-    "estimated_lighthouse": "88–94",
+    "estimated_lighthouse": "75–87",
     "estimated_lcp": "< 1.8s",
     "estimated_inp": "< 100ms",
     "estimated_tbt": "< 50ms",
@@ -1157,6 +1181,146 @@
       "category": "pdf",
       "runtime": "browser",
       "primaryKeyword": "rotate pdf"
+    },
+    {
+      "id": "screenshot-to-alpine",
+      "slug": "screenshot-to-alpine",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to alpine.js converter"
+    },
+    {
+      "id": "screenshot-to-angular",
+      "slug": "screenshot-to-angular",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to angular"
+    },
+    {
+      "id": "screenshot-to-blazor",
+      "slug": "screenshot-to-blazor",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to blazor converter"
+    },
+    {
+      "id": "screenshot-to-bootstrap",
+      "slug": "screenshot-to-bootstrap",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to bootstrap"
+    },
+    {
+      "id": "screenshot-to-component-tree",
+      "slug": "screenshot-to-component-tree",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to component tree converter"
+    },
+    {
+      "id": "screenshot-to-css-grid",
+      "slug": "screenshot-to-css-grid",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to css grid converter"
+    },
+    {
+      "id": "screenshot-to-email",
+      "slug": "screenshot-to-email",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to email template converter"
+    },
+    {
+      "id": "screenshot-to-flutter",
+      "slug": "screenshot-to-flutter",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to flutter"
+    },
+    {
+      "id": "screenshot-to-html-css",
+      "slug": "screenshot-to-html-css",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to html css"
+    },
+    {
+      "id": "screenshot-to-html",
+      "slug": "screenshot-to-html",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to html"
+    },
+    {
+      "id": "screenshot-to-jetpack-compose",
+      "slug": "screenshot-to-jetpack-compose",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to jetpack compose converter"
+    },
+    {
+      "id": "screenshot-to-nextjs",
+      "slug": "screenshot-to-nextjs",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to nextjs"
+    },
+    {
+      "id": "screenshot-to-react-native",
+      "slug": "screenshot-to-react-native",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to react native converter"
+    },
+    {
+      "id": "screenshot-to-react",
+      "slug": "screenshot-to-react",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to react"
+    },
+    {
+      "id": "screenshot-to-svelte",
+      "slug": "screenshot-to-svelte",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to svelte converter"
+    },
+    {
+      "id": "screenshot-to-svg",
+      "slug": "screenshot-to-svg",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to svg layout converter"
+    },
+    {
+      "id": "screenshot-to-swiftui",
+      "slug": "screenshot-to-swiftui",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to swiftui"
+    },
+    {
+      "id": "screenshot-to-tailwind",
+      "slug": "screenshot-to-tailwind",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to tailwind css"
+    },
+    {
+      "id": "screenshot-to-vue",
+      "slug": "screenshot-to-vue",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to vue"
+    },
+    {
+      "id": "screenshot-to-wireframe",
+      "slug": "screenshot-to-wireframe",
+      "category": "ai-development",
+      "runtime": "cloud",
+      "primaryKeyword": "screenshot to wireframe converter"
     },
     {
       "id": "sha1-generator",

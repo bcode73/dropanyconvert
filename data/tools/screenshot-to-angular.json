@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-angular",
+  "slug": "screenshot-to-angular",
+  "name": {
+    "en": "Screenshot to Angular",
+    "es": "Captura de pantalla a Angular",
+    "fr": "Capture d'écran en Angular",
+    "de": "Screenshot zu Angular",
+    "pt": "Captura de tela para Angular"
+  },
+  "tagline": {
+    "en": "Generate Angular components from screenshots using AI.",
+    "es": "Genera componentes Angular a partir de capturas de pantalla usando IA.",
+    "fr": "Générez des composants Angular à partir de captures d'écran grâce à l'IA.",
+    "de": "Generiere Angular-Komponenten aus Screenshots mit KI.",
+    "pt": "Gere componentes Angular a partir de capturas de tela usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateAngular",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "ts",
+      "mime": "text/typescript",
+      "label": "Angular Component",
+      "default": true
+    }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": ["screenshot-upload","drag-and-drop","clipboard-paste","preview","stream-output","copy-code","download-code","regenerate","premium-required"],
+  "seo": {
+    "primaryKeyword": "screenshot to angular",
+    "secondaryKeywords": ["convert screenshot to angular component","ai image to angular","screenshot to angular typescript","angular component generator from image"],
+    "title": {
+      "en": "Screenshot to Angular — AI Component Generator",
+      "es": "Captura de pantalla a Angular — Generador de componentes IA",
+      "fr": "Capture d'écran en Angular — Générateur de composants IA",
+      "de": "Screenshot zu Angular — KI-Komponenten-Generator",
+      "pt": "Captura de tela para Angular — Gerador de componentes IA"
+    },
+    "description": {
+      "en": "Convert screenshots to Angular components using AI. Get TypeScript class components with proper decorators, templates, and Angular Material integration from any UI screenshot.",
+      "es": "Convierte capturas de pantalla a componentes Angular usando IA. Obtén componentes de clase TypeScript con decoradores adecuados, plantillas e integración de Angular Material de cualquier captura de pantalla.",
+      "fr": "Convertissez des captures d'écran en composants Angular grâce à l'IA. Obtenez des composants de classe TypeScript avec les bons décorateurs, des templates et une intégration Angular Material à partir de n'importe quelle capture d'écran.",
+      "de": "Screenshots mit KI in Angular-Komponenten konvertieren. Erhalte TypeScript-Klassenkomponenten mit korrekten Decoratoren, Templates und Angular Material-Integration aus jedem UI-Screenshot.",
+      "pt": "Converta capturas de tela em componentes Angular usando IA. Obtenha componentes de classe TypeScript com decoradores adequados, templates e integração com Angular Material a partir de qualquer captura de tela de interface."
+    },
+    "h1": {
+      "en": "Convert Screenshot to Angular with AI",
+      "es": "Convierte capturas de pantalla a Angular con IA",
+      "fr": "Convertir une capture d'écran en Angular avec l'IA",
+      "de": "Screenshot mit KI in Angular konvertieren",
+      "pt": "Converter captura de tela para Angular com IA"
+    },
+    "intro": {
+      "en": "Upload a UI screenshot and get a complete Angular component with TypeScript class, @Component decorator, HTML template, and component CSS. Our AI generates idiomatic Angular code with proper dependency injection patterns and Angular Material components where applicable.",
+      "es": "Sube una captura de pantalla de interfaz y obtén un componente Angular completo con clase TypeScript, decorador @Component, plantilla HTML y CSS del componente. Nuestra IA genera código Angular idiomático con patrones de inyección de dependencias adecuados y componentes de Angular Material donde corresponda.",
+      "fr": "Téléchargez une capture d'écran d'interface et obtenez un composant Angular complet avec une classe TypeScript, un décorateur @Component, un template HTML et du CSS du composant. Notre IA génère du code Angular idiomatique avec des modèles d'injection de dépendances appropriés et des composants Angular Material le cas échéant.",
+      "de": "Lade einen UI-Screenshot hoch und erhalte eine vollständige Angular-Komponente mit TypeScript-Klasse, @Component-Decorator, HTML-Template und Komponenten-CSS. Unsere KI generiert idiomatischen Angular-Code mit korrekten Dependency-Injection-Mustern und Angular Material-Komponenten wo anwendbar.",
+      "pt": "Envie uma captura de tela de interface e obtenha um componente Angular completo com classe TypeScript, decorador @Component, template HTML e CSS do componente. Nossa IA gera código Angular idiomático com padrões adequados de injeção de dependência e componentes Angular Material onde aplicável."
+    }
+  },
+  "features": [
+    {
+      "icon": "code",
+      "title": {"en": "Angular Component Structure","es": "Estructura de componente Angular","fr": "Structure de composant Angular","de": "Angular-Komponentenstruktur","pt": "Estrutura de componente Angular"},
+      "description": {"en": "Generates proper @Component, @Input, @Output decorators with TypeScript class syntax and Angular change detection strategies.","es": "Genera decoradores @Component, @Input, @Output adecuados con sintaxis de clase TypeScript y estrategias de detección de cambios de Angular.","fr": "Génère les décorateurs @Component, @Input, @Output appropriés avec la syntaxe de classe TypeScript et les stratégies de détection des changements Angular.","de": "Generiert korrekte @Component-, @Input-, @Output-Dekoratoren mit TypeScript-Klassensyntax und Angular Change Detection Strategien.","pt": "Gera decoradores @Component, @Input, @Output adequados com sintaxe de classe TypeScript e estratégias de detecção de mudanças do Angular."}
+    },
+    {
+      "icon": "layers",
+      "title": {"en": "Angular Material Integration","es": "Integración con Angular Material","fr": "Intégration Angular Material","de": "Angular Material-Integration","pt": "Integração com Angular Material"},
+      "description": {"en": "Recognized UI patterns are mapped to Angular Material components (mat-button, mat-card, mat-input) for enterprise-ready output.","es": "Los patrones de interfaz reconocidos se mapean a componentes de Angular Material (mat-button, mat-card, mat-input) para una salida lista para empresas.","fr": "Les modèles d'interface reconnus sont associés aux composants Angular Material (mat-button, mat-card, mat-input) pour une sortie prête pour l'entreprise.","de": "Erkannte UI-Muster werden Angular Material-Komponenten (mat-button, mat-card, mat-input) für unternehmenstaugliche Ausgabe zugeordnet.","pt": "Padrões de UI reconhecidos são mapeados para componentes Angular Material (mat-button, mat-card, mat-input) para saída pronta para enterprise."}
+    },
+    {
+      "icon": "cpu",
+      "title": {"en": "Standalone Components","es": "Componentes independientes","fr": "Composants standalone","de": "Standalone-Komponenten","pt": "Componentes standalone"},
+      "description": {"en": "Generated components use Angular 15+ standalone component pattern with explicit imports — no NgModule required.","es": "Los componentes generados usan el patrón de componente standalone de Angular 15+ con importaciones explícitas, sin necesidad de NgModule.","fr": "Les composants générés utilisent le modèle de composant standalone Angular 15+ avec des importations explicites — pas de NgModule requis.","de": "Generierte Komponenten verwenden das Angular 15+ Standalone-Komponentenmuster mit expliziten Imports — kein NgModule erforderlich.","pt": "Componentes gerados usam o padrão de componente standalone do Angular 15+ com importações explícitas — sem NgModule necessário."}
+    },
+    {
+      "icon": "cloud",
+      "title": {"en": "Signals Ready","es": "Listo para Signals","fr": "Prêt pour Signals","de": "Signals-bereit","pt": "Pronto para Signals"},
+      "description": {"en": "Optionally generate Angular 17+ Signals-based reactive state with signal(), computed(), and effect() for modern Angular development.","es": "Genera opcionalmente estado reactivo basado en Signals de Angular 17+ con signal(), computed() y effect() para el desarrollo moderno de Angular.","fr": "Générez optionnellement un état réactif basé sur les Signals Angular 17+ avec signal(), computed() et effect() pour le développement Angular moderne.","de": "Generiere optional Angular 17+ Signals-basierten reaktiven State mit signal(), computed() und effect() für moderne Angular-Entwicklung.","pt": "Opcionalmente, gere estado reativo baseado em Signals do Angular 17+ com signal(), computed() e effect() para desenvolvimento Angular moderno."}
+    }
+  ],
+  "faq": [
+    {
+      "question": {"en": "Does the output use NgModules or standalone components?","es": "¿La salida usa NgModules o componentes independientes?","fr": "La sortie utilise-t-elle des NgModules ou des composants standalone ?","de": "Verwendet der Output NgModules oder Standalone-Komponenten?","pt": "A saída usa NgModules ou componentes standalone?"},
+      "answer": {"en": "By default, the tool generates Angular 15+ standalone components with standalone: true and explicit imports in the @Component decorator. This is the recommended modern Angular pattern. If your project uses NgModules (Angular 14 and below), you can remove the standalone flag and add the component to the appropriate NgModule.","es": "De forma predeterminada, la herramienta genera componentes standalone de Angular 15+ con standalone: true e importaciones explícitas en el decorador @Component. Este es el patrón Angular moderno recomendado. Si tu proyecto usa NgModules (Angular 14 e inferior), puedes eliminar el indicador standalone y agregar el componente al NgModule apropiado.","fr": "Par défaut, l'outil génère des composants standalone Angular 15+ avec standalone: true et des importations explicites dans le décorateur @Component. Il s'agit du modèle Angular moderne recommandé. Si votre projet utilise des NgModules (Angular 14 et inférieur), vous pouvez supprimer l'indicateur standalone et ajouter le composant au NgModule approprié.","de": "Standardmäßig generiert das Tool Angular 15+ Standalone-Komponenten mit standalone: true und expliziten Imports im @Component-Decorator. Dies ist das empfohlene moderne Angular-Muster. Wenn dein Projekt NgModules (Angular 14 und darunter) verwendet, kannst du das Standalone-Flag entfernen und die Komponente zum entsprechenden NgModule hinzufügen.","pt": "Por padrão, a ferramenta gera componentes standalone do Angular 15+ com standalone: true e importações explícitas no decorador @Component. Este é o padrão Angular moderno recomendado. Se seu projeto usa NgModules (Angular 14 e abaixo), você pode remover o sinalizador standalone e adicionar o componente ao NgModule apropriado."}
+    },
+    {
+      "question": {"en": "Are RxJS Observables used in the generated code?","es": "¿Se usan Observables de RxJS en el código generado?","fr": "Les Observables RxJS sont-ils utilisés dans le code généré ?","de": "Werden RxJS Observables im generierten Code verwendet?","pt": "Observables RxJS são usados no código gerado?"},
+      "answer": {"en": "For simple UI components, the generated code uses Signals or basic TypeScript. RxJS Observables (Observable, Subject, BehaviorSubject) are scaffolded for components where the screenshot shows data streams — such as search inputs with debounce, real-time update panels, or async data displays.","es": "Para componentes de interfaz simples, el código generado usa Signals o TypeScript básico. Los Observables de RxJS (Observable, Subject, BehaviorSubject) se generan para componentes donde la captura de pantalla muestra flujos de datos, como entradas de búsqueda con debounce, paneles de actualización en tiempo real o visualizaciones de datos asíncronos.","fr": "Pour les composants d'interface simples, le code généré utilise des Signals ou du TypeScript de base. Les Observables RxJS (Observable, Subject, BehaviorSubject) sont générés pour les composants où la capture d'écran montre des flux de données — tels que les entrées de recherche avec debounce, les panneaux de mise à jour en temps réel ou les affichages de données asynchrones.","de": "Für einfache UI-Komponenten verwendet der generierte Code Signals oder grundlegendes TypeScript. RxJS Observables (Observable, Subject, BehaviorSubject) werden für Komponenten gerüstet, wo der Screenshot Datenströme zeigt — z.B. Sucheingaben mit Debounce, Echtzeit-Update-Panels oder Async-Datenanzeigen.","pt": "Para componentes de UI simples, o código gerado usa Signals ou TypeScript básico. Observables RxJS (Observable, Subject, BehaviorSubject) são gerados para componentes onde a captura de tela mostra fluxos de dados — como entradas de pesquisa com debounce, painéis de atualização em tempo real ou exibições de dados assíncronos."}
+    },
+    {
+      "question": {"en": "Can the AI generate Angular reactive forms?","es": "¿Puede la IA generar formularios reactivos de Angular?","fr": "L'IA peut-elle générer des formulaires réactifs Angular ?","de": "Kann die KI Angular Reactive Forms generieren?","pt": "A IA pode gerar formulários reativos do Angular?"},
+      "answer": {"en": "Yes. When the AI detects form fields, inputs, checkboxes, or dropdowns in your screenshot, it generates Angular Reactive Forms code using FormBuilder, FormGroup, and FormControl. Template-driven forms can also be generated by selecting that option before generation.","es": "Sí. Cuando la IA detecta campos de formulario, entradas, casillas de verificación o menús desplegables en tu captura de pantalla, genera código de formularios reactivos de Angular usando FormBuilder, FormGroup y FormControl. Los formularios impulsados por plantillas también se pueden generar seleccionando esa opción antes de la generación.","fr": "Oui. Lorsque l'IA détecte des champs de formulaire, des entrées, des cases à cocher ou des listes déroulantes dans votre capture d'écran, elle génère du code Angular Reactive Forms en utilisant FormBuilder, FormGroup et FormControl. Les formulaires pilotés par des templates peuvent également être générés en sélectionnant cette option avant la génération.","de": "Ja. Wenn die KI Formularfelder, Inputs, Checkboxen oder Dropdowns in deinem Screenshot erkennt, generiert sie Angular Reactive Forms-Code mit FormBuilder, FormGroup und FormControl. Template-gesteuerte Formulare können auch durch Auswahl dieser Option vor der Generierung generiert werden.","pt": "Sim. Quando a IA detecta campos de formulário, entradas, caixas de seleção ou menus suspensos na sua captura de tela, ela gera código Angular Reactive Forms usando FormBuilder, FormGroup e FormControl. Formulários dirigidos por template também podem ser gerados selecionando essa opção antes da geração."}
+    },
+    {
+      "question": {"en": "How does Angular output differ from React and Vue?","es": "¿En qué se diferencia la salida de Angular de React y Vue?","fr": "En quoi la sortie Angular diffère-t-elle de React et Vue ?","de": "Wie unterscheidet sich Angular-Output von React und Vue?","pt": "Como a saída do Angular difere do React e Vue?"},
+      "answer": {"en": "Angular components come as a set of files — a TypeScript class file (.ts), an HTML template (.html), and a CSS file (.component.css). The tool packages these as a downloadable ZIP. Unlike React (single .jsx file) or Vue (single .vue SFC), Angular separates concerns across multiple files, reflecting its enterprise-oriented, opinionated architecture.","es": "Los componentes de Angular vienen como un conjunto de archivos: un archivo de clase TypeScript (.ts), una plantilla HTML (.html) y un archivo CSS (.component.css). La herramienta empaqueta estos como un ZIP descargable. A diferencia de React (único archivo .jsx) o Vue (único SFC .vue), Angular separa las preocupaciones en múltiples archivos, reflejando su arquitectura empresarial y opinionada.","fr": "Les composants Angular se présentent sous forme d'un ensemble de fichiers — un fichier de classe TypeScript (.ts), un template HTML (.html) et un fichier CSS (.component.css). L'outil les conditionne en ZIP téléchargeable. Contrairement à React (fichier .jsx unique) ou Vue (SFC .vue unique), Angular sépare les préoccupations sur plusieurs fichiers, reflétant son architecture orientée entreprise et opinionée.","de": "Angular-Komponenten bestehen aus mehreren Dateien — einer TypeScript-Klassendatei (.ts), einem HTML-Template (.html) und einer CSS-Datei (.component.css). Das Tool verpackt diese als herunterladbares ZIP. Anders als React (einzelne .jsx-Datei) oder Vue (einzelne .vue SFC) trennt Angular Belange über mehrere Dateien, was seine unternehmensorientierte, opinionierte Architektur widerspiegelt.","pt": "Componentes Angular vêm como um conjunto de arquivos — um arquivo de classe TypeScript (.ts), um template HTML (.html) e um arquivo CSS (.component.css). A ferramenta empacota esses como um ZIP para download. Ao contrário do React (arquivo .jsx único) ou Vue (SFC .vue único), o Angular separa as preocupações em múltiplos arquivos, refletindo sua arquitetura orientada a enterprise e opinada."}
+    }
+  ],
+  "relatedTools": ["screenshot-to-react","screenshot-to-vue","screenshot-to-svelte","screenshot-to-nextjs","screenshot-to-html-css","html-beautifier","css-beautifier"]
+}

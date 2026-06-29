@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-tailwind",
+  "slug": "screenshot-to-tailwind",
+  "name": {
+    "en": "Screenshot to Tailwind CSS",
+    "es": "Captura de pantalla a Tailwind CSS",
+    "fr": "Capture d'écran en Tailwind CSS",
+    "de": "Screenshot zu Tailwind CSS",
+    "pt": "Captura de tela para Tailwind CSS"
+  },
+  "tagline": {
+    "en": "Generate Tailwind CSS utility classes from any screenshot using AI.",
+    "es": "Genera clases de utilidad Tailwind CSS a partir de cualquier captura de pantalla usando IA.",
+    "fr": "Générez des classes utilitaires Tailwind CSS à partir de n'importe quelle capture d'écran grâce à l'IA.",
+    "de": "Generiere Tailwind CSS Utility-Klassen aus jedem Screenshot mit KI.",
+    "pt": "Gere classes utilitárias Tailwind CSS a partir de qualquer captura de tela usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateTailwind",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "html",
+      "mime": "text/html",
+      "label": "Tailwind HTML",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to tailwind css",
+    "secondaryKeywords": [
+      "convert screenshot to tailwind",
+      "ai image to tailwind classes",
+      "screenshot to tailwind html",
+      "tailwind css code generator from image"
+    ],
+    "title": {
+      "en": "Screenshot to Tailwind CSS — AI Code Generator",
+      "es": "Captura de pantalla a Tailwind CSS — Generador de código IA",
+      "fr": "Capture d'écran en Tailwind CSS — Générateur de code IA",
+      "de": "Screenshot zu Tailwind CSS — KI-Code-Generator",
+      "pt": "Captura de tela para Tailwind CSS — Gerador de código IA"
+    },
+    "description": {
+      "en": "Convert screenshots to Tailwind CSS utility classes with AI. Get responsive, mobile-first Tailwind HTML from any UI image or design mockup.",
+      "es": "Convierte capturas de pantalla a clases de utilidad Tailwind CSS con IA. Obtén HTML Tailwind responsivo y mobile-first a partir de cualquier imagen de interfaz o maqueta de diseño.",
+      "fr": "Convertissez des captures d'écran en classes utilitaires Tailwind CSS avec l'IA. Obtenez du HTML Tailwind responsive et mobile-first à partir de n'importe quelle image d'interface ou maquette de design.",
+      "de": "Screenshots mit KI in Tailwind CSS Utility-Klassen konvertieren. Erhalte responsives, mobile-first Tailwind HTML aus jedem UI-Bild oder Design-Mockup.",
+      "pt": "Converta capturas de tela em classes utilitárias Tailwind CSS com IA. Obtenha HTML Tailwind responsivo e mobile-first a partir de qualquer imagem de interface ou mockup de design."
+    },
+    "h1": {
+      "en": "Convert Screenshot to Tailwind CSS with AI",
+      "es": "Convierte capturas de pantalla a Tailwind CSS con IA",
+      "fr": "Convertir une capture d'écran en Tailwind CSS avec l'IA",
+      "de": "Screenshot mit KI in Tailwind CSS konvertieren",
+      "pt": "Converter captura de tela para Tailwind CSS com IA"
+    },
+    "intro": {
+      "en": "Upload a screenshot and our AI generates clean HTML using Tailwind CSS utility classes. Get responsive, mobile-first markup with proper flex, grid, spacing, and color classes — ready to drop into your Tailwind project immediately.",
+      "es": "Sube una captura de pantalla y nuestra IA genera HTML limpio usando clases de utilidad Tailwind CSS. Obtén marcado responsivo y mobile-first con clases apropiadas de flex, grid, espaciado y colores, listo para insertar en tu proyecto Tailwind de inmediato.",
+      "fr": "Téléchargez une capture d'écran et notre IA génère du HTML propre en utilisant des classes utilitaires Tailwind CSS. Obtenez un balisage responsive et mobile-first avec des classes flex, grid, espacement et couleur appropriées — prêt à être intégré immédiatement dans votre projet Tailwind.",
+      "de": "Lade einen Screenshot hoch und unsere KI generiert sauberes HTML mit Tailwind CSS Utility-Klassen. Erhalte responsives, mobile-first Markup mit geeigneten Flex-, Grid-, Abstands- und Farbklassen — sofort bereit für dein Tailwind-Projekt.",
+      "pt": "Envie uma captura de tela e nossa IA gera HTML limpo usando classes utilitárias Tailwind CSS. Obtenha marcação responsiva e mobile-first com classes adequadas de flex, grid, espaçamento e cores — pronto para inserir imediatamente em seu projeto Tailwind."
+    }
+  },
+  "features": [
+    {
+      "icon": "wind",
+      "title": {
+        "en": "Tailwind-Native Classes",
+        "es": "Clases nativas de Tailwind",
+        "fr": "Classes natives Tailwind",
+        "de": "Tailwind-native Klassen",
+        "pt": "Classes nativas do Tailwind"
+      },
+      "description": {
+        "en": "AI maps visual properties directly to Tailwind's design system — using correct spacing scale, color palette, and typography utilities.",
+        "es": "La IA mapea propiedades visuales directamente al sistema de diseño de Tailwind, usando la escala de espaciado correcta, la paleta de colores y las utilidades de tipografía.",
+        "fr": "L'IA mappe les propriétés visuelles directement vers le système de design Tailwind — en utilisant la bonne échelle d'espacement, la palette de couleurs et les utilitaires typographiques.",
+        "de": "KI ordnet visuelle Eigenschaften direkt Tailwinds Design-System zu — mit korrekter Abstandsskala, Farbpalette und Typografie-Utilities.",
+        "pt": "A IA mapeia propriedades visuais diretamente para o sistema de design do Tailwind — usando a escala de espaçamento correta, paleta de cores e utilitários de tipografia."
+      }
+    },
+    {
+      "icon": "smartphone",
+      "title": {
+        "en": "Responsive Breakpoints",
+        "es": "Puntos de quiebre responsivos",
+        "fr": "Points d'arrêt responsifs",
+        "de": "Responsive Breakpoints",
+        "pt": "Breakpoints responsivos"
+      },
+      "description": {
+        "en": "Generated code includes Tailwind's responsive prefixes (sm:, md:, lg:) ensuring your layout adapts correctly across screen sizes.",
+        "es": "El código generado incluye los prefijos responsivos de Tailwind (sm:, md:, lg:) asegurando que tu diseño se adapte correctamente en diferentes tamaños de pantalla.",
+        "fr": "Le code généré inclut les préfixes responsive de Tailwind (sm:, md:, lg:) assurant que votre mise en page s'adapte correctement aux différentes tailles d'écran.",
+        "de": "Generierter Code enthält Tailwinds responsive Präfixe (sm:, md:, lg:), um sicherzustellen, dass sich dein Layout korrekt an verschiedene Bildschirmgrößen anpasst.",
+        "pt": "O código gerado inclui os prefixos responsivos do Tailwind (sm:, md:, lg:) garantindo que seu layout se adapte corretamente em diferentes tamanhos de tela."
+      }
+    },
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "AI-Powered Accuracy",
+        "es": "Precisión impulsada por IA",
+        "fr": "Précision propulsée par IA",
+        "de": "KI-gestützte Genauigkeit",
+        "pt": "Precisão impulsionada por IA"
+      },
+      "description": {
+        "en": "Advanced vision AI reads spacing, alignment, colors, and shadows from your screenshot and translates them into precise Tailwind utilities.",
+        "es": "La IA de visión avanzada lee el espaciado, la alineación, los colores y las sombras de tu captura de pantalla y los traduce en utilidades precisas de Tailwind.",
+        "fr": "L'IA de vision avancée lit l'espacement, l'alignement, les couleurs et les ombres de votre capture d'écran et les traduit en utilitaires Tailwind précis.",
+        "de": "Fortschrittliche Vision-KI liest Abstände, Ausrichtung, Farben und Schatten aus deinem Screenshot und übersetzt sie in präzise Tailwind-Utilities.",
+        "pt": "IA de visão avançada lê espaçamento, alinhamento, cores e sombras da sua captura de tela e os traduz em utilitários Tailwind precisos."
+      }
+    },
+    {
+      "icon": "zap",
+      "title": {
+        "en": "Ready for Tailwind v3 & v4",
+        "es": "Listo para Tailwind v3 y v4",
+        "fr": "Prêt pour Tailwind v3 et v4",
+        "de": "Bereit für Tailwind v3 & v4",
+        "pt": "Pronto para Tailwind v3 e v4"
+      },
+      "description": {
+        "en": "Output is compatible with both Tailwind CSS v3 and v4, using stable utility classes that work across project versions.",
+        "es": "La salida es compatible con Tailwind CSS v3 y v4, usando clases de utilidad estables que funcionan en diferentes versiones del proyecto.",
+        "fr": "La sortie est compatible avec Tailwind CSS v3 et v4, en utilisant des classes utilitaires stables qui fonctionnent selon les versions du projet.",
+        "de": "Die Ausgabe ist kompatibel mit Tailwind CSS v3 und v4 und verwendet stabile Utility-Klassen, die projektversionsübergreifend funktionieren.",
+        "pt": "A saída é compatível com Tailwind CSS v3 e v4, usando classes utilitárias estáveis que funcionam em versões do projeto."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Do I need Tailwind CSS installed in my project?",
+        "es": "¿Necesito tener Tailwind CSS instalado en mi proyecto?",
+        "fr": "Dois-je avoir Tailwind CSS installé dans mon projet ?",
+        "de": "Muss Tailwind CSS in meinem Projekt installiert sein?",
+        "pt": "Preciso ter o Tailwind CSS instalado no meu projeto?"
+      },
+      "answer": {
+        "en": "Yes — the generated HTML uses Tailwind utility classes that require the Tailwind CSS framework to render correctly. You can include Tailwind via CDN for quick testing or install it with npm for production projects. The preview in our tool uses the Tailwind CDN so you can see results immediately.",
+        "es": "Sí: el HTML generado usa clases de utilidad de Tailwind que requieren el framework Tailwind CSS para renderizarse correctamente. Puedes incluir Tailwind a través de CDN para pruebas rápidas o instalarlo con npm para proyectos de producción. La vista previa en nuestra herramienta usa el CDN de Tailwind para que puedas ver los resultados de inmediato.",
+        "fr": "Oui — le HTML généré utilise des classes utilitaires Tailwind qui nécessitent le framework Tailwind CSS pour s'afficher correctement. Vous pouvez inclure Tailwind via CDN pour des tests rapides ou l'installer avec npm pour des projets de production. L'aperçu dans notre outil utilise le CDN Tailwind afin que vous puissiez voir les résultats immédiatement.",
+        "de": "Ja — das generierte HTML verwendet Tailwind-Utility-Klassen, die das Tailwind CSS Framework benötigen, um korrekt darzustellen. Du kannst Tailwind über CDN für schnelle Tests einbinden oder es mit npm für Produktionsprojekte installieren. Die Vorschau in unserem Tool verwendet das Tailwind CDN, damit du sofort Ergebnisse sehen kannst.",
+        "pt": "Sim — o HTML gerado usa classes utilitárias do Tailwind que requerem o framework Tailwind CSS para renderizar corretamente. Você pode incluir o Tailwind via CDN para testes rápidos ou instalá-lo com npm para projetos de produção. A visualização em nossa ferramenta usa o CDN do Tailwind para que você possa ver os resultados imediatamente."
+      }
+    },
+    {
+      "question": {
+        "en": "How does Tailwind output compare to Bootstrap output?",
+        "es": "¿Cómo se compara la salida de Tailwind con la de Bootstrap?",
+        "fr": "Comment la sortie Tailwind se compare-t-elle à la sortie Bootstrap ?",
+        "de": "Wie unterscheidet sich Tailwind-Output von Bootstrap-Output?",
+        "pt": "Como a saída do Tailwind se compara à saída do Bootstrap?"
+      },
+      "answer": {
+        "en": "Tailwind generates utility-first classes with no opinionated components, giving you full design flexibility. Bootstrap output uses pre-built component classes (btn, card, navbar) that provide consistent styling out of the box. Tailwind is better for custom designs; Bootstrap is faster for standard UI patterns.",
+        "es": "Tailwind genera clases utility-first sin componentes predefinidos, lo que te da total flexibilidad de diseño. La salida de Bootstrap usa clases de componentes prediseñados (btn, card, navbar) que proporcionan un estilo consistente de inmediato. Tailwind es mejor para diseños personalizados; Bootstrap es más rápido para patrones de interfaz estándar.",
+        "fr": "Tailwind génère des classes utilitaires sans composants imposés, vous donnant une flexibilité de design totale. La sortie Bootstrap utilise des classes de composants prédéfinis (btn, card, navbar) qui fournissent un style cohérent prêt à l'emploi. Tailwind est meilleur pour les designs personnalisés ; Bootstrap est plus rapide pour les modèles d'interface standard.",
+        "de": "Tailwind generiert Utility-First-Klassen ohne vorgefertigte Komponenten und gibt dir volle Design-Flexibilität. Bootstrap-Output verwendet vorgefertigte Komponentenklassen (btn, card, navbar), die konsistentes Styling sofort out of the box bieten. Tailwind ist besser für benutzerdefinierte Designs; Bootstrap ist schneller für Standard-UI-Muster.",
+        "pt": "O Tailwind gera classes utility-first sem componentes pré-definidos, dando flexibilidade total de design. A saída do Bootstrap usa classes de componentes pré-criados (btn, card, navbar) que fornecem estilo consistente pronto para uso. O Tailwind é melhor para designs personalizados; o Bootstrap é mais rápido para padrões de UI padrão."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use the output directly in React or Vue components?",
+        "es": "¿Puedo usar la salida directamente en componentes React o Vue?",
+        "fr": "Puis-je utiliser la sortie directement dans des composants React ou Vue ?",
+        "de": "Kann ich den Output direkt in React- oder Vue-Komponenten verwenden?",
+        "pt": "Posso usar a saída diretamente em componentes React ou Vue?"
+      },
+      "answer": {
+        "en": "Yes — Tailwind classes are framework-agnostic. You can copy the HTML markup directly into React JSX (changing class= to className=) or Vue templates. For a complete React component with Tailwind, use our Screenshot to React tool which handles JSX conversion automatically.",
+        "es": "Sí: las clases de Tailwind son agnósticas al framework. Puedes copiar el marcado HTML directamente en JSX de React (cambiando class= por className=) o plantillas de Vue. Para un componente React completo con Tailwind, usa nuestra herramienta Screenshot to React que maneja la conversión de JSX automáticamente.",
+        "fr": "Oui — les classes Tailwind sont indépendantes du framework. Vous pouvez copier le balisage HTML directement dans React JSX (en changeant class= par className=) ou des templates Vue. Pour un composant React complet avec Tailwind, utilisez notre outil Screenshot vers React qui gère la conversion JSX automatiquement.",
+        "de": "Ja — Tailwind-Klassen sind framework-agnostisch. Du kannst das HTML-Markup direkt in React JSX kopieren (class= in className= ändern) oder Vue-Templates. Für eine vollständige React-Komponente mit Tailwind verwende unser Screenshot zu React Tool, das JSX-Konvertierung automatisch handhabt.",
+        "pt": "Sim — classes do Tailwind são agnósticas a framework. Você pode copiar a marcação HTML diretamente para React JSX (mudando class= para className=) ou templates Vue. Para um componente React completo com Tailwind, use nossa ferramenta Screenshot para React que lida com a conversão JSX automaticamente."
+      }
+    },
+    {
+      "question": {
+        "en": "Does the tool support dark mode Tailwind classes?",
+        "es": "¿La herramienta admite las clases dark mode de Tailwind?",
+        "fr": "L'outil prend-il en charge les classes dark mode de Tailwind ?",
+        "de": "Unterstützt das Tool Tailwind Dark Mode Klassen?",
+        "pt": "A ferramenta suporta classes dark mode do Tailwind?"
+      },
+      "answer": {
+        "en": "The AI generates Tailwind classes matching the visual appearance of your screenshot. If you upload a dark-themed screenshot, it will use dark color classes (bg-gray-900, text-white, etc.). For explicit dark: variant classes, regenerate with a note about dark mode requirements or add them manually after generation.",
+        "es": "La IA genera clases de Tailwind que coinciden con la apariencia visual de tu captura de pantalla. Si subes una captura con tema oscuro, usará clases de colores oscuros (bg-gray-900, text-white, etc.). Para clases con la variante dark: explícita, regenera con una nota sobre los requisitos de modo oscuro o agrégalas manualmente después de la generación.",
+        "fr": "L'IA génère des classes Tailwind correspondant à l'apparence visuelle de votre capture d'écran. Si vous téléchargez une capture d'écran à thème sombre, elle utilisera des classes de couleurs sombres (bg-gray-900, text-white, etc.). Pour les classes variantes dark: explicites, régénérez avec une note sur les exigences du mode sombre ou ajoutez-les manuellement après la génération.",
+        "de": "Die KI generiert Tailwind-Klassen, die dem visuellen Erscheinungsbild deines Screenshots entsprechen. Wenn du einen dunklen Screenshot hochlädst, werden dunkle Farbklassen verwendet (bg-gray-900, text-white, usw.). Für explizite dark:-Variantenklassen regeneriere mit einem Hinweis zu Dark-Mode-Anforderungen oder füge sie nach der Generierung manuell hinzu.",
+        "pt": "A IA gera classes Tailwind correspondendo à aparência visual da sua captura de tela. Se você enviar uma captura de tela com tema escuro, ela usará classes de cores escuras (bg-gray-900, text-white, etc.). Para classes variantes dark: explícitas, regenere com uma nota sobre requisitos de dark mode ou adicione-as manualmente após a geração."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-html",
+    "screenshot-to-html-css",
+    "screenshot-to-react",
+    "screenshot-to-bootstrap",
+    "screenshot-to-nextjs",
+    "html-beautifier",
+    "css-beautifier"
+  ]
+}

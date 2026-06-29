@@ -522,6 +522,183 @@
           }
         }
       ]
+    },
+    {
+      "id": "ai-development",
+      "slug": "ai-development",
+      "engine": "screenshot_ai_engine",
+      "name": {
+        "en": "AI Development Tools",
+        "es": "Herramientas de Desarrollo IA",
+        "fr": "Outils de Développement IA",
+        "de": "KI-Entwicklungswerkzeuge",
+        "pt": "Ferramentas de Desenvolvimento IA"
+      },
+      "description": {
+        "en": "Convert screenshots and UI designs into production-ready code using AI. Generate HTML, React, Tailwind, Flutter, SwiftUI, Vue, Angular and more — instantly from any screenshot.",
+        "es": "Convierte capturas de pantalla y diseños de UI en código listo para producción usando IA. Genera HTML, React, Tailwind, Flutter, SwiftUI, Vue, Angular y más — instantáneamente desde cualquier captura.",
+        "fr": "Convertissez des captures d'écran et des designs UI en code prêt pour la production grâce à l'IA. Générez du HTML, React, Tailwind, Flutter, SwiftUI, Vue, Angular et plus — instantanément depuis n'importe quelle capture.",
+        "de": "Wandle Screenshots und UI-Designs mit KI in produktionsreifen Code um. Generiere HTML, React, Tailwind, Flutter, SwiftUI, Vue, Angular und mehr — sofort aus jedem Screenshot.",
+        "pt": "Converta capturas de tela e designs de UI em código pronto para produção usando IA. Gere HTML, React, Tailwind, Flutter, SwiftUI, Vue, Angular e mais — instantaneamente de qualquer captura."
+      },
+      "icon": "cpu",
+      "color": "#8b5cf6",
+      "order": 4,
+      "requiresPremium": true,
+      "requiresLogin": true,
+      "requiresCloud": true,
+      "sectionLabels": {
+        "conversionSection": {
+          "en": "Web Frameworks",
+          "es": "Frameworks Web",
+          "fr": "Frameworks Web",
+          "de": "Web-Frameworks",
+          "pt": "Frameworks Web"
+        },
+        "utilitySection": {
+          "en": "Mobile & Native",
+          "es": "Móvil y Nativo",
+          "fr": "Mobile et Natif",
+          "de": "Mobil & Nativ",
+          "pt": "Móvel e Nativo"
+        }
+      },
+      "features": [
+        {
+          "icon": "cpu",
+          "title": {
+            "en": "AI-Powered Generation",
+            "es": "Generación con IA",
+            "fr": "Génération par IA",
+            "de": "KI-gestützte Generierung",
+            "pt": "Geração com IA"
+          },
+          "description": {
+            "en": "Powered by DeepSeek V4 with OpenAI, Anthropic, and Gemini as fallbacks. Best-in-class code accuracy.",
+            "es": "Impulsado por DeepSeek V4 con OpenAI, Anthropic y Gemini como alternativas. Precisión de código de primer nivel.",
+            "fr": "Propulsé par DeepSeek V4 avec OpenAI, Anthropic et Gemini en secours. Précision de code de premier ordre.",
+            "de": "Betrieben von DeepSeek V4 mit OpenAI, Anthropic und Gemini als Fallback. Branchenführende Code-Genauigkeit.",
+            "pt": "Alimentado por DeepSeek V4 com OpenAI, Anthropic e Gemini como fallbacks. Precisão de código de classe mundial."
+          }
+        },
+        {
+          "icon": "zap",
+          "title": {
+            "en": "20+ Frameworks",
+            "es": "20+ Frameworks",
+            "fr": "20+ Frameworks",
+            "de": "20+ Frameworks",
+            "pt": "20+ Frameworks"
+          },
+          "description": {
+            "en": "HTML, React, Tailwind, Bootstrap, Vue, Svelte, Angular, Flutter, SwiftUI, React Native and more.",
+            "es": "HTML, React, Tailwind, Bootstrap, Vue, Svelte, Angular, Flutter, SwiftUI, React Native y más.",
+            "fr": "HTML, React, Tailwind, Bootstrap, Vue, Svelte, Angular, Flutter, SwiftUI, React Native et plus.",
+            "de": "HTML, React, Tailwind, Bootstrap, Vue, Svelte, Angular, Flutter, SwiftUI, React Native und mehr.",
+            "pt": "HTML, React, Tailwind, Bootstrap, Vue, Svelte, Angular, Flutter, SwiftUI, React Native e mais."
+          }
+        },
+        {
+          "icon": "shield",
+          "title": {
+            "en": "Provider-Agnostic",
+            "es": "Agnóstico de Proveedor",
+            "fr": "Indépendant du Fournisseur",
+            "de": "Anbieterunabhängig",
+            "pt": "Agnóstico de Provedor"
+          },
+          "description": {
+            "en": "Automatic failover across DeepSeek, OpenAI, Anthropic, Gemini, and OpenRouter. Zero vendor lock-in.",
+            "es": "Conmutación automática entre DeepSeek, OpenAI, Anthropic, Gemini y OpenRouter. Sin dependencia de proveedor.",
+            "fr": "Basculement automatique entre DeepSeek, OpenAI, Anthropic, Gemini et OpenRouter. Zéro dépendance fournisseur.",
+            "de": "Automatisches Failover zwischen DeepSeek, OpenAI, Anthropic, Gemini und OpenRouter. Keine Anbieterabhängigkeit.",
+            "pt": "Failover automático entre DeepSeek, OpenAI, Anthropic, Gemini e OpenRouter. Zero vendor lock-in."
+          }
+        },
+        {
+          "icon": "star",
+          "title": {
+            "en": "Premium Feature",
+            "es": "Función Premium",
+            "fr": "Fonctionnalité Premium",
+            "de": "Premium-Funktion",
+            "pt": "Recurso Premium"
+          },
+          "description": {
+            "en": "Screenshot → Code tools require a Pro or Business plan. Start free, upgrade when you need AI power.",
+            "es": "Las herramientas de Screenshot → Code requieren un plan Pro o Business. Comienza gratis, mejora cuando necesites la potencia de IA.",
+            "fr": "Les outils Screenshot → Code nécessitent un plan Pro ou Business. Commencez gratuitement, améliorez quand vous avez besoin de la puissance IA.",
+            "de": "Screenshot → Code-Tools erfordern einen Pro- oder Business-Plan. Starte kostenlos, upgrade wenn du KI-Power brauchst.",
+            "pt": "As ferramentas Screenshot → Code requerem um plano Pro ou Business. Comece de graça, faça upgrade quando precisar de IA."
+          }
+        }
+      ],
+      "faq": [
+        {
+          "question": {
+            "en": "How accurate is the AI-generated code?",
+            "es": "¿Qué tan preciso es el código generado por IA?",
+            "fr": "Quelle est la précision du code généré par IA ?",
+            "de": "Wie genau ist der KI-generierte Code?",
+            "pt": "Quão preciso é o código gerado por IA?"
+          },
+          "answer": {
+            "en": "Accuracy depends on the screenshot clarity and target framework. For simple layouts, expect 80–95% accuracy. Complex UIs with custom fonts or animations may require manual refinement.",
+            "es": "La precisión depende de la claridad de la captura y el framework objetivo. Para diseños simples, espera 80–95% de precisión. Las IUs complejas con fuentes personalizadas o animaciones pueden requerir refinamiento manual.",
+            "fr": "La précision dépend de la clarté de la capture et du framework cible. Pour les mises en page simples, attendez-vous à 80–95% de précision. Les interfaces complexes avec des polices personnalisées ou des animations peuvent nécessiter un ajustement manuel.",
+            "de": "Die Genauigkeit hängt von der Screenshot-Qualität und dem Ziel-Framework ab. Für einfache Layouts erwarte 80–95% Genauigkeit. Komplexe UIs mit benutzerdefinierten Schriftarten oder Animationen erfordern möglicherweise manuelle Nachbearbeitung.",
+            "pt": "A precisão depende da clareza da captura e do framework alvo. Para layouts simples, espere 80–95% de precisão. IUs complexas com fontes personalizadas ou animações podem precisar de refinamento manual."
+          }
+        },
+        {
+          "question": {
+            "en": "Which AI provider is used?",
+            "es": "¿Qué proveedor de IA se utiliza?",
+            "fr": "Quel fournisseur IA est utilisé ?",
+            "de": "Welcher KI-Anbieter wird verwendet?",
+            "pt": "Qual provedor de IA é usado?"
+          },
+          "answer": {
+            "en": "DeepSeek V4 is the default provider (best cost-to-quality ratio for code generation). The system automatically falls back to OpenAI GPT-4o, Anthropic Claude, or Google Gemini if needed.",
+            "es": "DeepSeek V4 es el proveedor predeterminado (mejor relación costo-calidad para generación de código). El sistema recae automáticamente en OpenAI GPT-4o, Anthropic Claude o Google Gemini si es necesario.",
+            "fr": "DeepSeek V4 est le fournisseur par défaut (meilleur rapport coût-qualité pour la génération de code). Le système bascule automatiquement vers OpenAI GPT-4o, Anthropic Claude ou Google Gemini si nécessaire.",
+            "de": "DeepSeek V4 ist der Standard-Anbieter (bestes Preis-Leistungs-Verhältnis für Code-Generierung). Das System fällt bei Bedarf automatisch auf OpenAI GPT-4o, Anthropic Claude oder Google Gemini zurück.",
+            "pt": "DeepSeek V4 é o provedor padrão (melhor relação custo-qualidade para geração de código). O sistema retorna automaticamente para OpenAI GPT-4o, Anthropic Claude ou Google Gemini se necessário."
+          }
+        },
+        {
+          "question": {
+            "en": "How many credits does each generation use?",
+            "es": "¿Cuántos créditos usa cada generación?",
+            "fr": "Combien de crédits utilise chaque génération ?",
+            "de": "Wie viele Credits verbraucht jede Generierung?",
+            "pt": "Quantos créditos cada geração usa?"
+          },
+          "answer": {
+            "en": "Simple web frameworks (HTML, Tailwind, Bootstrap) cost 1–2 credits. Complex native frameworks (Flutter, SwiftUI, Jetpack Compose) cost 3 credits. Pro plan includes 500 credits/month; Business plan includes 5,000.",
+            "es": "Los frameworks web simples (HTML, Tailwind, Bootstrap) cuestan 1–2 créditos. Los frameworks nativos complejos (Flutter, SwiftUI, Jetpack Compose) cuestan 3 créditos. El plan Pro incluye 500 créditos/mes; el plan Business incluye 5.000.",
+            "fr": "Les frameworks web simples (HTML, Tailwind, Bootstrap) coûtent 1–2 crédits. Les frameworks natifs complexes (Flutter, SwiftUI, Jetpack Compose) coûtent 3 crédits. Le plan Pro inclut 500 crédits/mois ; le plan Business en inclut 5 000.",
+            "de": "Einfache Web-Frameworks (HTML, Tailwind, Bootstrap) kosten 1–2 Credits. Komplexe native Frameworks (Flutter, SwiftUI, Jetpack Compose) kosten 3 Credits. Der Pro-Plan enthält 500 Credits/Monat; der Business-Plan enthält 5.000.",
+            "pt": "Frameworks web simples (HTML, Tailwind, Bootstrap) custam 1–2 créditos. Frameworks nativos complexos (Flutter, SwiftUI, Jetpack Compose) custam 3 créditos. O plano Pro inclui 500 créditos/mês; o plano Business inclui 5.000."
+          }
+        },
+        {
+          "question": {
+            "en": "Is my screenshot stored on your servers?",
+            "es": "¿Mi captura de pantalla se almacena en sus servidores?",
+            "fr": "Ma capture d'écran est-elle stockée sur vos serveurs ?",
+            "de": "Wird mein Screenshot auf euren Servern gespeichert?",
+            "pt": "Minha captura de tela é armazenada nos seus servidores?"
+          },
+          "answer": {
+            "en": "Screenshots are sent to the AI provider only for processing and are not stored by DropAnyConvert. Images are discarded immediately after code generation completes.",
+            "es": "Las capturas de pantalla se envían al proveedor de IA solo para procesamiento y DropAnyConvert no las almacena. Las imágenes se descartan inmediatamente después de completar la generación de código.",
+            "fr": "Les captures d'écran sont envoyées au fournisseur IA uniquement pour traitement et ne sont pas stockées par DropAnyConvert. Les images sont supprimées immédiatement après la génération du code.",
+            "de": "Screenshots werden nur zur Verarbeitung an den KI-Anbieter gesendet und nicht von DropAnyConvert gespeichert. Bilder werden unmittelbar nach Abschluss der Code-Generierung verworfen.",
+            "pt": "As capturas de tela são enviadas ao provedor de IA apenas para processamento e não são armazenadas pelo DropAnyConvert. As imagens são descartadas imediatamente após a conclusão da geração de código."
+          }
+        }
+      ]
     }
   ]
 }

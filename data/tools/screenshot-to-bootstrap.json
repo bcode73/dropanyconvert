@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-bootstrap",
+  "slug": "screenshot-to-bootstrap",
+  "name": {
+    "en": "Screenshot to Bootstrap",
+    "es": "Captura de pantalla a Bootstrap",
+    "fr": "Capture d'écran en Bootstrap",
+    "de": "Screenshot zu Bootstrap",
+    "pt": "Captura de tela para Bootstrap"
+  },
+  "tagline": {
+    "en": "Convert screenshots to Bootstrap HTML components using AI.",
+    "es": "Convierte capturas de pantalla a componentes HTML de Bootstrap usando IA.",
+    "fr": "Convertissez des captures d'écran en composants HTML Bootstrap grâce à l'IA.",
+    "de": "Konvertiere Screenshots mit KI in Bootstrap HTML-Komponenten.",
+    "pt": "Converta capturas de tela em componentes HTML Bootstrap usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateBootstrap",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "html",
+      "mime": "text/html",
+      "label": "Bootstrap HTML",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to bootstrap",
+    "secondaryKeywords": [
+      "convert screenshot to bootstrap html",
+      "ai image to bootstrap",
+      "screenshot to bootstrap 5",
+      "bootstrap code generator from image"
+    ],
+    "title": {
+      "en": "Screenshot to Bootstrap — AI Code Generator",
+      "es": "Captura de pantalla a Bootstrap — Generador de código IA",
+      "fr": "Capture d'écran en Bootstrap — Générateur de code IA",
+      "de": "Screenshot zu Bootstrap — KI-Code-Generator",
+      "pt": "Captura de tela para Bootstrap — Gerador de código IA"
+    },
+    "description": {
+      "en": "Convert screenshots to Bootstrap 5 HTML components using AI. Get navbar, cards, forms, and grid layouts from any UI screenshot in seconds.",
+      "es": "Convierte capturas de pantalla a componentes HTML Bootstrap 5 usando IA. Obtén navbars, tarjetas, formularios y diseños de cuadrícula de cualquier captura de pantalla de interfaz en segundos.",
+      "fr": "Convertissez des captures d'écran en composants HTML Bootstrap 5 grâce à l'IA. Obtenez des navbars, des cartes, des formulaires et des mises en page en grille à partir de n'importe quelle capture d'écran d'interface en quelques secondes.",
+      "de": "Screenshots mit KI in Bootstrap 5 HTML-Komponenten konvertieren. Erhalte Navbar, Cards, Formulare und Grid-Layouts aus jedem UI-Screenshot in Sekunden.",
+      "pt": "Converta capturas de tela em componentes HTML Bootstrap 5 usando IA. Obtenha navbars, cards, formulários e layouts em grade a partir de qualquer captura de tela de interface em segundos."
+    },
+    "h1": {
+      "en": "Convert Screenshot to Bootstrap HTML with AI",
+      "es": "Convierte capturas de pantalla a Bootstrap HTML con IA",
+      "fr": "Convertir une capture d'écran en Bootstrap HTML avec l'IA",
+      "de": "Screenshot mit KI in Bootstrap HTML konvertieren",
+      "pt": "Converter captura de tela para Bootstrap HTML com IA"
+    },
+    "intro": {
+      "en": "Upload a UI screenshot and get Bootstrap 5 HTML with the right component classes — navbars, cards, modals, buttons, forms, and grid system layouts. Our AI recognizes Bootstrap-compatible patterns and applies the appropriate component classes for rapid development.",
+      "es": "Sube una captura de pantalla de interfaz y obtén HTML Bootstrap 5 con las clases de componentes correctas: navbars, tarjetas, modales, botones, formularios y diseños de sistema de cuadrícula. Nuestra IA reconoce patrones compatibles con Bootstrap y aplica las clases de componentes apropiadas para un desarrollo rápido.",
+      "fr": "Téléchargez une capture d'écran d'interface et obtenez du HTML Bootstrap 5 avec les bonnes classes de composants — navbars, cartes, modales, boutons, formulaires et mises en page de système de grille. Notre IA reconnaît les modèles compatibles Bootstrap et applique les classes de composants appropriées pour un développement rapide.",
+      "de": "Lade einen UI-Screenshot hoch und erhalte Bootstrap 5 HTML mit den richtigen Komponentenklassen — Navbars, Cards, Modals, Buttons, Formulare und Grid-System-Layouts. Unsere KI erkennt Bootstrap-kompatible Muster und wendet die entsprechenden Komponentenklassen für schnelle Entwicklung an.",
+      "pt": "Envie uma captura de tela de interface e obtenha HTML Bootstrap 5 com as classes de componentes corretas — navbars, cards, modais, botões, formulários e layouts de sistema de grade. Nossa IA reconhece padrões compatíveis com Bootstrap e aplica as classes de componentes adequadas para desenvolvimento rápido."
+    }
+  },
+  "features": [
+    {
+      "icon": "layout",
+      "title": {
+        "en": "Bootstrap Component Recognition",
+        "es": "Reconocimiento de componentes Bootstrap",
+        "fr": "Reconnaissance des composants Bootstrap",
+        "de": "Bootstrap-Komponentenerkennung",
+        "pt": "Reconhecimento de componentes Bootstrap"
+      },
+      "description": {
+        "en": "AI identifies navbars, cards, modals, tables, buttons, and forms in your screenshot and applies the correct Bootstrap 5 component classes.",
+        "es": "La IA identifica navbars, tarjetas, modales, tablas, botones y formularios en tu captura de pantalla y aplica las clases de componentes Bootstrap 5 correctas.",
+        "fr": "L'IA identifie les navbars, les cartes, les modales, les tableaux, les boutons et les formulaires dans votre capture d'écran et applique les classes de composants Bootstrap 5 correctes.",
+        "de": "KI identifiziert Navbars, Cards, Modals, Tabellen, Buttons und Formulare in deinem Screenshot und wendet die korrekten Bootstrap 5 Komponentenklassen an.",
+        "pt": "A IA identifica navbars, cards, modais, tabelas, botões e formulários na sua captura de tela e aplica as classes de componentes Bootstrap 5 corretas."
+      }
+    },
+    {
+      "icon": "grid",
+      "title": {
+        "en": "Bootstrap Grid System",
+        "es": "Sistema de cuadrícula Bootstrap",
+        "fr": "Système de grille Bootstrap",
+        "de": "Bootstrap Grid-System",
+        "pt": "Sistema de grade Bootstrap"
+      },
+      "description": {
+        "en": "Layouts are translated into Bootstrap's 12-column grid with proper col-* classes for responsive breakpoints.",
+        "es": "Los diseños se traducen en la cuadrícula de 12 columnas de Bootstrap con clases col-* adecuadas para puntos de quiebre responsivos.",
+        "fr": "Les mises en page sont traduites en grille Bootstrap à 12 colonnes avec des classes col-* appropriées pour les points d'arrêt responsifs.",
+        "de": "Layouts werden in Bootstraps 12-Spalten-Grid mit geeigneten col-*-Klassen für responsive Breakpoints übersetzt.",
+        "pt": "Os layouts são traduzidos para a grade de 12 colunas do Bootstrap com classes col-* adequadas para breakpoints responsivos."
+      }
+    },
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "Bootstrap 5 Compatible",
+        "es": "Compatible con Bootstrap 5",
+        "fr": "Compatible Bootstrap 5",
+        "de": "Bootstrap 5 kompatibel",
+        "pt": "Compatível com Bootstrap 5"
+      },
+      "description": {
+        "en": "Generated code targets Bootstrap 5 with modern class names, no jQuery dependency, and up-to-date component syntax.",
+        "es": "El código generado está dirigido a Bootstrap 5 con nombres de clase modernos, sin dependencia de jQuery y sintaxis de componentes actualizada.",
+        "fr": "Le code généré cible Bootstrap 5 avec des noms de classe modernes, sans dépendance jQuery et une syntaxe de composants à jour.",
+        "de": "Generierter Code zielt auf Bootstrap 5 mit modernen Klassennamen, ohne jQuery-Abhängigkeit und aktueller Komponentensyntax.",
+        "pt": "O código gerado tem como alvo o Bootstrap 5 com nomes de classe modernos, sem dependência de jQuery e sintaxe de componentes atualizada."
+      }
+    },
+    {
+      "icon": "cloud",
+      "title": {
+        "en": "Rapid Prototyping",
+        "es": "Prototipado rápido",
+        "fr": "Prototypage rapide",
+        "de": "Schnelles Prototyping",
+        "pt": "Prototipagem rápida"
+      },
+      "description": {
+        "en": "Go from screenshot to working Bootstrap prototype in seconds — perfect for quickly validating design concepts with stakeholders.",
+        "es": "Pasa de captura de pantalla a prototipo Bootstrap funcional en segundos, perfecto para validar rápidamente conceptos de diseño con partes interesadas.",
+        "fr": "Passez de la capture d'écran à un prototype Bootstrap fonctionnel en quelques secondes — parfait pour valider rapidement des concepts de design avec les parties prenantes.",
+        "de": "Gehe in Sekunden vom Screenshot zum funktionierenden Bootstrap-Prototyp — perfekt für die schnelle Validierung von Design-Konzepten mit Stakeholdern.",
+        "pt": "Vá de captura de tela a protótipo Bootstrap funcional em segundos — perfeito para validar rapidamente conceitos de design com stakeholders."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Which version of Bootstrap does the output target?",
+        "es": "¿Qué versión de Bootstrap tiene como objetivo la salida?",
+        "fr": "Quelle version de Bootstrap la sortie cible-t-elle ?",
+        "de": "Auf welche Bootstrap-Version zielt der Output ab?",
+        "pt": "Para qual versão do Bootstrap a saída é direcionada?"
+      },
+      "answer": {
+        "en": "The tool generates Bootstrap 5 code by default — the latest stable version with the CDN link included in the output. Bootstrap 5 dropped jQuery dependency and uses modern CSS custom properties. If you need Bootstrap 4, you can update the CDN link and adjust a few class names manually.",
+        "es": "La herramienta genera código Bootstrap 5 de forma predeterminada, la última versión estable con el enlace CDN incluido en la salida. Bootstrap 5 eliminó la dependencia de jQuery y usa propiedades personalizadas CSS modernas. Si necesitas Bootstrap 4, puedes actualizar el enlace CDN y ajustar algunos nombres de clase manualmente.",
+        "fr": "L'outil génère du code Bootstrap 5 par défaut — la dernière version stable avec le lien CDN inclus dans la sortie. Bootstrap 5 a supprimé la dépendance jQuery et utilise des propriétés personnalisées CSS modernes. Si vous avez besoin de Bootstrap 4, vous pouvez mettre à jour le lien CDN et ajuster quelques noms de classe manuellement.",
+        "de": "Das Tool generiert standardmäßig Bootstrap 5 Code — die neueste stabile Version mit enthaltenem CDN-Link in der Ausgabe. Bootstrap 5 hat die jQuery-Abhängigkeit entfernt und verwendet moderne CSS Custom Properties. Wenn du Bootstrap 4 benötigst, kannst du den CDN-Link aktualisieren und einige Klassennamen manuell anpassen.",
+        "pt": "A ferramenta gera código Bootstrap 5 por padrão — a versão estável mais recente com o link CDN incluído na saída. O Bootstrap 5 eliminou a dependência do jQuery e usa propriedades CSS personalizadas modernas. Se você precisar do Bootstrap 4, pode atualizar o link CDN e ajustar alguns nomes de classe manualmente."
+      }
+    },
+    {
+      "question": {
+        "en": "Can the AI generate Bootstrap modals and interactive components?",
+        "es": "¿Puede la IA generar modales de Bootstrap y componentes interactivos?",
+        "fr": "L'IA peut-elle générer des modales Bootstrap et des composants interactifs ?",
+        "de": "Kann die KI Bootstrap Modals und interaktive Komponenten generieren?",
+        "pt": "A IA pode gerar modais Bootstrap e componentes interativos?"
+      },
+      "answer": {
+        "en": "Yes. The AI can recognize modal-like overlays, dropdown menus, tab panels, and accordions in screenshots and generate the corresponding Bootstrap markup with proper data-bs-* attributes for JavaScript interactivity. For complex interactions, some manual attribute configuration may be needed.",
+        "es": "Sí. La IA puede reconocer superposiciones tipo modal, menús desplegables, paneles de pestañas y acordeones en capturas de pantalla y generar el marcado Bootstrap correspondiente con los atributos data-bs-* adecuados para la interactividad de JavaScript. Para interacciones complejas, puede ser necesaria alguna configuración manual de atributos.",
+        "fr": "Oui. L'IA peut reconnaître des superpositions de type modal, des menus déroulants, des panneaux d'onglets et des accordéons dans les captures d'écran et générer le balisage Bootstrap correspondant avec les attributs data-bs-* appropriés pour l'interactivité JavaScript. Pour les interactions complexes, une configuration manuelle des attributs peut être nécessaire.",
+        "de": "Ja. Die KI kann modal-ähnliche Overlays, Dropdown-Menüs, Tab-Panels und Akkordeons in Screenshots erkennen und das entsprechende Bootstrap-Markup mit korrekten data-bs-*-Attributen für JavaScript-Interaktivität generieren. Für komplexe Interaktionen kann manuelle Attributkonfiguration erforderlich sein.",
+        "pt": "Sim. A IA pode reconhecer sobreposições do tipo modal, menus dropdown, painéis de abas e acordeões em capturas de tela e gerar a marcação Bootstrap correspondente com os atributos data-bs-* adequados para interatividade JavaScript. Para interações complexas, pode ser necessária alguma configuração manual de atributos."
+      }
+    },
+    {
+      "question": {
+        "en": "How does Bootstrap output differ from Tailwind output?",
+        "es": "¿En qué se diferencia la salida de Bootstrap de la salida de Tailwind?",
+        "fr": "En quoi la sortie Bootstrap diffère-t-elle de la sortie Tailwind ?",
+        "de": "Wie unterscheidet sich Bootstrap-Output von Tailwind-Output?",
+        "pt": "Como a saída do Bootstrap difere da saída do Tailwind?"
+      },
+      "answer": {
+        "en": "Bootstrap output uses semantic component classes (btn btn-primary, card, navbar) from Bootstrap's pre-built component library. Tailwind output uses atomic utility classes (flex, p-4, text-blue-500) with no pre-built components. Bootstrap is faster for standard UI patterns; Tailwind gives more design freedom for custom interfaces.",
+        "es": "La salida de Bootstrap usa clases de componentes semánticas (btn btn-primary, card, navbar) de la biblioteca de componentes prediseñados de Bootstrap. La salida de Tailwind usa clases de utilidad atómicas (flex, p-4, text-blue-500) sin componentes prediseñados. Bootstrap es más rápido para patrones de interfaz estándar; Tailwind da más libertad de diseño para interfaces personalizadas.",
+        "fr": "La sortie Bootstrap utilise des classes de composants sémantiques (btn btn-primary, card, navbar) de la bibliothèque de composants prédéfinis de Bootstrap. La sortie Tailwind utilise des classes utilitaires atomiques (flex, p-4, text-blue-500) sans composants prédéfinis. Bootstrap est plus rapide pour les modèles d'interface standard ; Tailwind offre plus de liberté de design pour les interfaces personnalisées.",
+        "de": "Bootstrap-Output verwendet semantische Komponentenklassen (btn btn-primary, card, navbar) aus Bootstraps vorgefertigter Komponentenbibliothek. Tailwind-Output verwendet atomare Utility-Klassen (flex, p-4, text-blue-500) ohne vorgefertigte Komponenten. Bootstrap ist schneller für Standard-UI-Muster; Tailwind gibt mehr Design-Freiheit für benutzerdefinierte Schnittstellen.",
+        "pt": "A saída do Bootstrap usa classes de componentes semânticas (btn btn-primary, card, navbar) da biblioteca de componentes pré-criados do Bootstrap. A saída do Tailwind usa classes utilitárias atômicas (flex, p-4, text-blue-500) sem componentes pré-criados. O Bootstrap é mais rápido para padrões de UI padrão; o Tailwind dá mais liberdade de design para interfaces personalizadas."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use the Bootstrap output in a Django or Ruby on Rails project?",
+        "es": "¿Puedo usar la salida de Bootstrap en un proyecto Django o Ruby on Rails?",
+        "fr": "Puis-je utiliser la sortie Bootstrap dans un projet Django ou Ruby on Rails ?",
+        "de": "Kann ich den Bootstrap-Output in einem Django- oder Ruby on Rails-Projekt verwenden?",
+        "pt": "Posso usar a saída do Bootstrap em um projeto Django ou Ruby on Rails?"
+      },
+      "answer": {
+        "en": "Absolutely. Bootstrap HTML is backend-agnostic and works with any server-side framework. Copy the generated HTML into your Django templates or Rails ERB files. Include Bootstrap via CDN or install it through your asset pipeline. The class names are identical regardless of the backend technology.",
+        "es": "Absolutamente. El HTML de Bootstrap es agnóstico al backend y funciona con cualquier framework del lado del servidor. Copia el HTML generado en tus plantillas Django o archivos ERB de Rails. Incluye Bootstrap a través de CDN o instálalo a través de tu pipeline de activos. Los nombres de clase son idénticos independientemente de la tecnología del backend.",
+        "fr": "Absolument. Le HTML Bootstrap est indépendant du backend et fonctionne avec n'importe quel framework côté serveur. Copiez le HTML généré dans vos templates Django ou fichiers ERB Rails. Incluez Bootstrap via CDN ou installez-le via votre pipeline d'assets. Les noms de classe sont identiques quelle que soit la technologie backend.",
+        "de": "Absolut. Bootstrap HTML ist backend-agnostisch und funktioniert mit jedem serverseitigen Framework. Kopiere das generierte HTML in deine Django-Templates oder Rails ERB-Dateien. Schließe Bootstrap über CDN ein oder installiere es über deine Asset-Pipeline. Die Klassennamen sind unabhängig von der Backend-Technologie identisch.",
+        "pt": "Com certeza. HTML Bootstrap é agnóstico a backend e funciona com qualquer framework do lado do servidor. Copie o HTML gerado para seus templates Django ou arquivos ERB do Rails. Inclua o Bootstrap via CDN ou instale-o através do seu pipeline de ativos. Os nomes de classe são idênticos independentemente da tecnologia de backend."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-html",
+    "screenshot-to-tailwind",
+    "screenshot-to-react",
+    "screenshot-to-html-css",
+    "html-beautifier",
+    "css-beautifier",
+    "html-minifier"
+  ]
+}

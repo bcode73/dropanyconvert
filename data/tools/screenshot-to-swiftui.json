@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-swiftui",
+  "slug": "screenshot-to-swiftui",
+  "name": {
+    "en": "Screenshot to SwiftUI",
+    "es": "Captura de pantalla a SwiftUI",
+    "fr": "Capture d'écran en SwiftUI",
+    "de": "Screenshot zu SwiftUI",
+    "pt": "Captura de tela para SwiftUI"
+  },
+  "tagline": {
+    "en": "Convert screenshots into SwiftUI view code for iOS and macOS using AI.",
+    "es": "Convierte capturas de pantalla en código de vista SwiftUI para iOS y macOS usando IA.",
+    "fr": "Convertissez des captures d'écran en code de vue SwiftUI pour iOS et macOS grâce à l'IA.",
+    "de": "Konvertiere Screenshots mit KI in SwiftUI View-Code für iOS und macOS.",
+    "pt": "Converta capturas de tela em código de view SwiftUI para iOS e macOS usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateSwiftUI",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "swift",
+      "mime": "text/x-swift",
+      "label": "SwiftUI Swift",
+      "default": true
+    }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": ["screenshot-upload","drag-and-drop","clipboard-paste","preview","stream-output","copy-code","download-code","regenerate","premium-required"],
+  "seo": {
+    "primaryKeyword": "screenshot to swiftui",
+    "secondaryKeywords": ["convert screenshot to swiftui view","ai image to swiftui code","screenshot to swift ui","swiftui view generator from image"],
+    "title": {
+      "en": "Screenshot to SwiftUI — AI iOS View Generator",
+      "es": "Captura de pantalla a SwiftUI — Generador de vistas iOS IA",
+      "fr": "Capture d'écran en SwiftUI — Générateur de vues iOS IA",
+      "de": "Screenshot zu SwiftUI — KI iOS View-Generator",
+      "pt": "Captura de tela para SwiftUI — Gerador de views iOS IA"
+    },
+    "description": {
+      "en": "Convert screenshots to SwiftUI view code for iOS and macOS using AI. Get VStack, HStack, List, and native SwiftUI components from any UI screenshot or design mockup.",
+      "es": "Convierte capturas de pantalla a código de vista SwiftUI para iOS y macOS usando IA. Obtén VStack, HStack, List y componentes SwiftUI nativos de cualquier captura de pantalla de interfaz o maqueta de diseño.",
+      "fr": "Convertissez des captures d'écran en code de vue SwiftUI pour iOS et macOS grâce à l'IA. Obtenez VStack, HStack, List et des composants SwiftUI natifs à partir de n'importe quelle capture d'écran d'interface ou maquette de design.",
+      "de": "Screenshots mit KI in SwiftUI View-Code für iOS und macOS konvertieren. Erhalte VStack, HStack, List und native SwiftUI-Komponenten aus jedem UI-Screenshot oder Design-Mockup.",
+      "pt": "Converta capturas de tela em código de view SwiftUI para iOS e macOS usando IA. Obtenha VStack, HStack, List e componentes SwiftUI nativos a partir de qualquer captura de tela de interface ou mockup de design."
+    },
+    "h1": {
+      "en": "Convert Screenshot to SwiftUI with AI",
+      "es": "Convierte capturas de pantalla a SwiftUI con IA",
+      "fr": "Convertir une capture d'écran en SwiftUI avec l'IA",
+      "de": "Screenshot mit KI in SwiftUI konvertieren",
+      "pt": "Converter captura de tela para SwiftUI com IA"
+    },
+    "intro": {
+      "en": "Upload an iOS, macOS, or any UI screenshot and get production-ready SwiftUI Swift code. Our AI generates native SwiftUI views with proper layout stacks, @State variables, modifiers, and NavigationView patterns — accelerating your Apple platform development.",
+      "es": "Sube una captura de pantalla de iOS, macOS o cualquier interfaz de usuario y obtén código Swift SwiftUI listo para producción. Nuestra IA genera vistas SwiftUI nativas con stacks de diseño adecuados, variables @State, modificadores y patrones NavigationView, acelerando tu desarrollo en plataformas Apple.",
+      "fr": "Téléchargez une capture d'écran iOS, macOS ou n'importe quelle interface utilisateur et obtenez du code Swift SwiftUI prêt pour la production. Notre IA génère des vues SwiftUI natives avec des stacks de mise en page appropriés, des variables @State, des modificateurs et des modèles NavigationView — accélérant votre développement sur les plateformes Apple.",
+      "de": "Lade einen iOS-, macOS- oder beliebigen UI-Screenshot hoch und erhalte produktionsfertigen SwiftUI Swift-Code. Unsere KI generiert native SwiftUI-Views mit korrekten Layout-Stacks, @State-Variablen, Modifikatoren und NavigationView-Mustern — was deine Apple-Plattformentwicklung beschleunigt.",
+      "pt": "Envie uma captura de tela de iOS, macOS ou qualquer interface de usuário e obtenha código Swift SwiftUI pronto para produção. Nossa IA gera views SwiftUI nativas com stacks de layout adequados, variáveis @State, modificadores e padrões NavigationView — acelerando seu desenvolvimento na plataforma Apple."
+    }
+  },
+  "features": [
+    {
+      "icon": "smartphone",
+      "title": {"en": "Native iOS Layout Stacks","es": "Pilas de diseño nativo iOS","fr": "Stacks de mise en page iOS natifs","de": "Native iOS Layout-Stacks","pt": "Stacks de layout iOS nativo"},
+      "description": {"en": "AI maps visual layouts to the correct SwiftUI stacks — VStack for vertical, HStack for horizontal, ZStack for overlapping elements.","es": "La IA mapea diseños visuales a las pilas SwiftUI correctas: VStack para verticales, HStack para horizontales, ZStack para elementos superpuestos.","fr": "L'IA mappe les mises en page visuelles vers les stacks SwiftUI corrects — VStack pour le vertical, HStack pour l'horizontal, ZStack pour les éléments superposés.","de": "KI ordnet visuelle Layouts den richtigen SwiftUI-Stacks zu — VStack für vertikal, HStack für horizontal, ZStack für überlappende Elemente.","pt": "A IA mapeia layouts visuais para os stacks SwiftUI corretos — VStack para vertical, HStack para horizontal, ZStack para elementos sobrepostos."}
+    },
+    {
+      "icon": "code",
+      "title": {"en": "@State & @Binding Properties","es": "Propiedades @State y @Binding","fr": "Propriétés @State et @Binding","de": "@State & @Binding Eigenschaften","pt": "Propriedades @State e @Binding"},
+      "description": {"en": "Interactive elements generate proper SwiftUI property wrappers — @State for local state, @Binding for passed-down state, @ObservedObject for view models.","es": "Los elementos interactivos generan envoltorios de propiedades SwiftUI adecuados: @State para el estado local, @Binding para el estado transmitido, @ObservedObject para los modelos de vista.","fr": "Les éléments interactifs génèrent les property wrappers SwiftUI appropriés — @State pour l'état local, @Binding pour l'état transmis, @ObservedObject pour les view models.","de": "Interaktive Elemente generieren korrekte SwiftUI Property Wrapper — @State für lokalen State, @Binding für weitergegebenen State, @ObservedObject für View Models.","pt": "Elementos interativos geram property wrappers SwiftUI adequados — @State para estado local, @Binding para estado passado, @ObservedObject para view models."}
+    },
+    {
+      "icon": "layers",
+      "title": {"en": "SwiftUI Modifiers Chain","es": "Cadena de modificadores SwiftUI","fr": "Chaîne de modificateurs SwiftUI","de": "SwiftUI Modifikatorkette","pt": "Cadeia de modificadores SwiftUI"},
+      "description": {"en": "Visual styles are expressed as SwiftUI modifier chains — .font(), .foregroundColor(), .padding(), .background() — not raw CSS or styles.","es": "Los estilos visuales se expresan como cadenas de modificadores SwiftUI: .font(), .foregroundColor(), .padding(), .background(), no como CSS o estilos sin procesar.","fr": "Les styles visuels sont exprimés comme des chaînes de modificateurs SwiftUI — .font(), .foregroundColor(), .padding(), .background() — pas comme du CSS brut ou des styles.","de": "Visuelle Stile werden als SwiftUI-Modifikatorketten ausgedrückt — .font(), .foregroundColor(), .padding(), .background() — nicht als rohes CSS oder Styles.","pt": "Estilos visuais são expressos como cadeias de modificadores SwiftUI — .font(), .foregroundColor(), .padding(), .background() — não como CSS bruto ou estilos."}
+    },
+    {
+      "icon": "cpu",
+      "title": {"en": "Xcode Preview Compatible","es": "Compatible con Xcode Preview","fr": "Compatible Xcode Preview","de": "Xcode Preview kompatibel","pt": "Compatível com Xcode Preview"},
+      "description": {"en": "Generated code includes #Preview macros for instant Xcode canvas preview without running a simulator.","es": "El código generado incluye macros #Preview para una vista previa instantánea del lienzo de Xcode sin ejecutar un simulador.","fr": "Le code généré inclut des macros #Preview pour un aperçu instantané du canvas Xcode sans exécuter de simulateur.","de": "Generierter Code enthält #Preview-Makros für sofortige Xcode-Canvas-Vorschau ohne Simulator-Ausführung.","pt": "O código gerado inclui macros #Preview para pré-visualização instantânea do canvas do Xcode sem executar um simulador."}
+    }
+  ],
+  "faq": [
+    {
+      "question": {"en": "Does the output work on both iOS and macOS?","es": "¿La salida funciona tanto en iOS como en macOS?","fr": "La sortie fonctionne-t-elle sur iOS et macOS ?","de": "Funktioniert der Output auf iOS und macOS?","pt": "A saída funciona em iOS e macOS?"},
+      "answer": {"en": "Yes. SwiftUI is Apple's cross-platform declarative UI framework. Generated views work on iOS, iPadOS, macOS (with Catalyst or native Mac target), watchOS, and tvOS. Platform-specific components (like NavigationSplitView for iPad/Mac) are added when the screenshot indicates a multi-column or desktop layout.","es": "Sí. SwiftUI es el framework declarativo de interfaz de usuario multiplataforma de Apple. Las vistas generadas funcionan en iOS, iPadOS, macOS (con Catalyst o destino Mac nativo), watchOS y tvOS. Los componentes específicos de la plataforma (como NavigationSplitView para iPad/Mac) se agregan cuando la captura de pantalla indica un diseño de varias columnas o de escritorio.","fr": "Oui. SwiftUI est le framework d'interface utilisateur déclaratif multiplateforme d'Apple. Les vues générées fonctionnent sur iOS, iPadOS, macOS (avec Catalyst ou une cible Mac native), watchOS et tvOS. Les composants spécifiques à la plateforme (comme NavigationSplitView pour iPad/Mac) sont ajoutés lorsque la capture d'écran indique une mise en page multi-colonnes ou de bureau.","de": "Ja. SwiftUI ist Apples plattformübergreifendes deklaratives UI-Framework. Generierte Views funktionieren auf iOS, iPadOS, macOS (mit Catalyst oder nativem Mac-Ziel), watchOS und tvOS. Plattformspezifische Komponenten (wie NavigationSplitView für iPad/Mac) werden hinzugefügt, wenn der Screenshot ein mehrspaltige oder Desktop-Layout anzeigt.","pt": "Sim. SwiftUI é o framework declarativo de UI multiplataforma da Apple. Views geradas funcionam em iOS, iPadOS, macOS (com Catalyst ou alvo Mac nativo), watchOS e tvOS. Componentes específicos de plataforma (como NavigationSplitView para iPad/Mac) são adicionados quando a captura de tela indica um layout de múltiplas colunas ou desktop."}
+    },
+    {
+      "question": {"en": "Does the tool support Dark Mode in SwiftUI?","es": "¿La herramienta admite el modo oscuro en SwiftUI?","fr": "L'outil prend-il en charge le mode sombre dans SwiftUI ?","de": "Unterstützt das Tool den Dark Mode in SwiftUI?","pt": "A ferramenta suporta Dark Mode no SwiftUI?"},
+      "answer": {"en": "Yes. SwiftUI's adaptive color system is used by default — colors like .primary, .secondary, and semantic colors (Color(.systemBackground)) automatically adapt to light and dark mode. If your screenshot is in dark mode, the AI generates dark-mode-first colors while still ensuring light mode compatibility through adaptive semantics.","es": "Sí. El sistema de colores adaptativo de SwiftUI se usa de forma predeterminada: colores como .primary, .secondary y colores semánticos (Color(.systemBackground)) se adaptan automáticamente al modo claro y oscuro. Si tu captura de pantalla está en modo oscuro, la IA genera colores con prioridad en el modo oscuro mientras sigue garantizando la compatibilidad con el modo claro mediante semántica adaptativa.","fr": "Oui. Le système de couleurs adaptatif de SwiftUI est utilisé par défaut — des couleurs comme .primary, .secondary et des couleurs sémantiques (Color(.systemBackground)) s'adaptent automatiquement aux modes clair et sombre. Si votre capture d'écran est en mode sombre, l'IA génère des couleurs prioritaires pour le mode sombre tout en assurant la compatibilité avec le mode clair grâce à la sémantique adaptative.","de": "Ja. SwiftUIs adaptives Farbsystem wird standardmäßig verwendet — Farben wie .primary, .secondary und semantische Farben (Color(.systemBackground)) passen sich automatisch an Hell- und Dunkelmodus an. Wenn dein Screenshot im Dunkelmodus ist, generiert die KI dunkelmodus-priorisierte Farben und stellt durch adaptive Semantik weiterhin Hellmoduskompatibilität sicher.","pt": "Sim. O sistema de cores adaptativo do SwiftUI é usado por padrão — cores como .primary, .secondary e cores semânticas (Color(.systemBackground)) se adaptam automaticamente aos modos claro e escuro. Se sua captura de tela estiver no modo escuro, a IA gera cores com prioridade para modo escuro enquanto ainda garante compatibilidade com modo claro através de semântica adaptativa."}
+    },
+    {
+      "question": {"en": "Can I use the generated code with SwiftData or CoreData?","es": "¿Puedo usar el código generado con SwiftData o CoreData?","fr": "Puis-je utiliser le code généré avec SwiftData ou CoreData ?","de": "Kann ich den generierten Code mit SwiftData oder CoreData verwenden?","pt": "Posso usar o código gerado com SwiftData ou CoreData?"},
+      "answer": {"en": "The generated SwiftUI views are data-agnostic by default, using @State variables with sample data. To integrate with SwiftData, replace @State bindings with @Query and @Model patterns. For CoreData, use @FetchRequest instead. The generated view structure serves as a clean UI layer that you connect to your data layer.","es": "Las vistas SwiftUI generadas son agnósticas a los datos de forma predeterminada, usando variables @State con datos de muestra. Para integrarse con SwiftData, reemplaza los enlaces @State con patrones @Query y @Model. Para CoreData, usa @FetchRequest en su lugar. La estructura de vista generada sirve como una capa de interfaz limpia que conectas a tu capa de datos.","fr": "Les vues SwiftUI générées sont indépendantes des données par défaut, utilisant des variables @State avec des données d'exemple. Pour s'intégrer avec SwiftData, remplacez les liaisons @State par les modèles @Query et @Model. Pour CoreData, utilisez @FetchRequest à la place. La structure de vue générée sert de couche d'interface propre que vous connectez à votre couche de données.","de": "Die generierten SwiftUI-Views sind standardmäßig daten-agnostisch und verwenden @State-Variablen mit Beispieldaten. Zur Integration mit SwiftData ersetze @State-Bindings durch @Query- und @Model-Muster. Für CoreData verwende stattdessen @FetchRequest. Die generierte View-Struktur dient als saubere UI-Schicht, die du mit deiner Datenschicht verbindest.","pt": "As views SwiftUI geradas são agnósticas a dados por padrão, usando variáveis @State com dados de amostra. Para integrar com SwiftData, substitua vinculações @State por padrões @Query e @Model. Para CoreData, use @FetchRequest em vez disso. A estrutura de view gerada serve como uma camada de UI limpa que você conecta à sua camada de dados."}
+    },
+    {
+      "question": {"en": "How does SwiftUI output differ from React Native?","es": "¿En qué se diferencia la salida de SwiftUI de React Native?","fr": "En quoi la sortie SwiftUI diffère-t-elle de React Native ?","de": "Wie unterscheidet sich SwiftUI-Output von React Native?","pt": "Como a saída SwiftUI difere do React Native?"},
+      "answer": {"en": "SwiftUI is Apple-native and compiles to native UIKit/AppKit components — only for Apple platforms. React Native generates JavaScript code that runs on both iOS and Android using the React Native bridge. SwiftUI gives superior iOS performance and native look-and-feel; React Native gives cross-platform reach with one codebase for both iOS and Android.","es": "SwiftUI es nativo de Apple y compila a componentes UIKit/AppKit nativos, solo para plataformas Apple. React Native genera código JavaScript que se ejecuta en iOS y Android usando el puente de React Native. SwiftUI da un rendimiento superior en iOS y una apariencia nativa; React Native da alcance multiplataforma con una base de código para iOS y Android.","fr": "SwiftUI est natif Apple et compile en composants UIKit/AppKit natifs — uniquement pour les plateformes Apple. React Native génère du code JavaScript qui s'exécute sur iOS et Android via le pont React Native. SwiftUI offre des performances iOS supérieures et une apparence native ; React Native offre une portée multiplateforme avec une seule base de code pour iOS et Android.","de": "SwiftUI ist Apple-nativ und kompiliert zu nativen UIKit/AppKit-Komponenten — nur für Apple-Plattformen. React Native generiert JavaScript-Code, der auf iOS und Android über die React Native Bridge läuft. SwiftUI bietet überlegene iOS-Performance und native Look-and-Feel; React Native bietet plattformübergreifende Reichweite mit einer Codebasis für iOS und Android.","pt": "SwiftUI é nativo da Apple e compila para componentes UIKit/AppKit nativos — apenas para plataformas Apple. React Native gera código JavaScript que roda em iOS e Android usando a bridge do React Native. SwiftUI oferece desempenho iOS superior e aparência nativa; React Native oferece alcance multiplataforma com uma base de código para iOS e Android."}
+    }
+  ],
+  "relatedTools": ["screenshot-to-flutter","screenshot-to-react-native","screenshot-to-jetpack-compose","screenshot-to-react","screenshot-to-html-css","html-beautifier","css-beautifier"]
+}

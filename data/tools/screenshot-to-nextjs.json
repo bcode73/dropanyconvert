@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-nextjs",
+  "slug": "screenshot-to-nextjs",
+  "name": {
+    "en": "Screenshot to Next.js",
+    "es": "Captura de pantalla a Next.js",
+    "fr": "Capture d'écran en Next.js",
+    "de": "Screenshot zu Next.js",
+    "pt": "Captura de tela para Next.js"
+  },
+  "tagline": {
+    "en": "Generate Next.js page components from screenshots using AI.",
+    "es": "Genera componentes de página Next.js a partir de capturas de pantalla usando IA.",
+    "fr": "Générez des composants de page Next.js à partir de captures d'écran grâce à l'IA.",
+    "de": "Generiere Next.js Seitenkomponenten aus Screenshots mit KI.",
+    "pt": "Gere componentes de página Next.js a partir de capturas de tela usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateNextJs",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "tsx",
+      "mime": "text/typescript",
+      "label": "Next.js TSX",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to nextjs",
+    "secondaryKeywords": [
+      "convert screenshot to next.js component",
+      "ai image to nextjs page",
+      "screenshot to next js code",
+      "nextjs component generator from image"
+    ],
+    "title": {
+      "en": "Screenshot to Next.js — AI Page Generator",
+      "es": "Captura de pantalla a Next.js — Generador de páginas IA",
+      "fr": "Capture d'écran en Next.js — Générateur de pages IA",
+      "de": "Screenshot zu Next.js — KI-Seitengenerator",
+      "pt": "Captura de tela para Next.js — Gerador de páginas IA"
+    },
+    "description": {
+      "en": "Convert screenshots to Next.js page components with AI. Get App Router-compatible TSX files with proper metadata, Image components, and server component patterns.",
+      "es": "Convierte capturas de pantalla a componentes de página Next.js con IA. Obtén archivos TSX compatibles con App Router con metadatos adecuados, componentes Image y patrones de componentes de servidor.",
+      "fr": "Convertissez des captures d'écran en composants de page Next.js grâce à l'IA. Obtenez des fichiers TSX compatibles App Router avec des métadonnées appropriées, des composants Image et des modèles de composants serveur.",
+      "de": "Screenshots mit KI in Next.js Seitenkomponenten konvertieren. Erhalte App Router-kompatible TSX-Dateien mit korrekten Metadaten, Image-Komponenten und Server-Komponentenmustern.",
+      "pt": "Converta capturas de tela em componentes de página Next.js com IA. Obtenha arquivos TSX compatíveis com App Router com metadados adequados, componentes Image e padrões de componentes de servidor."
+    },
+    "h1": {
+      "en": "Convert Screenshot to Next.js with AI",
+      "es": "Convierte capturas de pantalla a Next.js con IA",
+      "fr": "Convertir une capture d'écran en Next.js avec l'IA",
+      "de": "Screenshot mit KI in Next.js konvertieren",
+      "pt": "Converter captura de tela para Next.js com IA"
+    },
+    "intro": {
+      "en": "Upload a screenshot of any page design and get a complete Next.js App Router page component — with TypeScript, proper metadata exports, next/image usage, and server or client component designation. Build your Next.js app faster with AI-generated page code.",
+      "es": "Sube una captura de pantalla de cualquier diseño de página y obtén un componente de página Next.js App Router completo, con TypeScript, exportaciones de metadatos adecuadas, uso de next/image y designación de componente de servidor o cliente. Construye tu aplicación Next.js más rápido con código de página generado por IA.",
+      "fr": "Téléchargez une capture d'écran de n'importe quelle conception de page et obtenez un composant de page Next.js App Router complet — avec TypeScript, des exportations de métadonnées appropriées, l'utilisation de next/image et la désignation de composant serveur ou client. Construisez votre application Next.js plus rapidement avec du code de page généré par IA.",
+      "de": "Lade einen Screenshot eines Seitendesigns hoch und erhalte eine vollständige Next.js App Router Seitenkomponente — mit TypeScript, korrekten Metadata-Exporten, next/image-Verwendung und Server- oder Client-Komponentenbezeichnung. Baue deine Next.js-App schneller mit KI-generiertem Seitencode.",
+      "pt": "Envie uma captura de tela de qualquer design de página e obtenha um componente de página Next.js App Router completo — com TypeScript, exportações de metadados adequadas, uso de next/image e designação de componente de servidor ou cliente. Construa seu aplicativo Next.js mais rapidamente com código de página gerado por IA."
+    }
+  },
+  "features": [
+    {
+      "icon": "layout",
+      "title": {
+        "en": "App Router Compatible",
+        "es": "Compatible con App Router",
+        "fr": "Compatible App Router",
+        "de": "App Router kompatibel",
+        "pt": "Compatível com App Router"
+      },
+      "description": {
+        "en": "Generated code follows Next.js 14+ App Router conventions with proper page.tsx structure, metadata exports, and layout patterns.",
+        "es": "El código generado sigue las convenciones de Next.js 14+ App Router con la estructura page.tsx adecuada, exportaciones de metadatos y patrones de diseño.",
+        "fr": "Le code généré suit les conventions Next.js 14+ App Router avec la structure page.tsx appropriée, les exportations de métadonnées et les modèles de mise en page.",
+        "de": "Generierter Code folgt Next.js 14+ App Router-Konventionen mit korrekter page.tsx-Struktur, Metadata-Exporten und Layout-Mustern.",
+        "pt": "O código gerado segue as convenções do Next.js 14+ App Router com estrutura page.tsx adequada, exportações de metadados e padrões de layout."
+      }
+    },
+    {
+      "icon": "image",
+      "title": {
+        "en": "next/image Integration",
+        "es": "Integración con next/image",
+        "fr": "Intégration next/image",
+        "de": "next/image-Integration",
+        "pt": "Integração com next/image"
+      },
+      "description": {
+        "en": "Image elements in your screenshot are replaced with Next.js optimized <Image> components for automatic performance optimization.",
+        "es": "Los elementos de imagen en tu captura de pantalla se reemplazan con componentes <Image> optimizados de Next.js para una optimización automática del rendimiento.",
+        "fr": "Les éléments d'image dans votre capture d'écran sont remplacés par des composants <Image> optimisés Next.js pour une optimisation automatique des performances.",
+        "de": "Bildelemente in deinem Screenshot werden durch Next.js optimierte <Image>-Komponenten für automatische Performance-Optimierung ersetzt.",
+        "pt": "Elementos de imagem na sua captura de tela são substituídos por componentes <Image> otimizados do Next.js para otimização automática de desempenho."
+      }
+    },
+    {
+      "icon": "server",
+      "title": {
+        "en": "Server & Client Components",
+        "es": "Componentes de servidor y cliente",
+        "fr": "Composants serveur et client",
+        "de": "Server- und Client-Komponenten",
+        "pt": "Componentes de servidor e cliente"
+      },
+      "description": {
+        "en": "AI intelligently designates components as server or client ('use client') based on interactivity patterns detected in the screenshot.",
+        "es": "La IA designa inteligentemente los componentes como servidor o cliente ('use client') según los patrones de interactividad detectados en la captura de pantalla.",
+        "fr": "L'IA désigne intelligemment les composants comme serveur ou client ('use client') en fonction des modèles d'interactivité détectés dans la capture d'écran.",
+        "de": "KI designiert Komponenten intelligent als Server- oder Client-Komponenten ('use client') basierend auf erkannten Interaktivitätsmustern im Screenshot.",
+        "pt": "A IA designa inteligentemente componentes como servidor ou cliente ('use client') com base nos padrões de interatividade detectados na captura de tela."
+      }
+    },
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "TypeScript by Default",
+        "es": "TypeScript por defecto",
+        "fr": "TypeScript par défaut",
+        "de": "TypeScript standardmäßig",
+        "pt": "TypeScript por padrão"
+      },
+      "description": {
+        "en": "All generated Next.js output uses TypeScript with proper type annotations and interface definitions ready for production.",
+        "es": "Toda la salida Next.js generada usa TypeScript con anotaciones de tipo adecuadas y definiciones de interfaz listas para producción.",
+        "fr": "Toute la sortie Next.js générée utilise TypeScript avec des annotations de type appropriées et des définitions d'interface prêtes pour la production.",
+        "de": "Alle generierten Next.js-Ausgaben verwenden TypeScript mit korrekten Typ-Annotationen und Interface-Definitionen, die für die Produktion bereit sind.",
+        "pt": "Toda a saída Next.js gerada usa TypeScript com anotações de tipo adequadas e definições de interface prontas para produção."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does the output target the Pages Router or App Router?",
+        "es": "¿La salida está dirigida al Pages Router o al App Router?",
+        "fr": "La sortie cible-t-elle le Pages Router ou l'App Router ?",
+        "de": "Zielt der Output auf den Pages Router oder den App Router?",
+        "pt": "A saída tem como alvo o Pages Router ou o App Router?"
+      },
+      "answer": {
+        "en": "By default the tool generates App Router (Next.js 13+) compatible code with the page.tsx pattern and metadata exports. If your project still uses the Pages Router, you can adapt the output by removing metadata exports and adjusting the file name to index.tsx or [slug].tsx as needed.",
+        "es": "De forma predeterminada, la herramienta genera código compatible con App Router (Next.js 13+) con el patrón page.tsx y exportaciones de metadatos. Si tu proyecto todavía usa el Pages Router, puedes adaptar la salida eliminando las exportaciones de metadatos y ajustando el nombre de archivo a index.tsx o [slug].tsx según sea necesario.",
+        "fr": "Par défaut, l'outil génère du code compatible App Router (Next.js 13+) avec le modèle page.tsx et les exportations de métadonnées. Si votre projet utilise encore le Pages Router, vous pouvez adapter la sortie en supprimant les exportations de métadonnées et en ajustant le nom de fichier vers index.tsx ou [slug].tsx selon les besoins.",
+        "de": "Standardmäßig generiert das Tool App Router (Next.js 13+) kompatiblen Code mit dem page.tsx-Muster und Metadata-Exporten. Wenn dein Projekt noch den Pages Router verwendet, kannst du die Ausgabe anpassen, indem du Metadata-Exporte entfernst und den Dateinamen nach Bedarf auf index.tsx oder [slug].tsx anpasst.",
+        "pt": "Por padrão, a ferramenta gera código compatível com App Router (Next.js 13+) com o padrão page.tsx e exportações de metadados. Se seu projeto ainda usa o Pages Router, você pode adaptar a saída removendo exportações de metadados e ajustando o nome do arquivo para index.tsx ou [slug].tsx conforme necessário."
+      }
+    },
+    {
+      "question": {
+        "en": "Can it generate Next.js API routes from screenshots?",
+        "es": "¿Puede generar rutas API de Next.js a partir de capturas de pantalla?",
+        "fr": "Peut-il générer des routes API Next.js à partir de captures d'écran ?",
+        "de": "Kann es Next.js API-Routen aus Screenshots generieren?",
+        "pt": "Pode gerar rotas API Next.js a partir de capturas de tela?"
+      },
+      "answer": {
+        "en": "This tool is optimized for generating UI page and component code from visual screenshots. For API route generation, a text-based code generation tool is more appropriate. However, the generated page components include data fetching patterns (fetch calls, async server components) where the AI detects data-driven UI.",
+        "es": "Esta herramienta está optimizada para generar código de página de interfaz de usuario y componentes a partir de capturas de pantalla visuales. Para la generación de rutas API, una herramienta de generación de código basada en texto es más apropiada. Sin embargo, los componentes de página generados incluyen patrones de obtención de datos (llamadas fetch, componentes de servidor asíncronos) donde la IA detecta interfaces impulsadas por datos.",
+        "fr": "Cet outil est optimisé pour générer du code de page d'interface utilisateur et de composants à partir de captures d'écran visuelles. Pour la génération de routes API, un outil de génération de code basé sur du texte est plus approprié. Cependant, les composants de page générés incluent des modèles de récupération de données (appels fetch, composants serveur asynchrones) où l'IA détecte une interface pilotée par les données.",
+        "de": "Dieses Tool ist für das Generieren von UI-Seiten- und Komponentencode aus visuellen Screenshots optimiert. Für API-Routen-Generierung ist ein textbasiertes Code-Generierungstool besser geeignet. Die generierten Seitenkomponenten enthalten jedoch Datenabrufmuster (fetch-Aufrufe, async Server-Komponenten), wo die KI datengesteuerte UI erkennt.",
+        "pt": "Esta ferramenta é otimizada para gerar código de página de interface de usuário e componentes a partir de capturas de tela visuais. Para geração de rotas de API, uma ferramenta de geração de código baseada em texto é mais apropriada. No entanto, os componentes de página gerados incluem padrões de busca de dados (chamadas fetch, componentes de servidor assíncronos) onde a IA detecta interface orientada a dados."
+      }
+    },
+    {
+      "question": {
+        "en": "Does it support Tailwind CSS with Next.js output?",
+        "es": "¿Admite Tailwind CSS con la salida de Next.js?",
+        "fr": "Prend-il en charge Tailwind CSS avec la sortie Next.js ?",
+        "de": "Unterstützt es Tailwind CSS mit Next.js-Output?",
+        "pt": "Suporta Tailwind CSS com a saída do Next.js?"
+      },
+      "answer": {
+        "en": "Yes. You can choose between inline styles, CSS Modules, or Tailwind CSS as the styling strategy for your Next.js output. Tailwind is the recommended option as it integrates seamlessly with the default Next.js project setup from create-next-app.",
+        "es": "Sí. Puedes elegir entre estilos en línea, módulos CSS o Tailwind CSS como estrategia de estilo para tu salida de Next.js. Tailwind es la opción recomendada ya que se integra perfectamente con la configuración predeterminada del proyecto Next.js de create-next-app.",
+        "fr": "Oui. Vous pouvez choisir entre les styles inline, les modules CSS ou Tailwind CSS comme stratégie de style pour votre sortie Next.js. Tailwind est l'option recommandée car elle s'intègre parfaitement avec la configuration de projet Next.js par défaut de create-next-app.",
+        "de": "Ja. Du kannst zwischen Inline-Styles, CSS Modules oder Tailwind CSS als Styling-Strategie für deinen Next.js-Output wählen. Tailwind ist die empfohlene Option, da es nahtlos mit dem Standard-Next.js-Projekt-Setup von create-next-app integriert.",
+        "pt": "Sim. Você pode escolher entre estilos inline, módulos CSS ou Tailwind CSS como estratégia de estilização para a saída do Next.js. O Tailwind é a opção recomendada pois se integra perfeitamente com a configuração padrão do projeto Next.js do create-next-app."
+      }
+    },
+    {
+      "question": {
+        "en": "How does this differ from Screenshot to React?",
+        "es": "¿En qué se diferencia esto de Screenshot to React?",
+        "fr": "En quoi cela diffère-t-il de Screenshot vers React ?",
+        "de": "Wie unterscheidet sich das von Screenshot zu React?",
+        "pt": "Como isso difere do Screenshot para React?"
+      },
+      "answer": {
+        "en": "Screenshot to React generates a generic React component (.jsx) that works in any React app. Screenshot to Next.js generates Next.js-specific code including metadata exports (for SEO), next/image and next/link component usage, 'use client' directives, and App Router file conventions — making it immediately usable in a Next.js project without adaptation.",
+        "es": "Screenshot to React genera un componente React genérico (.jsx) que funciona en cualquier aplicación React. Screenshot to Next.js genera código específico de Next.js que incluye exportaciones de metadatos (para SEO), uso de componentes next/image y next/link, directivas 'use client' y convenciones de archivo App Router, lo que lo hace inmediatamente utilizable en un proyecto Next.js sin adaptación.",
+        "fr": "Screenshot vers React génère un composant React générique (.jsx) qui fonctionne dans n'importe quelle application React. Screenshot vers Next.js génère du code spécifique Next.js incluant des exportations de métadonnées (pour le SEO), l'utilisation des composants next/image et next/link, les directives 'use client', et les conventions de fichiers App Router — le rendant immédiatement utilisable dans un projet Next.js sans adaptation.",
+        "de": "Screenshot zu React generiert eine generische React-Komponente (.jsx), die in jeder React-App funktioniert. Screenshot zu Next.js generiert Next.js-spezifischen Code einschließlich Metadata-Exporte (für SEO), next/image und next/link Komponentenverwendung, 'use client'-Direktiven und App Router-Dateikonventionen — was ihn sofort ohne Anpassung in einem Next.js-Projekt nutzbar macht.",
+        "pt": "Screenshot para React gera um componente React genérico (.jsx) que funciona em qualquer aplicativo React. Screenshot para Next.js gera código específico do Next.js incluindo exportações de metadados (para SEO), uso de componentes next/image e next/link, diretivas 'use client' e convenções de arquivo App Router — tornando-o imediatamente utilizável em um projeto Next.js sem adaptação."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-react",
+    "screenshot-to-tailwind",
+    "screenshot-to-vue",
+    "screenshot-to-svelte",
+    "html-beautifier",
+    "css-beautifier",
+    "html-minifier"
+  ]
+}

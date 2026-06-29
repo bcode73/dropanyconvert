@@ -1,0 +1,238 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-svg",
+  "slug": "screenshot-to-svg",
+  "name": {
+    "en": "Screenshot to SVG Layout Converter",
+    "es": "Captura a SVG Layout",
+    "fr": "Capture vers SVG Layout",
+    "de": "Screenshot zu SVG Layout",
+    "pt": "Captura para SVG Layout"
+  },
+  "tagline": {
+    "en": "Convert any screenshot to SVG Layout code using AI. Premium feature.",
+    "es": "Convierte capturas de pantalla a código SVG Layout con IA. Función premium.",
+    "fr": "Convertissez des captures d'écran en code SVG Layout avec l'IA. Fonction premium.",
+    "de": "Konvertiere Screenshots mit KI zu SVG Layout-Code. Premium-Funktion.",
+    "pt": "Converta capturas de tela em código SVG Layout com IA. Recurso premium."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateSvg",
+  "inputFormats": [
+    "image/png",
+    "image/jpeg",
+    "image/webp",
+    "image/gif"
+  ],
+  "outputFormats": [
+    {
+      "ext": "svg",
+      "mime": "image/svg+xml",
+      "label": "SVG Layout",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "creditsPerUse": 1,
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to svg layout converter",
+    "secondaryKeywords": [
+      "convert screenshot to svg layout",
+      "image to svg layout code",
+      "AI svg layout generator",
+      "design to svg layout"
+    ],
+    "title": {
+      "en": "Screenshot to SVG Layout Converter — AI Code Generator",
+      "es": "Captura a SVG Layout — Generador de Código IA",
+      "fr": "Capture vers SVG Layout — Générateur de Code IA",
+      "de": "Screenshot zu SVG Layout — KI Code Generator",
+      "pt": "Captura para SVG Layout — Gerador de Código IA"
+    },
+    "description": {
+      "en": "Convert any UI screenshot to SVG Layout code instantly using AI. Upload your design, get production-ready SVG Layout code. Premium feature powered by DeepSeek.",
+      "es": "Convierte cualquier captura de pantalla de UI a código SVG Layout instantáneamente usando IA. Sube tu diseño, obtén código SVG Layout listo para producción. Función premium.",
+      "fr": "Convertissez n'importe quelle capture d'écran d'interface en code SVG Layout instantanément avec l'IA. Téléversez votre design, obtenez du code SVG Layout prêt pour la production.",
+      "de": "Konvertiere jeden UI-Screenshot sofort mit KI zu SVG Layout-Code. Lade dein Design hoch, erhalte produktionsreifen SVG Layout-Code. Premium-Funktion.",
+      "pt": "Converta qualquer captura de tela de UI para código SVG Layout instantaneamente usando IA. Carregue seu design, obtenha código SVG Layout pronto para produção."
+    },
+    "h1": {
+      "en": "Screenshot to SVG Layout — AI Code Generator",
+      "es": "Captura de Pantalla a SVG Layout — Generador IA",
+      "fr": "Capture d'Écran vers SVG Layout — Générateur IA",
+      "de": "Screenshot zu SVG Layout — KI-Code-Generator",
+      "pt": "Captura para SVG Layout — Gerador de Código IA"
+    },
+    "intro": {
+      "en": "Upload a screenshot of any UI — web app, mobile app, or design mockup — and our AI generates clean, production-ready SVG Layout code instantly. Powered by DeepSeek with OpenAI and Anthropic as fallbacks.",
+      "es": "Sube una captura de pantalla de cualquier UI — aplicación web, móvil o maqueta de diseño — y nuestra IA genera código SVG Layout limpio y listo para producción al instante.",
+      "fr": "Téléversez une capture d'écran de n'importe quelle interface — application web, mobile ou maquette — et notre IA génère instantanément du code SVG Layout propre et prêt pour la production.",
+      "de": "Lade einen Screenshot einer beliebigen UI hoch — Web-App, Mobile-App oder Design-Mockup — und unsere KI generiert sofort sauberen, produktionsreifen SVG Layout-Code.",
+      "pt": "Carregue uma captura de tela de qualquer UI — aplicativo web, móvel ou mockup de design — e nossa IA gera código SVG Layout limpo e pronto para produção instantaneamente."
+    },
+    "searchIntent": "commercial"
+  },
+  "features": [
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "AI-Powered",
+        "es": "IA Avanzada",
+        "fr": "Propulsé par IA",
+        "de": "KI-gestützt",
+        "pt": "IA Avançada"
+      },
+      "description": {
+        "en": "DeepSeek V4 generates accurate SVG Layout code from your screenshot in seconds.",
+        "es": "DeepSeek V4 genera código SVG Layout preciso desde tu captura en segundos.",
+        "fr": "DeepSeek V4 génère du code SVG Layout précis depuis votre capture en quelques secondes.",
+        "de": "DeepSeek V4 generiert in Sekunden präzisen SVG Layout-Code aus deinem Screenshot.",
+        "pt": "DeepSeek V4 gera código SVG Layout preciso da sua captura em segundos."
+      }
+    },
+    {
+      "icon": "zap",
+      "title": {
+        "en": "Instant Output",
+        "es": "Salida Instantánea",
+        "fr": "Sortie Instantanée",
+        "de": "Sofortige Ausgabe",
+        "pt": "Saída Instantânea"
+      },
+      "description": {
+        "en": "Streaming code output — see results appear as they are generated, not after a long wait.",
+        "es": "Salida de código en streaming — ve los resultados aparecer mientras se generan, no después de una larga espera.",
+        "fr": "Sortie de code en streaming — voyez les résultats apparaître au fur et à mesure de leur génération.",
+        "de": "Streaming-Code-Ausgabe — sieh die Ergebnisse erscheinen während sie generiert werden.",
+        "pt": "Saída de código em streaming — veja os resultados aparecerem conforme são gerados."
+      }
+    },
+    {
+      "icon": "refresh",
+      "title": {
+        "en": "Regenerate & Compare",
+        "es": "Regenerar y Comparar",
+        "fr": "Régénérer et Comparer",
+        "de": "Regenerieren & Vergleichen",
+        "pt": "Regenerar e Comparar"
+      },
+      "description": {
+        "en": "Not satisfied? Regenerate with one click or compare outputs from multiple AI providers.",
+        "es": "¿No estás satisfecho? Regenera con un clic o compara salidas de múltiples proveedores de IA.",
+        "fr": "Pas satisfait ? Régénérez d'un clic ou comparez les sorties de plusieurs fournisseurs IA.",
+        "de": "Nicht zufrieden? Regeneriere mit einem Klick oder vergleiche Ausgaben von mehreren KI-Anbietern.",
+        "pt": "Não ficou satisfeito? Regenere com um clique ou compare saídas de vários provedores de IA."
+      }
+    },
+    {
+      "icon": "shield",
+      "title": {
+        "en": "1 Credit Per Generation",
+        "es": "1 Crédito por Generación",
+        "fr": "1 Crédit par Génération",
+        "de": "1 Credit pro Generierung",
+        "pt": "1 Crédito por Geração"
+      },
+      "description": {
+        "en": "Pro plan: 500 credits/month. Business plan: 5,000 credits/month. Credits reset monthly.",
+        "es": "Plan Pro: 500 créditos/mes. Plan Business: 5.000 créditos/mes. Los créditos se reinician mensualmente.",
+        "fr": "Plan Pro : 500 crédits/mois. Plan Business : 5 000 crédits/mois. Les crédits se réinitialisent mensuellement.",
+        "de": "Pro-Plan: 500 Credits/Monat. Business-Plan: 5.000 Credits/Monat. Credits werden monatlich zurückgesetzt.",
+        "pt": "Plano Pro: 500 créditos/mês. Plano Business: 5.000 créditos/mês. Créditos redefinem mensalmente."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What is Screenshot to SVG Layout?",
+        "es": "¿Qué es Captura a SVG Layout?",
+        "fr": "Qu'est-ce que Capture vers SVG Layout ?",
+        "de": "Was ist Screenshot zu SVG Layout?",
+        "pt": "O que é Captura para SVG Layout?"
+      },
+      "answer": {
+        "en": "Screenshot to SVG Layout is an AI-powered tool that converts any UI screenshot into SVG Layout code. Upload a screenshot of a website, app, or design, and the AI generates clean, production-ready SVG Layout code.",
+        "es": "Captura a SVG Layout es una herramienta impulsada por IA que convierte cualquier captura de pantalla de UI en código SVG Layout. Sube una captura de un sitio web, aplicación o diseño, y la IA genera código SVG Layout limpio y listo para producción.",
+        "fr": "Capture vers SVG Layout est un outil alimenté par IA qui convertit n'importe quelle capture d'écran d'interface en code SVG Layout. Téléversez une capture d'un site web, d'une app ou d'un design, et l'IA génère du code SVG Layout propre et prêt pour la production.",
+        "de": "Screenshot zu SVG Layout ist ein KI-gestütztes Tool, das jeden UI-Screenshot in SVG Layout-Code konvertiert. Lade einen Screenshot einer Website, App oder eines Designs hoch, und die KI generiert sauberen, produktionsreifen SVG Layout-Code.",
+        "pt": "Captura para SVG Layout é uma ferramenta alimentada por IA que converte qualquer captura de tela de UI em código SVG Layout. Carregue uma captura de um site, aplicativo ou design, e a IA gera código SVG Layout limpo e pronto para produção."
+      }
+    },
+    {
+      "question": {
+        "en": "Does it require a premium plan?",
+        "es": "¿Requiere un plan premium?",
+        "fr": "Nécessite-t-il un plan premium ?",
+        "de": "Erfordert es einen Premium-Plan?",
+        "pt": "Requer um plano premium?"
+      },
+      "answer": {
+        "en": "Yes. Screenshot to SVG Layout requires a Pro or Business plan because it uses AI cloud computing. Pro plan includes 500 credits/month; Business plan includes 5,000 credits/month. Each generation costs 1 credit.",
+        "es": "Sí. Captura a SVG Layout requiere un plan Pro o Business porque usa computación en la nube con IA. El plan Pro incluye 500 créditos/mes; el plan Business incluye 5.000 créditos/mes. Cada generación cuesta 1 crédito.",
+        "fr": "Oui. Capture vers SVG Layout nécessite un plan Pro ou Business car il utilise le cloud computing IA. Le plan Pro inclut 500 crédits/mois ; le plan Business en inclut 5 000. Chaque génération coûte 1 crédit.",
+        "de": "Ja. Screenshot zu SVG Layout erfordert einen Pro- oder Business-Plan, da KI-Cloud-Computing genutzt wird. Pro-Plan: 500 Credits/Monat; Business-Plan: 5.000 Credits/Monat. Jede Generierung kostet 1 Credit.",
+        "pt": "Sim. Captura para SVG Layout requer um plano Pro ou Business porque usa computação em nuvem com IA. Plano Pro inclui 500 créditos/mês; Plano Business inclui 5.000 créditos/mês. Cada geração custa 1 crédito."
+      }
+    },
+    {
+      "question": {
+        "en": "Which AI model generates the code?",
+        "es": "¿Qué modelo de IA genera el código?",
+        "fr": "Quel modèle IA génère le code ?",
+        "de": "Welches KI-Modell generiert den Code?",
+        "pt": "Qual modelo de IA gera o código?"
+      },
+      "answer": {
+        "en": "DeepSeek V4 is the default model (excellent code quality at low cost). The system automatically falls back to OpenAI GPT-4o or Anthropic Claude if needed. You can also request a specific provider.",
+        "es": "DeepSeek V4 es el modelo predeterminado (excelente calidad de código a bajo costo). El sistema recae automáticamente en OpenAI GPT-4o o Anthropic Claude si es necesario. También puedes solicitar un proveedor específico.",
+        "fr": "DeepSeek V4 est le modèle par défaut (excellente qualité de code à faible coût). Le système bascule automatiquement vers OpenAI GPT-4o ou Anthropic Claude si nécessaire.",
+        "de": "DeepSeek V4 ist das Standardmodell (hervorragende Codequalität bei niedrigen Kosten). Das System fällt bei Bedarf automatisch auf OpenAI GPT-4o oder Anthropic Claude zurück.",
+        "pt": "DeepSeek V4 é o modelo padrão (excelente qualidade de código a baixo custo). O sistema retorna automaticamente para OpenAI GPT-4o ou Anthropic Claude se necessário."
+      }
+    },
+    {
+      "question": {
+        "en": "How accurate is the generated code?",
+        "es": "¿Qué tan preciso es el código generado?",
+        "fr": "Quelle est la précision du code généré ?",
+        "de": "Wie genau ist der generierte Code?",
+        "pt": "Quão preciso é o código gerado?"
+      },
+      "answer": {
+        "en": "For standard UI layouts, expect 80–95% accuracy. Complex animations, custom fonts, or highly detailed designs may need manual refinement. The generated SVG Layout code is always clean and production-ready as a starting point.",
+        "es": "Para diseños de UI estándar, espera 80–95% de precisión. Las animaciones complejas, fuentes personalizadas o diseños muy detallados pueden necesitar refinamiento manual. El código SVG Layout generado siempre es limpio y listo para producción como punto de partida.",
+        "fr": "Pour les mises en page UI standard, attendez-vous à 80–95% de précision. Les animations complexes, les polices personnalisées ou les designs très détaillés peuvent nécessiter un ajustement manuel.",
+        "de": "Für Standard-UI-Layouts erwarte 80–95% Genauigkeit. Komplexe Animationen, benutzerdefinierte Schriftarten oder sehr detaillierte Designs erfordern möglicherweise manuelle Nachbearbeitung.",
+        "pt": "Para layouts de UI padrão, espere 80–95% de precisão. Animações complexas, fontes personalizadas ou designs muito detalhados podem precisar de refinamento manual."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-html",
+    "screenshot-to-react",
+    "screenshot-to-tailwind",
+    "screenshot-to-html-css"
+  ],
+  "lastUpdated": "2026-06-29"
+}

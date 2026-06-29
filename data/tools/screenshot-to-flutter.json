@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-flutter",
+  "slug": "screenshot-to-flutter",
+  "name": {
+    "en": "Screenshot to Flutter",
+    "es": "Captura de pantalla a Flutter",
+    "fr": "Capture d'écran en Flutter",
+    "de": "Screenshot zu Flutter",
+    "pt": "Captura de tela para Flutter"
+  },
+  "tagline": {
+    "en": "Convert screenshots into Flutter Dart widget code using AI.",
+    "es": "Convierte capturas de pantalla en código de widget Flutter Dart usando IA.",
+    "fr": "Convertissez des captures d'écran en code de widget Flutter Dart grâce à l'IA.",
+    "de": "Konvertiere Screenshots mit KI in Flutter Dart Widget-Code.",
+    "pt": "Converta capturas de tela em código de widget Flutter Dart usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateFlutter",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "dart",
+      "mime": "text/x-dart",
+      "label": "Flutter Dart",
+      "default": true
+    }
+  ],
+  "batch": { "supported": false, "maxFiles": 1, "zipOutput": false },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": ["screenshot-upload","drag-and-drop","clipboard-paste","preview","stream-output","copy-code","download-code","regenerate","premium-required"],
+  "seo": {
+    "primaryKeyword": "screenshot to flutter",
+    "secondaryKeywords": ["convert screenshot to flutter widget","ai image to flutter dart","screenshot to flutter code","flutter widget generator from image"],
+    "title": {
+      "en": "Screenshot to Flutter — AI Dart Widget Generator",
+      "es": "Captura de pantalla a Flutter — Generador de widgets Dart IA",
+      "fr": "Capture d'écran en Flutter — Générateur de widgets Dart IA",
+      "de": "Screenshot zu Flutter — KI Dart Widget-Generator",
+      "pt": "Captura de tela para Flutter — Gerador de widgets Dart IA"
+    },
+    "description": {
+      "en": "Convert screenshots to Flutter Dart widget code using AI. Get StatelessWidget and StatefulWidget implementations with proper Material Design widgets from any UI image.",
+      "es": "Convierte capturas de pantalla a código de widget Flutter Dart usando IA. Obtén implementaciones de StatelessWidget y StatefulWidget con widgets de Material Design adecuados de cualquier imagen de interfaz.",
+      "fr": "Convertissez des captures d'écran en code de widget Flutter Dart grâce à l'IA. Obtenez des implémentations StatelessWidget et StatefulWidget avec les bons widgets Material Design à partir de n'importe quelle image d'interface.",
+      "de": "Screenshots mit KI in Flutter Dart Widget-Code konvertieren. Erhalte StatelessWidget- und StatefulWidget-Implementierungen mit korrekten Material Design-Widgets aus jedem UI-Bild.",
+      "pt": "Converta capturas de tela em código de widget Flutter Dart usando IA. Obtenha implementações StatelessWidget e StatefulWidget com widgets Material Design adequados a partir de qualquer imagem de interface."
+    },
+    "h1": {
+      "en": "Convert Screenshot to Flutter with AI",
+      "es": "Convierte capturas de pantalla a Flutter con IA",
+      "fr": "Convertir une capture d'écran en Flutter avec l'IA",
+      "de": "Screenshot mit KI in Flutter konvertieren",
+      "pt": "Converter captura de tela para Flutter com IA"
+    },
+    "intro": {
+      "en": "Upload any mobile or web UI screenshot and our AI generates complete Flutter Dart widget code. Get proper Widget trees with Column, Row, Container, Stack, and Material Design components — ready to paste into your Flutter project and run on iOS, Android, and the web.",
+      "es": "Sube cualquier captura de pantalla de interfaz móvil o web y nuestra IA genera código de widget Flutter Dart completo. Obtén árboles de Widget adecuados con Column, Row, Container, Stack y componentes de Material Design, listos para pegar en tu proyecto Flutter y ejecutar en iOS, Android y la web.",
+      "fr": "Téléchargez n'importe quelle capture d'écran d'interface mobile ou web et notre IA génère du code de widget Flutter Dart complet. Obtenez des arbres de Widget appropriés avec Column, Row, Container, Stack et des composants Material Design — prêts à coller dans votre projet Flutter et à exécuter sur iOS, Android et le web.",
+      "de": "Lade einen beliebigen mobilen oder Web-UI-Screenshot hoch und unsere KI generiert vollständigen Flutter Dart Widget-Code. Erhalte korrekte Widget-Bäume mit Column, Row, Container, Stack und Material Design-Komponenten — bereit zum Einfügen in dein Flutter-Projekt und Ausführen auf iOS, Android und dem Web.",
+      "pt": "Envie qualquer captura de tela de interface móvel ou web e nossa IA gera código de widget Flutter Dart completo. Obtenha árvores de Widget adequadas com Column, Row, Container, Stack e componentes Material Design — prontos para colar no seu projeto Flutter e executar em iOS, Android e web."
+    }
+  },
+  "features": [
+    {
+      "icon": "smartphone",
+      "title": {"en": "Material & Cupertino Widgets","es": "Widgets Material y Cupertino","fr": "Widgets Material et Cupertino","de": "Material & Cupertino Widgets","pt": "Widgets Material e Cupertino"},
+      "description": {"en": "AI maps visual elements to the correct Flutter Material (Android) or Cupertino (iOS-style) widgets based on the design in your screenshot.","es": "La IA mapea elementos visuales a los widgets Flutter Material (Android) o Cupertino (estilo iOS) correctos según el diseño en tu captura de pantalla.","fr": "L'IA mappe les éléments visuels aux bons widgets Flutter Material (Android) ou Cupertino (style iOS) selon le design dans votre capture d'écran.","de": "KI ordnet visuelle Elemente den richtigen Flutter Material (Android) oder Cupertino (iOS-Stil) Widgets basierend auf dem Design in deinem Screenshot zu.","pt": "A IA mapeia elementos visuais para os widgets Flutter Material (Android) ou Cupertino (estilo iOS) corretos com base no design na sua captura de tela."}
+    },
+    {
+      "icon": "layers",
+      "title": {"en": "Widget Tree Structure","es": "Estructura de árbol de widgets","fr": "Structure d'arbre de widgets","de": "Widget-Baum-Struktur","pt": "Estrutura de árvore de widgets"},
+      "description": {"en": "Complex layouts are translated into proper Flutter widget hierarchies using Column, Row, Stack, Expanded, and Flexible for accurate layout.","es": "Los diseños complejos se traducen en jerarquías de widgets Flutter adecuadas usando Column, Row, Stack, Expanded y Flexible para un diseño preciso.","fr": "Les mises en page complexes sont traduites en hiérarchies de widgets Flutter appropriées utilisant Column, Row, Stack, Expanded et Flexible pour une mise en page précise.","de": "Komplexe Layouts werden in korrekte Flutter-Widget-Hierarchien mit Column, Row, Stack, Expanded und Flexible für genaues Layout übersetzt.","pt": "Layouts complexos são traduzidos em hierarquias de widgets Flutter adequadas usando Column, Row, Stack, Expanded e Flexible para layout preciso."}
+    },
+    {
+      "icon": "cpu",
+      "title": {"en": "StatelessWidget & StatefulWidget","es": "StatelessWidget y StatefulWidget","fr": "StatelessWidget et StatefulWidget","de": "StatelessWidget & StatefulWidget","pt": "StatelessWidget e StatefulWidget"},
+      "description": {"en": "AI intelligently chooses StatelessWidget for static UI elements and StatefulWidget for interactive elements like forms and toggles.","es": "La IA elige inteligentemente StatelessWidget para elementos de interfaz estáticos y StatefulWidget para elementos interactivos como formularios e interruptores.","fr": "L'IA choisit intelligemment StatelessWidget pour les éléments d'interface statiques et StatefulWidget pour les éléments interactifs comme les formulaires et les bascules.","de": "KI wählt intelligent StatelessWidget für statische UI-Elemente und StatefulWidget für interaktive Elemente wie Formulare und Schalter.","pt": "A IA escolhe inteligentemente StatelessWidget para elementos de UI estáticos e StatefulWidget para elementos interativos como formulários e alternadores."}
+    },
+    {
+      "icon": "zap",
+      "title": {"en": "Cross-Platform Ready","es": "Listo para multiplataforma","fr": "Prêt pour le multiplateforme","de": "Plattformübergreifend bereit","pt": "Pronto para multiplataforma"},
+      "description": {"en": "Generated Flutter code runs on iOS, Android, web, and desktop without modification — true write-once, run-everywhere code.","es": "El código Flutter generado se ejecuta en iOS, Android, web y escritorio sin modificación: verdadero código de escribir una vez, ejecutar en cualquier lugar.","fr": "Le code Flutter généré s'exécute sur iOS, Android, le web et le bureau sans modification — vrai code write-once, run-everywhere.","de": "Generierter Flutter-Code läuft ohne Modifikation auf iOS, Android, Web und Desktop — echter Write-once, Run-everywhere Code.","pt": "O código Flutter gerado roda em iOS, Android, web e desktop sem modificação — verdadeiro código write-once, run-everywhere."}
+    }
+  ],
+  "faq": [
+    {
+      "question": {"en": "What Flutter version does the output target?","es": "¿A qué versión de Flutter se dirige la salida?","fr": "Quelle version de Flutter la sortie cible-t-elle ?","de": "Auf welche Flutter-Version zielt der Output?","pt": "Para qual versão do Flutter a saída é direcionada?"},
+      "answer": {"en": "The tool generates code targeting Flutter 3.x with Dart 3 null safety. The generated widgets use the latest stable Flutter APIs and null-safe syntax. For older Flutter projects (pre-3.0), minor syntax adjustments may be required for null safety annotations.","es": "La herramienta genera código dirigido a Flutter 3.x con seguridad nula de Dart 3. Los widgets generados usan las últimas API estables de Flutter y la sintaxis segura contra nulos. Para proyectos Flutter más antiguos (pre-3.0), pueden ser necesarios pequeños ajustes de sintaxis para las anotaciones de seguridad nula.","fr": "L'outil génère du code ciblant Flutter 3.x avec la sécurité null de Dart 3. Les widgets générés utilisent les dernières API Flutter stables et la syntaxe null-safe. Pour les projets Flutter plus anciens (pré-3.0), de petits ajustements de syntaxe peuvent être nécessaires pour les annotations de sécurité null.","de": "Das Tool generiert Code für Flutter 3.x mit Dart 3 Null Safety. Die generierten Widgets verwenden die neuesten stabilen Flutter-APIs und null-sichere Syntax. Für ältere Flutter-Projekte (vor 3.0) können kleinere Syntaxanpassungen für Null-Safety-Annotationen erforderlich sein.","pt": "A ferramenta gera código direcionado ao Flutter 3.x com null safety do Dart 3. Os widgets gerados usam as últimas APIs estáveis do Flutter e sintaxe null-safe. Para projetos Flutter mais antigos (pré-3.0), pequenos ajustes de sintaxe podem ser necessários para anotações de null safety."}
+    },
+    {
+      "question": {"en": "Can the AI generate Flutter navigation and routing?","es": "¿Puede la IA generar navegación y enrutamiento de Flutter?","fr": "L'IA peut-elle générer la navigation et le routage Flutter ?","de": "Kann die KI Flutter-Navigation und -Routing generieren?","pt": "A IA pode gerar navegação e roteamento Flutter?"},
+      "answer": {"en": "Yes. When the AI detects navigation elements like bottom navigation bars, app bars with back buttons, or tab bars in your screenshot, it generates the corresponding Flutter navigation code using Navigator.push, GoRouter, or bottom navigation patterns with PageView.","es": "Sí. Cuando la IA detecta elementos de navegación como barras de navegación inferior, barras de aplicación con botones de retroceso o barras de pestañas en tu captura de pantalla, genera el código de navegación Flutter correspondiente usando Navigator.push, GoRouter o patrones de navegación inferior con PageView.","fr": "Oui. Lorsque l'IA détecte des éléments de navigation tels que des barres de navigation inférieures, des barres d'application avec des boutons de retour ou des barres d'onglets dans votre capture d'écran, elle génère le code de navigation Flutter correspondant en utilisant Navigator.push, GoRouter ou des modèles de navigation inférieure avec PageView.","de": "Ja. Wenn die KI Navigationselemente wie Bottom Navigation Bars, App Bars mit Zurück-Buttons oder Tab Bars in deinem Screenshot erkennt, generiert sie den entsprechenden Flutter-Navigationscode mit Navigator.push, GoRouter oder Bottom Navigation-Mustern mit PageView.","pt": "Sim. Quando a IA detecta elementos de navegação como barras de navegação inferior, barras de aplicativo com botões de voltar ou barras de abas na sua captura de tela, ela gera o código de navegação Flutter correspondente usando Navigator.push, GoRouter ou padrões de navegação inferior com PageView."}
+    },
+    {
+      "question": {"en": "Does the generated Flutter code work for both mobile and web?","es": "¿El código Flutter generado funciona tanto para móvil como para web?","fr": "Le code Flutter généré fonctionne-t-il pour le mobile et le web ?","de": "Funktioniert der generierte Flutter-Code für Mobile und Web?","pt": "O código Flutter gerado funciona para móvel e web?"},
+      "answer": {"en": "Yes — Flutter's write-once architecture means the generated widget code runs identically on iOS, Android, and the web. For platform-specific behavior (like different navigation patterns on iOS vs Android), the AI generates Platform.isIOS conditional logic where appropriate.","es": "Sí: la arquitectura write-once de Flutter significa que el código de widget generado se ejecuta de forma idéntica en iOS, Android y la web. Para el comportamiento específico de la plataforma (como diferentes patrones de navegación en iOS frente a Android), la IA genera lógica condicional Platform.isIOS donde corresponda.","fr": "Oui — l'architecture write-once de Flutter signifie que le code de widget généré s'exécute de manière identique sur iOS, Android et le web. Pour le comportement spécifique à la plateforme (comme différents modèles de navigation sur iOS vs Android), l'IA génère une logique conditionnelle Platform.isIOS le cas échéant.","de": "Ja — Flutters Write-once-Architektur bedeutet, dass der generierte Widget-Code identisch auf iOS, Android und dem Web ausgeführt wird. Für plattformspezifisches Verhalten (wie unterschiedliche Navigationsmuster auf iOS vs. Android) generiert die KI Platform.isIOS-Bedingungslogik wo angemessen.","pt": "Sim — a arquitetura write-once do Flutter significa que o código de widget gerado roda identicamente em iOS, Android e web. Para comportamento específico de plataforma (como diferentes padrões de navegação no iOS vs Android), a IA gera lógica condicional Platform.isIOS onde apropriado."}
+    },
+    {
+      "question": {"en": "How do I add the generated widget to my Flutter app?","es": "¿Cómo agrego el widget generado a mi aplicación Flutter?","fr": "Comment ajouter le widget généré à mon application Flutter ?","de": "Wie füge ich das generierte Widget zu meiner Flutter-App hinzu?","pt": "Como adiciono o widget gerado ao meu aplicativo Flutter?"},
+      "answer": {"en": "Copy the generated Dart file into your lib/ directory. Import it in your main.dart or existing screen file with import 'package:your_app/widget_name.dart'. Then use it in your widget tree like any Flutter widget. No additional pub.dev packages are needed for the base output — only standard Flutter SDK widgets are used.","es": "Copia el archivo Dart generado en tu directorio lib/. Impórtalo en tu main.dart o archivo de pantalla existente con import 'package:your_app/widget_name.dart'. Luego úsalo en tu árbol de widgets como cualquier widget Flutter. No se necesitan paquetes adicionales de pub.dev para la salida base: solo se usan widgets estándar del SDK de Flutter.","fr": "Copiez le fichier Dart généré dans votre répertoire lib/. Importez-le dans votre main.dart ou fichier d'écran existant avec import 'package:your_app/widget_name.dart'. Ensuite, utilisez-le dans votre arbre de widgets comme n'importe quel widget Flutter. Aucun package pub.dev supplémentaire n'est nécessaire pour la sortie de base — seuls les widgets SDK Flutter standard sont utilisés.","de": "Kopiere die generierte Dart-Datei in dein lib/-Verzeichnis. Importiere sie in deiner main.dart oder bestehenden Screen-Datei mit import 'package:your_app/widget_name.dart'. Dann verwende sie in deinem Widget-Baum wie jedes Flutter-Widget. Für die Basisausgabe sind keine zusätzlichen pub.dev-Pakete erforderlich — es werden nur Standard Flutter SDK Widgets verwendet.","pt": "Copie o arquivo Dart gerado para seu diretório lib/. Importe-o no seu main.dart ou arquivo de tela existente com import 'package:your_app/widget_name.dart'. Em seguida, use-o na sua árvore de widgets como qualquer widget Flutter. Nenhum pacote adicional do pub.dev é necessário para a saída base — apenas widgets padrão do SDK Flutter são usados."}
+    }
+  ],
+  "relatedTools": ["screenshot-to-react-native","screenshot-to-swiftui","screenshot-to-jetpack-compose","screenshot-to-react","screenshot-to-html-css","html-beautifier","css-beautifier"]
+}

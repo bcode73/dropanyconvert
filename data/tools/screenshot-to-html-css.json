@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-html-css",
+  "slug": "screenshot-to-html-css",
+  "name": {
+    "en": "Screenshot to HTML + CSS",
+    "es": "Captura de pantalla a HTML + CSS",
+    "fr": "Capture d'écran en HTML + CSS",
+    "de": "Screenshot zu HTML + CSS",
+    "pt": "Captura de tela para HTML + CSS"
+  },
+  "tagline": {
+    "en": "Turn screenshots into fully styled HTML and CSS with AI.",
+    "es": "Convierte capturas de pantalla en HTML y CSS completamente estilizados con IA.",
+    "fr": "Transformez des captures d'écran en HTML et CSS entièrement stylés grâce à l'IA.",
+    "de": "Verwandle Screenshots mit KI in vollständig gestyltes HTML und CSS.",
+    "pt": "Transforme capturas de tela em HTML e CSS completamente estilizados com IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateHtmlCss",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "html",
+      "mime": "text/html",
+      "label": "HTML + CSS",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to html css",
+    "secondaryKeywords": [
+      "convert screenshot to html and css",
+      "ai image to html css",
+      "screenshot to styled html",
+      "screenshot to css code"
+    ],
+    "title": {
+      "en": "Screenshot to HTML + CSS — AI Code Generator",
+      "es": "Captura de pantalla a HTML + CSS — Generador de código IA",
+      "fr": "Capture d'écran en HTML + CSS — Générateur de code IA",
+      "de": "Screenshot zu HTML + CSS — KI-Code-Generator",
+      "pt": "Captura de tela para HTML + CSS — Gerador de código IA"
+    },
+    "description": {
+      "en": "Convert screenshots to HTML with embedded CSS styles using AI. Get complete, styled web pages from any UI image in seconds.",
+      "es": "Convierte capturas de pantalla a HTML con estilos CSS incorporados usando IA. Obtén páginas web completas y estilizadas a partir de cualquier imagen de interfaz en segundos.",
+      "fr": "Convertissez des captures d'écran en HTML avec des styles CSS intégrés grâce à l'IA. Obtenez des pages web complètes et stylées à partir de n'importe quelle image d'interface en quelques secondes.",
+      "de": "Screenshots mit KI in HTML mit eingebetteten CSS-Stilen konvertieren. Erhalte in Sekunden vollständige, gestylte Webseiten aus einem UI-Bild.",
+      "pt": "Converta capturas de tela em HTML com estilos CSS incorporados usando IA. Obtenha páginas web completas e estilizadas a partir de qualquer imagem de interface em segundos."
+    },
+    "h1": {
+      "en": "Convert Screenshot to HTML + CSS with AI",
+      "es": "Convierte capturas de pantalla a HTML + CSS con IA",
+      "fr": "Convertir une capture d'écran en HTML + CSS avec l'IA",
+      "de": "Screenshot mit KI in HTML + CSS konvertieren",
+      "pt": "Converter captura de tela para HTML + CSS com IA"
+    },
+    "intro": {
+      "en": "Upload any UI screenshot and get back a complete, self-contained HTML file with embedded CSS. Our AI replicates colors, fonts, spacing, and layout from your image into production-ready code — no external stylesheets needed.",
+      "es": "Sube cualquier captura de pantalla de interfaz y obtén un archivo HTML completo y autónomo con CSS incorporado. Nuestra IA replica colores, fuentes, espaciado y diseño de tu imagen en código listo para producción, sin necesidad de hojas de estilo externas.",
+      "fr": "Téléchargez n'importe quelle capture d'écran d'interface et récupérez un fichier HTML complet et autonome avec du CSS intégré. Notre IA reproduit les couleurs, les polices, l'espacement et la mise en page de votre image en code prêt pour la production — sans feuilles de style externes.",
+      "de": "Lade einen beliebigen UI-Screenshot hoch und erhalte eine vollständige, eigenständige HTML-Datei mit eingebettetem CSS. Unsere KI repliziert Farben, Schriften, Abstände und Layout aus deinem Bild in produktionsfertigen Code — keine externen Stylesheets erforderlich.",
+      "pt": "Envie qualquer captura de tela de interface e obtenha um arquivo HTML completo e autônomo com CSS incorporado. Nossa IA replica cores, fontes, espaçamento e layout da sua imagem em código pronto para produção — sem folhas de estilo externas necessárias."
+    }
+  },
+  "features": [
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "Full Style Extraction",
+        "es": "Extracción completa de estilos",
+        "fr": "Extraction complète des styles",
+        "de": "Vollständige Stil-Extraktion",
+        "pt": "Extração completa de estilos"
+      },
+      "description": {
+        "en": "AI extracts colors, typography, spacing, and visual hierarchy from your screenshot into accurate CSS rules.",
+        "es": "La IA extrae colores, tipografía, espaciado y jerarquía visual de tu captura en reglas CSS precisas.",
+        "fr": "L'IA extrait les couleurs, la typographie, l'espacement et la hiérarchie visuelle de votre capture en règles CSS précises.",
+        "de": "KI extrahiert Farben, Typografie, Abstände und visuelle Hierarchie aus deinem Screenshot in genaue CSS-Regeln.",
+        "pt": "A IA extrai cores, tipografia, espaçamento e hierarquia visual da sua captura em regras CSS precisas."
+      }
+    },
+    {
+      "icon": "file-code",
+      "title": {
+        "en": "Self-Contained Output",
+        "es": "Salida autónoma",
+        "fr": "Sortie autonome",
+        "de": "Eigenständiger Output",
+        "pt": "Saída autônoma"
+      },
+      "description": {
+        "en": "The output is a single HTML file with all styles embedded — no external dependencies or stylesheet files required.",
+        "es": "La salida es un único archivo HTML con todos los estilos incorporados, sin dependencias externas ni archivos de hoja de estilo.",
+        "fr": "La sortie est un seul fichier HTML avec tous les styles intégrés — pas de dépendances externes ni de fichiers de feuille de style requis.",
+        "de": "Die Ausgabe ist eine einzelne HTML-Datei mit allen eingebetteten Stilen — keine externen Abhängigkeiten oder Stylesheet-Dateien erforderlich.",
+        "pt": "A saída é um único arquivo HTML com todos os estilos incorporados — nenhuma dependência externa ou arquivo de folha de estilo necessário."
+      }
+    },
+    {
+      "icon": "cloud",
+      "title": {
+        "en": "Cloud AI Processing",
+        "es": "Procesamiento IA en la nube",
+        "fr": "Traitement IA dans le cloud",
+        "de": "Cloud-KI-Verarbeitung",
+        "pt": "Processamento de IA em nuvem"
+      },
+      "description": {
+        "en": "Runs on powerful cloud AI models to handle complex layouts, nested components, and intricate CSS accurately.",
+        "es": "Se ejecuta en potentes modelos de IA en la nube para manejar con precisión diseños complejos, componentes anidados y CSS intrincado.",
+        "fr": "Fonctionne sur de puissants modèles IA cloud pour gérer avec précision des mises en page complexes, des composants imbriqués et du CSS complexe.",
+        "de": "Läuft auf leistungsstarken Cloud-KI-Modellen, um komplexe Layouts, verschachtelte Komponenten und kompliziertes CSS präzise zu verarbeiten.",
+        "pt": "Funciona em poderosos modelos de IA em nuvem para lidar com layouts complexos, componentes aninhados e CSS intrincado com precisão."
+      }
+    },
+    {
+      "icon": "refresh-cw",
+      "title": {
+        "en": "Instant Regeneration",
+        "es": "Regeneración instantánea",
+        "fr": "Régénération instantanée",
+        "de": "Sofortige Regenerierung",
+        "pt": "Regeneração instantânea"
+      },
+      "description": {
+        "en": "Regenerate the code with one click to explore different CSS approaches and layout interpretations of your screenshot.",
+        "es": "Regenera el código con un clic para explorar diferentes enfoques de CSS e interpretaciones de diseño de tu captura de pantalla.",
+        "fr": "Régénérez le code en un clic pour explorer différentes approches CSS et interprétations de mise en page de votre capture d'écran.",
+        "de": "Generiere den Code mit einem Klick neu, um verschiedene CSS-Ansätze und Layout-Interpretationen deines Screenshots zu erkunden.",
+        "pt": "Regenere o código com um clique para explorar diferentes abordagens de CSS e interpretações de layout da sua captura de tela."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What is the difference between Screenshot to HTML and Screenshot to HTML + CSS?",
+        "es": "¿Cuál es la diferencia entre Screenshot to HTML y Screenshot to HTML + CSS?",
+        "fr": "Quelle est la différence entre Screenshot vers HTML et Screenshot vers HTML + CSS ?",
+        "de": "Was ist der Unterschied zwischen Screenshot zu HTML und Screenshot zu HTML + CSS?",
+        "pt": "Qual é a diferença entre Screenshot para HTML e Screenshot para HTML + CSS?"
+      },
+      "answer": {
+        "en": "Screenshot to HTML generates structural markup only. Screenshot to HTML + CSS generates a complete styled page with all visual properties (colors, fonts, spacing, borders) as inline or embedded CSS, giving you a fully styled result that visually matches the original screenshot.",
+        "es": "Screenshot to HTML genera solo el marcado estructural. Screenshot to HTML + CSS genera una página con estilos completos con todas las propiedades visuales (colores, fuentes, espaciado, bordes) como CSS inlineado o incorporado, dándote un resultado completamente estilizado que coincide visualmente con la captura de pantalla original.",
+        "fr": "Screenshot vers HTML génère uniquement le balisage structurel. Screenshot vers HTML + CSS génère une page stylée complète avec toutes les propriétés visuelles (couleurs, polices, espacement, bordures) en CSS inline ou intégré, vous donnant un résultat entièrement stylé qui correspond visuellement à la capture d'écran originale.",
+        "de": "Screenshot zu HTML generiert nur strukturelles Markup. Screenshot zu HTML + CSS generiert eine vollständig gestylte Seite mit allen visuellen Eigenschaften (Farben, Schriften, Abstände, Rahmen) als Inline- oder eingebettetes CSS und liefert ein vollständig gestyltes Ergebnis, das visuell dem Original-Screenshot entspricht.",
+        "pt": "Screenshot para HTML gera apenas marcação estrutural. Screenshot para HTML + CSS gera uma página completamente estilizada com todas as propriedades visuais (cores, fontes, espaçamento, bordas) como CSS inline ou incorporado, dando um resultado totalmente estilizado que corresponde visualmente à captura de tela original."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I use Google Fonts or custom fonts in the generated output?",
+        "es": "¿Puedo usar Google Fonts o fuentes personalizadas en la salida generada?",
+        "fr": "Puis-je utiliser Google Fonts ou des polices personnalisées dans la sortie générée ?",
+        "de": "Kann ich Google Fonts oder benutzerdefinierte Schriftarten im generierten Output verwenden?",
+        "pt": "Posso usar Google Fonts ou fontes personalizadas na saída gerada?"
+      },
+      "answer": {
+        "en": "The AI detects font styles from your screenshot and maps them to appropriate web-safe or Google Fonts equivalents. You can easily swap in your specific brand fonts after generation by editing the CSS font-family declarations.",
+        "es": "La IA detecta los estilos de fuente de tu captura de pantalla y los mapea a equivalentes seguros para web o de Google Fonts. Puedes cambiar fácilmente por tus fuentes de marca específicas después de la generación editando las declaraciones CSS font-family.",
+        "fr": "L'IA détecte les styles de polices de votre capture d'écran et les associe à des équivalents web-safe ou Google Fonts appropriés. Vous pouvez facilement substituer vos polices de marque spécifiques après la génération en éditant les déclarations CSS font-family.",
+        "de": "Die KI erkennt Schriftstile aus deinem Screenshot und ordnet sie passenden websicheren oder Google Fonts-Äquivalenten zu. Nach der Generierung kannst du einfach deine spezifischen Marken-Schriftarten einsetzen, indem du die CSS-font-family-Deklarationen bearbeitest.",
+        "pt": "A IA detecta estilos de fonte da sua captura de tela e os mapeia para equivalentes web-safe ou Google Fonts apropriados. Você pode facilmente substituir suas fontes de marca específicas após a geração editando as declarações CSS font-family."
+      }
+    },
+    {
+      "question": {
+        "en": "Is the CSS output responsive?",
+        "es": "¿La salida CSS es responsiva?",
+        "fr": "La sortie CSS est-elle responsive ?",
+        "de": "Ist der CSS-Output responsiv?",
+        "pt": "A saída CSS é responsiva?"
+      },
+      "answer": {
+        "en": "The AI generates CSS based on the layout visible in your screenshot. For a responsive design, provide a mobile-view screenshot alongside your desktop version, or use our Screenshot to Tailwind CSS tool which generates responsive utility classes by default.",
+        "es": "La IA genera CSS basándose en el diseño visible en tu captura de pantalla. Para un diseño responsivo, proporciona una captura de pantalla de la vista móvil junto con tu versión de escritorio, o usa nuestra herramienta Screenshot to Tailwind CSS que genera clases de utilidad responsivas de forma predeterminada.",
+        "fr": "L'IA génère du CSS basé sur la mise en page visible dans votre capture d'écran. Pour un design responsive, fournissez une capture d'écran de la vue mobile en plus de votre version bureau, ou utilisez notre outil Screenshot vers Tailwind CSS qui génère des classes utilitaires responsive par défaut.",
+        "de": "Die KI generiert CSS basierend auf dem in deinem Screenshot sichtbaren Layout. Für ein responsives Design stelle einen Mobile-View-Screenshot neben deiner Desktop-Version bereit oder verwende unser Screenshot zu Tailwind CSS Tool, das standardmäßig responsive Utility-Klassen generiert.",
+        "pt": "A IA gera CSS baseado no layout visível na sua captura de tela. Para um design responsivo, forneça uma captura de tela da visualização móvel junto com sua versão desktop, ou use nossa ferramenta Screenshot para Tailwind CSS que gera classes utilitárias responsivas por padrão."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I edit the generated CSS?",
+        "es": "¿Cómo edito el CSS generado?",
+        "fr": "Comment modifier le CSS généré ?",
+        "de": "Wie bearbeite ich das generierte CSS?",
+        "pt": "Como edito o CSS gerado?"
+      },
+      "answer": {
+        "en": "Copy the code into any text editor or IDE. The CSS is embedded in a <style> tag within the HTML file, making it easy to locate and modify. You can also paste it into our CSS Beautifier tool for formatted, readable output before editing.",
+        "es": "Copia el código en cualquier editor de texto o IDE. El CSS está incorporado en una etiqueta <style> dentro del archivo HTML, lo que facilita su localización y modificación. También puedes pegarlo en nuestra herramienta CSS Beautifier para obtener una salida formateada y legible antes de editar.",
+        "fr": "Copiez le code dans n'importe quel éditeur de texte ou IDE. Le CSS est intégré dans une balise <style> dans le fichier HTML, ce qui facilite sa localisation et sa modification. Vous pouvez également le coller dans notre outil CSS Beautifier pour une sortie formatée et lisible avant de modifier.",
+        "de": "Kopiere den Code in einen beliebigen Text-Editor oder IDE. Das CSS ist in einem <style>-Tag innerhalb der HTML-Datei eingebettet, was es einfach macht, es zu finden und zu bearbeiten. Du kannst es auch in unser CSS Beautifier Tool einfügen für formatierten, lesbaren Output vor dem Bearbeiten.",
+        "pt": "Copie o código para qualquer editor de texto ou IDE. O CSS está incorporado em uma tag <style> dentro do arquivo HTML, facilitando sua localização e modificação. Você também pode colá-lo em nossa ferramenta CSS Beautifier para saída formatada e legível antes de editar."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-html",
+    "screenshot-to-tailwind",
+    "screenshot-to-react",
+    "screenshot-to-bootstrap",
+    "css-beautifier",
+    "html-beautifier",
+    "html-minifier"
+  ]
+}

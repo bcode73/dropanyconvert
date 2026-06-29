@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-react",
+  "slug": "screenshot-to-react",
+  "name": {
+    "en": "Screenshot to React JSX",
+    "es": "Captura de pantalla a React JSX",
+    "fr": "Capture d'écran en React JSX",
+    "de": "Screenshot zu React JSX",
+    "pt": "Captura de tela para React JSX"
+  },
+  "tagline": {
+    "en": "Generate React JSX components from screenshots using AI.",
+    "es": "Genera componentes React JSX a partir de capturas de pantalla usando IA.",
+    "fr": "Générez des composants React JSX à partir de captures d'écran grâce à l'IA.",
+    "de": "Generiere React JSX-Komponenten aus Screenshots mit KI.",
+    "pt": "Gere componentes React JSX a partir de capturas de tela usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateReactJsx",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "jsx",
+      "mime": "text/javascript",
+      "label": "React JSX",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to react",
+    "secondaryKeywords": [
+      "convert screenshot to react component",
+      "ai image to react jsx",
+      "screenshot to react code",
+      "image to react component generator"
+    ],
+    "title": {
+      "en": "Screenshot to React JSX — AI Component Generator",
+      "es": "Captura de pantalla a React JSX — Generador de componentes IA",
+      "fr": "Capture d'écran en React JSX — Générateur de composants IA",
+      "de": "Screenshot zu React JSX — KI-Komponenten-Generator",
+      "pt": "Captura de tela para React JSX — Gerador de componentes IA"
+    },
+    "description": {
+      "en": "Convert screenshots to React JSX components using AI. Get functional React components with proper props, hooks structure, and className attributes from any UI image.",
+      "es": "Convierte capturas de pantalla a componentes React JSX usando IA. Obtén componentes React funcionales con props adecuados, estructura de hooks y atributos className de cualquier imagen de interfaz.",
+      "fr": "Convertissez des captures d'écran en composants React JSX grâce à l'IA. Obtenez des composants React fonctionnels avec des props appropriées, une structure de hooks et des attributs className à partir de n'importe quelle image d'interface.",
+      "de": "Screenshots mit KI in React JSX-Komponenten konvertieren. Erhalte funktionale React-Komponenten mit korrekten Props, Hooks-Struktur und className-Attributen aus jedem UI-Bild.",
+      "pt": "Converta capturas de tela em componentes React JSX usando IA. Obtenha componentes React funcionais com props adequadas, estrutura de hooks e atributos className a partir de qualquer imagem de interface."
+    },
+    "h1": {
+      "en": "Convert Screenshot to React JSX with AI",
+      "es": "Convierte capturas de pantalla a React JSX con IA",
+      "fr": "Convertir une capture d'écran en React JSX avec l'IA",
+      "de": "Screenshot mit KI in React JSX konvertieren",
+      "pt": "Converter captura de tela para React JSX com IA"
+    },
+    "intro": {
+      "en": "Upload a UI screenshot and our AI generates a complete React JSX component — with proper function syntax, className attributes, and component structure. Stop writing boilerplate and start building features faster with AI-generated React code.",
+      "es": "Sube una captura de pantalla de interfaz y nuestra IA genera un componente React JSX completo, con sintaxis de función adecuada, atributos className y estructura de componente. Deja de escribir código repetitivo y empieza a construir características más rápido con código React generado por IA.",
+      "fr": "Téléchargez une capture d'écran d'interface et notre IA génère un composant React JSX complet — avec la syntaxe de fonction appropriée, les attributs className et la structure du composant. Arrêtez d'écrire du code répétitif et commencez à construire des fonctionnalités plus rapidement avec du code React généré par IA.",
+      "de": "Lade einen UI-Screenshot hoch und unsere KI generiert eine vollständige React JSX-Komponente — mit korrekter Funktionssyntax, className-Attributen und Komponentenstruktur. Hör auf, Boilerplate zu schreiben und fange an, Features schneller mit KI-generiertem React-Code zu entwickeln.",
+      "pt": "Envie uma captura de tela de interface e nossa IA gera um componente React JSX completo — com sintaxe de função adequada, atributos className e estrutura de componente. Pare de escrever boilerplate e comece a construir recursos mais rapidamente com código React gerado por IA."
+    }
+  },
+  "features": [
+    {
+      "icon": "code",
+      "title": {
+        "en": "Functional Component Syntax",
+        "es": "Sintaxis de componente funcional",
+        "fr": "Syntaxe de composant fonctionnel",
+        "de": "Funktionale Komponenten-Syntax",
+        "pt": "Sintaxe de componente funcional"
+      },
+      "description": {
+        "en": "AI generates modern functional React components using arrow function syntax, proper JSX, and React best practices.",
+        "es": "La IA genera componentes React funcionales modernos usando sintaxis de función flecha, JSX adecuado y las mejores prácticas de React.",
+        "fr": "L'IA génère des composants React fonctionnels modernes en utilisant la syntaxe des fonctions fléchées, JSX approprié et les meilleures pratiques React.",
+        "de": "KI generiert moderne funktionale React-Komponenten mit Arrow-Function-Syntax, korrektem JSX und React Best Practices.",
+        "pt": "A IA gera componentes React funcionais modernos usando sintaxe de função de seta, JSX adequado e melhores práticas do React."
+      }
+    },
+    {
+      "icon": "layers",
+      "title": {
+        "en": "Component Decomposition",
+        "es": "Descomposición de componentes",
+        "fr": "Décomposition des composants",
+        "de": "Komponentenzerlegung",
+        "pt": "Decomposição de componentes"
+      },
+      "description": {
+        "en": "Complex layouts are intelligently split into sub-components with sensible naming and a clear component hierarchy.",
+        "es": "Los diseños complejos se dividen inteligentemente en sub-componentes con nombres sensatos y una jerarquía de componentes clara.",
+        "fr": "Les mises en page complexes sont intelligemment divisées en sous-composants avec des noms sensibles et une hiérarchie de composants claire.",
+        "de": "Komplexe Layouts werden intelligent in Unterkomponenten mit sinnvollen Namen und klarer Komponentenhierarchie aufgeteilt.",
+        "pt": "Layouts complexos são divididos inteligentemente em sub-componentes com nomes sensíveis e uma hierarquia de componentes clara."
+      }
+    },
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "Props & State Scaffolding",
+        "es": "Scaffolding de props y estado",
+        "fr": "Échafaudage de props et d'état",
+        "de": "Props & State Gerüstbau",
+        "pt": "Scaffolding de props e estado"
+      },
+      "description": {
+        "en": "AI infers likely props from interactive elements like buttons and inputs, generating proper TypeScript-ready prop types.",
+        "es": "La IA infiere props probables de elementos interactivos como botones e inputs, generando tipos de props listos para TypeScript.",
+        "fr": "L'IA déduit les props probables des éléments interactifs comme les boutons et les inputs, générant des types de props prêts pour TypeScript.",
+        "de": "KI leitet wahrscheinliche Props aus interaktiven Elementen wie Buttons und Inputs ab und generiert TypeScript-bereite Prop-Typen.",
+        "pt": "A IA infere props prováveis de elementos interativos como botões e inputs, gerando tipos de props prontos para TypeScript."
+      }
+    },
+    {
+      "icon": "zap",
+      "title": {
+        "en": "Instant Preview",
+        "es": "Vista previa instantánea",
+        "fr": "Aperçu instantané",
+        "de": "Sofortige Vorschau",
+        "pt": "Visualização instantânea"
+      },
+      "description": {
+        "en": "See your generated React component rendered live in the browser preview alongside the source code.",
+        "es": "Ve tu componente React generado renderizado en vivo en la vista previa del navegador junto al código fuente.",
+        "fr": "Voyez votre composant React généré rendu en direct dans l'aperçu du navigateur à côté du code source.",
+        "de": "Sieh deine generierte React-Komponente live im Browser-Preview neben dem Quellcode gerendert.",
+        "pt": "Veja seu componente React gerado renderizado ao vivo na visualização do navegador ao lado do código-fonte."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does the React output include TypeScript types?",
+        "es": "¿La salida de React incluye tipos TypeScript?",
+        "fr": "La sortie React inclut-elle des types TypeScript ?",
+        "de": "Enthält der React-Output TypeScript-Typen?",
+        "pt": "A saída do React inclui tipos TypeScript?"
+      },
+      "answer": {
+        "en": "By default, the tool generates standard JSX. TypeScript interface declarations and prop types are scaffolded as comments. If you want a full .tsx file with TypeScript, select the TypeScript option before generating, or use the output as a starting point and add types manually.",
+        "es": "De forma predeterminada, la herramienta genera JSX estándar. Las declaraciones de interfaz TypeScript y los tipos de props se generan como comentarios. Si quieres un archivo .tsx completo con TypeScript, selecciona la opción TypeScript antes de generar, o usa la salida como punto de partida y agrega tipos manualmente.",
+        "fr": "Par défaut, l'outil génère du JSX standard. Les déclarations d'interface TypeScript et les types de props sont générés comme commentaires. Si vous souhaitez un fichier .tsx complet avec TypeScript, sélectionnez l'option TypeScript avant de générer, ou utilisez la sortie comme point de départ et ajoutez les types manuellement.",
+        "de": "Standardmäßig generiert das Tool normales JSX. TypeScript-Interface-Deklarationen und Prop-Typen werden als Kommentare gerüstet. Wenn du eine vollständige .tsx-Datei mit TypeScript möchtest, wähle die TypeScript-Option vor der Generierung oder verwende die Ausgabe als Ausgangspunkt und füge Typen manuell hinzu.",
+        "pt": "Por padrão, a ferramenta gera JSX padrão. Declarações de interface TypeScript e tipos de props são gerados como comentários. Se você quiser um arquivo .tsx completo com TypeScript, selecione a opção TypeScript antes de gerar, ou use a saída como ponto de partida e adicione tipos manualmente."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I generate styled-components or CSS modules alongside the JSX?",
+        "es": "¿Puedo generar styled-components o módulos CSS junto con el JSX?",
+        "fr": "Puis-je générer des styled-components ou des modules CSS avec le JSX ?",
+        "de": "Kann ich styled-components oder CSS-Module zusammen mit dem JSX generieren?",
+        "pt": "Posso gerar styled-components ou módulos CSS junto com o JSX?"
+      },
+      "answer": {
+        "en": "The default output uses inline styles or Tailwind classes for styling. For Tailwind-styled React output, use our Screenshot to React tool with the Tailwind option. For styled-components, the AI generates a separate styled.js file alongside the component JSX when that option is selected.",
+        "es": "La salida predeterminada usa estilos en línea o clases de Tailwind para el estilo. Para salida React con estilo Tailwind, usa nuestra herramienta Screenshot to React con la opción Tailwind. Para styled-components, la IA genera un archivo styled.js separado junto con el JSX del componente cuando se selecciona esa opción.",
+        "fr": "La sortie par défaut utilise des styles inline ou des classes Tailwind pour le stylisme. Pour une sortie React stylée Tailwind, utilisez notre outil Screenshot vers React avec l'option Tailwind. Pour les styled-components, l'IA génère un fichier styled.js séparé avec le JSX du composant lorsque cette option est sélectionnée.",
+        "de": "Die Standardausgabe verwendet Inline-Styles oder Tailwind-Klassen für das Styling. Für Tailwind-gestylten React-Output verwende unser Screenshot zu React Tool mit der Tailwind-Option. Für styled-components generiert die KI eine separate styled.js-Datei neben dem Komponenten-JSX, wenn diese Option ausgewählt wird.",
+        "pt": "A saída padrão usa estilos inline ou classes Tailwind para estilização. Para saída React com estilo Tailwind, use nossa ferramenta Screenshot para React com a opção Tailwind. Para styled-components, a IA gera um arquivo styled.js separado junto com o JSX do componente quando essa opção é selecionada."
+      }
+    },
+    {
+      "question": {
+        "en": "Will the generated component work with React 18 and the new hooks?",
+        "es": "¿El componente generado funcionará con React 18 y los nuevos hooks?",
+        "fr": "Le composant généré fonctionnera-t-il avec React 18 et les nouveaux hooks ?",
+        "de": "Wird die generierte Komponente mit React 18 und den neuen Hooks funktionieren?",
+        "pt": "O componente gerado funcionará com o React 18 e os novos hooks?"
+      },
+      "answer": {
+        "en": "Yes. Generated components use React 18 compatible patterns — functional components, modern hooks (useState, useEffect), and no deprecated lifecycle methods. The output is compatible with React 16.8+ through React 18 and beyond.",
+        "es": "Sí. Los componentes generados usan patrones compatibles con React 18: componentes funcionales, hooks modernos (useState, useEffect) y sin métodos de ciclo de vida obsoletos. La salida es compatible con React 16.8+ a través de React 18 y más allá.",
+        "fr": "Oui. Les composants générés utilisent des modèles compatibles React 18 — composants fonctionnels, hooks modernes (useState, useEffect), et pas de méthodes de cycle de vie dépréciées. La sortie est compatible avec React 16.8+ à travers React 18 et au-delà.",
+        "de": "Ja. Generierte Komponenten verwenden React 18-kompatible Muster — funktionale Komponenten, moderne Hooks (useState, useEffect) und keine veralteten Lifecycle-Methoden. Die Ausgabe ist kompatibel mit React 16.8+ bis React 18 und darüber hinaus.",
+        "pt": "Sim. Componentes gerados usam padrões compatíveis com React 18 — componentes funcionais, hooks modernos (useState, useEffect) e sem métodos de ciclo de vida obsoletos. A saída é compatível com React 16.8+ até React 18 e além."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I integrate the React component into my existing project?",
+        "es": "¿Cómo integro el componente React en mi proyecto existente?",
+        "fr": "Comment intégrer le composant React dans mon projet existant ?",
+        "de": "Wie integriere ich die React-Komponente in mein bestehendes Projekt?",
+        "pt": "Como integro o componente React no meu projeto existente?"
+      },
+      "answer": {
+        "en": "Copy the generated .jsx file into your src/components directory, import it where needed, and pass the required props. If the component uses Tailwind, ensure Tailwind is configured in your project. If it uses inline styles, no additional configuration is needed — it works immediately.",
+        "es": "Copia el archivo .jsx generado en tu directorio src/components, impórtalo donde sea necesario y pasa los props requeridos. Si el componente usa Tailwind, asegúrate de que Tailwind esté configurado en tu proyecto. Si usa estilos en línea, no se necesita configuración adicional; funciona de inmediato.",
+        "fr": "Copiez le fichier .jsx généré dans votre répertoire src/components, importez-le là où c'est nécessaire et passez les props requises. Si le composant utilise Tailwind, assurez-vous que Tailwind est configuré dans votre projet. S'il utilise des styles inline, aucune configuration supplémentaire n'est nécessaire — il fonctionne immédiatement.",
+        "de": "Kopiere die generierte .jsx-Datei in dein src/components-Verzeichnis, importiere sie wo benötigt und übergebe die erforderlichen Props. Wenn die Komponente Tailwind verwendet, stelle sicher, dass Tailwind in deinem Projekt konfiguriert ist. Wenn sie Inline-Styles verwendet, ist keine zusätzliche Konfiguration erforderlich — sie funktioniert sofort.",
+        "pt": "Copie o arquivo .jsx gerado para seu diretório src/components, importe-o onde necessário e passe as props necessárias. Se o componente usa Tailwind, certifique-se de que o Tailwind está configurado no seu projeto. Se usa estilos inline, nenhuma configuração adicional é necessária — funciona imediatamente."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-nextjs",
+    "screenshot-to-tailwind",
+    "screenshot-to-vue",
+    "screenshot-to-html-css",
+    "screenshot-to-react-native",
+    "html-beautifier",
+    "css-beautifier"
+  ]
+}

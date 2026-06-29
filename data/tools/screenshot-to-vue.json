@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolId": "screenshot-to-vue",
+  "slug": "screenshot-to-vue",
+  "name": {
+    "en": "Screenshot to Vue",
+    "es": "Captura de pantalla a Vue",
+    "fr": "Capture d'écran en Vue",
+    "de": "Screenshot zu Vue",
+    "pt": "Captura de tela para Vue"
+  },
+  "tagline": {
+    "en": "Convert screenshots into Vue 3 Single File Components using AI.",
+    "es": "Convierte capturas de pantalla en Single File Components de Vue 3 usando IA.",
+    "fr": "Convertissez des captures d'écran en Single File Components Vue 3 grâce à l'IA.",
+    "de": "Konvertiere Screenshots mit KI in Vue 3 Single File Components.",
+    "pt": "Converta capturas de tela em Single File Components Vue 3 usando IA."
+  },
+  "category": "ai-development",
+  "engine": "screenshot_ai_engine",
+  "engineFn": "generateVue",
+  "inputFormats": ["image/png", "image/jpeg", "image/webp", "image/gif"],
+  "outputFormats": [
+    {
+      "ext": "vue",
+      "mime": "text/javascript",
+      "label": "Vue SFC",
+      "default": true
+    }
+  ],
+  "batch": {
+    "supported": false,
+    "maxFiles": 1,
+    "zipOutput": false
+  },
+  "runtime": "cloud",
+  "uiGroup": "ai-screenshot",
+  "requiresLogin": true,
+  "requiresPremium": true,
+  "requiresCloud": true,
+  "aiProvider": "deepseek",
+  "capabilities": [
+    "screenshot-upload",
+    "drag-and-drop",
+    "clipboard-paste",
+    "preview",
+    "stream-output",
+    "copy-code",
+    "download-code",
+    "regenerate",
+    "premium-required"
+  ],
+  "seo": {
+    "primaryKeyword": "screenshot to vue",
+    "secondaryKeywords": [
+      "convert screenshot to vue component",
+      "ai image to vue sfc",
+      "screenshot to vue 3 code",
+      "vue component generator from image"
+    ],
+    "title": {
+      "en": "Screenshot to Vue — AI Component Generator",
+      "es": "Captura de pantalla a Vue — Generador de componentes IA",
+      "fr": "Capture d'écran en Vue — Générateur de composants IA",
+      "de": "Screenshot zu Vue — KI-Komponenten-Generator",
+      "pt": "Captura de tela para Vue — Gerador de componentes IA"
+    },
+    "description": {
+      "en": "Convert screenshots to Vue 3 Single File Components with AI. Get complete .vue files with template, script setup, and scoped styles from any UI screenshot.",
+      "es": "Convierte capturas de pantalla a Single File Components Vue 3 con IA. Obtén archivos .vue completos con template, script setup y estilos con scope a partir de cualquier captura de pantalla de interfaz.",
+      "fr": "Convertissez des captures d'écran en Single File Components Vue 3 avec l'IA. Obtenez des fichiers .vue complets avec template, script setup et styles scoped à partir de n'importe quelle capture d'écran d'interface.",
+      "de": "Screenshots mit KI in Vue 3 Single File Components konvertieren. Erhalte vollständige .vue-Dateien mit Template, Script Setup und Scoped Styles aus jedem UI-Screenshot.",
+      "pt": "Converta capturas de tela em Single File Components Vue 3 com IA. Obtenha arquivos .vue completos com template, script setup e estilos com escopo a partir de qualquer captura de tela de interface."
+    },
+    "h1": {
+      "en": "Convert Screenshot to Vue 3 with AI",
+      "es": "Convierte capturas de pantalla a Vue 3 con IA",
+      "fr": "Convertir une capture d'écran en Vue 3 avec l'IA",
+      "de": "Screenshot mit KI in Vue 3 konvertieren",
+      "pt": "Converter captura de tela para Vue 3 com IA"
+    },
+    "intro": {
+      "en": "Upload any UI screenshot and get a complete Vue 3 Single File Component (.vue) with <template>, <script setup>, and <style scoped> sections. Our AI generates idiomatic Vue code with Composition API, reactive refs, and proper template syntax.",
+      "es": "Sube cualquier captura de pantalla de interfaz y obtén un Single File Component Vue 3 (.vue) completo con secciones <template>, <script setup> y <style scoped>. Nuestra IA genera código Vue idiomático con Composition API, refs reactivos y sintaxis de template adecuada.",
+      "fr": "Téléchargez n'importe quelle capture d'écran d'interface et obtenez un Single File Component Vue 3 (.vue) complet avec des sections <template>, <script setup> et <style scoped>. Notre IA génère du code Vue idiomatique avec la Composition API, des refs réactifs et une syntaxe de template appropriée.",
+      "de": "Lade einen UI-Screenshot hoch und erhalte eine vollständige Vue 3 Single File Component (.vue) mit <template>-, <script setup>- und <style scoped>-Abschnitten. Unsere KI generiert idiomatischen Vue-Code mit der Composition API, reaktiven Refs und korrekter Template-Syntax.",
+      "pt": "Envie qualquer captura de tela de interface e obtenha um Single File Component Vue 3 (.vue) completo com seções <template>, <script setup> e <style scoped>. Nossa IA gera código Vue idiomático com Composition API, refs reativos e sintaxe de template adequada."
+    }
+  },
+  "features": [
+    {
+      "icon": "layers",
+      "title": {
+        "en": "Vue SFC Structure",
+        "es": "Estructura Vue SFC",
+        "fr": "Structure Vue SFC",
+        "de": "Vue SFC-Struktur",
+        "pt": "Estrutura Vue SFC"
+      },
+      "description": {
+        "en": "Output is a proper Single File Component with separate template, script setup, and scoped style blocks — the idiomatic Vue way.",
+        "es": "La salida es un Single File Component adecuado con bloques separados de template, script setup y estilos con scope, el modo idiomático de Vue.",
+        "fr": "La sortie est un Single File Component approprié avec des blocs template, script setup et style scoped séparés — la manière idiomatique Vue.",
+        "de": "Die Ausgabe ist eine ordentliche Single File Component mit separaten Template-, Script Setup- und Scoped Style-Blöcken — der idiomatische Vue-Weg.",
+        "pt": "A saída é um Single File Component adequado com blocos de template, script setup e estilo com escopo separados — a maneira idiomática do Vue."
+      }
+    },
+    {
+      "icon": "code",
+      "title": {
+        "en": "Composition API with Script Setup",
+        "es": "Composition API con Script Setup",
+        "fr": "Composition API avec Script Setup",
+        "de": "Composition API mit Script Setup",
+        "pt": "Composition API com Script Setup"
+      },
+      "description": {
+        "en": "Generated code uses modern Vue 3 Composition API with <script setup> syntax, reactive refs, computed properties, and composables.",
+        "es": "El código generado usa la moderna Composition API de Vue 3 con sintaxis <script setup>, refs reactivos, propiedades computadas y composables.",
+        "fr": "Le code généré utilise la moderne Composition API Vue 3 avec la syntaxe <script setup>, des refs réactifs, des propriétés calculées et des composables.",
+        "de": "Generierter Code verwendet die moderne Vue 3 Composition API mit <script setup>-Syntax, reaktiven Refs, berechneten Eigenschaften und Composables.",
+        "pt": "O código gerado usa a moderna Composition API Vue 3 com sintaxe <script setup>, refs reativos, propriedades computadas e composables."
+      }
+    },
+    {
+      "icon": "cpu",
+      "title": {
+        "en": "Scoped CSS Styles",
+        "es": "Estilos CSS con scope",
+        "fr": "Styles CSS scoped",
+        "de": "Scoped CSS-Stile",
+        "pt": "Estilos CSS com escopo"
+      },
+      "description": {
+        "en": "Visual styles from your screenshot are extracted into a <style scoped> block, preventing unintended style leaking to other components.",
+        "es": "Los estilos visuales de tu captura de pantalla se extraen en un bloque <style scoped>, evitando filtraciones de estilos no deseadas a otros componentes.",
+        "fr": "Les styles visuels de votre capture d'écran sont extraits dans un bloc <style scoped>, empêchant les fuites de styles indésirables vers d'autres composants.",
+        "de": "Visuelle Styles aus deinem Screenshot werden in einen <style scoped>-Block extrahiert und verhindern unbeabsichtigtes Style-Leaking zu anderen Komponenten.",
+        "pt": "Os estilos visuais da sua captura de tela são extraídos para um bloco <style scoped>, evitando vazamentos de estilo não intencional para outros componentes."
+      }
+    },
+    {
+      "icon": "zap",
+      "title": {
+        "en": "Nuxt.js Compatible",
+        "es": "Compatible con Nuxt.js",
+        "fr": "Compatible Nuxt.js",
+        "de": "Nuxt.js kompatibel",
+        "pt": "Compatível com Nuxt.js"
+      },
+      "description": {
+        "en": "Generated Vue components work directly in Nuxt 3 projects with no modifications — drop them into your pages/ or components/ directory.",
+        "es": "Los componentes Vue generados funcionan directamente en proyectos Nuxt 3 sin modificaciones: colócalos en tu directorio pages/ o components/.",
+        "fr": "Les composants Vue générés fonctionnent directement dans les projets Nuxt 3 sans modifications — déposez-les dans votre répertoire pages/ ou components/.",
+        "de": "Generierte Vue-Komponenten funktionieren ohne Modifikationen direkt in Nuxt 3-Projekten — leg sie in dein pages/- oder components/-Verzeichnis.",
+        "pt": "Componentes Vue gerados funcionam diretamente em projetos Nuxt 3 sem modificações — coloque-os no seu diretório pages/ ou components/."
+      }
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "Does the output use Vue 3 or Vue 2 syntax?",
+        "es": "¿La salida usa sintaxis de Vue 3 o Vue 2?",
+        "fr": "La sortie utilise-t-elle la syntaxe Vue 3 ou Vue 2 ?",
+        "de": "Verwendet der Output Vue 3 oder Vue 2 Syntax?",
+        "pt": "A saída usa sintaxe Vue 3 ou Vue 2?"
+      },
+      "answer": {
+        "en": "The tool generates Vue 3 Composition API code with <script setup> by default — the modern recommended pattern for Vue development. Vue 2 used the Options API with data(), methods{}, and computed{}. If you need Vue 2 output, select the Vue 2 / Options API option before generating.",
+        "es": "La herramienta genera código de Composition API de Vue 3 con <script setup> de forma predeterminada, el patrón moderno recomendado para el desarrollo de Vue. Vue 2 usaba la Options API con data(), methods{} y computed{}. Si necesitas salida de Vue 2, selecciona la opción Vue 2 / Options API antes de generar.",
+        "fr": "L'outil génère du code Vue 3 Composition API avec <script setup> par défaut — le modèle moderne recommandé pour le développement Vue. Vue 2 utilisait l'Options API avec data(), methods{} et computed{}. Si vous avez besoin d'une sortie Vue 2, sélectionnez l'option Vue 2 / Options API avant de générer.",
+        "de": "Das Tool generiert standardmäßig Vue 3 Composition API-Code mit <script setup> — das moderne empfohlene Muster für die Vue-Entwicklung. Vue 2 verwendete die Options API mit data(), methods{} und computed{}. Wenn du Vue 2-Output benötigst, wähle die Vue 2 / Options API-Option vor der Generierung.",
+        "pt": "A ferramenta gera código Vue 3 Composition API com <script setup> por padrão — o padrão moderno recomendado para desenvolvimento Vue. O Vue 2 usava a Options API com data(), methods{} e computed{}. Se você precisar de saída Vue 2, selecione a opção Vue 2 / Options API antes de gerar."
+      }
+    },
+    {
+      "question": {
+        "en": "Can the AI generate Vue Router navigation from screenshots?",
+        "es": "¿Puede la IA generar navegación con Vue Router a partir de capturas de pantalla?",
+        "fr": "L'IA peut-elle générer une navigation Vue Router à partir de captures d'écran ?",
+        "de": "Kann die KI Vue Router-Navigation aus Screenshots generieren?",
+        "pt": "A IA pode gerar navegação Vue Router a partir de capturas de tela?"
+      },
+      "answer": {
+        "en": "Yes. When the AI detects navigation links, tabs, or breadcrumbs in your screenshot, it generates <RouterLink> components with appropriate to= attributes and href placeholders. The router configuration itself must be set up separately in your project.",
+        "es": "Sí. Cuando la IA detecta enlaces de navegación, pestañas o migas de pan en tu captura de pantalla, genera componentes <RouterLink> con atributos to= apropiados y marcadores de posición href. La configuración del enrutador en sí debe configurarse por separado en tu proyecto.",
+        "fr": "Oui. Lorsque l'IA détecte des liens de navigation, des onglets ou des fils d'Ariane dans votre capture d'écran, elle génère des composants <RouterLink> avec des attributs to= appropriés et des espaces réservés href. La configuration du routeur elle-même doit être configurée séparément dans votre projet.",
+        "de": "Ja. Wenn die KI Navigationslinks, Tabs oder Breadcrumbs in deinem Screenshot erkennt, generiert sie <RouterLink>-Komponenten mit geeigneten to=-Attributen und href-Platzhaltern. Die Router-Konfiguration selbst muss separat in deinem Projekt eingerichtet werden.",
+        "pt": "Sim. Quando a IA detecta links de navegação, abas ou breadcrumbs na sua captura de tela, ela gera componentes <RouterLink> com atributos to= adequados e marcadores de posição href. A configuração do router em si deve ser configurada separadamente no seu projeto."
+      }
+    },
+    {
+      "question": {
+        "en": "What is the difference between Vue output and React output?",
+        "es": "¿Cuál es la diferencia entre la salida de Vue y la salida de React?",
+        "fr": "Quelle est la différence entre la sortie Vue et la sortie React ?",
+        "de": "Was ist der Unterschied zwischen Vue-Output und React-Output?",
+        "pt": "Qual é a diferença entre a saída Vue e a saída React?"
+      },
+      "answer": {
+        "en": "Vue output is a .vue Single File Component using Vue template syntax (v-if, v-for, :bind, @event) and Composition API. React output is a .jsx file using JSX syntax with React hooks. Both represent the same UI but are framework-specific and not interchangeable without conversion.",
+        "es": "La salida de Vue es un Single File Component .vue que usa la sintaxis de template de Vue (v-if, v-for, :bind, @event) y la Composition API. La salida de React es un archivo .jsx que usa sintaxis JSX con hooks de React. Ambos representan la misma interfaz de usuario pero son específicos del framework y no son intercambiables sin conversión.",
+        "fr": "La sortie Vue est un Single File Component .vue utilisant la syntaxe de template Vue (v-if, v-for, :bind, @event) et la Composition API. La sortie React est un fichier .jsx utilisant la syntaxe JSX avec les hooks React. Les deux représentent la même interface utilisateur mais sont spécifiques au framework et ne sont pas interchangeables sans conversion.",
+        "de": "Vue-Output ist eine .vue Single File Component mit Vue Template-Syntax (v-if, v-for, :bind, @event) und Composition API. React-Output ist eine .jsx-Datei mit JSX-Syntax und React Hooks. Beide repräsentieren dieselbe UI, sind aber framework-spezifisch und ohne Konvertierung nicht austauschbar.",
+        "pt": "A saída Vue é um Single File Component .vue usando sintaxe de template Vue (v-if, v-for, :bind, @event) e Composition API. A saída React é um arquivo .jsx usando sintaxe JSX com hooks React. Ambos representam a mesma UI, mas são específicos de framework e não são intercambiáveis sem conversão."
+      }
+    },
+    {
+      "question": {
+        "en": "Does the tool support Pinia for state management?",
+        "es": "¿La herramienta admite Pinia para la gestión de estado?",
+        "fr": "L'outil prend-il en charge Pinia pour la gestion d'état ?",
+        "de": "Unterstützt das Tool Pinia für das State Management?",
+        "pt": "A ferramenta suporta Pinia para gerenciamento de estado?"
+      },
+      "answer": {
+        "en": "Basic component generation does not include Pinia stores. However, when the AI detects shared state patterns (e.g., user data, cart items, theme toggles) in your screenshot, it scaffolds the appropriate Pinia store usage with useStore() imports as comments in the script setup section.",
+        "es": "La generación básica de componentes no incluye stores de Pinia. Sin embargo, cuando la IA detecta patrones de estado compartido (por ejemplo, datos de usuario, elementos del carrito, interruptores de tema) en tu captura de pantalla, genera el uso apropiado del store de Pinia con importaciones useStore() como comentarios en la sección script setup.",
+        "fr": "La génération de composants de base n'inclut pas les stores Pinia. Cependant, lorsque l'IA détecte des modèles d'état partagé (par exemple, données utilisateur, articles du panier, basculements de thème) dans votre capture d'écran, elle génère l'utilisation appropriée du store Pinia avec des importations useStore() comme commentaires dans la section script setup.",
+        "de": "Die grundlegende Komponentengenerierung enthält keine Pinia-Stores. Wenn die KI jedoch gemeinsame Status-Muster (z.B. Benutzerdaten, Warenkorb-Artikel, Theme-Toggles) in deinem Screenshot erkennt, gerüstet sie die entsprechende Pinia-Store-Verwendung mit useStore()-Importen als Kommentare im Script Setup-Abschnitt.",
+        "pt": "A geração básica de componentes não inclui stores do Pinia. No entanto, quando a IA detecta padrões de estado compartilhado (por exemplo, dados do usuário, itens do carrinho, alternadores de tema) na sua captura de tela, ela gera o uso adequado do store Pinia com importações useStore() como comentários na seção script setup."
+      }
+    }
+  ],
+  "relatedTools": [
+    "screenshot-to-react",
+    "screenshot-to-nextjs",
+    "screenshot-to-svelte",
+    "screenshot-to-angular",
+    "screenshot-to-html-css",
+    "html-beautifier",
+    "css-beautifier"
+  ]
+}

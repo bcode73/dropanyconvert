@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation, footerValidation }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -480,6 +480,16 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       warnings:        (layoutValidation?.warnings || []).slice(0, 20),
       warning_count:   (layoutValidation?.warnings || []).length,
       stats:           (layoutValidation?.stats    || {}),
+    },
+
+    // Footer Validation (Phase 33)
+    footer: {
+      columns:          5,
+      total_links:      footerValidation?.stats?.total_links      ?? 0,
+      duplicate_links:  footerValidation?.stats?.duplicate_links  ?? 0,
+      empty_columns:    footerValidation?.stats?.empty_columns    ?? 0,
+      validation_score: footerValidation?.stats?.validation_score ?? 0,
+      warnings:         (footerValidation?.warnings || []).slice(0, 10),
     },
 
     warnings: validation.warnings,

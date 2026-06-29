@@ -292,69 +292,153 @@ function renderBreadcrumb(crumbs) {
   ).join('');
 }
 
-function renderFooter(langCode, config, categories, popularTools) {
-  const catLinks = (categories || []).map(c =>
-    `<a href="/${langCode}/${c.slug}" class="dac-footer__link">${esc(c.name[langCode] || c.name.en)}</a>`
-  ).join('\n');
+// ── Phase 33 — Premium Footer SVG Icons ───────────────────────────────────
+const FOOTER_LOGO_SVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`;
+const GITHUB_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
+const GITHUB_SVG_SMALL = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
 
-  const popularLinks = (popularTools || []).slice(0, 6).map(t =>
-    `<a href="/${langCode}/${t.slug}" class="dac-footer__link">${esc(t.name[langCode] || t.name.en)}</a>`
-  ).join('\n');
+function renderFooter(langCode, config, data, hreflang) {
+  const siteName = esc(config.site.name);
+  const version  = config.site.version || '1.0';
+  const year     = new Date().getFullYear();
 
-  const year = new Date().getFullYear();
+  // Helper: render a column (returns empty string if no links)
+  function renderFooterCol(title, linksHtml) {
+    if (!linksHtml.trim()) return '';
+    return `<div class="dac-footer__col">
+    <p class="dac-footer__col-title">${title}</p>
+    <div class="dac-footer__col-links">${linksHtml}</div>
+  </div>`;
+  }
+
+  // Deduplication set
+  const emittedHrefs = new Set();
+  function dedupeLink(href, html) {
+    if (emittedHrefs.has(href)) return '';
+    emittedHrefs.add(href);
+    return html;
+  }
+
+  // ── Brand column ──────────────────────────────────────────────────────────
+  const brandCol = `<div class="dac-footer__brand-col">
+  <a href="/${langCode}" class="dac-footer__logo" aria-label="${siteName} — Home">
+    ${FOOTER_LOGO_SVG}
+    <span>${siteName}</span>
+  </a>
+  <p class="dac-footer__tagline">Free browser-based conversion tools built for speed, privacy and simplicity.</p>
+  <ul class="dac-footer__trust-pills">
+    <li>✓ Browser-based</li>
+    <li>✓ Privacy-first</li>
+    <li>✓ Fast</li>
+    <li>✓ Free</li>
+  </ul>
+  <a href="https://github.com/dropanyconvert" class="dac-footer__gh-link" rel="noopener" aria-label="GitHub">
+    ${GITHUB_SVG}
+    View on GitHub
+  </a>
+</div>`;
+
+  // Pre-register hrefs used in brand section so columns don't trigger dupe warnings
+  emittedHrefs.add(`/${langCode}`);
+  emittedHrefs.add('https://github.com/dropanyconvert');
+
+  // ── Tools column ─────────────────────────────────────────────────────────
+  const toolLinksHtml = (data.categories || []).slice(0, 8).map(c => {
+    const href = `/${langCode}/${c.slug}`;
+    return dedupeLink(href, `<a href="${href}" class="dac-footer__link">${esc(c.name[langCode] || c.name.en)}</a>`);
+  }).join('') + `<a href="/${langCode}" class="dac-footer__link dac-footer__link--all">All Tools →</a>`;
+  const toolsCol = renderFooterCol('Tools', toolLinksHtml);
+
+  // ── Resources column ─────────────────────────────────────────────────────
+  const resourceLinks = [];
+  if ((data.articles || []).length > 0)     resourceLinks.push([`/${langCode}/guides`, 'Guides']);
+  if ((data.comparisons || []).length > 0)  resourceLinks.push([`/${langCode}/compare`, 'Comparisons']);
+  if ((data.glossary || []).length > 0)     resourceLinks.push([`/${langCode}/glossary`, 'Glossary']);
+  if ((data.collections || []).length > 0)  resourceLinks.push([`/${langCode}/collections`, 'Collections']);
+  if ((data.entities || []).length > 0)     resourceLinks.push([`/${langCode}/entities`, 'Entities']);
+  resourceLinks.push([`/${langCode}/faq`, 'FAQ Hub']);
+  resourceLinks.push([`/${langCode}/api-docs`, 'API Docs']);
+  resourceLinks.push([`/${langCode}/api/developer-docs`, 'Developer Docs']);
+  const resourceLinksHtml = resourceLinks.map(([href, label]) =>
+    dedupeLink(href, `<a href="${href}" class="dac-footer__link">${label}</a>`)
+  ).join('');
+  const resourcesCol = renderFooterCol('Resources', resourceLinksHtml);
+
+  // ── Company column ────────────────────────────────────────────────────────
+  const companyLinks = [
+    [`/${langCode}/about`, 'About'],
+    [`/${langCode}/trust`, 'Trust Center'],
+    [`/${langCode}/editorial/editorial-process`, 'Editorial Standards'],
+    [`/${langCode}/editorial/update-policy`, 'Update Policy'],
+    [`/${langCode}/changelog`, 'Changelog'],
+    [`/${langCode}/authors`, 'Authors'],
+  ];
+  const companyLinksHtml = companyLinks.map(([href, label]) =>
+    dedupeLink(href, `<a href="${href}" class="dac-footer__link">${label}</a>`)
+  ).join('');
+  const companyCol = renderFooterCol('Company', companyLinksHtml);
+
+  // ── Legal column ──────────────────────────────────────────────────────────
+  const legalLinks = [
+    [`/${langCode}/privacy-policy`, 'Privacy Policy'],
+    [`/${langCode}/terms-of-service`, 'Terms'],
+    [`/${langCode}/cookie-policy`, 'Cookies'],
+    [`/${langCode}/security`, 'Security'],
+    [`/${langCode}/disclaimer`, 'Disclaimer'],
+    [`/${langCode}/accessibility`, 'Accessibility'],
+  ];
+  const legalLinksHtml = legalLinks.map(([href, label]) =>
+    dedupeLink(href, `<a href="${href}" class="dac-footer__link">${label}</a>`)
+  ).join('');
+  const legalCol = renderFooterCol('Legal', legalLinksHtml);
+
+  // ── Popular tools strip ───────────────────────────────────────────────────
+  const allTools = data.tools || [];
+  const popularFirst = allTools.filter(t => t.popular || t.featured);
+  const toolsForStrip = (popularFirst.length >= 10
+    ? popularFirst
+    : [...popularFirst, ...allTools.filter(t => !t.popular && !t.featured)]
+  ).slice(0, 28);
+
+  const stripLinks = toolsForStrip.map((t, i) => {
+    const href = `/${langCode}/${t.slug}`;
+    const name = esc(t.name[langCode] || t.name.en);
+    const link = `<a href="${href}">${name}</a>`;
+    return i < toolsForStrip.length - 1
+      ? link + `<span class="dac-footer__dot" aria-hidden="true">·</span>`
+      : link;
+  }).join('');
+
+  const toolsStrip = stripLinks ? `<div class="dac-footer__tools-strip">
+  <p class="dac-footer__tools-strip__label">Popular tools</p>
+  <div class="dac-footer__tools-strip__links">${stripLinks}</div>
+</div>` : '';
+
+  // ── Bottom bar ────────────────────────────────────────────────────────────
+  const langLinksHtml = (hreflang || []).map(h =>
+    `<a href="${h.url}"${h.lang === langCode ? ' aria-current="true"' : ''}>${h.lang.toUpperCase()}</a>`
+  ).join(' · ');
+
+  const bottomBar = `<div class="dac-footer__bottom">
+  <p class="dac-footer__copy">&copy; ${year} ${siteName}. All rights reserved. v${esc(String(version))}</p>
+  <div class="dac-footer__bottom-right">
+    ${langLinksHtml ? `<div class="dac-footer__langs">${langLinksHtml}</div>` : ''}
+    <button class="dac-icon-btn" id="dac-footer-theme-btn" aria-label="Toggle theme">⬤</button>
+    <a href="https://github.com/dropanyconvert" class="dac-footer__icon-link" aria-label="GitHub" rel="noopener">${GITHUB_SVG_SMALL}</a>
+  </div>
+</div>`;
 
   return `<footer class="dac-footer" role="contentinfo">
-  <div class="dac-footer__grid">
-    <div class="dac-footer__brand">
-      <span class="dac-footer__brand-name">${esc(config.site.name)}</span>
-      <p class="dac-footer__brand-desc">${esc(config.site.tagline)}</p>
-      <div class="dac-footer__social" aria-label="Social links">
-        <a href="#" class="dac-footer__social-link" aria-label="Twitter / X" rel="noopener">𝕏</a>
-        <a href="#" class="dac-footer__social-link" aria-label="GitHub" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-      </div>
+  <div class="dac-footer__inner">
+    <div class="dac-footer__grid">
+      ${brandCol}
+      ${toolsCol}
+      ${resourcesCol}
+      ${companyCol}
+      ${legalCol}
     </div>
-    <div class="dac-footer__col">
-      <h3 class="dac-footer__col-title">Tools</h3>
-      <div class="dac-footer__col-links">
-        ${catLinks}
-      </div>
-    </div>
-    <div class="dac-footer__col">
-      <h3 class="dac-footer__col-title">Popular</h3>
-      <div class="dac-footer__col-links" id="dac-footer-popular">
-        ${popularLinks}
-      </div>
-      <div class="dac-footer__col-links" id="dac-footer-recent" style="margin-top:8px"></div>
-    </div>
-    <div class="dac-footer__col">
-      <h3 class="dac-footer__col-title">Knowledge Hub</h3>
-      <div class="dac-footer__col-links">
-        <a href="/${langCode}/guides" class="dac-footer__link">Guides</a>
-        <a href="/${langCode}/compare" class="dac-footer__link">Comparisons</a>
-        <a href="/${langCode}/glossary" class="dac-footer__link">Glossary</a>
-        <a href="/${langCode}/collections" class="dac-footer__link">Collections</a>
-        <a href="/${langCode}/faq" class="dac-footer__link">FAQ</a>
-        <a href="/${langCode}/changelog" class="dac-footer__link">Changelog</a>
-      </div>
-    </div>
-    <div class="dac-footer__col">
-      <h3 class="dac-footer__col-title">Company</h3>
-      <div class="dac-footer__col-links">
-        <a href="/${langCode}/trust" class="dac-footer__link">Trust &amp; Security</a>
-        <a href="/${langCode}/editorial/editorial-process" class="dac-footer__link">Editorial</a>
-        <a href="/${langCode}/privacy-policy" class="dac-footer__link">Privacy Policy</a>
-        <a href="/${langCode}/terms-of-service" class="dac-footer__link">Terms of Service</a>
-        <a href="/${langCode}/disclaimer" class="dac-footer__link">Disclaimer</a>
-      </div>
-    </div>
-  </div>
-  <div class="dac-footer__bottom">
-    <p class="dac-footer__copy">&copy; ${year} ${esc(config.site.name)}. All rights reserved.</p>
-    <div class="dac-footer__bottom-links" aria-label="Legal">
-      <a href="/${langCode}/privacy-policy">Privacy</a>
-      <a href="/${langCode}/terms-of-service">Terms</a>
-      <a href="/${langCode}/cookie-policy">Cookies</a>
-    </div>
+    ${toolsStrip}
+    ${bottomBar}
   </div>
 </footer>
 <script src="/assets/js/sw-register.js" defer></script>`;
@@ -1442,7 +1526,7 @@ ${adTop}
 
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
@@ -1718,7 +1802,7 @@ ${adTop}
 
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
@@ -1895,7 +1979,7 @@ ${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
@@ -2083,7 +2167,7 @@ ${adTop}
 
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -2176,7 +2260,7 @@ ${adTop}
   ${adBottom}
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -2401,7 +2485,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -2597,7 +2681,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${relArticlesHtml}
 </div>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/article-runtime.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -2754,7 +2838,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${relArticlesHtml}
 </div>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/article-runtime.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -2837,7 +2921,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${relToolsHtml}
 </div>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -2886,7 +2970,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -2935,7 +3019,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -2986,7 +3070,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3075,7 +3159,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3125,7 +3209,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3217,7 +3301,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3283,7 +3367,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${groupsHtml}
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3365,7 +3449,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
 
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3440,7 +3524,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </aside>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3500,7 +3584,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </div>
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3667,7 +3751,7 @@ ${toolCardsHtml ? `<div class="dac-article-related-wrapper">
   </section>
 </div>` : ''}
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3722,7 +3806,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   ${groupsHtml}
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3813,7 +3897,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </section>` : ''}
 </main>
 
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/platform.js" defer></script>
 </body>
 </html>`;
@@ -3923,7 +4007,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
     </aside>
   </div>
 </main>
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -3967,7 +4051,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </header>
   ${groupsHtml}
 </main>
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -4026,7 +4110,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
   </section>
   ${faqHtml}
 </main>
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -4096,7 +4180,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
     <div class="dac-entity-chips">${relatedUseCases}</div>
   </section>` : ''}
 </main>
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -4159,7 +4243,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
     <div class="dac-entity-chips">${relatedFeatures}</div>
   </section>` : ''}
 </main>
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>
@@ -4227,7 +4311,7 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
     <div class="dac-entity-chips">${otherFaqs}</div>
   </section>` : ''}
 </main>
-${renderFooter(langCode, config, data.categories, popularTools(data.tools))}
+${renderFooter(langCode, config, data, seo.hreflang)}
 <script src="/assets/js/analytics.js" defer></script>
 <script src="/assets/js/platform.js" defer></script>
 </body>

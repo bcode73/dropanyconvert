@@ -34,6 +34,7 @@ import { validateDatasets } from './lib/dataset-validator.js';
 import { validateLinkHealth, validateMetadata, buildCrawlHints, computeSeoSweepMetrics } from './lib/seo-sweep.js';
 import { runBuildAudit } from './lib/build-auditor.js';
 import { validateLayout } from './lib/layout-validator.js';
+import { validateFooter } from './lib/footer-validator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -260,9 +261,14 @@ async function build() {
   layoutValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ Layout: ${w}`));
   console.log(`  ✓ Layout validated (${layoutValidation.errors.length} errors, ${layoutValidation.warnings.length} warnings)`);
 
+  // 12d. Phase 33 — Footer validation
+  const footerValidation = validateFooter([...pages, ...dashboardPages, ...apiDocPages], config);
+  footerValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ Footer: ${w}`));
+  console.log(`  ✓ Footer validated (links: ${footerValidation.stats.total_links}, dupes: ${footerValidation.stats.duplicate_links}, score: ${footerValidation.stats.validation_score}/100)`);
+
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation, footerValidation });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

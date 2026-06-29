@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-29T00:22:10.272Z",
-  "elapsed_ms": 4278,
+  "timestamp": "2026-06-29T00:25:56.993Z",
+  "elapsed_ms": 4353,
   "tools": 102,
   "languages": 5,
   "routes": 1401,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 2122,
-  "output_size_kb": 146761,
+  "output_size_kb": 146786,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -99,7 +99,7 @@
       "scored_article_pages": 85
     },
     "freshness_stale": 0,
-    "freshness_new": 10,
+    "freshness_new": 0,
     "entity_index_size": 13,
     "largest_entity": "pdf"
   },
@@ -669,7 +669,7 @@
     "validation_score": 17,
     "technical_debt": 15,
     "generator_modules": 31,
-    "generator_js_loc": 13842,
+    "generator_js_loc": 13843,
     "asset_js_loc": 3086,
     "asset_css_loc": 2745,
     "data_json_files": 190,
@@ -691,7 +691,7 @@
       },
       "estimated_memory_mb": 107,
       "total_files_emitted": 2122,
-      "total_size_kb": 146761,
+      "total_size_kb": 146786,
       "pages_generated": 2091
     }
   },
@@ -845,7 +845,7 @@
   "performance_audit": {
     "js_size_kb": 77,
     "css_size_kb": 59,
-    "html_size_kb": 146761,
+    "html_size_kb": 146786,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

@@ -1747,7 +1747,8 @@ function renderAiScreenshotToolPage(route, seo, toolLinks, data, config) {
   const allFaqs = deduplicateFaqs([...(tool.faq || []).map(f => ({ q: f.question?.[langCode] || f.question?.en, a: f.answer?.[langCode] || f.answer?.en })), ...faqs], langCode);
   const faqSchema = buildFaqSchema(allFaqs, langCode);
 
-  const toolIndex = `<script>window.__DAC_TOOL=${JSON.stringify({ slug: tool.slug, category: tool.category, runtime: 'cloud', framework, requiresPremium: true, requiresLogin: true })};</script>`;
+  const toolIndex = null; // AI tool pages don't participate in the tool search index
+  const dacToolScript = `<script>window.__DAC_TOOL=${JSON.stringify({ slug: tool.slug, category: tool.category, runtime: 'cloud', framework, requiresPremium: true, requiresLogin: true })};</script>`;
   const headOpts = { schemas: [faqSchema], ogType: 'website' };
   const ads = data.ads;
 
@@ -1771,6 +1772,7 @@ ${renderHead(seo, config, toolIndex, headOpts)}
 <meta name="dac-framework" content="${esc(framework)}">
 </head>
 <body class="dac-page dac-page--tool dac-page--ai-screenshot" data-framework="${esc(framework)}">
+${dacToolScript}
 
 ${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
 
@@ -1787,8 +1789,7 @@ ${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
 
     <header class="dac-ai-tool__header">
       <div class="dac-ai-premium-badge" id="dac-ai-premium-badge" style="display:none">
-        <span class="dac-badge dac-badge--premium">✦ Premium</span>
-        <span>${ui.premiumRequired || 'Premium plan required'}</span>
+        <span class="dac-badge dac-badge--premium">✦ ${ui.premiumRequired || 'Premium plan required'}</span>
       </div>
       <h1 class="dac-ai-tool__title">${esc(seo.h1?.[langCode] || seo.h1 || toolName)}</h1>
       <p class="dac-ai-tool__tagline">${esc(tagline)}</p>
@@ -1798,7 +1799,7 @@ ${renderHeader(langCode, tool.category, data.categories, config, seo.hreflang)}
     <!-- Upload / Drop zone -->
     <section class="dac-ai-upload" aria-label="Upload screenshot">
       <div class="dac-ai-dropzone" id="dac-ai-dropzone" role="button" tabindex="0" aria-label="Drop your screenshot here or click to upload">
-        <div class="dac-ai-dropzone__icon">📷</div>
+        <div class="dac-ai-dropzone__icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
         <p class="dac-ai-dropzone__title">${ui.dropScreenshot || 'Drop your screenshot here'}</p>
         <p class="dac-ai-dropzone__sub">${ui.orClickUpload || 'or click to upload • PNG, JPG, WebP • max 10 MB'}</p>
         <p class="dac-ai-dropzone__paste">${ui.orPaste || 'Or paste from clipboard (Ctrl+V / ⌘V)'}</p>

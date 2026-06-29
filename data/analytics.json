@@ -1,9 +1,9 @@
 {
-  "enabled": false,
-  "provider": null,
+  "enabled": true,
+  "provider": "ga4",
   "providers": {
     "ga4": {
-      "measurementId": ""
+      "measurementId": "G-6EMSTD1TZH"
     },
     "gtm": {
       "containerId": ""

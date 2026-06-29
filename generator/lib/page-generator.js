@@ -219,10 +219,9 @@ function renderHeader(langCode, activeCategory, categories, config, hreflang) {
   ).join('\n');
 
   const LANG_NAMES = { en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch', pt: 'Português' };
-  const LANG_FLAGS = { en: '🇬🇧', es: '🇪🇸', fr: '🇫🇷', de: '🇩🇪', pt: '🇧🇷' };
 
   const langLinks = (hreflang || []).map(h =>
-    `<a href="${h.url}" ${h.lang === langCode ? 'aria-current="true"' : ''}>${LANG_FLAGS[h.lang] || ''} ${LANG_NAMES[h.lang] || h.lang.toUpperCase()}</a>`
+    `<a href="${h.url}" ${h.lang === langCode ? 'aria-current="true"' : ''}>${h.lang.toUpperCase()} <span class="dac-lang-name">${LANG_NAMES[h.lang] || ''}</span></a>`
   ).join('\n');
 
   const mobileNavLinks = categories.map(c =>
@@ -249,7 +248,7 @@ ${navLinks}
     </button>
     ${langLinks ? `<div class="dac-lang-wrap">
       <button class="dac-lang-btn" id="dac-lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
-        ${LANG_FLAGS[langCode] || ''} ${langCode.toUpperCase()} <span aria-hidden="true">▾</span>
+        ${langCode.toUpperCase()} <span aria-hidden="true">▾</span>
       </button>
       <div class="dac-lang-panel" id="dac-lang-panel" hidden>
         ${langLinks}
@@ -267,7 +266,7 @@ ${navLinks}
   ${mobileNavLinks}
   <span class="dac-mobile-nav__section-label">Settings</span>
   ${(hreflang || []).map(h =>
-    `<a href="${h.url}">${LANG_FLAGS[h.lang] || ''} ${LANG_NAMES[h.lang] || h.lang.toUpperCase()}</a>`
+    `<a href="${h.url}">${h.lang.toUpperCase()} — ${LANG_NAMES[h.lang] || h.lang.toUpperCase()}</a>`
   ).join('\n')}
 </div>
 

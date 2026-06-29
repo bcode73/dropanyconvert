@@ -1240,6 +1240,7 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 }
 .dac-lang-panel a:hover       { background: var(--dac-surface); color: var(--dac-text); }
 .dac-lang-panel a[aria-current="true"] { color: var(--dac-brand); font-weight: 600; }
+.dac-lang-name { color: var(--dac-text-3); font-size: 12px; }
 
 /* Mobile menu button (hidden on desktop) */
 .dac-menu-btn { display: none; }

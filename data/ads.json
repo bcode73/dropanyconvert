@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "provider": "google_adsense",
-  "clientId": "ca-pub-XXXXXXXXXXXXXXXX",
+  "clientId": "ca-pub-4973975819370181",
   "enabled": true,
   "placements": {
     "top": {

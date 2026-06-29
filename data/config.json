@@ -35,7 +35,7 @@
   },
   "ads": {
     "provider": "google_adsense",
-    "clientId": "",
+    "clientId": "ca-pub-4973975819370181",
     "placements": ["top", "middle", "bottom"]
   },
   "seo": {

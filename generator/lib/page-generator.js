@@ -216,7 +216,7 @@ function renderHead(seo, config, toolIndex, opts = {}) {
   // The full stylesheet is loaded async to avoid render-blocking.
   const criticalCss = `<style>*,::before,::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;background:#fff;color:#111}[data-theme=dark]{background:#0f0f0f;color:#e5e5e5}.dac-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e5e5e5}[data-theme=dark] .dac-nav{background:#0f0f0f;border-color:#2a2a2a}.dac-skip-link{position:absolute;left:-9999px}.dac-skip-link:focus{left:1rem;top:1rem;z-index:9999;background:#6366f1;color:#fff;padding:.5rem 1rem;border-radius:4px}.dac-page--hub,.dac-page--tool,.dac-page--category{max-width:1200px;margin:0 auto;padding:0 1.5rem}</style>`;
 
-  return `<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(seo.title || config.site.name)}</title><meta name="description" content="${esc(seo.description || '')}"><meta name="robots" content="${seo.robots || 'index, follow'}">${seo.canonical ? `<link rel="canonical" href="${seo.canonical}">` : ''}<meta property="og:title" content="${esc(seo.ogTitle || seo.title || '')}"><meta property="og:description" content="${esc(seo.ogDescription || seo.description || '')}"><meta property="og:url" content="${seo.ogUrl || seo.canonical || ''}"><meta property="og:type" content="${seo.ogType || 'website'}"><meta property="og:site_name" content="${esc(seo.ogSiteName || config.site.name)}"><meta property="og:image" content="${seo.ogImage || config.seo?.defaultImagePath || ''}"><meta name="twitter:card" content="${seo.twitterCard || 'summary_large_image'}"><meta name="twitter:site" content="${seo.twitterSite || config.seo?.twitterHandle || ''}"><meta name="twitter:title" content="${esc(seo.twitterTitle || seo.title || '')}"><meta name="twitter:description" content="${esc(seo.twitterDescription || seo.description || '')}"><meta name="msapplication-config" content="/browserconfig.xml"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#6366f1"><link rel="icon" href="/assets/images/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/images/icon.svg">${hreflang}${xDefault}${criticalCss}<link rel="preload" href="/assets/css/main.css" as="style"><link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>${adsenseMeta}${themeInit}${toolIndexScript}${adsenseScript}${analyticsSnippet}${schemas}`;
+  return `<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="alternate" type="application/rss+xml" title="${esc(config.site.name)} Guides" href="/rss.xml"><title>${esc(seo.title || config.site.name)}</title><meta name="description" content="${esc(seo.description || '')}"><meta name="robots" content="${seo.robots || 'index, follow'}">${seo.canonical ? `<link rel="canonical" href="${seo.canonical}">` : ''}<meta property="og:title" content="${esc(seo.ogTitle || seo.title || '')}"><meta property="og:description" content="${esc(seo.ogDescription || seo.description || '')}"><meta property="og:url" content="${seo.ogUrl || seo.canonical || ''}"><meta property="og:type" content="${seo.ogType || 'website'}"><meta property="og:site_name" content="${esc(seo.ogSiteName || config.site.name)}"><meta property="og:image" content="${seo.ogImage || config.seo?.defaultImagePath || ''}"><meta name="twitter:card" content="${seo.twitterCard || 'summary_large_image'}"><meta name="twitter:site" content="${seo.twitterSite || config.seo?.twitterHandle || ''}"><meta name="twitter:title" content="${esc(seo.twitterTitle || seo.title || '')}"><meta name="twitter:description" content="${esc(seo.twitterDescription || seo.description || '')}"><meta name="msapplication-config" content="/browserconfig.xml"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#6366f1"><link rel="icon" href="/assets/images/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/images/icon.svg">${hreflang}${xDefault}${criticalCss}<link rel="preload" href="/assets/css/main.css" as="style"><link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>${adsenseMeta}${themeInit}${toolIndexScript}${adsenseScript}${analyticsSnippet}${schemas}`;
 }
 
 // ── Shared Partials ────────────────────────────────────────────────────────
@@ -286,7 +286,13 @@ ${navLinks}
       <input type="search" id="dac-search-input" placeholder="Search tools…" autocomplete="off" spellcheck="false" aria-label="Search tools">
       <button class="dac-search-close" id="dac-search-close" aria-label="Close search">Esc</button>
     </div>
-    <div id="dac-search-results" role="listbox" aria-label="Search results"></div>
+    <div id="dac-search-results" role="listbox" aria-label="Search results">
+      <div class="dac-search-empty" id="dac-search-empty" hidden>
+        <p class="dac-search-empty__title">No results found</p>
+        <p class="dac-search-empty__sub">Try a format name, like "JPG", "PDF" or "Base64"</p>
+        <div class="dac-search-empty__cats" id="dac-search-empty-cats"></div>
+      </div>
+    </div>
   </div>
 </div>`;
 }
@@ -2535,6 +2541,28 @@ function getLegalContent(slug) {
       <section style="margin-bottom:2rem">
         <h2 style="font-size:1.25rem;margin-bottom:.5rem">5. No Guarantee of Availability</h2>
         <p>We do not guarantee that DropAnyConvert will be available at all times or that it will be free from errors or interruptions. We may suspend, withdraw, or restrict the availability of all or any part of the service at any time.</p>
+      </section>`;
+
+    case 'editorial-team': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Who We Are</h2>
+        <p>The DropAnyConvert editorial team is a group of technical writers, software engineers and UX specialists who create, review and maintain all published content on this platform. Our team combines hands-on experience with file formats, browser APIs and conversion workflows.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Our Review Process</h2>
+        <p>Every guide, comparison and glossary entry on DropAnyConvert goes through a three-step review process: (1) Technical verification — the tool or format being described is tested in a real browser environment. (2) Editorial review — content is checked for accuracy, clarity and completeness. (3) SEO and accessibility check — headings, metadata and reading level are reviewed before publication.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Content Update Policy</h2>
+        <p>Content is reviewed and updated when: browser support for a format changes, a new file format version is released, a tool's behaviour changes significantly, or user feedback identifies an inaccuracy. We display a 'Last Updated' date on all knowledge hub pages. Our goal is to keep every article accurate within 90 days of any significant industry change.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Fact-Checking Standards</h2>
+        <p>Technical claims about file formats, browser compatibility and conversion quality are verified against: official format specifications (ISO, W3C, IETF), browser vendor documentation (MDN Web Docs, Chromium, Firefox), and direct testing in current browser versions. We do not publish claims we cannot verify.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Editorial Contact</h2>
+        <p>To report an inaccuracy, suggest a correction or request a content update, email our editorial team at <strong>editorial@dropanyconvert.com</strong>. We review editorial feedback within 5 business days.</p>
       </section>`;
 
     default: return '<p>Page not found.</p>';

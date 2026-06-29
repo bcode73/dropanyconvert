@@ -42,5 +42,12 @@
     "defaultLocale": "en_US",
     "twitterHandle": "@dropanyconvert",
     "defaultImagePath": "/assets/images/og-default.png"
+  },
+  "contact": {
+    "email": "hello@dropanyconvert.com",
+    "dmca": "legal@dropanyconvert.com",
+    "bugs": "bugs@dropanyconvert.com",
+    "editorial": "editorial@dropanyconvert.com",
+    "partnerships": "partnerships@dropanyconvert.com"
   }
 }

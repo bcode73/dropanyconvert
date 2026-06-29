@@ -36,6 +36,7 @@ import { runBuildAudit } from './lib/build-auditor.js';
 import { validateLayout } from './lib/layout-validator.js';
 import { validateFooter } from './lib/footer-validator.js';
 import { validateAdsenseReadiness } from './lib/adsense-validator.js';
+import { generateRssFeeds } from './lib/rss-generator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -169,6 +170,10 @@ async function build() {
   const staticFiles = generateStaticFiles(config);
   console.log(`  ✓ Static files generated (humans.txt, security.txt, browserconfig.xml, site.webmanifest)`);
 
+  // 10a2. Phase 35 — RSS feeds
+  const rssFeeds = generateRssFeeds(data, config);
+  console.log(`  ✓ RSS feeds generated (rss.xml, guides.xml, changelog.xml)`);
+
   // 10b. Indexing readiness validation
   const indexingValidation = validateIndexingReadiness(routes, seoData, links, sitemaps, robots, config);
   if (indexingValidation.errors.length > 0) {
@@ -218,7 +223,7 @@ async function build() {
   console.log(`  ✓ AI discovery generated (llms.txt, ai.txt)`);
 
   // 12. Emit everything to dist/
-  const emitResult = await emitDist({ pages: [...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, staticFiles: [...staticFiles, openApiFile, apiSearchIndex, ...datasetFiles], aiFiles }, config);
+  const emitResult = await emitDist({ pages: [...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, staticFiles: [...staticFiles, openApiFile, apiSearchIndex, ...datasetFiles, ...rssFeeds], aiFiles }, config);
   console.log(`  ✓ Dist emitted   (${emitResult.fileCount} files, ${emitResult.sizeKb} KB)`);
 
   // 12a. Phase 25 — SEO Sweep validation (post-emit, report only)
@@ -267,10 +272,15 @@ async function build() {
   footerValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ Footer: ${w}`));
   console.log(`  ✓ Footer validated (links: ${footerValidation.stats.total_links}, dupes: ${footerValidation.stats.duplicate_links}, score: ${footerValidation.stats.validation_score}/100)`);
 
-  // 12e. Phase 34 — AdSense readiness validation
-  const adsenseValidation = validateAdsenseReadiness([...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, config);
+  // 12e. Phase 35 — AdSense readiness validation
+  const adsenseValidation = validateAdsenseReadiness([...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, config, rssFeeds);
   adsenseValidation.warnings.slice(0, 5).forEach(w => console.warn(`  ⚠ AdSense: ${w}`));
-  console.log(`  ✓ AdSense readiness: ${adsenseValidation.stats.score}/100 (${adsenseValidation.stats.passed_checks}/${adsenseValidation.stats.total_checks} checks, ${adsenseValidation.missingPages.length} missing pages)`);
+  if (adsenseValidation.breakdown) {
+    const b = adsenseValidation.breakdown;
+    console.log(`  ✓ AdSense readiness: ${adsenseValidation.stats.score}/100 | arch:${b.architecture.score}/${b.architecture.max} trust:${b.trust.score}/${b.trust.max} content:${b.content.score}/${b.content.max} ux:${b.ux.score}/${b.ux.max} legal:${b.legal.score}/${b.legal.max} | ready:${adsenseValidation.stats.ready_for_review}`);
+  } else {
+    console.log(`  ✓ AdSense readiness: ${adsenseValidation.stats.score}/100 (${adsenseValidation.stats.passed_checks}/${adsenseValidation.stats.total_checks} checks, ${adsenseValidation.missingPages.length} missing pages)`);
+  }
 
   // 13. Build report
   const elapsed = Date.now() - startTime;

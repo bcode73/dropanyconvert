@@ -83,6 +83,18 @@
       },
       "lastUpdated": "2026-06-27",
       "description": "Liability disclaimer for DropAnyConvert file conversion tools."
+    },
+    "editorial-team": {
+      "slug": "editorial-team",
+      "titles": {
+        "en": "Editorial Team & Review Standards",
+        "es": "Equipo Editorial y Estándares de Revisión",
+        "fr": "Équipe éditoriale et normes de révision",
+        "de": "Redaktionsteam & Überprüfungsstandards",
+        "pt": "Equipe Editorial e Padrões de Revisão"
+      },
+      "lastUpdated": "2026-06-29",
+      "description": "Learn about the DropAnyConvert editorial team, our review process, fact-checking standards and content update policy."
     }
   }
 }

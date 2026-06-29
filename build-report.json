@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-29T16:40:07.555Z",
-  "elapsed_ms": 7178,
+  "timestamp": "2026-06-29T19:06:00.217Z",
+  "elapsed_ms": 14052,
   "tools": 82,
   "languages": 5,
   "routes": 1291,
@@ -35,7 +35,7 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1912,
+  "files_emitted": 1913,
   "output_size_kb": 132481,
   "build_errors": 0,
   "build_warnings": 0,
@@ -672,7 +672,7 @@
     "validation_score": 17,
     "technical_debt": 14,
     "generator_modules": 33,
-    "generator_js_loc": 14030,
+    "generator_js_loc": 14036,
     "asset_js_loc": 3086,
     "asset_css_loc": 2912,
     "data_json_files": 190,
@@ -693,7 +693,7 @@
         "sizeKb": 612
       },
       "estimated_memory_mb": 96,
-      "total_files_emitted": 1912,
+      "total_files_emitted": 1913,
       "total_size_kb": 132481,
       "pages_generated": 1881
     }

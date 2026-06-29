@@ -81,5 +81,11 @@ Acknowledgments: ${baseUrl}/security-acknowledgments
     }),
   };
 
-  return [humansTxt, securityTxt, browserconfigXml, siteWebmanifest];
+  // Google Search Console verification
+  const googleVerification = {
+    path: '/googlebec6d3a13f0244af.html',
+    content: 'google-site-verification: googlebec6d3a13f0244af.html',
+  };
+
+  return [humansTxt, securityTxt, browserconfigXml, siteWebmanifest, googleVerification];
 }

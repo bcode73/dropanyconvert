@@ -17,7 +17,8 @@
     "history": false,
     "favorites": false,
     "cloudProcessing": false,
-    "recentlyUsed": false
+    "recentlyUsed": false,
+    "enableAiDevelopment": false
   },
   "limits": {
     "maxFileSizeMb": 500,

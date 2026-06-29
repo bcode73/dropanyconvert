@@ -47,6 +47,28 @@ async function build() {
   const data = await loadData(config);
   console.log(`  ✓ Data loaded    (${data.tools.length} tools, ${data.languages.length} languages)`);
 
+  // 2a. Feature flag: ENABLE_AI_DEVELOPMENT
+  // When false, strip AI Development tools + category from all downstream pipeline
+  // steps (routes, pages, sitemap, search, linking, nav, API docs, dataset, llms.txt).
+  // Engine source files are preserved; only the public surface is hidden.
+  const AI_ENABLED = config.features?.enableAiDevelopment === true;
+  if (!AI_ENABLED) {
+    const hiddenTools = data.tools.filter(t => t.category === 'ai-development');
+    data.tools      = data.tools.filter(t => t.category !== 'ai-development');
+    data.categories = data.categories.filter(c => c.id !== 'ai-development');
+    // Remove AI-tool slugs from collections so they don't produce empty-collection warnings
+    if (data.collections) {
+      const aiSlugs = new Set(hiddenTools.map(t => t.slug));
+      data.collections = data.collections.map(col => ({
+        ...col,
+        toolSlugs: (col.toolSlugs || []).filter(s => !aiSlugs.has(s)),
+      })).filter(col => (col.toolSlugs || []).length > 0);
+    }
+    console.log(`  ⚑ AI Development: DISABLED (${hiddenTools.length} tools hidden, flag: config.features.enableAiDevelopment)`);
+  } else {
+    console.log(`  ⚑ AI Development: ENABLED`);
+  }
+
   // 3. Validate schema + referential integrity
   const validation = await validateData(data, config);
   if (validation.errors.length > 0) {

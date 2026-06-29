@@ -329,10 +329,12 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       cost_optimizer:    { providers: 6, fields: ['input-tokens','output-tokens','image-tokens','latency','cost-usd','monthly-burn'] },
     },
 
-    // AI Platform (Phase 28)
+    // AI Platform (Phase 28 / Phase 30 stabilization)
     ai_platform: {
       category:              'ai-development',
-      tools:                 routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length / Math.max(1, data.languages?.length || 5),
+      enabled:               config.features?.enableAiDevelopment === true,
+      tools_in_data:         20,
+      tools_emitted:         routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length / Math.max(1, data.languages?.length || 5),
       frameworks:            20,
       providers:             ['deepseek', 'openai', 'anthropic', 'gemini', 'openrouter', 'ollama'],
       default_provider:      'deepseek',
@@ -342,12 +344,13 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       engine_status:         'architecture',
       credit_tiers:          { free: 0, pro: 500, business: 5000 },
       ai_tool_routes:        routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length,
+      hidden_reason:         config.features?.enableAiDevelopment === true ? null : 'ENABLE_AI_DEVELOPMENT=false (Phase 30 stabilization)',
     },
 
     // Documentation (Phase 27)
     documentation: {
-      architecture_version:    '29.0.0',
-      generator_version:       '29.0.0',
+      architecture_version:    '30.0.0',
+      generator_version:       '30.0.0',
       generator_frozen:        false,
       frozen_at_phase:         27,
       docs_completeness: {
@@ -519,7 +522,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Dataset:  ${datasetStats?.formats ?? 0} formats | ${datasetStats?.conversionPairs ?? 0} conversion pairs | ${datasetStats?.searchItems ?? 0} search items | ${datasetStats?.filesEmitted ?? 0} JSON files | ${datasetValidation?.warnings?.length ?? 0} warnings`,
     `  SEO P25:  links: ${seoSweepMetrics?.total_internal_links ?? 0} | anchor diversity: ${seoSweepMetrics?.anchor_diversity_score ?? 0}% | meta quality: ${seoSweepMetrics?.metadata_quality_score ?? 0}% | link health: ${seoSweepMetrics?.link_health_score ?? 0}% | broken: ${seoSweepMetrics?.broken_link_warnings ?? 0}`,
     `  Health:   ${buildAudit?.healthScore?.total ?? 0}/100 (${buildAudit?.healthScore?.grade ?? 'N/A'}) | arch: ${buildAudit?.healthScore?.architecture ?? 0} maint: ${buildAudit?.healthScore?.maintainability ?? 0} stability: ${buildAudit?.healthScore?.build_stability ?? 0} valid: ${buildAudit?.healthScore?.validation ?? 0} debt: ${buildAudit?.healthScore?.technical_debt ?? 0} | ${buildAudit?.repoStats?.generator_js_loc ?? 0} LOC (gen) ${buildAudit?.repoStats?.asset_js_loc ?? 0} LOC (js)`,
-    `  AI P29:   ${routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length} ai-tool routes | pipeline: 13 stages | validators: 12 | queue: priority+retry+webhook | security: 7 checks | status: architecture`,
+    `  AI P30:   ${config.features?.enableAiDevelopment === true ? routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length + ' ai-tool routes ENABLED' : '20 tools HIDDEN (ENABLE_AI_DEVELOPMENT=false) | engine preserved | 0 public routes'}`,
   ].join('\n');
 
   try {

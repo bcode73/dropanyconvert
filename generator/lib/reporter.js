@@ -315,6 +315,20 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       validator_stats:   (apiValidation?.stats ?? {}),
     },
 
+    // AI Execution Layer (Phase 29)
+    ai_execution: {
+      pipeline_stages:   13,
+      stage_names:       ['upload-validation','image-optimization','vision-preprocessing','ai-router','provider-adapter','response-validator','code-formatter','security-sanitizer','framework-validator','output-optimizer','result-cache','usage-accounting','history-storage'],
+      prompt_engine:     { frameworks: 20, versioned: true, current_version: 'v1.0' },
+      validators:        { frameworks: 12, types: ['html','css','react','flutter','swiftui','vue','svelte','angular','jetpack-compose','blazor','svg','component-tree'] },
+      cache:             { strategy: 'djb2-keyed', ttl_tiers: 5, store: 'in-memory (Redis-replaceable)', key_fields: ['imageHash','framework','promptVersion','provider','modelVersion'] },
+      queue:             { priority_levels: 3, max_concurrency: 5, max_depth: 200, features: ['priority','retry','cancellation','timeout','batch','webhook'] },
+      security:          { checks: 7, types: ['mime-validation','size-limit','dimension-check','svg-safety','prompt-injection','code-sanitization','rate-limit'] },
+      observability:     { metrics: 8, types: ['provider-latency','generation-time','cache-hit-rate','retry-rate','failure-rate','credits','image-size','framework-popularity'] },
+      preprocessing:     { runtime: 'browser', steps: ['orientation','boundary-detection','transparency-removal','resize','color-normalize','contrast','sharpen','compress'] },
+      cost_optimizer:    { providers: 6, fields: ['input-tokens','output-tokens','image-tokens','latency','cost-usd','monthly-burn'] },
+    },
+
     // AI Platform (Phase 28)
     ai_platform: {
       category:              'ai-development',
@@ -332,8 +346,8 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
 
     // Documentation (Phase 27)
     documentation: {
-      architecture_version:    '28.0.0',
-      generator_version:       '28.0.0',
+      architecture_version:    '29.0.0',
+      generator_version:       '29.0.0',
       generator_frozen:        false,
       frozen_at_phase:         27,
       docs_completeness: {
@@ -505,7 +519,7 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
     `  Dataset:  ${datasetStats?.formats ?? 0} formats | ${datasetStats?.conversionPairs ?? 0} conversion pairs | ${datasetStats?.searchItems ?? 0} search items | ${datasetStats?.filesEmitted ?? 0} JSON files | ${datasetValidation?.warnings?.length ?? 0} warnings`,
     `  SEO P25:  links: ${seoSweepMetrics?.total_internal_links ?? 0} | anchor diversity: ${seoSweepMetrics?.anchor_diversity_score ?? 0}% | meta quality: ${seoSweepMetrics?.metadata_quality_score ?? 0}% | link health: ${seoSweepMetrics?.link_health_score ?? 0}% | broken: ${seoSweepMetrics?.broken_link_warnings ?? 0}`,
     `  Health:   ${buildAudit?.healthScore?.total ?? 0}/100 (${buildAudit?.healthScore?.grade ?? 'N/A'}) | arch: ${buildAudit?.healthScore?.architecture ?? 0} maint: ${buildAudit?.healthScore?.maintainability ?? 0} stability: ${buildAudit?.healthScore?.build_stability ?? 0} valid: ${buildAudit?.healthScore?.validation ?? 0} debt: ${buildAudit?.healthScore?.technical_debt ?? 0} | ${buildAudit?.repoStats?.generator_js_loc ?? 0} LOC (gen) ${buildAudit?.repoStats?.asset_js_loc ?? 0} LOC (js)`,
-    `  AI P28:   ${routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length} ai-tool routes | providers: deepseek(default) openai anthropic gemini openrouter ollama | status: architecture`,
+    `  AI P29:   ${routes.filter(r => r.type === 'tool' && r.tool?.category === 'ai-development').length} ai-tool routes | pipeline: 13 stages | validators: 12 | queue: priority+retry+webhook | security: 7 checks | status: architecture`,
   ].join('\n');
 
   try {

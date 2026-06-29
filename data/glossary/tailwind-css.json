@@ -1,0 +1,40 @@
+{
+  "slug": "tailwind-css",
+  "term": {
+    "en": "Tailwind CSS"
+  },
+  "shortDef": {
+    "en": "A utility-first CSS framework that provides low-level, composable style classes directly in HTML markup."
+  },
+  "definition": {
+    "en": "Tailwind CSS is a utility-first CSS framework created by Adam Wathan and released in 2017. Rather than providing pre-built UI components like Bootstrap, Tailwind provides a comprehensive set of single-purpose utility classes — such as flex, pt-4, text-blue-500, and rounded-lg — that you combine directly in HTML to build any design. The framework ships with a design system built in: a consistent spacing scale (multiples of 4px), a curated color palette, and typography scales. Tailwind uses a JIT (Just-In-Time) compiler that scans your HTML and generates only the CSS classes you actually use, resulting in extremely small production CSS bundles. In 2026, Tailwind CSS is the dominant styling approach for React, Next.js, Vue, and Nuxt.js projects."
+  },
+  "examples": [
+    {
+      "en": "<button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded'>Submit</button> — a Tailwind-styled button using utility classes for color, hover state, text, padding, and border-radius."
+    },
+    {
+      "en": "<div class='flex items-center gap-4 p-6 bg-white rounded-xl shadow-md'> — a Tailwind card container using flex layout, spacing, background, border-radius, and shadow utilities."
+    },
+    {
+      "en": "<p class='sm:text-base md:text-lg lg:text-xl text-gray-700'> — responsive text sizing using Tailwind's breakpoint prefix system."
+    }
+  ],
+  "relatedTerms": [
+    "jsx-syntax",
+    "ui-reverse-engineering"
+  ],
+  "relatedTools": [
+    "screenshot-to-tailwind",
+    "screenshot-to-react",
+    "screenshot-to-nextjs"
+  ],
+  "relatedArticles": [
+    "html-vs-tailwind-generation",
+    "best-ai-screenshot-to-code-tools"
+  ],
+  "category": "ai-development",
+  "lastUpdated": "2026-06-29",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
+}

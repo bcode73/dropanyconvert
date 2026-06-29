@@ -1,0 +1,42 @@
+{
+  "slug": "ui-reverse-engineering",
+  "term": {
+    "en": "UI Reverse Engineering"
+  },
+  "shortDef": {
+    "en": "The process of analyzing an existing user interface — typically a screenshot or rendered application — and reconstructing its underlying code or structure."
+  },
+  "definition": {
+    "en": "UI reverse engineering is the process of taking a visual representation of a user interface — such as a screenshot, design mockup, or rendered web page — and reconstructing the source code, component structure, or design system behind it. Traditionally this required manual developer effort: visually inspecting an interface, identifying layout patterns, estimating spacing and colors, and writing corresponding HTML/CSS or UI framework code. In 2026, AI-powered screenshot-to-code tools automate this process using multimodal large language models that can see and understand UI images. These tools perform visual parsing (identifying structural regions), element classification (recognizing buttons, inputs, cards), layout analysis (detecting grid, flex, or absolute positioning patterns), and code synthesis (generating the appropriate framework-specific markup). UI reverse engineering is used for rapid prototyping from design screenshots, converting legacy interfaces to modern codebases, creating accessible implementations of visual designs, and generating component libraries from existing applications."
+  },
+  "examples": [
+    {
+      "en": "A developer uploads a Figma screenshot to a screenshot-to-React tool and receives a functional React JSX component — this is automated UI reverse engineering."
+    },
+    {
+      "en": "An engineer manually inspects a competitor's website in browser DevTools to understand its layout and component structure — this is manual UI reverse engineering."
+    },
+    {
+      "en": "An AI tool analyzes a mobile app screenshot and generates equivalent Flutter widget code — applying UI reverse engineering to cross-platform mobile development."
+    }
+  ],
+  "relatedTerms": [
+    "jsx-syntax",
+    "tailwind-css"
+  ],
+  "relatedTools": [
+    "screenshot-to-html",
+    "screenshot-to-react",
+    "screenshot-to-flutter",
+    "screenshot-to-tailwind"
+  ],
+  "relatedArticles": [
+    "how-screenshot-to-html-works",
+    "best-ai-screenshot-to-code-tools",
+    "pixel-perfect-html-generation"
+  ],
+  "category": "ai-development",
+  "lastUpdated": "2026-06-29",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
+}

@@ -166,5 +166,77 @@
     "publishedDate": "2026-06-28",
     "lastReviewed": "2026-06-28",
     "version": "1.0"
+  },
+  "article:best-ai-screenshot-to-code-tools": {
+    "hash": "961d717a8aae",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "article:how-screenshot-to-html-works": {
+    "hash": "a0d882c14cc3",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "article:html-vs-tailwind-generation": {
+    "hash": "2bec1949a1f5",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "article:pixel-perfect-html-generation": {
+    "hash": "dc8c4196e53b",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "article:react-vs-vue-output": {
+    "hash": "f3b3c57a70c9",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "article:screenshot-to-flutter-guide": {
+    "hash": "eca146b76cf9",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "comparison:flutter-vs-react-native": {
+    "hash": "171fa2ce1150",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "comparison:react-vs-vue-generation": {
+    "hash": "cc811025a7d2",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "comparison:tailwind-vs-bootstrap-generation": {
+    "hash": "d09ab6c346b5",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "glossary:jsx-syntax": {
+    "hash": "52c6f9f29734",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "glossary:tailwind-css": {
+    "hash": "d924020498d0",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
+  },
+  "glossary:ui-reverse-engineering": {
+    "hash": "ea06093d820a",
+    "publishedDate": "2026-06-29",
+    "lastReviewed": "2026-06-29",
+    "version": "1.0"
   }
 }

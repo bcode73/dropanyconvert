@@ -1,0 +1,82 @@
+{
+  "slug": "ai-screenshot-to-code-tools",
+  "title": {
+    "en": "AI Screenshot to Code Tools",
+    "es": "Herramientas IA de captura de pantalla a código",
+    "fr": "Outils IA de capture d'écran en code",
+    "de": "KI Screenshot-zu-Code Tools",
+    "pt": "Ferramentas IA de captura de tela para código"
+  },
+  "h1": {
+    "en": "AI Screenshot to Code Tools — All Frameworks",
+    "es": "Herramientas IA de captura de pantalla a código — Todos los frameworks",
+    "fr": "Outils IA de capture d'écran en code — Tous les frameworks",
+    "de": "KI Screenshot-zu-Code Tools — Alle Frameworks",
+    "pt": "Ferramentas IA de captura de tela para código — Todos os frameworks"
+  },
+  "description": {
+    "en": "Convert any UI screenshot into production-ready code for HTML, Tailwind CSS, React, Next.js, Vue, Svelte, Angular, Flutter, SwiftUI, and more — powered by AI.",
+    "es": "Convierte cualquier captura de pantalla de interfaz en código listo para producción para HTML, Tailwind CSS, React, Next.js, Vue, Svelte, Angular, Flutter, SwiftUI y más, impulsado por IA.",
+    "fr": "Convertissez n'importe quelle capture d'écran d'interface en code prêt pour la production pour HTML, Tailwind CSS, React, Next.js, Vue, Svelte, Angular, Flutter, SwiftUI et plus — propulsé par IA.",
+    "de": "Konvertiere jeden UI-Screenshot mit KI in produktionsfertigen Code für HTML, Tailwind CSS, React, Next.js, Vue, Svelte, Angular, Flutter, SwiftUI und mehr.",
+    "pt": "Converta qualquer captura de tela de interface em código pronto para produção para HTML, Tailwind CSS, React, Next.js, Vue, Svelte, Angular, Flutter, SwiftUI e mais — com IA."
+  },
+  "intro": {
+    "en": "These AI-powered tools convert screenshots of websites, mobile apps, and UI designs into production-ready code for every major web and mobile framework. Upload a screenshot and get clean, idiomatic code in your target language — no manual markup required.",
+    "es": "Estas herramientas impulsadas por IA convierten capturas de pantalla de sitios web, aplicaciones móviles y diseños de interfaz en código listo para producción para todos los frameworks web y móviles principales. Sube una captura de pantalla y obtén código limpio e idiomático en tu lenguaje objetivo, sin necesidad de marcado manual.",
+    "fr": "Ces outils propulsés par IA convertissent des captures d'écran de sites web, d'applications mobiles et de designs d'interface en code prêt pour la production pour tous les principaux frameworks web et mobiles. Téléchargez une capture d'écran et obtenez du code propre et idiomatique dans votre langage cible — sans balisage manuel requis.",
+    "de": "Diese KI-gestützten Tools konvertieren Screenshots von Websites, mobilen Apps und UI-Designs in produktionsfertigen Code für alle großen Web- und Mobile-Frameworks. Lade einen Screenshot hoch und erhalte sauberen, idiomatischen Code in deiner Zielsprache — kein manuelles Markup erforderlich.",
+    "pt": "Essas ferramentas alimentadas por IA convertem capturas de tela de sites, aplicativos móveis e designs de interface em código pronto para produção para todos os principais frameworks web e móveis. Envie uma captura de tela e obtenha código limpo e idiomático na sua linguagem alvo — sem marcação manual necessária."
+  },
+  "toolSlugs": [
+    "screenshot-to-html",
+    "screenshot-to-html-css",
+    "screenshot-to-tailwind",
+    "screenshot-to-bootstrap",
+    "screenshot-to-react",
+    "screenshot-to-nextjs",
+    "screenshot-to-vue",
+    "screenshot-to-svelte",
+    "screenshot-to-angular",
+    "screenshot-to-flutter",
+    "screenshot-to-swiftui",
+    "screenshot-to-email",
+    "screenshot-to-svg",
+    "screenshot-to-css-grid",
+    "screenshot-to-wireframe",
+    "screenshot-to-component-tree",
+    "screenshot-to-react-native",
+    "screenshot-to-jetpack-compose",
+    "screenshot-to-blazor",
+    "screenshot-to-alpine"
+  ],
+  "category": "ai-development",
+  "seo": {
+    "primaryKeyword": "ai screenshot to code tools",
+    "secondaryKeywords": [
+      "screenshot to html ai",
+      "convert screenshot to react",
+      "image to code generator",
+      "screenshot to tailwind css",
+      "ai ui code generator"
+    ],
+    "title": {
+      "en": "AI Screenshot to Code Tools 2026 — HTML, React, Flutter, SwiftUI"
+    },
+    "description": {
+      "en": "Convert UI screenshots to code with AI. Generate HTML, Tailwind CSS, React JSX, Next.js, Vue, Flutter Dart, SwiftUI, and more from any screenshot. Premium cloud AI tools."
+    }
+  },
+  "relatedGuides": [
+    "how-screenshot-to-html-works",
+    "best-ai-screenshot-to-code-tools",
+    "html-vs-tailwind-generation",
+    "screenshot-to-flutter-guide"
+  ],
+  "relatedComparisons": [
+    "tailwind-vs-bootstrap-generation",
+    "react-vs-vue-generation",
+    "flutter-vs-react-native"
+  ],
+  "lastUpdated": "2026-06-29"
+}

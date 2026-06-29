@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-06-29T00:09:54.358Z",
-  "elapsed_ms": 7902,
+  "timestamp": "2026-06-29T00:22:10.272Z",
+  "elapsed_ms": 4278,
   "tools": 102,
   "languages": 5,
-  "routes": 1336,
-  "pages_generated": 1336,
+  "routes": 1401,
+  "pages_generated": 1401,
   "pages_by_type": {
     "tool": 510,
     "category": 20,
     "home": 5,
     "legal": 20,
-    "article": 55,
-    "comparison": 30,
-    "glossary": 55,
+    "article": 85,
+    "comparison": 45,
+    "glossary": 70,
     "guides-index": 5,
     "compare-index": 5,
     "glossary-index": 5,
-    "collection": 40,
+    "collection": 45,
     "collections-index": 5,
     "landing": 35,
     "faq-hub": 5,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 2057,
-  "output_size_kb": 134352,
+  "files_emitted": 2122,
+  "output_size_kb": 146761,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -70,17 +70,17 @@
   "build_dashboard": {
     "seo_score": "100%",
     "schema_coverage": "100%",
-    "pages_with_title": 1335,
-    "pages_with_description": 1335,
-    "pages_with_h1": 1330,
-    "pages_with_schema": 1335,
-    "pages_with_breadcrumbs": 1330,
-    "avg_title_length": 56,
-    "avg_description_length": 133,
-    "duplicate_title_count": 770,
-    "duplicate_desc_count": 608,
+    "pages_with_title": 1400,
+    "pages_with_description": 1400,
+    "pages_with_h1": 1395,
+    "pages_with_schema": 1400,
+    "pages_with_breadcrumbs": 1395,
+    "avg_title_length": 57,
+    "avg_description_length": 135,
+    "duplicate_title_count": 822,
+    "duplicate_desc_count": 660,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 116529,
+    "largest_page_bytes": 121269,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -88,7 +88,7 @@
   "knowledge_graph": {
     "entity_count": 13,
     "author_count": 2,
-    "knowledge_hub_size": 49,
+    "knowledge_hub_size": 62,
     "avg_faq_per_tool": 4,
     "most_linked_tool": "image-compressor",
     "most_linked_article": "what-is-pdf",
@@ -96,10 +96,10 @@
       "tool_pages_avg": "92/100",
       "article_pages_avg": "100/100",
       "scored_tool_pages": 510,
-      "scored_article_pages": 55
+      "scored_article_pages": 85
     },
     "freshness_stale": 0,
-    "freshness_new": 0,
+    "freshness_new": 10,
     "entity_index_size": 13,
     "largest_entity": "pdf"
   },
@@ -108,7 +108,7 @@
     "commercial": 80,
     "navigational": 0,
     "transactional": 250,
-    "unclassified": 920
+    "unclassified": 985
   },
   "programmatic_seo": {
     "intent_pages": 240,
@@ -120,9 +120,9 @@
     "total_modifiers": 48
   },
   "authority_graph": {
-    "total_nodes": 229,
+    "total_nodes": 242,
     "average_authority": 6,
-    "average_links_per_page": 4.2,
+    "average_links_per_page": 4.4,
     "top_authority_pages": [
       {
         "id": "tool:image-compressor",
@@ -150,6 +150,16 @@
         "authority": 47
       },
       {
+        "id": "tool:html-beautifier",
+        "type": "tool",
+        "authority": 44
+      },
+      {
+        "id": "tool:css-beautifier",
+        "type": "tool",
+        "authority": 43
+      },
+      {
         "id": "tool:merge-pdf",
         "type": "tool",
         "authority": 42
@@ -163,16 +173,6 @@
         "id": "tool:pdf-page-extract",
         "type": "tool",
         "authority": 40
-      },
-      {
-        "id": "tool:split-pdf",
-        "type": "tool",
-        "authority": 40
-      },
-      {
-        "id": "tool:webp-to-jpg",
-        "type": "tool",
-        "authority": 38
       }
     ],
     "bottom_authority_pages": [
@@ -277,7 +277,7 @@
         ]
       },
       "svg": {
-        "size": 13,
+        "size": 14,
         "avg_authority": 0,
         "types": [
           "tool",
@@ -291,7 +291,7 @@
       },
       "gif": {
         "size": 31,
-        "avg_authority": 2,
+        "avg_authority": 3,
         "types": [
           "tool",
           "entity",
@@ -370,7 +370,7 @@
       },
       "compression": {
         "size": 37,
-        "avg_authority": 8,
+        "avg_authority": 9,
         "types": [
           "tool",
           "article",
@@ -408,7 +408,7 @@
       },
       "developer": {
         "size": 86,
-        "avg_authority": 7,
+        "avg_authority": 8,
         "types": [
           "tool",
           "article",
@@ -447,9 +447,9 @@
         ]
       }
     },
-    "link_validation_warnings": 27,
+    "link_validation_warnings": 34,
     "ai_readiness": {
-      "nodes_with_keywords": 161,
+      "nodes_with_keywords": 174,
       "avg_keywords": "6.8"
     }
   },
@@ -458,7 +458,7 @@
     "avg_faq_count": 14,
     "avg_quality_score": 92,
     "avg_word_count": 538,
-    "duplicate_pairs": 349,
+    "duplicate_pairs": 338,
     "pairs_checked": 1474,
     "duplicate_warnings": [
       "[en/image] Intro similarity 94% between \"avif-to-png\" and \"gif-to-png\"",
@@ -509,6 +509,120 @@
       "schemasValid": true
     }
   },
+  "ai_execution": {
+    "pipeline_stages": 13,
+    "stage_names": [
+      "upload-validation",
+      "image-optimization",
+      "vision-preprocessing",
+      "ai-router",
+      "provider-adapter",
+      "response-validator",
+      "code-formatter",
+      "security-sanitizer",
+      "framework-validator",
+      "output-optimizer",
+      "result-cache",
+      "usage-accounting",
+      "history-storage"
+    ],
+    "prompt_engine": {
+      "frameworks": 20,
+      "versioned": true,
+      "current_version": "v1.0"
+    },
+    "validators": {
+      "frameworks": 12,
+      "types": [
+        "html",
+        "css",
+        "react",
+        "flutter",
+        "swiftui",
+        "vue",
+        "svelte",
+        "angular",
+        "jetpack-compose",
+        "blazor",
+        "svg",
+        "component-tree"
+      ]
+    },
+    "cache": {
+      "strategy": "djb2-keyed",
+      "ttl_tiers": 5,
+      "store": "in-memory (Redis-replaceable)",
+      "key_fields": [
+        "imageHash",
+        "framework",
+        "promptVersion",
+        "provider",
+        "modelVersion"
+      ]
+    },
+    "queue": {
+      "priority_levels": 3,
+      "max_concurrency": 5,
+      "max_depth": 200,
+      "features": [
+        "priority",
+        "retry",
+        "cancellation",
+        "timeout",
+        "batch",
+        "webhook"
+      ]
+    },
+    "security": {
+      "checks": 7,
+      "types": [
+        "mime-validation",
+        "size-limit",
+        "dimension-check",
+        "svg-safety",
+        "prompt-injection",
+        "code-sanitization",
+        "rate-limit"
+      ]
+    },
+    "observability": {
+      "metrics": 8,
+      "types": [
+        "provider-latency",
+        "generation-time",
+        "cache-hit-rate",
+        "retry-rate",
+        "failure-rate",
+        "credits",
+        "image-size",
+        "framework-popularity"
+      ]
+    },
+    "preprocessing": {
+      "runtime": "browser",
+      "steps": [
+        "orientation",
+        "boundary-detection",
+        "transparency-removal",
+        "resize",
+        "color-normalize",
+        "contrast",
+        "sharpen",
+        "compress"
+      ]
+    },
+    "cost_optimizer": {
+      "providers": 6,
+      "fields": [
+        "input-tokens",
+        "output-tokens",
+        "image-tokens",
+        "latency",
+        "cost-usd",
+        "monthly-burn"
+      ]
+    }
+  },
   "ai_platform": {
     "category": "ai-development",
     "tools": 20,
@@ -534,8 +648,8 @@
     "ai_tool_routes": 100
   },
   "documentation": {
-    "architecture_version": "28.0.0",
-    "generator_version": "28.0.0",
+    "architecture_version": "29.0.0",
+    "generator_version": "29.0.0",
     "generator_frozen": false,
     "frozen_at_phase": 27,
     "docs_completeness": {
@@ -555,14 +669,14 @@
     "validation_score": 17,
     "technical_debt": 15,
     "generator_modules": 31,
-    "generator_js_loc": 13828,
-    "asset_js_loc": 2772,
+    "generator_js_loc": 13842,
+    "asset_js_loc": 3086,
     "asset_css_loc": 2745,
-    "data_json_files": 177,
-    "data_json_loc": 23111,
+    "data_json_files": 190,
+    "data_json_loc": 24458,
     "largest_module": "page-generator.js",
     "smallest_module": "robots.js",
-    "avg_module_lines": 446,
+    "avg_module_lines": 447,
     "duplicate_routes": 0,
     "audit_warnings": 1,
     "performance": {
@@ -575,10 +689,10 @@
         "path": "openapi.json",
         "sizeKb": 612
       },
-      "estimated_memory_mb": 103,
-      "total_files_emitted": 2057,
-      "total_size_kb": 134352,
-      "pages_generated": 2026
+      "estimated_memory_mb": 107,
+      "total_files_emitted": 2122,
+      "total_size_kb": 146761,
+      "pages_generated": 2091
     }
   },
   "dataset": {
@@ -587,11 +701,11 @@
     "capability_tools": 102,
     "comparison_pairs": 34,
     "recommendation_rules": 12,
-    "search_items": 160,
+    "search_items": 172,
     "knowledge_nodes": 17,
-    "knowledge_relationships": 439,
+    "knowledge_relationships": 451,
     "files_emitted": 8,
-    "total_bytes": 303624,
+    "total_bytes": 309234,
     "validator_warnings": 5,
     "validator_stats": {
       "formats_validated": 17,
@@ -605,37 +719,37 @@
     }
   },
   "seo_sweep": {
-    "total_internal_links": 83370,
+    "total_internal_links": 86710,
     "avg_outgoing_links": 41,
     "anchor_diversity_score": 83,
-    "metadata_quality_score": 56,
+    "metadata_quality_score": 55,
     "crawl_optimization_score": 100,
     "image_seo_score": 92,
     "broken_link_warnings": 285,
     "link_health_score": 100,
-    "pages_with_prev_next": 55,
+    "pages_with_prev_next": 85,
     "canonical_issues": 0,
     "metadata_warnings": 81,
     "metadata_stats": {
-      "pages_checked": 1335,
-      "title_ok": 631,
-      "desc_ok": 853,
-      "og_ok": 1286,
-      "twitter_ok": 1076,
+      "pages_checked": 1400,
+      "title_ok": 661,
+      "desc_ok": 867,
+      "og_ok": 1347,
+      "twitter_ok": 1132,
       "missing_og_image": 0,
       "missing_canonical": 0,
-      "metadata_score": 56
+      "metadata_score": 55
     },
     "link_health_stats": {
-      "pages_checked": 2026,
-      "total_links": 132266,
+      "pages_checked": 2091,
+      "total_links": 137971,
       "broken_links": 285,
-      "empty_hrefs": 2725,
+      "empty_hrefs": 2885,
       "duplicate_ids": 0,
       "health_score": 100
     },
     "crawl_stats": {
-      "routes_with_prev_next": 55,
+      "routes_with_prev_next": 85,
       "canonical_issues": 0,
       "article_sequences": 5
     }
@@ -689,22 +803,22 @@
       "INDEXING: possible orphan page (no linker path) — /en/gif-to-webp",
       "INDEXING: possible orphan page (no linker path) — /en/jwt-inspector",
       "INDEXING: possible orphan page (no linker path) — /en/regex-tester",
+      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-alpine",
+      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-blazor",
       "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-component-tree",
       "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-css-grid",
       "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-email",
       "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-svg",
-      "INDEXING: possible orphan page (no linker path) — /en/screenshot-to-wireframe",
-      "INDEXING: possible orphan page (no linker path) — /en/unix-timestamp",
-      "INDEXING: 44 more possible orphan pages (suppressed)"
+      "INDEXING: 46 more possible orphan pages (suppressed)"
     ],
     "warning_count": 11,
     "stats": {
-      "sitemap_urls": 1335,
+      "sitemap_urls": 1400,
       "canonical_mismatches": 0,
       "sitemap_without_canonical": 0,
-      "orphan_pages_en": 54,
+      "orphan_pages_en": 56,
       "orphan_by_type": {
-        "tool": 10,
+        "tool": 12,
         "comparison": 1,
         "trust": 1,
         "editorial": 7,
@@ -729,9 +843,9 @@
     ]
   },
   "performance_audit": {
-    "js_size_kb": 70,
+    "js_size_kb": 77,
     "css_size_kb": 59,
-    "html_size_kb": 134352,
+    "html_size_kb": 146761,
     "optimizations": [
       "html-minified",
       "json-ld-minified",
@@ -1229,7 +1343,7 @@
       "slug": "screenshot-to-email",
       "category": "ai-development",
       "runtime": "cloud",
-      "primaryKeyword": "screenshot to email template converter"
+      "primaryKeyword": "screenshot to email template"
     },
     {
       "id": "screenshot-to-flutter",

@@ -24,6 +24,16 @@ export { OpenRouterProvider }from './providers/openrouter.js';
 export { OllamaProvider }    from './providers/ollama.js';
 export { UsageAccounting, CREDIT_TIERS, OPERATION_COSTS, operationCost } from './usage-accounting.js';
 export * from './runtime-interface.js';
+
+// ── Phase 29: Execution layer ─────────────────────────────────────────────────
+export { ExecutionPipeline, defaultPipeline, createContext, STAGE_NAMES, DEFAULT_STAGES } from './pipeline.js';
+export { getSystemPrompt, buildUserMessage, listPromptVersions, isCurrentVersion, PROMPT_VERSIONS } from './prompts/index.js';
+export { validateOutput, listValidatedFrameworks } from './validators/index.js';
+export { buildCacheKey, hashString, hashImage, cacheGet, cacheSet, cacheInvalidate, cacheInvalidateFramework, cachePurgeExpired, cacheStats, CACHE_TTL_MS } from './cache.js';
+export { estimateCost, compareProviders, projectMonthlyBurn, CostTracker, defaultCostTracker, PROVIDER_PRICING, estimateImageTokens, estimateOutputTokens } from './cost-optimizer.js';
+export { AiJobQueue, defaultQueue, createJob, enqueueBatch, PRIORITY, PLAN_PRIORITY, JOB_STATE } from './queue.js';
+export { validateMimeType, validateImageSize, validateImageDimensions, validateSvgSafety, filterPromptInjection, sanitizeGeneratedCode, checkRateLimit, validateUpload } from './security.js';
+export { MetricsCollector, defaultMetrics, buildAdminMetrics, METRIC } from './observability.js';
 export {
   generateCode,
   generateHtml,
@@ -82,5 +92,15 @@ export const ENGINE_META = {
     'compare-generations',
   ],
   premiumRequired: true,
-  status: 'architecture', // 'architecture' | 'beta' | 'stable'
+  status:      'architecture', // 'architecture' | 'beta' | 'stable'
+  phase:       29,
+  execution: {
+    pipeline_stages: 13,
+    prompt_versions: 20,
+    validators:      ['html', 'css', 'react', 'vue', 'svelte', 'angular', 'flutter', 'swiftui', 'jetpack-compose', 'blazor', 'svg', 'component-tree'],
+    cache:           'in-memory (swap Redis at runtime)',
+    queue:           'priority + retry + timeout + webhook',
+    security:        ['mime', 'size', 'dimensions', 'svg-safety', 'prompt-injection', 'code-sanitization', 'rate-limit'],
+    observability:   ['latency', 'generation-time', 'cache-hit-rate', 'retry-rate', 'failure-rate', 'credits', 'image-size', 'framework-popularity'],
+  },
 };

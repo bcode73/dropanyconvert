@@ -1,0 +1,40 @@
+{
+  "slug": "jsx-syntax",
+  "term": {
+    "en": "JSX Syntax"
+  },
+  "shortDef": {
+    "en": "A JavaScript syntax extension that allows writing HTML-like markup directly inside JavaScript code, used primarily with React."
+  },
+  "definition": {
+    "en": "JSX (JavaScript XML) is a syntax extension for JavaScript that allows writing HTML-like markup inside JavaScript files. Created by Facebook (Meta) as part of the React ecosystem, JSX is not valid JavaScript by itself — it must be compiled to plain JavaScript function calls by a tool like Babel or esbuild. JSX transpiles to React.createElement() calls under the hood: <div className='card'> becomes React.createElement('div', {className: 'card'}). Key differences from HTML: class becomes className, for becomes htmlFor, all tags must be closed (including void elements like <input />), and JavaScript expressions are embedded using curly braces {expression}. JSX is used in React, Preact, SolidJS, and other modern frontend libraries. TypeScript files using JSX have the extension .tsx. AI screenshot-to-code tools generate JSX for React and React Native output."
+  },
+  "examples": [
+    {
+      "en": "const Button = ({ label }) => <button className='btn'>{label}</button>; — a React functional component returning JSX with a dynamic label prop."
+    },
+    {
+      "en": "{isLoggedIn ? <Dashboard /> : <LoginForm />} — JSX conditional rendering using a ternary expression inside curly braces."
+    },
+    {
+      "en": "{items.map(item => <li key={item.id}>{item.name}</li>)} — JSX list rendering using JavaScript's .map() method."
+    }
+  ],
+  "relatedTerms": [
+    "tailwind-css",
+    "ui-reverse-engineering"
+  ],
+  "relatedTools": [
+    "screenshot-to-react",
+    "screenshot-to-nextjs",
+    "screenshot-to-react-native"
+  ],
+  "relatedArticles": [
+    "react-vs-vue-output",
+    "best-ai-screenshot-to-code-tools"
+  ],
+  "category": "ai-development",
+  "lastUpdated": "2026-06-29",
+  "reviewedBy": "Editorial Team",
+  "version": "1.0"
+}

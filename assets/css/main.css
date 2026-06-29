@@ -2146,3 +2146,77 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 @media (max-width: 480px) {
   .dac-how-to-index-list { grid-template-columns: 1fr; }
 }
+
+/* ── Phase 34 — Trust Section ──────────────────────────────────────────── */
+.dac-trust-section {
+  padding: var(--dac-space-7, 3rem) 0;
+  border-top: 1px solid var(--dac-border, #e5e7eb);
+  margin-top: var(--dac-space-7, 3rem);
+}
+.dac-trust-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--dac-space-5, 1.5rem);
+  text-align: center;
+  margin-bottom: var(--dac-space-7, 3rem);
+}
+@media (max-width: 600px) { .dac-trust-stats { grid-template-columns: repeat(2, 1fr); } }
+.dac-trust-stat__value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dac-brand, #6366f1);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.dac-trust-stat__label {
+  font-size: 13px;
+  color: var(--dac-text-2, #555);
+  font-weight: 500;
+}
+.dac-trust-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--dac-space-5, 1.5rem);
+}
+@media (max-width: 768px) { .dac-trust-pillars { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .dac-trust-pillars { grid-template-columns: 1fr; } }
+.dac-trust-pillar {
+  padding: var(--dac-space-5, 1.5rem);
+  background: var(--dac-surface, #f9fafb);
+  border: 1px solid var(--dac-border, #e5e7eb);
+  border-radius: var(--dac-radius, 8px);
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.dac-trust-pillar:hover { border-color: var(--dac-brand, #6366f1); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.dac-trust-pillar__icon { margin-bottom: var(--dac-space-3, .75rem); color: var(--dac-brand, #6366f1); }
+.dac-trust-pillar__title { font-size: 15px; font-weight: 700; margin: 0 0 var(--dac-space-2, .5rem); color: var(--dac-text, #111); }
+.dac-trust-pillar__desc { font-size: 13.5px; line-height: 1.6; color: var(--dac-text-2, #555); margin: 0; }
+[data-theme=dark] .dac-trust-pillar { background: var(--dac-surface, #1a1a1a); border-color: var(--dac-border, #2a2a2a); }
+
+/* ── Phase 34 — Authority Bar ──────────────────────────────────────────── */
+.dac-authority-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dac-space-4, 1rem);
+  padding: var(--dac-space-3, .75rem) 0 var(--dac-space-5, 1.5rem);
+  border-bottom: 1px solid var(--dac-border, #e5e7eb);
+  margin-bottom: var(--dac-space-5, 1.5rem);
+  font-size: 13px;
+  color: var(--dac-text-2, #777);
+}
+.dac-authority-bar__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── Phase 34 — 404 Page ──────────────────────────────────────────────── */
+.dac-404 { text-align: center; padding: var(--dac-space-8, 4rem) var(--dac-space-5, 1.5rem); }
+.dac-404__code { font-size: 6rem; font-weight: 900; color: var(--dac-brand, #6366f1); opacity: .15; line-height: 1; }
+.dac-404__title { font-size: 1.75rem; font-weight: 700; margin-bottom: var(--dac-space-3, .75rem); }
+.dac-404__desc { color: var(--dac-text-2, #555); margin-bottom: var(--dac-space-6, 2rem); }
+.dac-404__search { margin: var(--dac-space-5, 1.5rem) auto; max-width: 400px; }
+.dac-404__cats { margin-top: var(--dac-space-6, 2rem); }
+.dac-404__cats-label { font-size: 13px; color: var(--dac-text-2, #777); margin-bottom: var(--dac-space-3, .75rem); }
+.dac-404__cats .dac-badge { margin: 3px; }

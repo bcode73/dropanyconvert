@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-06-29T19:32:08.733Z",
-  "elapsed_ms": 5288,
+  "timestamp": "2026-06-29T19:46:41.197Z",
+  "elapsed_ms": 9606,
   "tools": 82,
   "languages": 5,
-  "routes": 1291,
-  "pages_generated": 1291,
+  "routes": 1307,
+  "pages_generated": 1307,
   "pages_by_type": {
     "tool": 410,
     "category": 15,
     "home": 5,
-    "legal": 20,
+    "legal": 35,
     "article": 85,
     "comparison": 45,
     "glossary": 70,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1913,
-  "output_size_kb": 132753,
+  "files_emitted": 1929,
+  "output_size_kb": 134192,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -70,17 +70,17 @@
   "build_dashboard": {
     "seo_score": "100%",
     "schema_coverage": "100%",
-    "pages_with_title": 1290,
-    "pages_with_description": 1290,
-    "pages_with_h1": 1285,
-    "pages_with_schema": 1290,
-    "pages_with_breadcrumbs": 1285,
+    "pages_with_title": 1305,
+    "pages_with_description": 1305,
+    "pages_with_h1": 1300,
+    "pages_with_schema": 1305,
+    "pages_with_breadcrumbs": 1300,
     "avg_title_length": 56,
-    "avg_description_length": 132,
+    "avg_description_length": 131,
     "duplicate_title_count": 818,
-    "duplicate_desc_count": 656,
+    "duplicate_desc_count": 668,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 114531,
+    "largest_page_bytes": 114535,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -108,7 +108,7 @@
     "commercial": 80,
     "navigational": 0,
     "transactional": 250,
-    "unclassified": 875
+    "unclassified": 890
   },
   "programmatic_seo": {
     "intent_pages": 240,
@@ -664,22 +664,22 @@
     }
   },
   "build_audit": {
-    "health_score": 94,
+    "health_score": 95,
     "health_grade": "A",
     "architecture": 23,
     "maintainability": 20,
     "build_stability": 20,
     "validation_score": 17,
-    "technical_debt": 14,
-    "generator_modules": 33,
-    "generator_js_loc": 14041,
+    "technical_debt": 15,
+    "generator_modules": 34,
+    "generator_js_loc": 14382,
     "asset_js_loc": 3086,
-    "asset_css_loc": 2912,
+    "asset_css_loc": 2986,
     "data_json_files": 190,
-    "data_json_loc": 24459,
+    "data_json_loc": 24495,
     "largest_module": "page-generator.js",
     "smallest_module": "robots.js",
-    "avg_module_lines": 425,
+    "avg_module_lines": 423,
     "duplicate_routes": 0,
     "audit_warnings": 1,
     "performance": {
@@ -692,10 +692,10 @@
         "path": "openapi.json",
         "sizeKb": 612
       },
-      "estimated_memory_mb": 96,
-      "total_files_emitted": 1913,
-      "total_size_kb": 132753,
-      "pages_generated": 1881
+      "estimated_memory_mb": 97,
+      "total_files_emitted": 1929,
+      "total_size_kb": 134192,
+      "pages_generated": 1897
     }
   },
   "dataset": {
@@ -722,34 +722,34 @@
     }
   },
   "seo_sweep": {
-    "total_internal_links": 77175,
+    "total_internal_links": 77722,
     "avg_outgoing_links": 41,
     "anchor_diversity_score": 84,
     "metadata_quality_score": 57,
     "crawl_optimization_score": 100,
     "image_seo_score": 92,
-    "broken_link_warnings": 6535,
-    "link_health_score": 95,
+    "broken_link_warnings": 1391,
+    "link_health_score": 99,
     "pages_with_prev_next": 85,
     "canonical_issues": 0,
     "metadata_warnings": 81,
     "metadata_stats": {
-      "pages_checked": 1290,
-      "title_ok": 639,
-      "desc_ok": 838,
-      "og_ok": 1259,
-      "twitter_ok": 1062,
+      "pages_checked": 1305,
+      "title_ok": 650,
+      "desc_ok": 843,
+      "og_ok": 1274,
+      "twitter_ok": 1077,
       "missing_og_image": 0,
       "missing_canonical": 0,
       "metadata_score": 57
     },
     "link_health_stats": {
-      "pages_checked": 1881,
-      "total_links": 128516,
-      "broken_links": 6535,
+      "pages_checked": 1897,
+      "total_links": 129521,
+      "broken_links": 1391,
       "empty_hrefs": 85,
       "duplicate_ids": 0,
-      "health_score": 95
+      "health_score": 99
     },
     "crawl_stats": {
       "routes_with_prev_next": 85,
@@ -816,7 +816,7 @@
     ],
     "warning_count": 11,
     "stats": {
-      "sitemap_urls": 1290,
+      "sitemap_urls": 1305,
       "canonical_mismatches": 0,
       "sitemap_without_canonical": 0,
       "orphan_pages_en": 61,
@@ -849,8 +849,8 @@
   },
   "performance_audit": {
     "js_size_kb": 77,
-    "css_size_kb": 65,
-    "html_size_kb": 132753,
+    "css_size_kb": 67,
+    "html_size_kb": 134192,
     "optimizations": [
       "html-minified",
       "json-ld-minified",
@@ -895,10 +895,10 @@
       "Ad block without size class on: /de/base64-encode/index.html",
       "Ad block without size class on: /pt/base64-encode/index.html"
     ],
-    "warning_count": 465,
+    "warning_count": 480,
     "stats": {
-      "pages_checked": 1881,
-      "inline_style_pages": 35,
+      "pages_checked": 1897,
+      "inline_style_pages": 50,
       "empty_sidebar_pages": 0,
       "unknown_var_pages": 0,
       "ad_no_height_pages": 430
@@ -911,6 +911,29 @@
     "empty_columns": 0,
     "validation_score": 98,
     "warnings": []
+  },
+  "adsense_readiness": {
+    "score": 69,
+    "passed_checks": 11,
+    "total_checks": 16,
+    "missing_pages": 0,
+    "duplicate_titles": 1046,
+    "placeholder_pages": 0,
+    "trust_signals": [
+      "sitemap",
+      "robots_txt",
+      "adsense_meta_tag",
+      "canonicals",
+      "all_required_pages",
+      "complete_legal_set"
+    ],
+    "warnings": [
+      "Duplicate title: \"Barcode Generator — DropAnyConvert — DropAnyConvert\" on /es/barcode-generator/index.html",
+      "Duplicate title: \"Barcode Generator — DropAnyConvert — DropAnyConvert\" on /fr/barcode-generator/index.html",
+      "Duplicate title: \"Barcode Generator — DropAnyConvert — DropAnyConvert\" on /de/barcode-generator/index.html",
+      "...and 1043 more duplicate titles",
+      "Google site verification file not found"
+    ]
   },
   "warnings": [],
   "errors": [],

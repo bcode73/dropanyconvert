@@ -1,5 +1,41 @@
 {
   "pages": {
+    "contact": {
+      "slug": "contact",
+      "titles": {
+        "en": "Contact Us",
+        "es": "Contáctanos",
+        "fr": "Contactez-nous",
+        "de": "Kontakt",
+        "pt": "Fale Conosco"
+      },
+      "lastUpdated": "2026-06-29",
+      "description": "Get in touch with the DropAnyConvert team for support, bug reports, DMCA requests or partnership inquiries."
+    },
+    "about": {
+      "slug": "about",
+      "titles": {
+        "en": "About DropAnyConvert",
+        "es": "Acerca de DropAnyConvert",
+        "fr": "À propos de DropAnyConvert",
+        "de": "Über DropAnyConvert",
+        "pt": "Sobre o DropAnyConvert"
+      },
+      "lastUpdated": "2026-06-29",
+      "description": "DropAnyConvert is a free, browser-based file conversion platform. Convert images, PDFs and developer formats with no file uploads, no accounts and no cost."
+    },
+    "accessibility": {
+      "slug": "accessibility",
+      "titles": {
+        "en": "Accessibility Statement",
+        "es": "Declaración de Accesibilidad",
+        "fr": "Déclaration d'Accessibilité",
+        "de": "Barrierefreiheitserklärung",
+        "pt": "Declaração de Acessibilidade"
+      },
+      "lastUpdated": "2026-06-29",
+      "description": "DropAnyConvert's commitment to web accessibility (WCAG 2.1 AA) and how to report issues."
+    },
     "privacy-policy": {
       "slug": "privacy-policy",
       "titles": {

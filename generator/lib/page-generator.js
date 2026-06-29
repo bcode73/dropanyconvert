@@ -146,6 +146,9 @@ export async function generatePages(routes, seoData, links, data, config) {
       const d = config.languages.default;
       html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/${d}"><link rel="canonical" href="${config.site.baseUrl}/${d}"></head><body></body></html>`;
       pages.push({ path: '/index.html', content: html });
+    } else if (route.type === '404') {
+      html = render404Page(route, seo, data, config);
+      pages.push({ path: '/404.html', content: minifyHtml(html) });
     }
   }
 
@@ -340,7 +343,7 @@ function renderFooter(langCode, config, data, hreflang) {
     `<a href="/${langCode}/privacy-policy" class="dac-footer__link">Privacy</a>`,
     `<a href="/${langCode}/terms-of-service" class="dac-footer__link">Terms</a>`,
     `<a href="/${langCode}/cookie-policy" class="dac-footer__link">Cookies</a>`,
-    `<a href="/${langCode}/security" class="dac-footer__link">Security</a>`,
+    `<a href="/${langCode}/disclaimer" class="dac-footer__link">Disclaimer</a>`,
     `<a href="/${langCode}/accessibility" class="dac-footer__link">Accessibility</a>`,
   ].join('');
 
@@ -2226,6 +2229,58 @@ ${adTop}
 </section>`;
   })()}
 
+  ${(() => {
+    const totalTools = data.tools.length;
+    const totalFormats = [...new Set([
+      ...data.tools.flatMap(t => (t.inputFormats || []).map(f => typeof f === 'string' ? f : f.ext || f.mime || '')),
+      ...data.tools.flatMap(t => (t.outputFormats || []).map(f => f.ext || f.label || '')),
+    ].filter(Boolean))].length;
+    const totalCategories = data.categories.length;
+    const totalLanguages = config.languages.supported.length;
+    return `<section class="dac-trust-section" aria-label="Why DropAnyConvert">
+  <div class="dac-trust-stats">
+    <div class="dac-trust-stat">
+      <span class="dac-trust-stat__value">${totalTools}+</span>
+      <span class="dac-trust-stat__label">Free Tools</span>
+    </div>
+    <div class="dac-trust-stat">
+      <span class="dac-trust-stat__value">${totalFormats}+</span>
+      <span class="dac-trust-stat__label">Formats Supported</span>
+    </div>
+    <div class="dac-trust-stat">
+      <span class="dac-trust-stat__value">${totalLanguages}</span>
+      <span class="dac-trust-stat__label">Languages</span>
+    </div>
+    <div class="dac-trust-stat">
+      <span class="dac-trust-stat__value">${totalCategories}</span>
+      <span class="dac-trust-stat__label">Tool Categories</span>
+    </div>
+  </div>
+  <div class="dac-trust-pillars">
+    <div class="dac-trust-pillar">
+      <div class="dac-trust-pillar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3 class="dac-trust-pillar__title">Privacy-First</h3>
+      <p class="dac-trust-pillar__desc">Files never leave your device. All processing runs in your browser using native web APIs.</p>
+    </div>
+    <div class="dac-trust-pillar">
+      <div class="dac-trust-pillar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <h3 class="dac-trust-pillar__title">No Installation</h3>
+      <p class="dac-trust-pillar__desc">Works in any modern browser. No app, plugin or software to install.</p>
+    </div>
+    <div class="dac-trust-pillar">
+      <div class="dac-trust-pillar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3 class="dac-trust-pillar__title">Browser-Based</h3>
+      <p class="dac-trust-pillar__desc">Powered by WebAssembly and the File API. Fast, secure and completely offline-capable.</p>
+    </div>
+    <div class="dac-trust-pillar">
+      <div class="dac-trust-pillar__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h3 class="dac-trust-pillar__title">Always Free</h3>
+      <p class="dac-trust-pillar__desc">Core conversion tools are free forever. No account, no credit card, no limits.</p>
+    </div>
+  </div>
+</section>`;
+  })()}
+
   ${adBottom}
 </main>
 
@@ -2287,6 +2342,84 @@ function outputFormatsLabel(tool) {
 
 function getLegalContent(slug) {
   switch (slug) {
+    case 'contact': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">General Inquiries</h2>
+        <p>For general questions about DropAnyConvert, email us at <strong>hello@dropanyconvert.com</strong>. We aim to respond within 2 business days.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Report a Broken Tool or Bug</h2>
+        <p>If a tool is not working or producing incorrect output, please email <strong>bugs@dropanyconvert.com</strong> with the tool name, your browser version, and a description of the issue.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Copyright &amp; DMCA Requests</h2>
+        <p>To report copyright infringement or submit a DMCA takedown request, please email <strong>legal@dropanyconvert.com</strong>. Include your full name, contact details, the infringing content URL, and your copyright ownership proof.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Partnership &amp; Business Inquiries</h2>
+        <p>For partnership opportunities, advertising inquiries, or business proposals, contact us at <strong>partnerships@dropanyconvert.com</strong>.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Response Times</h2>
+        <p>We are a small team. General support: 2–3 business days. Bug reports: 1–2 business days. Legal &amp; DMCA: 5 business days. We do not offer phone support.</p>
+      </section>`;
+
+    case 'about': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Our Mission</h2>
+        <p>DropAnyConvert exists to make file conversion fast, free and private — for everyone. We believe powerful tools should work in the browser, not on a server, so your files never leave your device.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Browser-First Architecture</h2>
+        <p>Every tool on DropAnyConvert runs entirely in your browser using WebAssembly, the Canvas API, the File API and Web Workers. No file is ever uploaded to our servers. Conversion happens locally on your device, which means faster results, no file size limits imposed by server queues and complete privacy.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Privacy-First Processing</h2>
+        <p>We take privacy seriously. DropAnyConvert does not collect your files, does not track what you convert and does not require an account. Your conversion history stays in your browser only if you choose to save it. We comply with GDPR, CCPA and global privacy standards.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">What We Offer</h2>
+        <p>DropAnyConvert offers hundreds of browser-based conversion tools across multiple categories: image conversion (JPG, PNG, WEBP, AVIF, SVG, HEIC), PDF tools (compress, convert, split, merge), developer utilities (JSON, Base64, CSV, XML, Markdown), document conversion and archive formats. All tools are free to use with no registration required.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Editorial Commitment</h2>
+        <p>Our guides, comparisons and glossary articles are written and reviewed by our editorial team. We aim for accuracy, clarity and practical usefulness. Pages are updated regularly as formats, browsers and tools evolve.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">What's Next</h2>
+        <p>We are continuously expanding our tool library, improving conversion quality and adding support for new formats. Our roadmap includes improved batch processing, additional developer tools, expanded language support and an API for developers who want to integrate our conversion capabilities.</p>
+      </section>`;
+
+    case 'accessibility': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Our Commitment</h2>
+        <p>DropAnyConvert is committed to ensuring digital accessibility for people with disabilities. We target WCAG 2.1 Level AA conformance and continuously work to improve the user experience for everyone.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Keyboard Navigation</h2>
+        <p>All interactive elements on DropAnyConvert are accessible via keyboard. You can navigate using Tab, Shift+Tab, Enter, and Space keys. A visible skip-to-content link is available at the top of each page.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Screen Reader Compatibility</h2>
+        <p>Pages use semantic HTML5 landmarks (header, main, nav, footer), ARIA roles, and descriptive labels to ensure compatibility with screen readers such as NVDA, JAWS, VoiceOver, and TalkBack. All images include alt text.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Colour Contrast</h2>
+        <p>Text and interactive elements meet a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text, in compliance with WCAG 2.1 AA. Both light and dark themes maintain these ratios.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Browser Compatibility</h2>
+        <p>DropAnyConvert supports all modern browsers (Chrome, Firefox, Safari, Edge) and is tested on Windows, macOS, iOS, and Android. We do not support Internet Explorer.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Reporting Accessibility Issues</h2>
+        <p>If you experience any accessibility barriers on DropAnyConvert, please contact us at <strong>hello@dropanyconvert.com</strong> with a description of the issue, the page URL, and the assistive technology you are using. We aim to respond within 5 business days.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Continuous Improvement</h2>
+        <p>We regularly audit our pages using automated tools and manual testing. Accessibility improvements are prioritised in our development roadmap. This statement was last reviewed on ${new Date().toISOString().split('T')[0]}.</p>
+      </section>`;
+
     case 'privacy-policy': return `
       <section style="margin-bottom:2rem">
         <h2 style="font-size:1.25rem;margin-bottom:.5rem">1. Overview</h2>
@@ -2461,6 +2594,49 @@ ${renderFooter(langCode, config, data, seo.hreflang)}
 </html>`;
 }
 
+function render404Page(route, seo, data, config) {
+  const langCode = 'en';
+  const toolIndex = buildToolIndex(data.tools, langCode);
+  const headOpts = { ads: data.ads, analytics: data.analytics };
+  const categories = data.categories || [];
+  const fake404Seo = {
+    title: '404 — Page Not Found | DropAnyConvert',
+    description: 'The page you are looking for could not be found.',
+    robots: 'noindex, nofollow',
+    canonical: `${config.site.baseUrl}/404`,
+    hreflang: [],
+  };
+  return `<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+${renderHead(fake404Seo, config, toolIndex, headOpts)}
+</head>
+<body class="dac-page">
+${renderHeader(langCode, null, categories, config, [])}
+<main class="dac-main dac-container" id="main">
+  <div class="dac-404">
+    <div class="dac-404__code">404</div>
+    <h1 class="dac-404__title">Page not found</h1>
+    <p class="dac-404__desc">The page you're looking for doesn't exist or has been moved.</p>
+    <a href="/en" class="dac-btn dac-btn--primary">Go to Homepage</a>
+    <div class="dac-404__search">
+      <button class="dac-search-trigger" id="dac-search-btn-404" aria-label="Search tools" aria-haspopup="dialog">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Search for a tool…
+      </button>
+    </div>
+    <div class="dac-404__cats">
+      <p class="dac-404__cats-label">Browse by category:</p>
+      ${categories.map(c => `<a href="/en/${esc(c.slug)}" class="dac-badge">${esc(c.name.en)}</a>`).join('')}
+    </div>
+  </div>
+</main>
+${renderFooter(langCode, config, data, [])}
+<script src="/assets/js/platform.js" defer></script>
+</body>
+</html>`;
+}
+
 // ── Knowledge Hub shared helpers ───────────────────────────────────────────
 
 function estReadingTime(text) {
@@ -2609,6 +2785,12 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
       <h1 class="dac-article__title" itemprop="headline">${esc(h1)}</h1>
       ${intro ? `<p class="dac-article__intro" itemprop="description">${esc(intro)}</p>` : ''}
     </header>
+
+    <div class="dac-authority-bar">
+      <span class="dac-authority-bar__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${readingTime} min read</span>
+      ${lastUpdated ? `<span class="dac-authority-bar__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Updated ${esc(lastUpdated)}</span>` : ''}
+      <span class="dac-authority-bar__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Reviewed by DropAnyConvert Editorial Team</span>
+    </div>
 
     ${renderAiCitationBlock(article, langCode, data)}
 
@@ -2779,6 +2961,11 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
       ${intro ? `<p class="dac-article__intro" itemprop="description">${esc(intro)}</p>` : ''}
     </header>
 
+    <div class="dac-authority-bar">
+      ${lastUpdated ? `<span class="dac-authority-bar__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Updated ${esc(lastUpdated)}</span>` : ''}
+      <span class="dac-authority-bar__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Reviewed by DropAnyConvert Editorial Team</span>
+    </div>
+
     <div class="dac-article__body" itemprop="articleBody">
       ${tableHtml}
 
@@ -2868,6 +3055,11 @@ ${renderHeader(langCode, null, data.categories, config, seo.hreflang)}
       <h1 class="dac-article__title" itemprop="name">${esc(termName)}</h1>
       ${shortDef ? `<p class="dac-glossary-shortdef" itemprop="description">${esc(shortDef)}</p>` : ''}
     </header>
+
+    <div class="dac-authority-bar">
+      ${lastUpdated ? `<span class="dac-authority-bar__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Updated ${esc(lastUpdated)}</span>` : ''}
+      <span class="dac-authority-bar__item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Reviewed by DropAnyConvert Editorial Team</span>
+    </div>
 
     <div class="dac-article__body">
       <section class="dac-kh-section">

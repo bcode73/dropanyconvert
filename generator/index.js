@@ -35,6 +35,7 @@ import { validateLinkHealth, validateMetadata, buildCrawlHints, computeSeoSweepM
 import { runBuildAudit } from './lib/build-auditor.js';
 import { validateLayout } from './lib/layout-validator.js';
 import { validateFooter } from './lib/footer-validator.js';
+import { validateAdsenseReadiness } from './lib/adsense-validator.js';
 
 async function build() {
   const startTime = Date.now();
@@ -266,9 +267,14 @@ async function build() {
   footerValidation.warnings.slice(0, 3).forEach(w => console.warn(`  ⚠ Footer: ${w}`));
   console.log(`  ✓ Footer validated (links: ${footerValidation.stats.total_links}, dupes: ${footerValidation.stats.duplicate_links}, score: ${footerValidation.stats.validation_score}/100)`);
 
+  // 12e. Phase 34 — AdSense readiness validation
+  const adsenseValidation = validateAdsenseReadiness([...pages, ...dashboardPages, ...apiDocPages], sitemaps, robots, config);
+  adsenseValidation.warnings.slice(0, 5).forEach(w => console.warn(`  ⚠ AdSense: ${w}`));
+  console.log(`  ✓ AdSense readiness: ${adsenseValidation.stats.score}/100 (${adsenseValidation.stats.passed_checks}/${adsenseValidation.stats.total_checks} checks, ${adsenseValidation.missingPages.length} missing pages)`);
+
   // 13. Build report
   const elapsed = Date.now() - startTime;
-  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation, footerValidation });
+  const report = await generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation, footerValidation, adsenseValidation });
   console.log(`\n  Build complete in ${elapsed}ms\n`);
   console.log(report.summary);
 

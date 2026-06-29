@@ -164,7 +164,7 @@ function buildAuthorityDashboard(graph) {
   };
 }
 
-export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation, footerValidation }) {
+export async function generateReport({ data, registry, routes, pages, sitemaps, validation, seoValidation, indexingValidation, emitResult, elapsed, config, seoData, freshness, graph, premiumValidation, dashboardPages, apiValidation, apiStats, contentQualityStats, dupResult, datasetStats, datasetValidation, seoSweepMetrics, linkHealth, metaValidation, crawlHints, buildAudit, layoutValidation, footerValidation, adsenseValidation }) {
   const toolCount = data.tools.length;
   const langCount = data.languages.length;
   const pageCount = pages.length;
@@ -490,6 +490,18 @@ export async function generateReport({ data, registry, routes, pages, sitemaps, 
       empty_columns:    footerValidation?.stats?.empty_columns    ?? 0,
       validation_score: footerValidation?.stats?.validation_score ?? 0,
       warnings:         (footerValidation?.warnings || []).slice(0, 10),
+    },
+
+    // AdSense Readiness (Phase 34)
+    adsense_readiness: {
+      score:             adsenseValidation?.stats?.score             ?? 0,
+      passed_checks:     adsenseValidation?.stats?.passed_checks     ?? 0,
+      total_checks:      adsenseValidation?.stats?.total_checks      ?? 0,
+      missing_pages:     adsenseValidation?.stats?.missing_pages     ?? 0,
+      duplicate_titles:  adsenseValidation?.stats?.duplicate_titles  ?? 0,
+      placeholder_pages: adsenseValidation?.stats?.placeholder_pages ?? 0,
+      trust_signals:     (adsenseValidation?.trustSignals || []),
+      warnings:          (adsenseValidation?.warnings || []).slice(0, 20),
     },
 
     warnings: validation.warnings,

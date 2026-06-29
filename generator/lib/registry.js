@@ -428,6 +428,15 @@ export async function buildRegistry(data, config) {
     language: data.languages.find(l => l.code === config.languages.default),
   });
 
+  // 404 page (single, language-agnostic)
+  routes.push({
+    type: '404',
+    lang: 'en',
+    slug: '404',
+    path: '/404',
+    language: data.languages.find(l => l.code === 'en'),
+  });
+
   if (errors.length > 0) {
     throw new Error('Registry build failed:\n' + errors.join('\n'));
   }

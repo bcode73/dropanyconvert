@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-29T19:57:23.653Z",
-  "elapsed_ms": 5650,
+  "timestamp": "2026-06-29T20:33:49.405Z",
+  "elapsed_ms": 10861,
   "tools": 82,
   "languages": 5,
   "routes": 1312,
@@ -36,7 +36,7 @@
   },
   "sitemaps_generated": 6,
   "files_emitted": 1937,
-  "output_size_kb": 135102,
+  "output_size_kb": 135406,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -80,7 +80,7 @@
     "duplicate_title_count": 818,
     "duplicate_desc_count": 672,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 114904,
+    "largest_page_bytes": 115141,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -694,7 +694,7 @@
       },
       "estimated_memory_mb": 97,
       "total_files_emitted": 1937,
-      "total_size_kb": 135102,
+      "total_size_kb": 135406,
       "pages_generated": 1902
     }
   },
@@ -850,7 +850,7 @@
   "performance_audit": {
     "js_size_kb": 77,
     "css_size_kb": 67,
-    "html_size_kb": 135102,
+    "html_size_kb": 135406,
     "optimizations": [
       "html-minified",
       "json-ld-minified",

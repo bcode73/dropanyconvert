@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-07-01T19:56:59.125Z",
-  "elapsed_ms": 15168,
+  "timestamp": "2026-07-01T20:41:41.108Z",
+  "elapsed_ms": 4923,
   "tools": 82,
   "languages": 5,
-  "routes": 1312,
-  "pages_generated": 1312,
+  "routes": 1322,
+  "pages_generated": 1322,
   "pages_by_type": {
     "tool": 410,
     "category": 15,
     "home": 5,
-    "legal": 40,
+    "legal": 50,
     "article": 85,
     "comparison": 45,
     "glossary": 70,
@@ -35,8 +35,8 @@
     "root": 1
   },
   "sitemaps_generated": 6,
-  "files_emitted": 1938,
-  "output_size_kb": 135766,
+  "files_emitted": 1948,
+  "output_size_kb": 136774,
   "build_errors": 0,
   "build_warnings": 0,
   "seo_errors": 0,
@@ -70,17 +70,17 @@
   "build_dashboard": {
     "seo_score": "100%",
     "schema_coverage": "100%",
-    "pages_with_title": 1310,
-    "pages_with_description": 1310,
-    "pages_with_h1": 1305,
-    "pages_with_schema": 1310,
-    "pages_with_breadcrumbs": 1305,
+    "pages_with_title": 1320,
+    "pages_with_description": 1320,
+    "pages_with_h1": 1315,
+    "pages_with_schema": 1320,
+    "pages_with_breadcrumbs": 1315,
     "avg_title_length": 56,
     "avg_description_length": 131,
-    "duplicate_title_count": 818,
-    "duplicate_desc_count": 672,
+    "duplicate_title_count": 819,
+    "duplicate_desc_count": 680,
     "largest_page": "/fr/png-to-jpg/index.html",
-    "largest_page_bytes": 115422,
+    "largest_page_bytes": 115550,
     "smallest_page": "/index.html",
     "smallest_page_bytes": 182,
     "generator_version": "27.0.0"
@@ -108,7 +108,7 @@
     "commercial": 80,
     "navigational": 0,
     "transactional": 250,
-    "unclassified": 895
+    "unclassified": 905
   },
   "programmatic_seo": {
     "intent_pages": 240,
@@ -672,14 +672,14 @@
     "validation_score": 17,
     "technical_debt": 15,
     "generator_modules": 35,
-    "generator_js_loc": 14617,
+    "generator_js_loc": 14758,
     "asset_js_loc": 3086,
-    "asset_css_loc": 4784,
+    "asset_css_loc": 4962,
     "data_json_files": 190,
-    "data_json_loc": 24517,
+    "data_json_loc": 24540,
     "largest_module": "page-generator.js",
     "smallest_module": "robots.js",
-    "avg_module_lines": 418,
+    "avg_module_lines": 422,
     "duplicate_routes": 0,
     "audit_warnings": 1,
     "performance": {
@@ -692,10 +692,10 @@
         "path": "openapi.json",
         "sizeKb": 612
       },
-      "estimated_memory_mb": 97,
-      "total_files_emitted": 1938,
-      "total_size_kb": 135766,
-      "pages_generated": 1902
+      "estimated_memory_mb": 98,
+      "total_files_emitted": 1948,
+      "total_size_kb": 136774,
+      "pages_generated": 1912
     }
   },
   "dataset": {
@@ -722,31 +722,31 @@
     }
   },
   "seo_sweep": {
-    "total_internal_links": 77892,
-    "avg_outgoing_links": 41,
-    "anchor_diversity_score": 84,
+    "total_internal_links": 80879,
+    "avg_outgoing_links": 42,
+    "anchor_diversity_score": 85,
     "metadata_quality_score": 57,
     "crawl_optimization_score": 100,
     "image_seo_score": 92,
-    "broken_link_warnings": 1396,
+    "broken_link_warnings": 1421,
     "link_health_score": 99,
     "pages_with_prev_next": 85,
     "canonical_issues": 0,
     "metadata_warnings": 81,
     "metadata_stats": {
-      "pages_checked": 1310,
-      "title_ok": 655,
+      "pages_checked": 1320,
+      "title_ok": 660,
       "desc_ok": 843,
-      "og_ok": 1279,
-      "twitter_ok": 1082,
+      "og_ok": 1289,
+      "twitter_ok": 1092,
       "missing_og_image": 0,
       "missing_canonical": 0,
       "metadata_score": 57
     },
     "link_health_stats": {
-      "pages_checked": 1902,
-      "total_links": 131152,
-      "broken_links": 1396,
+      "pages_checked": 1912,
+      "total_links": 134469,
+      "broken_links": 1421,
       "empty_hrefs": 85,
       "duplicate_ids": 0,
       "health_score": 99
@@ -816,7 +816,7 @@
     ],
     "warning_count": 11,
     "stats": {
-      "sitemap_urls": 1310,
+      "sitemap_urls": 1320,
       "canonical_mismatches": 0,
       "sitemap_without_canonical": 0,
       "orphan_pages_en": 61,
@@ -849,8 +849,8 @@
   },
   "performance_audit": {
     "js_size_kb": 77,
-    "css_size_kb": 105,
-    "html_size_kb": 135766,
+    "css_size_kb": 108,
+    "html_size_kb": 136774,
     "optimizations": [
       "html-minified",
       "json-ld-minified",
@@ -895,10 +895,10 @@
       "Ad block without size class on: /de/base64-encode/index.html",
       "Ad block without size class on: /pt/base64-encode/index.html"
     ],
-    "warning_count": 485,
+    "warning_count": 495,
     "stats": {
-      "pages_checked": 1902,
-      "inline_style_pages": 55,
+      "pages_checked": 1912,
+      "inline_style_pages": 65,
       "empty_sidebar_pages": 0,
       "unknown_var_pages": 0,
       "ad_no_height_pages": 430
@@ -906,10 +906,10 @@
   },
   "footer": {
     "columns": 5,
-    "total_links": 31,
+    "total_links": 33,
     "duplicate_links": 0,
     "empty_columns": 0,
-    "validation_score": 98,
+    "validation_score": 94,
     "warnings": []
   },
   "adsense_readiness": {
@@ -917,7 +917,7 @@
     "passed_checks": 17,
     "total_checks": 20,
     "missing_pages": 0,
-    "duplicate_titles": 1046,
+    "duplicate_titles": 1047,
     "placeholder_pages": 0,
     "ready_for_review": true,
     "trust_signals": [
@@ -970,10 +970,10 @@
       }
     },
     "deductions": [
-      "1046 duplicate titles: -5 content"
+      "1047 duplicate titles: -5 content"
     ],
     "warnings": [
-      "1046 duplicate page title(s) — review translation pages"
+      "1047 duplicate page title(s) — review translation pages"
     ]
   },
   "warnings": [],

@@ -344,6 +344,7 @@ function renderFooter(langCode, config, data, hreflang) {
   // ── Company column ────────────────────────────────────────────────────────
   const companyLinks = [
     `<a href="/${langCode}/about" class="dac-footer__link">About</a>`,
+    `<a href="/${langCode}/pricing" class="dac-footer__link">Pricing</a>`,
     `<a href="/${langCode}/trust" class="dac-footer__link">Trust Center</a>`,
     `<a href="/${langCode}/editorial/editorial-process" class="dac-footer__link">Editorial Standards</a>`,
     `<a href="/${langCode}/changelog" class="dac-footer__link">Changelog</a>`,
@@ -354,6 +355,7 @@ function renderFooter(langCode, config, data, hreflang) {
   const legalLinks = [
     `<a href="/${langCode}/privacy-policy" class="dac-footer__link">Privacy</a>`,
     `<a href="/${langCode}/terms-of-service" class="dac-footer__link">Terms</a>`,
+    `<a href="/${langCode}/refund-policy" class="dac-footer__link">Refund Policy</a>`,
     `<a href="/${langCode}/cookie-policy" class="dac-footer__link">Cookies</a>`,
     `<a href="/${langCode}/disclaimer" class="dac-footer__link">Disclaimer</a>`,
     `<a href="/${langCode}/accessibility" class="dac-footer__link">Accessibility</a>`,
@@ -2569,6 +2571,145 @@ function getLegalContent(slug) {
       <section style="margin-bottom:2rem">
         <h2 style="font-size:1.25rem;margin-bottom:.5rem">Editorial Contact</h2>
         <p>To report an inaccuracy, suggest a correction or request a content update, email our editorial team at <strong>editorial@dropanyconvert.com</strong>. We review editorial feedback within 5 business days.</p>
+      </section>`;
+
+    case 'pricing': return `
+      <div class="dac-pricing-intro">
+        <p>DropAnyConvert is free to use. Every browser-based conversion tool is available at no cost — no account required. Pro and API plans are in development and will unlock additional capabilities when launched.</p>
+      </div>
+
+      <div class="dac-pricing-grid">
+
+        <!-- FREE -->
+        <div class="dac-pricing-card">
+          <div class="dac-pricing-card__badge dac-pricing-card__badge--active">Current Plan</div>
+          <h2 class="dac-pricing-card__name">Free</h2>
+          <div class="dac-pricing-card__price">
+            <span class="dac-pricing-card__amount">$0</span>
+            <span class="dac-pricing-card__period">/ forever</span>
+          </div>
+          <ul class="dac-pricing-card__features">
+            <li>Unlimited basic conversions</li>
+            <li>82+ browser-based tools</li>
+            <li>No account required</li>
+            <li>100% privacy-first — files never leave your device</li>
+            <li>Works completely offline after first load</li>
+            <li>Ad-supported</li>
+          </ul>
+          <div class="dac-pricing-card__cta">
+            <a href="/" class="dac-btn dac-btn--primary">Start Converting</a>
+          </div>
+        </div>
+
+        <!-- PRO -->
+        <div class="dac-pricing-card dac-pricing-card--featured">
+          <div class="dac-pricing-card__badge dac-pricing-card__badge--soon">Coming Soon</div>
+          <h2 class="dac-pricing-card__name">Pro</h2>
+          <div class="dac-pricing-card__price">
+            <span class="dac-pricing-card__amount">$5.99</span>
+            <span class="dac-pricing-card__period">/ month</span>
+          </div>
+          <p class="dac-pricing-card__alt">or $59 / year — save 18%</p>
+          <ul class="dac-pricing-card__features">
+            <li>Everything in Free</li>
+            <li>Ad-free experience</li>
+            <li>Larger file size limits</li>
+            <li>Batch conversions</li>
+            <li>Faster processing queue</li>
+            <li>Premium conversion features</li>
+            <li>Early access to new tools</li>
+          </ul>
+          <div class="dac-pricing-card__cta">
+            <button class="dac-btn dac-btn--primary" disabled aria-disabled="true">Coming Soon</button>
+          </div>
+        </div>
+
+        <!-- API -->
+        <div class="dac-pricing-card">
+          <div class="dac-pricing-card__badge dac-pricing-card__badge--soon">Coming Soon</div>
+          <h2 class="dac-pricing-card__name">API</h2>
+          <div class="dac-pricing-card__price">
+            <span class="dac-pricing-card__amount">TBD</span>
+          </div>
+          <p class="dac-pricing-card__desc">Developer API for integrating DropAnyConvert conversion capabilities into applications and automated workflows.</p>
+          <ul class="dac-pricing-card__features">
+            <li>REST API access</li>
+            <li>High-volume conversion endpoints</li>
+            <li>Webhook support</li>
+            <li>SDK libraries</li>
+            <li>Dedicated support</li>
+            <li>SLA guarantee</li>
+          </ul>
+          <div class="dac-pricing-card__cta">
+            <button class="dac-btn dac-btn--ghost" disabled aria-disabled="true">Coming Soon</button>
+          </div>
+        </div>
+
+      </div>
+
+      <section style="margin-top:2.5rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">Frequently Asked Questions</h2>
+        <div class="dac-pricing-faq">
+          <details class="dac-pricing-faq__item">
+            <summary>Is DropAnyConvert really free?</summary>
+            <p>Yes. All 82+ conversion tools are completely free with no registration, no file uploads, and no time limits. We are funded by display advertising.</p>
+          </details>
+          <details class="dac-pricing-faq__item">
+            <summary>When will Pro be available?</summary>
+            <p>Pro plan development is ongoing. When it launches, existing free users will be notified. There is no sign-up list at this time.</p>
+          </details>
+          <details class="dac-pricing-faq__item">
+            <summary>Will free tools remain free after Pro launches?</summary>
+            <p>Yes. The Free plan will remain free forever. Pro adds capabilities on top of what is already available.</p>
+          </details>
+          <details class="dac-pricing-faq__item">
+            <summary>Is there a refund policy?</summary>
+            <p>Yes. See our <a href="refund-policy">Refund Policy</a> for details on refunds for future paid subscriptions.</p>
+          </details>
+        </div>
+      </section>`;
+
+    case 'refund-policy': return `
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">1. Current Service</h2>
+        <p>DropAnyConvert currently provides free, browser-based conversion tools. No payment is required and no charges apply to any current feature. This refund policy applies to paid subscriptions that will be introduced in future product updates.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">2. Eligibility for Refunds</h2>
+        <p>When paid plans become available, refund requests may be eligible under the following conditions:</p>
+        <ul style="margin:.75rem 0 0 1.25rem;line-height:1.9">
+          <li>The refund request is submitted within <strong>14 days</strong> of the original purchase date.</li>
+          <li>The purchase was a duplicate or accidental charge.</li>
+          <li>A verified technical issue prevented access to paid features and could not be resolved by our support team within a reasonable timeframe.</li>
+        </ul>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">3. Subscription Renewals</h2>
+        <p>Automatic subscription renewals are generally non-refundable unless required by applicable law. We recommend cancelling your subscription before the renewal date if you no longer wish to continue. Cancellation instructions will be provided in your account dashboard when paid plans are available.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">4. Non-Refundable Situations</h2>
+        <ul style="margin:.75rem 0 0 1.25rem;line-height:1.9">
+          <li>Refund requests submitted more than 14 days after purchase.</li>
+          <li>Requests based on a change of mind after full use of paid features.</li>
+          <li>Requests related to free plan usage (no charge applies).</li>
+        </ul>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">5. How to Request a Refund</h2>
+        <p>To request a refund, submit your request through our <a href="contact">Contact page</a>. Include your order reference number, the email address used at purchase, and a brief description of the reason for your request. We aim to respond within <strong>3 business days</strong>.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">6. Payment Processor</h2>
+        <p>Paid subscriptions will be processed through Paddle, a Merchant of Record. Refunds are issued to the original payment method. Processing time may vary depending on your bank or card provider (typically 5–10 business days after approval).</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">7. Changes to This Policy</h2>
+        <p>We reserve the right to update this Refund Policy at any time. The "Last Updated" date at the top of this page reflects the most recent revision. Continued use of paid services after changes constitutes acceptance of the updated policy.</p>
+      </section>
+      <section style="margin-bottom:2rem">
+        <h2 style="font-size:1.25rem;margin-bottom:.5rem">8. Contact</h2>
+        <p>For refund-related enquiries, contact us at <a href="mailto:hello@dropanyconvert.com">hello@dropanyconvert.com</a> or via the <a href="contact">Contact page</a>. Response time: 3 business days.</p>
       </section>`;
 
     default: return '<p>Page not found.</p>';

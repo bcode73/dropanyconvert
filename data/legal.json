@@ -95,6 +95,30 @@
       },
       "lastUpdated": "2026-06-29",
       "description": "Learn about the DropAnyConvert editorial team, our review process, fact-checking standards and content update policy."
+    },
+    "pricing": {
+      "slug": "pricing",
+      "titles": {
+        "en": "Pricing",
+        "es": "Precios",
+        "fr": "Tarifs",
+        "de": "Preise",
+        "pt": "Preços"
+      },
+      "lastUpdated": "2026-07-01",
+      "description": "DropAnyConvert is free forever. Pro and API plans with advanced features are coming soon."
+    },
+    "refund-policy": {
+      "slug": "refund-policy",
+      "titles": {
+        "en": "Refund Policy",
+        "es": "Política de Reembolso",
+        "fr": "Politique de Remboursement",
+        "de": "Rückerstattungsrichtlinie",
+        "pt": "Política de Reembolso"
+      },
+      "lastUpdated": "2026-07-01",
+      "description": "DropAnyConvert refund policy for paid subscriptions. Free tools have no charges."
     }
   }
 }

@@ -4018,3 +4018,181 @@ h4:hover .dac-heading-anchor {
   color: var(--dac-text-3);
   outline: none;
 }
+
+/* ══ PRICING PAGE ═══════════════════════════════════════════════════════════ */
+
+.dac-pricing-intro {
+  font-size: 15.5px;
+  color: var(--dac-text-2);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.dac-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 2.5rem;
+}
+
+.dac-pricing-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  padding: 24px 20px;
+  background: var(--dac-bg);
+  position: relative;
+  transition: box-shadow var(--dac-dur) var(--dac-ease);
+}
+.dac-pricing-card:hover {
+  box-shadow: var(--dac-shadow-lift);
+}
+.dac-pricing-card--featured {
+  border-color: var(--dac-brand);
+  box-shadow: 0 0 0 1px var(--dac-brand), var(--dac-shadow-card);
+}
+
+.dac-pricing-card__badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+.dac-pricing-card__badge--active {
+  background: var(--dac-success-bg);
+  color: var(--dac-success);
+  border: 1px solid rgba(16,185,129,.25);
+}
+.dac-pricing-card__badge--soon {
+  background: var(--dac-brand-light);
+  color: var(--dac-brand);
+  border: 1px solid rgba(99,102,241,.2);
+}
+
+.dac-pricing-card__name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  color: var(--dac-text);
+  margin: 0 0 10px;
+}
+.dac-pricing-card--featured .dac-pricing-card__name {
+  color: var(--dac-brand);
+}
+
+.dac-pricing-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.dac-pricing-card__amount {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -.5px;
+  color: var(--dac-text);
+}
+.dac-pricing-card__period {
+  font-size: 13px;
+  color: var(--dac-text-3);
+}
+.dac-pricing-card__alt {
+  font-size: 12.5px;
+  color: var(--dac-text-3);
+  margin: 0 0 16px;
+}
+.dac-pricing-card__desc {
+  font-size: 13.5px;
+  color: var(--dac-text-2);
+  line-height: 1.6;
+  margin: 8px 0 16px;
+}
+
+.dac-pricing-card__features {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+.dac-pricing-card__features li {
+  font-size: 13.5px;
+  color: var(--dac-text-2);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.45;
+}
+.dac-pricing-card__features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--dac-success);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.dac-pricing-card__cta {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dac-border);
+}
+.dac-pricing-card__cta .dac-btn {
+  width: 100%;
+  justify-content: center;
+}
+.dac-pricing-card__cta .dac-btn[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Pricing FAQ */
+.dac-pricing-faq {
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.dac-pricing-faq__item {
+  border-bottom: 1px solid var(--dac-border);
+}
+.dac-pricing-faq__item:last-child { border-bottom: none; }
+.dac-pricing-faq__item summary {
+  padding: 13px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  color: var(--dac-text);
+}
+.dac-pricing-faq__item summary::-webkit-details-marker { display: none; }
+.dac-pricing-faq__item p {
+  padding: 0 16px 13px;
+  font-size: 13.5px;
+  color: var(--dac-text-2);
+  line-height: 1.65;
+  margin: 0;
+}
+.dac-pricing-faq__item[open] { background: var(--dac-surface); }
+
+/* Dark mode */
+[data-theme="dark"] .dac-pricing-card {
+  background: var(--dac-surface);
+}
+[data-theme="dark"] .dac-pricing-card--featured {
+  background: var(--dac-surface-2);
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+  .dac-pricing-grid { grid-template-columns: 1fr; }
+}

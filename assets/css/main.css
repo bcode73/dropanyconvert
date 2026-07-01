@@ -3077,3 +3077,692 @@ details[open] .dac-faq__question::after { content: '−'; color: var(--dac-brand
 /* ── Minimal wrappers (no explicit styling needed but defined for completeness) */
 .dac-compat-table-section { margin-bottom: 2rem; }
 .dac-footer__col { /* column in .dac-footer__top grid */ }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   PHASE 36 — Premium UI/UX Redesign
+   Design inspiration: Stripe · Linear · Vercel · GitHub
+   Principle: Visual rhythm through surface alternation + typography hierarchy.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Extended Design Tokens ──────────────────────────────────────────────── */
+:root {
+  /* Section banding */
+  --dac-band:          #f7f8fa;
+  --dac-band-border:   rgba(0,0,0,.055);
+
+  /* Richer shadow set */
+  --dac-shadow-card:   0 1px 3px rgba(0,0,0,.05), 0 4px 14px rgba(0,0,0,.04);
+  --dac-shadow-lift:   0 2px 8px rgba(0,0,0,.06), 0 12px 28px rgba(0,0,0,.07);
+  --dac-shadow-pop:    0 4px 16px rgba(0,0,0,.07), 0 24px 48px rgba(0,0,0,.08);
+
+  /* Page horizontal pad (mirrors .dac-main padding) */
+  --dac-px: 28px;
+}
+
+/* ── Page: reset bottom padding — sections own their spacing ─────────────── */
+.dac-main {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+/* ══ HERO ══════════════════════════════════════════════════════════════════ */
+.dac-hero {
+  padding: 40px 0 24px;
+  max-width: 660px;
+}
+.dac-hero__title {
+  font-size: clamp(26px, 4.5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  line-height: 1.12;
+  margin-bottom: 10px;
+}
+.dac-hero__intro {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--dac-text-2);
+  max-width: 500px;
+  margin: 0 auto 10px;
+}
+.dac-hero__title-row {
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom: 10px;
+}
+/* Hub hero stays centred */
+.dac-page--hub .dac-hero {
+  text-align: center;
+  margin: 0 auto;
+}
+.dac-page--hub .dac-hero__title-row {
+  justify-content: center;
+}
+.dac-page--hub .dac-hero__intro {
+  margin: 0 auto 10px;
+}
+
+/* ══ SECTION TITLE SYSTEM ══════════════════════════════════════════════════ */
+.dac-section-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  margin-bottom: 16px;
+  color: var(--dac-text);
+  position: relative;
+  padding-left: 14px;
+}
+.dac-section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--dac-brand), var(--dac-brand-dark));
+  border-radius: 2px;
+}
+
+/* ══ UNIVERSAL SECTION RHYTHM ══════════════════════════════════════════════ */
+
+/* White sections — add top divider, symmetric padding */
+.dac-formats,
+.dac-howto,
+.dac-faq,
+.dac-kh-related,
+.dac-compat-table-section,
+.dac-use-cases,
+.dac-examples,
+.dac-freshness-section,
+.dac-related-collections,
+.dac-related-landings,
+.dac-related-entities,
+.dac-how-to-guides {
+  margin: 0;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  border-top: 1px solid var(--dac-border);
+}
+
+/* Remove max-width centering — let sections use full container width */
+.dac-formats,
+.dac-howto,
+.dac-faq {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Gray-band sections — extend to .dac-main edges */
+.dac-features,
+.dac-related,
+.dac-trust-section,
+.dac-perf-metrics,
+.dac-dynamic-section {
+  margin: 0;
+  margin-left: -28px;
+  margin-right: -28px;
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: var(--dac-band);
+  border-top: 1px solid var(--dac-band-border);
+  border-bottom: 1px solid var(--dac-band-border);
+}
+
+/* Converter needs no extra top padding (hero flows into it) */
+.dac-converter {
+  margin: 0 auto 0;
+  padding-top: 0;
+  padding-bottom: 36px;
+  border-top: none;
+}
+
+/* ══ FEATURE CARDS ═════════════════════════════════════════════════════════ */
+
+/* On gray band, cards go white */
+.dac-features .dac-feature {
+  background: var(--dac-bg);
+}
+.dac-features__grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 0;
+}
+.dac-feature {
+  padding: 18px 20px;
+  border: 1px solid var(--dac-border);
+  border-radius: 10px;
+  transition: box-shadow var(--dac-dur) var(--dac-ease),
+              transform var(--dac-dur) var(--dac-ease),
+              border-color var(--dac-dur-fast);
+}
+.dac-feature:hover {
+  box-shadow: var(--dac-shadow-lift);
+  transform: translateY(-2px);
+  border-color: rgba(99,102,241,.25);
+}
+.dac-feature__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--dac-brand-light);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.dac-feature__title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.dac-feature__desc  { font-size: 13px; line-height: 1.5; color: var(--dac-text-2); }
+
+/* ══ HOW-TO STEPS ══════════════════════════════════════════════════════════ */
+.dac-howto__steps {
+  gap: 0;
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  overflow: hidden;
+  margin-top: 0;
+}
+.dac-howto__step {
+  background: var(--dac-bg);
+  border: none;
+  border-bottom: 1px solid var(--dac-border);
+  border-radius: 0;
+  padding: 14px 18px;
+  gap: 14px;
+  align-items: flex-start;
+}
+.dac-howto__step:last-child { border-bottom: none; }
+.dac-howto__step::before {
+  background: var(--dac-brand);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+.dac-howto__step-text { font-size: 14px; line-height: 1.55; color: var(--dac-text); }
+.dac-howto__step-text strong { font-weight: 700; }
+
+/* ══ FAQ ACCORDION ═════════════════════════════════════════════════════════ */
+.dac-faq__item {
+  border: none;
+  border-bottom: 1px solid var(--dac-border);
+  border-radius: 0;
+  margin-bottom: 0;
+  background: transparent;
+  overflow: visible;
+}
+.dac-faq__item:first-of-type { border-top: 1px solid var(--dac-border); margin-top: 0; }
+.dac-faq__item[open]  { background: var(--dac-surface); }
+.dac-faq__item:hover  { background: var(--dac-surface); }
+.dac-faq__item[open]:hover { border-color: var(--dac-border); }
+.dac-faq__question {
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dac-text);
+  transition: background var(--dac-dur-fast);
+}
+/* Replace +/- with SVG chevron */
+.dac-faq__question::after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform var(--dac-dur) var(--dac-ease);
+  font-size: inherit;
+  color: transparent;
+  line-height: 1;
+}
+details[open] .dac-faq__question::after {
+  transform: rotate(180deg);
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  color: transparent;
+}
+.dac-faq__answer {
+  padding: 0 18px 14px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--dac-text-2);
+  border-top: 1px solid var(--dac-border);
+}
+
+/* ══ RELATED TOOLS ═════════════════════════════════════════════════════════ */
+.dac-related .dac-related-tool {
+  background: var(--dac-bg);
+}
+.dac-related__grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 0;
+}
+.dac-related-tool {
+  padding: 14px 16px;
+  border-radius: var(--dac-radius-sm);
+  border: 1px solid var(--dac-border);
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur), border-color var(--dac-dur-fast);
+}
+.dac-related-tool:hover {
+  box-shadow: var(--dac-shadow-lift);
+  transform: translateY(-2px);
+  border-color: var(--dac-brand);
+}
+.dac-related-tool__name    { font-size: 13.5px; font-weight: 600; color: var(--dac-text); margin-bottom: 3px; }
+.dac-related-tool__tagline { font-size: 12px; color: var(--dac-text-3); line-height: 1.4; margin-top: 3px; }
+
+/* ══ FORMAT CHIPS ══════════════════════════════════════════════════════════ */
+.dac-format-chip {
+  padding: 5px 13px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: .1px;
+}
+.dac-format-chip--in  { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+.dac-format-chip--out { background: #f0fdf4; border-color: #86efac; color: #15803d; }
+.dac-formats__arrow   { font-size: 20px; color: var(--dac-text-3); }
+
+/* ══ TRUST SECTION ═════════════════════════════════════════════════════════ */
+.dac-trust-section {
+  padding-top: 44px;
+  padding-bottom: 44px;
+  border-top: 1px solid var(--dac-band-border);
+  margin-top: 0;
+}
+.dac-trust-stats {
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.dac-trust-stat {
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur);
+}
+.dac-trust-stat:hover {
+  box-shadow: var(--dac-shadow-card);
+  transform: translateY(-1px);
+}
+.dac-trust-stat__value {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -.5px;
+  display: block;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, var(--dac-brand) 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dac-trust-stat__label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--dac-text-2);
+}
+.dac-trust-pillars { gap: 14px; }
+.dac-trust-pillar {
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur);
+}
+.dac-trust-pillar:hover {
+  box-shadow: var(--dac-shadow-lift);
+  transform: translateY(-2px);
+  border-color: rgba(99,102,241,.2);
+}
+.dac-trust-pillar__icon  { margin-bottom: 10px; color: var(--dac-brand); }
+.dac-trust-pillar__title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+.dac-trust-pillar__desc  { font-size: 13px; line-height: 1.55; color: var(--dac-text-2); margin: 0; }
+
+/* ══ PERFORMANCE METRICS ═══════════════════════════════════════════════════ */
+.dac-perf-metrics { margin: 0; }
+.dac-perf-grid {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+  margin-top: 0;
+}
+.dac-perf-item {
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  border-radius: 10px;
+  padding: 16px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur);
+}
+.dac-perf-item:hover { box-shadow: var(--dac-shadow-card); transform: translateY(-1px); }
+.dac-perf-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .55px;
+  color: var(--dac-text-3);
+}
+.dac-perf-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dac-text);
+  line-height: 1.2;
+}
+.dac-perf-stars { color: #f59e0b; font-size: 14px; letter-spacing: .05em; }
+.dac-perf-sub   { font-size: 12px; color: var(--dac-text-3); }
+
+/* ══ COMPATIBILITY TABLE ════════════════════════════════════════════════════ */
+.dac-compat-table-section {
+  margin-bottom: 0;
+}
+.dac-compat-table-wrap {
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  overflow: hidden;
+}
+.dac-compat-table th,
+.dac-compat-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--dac-border);
+}
+.dac-compat-table tbody tr:last-child th,
+.dac-compat-table tbody tr:last-child td { border-bottom: none; }
+.dac-compat-table th {
+  background: var(--dac-surface);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--dac-text-2);
+}
+.dac-compat-table td { font-size: 13.5px; color: var(--dac-text); }
+.dac-compat-section-header {
+  background: var(--dac-brand-light) !important;
+  color: var(--dac-brand) !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+.dac-compat-status { font-size: 15px; }
+.dac-compat-note   { font-size: 12.5px; color: var(--dac-text-2); }
+.dac-compat-legend { font-size: 12px; color: var(--dac-text-3); gap: 1.25rem; margin-top: .75rem; }
+
+/* ══ GUIDE / ARTICLE CARDS ══════════════════════════════════════════════════ */
+.dac-kh-article-grid { gap: 10px; }
+.dac-kh-article-card {
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  gap: 5px;
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur), border-color var(--dac-dur-fast);
+}
+.dac-kh-article-card:hover {
+  box-shadow: var(--dac-shadow-lift);
+  transform: translateY(-2px);
+  border-color: var(--dac-brand);
+}
+.dac-kh-article-card__tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--dac-brand);
+}
+.dac-kh-article-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dac-text);
+  line-height: 1.3;
+  margin: 0;
+}
+.dac-kh-article-card__desc {
+  font-size: 12.5px;
+  color: var(--dac-text-2);
+  line-height: 1.5;
+}
+
+/* ══ TOC: Compact pill-row style ════════════════════════════════════════════ */
+.dac-toc {
+  background: var(--dac-surface);
+  border: 1px solid var(--dac-border);
+  border-radius: var(--dac-radius);
+  padding: 14px 18px;
+  margin: 0 0 32px;
+}
+.dac-toc__title {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  color: var(--dac-text-3);
+  margin: 0 0 10px;
+}
+.dac-toc__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+.dac-toc__item { list-style: none; margin: 0; }
+.dac-toc__link {
+  display: inline-flex;
+  padding: 4px 11px;
+  border-radius: 99px;
+  font-size: 12.5px;
+  color: var(--dac-text-2);
+  text-decoration: none;
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  white-space: nowrap;
+  transition: background var(--dac-dur-fast), border-color var(--dac-dur-fast), color var(--dac-dur-fast);
+}
+.dac-toc__link:hover,
+.dac-toc__link--active {
+  background: var(--dac-brand-light);
+  border-color: var(--dac-brand);
+  color: var(--dac-brand);
+}
+
+/* ══ CATEGORY CARDS (Hub) ═══════════════════════════════════════════════════ */
+.dac-category-card {
+  padding: 22px 24px;
+  border-radius: 12px;
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur);
+}
+.dac-category-card:hover {
+  box-shadow: var(--dac-shadow-lift);
+  transform: translateY(-3px);
+}
+.dac-category-card__name { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.dac-category-card__desc { font-size: 13px; color: var(--dac-text-2); line-height: 1.5; }
+
+/* ══ TOOL CARDS (category / grid pages) ════════════════════════════════════ */
+.dac-tool-card {
+  padding: 16px;
+  border-radius: var(--dac-radius-sm);
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur), border-color var(--dac-dur-fast);
+}
+.dac-tool-card:hover {
+  box-shadow: var(--dac-shadow-lift);
+  transform: translateY(-2px);
+  border-color: var(--dac-brand);
+}
+.dac-tool-card__name    { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.dac-tool-card__tagline { font-size: 12.5px; color: var(--dac-text-2); line-height: 1.45; }
+
+/* ══ KH INDEX CARDS ═════════════════════════════════════════════════════════ */
+.dac-kh-index-card {
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  gap: 5px;
+  transition: box-shadow var(--dac-dur), transform var(--dac-dur), border-color var(--dac-dur-fast);
+}
+.dac-kh-index-card:hover {
+  box-shadow: var(--dac-shadow-lift);
+  transform: translateY(-2px);
+  border-color: var(--dac-brand);
+}
+
+/* ══ EXAMPLE / USE-CASE CARDS ═══════════════════════════════════════════════ */
+.dac-example-item {
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  border-radius: 8px;
+  padding: 13px 14px;
+}
+.dac-example-item__label { font-size: 11px; color: var(--dac-brand); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.dac-example-item__desc  { font-size: 13px; color: var(--dac-text-2); line-height: 1.5; }
+
+.dac-use-cases__col  { border-radius: 10px; }
+.dac-tips__col       { border-radius: 10px; }
+
+/* ══ READING QUALITY BADGE ══════════════════════════════════════════════════ */
+.dac-reading-quality { margin: 0 0 8px; gap: 5px; }
+.dac-rq-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: .2rem .6rem;
+  border-radius: 20px;
+}
+
+/* ══ TOOL BADGES ════════════════════════════════════════════════════════════ */
+.dac-tool-badges { margin: 0; gap: .35rem; }
+.dac-badge {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: .25rem .7rem;
+  border-radius: 20px;
+}
+
+/* ══ FRESHNESS SECTION ══════════════════════════════════════════════════════ */
+.dac-freshness-section { margin-top: 0; }
+.dac-kh-type-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+/* ══ ENTITY / GLOSSARY CHIPS ════════════════════════════════════════════════ */
+.dac-glossary-term-chip {
+  background: var(--dac-bg);
+  border: 1px solid var(--dac-border);
+  border-radius: 20px;
+  padding: .3rem .85rem;
+  font-size: 13px;
+  color: var(--dac-brand);
+  text-decoration: none;
+  transition: background var(--dac-dur-fast), border-color var(--dac-dur-fast);
+}
+.dac-glossary-term-chip:hover { background: var(--dac-brand-light); border-color: var(--dac-brand); }
+
+/* ══ DYNAMIC SECTIONS (recent/favorites) ════════════════════════════════════ */
+.dac-dynamic-section__header { margin-bottom: 12px; }
+
+/* ══ BREADCRUMB ═════════════════════════════════════════════════════════════ */
+.dac-breadcrumb { padding: 10px 28px 0; font-size: 12px; }
+
+/* ══ PRIVACY NOTE ═══════════════════════════════════════════════════════════ */
+.dac-privacy-note { font-size: 12px; padding: 3px 11px; }
+
+/* ══ DROPZONE ═══════════════════════════════════════════════════════════════ */
+.dac-dropzone {
+  min-height: 200px;
+  padding: 40px 28px;
+  border-radius: var(--dac-radius-lg);
+}
+
+/* ══ INFO BAR (privacy banner below header) ═════════════════════════════════ */
+.dac-info-bar {
+  font-size: 12px;
+  padding: 7px 20px;
+  gap: 16px;
+}
+
+/* ══ ARTICLE / GUIDE PAGES ══════════════════════════════════════════════════ */
+.dac-article__title  { font-size: clamp(1.4rem, 4vw, 2.1rem); letter-spacing: -.3px; }
+.dac-article__intro  { font-size: 1.05rem; }
+.dac-article__body   { font-size: 15.5px; }
+.dac-article__body h2 { font-size: 1.35rem; }
+.dac-article__body h3 { font-size: 1.05rem; }
+
+/* ══ DARK MODE ══════════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --dac-band:        #12141e;
+  --dac-band-border: rgba(255,255,255,.06);
+}
+
+/* Dark: cards inside gray bands go to surface (slightly lighter than band) */
+[data-theme="dark"] .dac-features .dac-feature,
+[data-theme="dark"] .dac-related .dac-related-tool,
+[data-theme="dark"] .dac-trust-stat,
+[data-theme="dark"] .dac-trust-pillar,
+[data-theme="dark"] .dac-perf-item,
+[data-theme="dark"] .dac-kh-article-card,
+[data-theme="dark"] .dac-kh-index-card,
+[data-theme="dark"] .dac-example-item {
+  background: var(--dac-surface);
+  border-color: var(--dac-border);
+}
+
+[data-theme="dark"] .dac-howto__step { background: var(--dac-surface-2); }
+[data-theme="dark"] .dac-faq__item[open],
+[data-theme="dark"] .dac-faq__item:hover { background: var(--dac-surface); }
+[data-theme="dark"] .dac-toc { background: var(--dac-surface); }
+[data-theme="dark"] .dac-toc__link { background: var(--dac-surface-2); border-color: var(--dac-border); }
+[data-theme="dark"] .dac-trust-stat__value { -webkit-text-fill-color: var(--dac-brand); }
+
+/* ══ RESPONSIVE: Mobile ═════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .dac-features,
+  .dac-related,
+  .dac-trust-section,
+  .dac-perf-metrics,
+  .dac-dynamic-section {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .dac-formats,
+  .dac-howto,
+  .dac-faq,
+  .dac-kh-related,
+  .dac-compat-table-section,
+  .dac-use-cases,
+  .dac-examples,
+  .dac-freshness-section,
+  .dac-related-collections,
+  .dac-related-landings,
+  .dac-how-to-guides {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .dac-hero   { padding: 28px 0 18px; }
+  .dac-converter { padding-bottom: 28px; }
+  .dac-trust-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .dac-trust-pillars { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .dac-section-title { font-size: 18px; }
+  .dac-breadcrumb { padding: 8px 16px 0; }
+}
+
+@media (max-width: 480px) {
+  .dac-trust-pillars { grid-template-columns: 1fr; }
+  .dac-perf-grid { grid-template-columns: repeat(2, 1fr); }
+  .dac-toc__list { flex-direction: column; gap: 4px; }
+  .dac-toc__link { width: fit-content; }
+}

@@ -3977,3 +3977,44 @@ details[open] .dac-faq__question::after {
 
 .dac-info-bar { border-bottom: 1px solid var(--dac-border); }
 
+
+/* ══ HEADING ANCHOR BUTTONS (article pages) ══════════════════════════════════
+   Appended by article-runtime.js — hide by default, show on heading hover.
+   Without this CSS the '#' text renders inline and looks broken.           */
+.dac-heading-anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 1px 5px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  font-size: .65em;
+  font-weight: 400;
+  color: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--dac-dur-fast), color var(--dac-dur-fast), background var(--dac-dur-fast);
+  vertical-align: middle;
+  line-height: 1;
+  user-select: none;
+}
+/* Reveal on parent heading hover */
+h1:hover .dac-heading-anchor,
+h2:hover .dac-heading-anchor,
+h3:hover .dac-heading-anchor,
+h4:hover .dac-heading-anchor {
+  opacity: 1;
+  color: var(--dac-text-3);
+}
+.dac-heading-anchor:hover {
+  color: var(--dac-brand) !important;
+  background: var(--dac-brand-light);
+}
+/* Keep visible briefly after click (JS swaps text to ✓) */
+.dac-heading-anchor:focus {
+  opacity: 1;
+  color: var(--dac-text-3);
+  outline: none;
+}

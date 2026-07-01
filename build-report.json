@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-01T13:20:14.864Z",
-  "elapsed_ms": 4616,
+  "timestamp": "2026-07-01T19:56:59.125Z",
+  "elapsed_ms": 15168,
   "tools": 82,
   "languages": 5,
   "routes": 1312,
@@ -674,7 +674,7 @@
     "generator_modules": 35,
     "generator_js_loc": 14617,
     "asset_js_loc": 3086,
-    "asset_css_loc": 4743,
+    "asset_css_loc": 4784,
     "data_json_files": 190,
     "data_json_loc": 24517,
     "largest_module": "page-generator.js",
@@ -849,7 +849,7 @@
   },
   "performance_audit": {
     "js_size_kb": 77,
-    "css_size_kb": 104,
+    "css_size_kb": 105,
     "html_size_kb": 135766,
     "optimizations": [
       "html-minified",

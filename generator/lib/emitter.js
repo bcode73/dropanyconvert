@@ -86,10 +86,22 @@ export async function emitDist({ pages, sitemaps, robots, staticFiles, aiFiles }
     // engines/ directory may not exist
   }
 
-  // Copy static/ → dist/ (deployment config, _headers, _redirects, etc.)
+  // Copy static/ → dist/ (deployment config, _headers, _redirects, ads.txt, etc.)
   const staticDir = path.join(config._root, 'static');
   try {
     await cp(staticDir, distDir, { recursive: true });
+    // Verify root-critical files landed in dist
+    const rootChecks = ['ads.txt', 'robots.txt'];
+    const { access } = await import('fs/promises');
+    const missing = [];
+    for (const f of rootChecks) {
+      try { await access(path.join(distDir, f)); } catch { missing.push(f); }
+    }
+    if (missing.length) {
+      console.warn(`  ⚠ Root files missing from dist: ${missing.join(', ')}`);
+    } else {
+      console.log(`  ✓ Root static files copied (ads.txt, robots.txt)`);
+    }
   } catch {
     // static/ is optional
   }

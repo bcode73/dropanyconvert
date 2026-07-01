@@ -3766,3 +3766,214 @@ details[open] .dac-faq__question::after {
   .dac-toc__list { flex-direction: column; gap: 4px; }
   .dac-toc__link { width: fit-content; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   PHASE 37 — Final Production Polish
+   Upload-first presence · tighter hero flow · micro-refinements across all cards
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+/* ══ DROPZONE: PRIMARY CALL-TO-ACTION ═══════════════════════════════════════ */
+
+.dac-dropzone {
+  min-height: 244px;
+  padding: 52px 44px;
+  border: 1.5px dashed rgba(99,102,241,.28);
+  border-radius: var(--dac-radius-lg);
+  background: linear-gradient(160deg, #f7f8ff 0%, var(--dac-surface) 100%);
+  box-shadow: 0 1px 4px rgba(0,0,0,.04), 0 0 0 5px rgba(99,102,241,.04);
+  gap: 12px;
+}
+
+/* Icon: brand-tinted at rest */
+.dac-dropzone__icon {
+  color: rgba(99,102,241,.5);
+  margin-bottom: 2px;
+}
+.dac-dropzone:hover .dac-dropzone__icon,
+.dac-dropzone--active .dac-dropzone__icon {
+  color: var(--dac-brand);
+}
+
+/* Primary label: stronger weight, more readable */
+.dac-dropzone__label {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--dac-text);
+  line-height: 1.3;
+}
+.dac-dropzone__label strong {
+  color: var(--dac-brand);
+  font-weight: 700;
+}
+
+/* Supporting hint: clearly secondary */
+.dac-dropzone__hint {
+  font-size: 13px;
+  color: var(--dac-text-3);
+  margin-top: 2px;
+}
+
+/* Hover / focus: solid border + ring + subtle glow */
+.dac-dropzone:hover,
+.dac-dropzone:focus-visible {
+  border-style: solid;
+  border-color: var(--dac-brand);
+  background: var(--dac-brand-light);
+  box-shadow: 0 0 0 4px var(--dac-brand-ring), 0 4px 20px rgba(99,102,241,.1);
+  outline: none;
+}
+
+/* Drag-over active state */
+.dac-dropzone--active {
+  border-style: solid;
+  border-color: var(--dac-brand);
+  background: var(--dac-brand-light);
+  box-shadow: 0 0 0 4px var(--dac-brand-ring), 0 6px 24px rgba(99,102,241,.14);
+}
+
+/* Dark mode dropzone */
+[data-theme="dark"] .dac-dropzone {
+  background: linear-gradient(160deg, rgba(99,102,241,.08) 0%, var(--dac-surface) 100%);
+  border-color: rgba(99,102,241,.32);
+  box-shadow: 0 1px 4px rgba(0,0,0,.18), 0 0 0 5px rgba(99,102,241,.06);
+}
+[data-theme="dark"] .dac-dropzone:hover,
+[data-theme="dark"] .dac-dropzone:focus-visible,
+[data-theme="dark"] .dac-dropzone--active {
+  background: rgba(99,102,241,.12);
+  border-color: var(--dac-brand);
+  box-shadow: 0 0 0 4px var(--dac-brand-ring);
+}
+
+/* Mobile dropzone */
+@media (max-width: 480px) {
+  .dac-dropzone {
+    min-height: 188px;
+    padding: 36px 24px;
+    gap: 10px;
+  }
+  .dac-dropzone__label { font-size: 15px; }
+}
+
+/* ══ HERO FLOW: tighter vertical rhythm on tool pages ══════════════════════ */
+
+.dac-page--tool .dac-hero {
+  padding: 34px 0 18px;
+}
+.dac-page--tool .dac-hero__title {
+  margin-bottom: 8px;
+}
+.dac-page--tool .dac-hero__intro {
+  font-size: 15.5px;
+  max-width: 560px;
+  margin-bottom: 8px;
+}
+/* Privacy note: bridge between intro and converter */
+.dac-page--tool .dac-privacy-note {
+  margin-bottom: 14px;
+}
+
+/* ══ PERFORMANCE KPI CARDS ══════════════════════════════════════════════════ */
+
+.dac-perf-item { padding: 18px; gap: 6px; }
+.dac-perf-label { font-size: 10px; letter-spacing: .75px; }
+.dac-perf-value { font-size: 20px; font-weight: 800; letter-spacing: -.2px; }
+.dac-perf-stars { font-size: 15px; }
+
+/* ══ COMPATIBILITY TABLE ════════════════════════════════════════════════════ */
+
+.dac-compat-table th,
+.dac-compat-table td {
+  padding: 11px 16px;
+}
+.dac-compat-table th {
+  font-size: 12px;
+  letter-spacing: .1px;
+}
+/* Row hover: subtle highlight */
+.dac-compat-table tbody tr:hover td,
+.dac-compat-table tbody tr:hover th:not(.dac-compat-section-header) {
+  background: var(--dac-surface);
+}
+
+/* ══ ENTITY / KEY CONCEPT CHIPS ════════════════════════════════════════════ */
+
+.dac-entity-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.dac-entity-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--dac-border);
+  background: var(--dac-bg);
+  color: var(--dac-text-2);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--dac-dur-fast), border-color var(--dac-dur-fast), color var(--dac-dur-fast);
+}
+.dac-entity-chip:hover {
+  background: var(--dac-brand-light);
+  border-color: var(--dac-brand);
+  color: var(--dac-brand);
+}
+/* Adaptive: 1–2 chips get more visual weight to avoid looking abandoned */
+.dac-entity-chips:has(.dac-entity-chip:first-child:nth-last-child(-n+2)) .dac-entity-chip {
+  padding: 6px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+/* ══ FORMAT CHIPS ═══════════════════════════════════════════════════════════ */
+
+.dac-format-chip {
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 7px;
+  letter-spacing: .15px;
+  border-width: 1.5px;
+}
+
+/* ══ GLOSSARY CHIPS ═════════════════════════════════════════════════════════ */
+
+.dac-glossary-term-chip {
+  font-size: 13px;
+  font-weight: 500;
+  padding: .35rem 1rem;
+  border-radius: 20px;
+}
+
+/* ══ RELATED TOOLS ══════════════════════════════════════════════════════════ */
+
+.dac-related-tool { padding: 16px 18px; }
+.dac-related-tool__name { font-size: 14px; margin-bottom: 4px; }
+.dac-related-tool__tagline { font-size: 12.5px; line-height: 1.45; margin-top: 2px; }
+
+/* ══ GUIDE / ARTICLE CARDS ══════════════════════════════════════════════════ */
+
+.dac-kh-article-card { padding: 16px 18px; gap: 7px; }
+.dac-kh-article-card__tag { font-size: 10.5px; letter-spacing: .07em; margin-bottom: 2px; }
+.dac-kh-article-card__title { font-size: 14.5px; line-height: 1.35; }
+.dac-kh-article-card__desc { font-size: 13px; line-height: 1.55; }
+
+/* ══ SECTION TITLE: final micro-tune ════════════════════════════════════════ */
+
+.dac-section-title { font-size: 19px; letter-spacing: -.25px; margin-bottom: 14px; }
+
+/* ══ TOC PILL ROW ═══════════════════════════════════════════════════════════ */
+
+.dac-toc { padding: 12px 16px; margin-bottom: 28px; }
+.dac-toc__title { margin-bottom: 8px; font-size: 10px; letter-spacing: .8px; }
+.dac-toc__link { padding: 3px 10px; font-size: 12px; }
+
+/* ══ INFO BAR: add bottom border for clear separation ══════════════════════ */
+
+.dac-info-bar { border-bottom: 1px solid var(--dac-border); }
+
